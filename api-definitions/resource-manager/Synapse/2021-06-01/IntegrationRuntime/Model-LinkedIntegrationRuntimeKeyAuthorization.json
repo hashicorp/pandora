@@ -1,20 +1,20 @@
 {
- "name": "LinkedIntegrationRuntimeKeyAuthorization",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "key",
-   "name": "Key",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SecureString"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "LinkedIntegrationRuntimeType",
- "discriminatedTypeValue": "Key",
- "typeHintIn": "AuthorizationType"
+  "name": "LinkedIntegrationRuntimeKeyAuthorization",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "key",
+      "name": "Key",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SecureString"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    }
+  ],
+  "discriminatedParentModelName": "LinkedIntegrationRuntimeType",
+  "discriminatedTypeValue": "Key",
+  "typeHintIn": "AuthorizationType"
 }

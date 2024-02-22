@@ -1,16 +1,16 @@
 {
- "name": "ServersRestart",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "POST",
- "resourceIdName": "FlexibleServerId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "RestartParameter"
- },
- "uriSuffix": "/restart"
+  "name": "ServersRestart",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "FlexibleServerId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "RestartParameter"
+  },
+  "uriSuffix": "/restart"
 }

@@ -1,20 +1,20 @@
 {
- "name": "ManagedComputeIdentity",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "identity",
-   "name": "Identity",
-   "objectDefinition": {
-    "type": "LegacySystemAndUserAssignedIdentityMap",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "MonitorComputeIdentityBase",
- "discriminatedTypeValue": "ManagedIdentity",
- "typeHintIn": "ComputeIdentityType"
+  "name": "ManagedComputeIdentity",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "identity",
+      "name": "Identity",
+      "objectDefinition": {
+        "type": "LegacySystemAndUserAssignedIdentityMap",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ],
+  "discriminatedParentModelName": "MonitorComputeIdentityBase",
+  "discriminatedTypeValue": "ManagedIdentity",
+  "typeHintIn": "ComputeIdentityType"
 }

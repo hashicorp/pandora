@@ -1,41 +1,41 @@
 {
- "name": "RollbackStatusInfo",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "failedRolledbackInstanceCount",
-   "name": "FailedRolledbackInstanceCount",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "rollbackError",
-   "name": "RollbackError",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ApiError"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "successfullyRolledbackInstanceCount",
-   "name": "SuccessfullyRolledbackInstanceCount",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "RollbackStatusInfo",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "failedRolledbackInstanceCount",
+      "name": "FailedRolledbackInstanceCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rollbackError",
+      "name": "RollbackError",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ApiError"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "successfullyRolledbackInstanceCount",
+      "name": "SuccessfullyRolledbackInstanceCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

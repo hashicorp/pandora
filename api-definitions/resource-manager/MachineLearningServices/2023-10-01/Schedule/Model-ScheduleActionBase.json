@@ -1,18 +1,18 @@
 {
- "name": "ScheduleActionBase",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": true,
-   "jsonName": "actionType",
-   "name": "ActionType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ScheduleActionType"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ],
- "typeHintIn": "ActionType"
+  "name": "ScheduleActionBase",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": true,
+      "jsonName": "actionType",
+      "name": "ActionType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ScheduleActionType"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    }
+  ],
+  "typeHintIn": "ActionType"
 }

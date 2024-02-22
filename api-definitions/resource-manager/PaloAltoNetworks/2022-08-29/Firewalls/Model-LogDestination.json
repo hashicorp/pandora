@@ -1,41 +1,41 @@
 {
- "name": "LogDestination",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "eventHubConfigurations",
-   "name": "EventHubConfigurations",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "EventHub"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "monitorConfigurations",
-   "name": "MonitorConfigurations",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "MonitorLog"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "storageConfigurations",
-   "name": "StorageConfigurations",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "StorageAccount"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "LogDestination",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "eventHubConfigurations",
+      "name": "EventHubConfigurations",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EventHub"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "monitorConfigurations",
+      "name": "MonitorConfigurations",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MonitorLog"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "storageConfigurations",
+      "name": "StorageConfigurations",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "StorageAccount"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

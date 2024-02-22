@@ -1,29 +1,29 @@
 {
- "name": "ConnectionParameter",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "oAuthSettings",
-   "name": "OAuthSettings",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ApiOAuthSettings"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "type",
-   "name": "Type",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ConnectionParameterType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "ConnectionParameter",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "oAuthSettings",
+      "name": "OAuthSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ApiOAuthSettings"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "type",
+      "name": "Type",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ConnectionParameterType"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

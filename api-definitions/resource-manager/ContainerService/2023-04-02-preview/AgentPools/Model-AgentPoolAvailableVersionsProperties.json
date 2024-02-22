@@ -1,21 +1,21 @@
 {
- "name": "AgentPoolAvailableVersionsProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "agentPoolVersions",
-   "name": "AgentPoolVersions",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "AgentPoolAvailableVersionsPropertiesAgentPoolVersionsInlined"
+  "name": "AgentPoolAvailableVersionsProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "agentPoolVersions",
+      "name": "AgentPoolVersions",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "AgentPoolAvailableVersionsPropertiesAgentPoolVersionsInlined"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

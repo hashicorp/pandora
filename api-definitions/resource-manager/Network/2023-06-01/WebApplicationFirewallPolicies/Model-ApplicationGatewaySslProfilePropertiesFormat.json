@@ -1,57 +1,57 @@
 {
- "name": "ApplicationGatewaySslProfilePropertiesFormat",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "clientAuthConfiguration",
-   "name": "ClientAuthConfiguration",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ApplicationGatewayClientAuthConfiguration"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "provisioningState",
-   "name": "ProvisioningState",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ProvisioningState"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "sslPolicy",
-   "name": "SslPolicy",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ApplicationGatewaySslPolicy"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "trustedClientCertificates",
-   "name": "TrustedClientCertificates",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "SubResource"
+  "name": "ApplicationGatewaySslProfilePropertiesFormat",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "clientAuthConfiguration",
+      "name": "ClientAuthConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ApplicationGatewayClientAuthConfiguration"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "provisioningState",
+      "name": "ProvisioningState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ProvisioningState"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sslPolicy",
+      "name": "SslPolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ApplicationGatewaySslPolicy"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "trustedClientCertificates",
+      "name": "TrustedClientCertificates",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "SubResource"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

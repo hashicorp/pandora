@@ -1,25 +1,25 @@
 {
- "name": "DiagnosticSettingId",
- "id": "/providers/Microsoft.AADIAM/diagnosticSettings/{diagnosticSettingName}",
- "segments": [
-  {
-   "name": "staticProviders",
-   "type": "Static",
-   "value": "providers"
-  },
-  {
-   "name": "staticMicrosoftAADIAM",
-   "type": "ResourceProvider",
-   "value": "Microsoft.AADIAM"
-  },
-  {
-   "name": "staticDiagnosticSettings",
-   "type": "Static",
-   "value": "diagnosticSettings"
-  },
-  {
-   "name": "diagnosticSettingName",
-   "type": "UserSpecified"
-  }
- ]
+  "name": "DiagnosticSettingId",
+  "id": "/providers/Microsoft.AADIAM/diagnosticSettings/{diagnosticSettingName}",
+  "segments": [
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftAADIAM",
+      "type": "ResourceProvider",
+      "value": "Microsoft.AADIAM"
+    },
+    {
+      "name": "staticDiagnosticSettings",
+      "type": "Static",
+      "value": "diagnosticSettings"
+    },
+    {
+      "name": "diagnosticSettingName",
+      "type": "UserSpecified"
+    }
+  ]
 }

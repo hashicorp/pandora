@@ -1,21 +1,21 @@
 {
- "name": "FailoverPolicies",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "failoverPolicies",
-   "name": "FailoverPolicies",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "FailoverPolicy"
+  "name": "FailoverPolicies",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "failoverPolicies",
+      "name": "FailoverPolicies",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "FailoverPolicy"
+        }
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
     }
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  ]
 }

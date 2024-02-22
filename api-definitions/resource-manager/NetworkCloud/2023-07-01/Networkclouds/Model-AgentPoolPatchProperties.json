@@ -1,29 +1,29 @@
 {
- "name": "AgentPoolPatchProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "count",
-   "name": "Count",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "upgradeSettings",
-   "name": "UpgradeSettings",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "AgentPoolUpgradeSettings"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "AgentPoolPatchProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "count",
+      "name": "Count",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "upgradeSettings",
+      "name": "UpgradeSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AgentPoolUpgradeSettings"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

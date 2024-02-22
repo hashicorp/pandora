@@ -1,30 +1,30 @@
 {
- "name": "BackupPolicy",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "migrationState",
-   "name": "MigrationState",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "BackupPolicyMigrationState"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": true,
-   "jsonName": "type",
-   "name": "Type",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "BackupPolicyType"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ],
- "typeHintIn": "Type"
+  "name": "BackupPolicy",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "migrationState",
+      "name": "MigrationState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "BackupPolicyMigrationState"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": true,
+      "jsonName": "type",
+      "name": "Type",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "BackupPolicyType"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    }
+  ],
+  "typeHintIn": "Type"
 }

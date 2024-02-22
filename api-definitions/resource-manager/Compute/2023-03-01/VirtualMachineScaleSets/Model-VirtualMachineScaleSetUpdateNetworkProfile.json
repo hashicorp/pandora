@@ -1,45 +1,45 @@
 {
- "name": "VirtualMachineScaleSetUpdateNetworkProfile",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "healthProbe",
-   "name": "HealthProbe",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ApiEntityReference"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "networkApiVersion",
-   "name": "NetworkApiVersion",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "NetworkApiVersion"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "networkInterfaceConfigurations",
-   "name": "NetworkInterfaceConfigurations",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "VirtualMachineScaleSetUpdateNetworkConfiguration"
+  "name": "VirtualMachineScaleSetUpdateNetworkProfile",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "healthProbe",
+      "name": "HealthProbe",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ApiEntityReference"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "networkApiVersion",
+      "name": "NetworkApiVersion",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "NetworkApiVersion"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "networkInterfaceConfigurations",
+      "name": "NetworkInterfaceConfigurations",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "VirtualMachineScaleSetUpdateNetworkConfiguration"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

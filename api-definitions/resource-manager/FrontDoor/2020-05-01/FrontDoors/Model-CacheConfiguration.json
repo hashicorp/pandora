@@ -1,53 +1,53 @@
 {
- "name": "CacheConfiguration",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "cacheDuration",
-   "name": "CacheDuration",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "dynamicCompression",
-   "name": "DynamicCompression",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "DynamicCompressionEnabled"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "queryParameterStripDirective",
-   "name": "QueryParameterStripDirective",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "FrontDoorQuery"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "queryParameters",
-   "name": "QueryParameters",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "CacheConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "cacheDuration",
+      "name": "CacheDuration",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "dynamicCompression",
+      "name": "DynamicCompression",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DynamicCompressionEnabled"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "queryParameterStripDirective",
+      "name": "QueryParameterStripDirective",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "FrontDoorQuery"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "queryParameters",
+      "name": "QueryParameters",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

@@ -1,41 +1,41 @@
 {
- "name": "DeviceCapacityRequestInfoProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "vmPlacementQuery",
-   "name": "VMPlacementQuery",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "List",
-     "referenceName": null,
-     "nestedItem": {
-      "type": "String",
-      "referenceName": null
-     }
+  "name": "DeviceCapacityRequestInfoProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "vmPlacementQuery",
+      "name": "VMPlacementQuery",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "List",
+          "referenceName": null,
+          "nestedItem": {
+            "type": "String",
+            "referenceName": null
+          }
+        }
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "vmPlacementResults",
+      "name": "VMPlacementResults",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "VMPlacementRequestResult"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "vmPlacementResults",
-   "name": "VMPlacementResults",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "VMPlacementRequestResult"
-    }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

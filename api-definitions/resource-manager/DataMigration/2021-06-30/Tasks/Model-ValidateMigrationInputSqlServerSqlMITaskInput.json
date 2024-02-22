@@ -1,97 +1,97 @@
 {
- "name": "ValidateMigrationInputSqlServerSqlMITaskInput",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "backupBlobShare",
-   "name": "BackupBlobShare",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "BlobShare"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "backupFileShare",
-   "name": "BackupFileShare",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "FileShare"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "backupMode",
-   "name": "BackupMode",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "BackupMode"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "selectedDatabases",
-   "name": "SelectedDatabases",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "MigrateSqlServerSqlMIDatabaseInput"
+  "name": "ValidateMigrationInputSqlServerSqlMITaskInput",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "backupBlobShare",
+      "name": "BackupBlobShare",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "BlobShare"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "backupFileShare",
+      "name": "BackupFileShare",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "FileShare"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "backupMode",
+      "name": "BackupMode",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "BackupMode"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "selectedDatabases",
+      "name": "SelectedDatabases",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "MigrateSqlServerSqlMIDatabaseInput"
+        }
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "selectedLogins",
+      "name": "SelectedLogins",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sourceConnectionInfo",
+      "name": "SourceConnectionInfo",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SqlConnectionInfo"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "targetConnectionInfo",
+      "name": "TargetConnectionInfo",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SqlConnectionInfo"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
     }
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "selectedLogins",
-   "name": "SelectedLogins",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "String",
-     "referenceName": null
-    }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "sourceConnectionInfo",
-   "name": "SourceConnectionInfo",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SqlConnectionInfo"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "targetConnectionInfo",
-   "name": "TargetConnectionInfo",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SqlConnectionInfo"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  ]
 }

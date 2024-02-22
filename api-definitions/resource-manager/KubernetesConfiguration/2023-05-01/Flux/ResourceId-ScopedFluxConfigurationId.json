@@ -1,29 +1,29 @@
 {
- "name": "ScopedFluxConfigurationId",
- "id": "/{scope}/providers/Microsoft.KubernetesConfiguration/fluxConfigurations/{fluxConfigurationName}",
- "segments": [
-  {
-   "name": "scope",
-   "type": "Scope"
-  },
-  {
-   "name": "staticProviders",
-   "type": "Static",
-   "value": "providers"
-  },
-  {
-   "name": "staticMicrosoftKubernetesConfiguration",
-   "type": "ResourceProvider",
-   "value": "Microsoft.KubernetesConfiguration"
-  },
-  {
-   "name": "staticFluxConfigurations",
-   "type": "Static",
-   "value": "fluxConfigurations"
-  },
-  {
-   "name": "fluxConfigurationName",
-   "type": "UserSpecified"
-  }
- ]
+  "name": "ScopedFluxConfigurationId",
+  "id": "/{scope}/providers/Microsoft.KubernetesConfiguration/fluxConfigurations/{fluxConfigurationName}",
+  "segments": [
+    {
+      "name": "scope",
+      "type": "Scope"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftKubernetesConfiguration",
+      "type": "ResourceProvider",
+      "value": "Microsoft.KubernetesConfiguration"
+    },
+    {
+      "name": "staticFluxConfigurations",
+      "type": "Static",
+      "value": "fluxConfigurations"
+    },
+    {
+      "name": "fluxConfigurationName",
+      "type": "UserSpecified"
+    }
+  ]
 }

@@ -1,65 +1,65 @@
 {
- "name": "ListWorkspaceKeysResult",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "appInsightsInstrumentationKey",
-   "name": "AppInsightsInstrumentationKey",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "containerRegistryCredentials",
-   "name": "ContainerRegistryCredentials",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "RegistryListCredentialsResult"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "notebookAccessKeys",
-   "name": "NotebookAccessKeys",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ListNotebookKeysResult"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "userStorageKey",
-   "name": "UserStorageKey",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "userStorageResourceId",
-   "name": "UserStorageResourceId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "ListWorkspaceKeysResult",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "appInsightsInstrumentationKey",
+      "name": "AppInsightsInstrumentationKey",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "containerRegistryCredentials",
+      "name": "ContainerRegistryCredentials",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RegistryListCredentialsResult"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "notebookAccessKeys",
+      "name": "NotebookAccessKeys",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ListNotebookKeysResult"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "userStorageKey",
+      "name": "UserStorageKey",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "userStorageResourceId",
+      "name": "UserStorageResourceId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

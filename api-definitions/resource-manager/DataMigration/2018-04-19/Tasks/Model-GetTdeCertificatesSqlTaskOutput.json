@@ -1,41 +1,41 @@
 {
- "name": "GetTdeCertificatesSqlTaskOutput",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "base64EncodedCertificates",
-   "name": "Base64EncodedCertificates",
-   "objectDefinition": {
-    "type": "Dictionary",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "List",
-     "referenceName": null,
-     "nestedItem": {
-      "type": "String",
-      "referenceName": null
-     }
+  "name": "GetTdeCertificatesSqlTaskOutput",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "base64EncodedCertificates",
+      "name": "Base64EncodedCertificates",
+      "objectDefinition": {
+        "type": "Dictionary",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "List",
+          "referenceName": null,
+          "nestedItem": {
+            "type": "String",
+            "referenceName": null
+          }
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "validationErrors",
+      "name": "ValidationErrors",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "ReportableException"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "validationErrors",
-   "name": "ValidationErrors",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "ReportableException"
-    }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

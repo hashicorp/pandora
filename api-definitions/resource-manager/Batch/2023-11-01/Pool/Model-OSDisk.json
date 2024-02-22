@@ -1,65 +1,65 @@
 {
- "name": "OSDisk",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "caching",
-   "name": "Caching",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "CachingType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "diskSizeGB",
-   "name": "DiskSizeGB",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "ephemeralOSDiskSettings",
-   "name": "EphemeralOSDiskSettings",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "DiffDiskSettings"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "managedDisk",
-   "name": "ManagedDisk",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ManagedDisk"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "writeAcceleratorEnabled",
-   "name": "WriteAcceleratorEnabled",
-   "objectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "OSDisk",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "caching",
+      "name": "Caching",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CachingType"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "diskSizeGB",
+      "name": "DiskSizeGB",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "ephemeralOSDiskSettings",
+      "name": "EphemeralOSDiskSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DiffDiskSettings"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "managedDisk",
+      "name": "ManagedDisk",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ManagedDisk"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "writeAcceleratorEnabled",
+      "name": "WriteAcceleratorEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

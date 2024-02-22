@@ -1,44 +1,44 @@
 {
- "name": "AzureSqlProtectedItem",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "extendedInfo",
-   "name": "ExtendedInfo",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "AzureSqlProtectedItemExtendedInfo"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "protectedItemDataId",
-   "name": "ProtectedItemDataId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "protectionState",
-   "name": "ProtectionState",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ProtectedItemState"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "ProtectedItem",
- "discriminatedTypeValue": "Microsoft.Sql/servers/databases",
- "typeHintIn": "ProtectedItemType"
+  "name": "AzureSqlProtectedItem",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "extendedInfo",
+      "name": "ExtendedInfo",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AzureSqlProtectedItemExtendedInfo"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "protectedItemDataId",
+      "name": "ProtectedItemDataId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "protectionState",
+      "name": "ProtectionState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ProtectedItemState"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ],
+  "discriminatedParentModelName": "ProtectedItem",
+  "discriminatedTypeValue": "Microsoft.Sql/servers/databases",
+  "typeHintIn": "ProtectedItemType"
 }

@@ -1,41 +1,41 @@
 {
- "name": "UpgradePolicy",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "automaticOSUpgradePolicy",
-   "name": "AutomaticOSUpgradePolicy",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "AutomaticOSUpgradePolicy"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "mode",
-   "name": "Mode",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "UpgradeMode"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "rollingUpgradePolicy",
-   "name": "RollingUpgradePolicy",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "RollingUpgradePolicy"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "UpgradePolicy",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "automaticOSUpgradePolicy",
+      "name": "AutomaticOSUpgradePolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AutomaticOSUpgradePolicy"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "mode",
+      "name": "Mode",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "UpgradeMode"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rollingUpgradePolicy",
+      "name": "RollingUpgradePolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RollingUpgradePolicy"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

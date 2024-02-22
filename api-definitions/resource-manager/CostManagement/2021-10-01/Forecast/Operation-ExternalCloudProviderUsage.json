@@ -1,31 +1,31 @@
 {
- "name": "ExternalCloudProviderUsage",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "POST",
- "options": [
-  {
-   "optional": true,
-   "queryString": "$filter",
-   "required": false,
-   "field": "Filter",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  }
- ],
- "resourceIdName": "ExternalCloudProviderTypeId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "ForecastDefinition"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "ForecastResult"
- },
- "uriSuffix": "/forecast"
+  "name": "ExternalCloudProviderUsage",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "$filter",
+      "required": false,
+      "field": "Filter",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "ExternalCloudProviderTypeId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ForecastDefinition"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ForecastResult"
+  },
+  "uriSuffix": "/forecast"
 }

@@ -1,31 +1,31 @@
 {
- "name": "CreateOrUpdate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "PUT",
- "options": [
-  {
-   "optional": true,
-   "queryString": "force",
-   "required": false,
-   "field": "Force",
-   "optionsObjectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   }
+  "name": "CreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "force",
+      "required": false,
+      "field": "Force",
+      "optionsObjectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "BigDataPoolId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "BigDataPoolResourceInfo"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "BigDataPoolResourceInfo"
   }
- ],
- "resourceIdName": "BigDataPoolId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "BigDataPoolResourceInfo"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "BigDataPoolResourceInfo"
- }
 }

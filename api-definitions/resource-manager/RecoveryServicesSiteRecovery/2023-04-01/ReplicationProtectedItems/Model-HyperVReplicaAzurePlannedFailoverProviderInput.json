@@ -1,44 +1,44 @@
 {
- "name": "HyperVReplicaAzurePlannedFailoverProviderInput",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "primaryKekCertificatePfx",
-   "name": "PrimaryKekCertificatePfx",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "recoveryPointId",
-   "name": "RecoveryPointId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "secondaryKekCertificatePfx",
-   "name": "SecondaryKekCertificatePfx",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "PlannedFailoverProviderSpecificFailoverInput",
- "discriminatedTypeValue": "HyperVReplicaAzure",
- "typeHintIn": "InstanceType"
+  "name": "HyperVReplicaAzurePlannedFailoverProviderInput",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "primaryKekCertificatePfx",
+      "name": "PrimaryKekCertificatePfx",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "recoveryPointId",
+      "name": "RecoveryPointId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "secondaryKekCertificatePfx",
+      "name": "SecondaryKekCertificatePfx",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ],
+  "discriminatedParentModelName": "PlannedFailoverProviderSpecificFailoverInput",
+  "discriminatedTypeValue": "HyperVReplicaAzure",
+  "typeHintIn": "InstanceType"
 }

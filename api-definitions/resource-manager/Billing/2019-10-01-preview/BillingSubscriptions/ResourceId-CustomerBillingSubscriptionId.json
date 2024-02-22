@@ -1,43 +1,43 @@
 {
- "name": "CustomerBillingSubscriptionId",
- "id": "/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/customers/{customerName}/billingSubscriptions/{billingSubscriptionName}",
- "segments": [
-  {
-   "name": "staticProviders",
-   "type": "Static",
-   "value": "providers"
-  },
-  {
-   "name": "staticMicrosoftBilling",
-   "type": "ResourceProvider",
-   "value": "Microsoft.Billing"
-  },
-  {
-   "name": "staticBillingAccounts",
-   "type": "Static",
-   "value": "billingAccounts"
-  },
-  {
-   "name": "billingAccountName",
-   "type": "UserSpecified"
-  },
-  {
-   "name": "staticCustomers",
-   "type": "Static",
-   "value": "customers"
-  },
-  {
-   "name": "customerName",
-   "type": "UserSpecified"
-  },
-  {
-   "name": "staticBillingSubscriptions",
-   "type": "Static",
-   "value": "billingSubscriptions"
-  },
-  {
-   "name": "billingSubscriptionName",
-   "type": "UserSpecified"
-  }
- ]
+  "name": "CustomerBillingSubscriptionId",
+  "id": "/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/customers/{customerName}/billingSubscriptions/{billingSubscriptionName}",
+  "segments": [
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftBilling",
+      "type": "ResourceProvider",
+      "value": "Microsoft.Billing"
+    },
+    {
+      "name": "staticBillingAccounts",
+      "type": "Static",
+      "value": "billingAccounts"
+    },
+    {
+      "name": "billingAccountName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticCustomers",
+      "type": "Static",
+      "value": "customers"
+    },
+    {
+      "name": "customerName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticBillingSubscriptions",
+      "type": "Static",
+      "value": "billingSubscriptions"
+    },
+    {
+      "name": "billingSubscriptionName",
+      "type": "UserSpecified"
+    }
+  ]
 }

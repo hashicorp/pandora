@@ -1,41 +1,41 @@
 {
- "name": "WorkspaceSku",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "capacityReservationLevel",
-   "name": "CapacityReservationLevel",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "CapacityReservationLevel"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "lastSkuUpdate",
-   "name": "LastSkuUpdate",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "name",
-   "name": "Name",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "WorkspaceSkuNameEnum"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  "name": "WorkspaceSku",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "capacityReservationLevel",
+      "name": "CapacityReservationLevel",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CapacityReservationLevel"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "lastSkuUpdate",
+      "name": "LastSkuUpdate",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "name",
+      "name": "Name",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "WorkspaceSkuNameEnum"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    }
+  ]
 }

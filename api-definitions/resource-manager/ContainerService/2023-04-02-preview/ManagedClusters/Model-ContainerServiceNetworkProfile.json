@@ -1,209 +1,209 @@
 {
- "name": "ContainerServiceNetworkProfile",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "dnsServiceIP",
-   "name": "DnsServiceIP",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "ipFamilies",
-   "name": "IPFamilies",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "IPFamily"
+  "name": "ContainerServiceNetworkProfile",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "dnsServiceIP",
+      "name": "DnsServiceIP",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "ipFamilies",
+      "name": "IPFamilies",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "IPFamily"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "kubeProxyConfig",
+      "name": "KubeProxyConfig",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ContainerServiceNetworkProfileKubeProxyConfig"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "loadBalancerProfile",
+      "name": "LoadBalancerProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ManagedClusterLoadBalancerProfile"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "loadBalancerSku",
+      "name": "LoadBalancerSku",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "LoadBalancerSku"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "natGatewayProfile",
+      "name": "NatGatewayProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ManagedClusterNATGatewayProfile"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "networkDataplane",
+      "name": "NetworkDataplane",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "NetworkDataplane"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "networkMode",
+      "name": "NetworkMode",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "NetworkMode"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "networkPlugin",
+      "name": "NetworkPlugin",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "NetworkPlugin"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "networkPluginMode",
+      "name": "NetworkPluginMode",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "NetworkPluginMode"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "networkPolicy",
+      "name": "NetworkPolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "NetworkPolicy"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "outboundType",
+      "name": "OutboundType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "OutboundType"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "podCidr",
+      "name": "PodCidr",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "podCidrs",
+      "name": "PodCidrs",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "serviceCidr",
+      "name": "ServiceCidr",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "serviceCidrs",
+      "name": "ServiceCidrs",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "kubeProxyConfig",
-   "name": "KubeProxyConfig",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ContainerServiceNetworkProfileKubeProxyConfig"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "loadBalancerProfile",
-   "name": "LoadBalancerProfile",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ManagedClusterLoadBalancerProfile"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "loadBalancerSku",
-   "name": "LoadBalancerSku",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "LoadBalancerSku"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "natGatewayProfile",
-   "name": "NatGatewayProfile",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ManagedClusterNATGatewayProfile"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "networkDataplane",
-   "name": "NetworkDataplane",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "NetworkDataplane"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "networkMode",
-   "name": "NetworkMode",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "NetworkMode"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "networkPlugin",
-   "name": "NetworkPlugin",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "NetworkPlugin"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "networkPluginMode",
-   "name": "NetworkPluginMode",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "NetworkPluginMode"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "networkPolicy",
-   "name": "NetworkPolicy",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "NetworkPolicy"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "outboundType",
-   "name": "OutboundType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "OutboundType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "podCidr",
-   "name": "PodCidr",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "podCidrs",
-   "name": "PodCidrs",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "String",
-     "referenceName": null
-    }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "serviceCidr",
-   "name": "ServiceCidr",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "serviceCidrs",
-   "name": "ServiceCidrs",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "String",
-     "referenceName": null
-    }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

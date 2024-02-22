@@ -1,29 +1,29 @@
 {
- "name": "ScopedBudgetId",
- "id": "/{scope}/providers/Microsoft.Consumption/budgets/{budgetName}",
- "segments": [
-  {
-   "name": "scope",
-   "type": "Scope"
-  },
-  {
-   "name": "staticProviders",
-   "type": "Static",
-   "value": "providers"
-  },
-  {
-   "name": "staticMicrosoftConsumption",
-   "type": "ResourceProvider",
-   "value": "Microsoft.Consumption"
-  },
-  {
-   "name": "staticBudgets",
-   "type": "Static",
-   "value": "budgets"
-  },
-  {
-   "name": "budgetName",
-   "type": "UserSpecified"
-  }
- ]
+  "name": "ScopedBudgetId",
+  "id": "/{scope}/providers/Microsoft.Consumption/budgets/{budgetName}",
+  "segments": [
+    {
+      "name": "scope",
+      "type": "Scope"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftConsumption",
+      "type": "ResourceProvider",
+      "value": "Microsoft.Consumption"
+    },
+    {
+      "name": "staticBudgets",
+      "type": "Static",
+      "value": "budgets"
+    },
+    {
+      "name": "budgetName",
+      "type": "UserSpecified"
+    }
+  ]
 }

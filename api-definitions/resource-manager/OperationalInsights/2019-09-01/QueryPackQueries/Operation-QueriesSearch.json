@@ -1,42 +1,42 @@
 {
- "name": "QueriesSearch",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "fieldContainingPaginationDetails": "nextLink",
- "longRunning": false,
- "httpMethod": "POST",
- "options": [
-  {
-   "optional": true,
-   "queryString": "includeBody",
-   "required": false,
-   "field": "IncludeBody",
-   "optionsObjectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   }
+  "name": "QueriesSearch",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "includeBody",
+      "required": false,
+      "field": "IncludeBody",
+      "optionsObjectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "$top",
+      "required": false,
+      "field": "Top",
+      "optionsObjectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "QueryPackId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "LogAnalyticsQueryPackQuerySearchProperties"
   },
-  {
-   "optional": true,
-   "queryString": "$top",
-   "required": false,
-   "field": "Top",
-   "optionsObjectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   }
-  }
- ],
- "resourceIdName": "QueryPackId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "LogAnalyticsQueryPackQuerySearchProperties"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "LogAnalyticsQueryPackQuery"
- },
- "uriSuffix": "/queries/search"
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "LogAnalyticsQueryPackQuery"
+  },
+  "uriSuffix": "/queries/search"
 }

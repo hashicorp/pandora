@@ -1,19 +1,19 @@
 {
- "name": "ListVnetConnectionsSlot",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "GET",
- "resourceIdName": "SlotId",
- "responseObject": {
-  "type": "List",
-  "referenceName": null,
-  "nestedItem": {
-   "type": "Reference",
-   "referenceName": "VnetInfoResource"
-  }
- },
- "uriSuffix": "/virtualNetworkConnections"
+  "name": "ListVnetConnectionsSlot",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "SlotId",
+  "responseObject": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+      "type": "Reference",
+      "referenceName": "VnetInfoResource"
+    }
+  },
+  "uriSuffix": "/virtualNetworkConnections"
 }

@@ -1,20 +1,20 @@
 {
- "name": "Synchronize",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "POST",
- "resourceIdName": "ShareSubscriptionId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "Synchronize"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "ShareSubscriptionSynchronization"
- },
- "uriSuffix": "/synchronize"
+  "name": "Synchronize",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "ShareSubscriptionId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "Synchronize"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ShareSubscriptionSynchronization"
+  },
+  "uriSuffix": "/synchronize"
 }

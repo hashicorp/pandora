@@ -1,29 +1,29 @@
 {
- "name": "CrossRegionRestoreRequestObject",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "crossRegionRestoreDetails",
-   "name": "CrossRegionRestoreDetails",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "CrossRegionRestoreDetails"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "restoreRequestObject",
-   "name": "RestoreRequestObject",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "AzureBackupRestoreRequest"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  "name": "CrossRegionRestoreRequestObject",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "crossRegionRestoreDetails",
+      "name": "CrossRegionRestoreDetails",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CrossRegionRestoreDetails"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "restoreRequestObject",
+      "name": "RestoreRequestObject",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AzureBackupRestoreRequest"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    }
+  ]
 }

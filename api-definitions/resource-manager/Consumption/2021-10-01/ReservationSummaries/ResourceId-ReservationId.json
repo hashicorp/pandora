@@ -1,34 +1,34 @@
 {
- "name": "ReservationId",
- "id": "/providers/Microsoft.Capacity/reservationOrders/{reservationOrderId}/reservations/{reservationId}",
- "segments": [
-  {
-   "name": "staticProviders",
-   "type": "Static",
-   "value": "providers"
-  },
-  {
-   "name": "staticMicrosoftCapacity",
-   "type": "ResourceProvider",
-   "value": "Microsoft.Capacity"
-  },
-  {
-   "name": "staticReservationOrders",
-   "type": "Static",
-   "value": "reservationOrders"
-  },
-  {
-   "name": "reservationOrderId",
-   "type": "UserSpecified"
-  },
-  {
-   "name": "staticReservations",
-   "type": "Static",
-   "value": "reservations"
-  },
-  {
-   "name": "reservationId",
-   "type": "UserSpecified"
-  }
- ]
+  "name": "ReservationId",
+  "id": "/providers/Microsoft.Capacity/reservationOrders/{reservationOrderId}/reservations/{reservationId}",
+  "segments": [
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftCapacity",
+      "type": "ResourceProvider",
+      "value": "Microsoft.Capacity"
+    },
+    {
+      "name": "staticReservationOrders",
+      "type": "Static",
+      "value": "reservationOrders"
+    },
+    {
+      "name": "reservationOrderId",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticReservations",
+      "type": "Static",
+      "value": "reservations"
+    },
+    {
+      "name": "reservationId",
+      "type": "UserSpecified"
+    }
+  ]
 }

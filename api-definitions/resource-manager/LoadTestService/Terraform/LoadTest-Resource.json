@@ -1,35 +1,35 @@
 {
-	"apiVersion": "2022-12-01",
-	"category": "Load Test",
-	"createMethod": {
-		"generate": true,
-		"name": "CreateOrUpdate",
-		"timeoutInMinutes": 30
-	},
-	"deleteMethod": {
-		"generate": true,
-		"name": "Delete",
-		"timeoutInMinutes": 30
-	},
-	"description": "Manages a Load Test Service",
-	"displayName": "Load Test",
-	"exampleUsage": "\nresource \"azurerm_resource_group\" \"example\" {\n  name     = \"example-resources\"\n  location = \"West Europe\"\n}\nresource \"azurerm_user_assigned_identity\" \"example\" {\n  name                = \"example\"\n  resource_group_name = azurerm_resource_group.example.name\n  location            = azurerm_resource_group.example.location\n}\nresource \"azurerm_load_test\" \"example\" {\n  location            = azurerm_resource_group.example.location\n  name                = \"example\"\n  resource_group_name = azurerm_resource_group.example.name\n}\n",
-	"generate": true,
-	"generateIdValidationFunction": true,
-	"generateModel": true,
-	"generateSchema": true,
-	"label": "load_test",
-	"readMethod": {
-		"generate": true,
-		"name": "Get",
-		"timeoutInMinutes": 5
-	},
-	"resource": "LoadTests",
-	"resourceIdName": "LoadTestId",
-	"schemaModelName": "LoadTestResourceSchema",
-	"updateMethod": {
-		"generate": true,
-		"name": "Update",
-		"timeoutInMinutes": 30
-	}
+  "apiVersion": "2022-12-01",
+  "category": "Load Test",
+  "createMethod": {
+    "generate": true,
+    "name": "CreateOrUpdate",
+    "timeoutInMinutes": 30
+  },
+  "deleteMethod": {
+    "generate": true,
+    "name": "Delete",
+    "timeoutInMinutes": 30
+  },
+  "description": "Manages a Load Test Service",
+  "displayName": "Load Test",
+  "exampleUsage": "\nresource \"azurerm_resource_group\" \"example\" {\n  name     = \"example-resources\"\n  location = \"West Europe\"\n}\nresource \"azurerm_user_assigned_identity\" \"example\" {\n  name                = \"example\"\n  resource_group_name = azurerm_resource_group.example.name\n  location            = azurerm_resource_group.example.location\n}\nresource \"azurerm_load_test\" \"example\" {\n  location            = azurerm_resource_group.example.location\n  name                = \"example\"\n  resource_group_name = azurerm_resource_group.example.name\n}\n",
+  "generate": true,
+  "generateIdValidationFunction": true,
+  "generateModel": true,
+  "generateSchema": true,
+  "label": "load_test",
+  "readMethod": {
+    "generate": true,
+    "name": "Get",
+    "timeoutInMinutes": 5
+  },
+  "resource": "LoadTests",
+  "resourceIdName": "LoadTestId",
+  "schemaModelName": "LoadTestResourceSchema",
+  "updateMethod": {
+    "generate": true,
+    "name": "Update",
+    "timeoutInMinutes": 30
+  }
 }

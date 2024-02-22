@@ -1,29 +1,29 @@
 {
- "name": "NginxDeploymentScalingProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "autoScaleSettings",
-   "name": "AutoScaleSettings",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "NginxDeploymentScalingPropertiesAutoScaleSettings"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "capacity",
-   "name": "Capacity",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "NginxDeploymentScalingProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "autoScaleSettings",
+      "name": "AutoScaleSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "NginxDeploymentScalingPropertiesAutoScaleSettings"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "capacity",
+      "name": "Capacity",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

@@ -1,44 +1,44 @@
 {
- "name": "WeeklyMaintenanceScheduleConfiguration",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "day",
-   "name": "Day",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "WeekDay"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "duration",
-   "name": "Duration",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "hour",
-   "name": "Hour",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "MaintenanceScheduleConfiguration",
- "discriminatedTypeValue": "Weekly",
- "typeHintIn": "Frequency"
+  "name": "WeeklyMaintenanceScheduleConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "day",
+      "name": "Day",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "WeekDay"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "duration",
+      "name": "Duration",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "hour",
+      "name": "Hour",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    }
+  ],
+  "discriminatedParentModelName": "MaintenanceScheduleConfiguration",
+  "discriminatedTypeValue": "Weekly",
+  "typeHintIn": "Frequency"
 }

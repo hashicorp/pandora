@@ -1,19 +1,19 @@
 {
- "name": "PartnerTransfersInitiate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "POST",
- "resourceIdName": "BillingProfileCustomerId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "InitiateTransferRequest"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "TransferDetails"
- },
- "uriSuffix": "/initiateTransfer"
+  "name": "PartnerTransfersInitiate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "BillingProfileCustomerId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "InitiateTransferRequest"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "TransferDetails"
+  },
+  "uriSuffix": "/initiateTransfer"
 }

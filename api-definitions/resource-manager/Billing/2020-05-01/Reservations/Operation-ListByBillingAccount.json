@@ -1,58 +1,58 @@
 {
- "name": "ListByBillingAccount",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "fieldContainingPaginationDetails": "nextLink",
- "longRunning": false,
- "httpMethod": "GET",
- "options": [
-  {
-   "optional": true,
-   "queryString": "$filter",
-   "required": false,
-   "field": "Filter",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
+  "name": "ListByBillingAccount",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "$filter",
+      "required": false,
+      "field": "Filter",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "$orderby",
+      "required": false,
+      "field": "Orderby",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "refreshSummary",
+      "required": false,
+      "field": "RefreshSummary",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "selectedState",
+      "required": false,
+      "field": "SelectedState",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "BillingAccountId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "Reservation"
   },
-  {
-   "optional": true,
-   "queryString": "$orderby",
-   "required": false,
-   "field": "Orderby",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  },
-  {
-   "optional": true,
-   "queryString": "refreshSummary",
-   "required": false,
-   "field": "RefreshSummary",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  },
-  {
-   "optional": true,
-   "queryString": "selectedState",
-   "required": false,
-   "field": "SelectedState",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  }
- ],
- "resourceIdName": "BillingAccountId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "Reservation"
- },
- "uriSuffix": "/reservations"
+  "uriSuffix": "/reservations"
 }

@@ -1,36 +1,36 @@
 {
- "name": "ConnectToSourcePostgreSqlSyncTaskProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "input",
-   "name": "Input",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ConnectToSourcePostgreSqlSyncTaskInput"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "output",
-   "name": "Output",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "ConnectToSourcePostgreSqlSyncTaskOutput"
+  "name": "ConnectToSourcePostgreSqlSyncTaskProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "input",
+      "name": "Input",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ConnectToSourcePostgreSqlSyncTaskInput"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "output",
+      "name": "Output",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "ConnectToSourcePostgreSqlSyncTaskOutput"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "ProjectTaskProperties",
- "discriminatedTypeValue": "ConnectToSource.PostgreSql.Sync",
- "typeHintIn": "TaskType"
+  ],
+  "discriminatedParentModelName": "ProjectTaskProperties",
+  "discriminatedTypeValue": "ConnectToSource.PostgreSql.Sync",
+  "typeHintIn": "TaskType"
 }

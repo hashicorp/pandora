@@ -1,16 +1,16 @@
 {
- "name": "ListByManagedClusters",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "fieldContainingPaginationDetails": "nextLink",
- "longRunning": false,
- "httpMethod": "GET",
- "resourceIdName": "ManagedClusterId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "NodeType"
- },
- "uriSuffix": "/nodeTypes"
+  "name": "ListByManagedClusters",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "ManagedClusterId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "NodeType"
+  },
+  "uriSuffix": "/nodeTypes"
 }

@@ -1,65 +1,65 @@
 {
- "name": "NetworkConfiguration",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "dynamicVnetAssignmentScope",
-   "name": "DynamicVnetAssignmentScope",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "DynamicVNetAssignmentScope"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "enableAcceleratedNetworking",
-   "name": "EnableAcceleratedNetworking",
-   "objectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "endpointConfiguration",
-   "name": "EndpointConfiguration",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "PoolEndpointConfiguration"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "publicIPAddressConfiguration",
-   "name": "PublicIPAddressConfiguration",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "PublicIPAddressConfiguration"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "subnetId",
-   "name": "SubnetId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "NetworkConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "dynamicVnetAssignmentScope",
+      "name": "DynamicVnetAssignmentScope",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DynamicVNetAssignmentScope"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "enableAcceleratedNetworking",
+      "name": "EnableAcceleratedNetworking",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "endpointConfiguration",
+      "name": "EndpointConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PoolEndpointConfiguration"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "publicIPAddressConfiguration",
+      "name": "PublicIPAddressConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PublicIPAddressConfiguration"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "subnetId",
+      "name": "SubnetId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

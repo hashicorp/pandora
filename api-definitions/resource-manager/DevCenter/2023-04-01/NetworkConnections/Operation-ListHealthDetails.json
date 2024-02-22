@@ -1,16 +1,16 @@
 {
- "name": "ListHealthDetails",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "fieldContainingPaginationDetails": "nextLink",
- "longRunning": false,
- "httpMethod": "GET",
- "resourceIdName": "NetworkConnectionId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "HealthCheckStatusDetails"
- },
- "uriSuffix": "/healthChecks"
+  "name": "ListHealthDetails",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "NetworkConnectionId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "HealthCheckStatusDetails"
+  },
+  "uriSuffix": "/healthChecks"
 }

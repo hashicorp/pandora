@@ -1,29 +1,29 @@
 {
- "name": "OrchestrationServiceSummary",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "serviceName",
-   "name": "ServiceName",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "OrchestrationServiceNames"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "serviceState",
-   "name": "ServiceState",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "OrchestrationServiceState"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "OrchestrationServiceSummary",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "serviceName",
+      "name": "ServiceName",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "OrchestrationServiceNames"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "serviceState",
+      "name": "ServiceState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "OrchestrationServiceState"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

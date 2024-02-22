@@ -1,50 +1,50 @@
 {
- "name": "AnalyticsItemsList",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "GET",
- "options": [
-  {
-   "optional": true,
-   "queryString": "includeContent",
-   "required": false,
-   "field": "IncludeContent",
-   "optionsObjectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   }
-  },
-  {
-   "optional": true,
-   "queryString": "scope",
-   "required": false,
-   "field": "Scope",
-   "optionsObjectDefinition": {
-    "type": "Reference",
-    "referenceName": "ItemScope"
-   }
-  },
-  {
-   "optional": true,
-   "queryString": "type",
-   "required": false,
-   "field": "Type",
-   "optionsObjectDefinition": {
-    "type": "Reference",
-    "referenceName": "ItemTypeParameter"
-   }
+  "name": "AnalyticsItemsList",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "includeContent",
+      "required": false,
+      "field": "IncludeContent",
+      "optionsObjectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "scope",
+      "required": false,
+      "field": "Scope",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "ItemScope"
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "type",
+      "required": false,
+      "field": "Type",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "ItemTypeParameter"
+      }
+    }
+  ],
+  "resourceIdName": "ProviderComponentId",
+  "responseObject": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+      "type": "Reference",
+      "referenceName": "ApplicationInsightsComponentAnalyticsItem"
+    }
   }
- ],
- "resourceIdName": "ProviderComponentId",
- "responseObject": {
-  "type": "List",
-  "referenceName": null,
-  "nestedItem": {
-   "type": "Reference",
-   "referenceName": "ApplicationInsightsComponentAnalyticsItem"
-  }
- }
 }

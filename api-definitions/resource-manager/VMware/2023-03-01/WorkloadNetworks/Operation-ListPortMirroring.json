@@ -1,16 +1,16 @@
 {
- "name": "ListPortMirroring",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "fieldContainingPaginationDetails": "nextLink",
- "longRunning": false,
- "httpMethod": "GET",
- "resourceIdName": "PrivateCloudId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "WorkloadNetworkPortMirroring"
- },
- "uriSuffix": "/workloadNetworks/default/portMirroringProfiles"
+  "name": "ListPortMirroring",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "PrivateCloudId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "WorkloadNetworkPortMirroring"
+  },
+  "uriSuffix": "/workloadNetworks/default/portMirroringProfiles"
 }

@@ -1,78 +1,78 @@
 {
- "name": "ReservationsSummariesList",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "fieldContainingPaginationDetails": "nextLink",
- "longRunning": false,
- "httpMethod": "GET",
- "options": [
-  {
-   "optional": true,
-   "queryString": "endDate",
-   "required": false,
-   "field": "EndDate",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  },
-  {
-   "optional": true,
-   "queryString": "$filter",
-   "required": false,
-   "field": "Filter",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  },
-  {
-   "optional": false,
-   "queryString": "grain",
-   "required": true,
-   "field": "Grain",
-   "optionsObjectDefinition": {
+  "name": "ReservationsSummariesList",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "endDate",
+      "required": false,
+      "field": "EndDate",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "$filter",
+      "required": false,
+      "field": "Filter",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": false,
+      "queryString": "grain",
+      "required": true,
+      "field": "Grain",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "Datagrain"
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "reservationId",
+      "required": false,
+      "field": "ReservationId",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "reservationOrderId",
+      "required": false,
+      "field": "ReservationOrderId",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "startDate",
+      "required": false,
+      "field": "StartDate",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "ScopeId",
+  "responseObject": {
     "type": "Reference",
-    "referenceName": "Datagrain"
-   }
+    "referenceName": "ReservationSummary"
   },
-  {
-   "optional": true,
-   "queryString": "reservationId",
-   "required": false,
-   "field": "ReservationId",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  },
-  {
-   "optional": true,
-   "queryString": "reservationOrderId",
-   "required": false,
-   "field": "ReservationOrderId",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  },
-  {
-   "optional": true,
-   "queryString": "startDate",
-   "required": false,
-   "field": "StartDate",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  }
- ],
- "resourceIdName": "ScopeId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "ReservationSummary"
- },
- "uriSuffix": "/providers/Microsoft.Consumption/reservationSummaries"
+  "uriSuffix": "/providers/Microsoft.Consumption/reservationSummaries"
 }

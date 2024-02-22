@@ -1,36 +1,36 @@
 {
- "name": "MarkdownPartMetadata",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "inputs",
-   "name": "Inputs",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "RawObject",
-     "referenceName": null
+  "name": "MarkdownPartMetadata",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "inputs",
+      "name": "Inputs",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "RawObject",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "settings",
+      "name": "Settings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MarkdownPartMetadataSettings"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "settings",
-   "name": "Settings",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "MarkdownPartMetadataSettings"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "DashboardPartMetadata",
- "discriminatedTypeValue": "Extension/HubsExtension/PartType/MarkdownPart",
- "typeHintIn": "Type"
+  ],
+  "discriminatedParentModelName": "DashboardPartMetadata",
+  "discriminatedTypeValue": "Extension/HubsExtension/PartType/MarkdownPart",
+  "typeHintIn": "Type"
 }

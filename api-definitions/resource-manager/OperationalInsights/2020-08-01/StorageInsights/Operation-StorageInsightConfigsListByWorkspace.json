@@ -1,16 +1,16 @@
 {
- "name": "StorageInsightConfigsListByWorkspace",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "fieldContainingPaginationDetails": "@odata.nextLink",
- "longRunning": false,
- "httpMethod": "GET",
- "resourceIdName": "WorkspaceId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "StorageInsight"
- },
- "uriSuffix": "/storageInsightConfigs"
+  "name": "StorageInsightConfigsListByWorkspace",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "@odata.nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "WorkspaceId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "StorageInsight"
+  },
+  "uriSuffix": "/storageInsightConfigs"
 }

@@ -1,41 +1,41 @@
 {
- "name": "VirtualMachineInstancePropertiesSecurityProfile",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "enableTPM",
-   "name": "EnableTPM",
-   "objectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "securityType",
-   "name": "SecurityType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SecurityTypes"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "uefiSettings",
-   "name": "UefiSettings",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "VirtualMachineInstancePropertiesSecurityProfileUefiSettings"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "VirtualMachineInstancePropertiesSecurityProfile",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "enableTPM",
+      "name": "EnableTPM",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "securityType",
+      "name": "SecurityType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SecurityTypes"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "uefiSettings",
+      "name": "UefiSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "VirtualMachineInstancePropertiesSecurityProfileUefiSettings"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

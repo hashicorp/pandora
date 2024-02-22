@@ -1,19 +1,19 @@
 {
- "name": "AddByBillingProfile",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  201
- ],
- "longRunning": false,
- "httpMethod": "POST",
- "resourceIdName": "BillingProfileId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "BillingRoleAssignmentPayload"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "BillingRoleAssignmentListResult"
- },
- "uriSuffix": "/createBillingRoleAssignment"
+  "name": "AddByBillingProfile",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    201
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "BillingProfileId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "BillingRoleAssignmentPayload"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "BillingRoleAssignmentListResult"
+  },
+  "uriSuffix": "/createBillingRoleAssignment"
 }

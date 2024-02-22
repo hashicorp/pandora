@@ -1,57 +1,57 @@
 {
- "name": "ClusterUpgradeDeltaHealthPolicy",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "applicationDeltaHealthPolicies",
-   "name": "ApplicationDeltaHealthPolicies",
-   "objectDefinition": {
-    "type": "Dictionary",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "ApplicationDeltaHealthPolicy"
+  "name": "ClusterUpgradeDeltaHealthPolicy",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "applicationDeltaHealthPolicies",
+      "name": "ApplicationDeltaHealthPolicies",
+      "objectDefinition": {
+        "type": "Dictionary",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "ApplicationDeltaHealthPolicy"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "maxPercentDeltaUnhealthyApplications",
+      "name": "MaxPercentDeltaUnhealthyApplications",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "maxPercentDeltaUnhealthyNodes",
+      "name": "MaxPercentDeltaUnhealthyNodes",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "maxPercentUpgradeDomainDeltaUnhealthyNodes",
+      "name": "MaxPercentUpgradeDomainDeltaUnhealthyNodes",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "maxPercentDeltaUnhealthyApplications",
-   "name": "MaxPercentDeltaUnhealthyApplications",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "maxPercentDeltaUnhealthyNodes",
-   "name": "MaxPercentDeltaUnhealthyNodes",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "maxPercentUpgradeDomainDeltaUnhealthyNodes",
-   "name": "MaxPercentUpgradeDomainDeltaUnhealthyNodes",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  ]
 }

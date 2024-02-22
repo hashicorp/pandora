@@ -1,105 +1,105 @@
 {
- "name": "InvoiceSectionWithCreateSubPermission",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "billingProfileDisplayName",
-   "name": "BillingProfileDisplayName",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "billingProfileId",
-   "name": "BillingProfileId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "billingProfileSpendingLimit",
-   "name": "BillingProfileSpendingLimit",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "BillingProfileSpendingLimit"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "billingProfileStatus",
-   "name": "BillingProfileStatus",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "BillingProfileStatus"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "billingProfileStatusReasonCode",
-   "name": "BillingProfileStatusReasonCode",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "BillingProfileStatusReasonCode"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "enabledAzurePlans",
-   "name": "EnabledAzurePlans",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "AzurePlan"
+  "name": "InvoiceSectionWithCreateSubPermission",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "billingProfileDisplayName",
+      "name": "BillingProfileDisplayName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "billingProfileId",
+      "name": "BillingProfileId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "billingProfileSpendingLimit",
+      "name": "BillingProfileSpendingLimit",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "BillingProfileSpendingLimit"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "billingProfileStatus",
+      "name": "BillingProfileStatus",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "BillingProfileStatus"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "billingProfileStatusReasonCode",
+      "name": "BillingProfileStatusReasonCode",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "BillingProfileStatusReasonCode"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "enabledAzurePlans",
+      "name": "EnabledAzurePlans",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "AzurePlan"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "invoiceSectionDisplayName",
+      "name": "InvoiceSectionDisplayName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "invoiceSectionId",
+      "name": "InvoiceSectionId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "invoiceSectionDisplayName",
-   "name": "InvoiceSectionDisplayName",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "invoiceSectionId",
-   "name": "InvoiceSectionId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

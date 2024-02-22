@@ -1,46 +1,46 @@
 {
- "name": "Get",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "GET",
- "options": [
-  {
-   "optional": true,
-   "queryString": "scope",
-   "required": false,
-   "field": "Scope",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  },
-  {
-   "optional": false,
-   "queryString": "scopeTenantId",
-   "required": true,
-   "field": "ScopeTenantId",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  },
-  {
-   "optional": false,
-   "queryString": "scopeType",
-   "required": true,
-   "field": "ScopeType",
-   "optionsObjectDefinition": {
+  "name": "Get",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "scope",
+      "required": false,
+      "field": "Scope",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": false,
+      "queryString": "scopeTenantId",
+      "required": true,
+      "field": "ScopeTenantId",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": false,
+      "queryString": "scopeType",
+      "required": true,
+      "field": "ScopeType",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "ScopeType"
+      }
+    }
+  ],
+  "responseObject": {
     "type": "Reference",
-    "referenceName": "ScopeType"
-   }
-  }
- ],
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "DefaultAccountPayload"
- },
- "uriSuffix": "/providers/Microsoft.Purview/getDefaultAccount"
+    "referenceName": "DefaultAccountPayload"
+  },
+  "uriSuffix": "/providers/Microsoft.Purview/getDefaultAccount"
 }

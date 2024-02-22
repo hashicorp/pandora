@@ -1,28 +1,28 @@
 {
- "name": "List",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "fieldContainingPaginationDetails": "nextLink",
- "longRunning": false,
- "httpMethod": "GET",
- "options": [
-  {
-   "optional": true,
-   "queryString": "expandDetector",
-   "required": false,
-   "field": "ExpandDetector",
-   "optionsObjectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   }
-  }
- ],
- "resourceIdName": "SubscriptionId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "AlertRule"
- },
- "uriSuffix": "/providers/Microsoft.AlertsManagement/smartDetectorAlertRules"
+  "name": "List",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "expandDetector",
+      "required": false,
+      "field": "ExpandDetector",
+      "optionsObjectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "SubscriptionId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "AlertRule"
+  },
+  "uriSuffix": "/providers/Microsoft.AlertsManagement/smartDetectorAlertRules"
 }

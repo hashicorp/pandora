@@ -1,16 +1,16 @@
 {
- "name": "List",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "fieldContainingPaginationDetails": "nextLink",
- "longRunning": false,
- "httpMethod": "GET",
- "resourceIdName": "ResourceGroupId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "PrivateLinkPolicy"
- },
- "uriSuffix": "/providers/Microsoft.AADIAM/privateLinkForAzureAd"
+  "name": "List",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "ResourceGroupId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "PrivateLinkPolicy"
+  },
+  "uriSuffix": "/providers/Microsoft.AADIAM/privateLinkForAzureAd"
 }
