@@ -5,6 +5,7 @@ package parser
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"strings"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
