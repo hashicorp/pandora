@@ -7,6 +7,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
@@ -17,23 +18,23 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 		Name: "search_service",
 	}
 	builder := Builder{
-		constants: map[string]resourcemanager.ConstantDetails{
+		constants: map[string]models.SDKConstant{
 			"AdminKeyKind": {
-				Type: resourcemanager.StringConstant,
+				Type: models.StringSDKConstantType,
 				Values: map[string]string{
 					"Primary":   "primary",
 					"Secondary": "secondary",
 				},
 			},
 			"HostingMode": {
-				Type: resourcemanager.StringConstant,
+				Type: models.StringSDKConstantType,
 				Values: map[string]string{
 					"Default":     "default",
 					"HighDensity": "highDensity",
 				},
 			},
 			"PrivateLinkServiceConnectionStatus": {
-				Type: resourcemanager.StringConstant,
+				Type: models.StringSDKConstantType,
 				Values: map[string]string{
 					"Approved":     "Approved",
 					"Disconnected": "Disconnected",
@@ -42,7 +43,7 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 				},
 			},
 			"ProvisioningState": {
-				Type: resourcemanager.StringConstant,
+				Type: models.StringSDKConstantType,
 				Values: map[string]string{
 					"Failed":       "failed",
 					"Provisioning": "provisioning",
@@ -50,14 +51,14 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 				},
 			},
 			"PublicNetworkAccess": {
-				Type: resourcemanager.StringConstant,
+				Type: models.StringSDKConstantType,
 				Values: map[string]string{
 					"Disabled": "disabled",
 					"Enabled":  "enabled",
 				},
 			},
 			"SearchServiceStatus": {
-				Type: resourcemanager.StringConstant,
+				Type: models.StringSDKConstantType,
 				Values: map[string]string{
 					"Degraded":     "degraded",
 					"Deleting":     "deleting",
@@ -68,7 +69,7 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 				},
 			},
 			"SharedPrivateLinkResourceStatus": {
-				Type: resourcemanager.StringConstant,
+				Type: models.StringSDKConstantType,
 				Values: map[string]string{
 					"Pending":      "Pending",
 					"Approved":     "Approved",
@@ -77,7 +78,7 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 				},
 			},
 			"SkuName": {
-				Type: resourcemanager.StringConstant,
+				Type: models.StringSDKConstantType,
 				Values: map[string]string{
 					"Free":                 "free",
 					"Basic":                "basic",

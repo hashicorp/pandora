@@ -4,6 +4,7 @@
 package processors
 
 import (
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -14,7 +15,7 @@ type FieldNameProcessor interface {
 type FieldMetadata struct {
 	TerraformDetails resourcemanager.TerraformResourceDetails
 	Model            resourcemanager.ModelDetails
-	Constants        map[string]resourcemanager.ConstantDetails
+	Constants        map[string]models.SDKConstant
 }
 
 var NamingRules = []FieldNameProcessor{

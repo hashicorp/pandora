@@ -7,8 +7,8 @@ import (
 	"testing"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 func TestParseConstantsIntegersTopLevelAsInts(t *testing.T) {
@@ -23,9 +23,9 @@ func TestParseConstantsIntegersTopLevelAsInts(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Constants: map[string]resourcemanager.ConstantDetails{
+				Constants: map[string]models.SDKConstant{
 					"TableNumber": {
-						Type: resourcemanager.IntegerConstant,
+						Type: models.IntegerSDKConstantType,
 						Values: map[string]string{
 							"One":              "1",
 							"Two":              "2",
@@ -80,9 +80,9 @@ func TestParseConstantsIntegersTopLevelAsIntsWithDisplayName(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Constants: map[string]resourcemanager.ConstantDetails{
+				Constants: map[string]models.SDKConstant{
 					"TableNumber": {
-						Type: resourcemanager.IntegerConstant,
+						Type: models.IntegerSDKConstantType,
 						Values: map[string]string{
 							"First":  "1",
 							"Second": "2",
@@ -135,9 +135,9 @@ func TestParseConstantsIntegersTopLevelAsStrings(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Constants: map[string]resourcemanager.ConstantDetails{
+				Constants: map[string]models.SDKConstant{
 					"TableNumber": {
-						Type: resourcemanager.IntegerConstant,
+						Type: models.IntegerSDKConstantType,
 						Values: map[string]string{
 							"One":   "1",
 							"Two":   "2",
@@ -190,9 +190,9 @@ func TestParseConstantsIntegersInlinedAsInts(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Constants: map[string]resourcemanager.ConstantDetails{
+				Constants: map[string]models.SDKConstant{
 					"TableNumber": {
-						Type: resourcemanager.IntegerConstant,
+						Type: models.IntegerSDKConstantType,
 						Values: map[string]string{
 							"One":   "1",
 							"Two":   "2",
@@ -246,9 +246,9 @@ func TestParseConstantsIntegersInlinedAsIntsWithDisplayName(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Constants: map[string]resourcemanager.ConstantDetails{
+				Constants: map[string]models.SDKConstant{
 					"TableNumber": {
-						Type: resourcemanager.IntegerConstant,
+						Type: models.IntegerSDKConstantType,
 						Values: map[string]string{
 							"First":  "1",
 							"Second": "2",
@@ -301,9 +301,9 @@ func TestParseConstantsIntegersInlinedAsStrings(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Constants: map[string]resourcemanager.ConstantDetails{
+				Constants: map[string]models.SDKConstant{
 					"TableNumber": {
-						Type: resourcemanager.IntegerConstant,
+						Type: models.IntegerSDKConstantType,
 						Values: map[string]string{
 							"One":   "1",
 							"Two":   "2",
@@ -356,9 +356,9 @@ func TestParseConstantsFloatsTopLevelAsFloats(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Constants: map[string]resourcemanager.ConstantDetails{
+				Constants: map[string]models.SDKConstant{
 					"TableNumber": {
-						Type: resourcemanager.FloatConstant,
+						Type: models.FloatSDKConstantType,
 						Values: map[string]string{
 							"OnePointOne":                     "1.1",
 							"TwoPointTwo":                     "2.2",
@@ -411,9 +411,9 @@ func TestParseConstantsFloatsTopLevelAsStrings(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Constants: map[string]resourcemanager.ConstantDetails{
+				Constants: map[string]models.SDKConstant{
 					"TableNumber": {
-						Type: resourcemanager.FloatConstant,
+						Type: models.FloatSDKConstantType,
 						Values: map[string]string{
 							"OnePointOne":                     "1.1",
 							"TwoPointTwo":                     "2.2",
@@ -466,9 +466,9 @@ func TestParseConstantsFloatsInlinedAsFloats(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Constants: map[string]resourcemanager.ConstantDetails{
+				Constants: map[string]models.SDKConstant{
 					"TableNumber": {
-						Type: resourcemanager.FloatConstant,
+						Type: models.FloatSDKConstantType,
 						Values: map[string]string{
 							"OnePointOne":                     "1.1",
 							"TwoPointTwo":                     "2.2",
@@ -521,9 +521,9 @@ func TestParseConstantsFloatsInlinedAsStrings(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Constants: map[string]resourcemanager.ConstantDetails{
+				Constants: map[string]models.SDKConstant{
 					"TableNumber": {
-						Type: resourcemanager.FloatConstant,
+						Type: models.FloatSDKConstantType,
 						Values: map[string]string{
 							"OnePointOne":                     "1.1",
 							"TwoPointTwo":                     "2.2",
@@ -575,9 +575,9 @@ func TestParseConstantsStringsTopLevel(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Constants: map[string]resourcemanager.ConstantDetails{
+				Constants: map[string]models.SDKConstant{
 					"AnimalType": {
-						Type: resourcemanager.StringConstant,
+						Type: models.StringSDKConstantType,
 						Values: map[string]string{
 							"Cat":   "cat",
 							"Dog":   "dog",
@@ -633,9 +633,9 @@ func TestParseConstantsStringsTopLevelAsNonStrings(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Constants: map[string]resourcemanager.ConstantDetails{
+				Constants: map[string]models.SDKConstant{
 					"AnimalType": {
-						Type: resourcemanager.StringConstant,
+						Type: models.StringSDKConstantType,
 						Values: map[string]string{
 							"Cat":   "cat",
 							"Dog":   "dog",
@@ -687,9 +687,9 @@ func TestParseConstantsStringsInlined(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Constants: map[string]resourcemanager.ConstantDetails{
+				Constants: map[string]models.SDKConstant{
 					"AnimalType": {
-						Type: resourcemanager.StringConstant,
+						Type: models.StringSDKConstantType,
 						Values: map[string]string{
 							"Cat":   "cat",
 							"Dog":   "dog",
@@ -741,9 +741,9 @@ func TestParseConstantsStringsInlinedAsNonStrings(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Constants: map[string]resourcemanager.ConstantDetails{
+				Constants: map[string]models.SDKConstant{
 					"AnimalType": {
-						Type: resourcemanager.StringConstant,
+						Type: models.StringSDKConstantType,
 						Values: map[string]string{
 							"Cat":   "cat",
 							"Dog":   "dog",
@@ -796,9 +796,9 @@ func TestParseConstantsStringsTopLevelContainingFloats(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Constants: map[string]resourcemanager.ConstantDetails{
+				Constants: map[string]models.SDKConstant{
 					"TableNumber": {
-						Type: resourcemanager.StringConstant,
+						Type: models.StringSDKConstantType,
 						Values: map[string]string{
 							"OnePointOne":                     "1.1",
 							"TwoPointTwo":                     "2.2",
@@ -851,9 +851,9 @@ func TestParseConstantsStringsInlinedContainingFloats(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Constants: map[string]resourcemanager.ConstantDetails{
+				Constants: map[string]models.SDKConstant{
 					"TableNumber": {
-						Type: resourcemanager.FloatConstant,
+						Type: models.FloatSDKConstantType,
 						Values: map[string]string{
 							"OnePointOne":                     "1.1",
 							"TwoPointTwo":                     "2.2",
@@ -929,7 +929,7 @@ func TestParseConstantsFromParameters(t *testing.T) {
 	if !ok {
 		t.Fatalf("resource.Constants['TableNumber'] was not found")
 	}
-	if favouriteTable.Type != resourcemanager.StringConstant {
+	if favouriteTable.Type != models.StringSDKConstantType {
 		t.Fatalf("expected resource.Constants['TableNumber'].Type to be 'String' but got %q", favouriteTable.Type)
 	}
 	if len(favouriteTable.Values) != 3 {

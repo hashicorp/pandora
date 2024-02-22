@@ -12,9 +12,9 @@ import (
 
 	"github.com/go-openapi/spec"
 	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 type constantExtension struct {
@@ -29,7 +29,7 @@ type constantExtension struct {
 
 type ParsedConstant struct {
 	Name    string
-	Details resourcemanager.ConstantDetails
+	Details models.SDKConstant
 }
 
 func MapConstant(typeVal spec.StringOrArray, fieldName string, values []interface{}, extensions spec.Extensions, logger hclog.Logger) (*ParsedConstant, error) {
@@ -52,16 +52,16 @@ func MapConstant(typeVal spec.StringOrArray, fieldName string, values []interfac
 		constantName = constExtension.name
 	}
 
-	constantType := resourcemanager.StringConstant
+	constantType := models.StringSDKConstantType
 	if typeVal.Contains("integer") {
-		constantType = resourcemanager.IntegerConstant
+		constantType = models.IntegerSDKConstantType
 	} else if typeVal.Contains("number") {
-		constantType = resourcemanager.FloatConstant
+		constantType = models.FloatSDKConstantType
 	}
 
 	keysAndValues := make(map[string]string)
 	for i, raw := range values {
-		if constantType == resourcemanager.StringConstant {
+		if constantType == models.StringSDKConstantType {
 			value, ok := raw.(string)
 			if !ok {
 				return nil, fmt.Errorf("expected a string but got %+v for the %d value for %q", raw, i, constExtension.name)
@@ -85,7 +85,7 @@ func MapConstant(typeVal spec.StringOrArray, fieldName string, values []interfac
 			continue
 		}
 
-		if constantType == resourcemanager.IntegerConstant {
+		if constantType == models.IntegerSDKConstantType {
 			// This gets parsed out as a float64 even though it's an Integer :upside_down_smile:
 			value, ok := raw.(float64)
 			if !ok {
@@ -119,7 +119,7 @@ func MapConstant(typeVal spec.StringOrArray, fieldName string, values []interfac
 			continue
 		}
 
-		if constantType == resourcemanager.FloatConstant {
+		if constantType == models.FloatSDKConstantType {
 			value, ok := raw.(float64)
 			if !ok {
 				return nil, fmt.Errorf("expected an float but got %+v for the %d value for %q", raw, i, constExtension.name)
@@ -137,12 +137,12 @@ func MapConstant(typeVal spec.StringOrArray, fieldName string, values []interfac
 
 	// allows us to parse out the actual types above then force a string here if needed
 	if constExtension == nil {
-		constantType = resourcemanager.StringConstant
+		constantType = models.StringSDKConstantType
 	}
 
 	return &ParsedConstant{
 		Name: constantName,
-		Details: resourcemanager.ConstantDetails{
+		Details: models.SDKConstant{
 			Values: keysAndValues,
 			Type:   constantType,
 		},

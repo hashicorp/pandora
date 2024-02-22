@@ -65,10 +65,6 @@ func mapInternalAPIVersionTypeToDataAPISDKType(input importerModels.AzureApiDefi
 	resources := make(map[string]models.APIResource)
 
 	for apiResource, apiResourceDetails := range input.Resources {
-		constants, err := mapInternalConstantsToDataAPISDKType(apiResourceDetails.Constants)
-		if err != nil {
-			return nil, fmt.Errorf("mapping Constants for API Resource %q: %+v", apiResource, err)
-		}
 		mappedModels, err := mapInternalModelsToDataAPISDKType(apiResourceDetails.Models)
 		if err != nil {
 			return nil, fmt.Errorf("mapping Models for API Resource %q: %+v", apiResource, err)
@@ -83,7 +79,7 @@ func mapInternalAPIVersionTypeToDataAPISDKType(input importerModels.AzureApiDefi
 		}
 
 		resources[apiResource] = models.APIResource{
-			Constants:   *constants,
+			Constants:   apiResourceDetails.Constants,
 			Models:      *mappedModels,
 			Operations:  *operations,
 			ResourceIDs: *resourceIds,
@@ -96,29 +92,6 @@ func mapInternalAPIVersionTypeToDataAPISDKType(input importerModels.AzureApiDefi
 		Resources: resources,
 		Source:    models.AzureRestAPISpecsSourceDataOrigin,
 	}, nil
-}
-
-func mapInternalConstantsToDataAPISDKType(input map[string]resourcemanager.ConstantDetails) (*map[string]models.SDKConstant, error) {
-	output := make(map[string]models.SDKConstant)
-
-	for key, value := range input {
-		mappings := map[resourcemanager.ConstantType]models.SDKConstantType{
-			resourcemanager.FloatConstant:   models.FloatSDKConstantType,
-			resourcemanager.IntegerConstant: models.IntegerSDKConstantType,
-			resourcemanager.StringConstant:  models.StringSDKConstantType,
-		}
-		mappedType, ok := mappings[value.Type]
-		if !ok {
-			return nil, fmt.Errorf("internal-error: missing mapping for Constant Type %q", string(value.Type))
-		}
-
-		output[key] = models.SDKConstant{
-			Type:   mappedType,
-			Values: value.Values,
-		}
-	}
-
-	return &output, nil
 }
 
 func mapInternalModelsToDataAPISDKType(input map[string]importerModels.ModelDetails) (*map[string]models.SDKModel, error) {

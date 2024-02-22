@@ -7,6 +7,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
@@ -582,9 +583,9 @@ func TestParseModelWithReferenceToConstant(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Constants: map[string]resourcemanager.ConstantDetails{
+				Constants: map[string]models.SDKConstant{
 					"AnimalType": {
-						Type: resourcemanager.StringConstant,
+						Type: models.StringSDKConstantType,
 						Values: map[string]string{
 							"Cat": "Cat",
 							"Dog": "Dog",

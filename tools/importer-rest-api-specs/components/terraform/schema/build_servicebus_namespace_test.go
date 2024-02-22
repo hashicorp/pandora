@@ -7,6 +7,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
@@ -15,9 +16,9 @@ func TestBuildForServiceBusNamespaceHappyPath(t *testing.T) {
 	t.Skipf("TODO: update schema gen & re-enable this test")
 	r := resourceUnderTest{Name: "service_bus_namespace"}
 	builder := Builder{
-		constants: map[string]resourcemanager.ConstantDetails{
+		constants: map[string]models.SDKConstant{
 			"SkuName": {
-				Type: resourcemanager.StringConstant,
+				Type: models.StringSDKConstantType,
 				Values: map[string]string{
 					"Basic":    "Basic",
 					"Premium":  "Premium",
@@ -295,9 +296,9 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 	t.Skipf("TODO: update schema gen & re-enable this test")
 	r := resourceUnderTest{Name: "service_bus_namespace"}
 	builder := Builder{
-		constants: map[string]resourcemanager.ConstantDetails{
+		constants: map[string]models.SDKConstant{
 			"EndPointProvisioningState": {
-				Type: resourcemanager.StringConstant,
+				Type: models.StringSDKConstantType,
 				Values: map[string]string{
 					"Canceled":  "Canceled",
 					"Creating":  "Creating",
@@ -308,13 +309,13 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 				},
 			},
 			"KeySource": {
-				Type: resourcemanager.StringConstant,
+				Type: models.StringSDKConstantType,
 				Values: map[string]string{
 					"MicrosoftPointKeyVault": "Microsoft.KeyVault",
 				},
 			},
 			"MinimumTlsVersion": {
-				Type: resourcemanager.StringConstant,
+				Type: models.StringSDKConstantType,
 				Values: map[string]string{
 					"1.0": "1.0",
 					"1.1": "1.1",
@@ -322,7 +323,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 				},
 			},
 			"PrivateLinkConnectionStatus": {
-				Type: resourcemanager.StringConstant,
+				Type: models.StringSDKConstantType,
 				Values: map[string]string{
 					"Approved":     "Approved",
 					"Disconnected": "Disconnected",
@@ -331,7 +332,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 				},
 			},
 			"PublicNetworkAccess": {
-				Type: resourcemanager.StringConstant,
+				Type: models.StringSDKConstantType,
 				Values: map[string]string{
 					"Enabled":            "Enabled",
 					"Disabled":           "Disabled",
@@ -339,7 +340,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 				},
 			},
 			"SkuName": {
-				Type: resourcemanager.StringConstant,
+				Type: models.StringSDKConstantType,
 				Values: map[string]string{
 					"Basic":    "Basic",
 					"Premium":  "Premium",
@@ -347,7 +348,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 				},
 			},
 			"SkuTier": {
-				Type: resourcemanager.StringConstant,
+				Type: models.StringSDKConstantType,
 				Values: map[string]string{
 					"Basic":    "Basic",
 					"Premium":  "Premium",

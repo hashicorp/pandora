@@ -15,7 +15,7 @@ import (
 // that all the Names and References are consistent (TitleCase) as a final effort
 // to ensure the Swagger Data is normalized.
 func normalizeAzureApiResource(input importerModels.AzureApiResource) importerModels.AzureApiResource {
-	normalizedConstants := make(map[string]resourcemanager.ConstantDetails)
+	normalizedConstants := make(map[string]models.SDKConstant)
 	for k, v := range input.Constants {
 		name := cleanup.NormalizeName(k)
 		normalizedConstants[name] = v
@@ -82,7 +82,7 @@ func normalizeAzureApiResource(input importerModels.AzureApiResource) importerMo
 	for k, v := range input.ResourceIds {
 		segments := make([]resourcemanager.ResourceIdSegment, 0)
 
-		normalizedConstants := make(map[string]resourcemanager.ConstantDetails)
+		normalizedConstants := make(map[string]models.SDKConstant)
 		for k, constant := range v.Constants {
 			name := cleanup.NormalizeName(k)
 			normalizedConstants[name] = constant

@@ -7,6 +7,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
@@ -15,15 +16,15 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 	t.Skipf("TODO: update schema gen & re-enable this test")
 	r := resourceUnderTest{Name: "chaos_studio_experiment"}
 	builder := Builder{
-		constants: map[string]resourcemanager.ConstantDetails{
+		constants: map[string]models.SDKConstant{
 			"TargetReferenceType": {
-				Type: resourcemanager.StringConstant,
+				Type: models.StringSDKConstantType,
 				Values: map[string]string{
 					"ChaosTarget": "ChaosTarget",
 				},
 			},
 			"SelectorType": {
-				Type: resourcemanager.StringConstant,
+				Type: models.StringSDKConstantType,
 				Values: map[string]string{
 					"List":    "List",
 					"Percent": "Percent",

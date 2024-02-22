@@ -6,8 +6,8 @@ package parser
 import (
 	"fmt"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 func combineResourcesWith(first importerModels.AzureApiDefinition, other map[string]importerModels.AzureApiResource) (*map[string]importerModels.AzureApiResource, error) {
@@ -53,8 +53,8 @@ func combineResourcesWith(first importerModels.AzureApiDefinition, other map[str
 	return &resources, nil
 }
 
-func combineConstants(first map[string]resourcemanager.ConstantDetails, second map[string]resourcemanager.ConstantDetails) (*map[string]resourcemanager.ConstantDetails, error) {
-	constants := make(map[string]resourcemanager.ConstantDetails, 0)
+func combineConstants(first, second map[string]models.SDKConstant) (*map[string]models.SDKConstant, error) {
+	constants := make(map[string]models.SDKConstant)
 	for k, v := range first {
 		constants[k] = v
 	}

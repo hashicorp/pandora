@@ -7,13 +7,14 @@ import (
 	"testing"
 
 	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 func TestBuildForResourceGroupHappyPathAllModelsTheSame(t *testing.T) {
 	builder := Builder{
-		constants: map[string]resourcemanager.ConstantDetails{},
+		constants: map[string]models.SDKConstant{},
 		models: map[string]resourcemanager.ModelDetails{
 			"ResourceGroup": {
 				Fields: map[string]resourcemanager.FieldDetails{
@@ -164,7 +165,7 @@ func TestBuildForResourceGroupUsingRealData(t *testing.T) {
 	t.Skipf("TODO: update schema gen & re-enable this test")
 
 	builder := Builder{
-		constants: map[string]resourcemanager.ConstantDetails{},
+		constants: map[string]models.SDKConstant{},
 		models: map[string]resourcemanager.ModelDetails{
 			"ResourceGroup": {
 				Fields: map[string]resourcemanager.FieldDetails{

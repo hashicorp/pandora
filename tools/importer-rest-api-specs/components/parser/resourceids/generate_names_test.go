@@ -8,12 +8,13 @@ import (
 	"testing"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 var subscriptionResourceId = importerModels.ParsedResourceId{
-	Constants: map[string]resourcemanager.ConstantDetails{},
+	Constants: map[string]models.SDKConstant{},
 	Segments: []resourcemanager.ResourceIdSegment{
 		{
 			Type:       resourcemanager.StaticSegment,
@@ -27,7 +28,7 @@ var subscriptionResourceId = importerModels.ParsedResourceId{
 	},
 }
 var resourceGroupResourceId = importerModels.ParsedResourceId{
-	Constants: map[string]resourcemanager.ConstantDetails{},
+	Constants: map[string]models.SDKConstant{},
 	Segments: []resourcemanager.ResourceIdSegment{
 		{
 			Type:       resourcemanager.StaticSegment,
@@ -50,7 +51,7 @@ var resourceGroupResourceId = importerModels.ParsedResourceId{
 	},
 }
 var managementGroupResourceId = importerModels.ParsedResourceId{
-	Constants: map[string]resourcemanager.ConstantDetails{},
+	Constants: map[string]models.SDKConstant{},
 	Segments: []resourcemanager.ResourceIdSegment{
 		{
 			Type:       resourcemanager.StaticSegment,
@@ -74,7 +75,7 @@ var managementGroupResourceId = importerModels.ParsedResourceId{
 	},
 }
 var virtualMachineResourceId = importerModels.ParsedResourceId{
-	Constants: map[string]resourcemanager.ConstantDetails{},
+	Constants: map[string]models.SDKConstant{},
 	Segments: []resourcemanager.ResourceIdSegment{
 		{
 			Type:       resourcemanager.StaticSegment,
@@ -116,7 +117,7 @@ var virtualMachineResourceId = importerModels.ParsedResourceId{
 	},
 }
 var virtualMachineExtensionResourceId = importerModels.ParsedResourceId{
-	Constants: map[string]resourcemanager.ConstantDetails{},
+	Constants: map[string]models.SDKConstant{},
 	Segments: []resourcemanager.ResourceIdSegment{
 		{
 			Type:       resourcemanager.StaticSegment,
@@ -167,7 +168,7 @@ var virtualMachineExtensionResourceId = importerModels.ParsedResourceId{
 	},
 }
 var virtualNetworkExtensionResourceId = importerModels.ParsedResourceId{
-	Constants: map[string]resourcemanager.ConstantDetails{},
+	Constants: map[string]models.SDKConstant{},
 	Segments: []resourcemanager.ResourceIdSegment{
 		{
 			Type:       resourcemanager.StaticSegment,
@@ -209,7 +210,7 @@ var virtualNetworkExtensionResourceId = importerModels.ParsedResourceId{
 	},
 }
 var scopedMonitorResourceId = importerModels.ParsedResourceId{
-	Constants: map[string]resourcemanager.ConstantDetails{},
+	Constants: map[string]models.SDKConstant{},
 	Segments: []resourcemanager.ResourceIdSegment{
 		{
 			Type: resourcemanager.ScopeSegment,
@@ -237,7 +238,7 @@ var scopedMonitorResourceId = importerModels.ParsedResourceId{
 	},
 }
 var signalRResourceId = importerModels.ParsedResourceId{
-	Constants: map[string]resourcemanager.ConstantDetails{},
+	Constants: map[string]models.SDKConstant{},
 	Segments: []resourcemanager.ResourceIdSegment{
 		{
 			Type:       resourcemanager.StaticSegment,
@@ -279,7 +280,7 @@ var signalRResourceId = importerModels.ParsedResourceId{
 	},
 }
 var eventHubSkuResourceId = importerModels.ParsedResourceId{
-	Constants: map[string]resourcemanager.ConstantDetails{},
+	Constants: map[string]models.SDKConstant{},
 	Segments: []resourcemanager.ResourceIdSegment{
 		{
 			Type:       resourcemanager.StaticSegment,
@@ -313,9 +314,9 @@ var eventHubSkuResourceId = importerModels.ParsedResourceId{
 	},
 }
 var trafficManagerProfileResourceId = importerModels.ParsedResourceId{
-	Constants: map[string]resourcemanager.ConstantDetails{
+	Constants: map[string]models.SDKConstant{
 		"EndpointType": {
-			Type: resourcemanager.StringConstant,
+			Type: models.StringSDKConstantType,
 			Values: map[string]string{
 				"AzureEndpoints":    "azureEndpoints",
 				"ExternalEndpoints": "externalEndpoints",
@@ -375,9 +376,9 @@ var trafficManagerProfileResourceId = importerModels.ParsedResourceId{
 	},
 }
 var redisPatchSchedulesResourceId = importerModels.ParsedResourceId{
-	Constants: map[string]resourcemanager.ConstantDetails{
+	Constants: map[string]models.SDKConstant{
 		"Default": {
-			Type: resourcemanager.StringConstant,
+			Type: models.StringSDKConstantType,
 			Values: map[string]string{
 				"First": "first",
 			},
@@ -596,7 +597,7 @@ func TestResourceIDNamingEventHubSkuId(t *testing.T) {
 
 func TestResourceIDNamingTopLevelScope(t *testing.T) {
 	scopeResourceId := importerModels.ParsedResourceId{
-		Constants: map[string]resourcemanager.ConstantDetails{},
+		Constants: map[string]models.SDKConstant{},
 		Segments: []resourcemanager.ResourceIdSegment{
 			{
 				Type: resourcemanager.ScopeSegment,
@@ -626,9 +627,9 @@ func TestResourceIDNamingTopLevelScope(t *testing.T) {
 
 func TestResourceIDNamingContainingAConstant(t *testing.T) {
 	dnsResourceId := importerModels.ParsedResourceId{
-		Constants: map[string]resourcemanager.ConstantDetails{
+		Constants: map[string]models.SDKConstant{
 			"DnsRecordType": {
-				Type: resourcemanager.StringConstant,
+				Type: models.StringSDKConstantType,
 				Values: map[string]string{
 					"A":    "A",
 					"AAAA": "AAAA",
@@ -697,9 +698,9 @@ func TestResourceIDNamingContainingAConstant(t *testing.T) {
 
 func TestResourceIDNamingContainingAConstantAndSuffix(t *testing.T) {
 	dnsResourceId := importerModels.ParsedResourceId{
-		Constants: map[string]resourcemanager.ConstantDetails{
+		Constants: map[string]models.SDKConstant{
 			"DnsRecordType": {
-				Type: resourcemanager.StringConstant,
+				Type: models.StringSDKConstantType,
 				Values: map[string]string{
 					"A":    "A",
 					"AAAA": "AAAA",
@@ -912,7 +913,7 @@ func TestResourceIdNamingConflictingWithUpdatingOperation(t *testing.T) {
 
 func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 	workerPoolInstanceResourceId := importerModels.ParsedResourceId{
-		Constants: map[string]resourcemanager.ConstantDetails{},
+		Constants: map[string]models.SDKConstant{},
 		Segments: []resourcemanager.ResourceIdSegment{
 			{
 				Type:       resourcemanager.StaticSegment,
@@ -972,7 +973,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 		},
 	}
 	multiRolePoolInstanceResourceId := importerModels.ParsedResourceId{
-		Constants: map[string]resourcemanager.ConstantDetails{},
+		Constants: map[string]models.SDKConstant{},
 		Segments: []resourcemanager.ResourceIdSegment{
 			{
 				Type:       resourcemanager.StaticSegment,
@@ -1033,7 +1034,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 		},
 	}
 	slotInstanceProcessModuleResourceId := importerModels.ParsedResourceId{
-		Constants: map[string]resourcemanager.ConstantDetails{},
+		Constants: map[string]models.SDKConstant{},
 		Segments: []resourcemanager.ResourceIdSegment{
 			{
 				Type:       resourcemanager.StaticSegment,
@@ -1111,7 +1112,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 		},
 	}
 	instanceProcessModuleResourceId := importerModels.ParsedResourceId{
-		Constants: map[string]resourcemanager.ConstantDetails{},
+		Constants: map[string]models.SDKConstant{},
 		Segments: []resourcemanager.ResourceIdSegment{
 			{
 				Type:       resourcemanager.StaticSegment,

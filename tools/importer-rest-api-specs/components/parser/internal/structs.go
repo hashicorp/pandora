@@ -9,18 +9,18 @@ import (
 	"strings"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 type ParseResult struct {
-	Constants map[string]resourcemanager.ConstantDetails
+	Constants map[string]models.SDKConstant
 	Models    map[string]importerModels.ModelDetails
 }
 
 func (r *ParseResult) Append(other ParseResult) error {
 	if r.Constants == nil {
-		r.Constants = make(map[string]resourcemanager.ConstantDetails)
+		r.Constants = make(map[string]models.SDKConstant)
 	}
 	if err := r.AppendConstants(other.Constants); err != nil {
 		return fmt.Errorf("appending constants: %+v", err)
@@ -36,7 +36,7 @@ func (r *ParseResult) Append(other ParseResult) error {
 	return nil
 }
 
-func (r *ParseResult) AppendConstants(other map[string]resourcemanager.ConstantDetails) error {
+func (r *ParseResult) AppendConstants(other map[string]models.SDKConstant) error {
 	for k, v := range other {
 		existing, hasExisting := r.Constants[k]
 		if !hasExisting {

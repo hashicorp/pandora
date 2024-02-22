@@ -13,12 +13,11 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/resourceids"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resourceProvider *string, resourceIds resourceids.ParseResult) (*importerModels.AzureApiResource, error) {
 	result := internal.ParseResult{
-		Constants: map[string]resourcemanager.ConstantDetails{},
+		Constants: map[string]models.SDKConstant{},
 		Models:    map[string]importerModels.ModelDetails{},
 	}
 
@@ -134,7 +133,7 @@ func pullOutModelForListOperations(input map[string]importerModels.OperationDeta
 
 func switchOutCustomTypesAsNeeded(input internal.ParseResult) internal.ParseResult {
 	result := internal.ParseResult{
-		Constants: map[string]resourcemanager.ConstantDetails{},
+		Constants: map[string]models.SDKConstant{},
 		Models:    map[string]importerModels.ModelDetails{},
 	}
 	result.Append(input)
@@ -164,7 +163,7 @@ func switchOutCustomTypesAsNeeded(input internal.ParseResult) internal.ParseResu
 
 func (d *SwaggerDefinition) findNestedItemsYetToBeParsed(operations map[string]importerModels.OperationDetails, known internal.ParseResult) (*internal.ParseResult, error) {
 	result := internal.ParseResult{
-		Constants: map[string]resourcemanager.ConstantDetails{},
+		Constants: map[string]models.SDKConstant{},
 		Models:    map[string]importerModels.ModelDetails{},
 	}
 	result.Append(known)

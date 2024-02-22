@@ -5,19 +5,18 @@ package parser
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"net/http"
 	"sort"
 	"strings"
 
 	"github.com/go-openapi/spec"
 	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/constants"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/resourceids"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 type operationsParser struct {
@@ -30,7 +29,7 @@ func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, operationIdsTo
 	logger := d.logger.Named("Operations Parser")
 	operations := make(map[string]importerModels.OperationDetails, 0)
 	result := internal.ParseResult{
-		Constants: map[string]resourcemanager.ConstantDetails{},
+		Constants: map[string]models.SDKConstant{},
 		Models:    map[string]importerModels.ModelDetails{},
 	}
 	result.Append(found)
@@ -76,7 +75,7 @@ func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, operationIdsTo
 
 func (p operationsParser) parseOperation(operation parsedOperation, resourceProvider *string, logger hclog.Logger) (*importerModels.OperationDetails, *internal.ParseResult, error) {
 	result := internal.ParseResult{
-		Constants: map[string]resourcemanager.ConstantDetails{},
+		Constants: map[string]models.SDKConstant{},
 		Models:    map[string]importerModels.ModelDetails{},
 	}
 
@@ -340,7 +339,7 @@ func (p operationsParser) operationIsLongRunning(input parsedOperation) bool {
 func (p operationsParser) optionsForOperation(input parsedOperation, logger hclog.Logger) (*map[string]models.SDKOperationOption, *internal.ParseResult, error) {
 	output := make(map[string]models.SDKOperationOption)
 	result := internal.ParseResult{
-		Constants: map[string]resourcemanager.ConstantDetails{},
+		Constants: map[string]models.SDKConstant{},
 	}
 
 	for _, param := range input.operation.Parameters {
@@ -467,7 +466,7 @@ func (p operationsParser) operationIsASuccess(statusCode int, resp spec.Response
 func (p operationsParser) responseObjectForOperation(input parsedOperation, known internal.ParseResult) (*operationResponseObjectResult, *internal.ParseResult, error) {
 	output := operationResponseObjectResult{}
 	result := internal.ParseResult{
-		Constants: map[string]resourcemanager.ConstantDetails{},
+		Constants: map[string]models.SDKConstant{},
 		Models:    map[string]importerModels.ModelDetails{},
 	}
 	result.Append(known)

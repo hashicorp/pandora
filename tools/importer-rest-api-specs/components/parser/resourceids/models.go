@@ -7,9 +7,9 @@ import (
 	"fmt"
 
 	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 type ParsedOperation struct {
@@ -34,12 +34,12 @@ type ParseResult struct {
 	NamesToResourceIDs map[string]importerModels.ParsedResourceId
 
 	// Constants is a map of Name - ConstantDetails found within the Resource IDs
-	Constants map[string]resourcemanager.ConstantDetails
+	Constants map[string]models.SDKConstant
 }
 
 func (r *ParseResult) Append(other ParseResult, logger hclog.Logger) error {
 	intermediate := internal.ParseResult{
-		Constants: map[string]resourcemanager.ConstantDetails{},
+		Constants: map[string]models.SDKConstant{},
 	}
 	intermediate.AppendConstants(r.Constants)
 	intermediate.AppendConstants(other.Constants)
