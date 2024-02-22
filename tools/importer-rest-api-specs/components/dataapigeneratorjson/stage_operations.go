@@ -8,8 +8,8 @@ import (
 	"path/filepath"
 
 	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/transforms"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 var _ generatorStage = generateOperationsStage{}
@@ -24,17 +24,17 @@ type generateOperationsStage struct {
 	// apiResource specifies the APIResource within the APIVersion where the Operations exist.
 	apiResource string
 
-	// constants specifies the map of Constant Name (key) to ConstantDetails (value) which should be
+	// constants specifies the map of Constant Name (key) to SDKConstant (value) which should be
 	// persisted.
-	constants map[string]resourcemanager.ConstantDetails
+	constants map[string]models.SDKConstant
 
-	// models specifies the map of Model Name (key) to ModelDetails (value) which should be
+	// models specifies the map of Model Name (key) to SDKModel (value) which should be
 	// persisted.
-	models map[string]resourcemanager.ModelDetails
+	models map[string]models.SDKModel
 
-	// operations specifies the map of Operation Name (key) to ApiOperation (value) which should be
+	// operations specifies the map of Operation Name (key) to SDKOperation (value) which should be
 	// persisted.
-	operations map[string]resourcemanager.ApiOperation
+	operations map[string]models.SDKOperation
 }
 
 func (g generateOperationsStage) generate(input *fileSystem, logger hclog.Logger) error {

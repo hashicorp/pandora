@@ -7,12 +7,11 @@ import (
 	"fmt"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func mapSDKObjectDefinitionToRepository(details resourcemanager.ApiObjectDefinition, constants map[string]resourcemanager.ConstantDetails, models map[string]resourcemanager.ModelDetails) (*dataapimodels.ObjectDefinition, error) {
-	// NOTE: this method will in time become `mapSDKObjectDefinitionToRepository` but since the legacy importer models support both CustomFieldType and ObjectDefinition this differentiation is needed in the short-term.
+func mapSDKObjectDefinitionToRepository(details models.SDKObjectDefinition, constants map[string]models.SDKConstant, models map[string]models.SDKModel) (*dataapimodels.ObjectDefinition, error) {
 	typeVal, ok := internalObjectDefinitionsToObjectDefinitionTypes[details.Type]
 	if !ok {
 		return nil, fmt.Errorf("internal-error: no ObjectDefinition mapping is defined for the ObjectDefinition Type %q", string(details.Type))
@@ -56,7 +55,7 @@ func mapSDKObjectDefinitionToRepository(details resourcemanager.ApiObjectDefinit
 	return &output, nil
 }
 
-func validateObjectDefinition(input dataapimodels.ObjectDefinition, constants map[string]resourcemanager.ConstantDetails, models map[string]resourcemanager.ModelDetails) error {
+func validateObjectDefinition(input dataapimodels.ObjectDefinition, constants map[string]models.SDKConstant, models map[string]models.SDKModel) error {
 	requiresNestedItem := input.Type == dataapimodels.CsvObjectDefinitionType ||
 		input.Type == dataapimodels.DictionaryObjectDefinitionType ||
 		input.Type == dataapimodels.ListObjectDefinitionType
@@ -88,33 +87,36 @@ func validateObjectDefinition(input dataapimodels.ObjectDefinition, constants ma
 	return nil
 }
 
-var internalObjectDefinitionsToObjectDefinitionTypes = map[resourcemanager.ApiObjectDefinitionType]dataapimodels.ObjectDefinitionType{
-	resourcemanager.BooleanApiObjectDefinitionType:    dataapimodels.BooleanObjectDefinitionType,
-	resourcemanager.CsvApiObjectDefinitionType:        dataapimodels.CsvObjectDefinitionType,
-	resourcemanager.DateTimeApiObjectDefinitionType:   dataapimodels.DateTimeObjectDefinitionType,
-	resourcemanager.DictionaryApiObjectDefinitionType: dataapimodels.DictionaryObjectDefinitionType,
-	resourcemanager.IntegerApiObjectDefinitionType:    dataapimodels.IntegerObjectDefinitionType,
-	resourcemanager.FloatApiObjectDefinitionType:      dataapimodels.FloatObjectDefinitionType,
-	resourcemanager.ListApiObjectDefinitionType:       dataapimodels.ListObjectDefinitionType,
-	resourcemanager.RawFileApiObjectDefinitionType:    dataapimodels.RawFileObjectDefinitionType,
-	resourcemanager.RawObjectApiObjectDefinitionType:  dataapimodels.RawObjectObjectDefinitionType,
-	resourcemanager.ReferenceApiObjectDefinitionType:  dataapimodels.ReferenceObjectDefinitionType,
-	resourcemanager.StringApiObjectDefinitionType:     dataapimodels.StringObjectDefinitionType,
+var internalObjectDefinitionsToObjectDefinitionTypes = map[models.SDKObjectDefinitionType]dataapimodels.ObjectDefinitionType{
+	// Simple Types
+	models.BooleanSDKObjectDefinitionType:  dataapimodels.BooleanObjectDefinitionType,
+	models.DateTimeSDKObjectDefinitionType: dataapimodels.DateTimeObjectDefinitionType,
+	models.IntegerSDKObjectDefinitionType:  dataapimodels.IntegerObjectDefinitionType,
+	models.FloatSDKObjectDefinitionType:    dataapimodels.FloatObjectDefinitionType,
+	models.StringSDKObjectDefinitionType:   dataapimodels.StringObjectDefinitionType,
 
-	// CommonSchema
-	resourcemanager.EdgeZoneApiObjectDefinitionType:                                dataapimodels.EdgeZoneObjectDefinitionType,
-	resourcemanager.LocationApiObjectDefinitionType:                                dataapimodels.LocationObjectDefinitionType,
-	resourcemanager.SystemAssignedIdentityApiObjectDefinitionType:                  dataapimodels.SystemAssignedIdentityObjectDefinitionType,
-	resourcemanager.SystemAndUserAssignedIdentityListApiObjectDefinitionType:       dataapimodels.SystemAndUserAssignedIdentityListObjectDefinitionType,
-	resourcemanager.SystemAndUserAssignedIdentityMapApiObjectDefinitionType:        dataapimodels.SystemAndUserAssignedIdentityMapObjectDefinitionType,
-	resourcemanager.LegacySystemAndUserAssignedIdentityListApiObjectDefinitionType: dataapimodels.LegacySystemAndUserAssignedIdentityListObjectDefinitionType,
-	resourcemanager.LegacySystemAndUserAssignedIdentityMapApiObjectDefinitionType:  dataapimodels.LegacySystemAndUserAssignedIdentityMapObjectDefinitionType,
-	resourcemanager.SystemOrUserAssignedIdentityListApiObjectDefinitionType:        dataapimodels.SystemOrUserAssignedIdentityListObjectDefinitionType,
-	resourcemanager.SystemOrUserAssignedIdentityMapApiObjectDefinitionType:         dataapimodels.SystemOrUserAssignedIdentityMapObjectDefinitionType,
-	resourcemanager.UserAssignedIdentityListApiObjectDefinitionType:                dataapimodels.UserAssignedIdentityListObjectDefinitionType,
-	resourcemanager.UserAssignedIdentityMapApiObjectDefinitionType:                 dataapimodels.UserAssignedIdentityMapObjectDefinitionType,
-	resourcemanager.TagsApiObjectDefinitionType:                                    dataapimodels.TagsObjectDefinitionType,
-	resourcemanager.SystemData:                                                     dataapimodels.SystemDataObjectDefinitionType,
-	resourcemanager.ZoneApiObjectDefinitionType:                                    dataapimodels.ZoneObjectDefinitionType,
-	resourcemanager.ZonesApiObjectDefinitionType:                                   dataapimodels.ZonesObjectDefinitionType,
+	// Complex Types
+	models.CSVSDKObjectDefinitionType:        dataapimodels.CsvObjectDefinitionType,
+	models.DictionarySDKObjectDefinitionType: dataapimodels.DictionaryObjectDefinitionType,
+	models.ListSDKObjectDefinitionType:       dataapimodels.ListObjectDefinitionType,
+	models.RawFileSDKObjectDefinitionType:    dataapimodels.RawFileObjectDefinitionType,
+	models.RawObjectSDKObjectDefinitionType:  dataapimodels.RawObjectObjectDefinitionType,
+	models.ReferenceSDKObjectDefinitionType:  dataapimodels.ReferenceObjectDefinitionType,
+
+	// Common Schema
+	models.EdgeZoneSDKObjectDefinitionType:                                dataapimodels.EdgeZoneObjectDefinitionType,
+	models.LocationSDKObjectDefinitionType:                                dataapimodels.LocationObjectDefinitionType,
+	models.SystemAssignedIdentitySDKObjectDefinitionType:                  dataapimodels.SystemAssignedIdentityObjectDefinitionType,
+	models.SystemAndUserAssignedIdentityListSDKObjectDefinitionType:       dataapimodels.SystemAndUserAssignedIdentityListObjectDefinitionType,
+	models.SystemAndUserAssignedIdentityMapSDKObjectDefinitionType:        dataapimodels.SystemAndUserAssignedIdentityMapObjectDefinitionType,
+	models.LegacySystemAndUserAssignedIdentityListSDKObjectDefinitionType: dataapimodels.LegacySystemAndUserAssignedIdentityListObjectDefinitionType,
+	models.LegacySystemAndUserAssignedIdentityMapSDKObjectDefinitionType:  dataapimodels.LegacySystemAndUserAssignedIdentityMapObjectDefinitionType,
+	models.SystemOrUserAssignedIdentityListSDKObjectDefinitionType:        dataapimodels.SystemOrUserAssignedIdentityListObjectDefinitionType,
+	models.SystemOrUserAssignedIdentityMapSDKObjectDefinitionType:         dataapimodels.SystemOrUserAssignedIdentityMapObjectDefinitionType,
+	models.UserAssignedIdentityListSDKObjectDefinitionType:                dataapimodels.UserAssignedIdentityListObjectDefinitionType,
+	models.UserAssignedIdentityMapSDKObjectDefinitionType:                 dataapimodels.UserAssignedIdentityMapObjectDefinitionType,
+	models.TagsSDKObjectDefinitionType:                                    dataapimodels.TagsObjectDefinitionType,
+	models.SystemDataSDKObjectDefinitionType:                              dataapimodels.SystemDataObjectDefinitionType,
+	models.ZoneSDKObjectDefinitionType:                                    dataapimodels.ZoneObjectDefinitionType,
+	models.ZonesSDKObjectDefinitionType:                                   dataapimodels.ZonesObjectDefinitionType,
 }

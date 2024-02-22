@@ -8,11 +8,11 @@ import (
 	"sort"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func MapSDKConstantToRepository(constantName string, details resourcemanager.ConstantDetails) (*dataapimodels.Constant, error) {
+func MapSDKConstantToRepository(constantName string, details models.SDKConstant) (*dataapimodels.Constant, error) {
 	keys := make([]string, 0)
 	keysToValues := make(map[string]dataapimodels.ConstantValue)
 	for k, v := range details.Values {
@@ -43,11 +43,11 @@ func MapSDKConstantToRepository(constantName string, details resourcemanager.Con
 	}, nil
 }
 
-func mapConstantTypeToRepository(input resourcemanager.ConstantType) (*dataapimodels.ConstantType, error) {
-	mappings := map[resourcemanager.ConstantType]dataapimodels.ConstantType{
-		resourcemanager.FloatConstant:   dataapimodels.FloatConstant,
-		resourcemanager.IntegerConstant: dataapimodels.IntegerConstant,
-		resourcemanager.StringConstant:  dataapimodels.StringConstant,
+func mapConstantTypeToRepository(input models.SDKConstantType) (*dataapimodels.ConstantType, error) {
+	mappings := map[models.SDKConstantType]dataapimodels.ConstantType{
+		models.FloatSDKConstantType:   dataapimodels.FloatConstant,
+		models.IntegerSDKConstantType: dataapimodels.IntegerConstant,
+		models.StringSDKConstantType:  dataapimodels.StringConstant,
 	}
 	if v, ok := mappings[input]; ok {
 		return &v, nil

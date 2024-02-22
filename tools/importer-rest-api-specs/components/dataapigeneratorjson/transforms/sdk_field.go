@@ -6,11 +6,11 @@ package transforms
 import (
 	"fmt"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func mapSDKFieldToRepository(fieldName string, fieldDetails resourcemanager.FieldDetails, isTypeHint bool, constants map[string]resourcemanager.ConstantDetails, knownModels map[string]resourcemanager.ModelDetails) (*dataapimodels.ModelField, error) {
+func mapSDKFieldToRepository(fieldName string, fieldDetails models.SDKField, isTypeHint bool, constants map[string]models.SDKConstant, knownModels map[string]models.SDKModel) (*dataapimodels.ModelField, error) {
 	// TODO: thread through logging
 	objectDefinition, err := mapSDKObjectDefinitionToRepository(fieldDetails.ObjectDefinition, constants, knownModels)
 	if err != nil {

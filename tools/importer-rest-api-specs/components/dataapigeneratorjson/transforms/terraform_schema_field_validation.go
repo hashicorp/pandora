@@ -6,33 +6,32 @@ package transforms
 import (
 	"fmt"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func mapTerraformSchemaFieldValidationToRepository(input resourcemanager.TerraformSchemaValidationDefinition) (*dataapimodels.TerraformSchemaFieldValidationDefinition, error) {
-	mappedType, ok := terraformSchemaFieldValidationTypesToRepository[input.Type]
-	if !ok {
-		return nil, fmt.Errorf("internal-error: missing mapping for Schema Field Validation Type %q", string(input.Type))
+func mapTerraformSchemaFieldValidationToRepository(input models.TerraformSchemaFieldValidationDefinition) (*dataapimodels.TerraformSchemaFieldValidationDefinition, error) {
+
+	if v, ok := input.(models.TerraformSchemaFieldValidationPossibleValuesDefinition); ok {
+		val, ok := terraformSchemaFieldPossibleValuesTypesToRepository[v.PossibleValues.Type]
+		if !ok {
+			return nil, fmt.Errorf("internal-error: missing mapping for Validation PossibleValueType %q", string(v.PossibleValues.Type))
+		}
+
+		return &dataapimodels.TerraformSchemaFieldValidationDefinition{
+			Type: dataapimodels.PossibleValuesTerraformSchemaValidationType,
+			PossibleValues: &dataapimodels.TerraformSchemaValidationPossibleValuesDefinition{
+				Type:   val,
+				Values: v.PossibleValues.Values,
+			},
+		}, nil
 	}
 
-	output := dataapimodels.TerraformSchemaFieldValidationDefinition{
-		Type: mappedType,
-	}
-
-	if mappedType == dataapimodels.PossibleValuesTerraformSchemaValidationType {
-		if input.PossibleValues == nil {
-			return nil, fmt.Errorf("internal-error: bad data -`internal.PossibleValues` was nil for a PossibleValues type")
-		}
-		possibleValues, err := mapTerraformSchemaFieldValidationPossibleValuesToRepository(*input.PossibleValues)
-		if err != nil {
-			return nil, fmt.Errorf("mapping the Possible Values for the Terraform Schema Field: %+v", err)
-		}
-		output.PossibleValues = possibleValues
-	}
-	return &output, nil
+	return nil, fmt.Errorf("internal-error: missing mapping for Schema Field Validation Type %T", input)
 }
 
-var terraformSchemaFieldValidationTypesToRepository = map[resourcemanager.TerraformSchemaValidationType]dataapimodels.TerraformSchemaFieldValidationType{
-	resourcemanager.TerraformSchemaValidationTypePossibleValues: dataapimodels.PossibleValuesTerraformSchemaValidationType,
+var terraformSchemaFieldPossibleValuesTypesToRepository = map[models.TerraformSchemaFieldValidationPossibleValuesType]dataapimodels.TerraformSchemaValidationPossibleValuesType{
+	models.IntegerTerraformSchemaFieldValidationPossibleValuesType: dataapimodels.FloatTerraformSchemaValidationPossibleValuesType,
+	models.FloatTerraformSchemaFieldValidationPossibleValuesType:   dataapimodels.IntegerTerraformSchemaValidationPossibleValuesType,
+	models.StringTerraformSchemaFieldValidationPossibleValuesType:  dataapimodels.StringTerraformSchemaValidationPossibleValuesType,
 }

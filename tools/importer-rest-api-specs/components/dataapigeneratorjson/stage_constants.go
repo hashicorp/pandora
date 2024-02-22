@@ -8,8 +8,8 @@ import (
 	"path/filepath"
 
 	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/transforms"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 var _ generatorStage = generateConstantStage{}
@@ -24,9 +24,9 @@ type generateConstantStage struct {
 	// apiResource specifies the APIResource within the APIVersion where the Constants exist.
 	apiResource string
 
-	// constants specifies the map of Constant Name (key) to ConstantDetails (value) which should be
+	// constants specifies the map of Constant Name (key) to SDKConstant (value) which should be
 	// persisted.
-	constants map[string]resourcemanager.ConstantDetails
+	constants map[string]models.SDKConstant
 }
 
 func (g generateConstantStage) name() string {

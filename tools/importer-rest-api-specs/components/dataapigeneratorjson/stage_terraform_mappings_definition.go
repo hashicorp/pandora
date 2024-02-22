@@ -8,8 +8,8 @@ import (
 	"path/filepath"
 
 	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/transforms"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 var _ generatorStage = generateTerraformMappingsDefinitionStage{}
@@ -19,7 +19,7 @@ type generateTerraformMappingsDefinitionStage struct {
 	serviceName string
 
 	// resourceDetails specifies the Terraform Resource Definition.
-	resourceDetails resourcemanager.TerraformResourceDetails
+	resourceDetails models.TerraformResourceDefinition
 }
 
 func (g generateTerraformMappingsDefinitionStage) generate(input *fileSystem, logger hclog.Logger) error {

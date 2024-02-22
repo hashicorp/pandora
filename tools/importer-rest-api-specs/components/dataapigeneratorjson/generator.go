@@ -5,35 +5,15 @@ package dataapigeneratorjson
 
 import (
 	"fmt"
+	"strings"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/transformer"
-	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func Run(input []importerModels.AzureApiDefinition, outputDirectory, swaggerGitSha string, resourceProvider, terraformServicePackage *string, logger hclog.Logger) error {
-	sourceDataOrigin := models.AzureRestAPISpecsSourceDataOrigin
-	sourceDataType := models.ResourceManagerSourceDataType
-	serviceName := input[0].ServiceName
+func Run(serviceName string, service models.Service, sourceDataOrigin models.SourceDataOrigin, sourceDataType models.SourceDataType, outputDirectory, swaggerGitSha string, resourceProvider *string, logger hclog.Logger) error {
 	logger.Info(fmt.Sprintf("Processing Service %q", serviceName))
-
-	// TODO: remove this once the repository is consolidated since this should be inferrable
-	terraformResourceNames := make([]string, 0)
-	if terraformServicePackage != nil {
-		for _, item := range input {
-			for _, resource := range item.Resources {
-				if resource.Terraform == nil {
-					continue
-				}
-
-				for _, details := range resource.Terraform.Resources {
-					terraformResourceNames = append(terraformResourceNames, details.ResourceName)
-				}
-			}
-		}
-	}
 
 	stages := []generatorStage{
 		generateMetaDataStage{
@@ -42,93 +22,83 @@ func Run(input []importerModels.AzureApiDefinition, outputDirectory, swaggerGitS
 			sourceDataType:   sourceDataType,
 		},
 		generateServiceDefinitionStage{
-			serviceName:                 serviceName,
-			resourceProvider:            resourceProvider,
-			shouldGenerate:              true,
-			terraformServicePackageName: terraformServicePackage,
-			terraformResourceNames:      terraformResourceNames,
+			serviceName:         serviceName,
+			resourceProvider:    resourceProvider,
+			shouldGenerate:      true,
+			terraformDefinition: service.TerraformDefinition,
 		},
 	}
 
-	for _, serviceDetails := range input {
-		logger.Info(fmt.Sprintf("Processing Service %q / API Version %q..", serviceDetails.ServiceName, serviceDetails.ApiVersion))
+	for apiVersion, apiVersionDetails := range service.APIVersions {
+		logger.Info(fmt.Sprintf("Processing Service %q / API Version %q..", serviceName, apiVersion))
 		stages = append(stages, generateAPIVersionStage{
-			serviceName:      serviceDetails.ServiceName,
-			apiVersion:       serviceDetails.ApiVersion,
-			isPreviewVersion: serviceDetails.IsPreviewVersion(),
-			resources:        serviceDetails.Resources,
-			sourceDataOrigin: sourceDataOrigin,
+			serviceName:      serviceName,
+			apiVersion:       apiVersion,
+			isPreviewVersion: isPreviewVersion(apiVersion),
+			resources:        apiVersionDetails.Resources,
+			sourceDataOrigin: apiVersionDetails.Source,
 			shouldGenerate:   true,
 		})
 
-		for apiResourceName, apiResourceDetails := range serviceDetails.Resources {
-			// transform `models.AzureAPIResource` into the `resourcemanager` models so we have a consistent type
-			// whilst this WILL change to the `data-api-sdk` models, we should standardise on `resourcemanager` first
-			// so we have an easier migration path.
-			input, err := transformer.ApiResourceFromModelResource(apiResourceDetails)
-			if err != nil {
-				return fmt.Errorf("transforming to APIResource: %+v", err)
-			}
-
+		for apiResourceName, apiResourceDetails := range apiVersionDetails.Resources {
 			// Output the API Definitions for this APIResource
 
 			stages = append(stages, generateConstantStage{
-				serviceName: serviceDetails.ServiceName,
-				apiVersion:  serviceDetails.ApiVersion,
+				serviceName: serviceName,
+				apiVersion:  apiVersion,
 				apiResource: apiResourceName,
-				constants:   input.Schema.Constants,
+				constants:   apiResourceDetails.Constants,
 			})
 
 			stages = append(stages, generateModelsStage{
-				serviceName: serviceDetails.ServiceName,
-				apiVersion:  serviceDetails.ApiVersion,
+				serviceName: serviceName,
+				apiVersion:  apiVersion,
 				apiResource: apiResourceName,
-				constants:   input.Schema.Constants,
-				models:      input.Schema.Models,
+				constants:   apiResourceDetails.Constants,
+				models:      apiResourceDetails.Models,
 			})
 
 			stages = append(stages, generateOperationsStage{
-				serviceName: serviceDetails.ServiceName,
-				apiVersion:  serviceDetails.ApiVersion,
+				serviceName: serviceName,
+				apiVersion:  apiVersion,
 				apiResource: apiResourceName,
-				constants:   input.Schema.Constants,
-				models:      input.Schema.Models,
-				operations:  input.Operations.Operations,
+				constants:   apiResourceDetails.Constants,
+				models:      apiResourceDetails.Models,
+				operations:  apiResourceDetails.Operations,
 			})
 
 			stages = append(stages, generateResourceIDsStage{
-				serviceName: serviceDetails.ServiceName,
-				apiVersion:  serviceDetails.ApiVersion,
+				serviceName: serviceName,
+				apiVersion:  apiVersion,
 				apiResource: apiResourceName,
-				resourceIDs: input.Schema.ResourceIds,
+				resourceIDs: apiResourceDetails.ResourceIDs,
+			})
+		}
+	}
+
+	// Output the Terraform Resource Definitions, if they exist.
+	if service.TerraformDefinition != nil {
+		for terraformResourceLabel, terraformResourceDefinition := range service.TerraformDefinition.Resources {
+			stages = append(stages, generateTerraformResourceDefinitionStage{
+				serviceName:     serviceName,
+				resourceLabel:   terraformResourceLabel,
+				resourceDetails: terraformResourceDefinition,
 			})
 
-			// Output the Terraform Resource Definitions, if they exist.
-			// NOTE: this is going to want shifting around, but should stay here for now.
-			if apiResourceDetails.Terraform != nil {
-				for terraformResourceLabel, terraformResourceDefinition := range apiResourceDetails.Terraform.Resources {
-					stages = append(stages, generateTerraformResourceDefinitionStage{
-						serviceName:     serviceDetails.ServiceName,
-						resourceLabel:   terraformResourceLabel,
-						resourceDetails: terraformResourceDefinition,
-					})
+			stages = append(stages, generateTerraformSchemaModelsStage{
+				serviceName:     serviceName,
+				resourceDetails: terraformResourceDefinition,
+			})
 
-					stages = append(stages, generateTerraformSchemaModelsStage{
-						serviceName:     serviceDetails.ServiceName,
-						resourceDetails: terraformResourceDefinition,
-					})
+			stages = append(stages, generateTerraformMappingsDefinitionStage{
+				serviceName:     serviceName,
+				resourceDetails: terraformResourceDefinition,
+			})
 
-					stages = append(stages, generateTerraformMappingsDefinitionStage{
-						serviceName:     serviceDetails.ServiceName,
-						resourceDetails: terraformResourceDefinition,
-					})
-
-					stages = append(stages, generateTerraformResourceTestsStage{
-						serviceName:     serviceDetails.ServiceName,
-						resourceDetails: terraformResourceDefinition,
-					})
-				}
-			}
+			stages = append(stages, generateTerraformResourceTestsStage{
+				serviceName:     serviceName,
+				resourceDetails: terraformResourceDefinition,
+			})
 		}
 	}
 
@@ -148,4 +118,21 @@ func Run(input []importerModels.AzureApiDefinition, outputDirectory, swaggerGitS
 	}
 
 	return nil
+}
+
+func isPreviewVersion(input string) bool {
+	lower := strings.ToLower(input)
+
+	// handles preview, privatepreview and publicpreview
+	if strings.Contains(lower, "preview") {
+		return true
+	}
+	if strings.Contains(lower, "beta") {
+		return true
+	}
+	if strings.Contains(lower, "alpha") {
+		return true
+	}
+
+	return false
 }

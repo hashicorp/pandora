@@ -71,10 +71,6 @@ const (
 	// Type will be defined as a NestedItem within the TerraformSchemaObjectDefinition.
 	SetTerraformSchemaObjectDefinitionType TerraformSchemaObjectDefinitionType = "Set"
 
-	// SkuTerraformSchemaObjectDefinitionType specifies that the Type represents the name of a Sku.
-	// This is a CommonSchema type sourced from `hashicorp/go-azure-helpers`.
-	SkuTerraformSchemaObjectDefinitionType TerraformSchemaObjectDefinitionType = "Sku"
-
 	// StringTerraformSchemaObjectDefinitionType specifies that the Type represents a String.
 	StringTerraformSchemaObjectDefinitionType TerraformSchemaObjectDefinitionType = "String"
 

@@ -8,8 +8,8 @@ import (
 	"path/filepath"
 
 	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/transforms"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 var _ generatorStage = generateTerraformResourceDefinitionStage{}
@@ -19,7 +19,7 @@ type generateTerraformResourceDefinitionStage struct {
 	serviceName string
 
 	// resourceDetails specifies the Terraform Resource Definition.
-	resourceDetails resourcemanager.TerraformResourceDetails
+	resourceDetails models.TerraformResourceDefinition
 
 	// resourceLabel specifies the Label for this Terraform Resource without the Provider Prefix.
 	// Example: `container_service` rather than `azurerm_container_service`.
