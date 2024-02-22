@@ -19,6 +19,9 @@ import (
 )
 
 func runImporter(input RunInput, generationData []discovery.ServiceInput, swaggerGitSha string) error {
+	sourceDataType := models.ResourceManagerSourceDataType
+	sourceDataOrigin := models.AzureRestAPISpecsSourceDataOrigin
+
 	// group the API Versions by Service
 	dataByServices := make(map[string][]discovery.ServiceInput)
 	for _, v := range generationData {
@@ -46,13 +49,13 @@ func runImporter(input RunInput, generationData []discovery.ServiceInput, swagge
 		serviceDetails := dataByServices[serviceName]
 		logger := input.Logger.Named(fmt.Sprintf("Importer for Service %q", serviceName))
 
-		serviceDirectory := path.Join(input.OutputDirectory, serviceName)
+		serviceDirectory := path.Join(input.OutputDirectory, string(sourceDataType), serviceName)
 		logger.Debug("recreating the working directory at %q for Service %q", serviceDirectory, serviceName)
 		if err := recreateDirectory(serviceDirectory, logger); err != nil {
 			return fmt.Errorf("recreating directory %q for service %q", serviceDirectory, serviceName)
 		}
 
-		if err := runImportForService(input, serviceName, serviceDetails, logger, swaggerGitSha); err != nil {
+		if err := runImportForService(input, serviceName, serviceDetails, sourceDataType, sourceDataOrigin, logger, swaggerGitSha); err != nil {
 			return fmt.Errorf("parsing data for Service %q: %+v", serviceName, err)
 		}
 	}
@@ -60,7 +63,7 @@ func runImporter(input RunInput, generationData []discovery.ServiceInput, swagge
 	return nil
 }
 
-func runImportForService(input RunInput, serviceName string, apiVersionsForService []discovery.ServiceInput, logger hclog.Logger, swaggerGitSha string) error {
+func runImportForService(input RunInput, serviceName string, apiVersionsForService []discovery.ServiceInput, sourceDataType models.SourceDataType, sourceDataOrigin models.SourceDataOrigin, logger hclog.Logger, swaggerGitSha string) error {
 	task := pipelineTask{}
 	apiVersions := make([]importerModels.AzureApiDefinition, 0)
 	var resourceProvider *string
@@ -148,9 +151,6 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 	if err != nil {
 		return fmt.Errorf("transforming the internal types to the Data API SDK types: %+v", err)
 	}
-
-	sourceDataType := models.ResourceManagerSourceDataType
-	sourceDataOrigin := models.AzureRestAPISpecsSourceDataOrigin
 
 	// Now that we have the populated data, let's go ahead and output that..
 	logger.Info(fmt.Sprintf("Persisting API Definitions for Service %s..", serviceName))

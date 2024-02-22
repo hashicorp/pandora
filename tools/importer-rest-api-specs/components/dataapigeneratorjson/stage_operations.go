@@ -39,8 +39,10 @@ type generateOperationsStage struct {
 
 func (g generateOperationsStage) generate(input *fileSystem, logger hclog.Logger) error {
 	logger.Debug("Generating Operations..")
-	for operationName, operationDetails := range g.operations {
+	for operationName := range g.operations {
 		logger.Trace(fmt.Sprintf("Generating Operation %q..", operationName))
+
+		operationDetails := g.operations[operationName]
 		mapped, err := transforms.MapSDKOperationToRepository(operationName, operationDetails, g.constants, g.models)
 		if err != nil {
 			return fmt.Errorf("mapping Operation %q: %+v", operationName, err)

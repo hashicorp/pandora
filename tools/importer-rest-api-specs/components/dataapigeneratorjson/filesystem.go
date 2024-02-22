@@ -71,6 +71,7 @@ func (f *fileSystem) stage(path filePath, body any) error {
 
 func persistFileSystem(workingDirectory string, dataType models.SourceDataType, serviceName string, input *fileSystem, logger hclog.Logger) error {
 	rootDir := filepath.Join(workingDirectory, string(dataType))
+	logger.Trace(fmt.Sprintf("Persisting files into %q", rootDir))
 
 	// Delete any existing directory with this service name
 	serviceDir := filepath.Join(rootDir, serviceName)
@@ -91,15 +92,15 @@ func persistFileSystem(workingDirectory string, dataType models.SourceDataType, 
 	}
 
 	// write the files
-	for filePath, fileBody := range input.f {
-		fileFullPath := filepath.Join(rootDir, filePath)
+	for path, body := range input.f {
+		fileFullPath := filepath.Join(rootDir, path)
 		logger.Trace(fmt.Sprintf("Writing file %q", fileFullPath))
 		file, err := os.Create(fileFullPath)
 		if err != nil {
 			return fmt.Errorf("opening %q: %+v", fileFullPath, err)
 		}
 
-		_, _ = file.Write(fileBody)
+		_, _ = file.Write(body)
 		_ = file.Close()
 	}
 
