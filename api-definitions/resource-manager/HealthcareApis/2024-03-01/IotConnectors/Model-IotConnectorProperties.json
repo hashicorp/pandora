@@ -1,0 +1,41 @@
+{
+  "name": "IotConnectorProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "deviceMapping",
+      "name": "DeviceMapping",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "IotMappingProperties"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "ingestionEndpointConfiguration",
+      "name": "IngestionEndpointConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "IotEventHubIngestionEndpointConfiguration"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "provisioningState",
+      "name": "ProvisioningState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ProvisioningState"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
+}
