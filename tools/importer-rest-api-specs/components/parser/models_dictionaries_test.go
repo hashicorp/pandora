@@ -7,6 +7,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
@@ -26,17 +27,17 @@ func TestParseModelWithADictionaryOfIntegers(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"MapField": {
 								JsonName: "mapField",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionDictionary,
-									NestedItem: &importerModels.ObjectDefinition{
-										Type: importerModels.ObjectDefinitionInteger,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.DictionarySDKObjectDefinitionType,
+									NestedItem: &models.SDKObjectDefinition{
+										Type: models.IntegerSDKObjectDefinitionType,
 									},
 								},
 								Required: false,
@@ -50,9 +51,9 @@ func TestParseModelWithADictionaryOfIntegers(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Hello_GetWorld",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/things"),
 					},
@@ -79,17 +80,17 @@ func TestParseModelWithADictionaryOfIntegersInlined(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"MapField": {
 								JsonName: "mapField",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionDictionary,
-									NestedItem: &importerModels.ObjectDefinition{
-										Type: importerModels.ObjectDefinitionInteger,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.DictionarySDKObjectDefinitionType,
+									NestedItem: &models.SDKObjectDefinition{
+										Type: models.IntegerSDKObjectDefinitionType,
 									},
 								},
 								Required: false,
@@ -103,9 +104,9 @@ func TestParseModelWithADictionaryOfIntegersInlined(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Hello_GetWorld",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/things"),
 					},
@@ -132,19 +133,19 @@ func TestParseModelWithADictionaryOfAnObject(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"MapField": {
 								JsonName: "mapField",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									NestedItem: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
+									NestedItem: &models.SDKObjectDefinition{
 										ReferenceName: pointer.To("MapFieldProperties"),
-										Type:          importerModels.ObjectDefinitionReference,
+										Type:          models.ReferenceSDKObjectDefinitionType,
 									},
-									Type: importerModels.ObjectDefinitionDictionary,
+									Type: models.DictionarySDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -154,29 +155,29 @@ func TestParseModelWithADictionaryOfAnObject(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"Line1": {
 								JsonName: "line1",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Line2": {
 								JsonName: "line2",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"City": {
 								JsonName: "city",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Country": {
 								JsonName: "country",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -189,9 +190,9 @@ func TestParseModelWithADictionaryOfAnObject(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Hello_GetWorld",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/things"),
 					},
@@ -218,19 +219,19 @@ func TestParseModelWithADictionaryOfAnObjectInlined(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"MapField": {
 								JsonName: "mapField",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									NestedItem: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
+									NestedItem: &models.SDKObjectDefinition{
 										ReferenceName: pointer.To("MapFieldProperties"),
-										Type:          importerModels.ObjectDefinitionReference,
+										Type:          models.ReferenceSDKObjectDefinitionType,
 									},
-									Type: importerModels.ObjectDefinitionDictionary,
+									Type: models.DictionarySDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -240,29 +241,29 @@ func TestParseModelWithADictionaryOfAnObjectInlined(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"Line1": {
 								JsonName: "line1",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Line2": {
 								JsonName: "line2",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"City": {
 								JsonName: "city",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Country": {
 								JsonName: "country",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -275,9 +276,9 @@ func TestParseModelWithADictionaryOfAnObjectInlined(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Hello_GetWorld",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/things"),
 					},
@@ -304,17 +305,17 @@ func TestParseModelWithADictionaryOfString(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"MapField": {
 								JsonName: "mapField",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionDictionary,
-									NestedItem: &importerModels.ObjectDefinition{
-										Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.DictionarySDKObjectDefinitionType,
+									NestedItem: &models.SDKObjectDefinition{
+										Type: models.StringSDKObjectDefinitionType,
 									},
 								},
 								Required: false,
@@ -328,9 +329,9 @@ func TestParseModelWithADictionaryOfString(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Hello_GetWorld",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/things"),
 					},
@@ -357,17 +358,17 @@ func TestParseModelWithADictionaryOfStringInlined(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"MapField": {
 								JsonName: "mapField",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionDictionary,
-									NestedItem: &importerModels.ObjectDefinition{
-										Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.DictionarySDKObjectDefinitionType,
+									NestedItem: &models.SDKObjectDefinition{
+										Type: models.StringSDKObjectDefinitionType,
 									},
 								},
 								Required: false,
@@ -381,9 +382,9 @@ func TestParseModelWithADictionaryOfStringInlined(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Hello_GetWorld",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/things"),
 					},

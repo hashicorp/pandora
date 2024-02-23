@@ -16,12 +16,14 @@ var _ customFieldMatcher = systemAssignedIdentityMatcher{}
 
 type systemAssignedIdentityMatcher struct{}
 
-func (systemAssignedIdentityMatcher) CustomFieldType() importerModels.CustomFieldType {
-	return importerModels.CustomFieldTypeSystemAssignedIdentity
+func (systemAssignedIdentityMatcher) ReplacementObjectDefinition() models.SDKObjectDefinition {
+	return models.SDKObjectDefinition{
+		Type: models.SystemAssignedIdentitySDKObjectDefinitionType,
+	}
 }
 
-func (systemAssignedIdentityMatcher) IsMatch(_ importerModels.FieldDetails, definition importerModels.ObjectDefinition, known internal.ParseResult) bool {
-	if definition.Type != importerModels.ObjectDefinitionReference {
+func (systemAssignedIdentityMatcher) IsMatch(_ importerModels.FieldDetails, definition models.SDKObjectDefinition, known internal.ParseResult) bool {
+	if definition.Type != models.ReferenceSDKObjectDefinitionType {
 		return false
 	}
 
@@ -47,7 +49,7 @@ func (systemAssignedIdentityMatcher) IsMatch(_ importerModels.FieldDetails, defi
 		}
 
 		if strings.EqualFold(fieldName, "Type") {
-			if fieldVal.ObjectDefinition == nil || fieldVal.ObjectDefinition.Type != importerModels.ObjectDefinitionReference {
+			if fieldVal.ObjectDefinition.Type != models.ReferenceSDKObjectDefinitionType {
 				continue
 			}
 			constant, ok := known.Constants[*fieldVal.ObjectDefinition.ReferenceName]

@@ -7,6 +7,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
@@ -26,9 +27,9 @@ func TestParseDiscriminatorsTopLevel(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"Nested": {
 								JsonName: "nested",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("Animal"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
@@ -38,8 +39,8 @@ func TestParseDiscriminatorsTopLevel(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
@@ -53,15 +54,15 @@ func TestParseDiscriminatorsTopLevel(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"IsFluffy": {
 								JsonName: "isFluffy",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
@@ -74,15 +75,15 @@ func TestParseDiscriminatorsTopLevel(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"Barks": {
 								JsonName: "barks",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
@@ -95,9 +96,9 @@ func TestParseDiscriminatorsTopLevel(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Discriminator_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -124,12 +125,12 @@ func TestParseDiscriminatorsWithinArray(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"BiologicalEntities": {
 								JsonName: "biologicalEntities",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									NestedItem: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
+									NestedItem: &models.SDKObjectDefinition{
 										ReferenceName: pointer.To("BiologicalEntity"),
-										Type:          importerModels.ObjectDefinitionReference,
+										Type:          models.ReferenceSDKObjectDefinitionType,
 									},
-									Type: importerModels.ObjectDefinitionList,
+									Type: models.ListSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
@@ -139,8 +140,8 @@ func TestParseDiscriminatorsWithinArray(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"TypeName": {
 								JsonName: "typeName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
@@ -154,15 +155,15 @@ func TestParseDiscriminatorsWithinArray(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"IsFluffy": {
 								JsonName: "isFluffy",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"TypeName": {
 								JsonName: "typeName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
@@ -175,22 +176,22 @@ func TestParseDiscriminatorsWithinArray(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"FirstName": {
 								JsonName: "firstName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"LastName": {
 								JsonName: "lastName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"TypeName": {
 								JsonName: "typeName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
@@ -203,9 +204,9 @@ func TestParseDiscriminatorsWithinArray(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Discriminator_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -232,16 +233,16 @@ func TestParseDiscriminatorsWithinDiscriminators(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"FavouriteToy": {
 								JsonName: "favouriteToy",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("Toy"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -252,15 +253,15 @@ func TestParseDiscriminatorsWithinDiscriminators(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"Length": {
 								JsonName: "length",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionFloat,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.FloatSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"ToyType": {
 								JsonName: "toyType",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
@@ -276,23 +277,23 @@ func TestParseDiscriminatorsWithinDiscriminators(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"FavouriteToy": {
 								JsonName: "favouriteToy",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("Toy"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"IsFluffy": {
 								JsonName: "isFluffy",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
@@ -305,23 +306,23 @@ func TestParseDiscriminatorsWithinDiscriminators(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"FavouriteToy": {
 								JsonName: "favouriteToy",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("Toy"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Barks": {
 								JsonName: "barks",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
@@ -331,9 +332,9 @@ func TestParseDiscriminatorsWithinDiscriminators(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"Nested": {
 								JsonName: "nested",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("Animal"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
@@ -343,22 +344,22 @@ func TestParseDiscriminatorsWithinDiscriminators(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"Colour": {
 								JsonName: "colour",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"Intensity": {
 								JsonName: "intensity",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionInteger,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.IntegerSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"ToyType": {
 								JsonName: "toyType",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
@@ -371,8 +372,8 @@ func TestParseDiscriminatorsWithinDiscriminators(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"ToyType": {
 								JsonName: "toyType",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
@@ -386,9 +387,9 @@ func TestParseDiscriminatorsWithinDiscriminators(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Discriminator_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -418,8 +419,8 @@ func TestParseDiscriminatedParentTypeThatShouldntBe(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"Type": {
 								JsonName: "type",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -432,9 +433,9 @@ func TestParseDiscriminatedParentTypeThatShouldntBe(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Discriminator_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Animal"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -464,8 +465,8 @@ func TestParseDiscriminatedChildTypeThatShouldntBe(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"Barks": {
 								JsonName: "barks",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -478,9 +479,9 @@ func TestParseDiscriminatedChildTypeThatShouldntBe(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Discriminator_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Dog"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -510,8 +511,8 @@ func TestParseDiscriminatedChildTypeWhereParentShouldNotBeUsed(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
@@ -522,15 +523,15 @@ func TestParseDiscriminatedChildTypeWhereParentShouldNotBeUsed(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"IsFluffy": {
 								JsonName: "isFluffy",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
@@ -543,15 +544,15 @@ func TestParseDiscriminatedChildTypeWhereParentShouldNotBeUsed(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"Barks": {
 								JsonName: "barks",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
@@ -564,9 +565,9 @@ func TestParseDiscriminatedChildTypeWhereParentShouldNotBeUsed(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"Nested": {
 								JsonName: "nested",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("Dog"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
@@ -579,9 +580,9 @@ func TestParseDiscriminatedChildTypeWhereParentShouldNotBeUsed(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Discriminator_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -608,8 +609,8 @@ func TestParseDiscriminatorsInheritingFromOtherDiscriminators(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
@@ -620,15 +621,15 @@ func TestParseDiscriminatorsInheritingFromOtherDiscriminators(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"IsFluffy": {
 								JsonName: "isFluffy",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
@@ -641,22 +642,22 @@ func TestParseDiscriminatorsInheritingFromOtherDiscriminators(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"Barks": {
 								JsonName: "barks",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"IsFluffy": {
 								JsonName: "isFluffy",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
@@ -669,9 +670,9 @@ func TestParseDiscriminatorsInheritingFromOtherDiscriminators(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"Nested": {
 								JsonName: "nested",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("Animal"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
@@ -684,9 +685,9 @@ func TestParseDiscriminatorsInheritingFromOtherDiscriminators(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Discriminator_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -713,15 +714,15 @@ func TestParseDiscriminatorsDeepInheritance(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"TypeName": {
 								JsonName: "typeName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"IsPlantEater": {
 								JsonName: "isPlantEater",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
@@ -734,8 +735,8 @@ func TestParseDiscriminatorsDeepInheritance(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"TypeName": {
 								JsonName: "typeName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
@@ -746,22 +747,22 @@ func TestParseDiscriminatorsDeepInheritance(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"IsPlantEater": {
 								JsonName: "isPlantEater",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"IsPredator": {
 								JsonName: "isPredator",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"TypeName": {
 								JsonName: "typeName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
@@ -774,29 +775,29 @@ func TestParseDiscriminatorsDeepInheritance(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"IsFluffy": {
 								JsonName: "isFluffy",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"IsPlantEater": {
 								JsonName: "isPlantEater",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"IsPredator": {
 								JsonName: "isPredator",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"TypeName": {
 								JsonName: "typeName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
@@ -809,9 +810,9 @@ func TestParseDiscriminatorsDeepInheritance(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"BiologicalEntity": {
 								JsonName: "biologicalEntity",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("BiologicalEntity"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
@@ -824,36 +825,36 @@ func TestParseDiscriminatorsDeepInheritance(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"IsFluffy": {
 								JsonName: "isFluffy",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"IsFriendly": {
 								JsonName: "isFriendly",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"IsPlantEater": {
 								JsonName: "isPlantEater",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"IsPredator": {
 								JsonName: "isPredator",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"TypeName": {
 								JsonName: "typeName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
@@ -866,9 +867,9 @@ func TestParseDiscriminatorsDeepInheritance(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Discriminator_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -897,15 +898,15 @@ func TestParseDiscriminatorsWithMultipleParents(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"SomeField": {
 								JsonName: "someField",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"TypeName": {
 								JsonName: "typeName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
@@ -916,36 +917,36 @@ func TestParseDiscriminatorsWithMultipleParents(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"FirstName": {
 								JsonName: "firstName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"IsFluffy": {
 								JsonName: "isFluffy",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"LastName": {
 								JsonName: "lastName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"SomeField": {
 								JsonName: "someField",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"TypeName": {
 								JsonName: "typeName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
@@ -958,9 +959,9 @@ func TestParseDiscriminatorsWithMultipleParents(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"Item": {
 								JsonName: "item",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("BiologicalEntity"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
@@ -970,36 +971,36 @@ func TestParseDiscriminatorsWithMultipleParents(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"Age": {
 								JsonName: "age",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionInteger,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.IntegerSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"FirstName": {
 								JsonName: "firstName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"LastName": {
 								JsonName: "lastName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"SomeField": {
 								JsonName: "someField",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"TypeName": {
 								JsonName: "typeName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
@@ -1018,9 +1019,9 @@ func TestParseDiscriminatorsWithMultipleParents(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Discriminator_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -1049,15 +1050,15 @@ func TestParseDiscriminatorsWithMultipleParentsWithinArray(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"SomeField": {
 								JsonName: "someField",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"TypeName": {
 								JsonName: "typeName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
@@ -1068,36 +1069,36 @@ func TestParseDiscriminatorsWithMultipleParentsWithinArray(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"FirstName": {
 								JsonName: "firstName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"IsFluffy": {
 								JsonName: "isFluffy",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"LastName": {
 								JsonName: "lastName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"SomeField": {
 								JsonName: "someField",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"TypeName": {
 								JsonName: "typeName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
@@ -1110,12 +1111,12 @@ func TestParseDiscriminatorsWithMultipleParentsWithinArray(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"Items": {
 								JsonName: "items",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									NestedItem: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
+									NestedItem: &models.SDKObjectDefinition{
 										ReferenceName: pointer.To("BiologicalEntity"),
-										Type:          importerModels.ObjectDefinitionReference,
+										Type:          models.ReferenceSDKObjectDefinitionType,
 									},
-									Type: importerModels.ObjectDefinitionList,
+									Type: models.ListSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
@@ -1125,36 +1126,36 @@ func TestParseDiscriminatorsWithMultipleParentsWithinArray(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"Age": {
 								JsonName: "age",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionInteger,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.IntegerSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"FirstName": {
 								JsonName: "firstName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"LastName": {
 								JsonName: "lastName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"SomeField": {
 								JsonName: "someField",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"TypeName": {
 								JsonName: "typeName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
@@ -1173,9 +1174,9 @@ func TestParseDiscriminatorsWithMultipleParentsWithinArray(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Discriminator_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -1205,8 +1206,8 @@ func TestParseDiscriminatorsOrphanedChild(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
@@ -1217,15 +1218,15 @@ func TestParseDiscriminatorsOrphanedChild(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"IsFluffy": {
 								JsonName: "isFluffy",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
@@ -1238,15 +1239,15 @@ func TestParseDiscriminatorsOrphanedChild(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"Barks": {
 								JsonName: "barks",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
@@ -1282,8 +1283,8 @@ func TestParseDiscriminatorsOrphanedChildWithNestedModel(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
@@ -1294,15 +1295,15 @@ func TestParseDiscriminatorsOrphanedChildWithNestedModel(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"IsFluffy": {
 								JsonName: "isFluffy",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
@@ -1315,26 +1316,26 @@ func TestParseDiscriminatorsOrphanedChildWithNestedModel(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"Barks": {
 								JsonName: "barks",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"Parameters": {
 								JsonName: "parameters",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									NestedItem: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
+									NestedItem: &models.SDKObjectDefinition{
 										ReferenceName: pointer.To("KeyValuePair"),
-										Type:          importerModels.ObjectDefinitionReference,
+										Type:          models.ReferenceSDKObjectDefinitionType,
 									},
-									Type: importerModels.ObjectDefinitionList,
+									Type: models.ListSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -1348,15 +1349,15 @@ func TestParseDiscriminatorsOrphanedChildWithNestedModel(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"Key": {
 								JsonName: "key",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"Value": {
 								JsonName: "value",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},

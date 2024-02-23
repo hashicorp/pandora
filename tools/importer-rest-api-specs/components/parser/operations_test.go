@@ -150,8 +150,8 @@ func TestParseOperationSingleWithRequestObject(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -164,8 +164,8 @@ func TestParseOperationSingleWithRequestObject(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
 						OperationId:         "Hello_PutWorld",
-						RequestObject: &importerModels.ObjectDefinition{
-							Type:          importerModels.ObjectDefinitionReference,
+						RequestObject: &models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("Example"),
 						},
 						UriSuffix: pointer.To("/things"),
@@ -193,8 +193,8 @@ func TestParseOperationSingleWithRequestObjectInlined(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -207,8 +207,8 @@ func TestParseOperationSingleWithRequestObjectInlined(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
 						OperationId:         "Hello_PutWorld",
-						RequestObject: &importerModels.ObjectDefinition{
-							Type:          importerModels.ObjectDefinitionReference,
+						RequestObject: &models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("Example"),
 						},
 						UriSuffix: pointer.To("/things"),
@@ -236,8 +236,8 @@ func TestParseOperationSingleWithResponseObject(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -250,8 +250,8 @@ func TestParseOperationSingleWithResponseObject(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Hello_GetWorld",
-						ResponseObject: &importerModels.ObjectDefinition{
-							Type:          importerModels.ObjectDefinitionReference,
+						ResponseObject: &models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("Example"),
 						},
 						UriSuffix: pointer.To("/things"),
@@ -279,8 +279,8 @@ func TestParseOperationSingleWithResponseObjectInlined(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -293,8 +293,8 @@ func TestParseOperationSingleWithResponseObjectInlined(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Hello_GetWorld",
-						ResponseObject: &importerModels.ObjectDefinition{
-							Type:          importerModels.ObjectDefinitionReference,
+						ResponseObject: &models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("Example"),
 						},
 						UriSuffix: pointer.To("/things"),
@@ -322,8 +322,8 @@ func TestParseOperationSingleWithResponseObjectInlinedList(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -336,10 +336,10 @@ func TestParseOperationSingleWithResponseObjectInlinedList(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Hello_GetWorld",
-						ResponseObject: &importerModels.ObjectDefinition{
-							Type: importerModels.ObjectDefinitionList,
-							NestedItem: &importerModels.ObjectDefinition{
-								Type:          importerModels.ObjectDefinitionReference,
+						ResponseObject: &models.SDKObjectDefinition{
+							Type: models.ListSDKObjectDefinitionType,
+							NestedItem: &models.SDKObjectDefinition{
+								Type:          models.ReferenceSDKObjectDefinitionType,
 								ReferenceName: pointer.To("Example"),
 							},
 						},
@@ -369,8 +369,8 @@ func TestParseOperationSingleRequestingWithABool(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
 						OperationId:         "Hello_PutWorld",
-						RequestObject: &importerModels.ObjectDefinition{
-							Type: importerModels.ObjectDefinitionBoolean,
+						RequestObject: &models.SDKObjectDefinition{
+							Type: models.BooleanSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/things"),
 					},
@@ -398,8 +398,8 @@ func TestParseOperationSingleRequestingWithAInteger(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
 						OperationId:         "Hello_PutWorld",
-						RequestObject: &importerModels.ObjectDefinition{
-							Type: importerModels.ObjectDefinitionInteger,
+						RequestObject: &models.SDKObjectDefinition{
+							Type: models.IntegerSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/things"),
 					},
@@ -427,10 +427,10 @@ func TestParseOperationSingleRequestingWithADictionaryOfStrings(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
 						OperationId:         "Hello_PutWorld",
-						RequestObject: &importerModels.ObjectDefinition{
-							Type: importerModels.ObjectDefinitionDictionary,
-							NestedItem: &importerModels.ObjectDefinition{
-								Type: importerModels.ObjectDefinitionString,
+						RequestObject: &models.SDKObjectDefinition{
+							Type: models.DictionarySDKObjectDefinitionType,
+							NestedItem: &models.SDKObjectDefinition{
+								Type: models.StringSDKObjectDefinitionType,
 							},
 						},
 						UriSuffix: pointer.To("/things"),
@@ -459,10 +459,10 @@ func TestParseOperationSingleRequestingWithAListOfStrings(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
 						OperationId:         "Hello_PutWorld",
-						RequestObject: &importerModels.ObjectDefinition{
-							Type: importerModels.ObjectDefinitionList,
-							NestedItem: &importerModels.ObjectDefinition{
-								Type: importerModels.ObjectDefinitionString,
+						RequestObject: &models.SDKObjectDefinition{
+							Type: models.ListSDKObjectDefinitionType,
+							NestedItem: &models.SDKObjectDefinition{
+								Type: models.StringSDKObjectDefinitionType,
 							},
 						},
 						UriSuffix: pointer.To("/things"),
@@ -493,8 +493,8 @@ func TestParseOperationSingleRequestingWithAString(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
 						OperationId:         "Hello_PutWorld",
-						RequestObject: &importerModels.ObjectDefinition{
-							Type: importerModels.ObjectDefinitionString,
+						RequestObject: &models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/things"),
 					},
@@ -522,8 +522,8 @@ func TestParseOperationSingleReturningABool(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Hello_GimmeABoolean",
-						ResponseObject: &importerModels.ObjectDefinition{
-							Type: importerModels.ObjectDefinitionBoolean,
+						ResponseObject: &models.SDKObjectDefinition{
+							Type: models.BooleanSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/worlds/favourite"),
 					},
@@ -551,8 +551,8 @@ func TestParseOperationSingleReturningAFloat(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Hello_GimmeAFloat",
-						ResponseObject: &importerModels.ObjectDefinition{
-							Type: importerModels.ObjectDefinitionFloat,
+						ResponseObject: &models.SDKObjectDefinition{
+							Type: models.FloatSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/worlds/favourite"),
 					},
@@ -580,8 +580,8 @@ func TestParseOperationSingleReturningAFile(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Hello_GimmeAFile",
-						ResponseObject: &importerModels.ObjectDefinition{
-							Type: importerModels.ObjectDefinitionRawFile,
+						ResponseObject: &models.SDKObjectDefinition{
+							Type: models.RawFileSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/worlds/favourite"),
 					},
@@ -609,8 +609,8 @@ func TestParseOperationSingleReturningAnInteger(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Hello_GimmeAnInteger",
-						ResponseObject: &importerModels.ObjectDefinition{
-							Type: importerModels.ObjectDefinitionInteger,
+						ResponseObject: &models.SDKObjectDefinition{
+							Type: models.IntegerSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/worlds/favourite"),
 					},
@@ -638,8 +638,8 @@ func TestParseOperationSingleReturningAString(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Hello_GimmeAString",
-						ResponseObject: &importerModels.ObjectDefinition{
-							Type: importerModels.ObjectDefinitionString,
+						ResponseObject: &models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/worlds/favourite"),
 					},
@@ -668,8 +668,8 @@ func TestParseOperationSingleReturningAnErrorStatusCode(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Hello_GimmeAString",
-						ResponseObject: &importerModels.ObjectDefinition{
-							Type: importerModels.ObjectDefinitionString,
+						ResponseObject: &models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/worlds/favourite"),
 					},
@@ -697,11 +697,11 @@ func TestParseOperationSingleReturningATopLevelRawObject(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Hello_RawObjectToMeToYou",
-						RequestObject: &importerModels.ObjectDefinition{
-							Type: importerModels.ObjectDefinitionRawObject,
+						RequestObject: &models.SDKObjectDefinition{
+							Type: models.RawObjectSDKObjectDefinitionType,
 						},
-						ResponseObject: &importerModels.ObjectDefinition{
-							Type: importerModels.ObjectDefinitionRawObject,
+						ResponseObject: &models.SDKObjectDefinition{
+							Type: models.RawObjectSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/chuckle"),
 					},
@@ -728,8 +728,8 @@ func TestParseOperationSingleReturningADictionaryOfAModel(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -742,11 +742,11 @@ func TestParseOperationSingleReturningADictionaryOfAModel(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Hello_GimmeADictionaryOfAModel",
-						ResponseObject: &importerModels.ObjectDefinition{
-							Type: importerModels.ObjectDefinitionDictionary,
-							NestedItem: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
+							Type: models.DictionarySDKObjectDefinitionType,
+							NestedItem: &models.SDKObjectDefinition{
 								ReferenceName: pointer.To("Person"),
-								Type:          importerModels.ObjectDefinitionReference,
+								Type:          models.ReferenceSDKObjectDefinitionType,
 							},
 						},
 						UriSuffix: pointer.To("/worlds/favourite"),
@@ -775,10 +775,10 @@ func TestParseOperationSingleReturningADictionaryOfStrings(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Hello_GimmeADictionaryOfStrings",
-						ResponseObject: &importerModels.ObjectDefinition{
-							Type: importerModels.ObjectDefinitionDictionary,
-							NestedItem: &importerModels.ObjectDefinition{
-								Type: importerModels.ObjectDefinitionString,
+						ResponseObject: &models.SDKObjectDefinition{
+							Type: models.DictionarySDKObjectDefinitionType,
+							NestedItem: &models.SDKObjectDefinition{
+								Type: models.StringSDKObjectDefinitionType,
 							},
 						},
 						UriSuffix: pointer.To("/worlds/favourite"),
@@ -807,10 +807,10 @@ func TestParseOperationSingleReturningAListOfIntegers(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Hello_GimmeAListOfIntegers",
-						ResponseObject: &importerModels.ObjectDefinition{
-							Type: importerModels.ObjectDefinitionList,
-							NestedItem: &importerModels.ObjectDefinition{
-								Type: importerModels.ObjectDefinitionInteger,
+						ResponseObject: &models.SDKObjectDefinition{
+							Type: models.ListSDKObjectDefinitionType,
+							NestedItem: &models.SDKObjectDefinition{
+								Type: models.IntegerSDKObjectDefinitionType,
 							},
 						},
 						UriSuffix: pointer.To("/worlds/favourite"),
@@ -838,8 +838,8 @@ func TestParseOperationSingleReturningAListOfAModel(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -852,11 +852,11 @@ func TestParseOperationSingleReturningAListOfAModel(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Hello_GimmeAListOfModels",
-						ResponseObject: &importerModels.ObjectDefinition{
-							Type: importerModels.ObjectDefinitionList,
-							NestedItem: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
+							Type: models.ListSDKObjectDefinitionType,
+							NestedItem: &models.SDKObjectDefinition{
 								ReferenceName: pointer.To("Person"),
-								Type:          importerModels.ObjectDefinitionReference,
+								Type:          models.ReferenceSDKObjectDefinitionType,
 							},
 						},
 						UriSuffix: pointer.To("/worlds/favourite"),
@@ -885,10 +885,10 @@ func TestParseOperationSingleReturningAListOfStrings(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Hello_GimmeAListOfStrings",
-						ResponseObject: &importerModels.ObjectDefinition{
-							Type: importerModels.ObjectDefinitionList,
-							NestedItem: &importerModels.ObjectDefinition{
-								Type: importerModels.ObjectDefinitionString,
+						ResponseObject: &models.SDKObjectDefinition{
+							Type: models.ListSDKObjectDefinitionType,
+							NestedItem: &models.SDKObjectDefinition{
+								Type: models.StringSDKObjectDefinitionType,
 							},
 						},
 						UriSuffix: pointer.To("/worlds/favourite"),
@@ -916,8 +916,8 @@ func TestParseOperationSingleReturningAListOfListOfAModel(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -930,13 +930,13 @@ func TestParseOperationSingleReturningAListOfListOfAModel(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Hello_GimmeAListOfListOfModels",
-						ResponseObject: &importerModels.ObjectDefinition{
-							Type: importerModels.ObjectDefinitionList,
-							NestedItem: &importerModels.ObjectDefinition{
-								Type: importerModels.ObjectDefinitionList,
-								NestedItem: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
+							Type: models.ListSDKObjectDefinitionType,
+							NestedItem: &models.SDKObjectDefinition{
+								Type: models.ListSDKObjectDefinitionType,
+								NestedItem: &models.SDKObjectDefinition{
 									ReferenceName: pointer.To("Person"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 							},
 						},
@@ -966,12 +966,12 @@ func TestParseOperationSingleReturningAListOfListOfStrings(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Hello_GimmeAListOfListOfStrings",
-						ResponseObject: &importerModels.ObjectDefinition{
-							Type: importerModels.ObjectDefinitionList,
-							NestedItem: &importerModels.ObjectDefinition{
-								Type: importerModels.ObjectDefinitionList,
-								NestedItem: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+						ResponseObject: &models.SDKObjectDefinition{
+							Type: models.ListSDKObjectDefinitionType,
+							NestedItem: &models.SDKObjectDefinition{
+								Type: models.ListSDKObjectDefinitionType,
+								NestedItem: &models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 							},
 						},
@@ -1000,8 +1000,8 @@ func TestParseOperationSingleWithList(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -1016,9 +1016,9 @@ func TestParseOperationSingleWithList(t *testing.T) {
 						IsListOperation:                  true,
 						Method:                           "GET",
 						OperationId:                      "Hello_ListWorlds",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("World"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/worlds"),
 					},
@@ -1047,8 +1047,8 @@ func TestParseOperationSingleWithListWhichIsNotAList(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -1065,9 +1065,9 @@ func TestParseOperationSingleWithListWhichIsNotAList(t *testing.T) {
 						IsListOperation:                  true,
 						Method:                           "GET",
 						OperationId:                      "Hello_ListWorlds",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("World"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/worlds"),
 					},
@@ -1097,8 +1097,8 @@ func TestParseOperationSingleWithListReturningAListOfStrings(t *testing.T) {
 						IsListOperation:                  true,
 						Method:                           "GET",
 						OperationId:                      "Hello_ListWorlds",
-						ResponseObject: &importerModels.ObjectDefinition{
-							Type: importerModels.ObjectDefinitionString,
+						ResponseObject: &models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/worlds"),
 					},
@@ -1127,8 +1127,8 @@ func TestParseOperationSingleWithListWithoutPageable(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -1143,9 +1143,9 @@ func TestParseOperationSingleWithListWithoutPageable(t *testing.T) {
 						IsListOperation:                  true,
 						Method:                           "GET",
 						OperationId:                      "Hello_ListWorlds",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("World"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/worlds"),
 					},
@@ -1172,8 +1172,8 @@ func TestParseOperationSingleWithLongRunningOperation(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -1187,9 +1187,9 @@ func TestParseOperationSingleWithLongRunningOperation(t *testing.T) {
 						LongRunning:         true,
 						Method:              "PUT",
 						OperationId:         "Hello_PutWorld",
-						RequestObject: &importerModels.ObjectDefinition{
+						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/things"),
 					},
@@ -1216,8 +1216,8 @@ func TestParseOperationSingleWithRequestAndResponseObject(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -1230,13 +1230,13 @@ func TestParseOperationSingleWithRequestAndResponseObject(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
 						OperationId:         "Hello_PutWorld",
-						RequestObject: &importerModels.ObjectDefinition{
+						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/things"),
 					},
@@ -1552,8 +1552,8 @@ func TestParseOperationsContainingContentTypes(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Hello_JsonRequest",
-						RequestObject: &importerModels.ObjectDefinition{
-							Type: importerModels.ObjectDefinitionString,
+						RequestObject: &models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						// this can become `/json-request` when https://github.com/hashicorp/pandora/issues/3807 is fixed
 						UriSuffix: pointer.To("/jsonRequest"),
@@ -1563,8 +1563,8 @@ func TestParseOperationsContainingContentTypes(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
 						OperationId:         "Hello_JsonResponse",
-						ResponseObject: &importerModels.ObjectDefinition{
-							Type: importerModels.ObjectDefinitionString,
+						ResponseObject: &models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/jsonResponse"),
 					},
@@ -1573,8 +1573,8 @@ func TestParseOperationsContainingContentTypes(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Hello_XmlRequest",
-						RequestObject: &importerModels.ObjectDefinition{
-							Type: importerModels.ObjectDefinitionString,
+						RequestObject: &models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/xmlRequest"),
 					},
@@ -1583,8 +1583,8 @@ func TestParseOperationsContainingContentTypes(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
 						OperationId:         "Hello_XmlResponse",
-						ResponseObject: &importerModels.ObjectDefinition{
-							Type: importerModels.ObjectDefinitionString,
+						ResponseObject: &models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/xmlResponse"),
 					},
@@ -1611,8 +1611,8 @@ func TestParseOperationContainingMultipleReturnObjects(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"Hello": {
 								JsonName: "hello",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -1625,9 +1625,9 @@ func TestParseOperationContainingMultipleReturnObjects(t *testing.T) {
 						ExpectedStatusCodes: []int{200, 202},
 						Method:              "PUT",
 						OperationId:         "Hello_HeadWorld",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("FirstModel"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/things"),
 					},

@@ -5,11 +5,12 @@ package resources
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
 	"strings"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 	"github.com/hashicorp/pandora/tools/sdk/services"
@@ -60,8 +61,8 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 				if v != "update" && strings.HasPrefix(v, "update") {
 					continue
 				}
-				objectDefinition := topLevelObjectDefinition(*operation.RequestObject)
-				if objectDefinition.Type != resourcemanager.ReferenceApiObjectDefinitionType {
+				objectDefinition := helpers.InnerMostSDKObjectDefinition(*operation.RequestObject)
+				if objectDefinition.Type != models.ReferenceSDKObjectDefinitionType {
 					continue
 				}
 				model, ok := input.Schema.Models[*objectDefinition.ReferenceName]
@@ -201,7 +202,7 @@ func containsDiscriminatedTypes(resource *resourcemanager.TerraformResourceDetai
 		}
 
 		if operation.RequestObject != nil {
-			if operation.RequestObject.Type != resourcemanager.ReferenceApiObjectDefinitionType {
+			if operation.RequestObject.Type != models.ReferenceSDKObjectDefinitionType {
 				return nil, fmt.Errorf("request objects must use a reference but got %q", string(operation.RequestObject.Type))
 			}
 			modelName := *operation.RequestObject.ReferenceName
@@ -246,14 +247,6 @@ func modelContainsDiscriminatedTypes(model resourcemanager.ModelDetails, data se
 	}
 
 	return false
-}
-
-func topLevelObjectDefinition(input resourcemanager.ApiObjectDefinition) resourcemanager.ApiObjectDefinition {
-	if input.NestedItem != nil {
-		return topLevelObjectDefinition(*input.NestedItem)
-	}
-
-	return input
 }
 
 func findResourceName(definitions map[string]definitions.ResourceDefinition, resourceId string) (*string, *definitions.ResourceDefinition) {

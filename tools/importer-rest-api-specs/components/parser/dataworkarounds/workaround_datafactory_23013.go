@@ -7,6 +7,7 @@ import (
 	"fmt"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
@@ -36,8 +37,8 @@ func (workaroundDataFactory23013) Process(apiDefinition importerModels.AzureApiD
 		TypeHintIn: pointer.To("Type"),
 		Fields: map[string]importerModels.FieldDetails{
 			"Type": {
-				ObjectDefinition: &importerModels.ObjectDefinition{
-					Type: importerModels.ObjectDefinitionString,
+				ObjectDefinition: models.SDKObjectDefinition{
+					Type: models.StringSDKObjectDefinitionType,
 				},
 				Required: true,
 				JsonName: "type",

@@ -6,6 +6,7 @@ package processors
 import (
 	"testing"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -21,10 +22,10 @@ func TestProcessField_Exists(t *testing.T) {
 				Model: resourcemanager.ModelDetails{
 					Fields: map[string]resourcemanager.FieldDetails{
 						"Pandas": {
-							ObjectDefinition: resourcemanager.ApiObjectDefinition{
-								Type: resourcemanager.ListApiObjectDefinitionType,
-								NestedItem: &resourcemanager.ApiObjectDefinition{
-									Type: resourcemanager.StringApiObjectDefinitionType,
+							ObjectDefinition: models.SDKObjectDefinition{
+								Type: models.ListSDKObjectDefinitionType,
+								NestedItem: &models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 							},
 						},
@@ -39,8 +40,8 @@ func TestProcessField_Exists(t *testing.T) {
 				Model: resourcemanager.ModelDetails{
 					Fields: map[string]resourcemanager.FieldDetails{
 						"Pandas": {
-							ObjectDefinition: resourcemanager.ApiObjectDefinition{
-								Type: resourcemanager.StringApiObjectDefinitionType,
+							ObjectDefinition: models.SDKObjectDefinition{
+								Type: models.StringSDKObjectDefinitionType,
 							},
 						},
 					},

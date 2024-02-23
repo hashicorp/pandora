@@ -17,13 +17,13 @@ func TestFieldNameRenameMislabelledResourceID_NotApplicable_DifferentConstantVal
 		Model: resourcemanager.ModelDetails{
 			Fields: map[string]resourcemanager.FieldDetails{
 				"ResourceId": {
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type: resourcemanager.StringApiObjectDefinitionType,
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type: models.StringSDKObjectDefinitionType,
 					},
 				},
 				"Type": {
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type:          models.ReferenceSDKObjectDefinitionType,
 						ReferenceName: pointer.To("Type"),
 					},
 				},
@@ -63,8 +63,8 @@ func TestFieldNameRenameMislabelledResourceID_NotApplicable_SingleField(t *testi
 		Model: resourcemanager.ModelDetails{
 			Fields: map[string]resourcemanager.FieldDetails{
 				"ResourceId": {
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type: resourcemanager.StringApiObjectDefinitionType,
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type: models.StringSDKObjectDefinitionType,
 					},
 				},
 			},
@@ -86,18 +86,18 @@ func TestFieldNameRenameMislabelledResourceID_NotApplicable_MultipleFields(t *te
 		Model: resourcemanager.ModelDetails{
 			Fields: map[string]resourcemanager.FieldDetails{
 				"ResourceId": {
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type: resourcemanager.StringApiObjectDefinitionType,
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type: models.StringSDKObjectDefinitionType,
 					},
 				},
 				"Type": {
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type: resourcemanager.StringApiObjectDefinitionType,
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type: models.StringSDKObjectDefinitionType,
 					},
 				},
 				"Third": {
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type: resourcemanager.StringApiObjectDefinitionType,
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type: models.StringSDKObjectDefinitionType,
 					},
 				},
 			},
@@ -119,13 +119,13 @@ func TestFieldNameRenameMislabelledResourceID_Applicable_UsingConstant(t *testin
 		Model: resourcemanager.ModelDetails{
 			Fields: map[string]resourcemanager.FieldDetails{
 				"ResourceId": {
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type: resourcemanager.StringApiObjectDefinitionType,
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type: models.StringSDKObjectDefinitionType,
 					},
 				},
 				"Type": {
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type:          models.ReferenceSDKObjectDefinitionType,
 						ReferenceName: pointer.To("Type"),
 					},
 				},
@@ -158,13 +158,13 @@ func TestFieldNameRenameMislabelledResourceID_WithAMatchingTypeFieldThatIsAStrin
 		Model: resourcemanager.ModelDetails{
 			Fields: map[string]resourcemanager.FieldDetails{
 				"ResourceId": {
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type: resourcemanager.StringApiObjectDefinitionType,
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type: models.StringSDKObjectDefinitionType,
 					},
 				},
 				"Type": {
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type: resourcemanager.StringApiObjectDefinitionType,
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type: models.StringSDKObjectDefinitionType,
 					},
 				},
 			},

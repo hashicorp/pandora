@@ -82,7 +82,7 @@ type FieldDetails struct {
 	JsonName    string
 	Description string
 
-	ObjectDefinition *models.SDKObjectDefinition
+	ObjectDefinition models.SDKObjectDefinition
 }
 
 func MergeResourcesForTag(base AzureApiResource, merge AzureApiResource) AzureApiResource {

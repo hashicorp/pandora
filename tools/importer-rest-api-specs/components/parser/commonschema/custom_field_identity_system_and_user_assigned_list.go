@@ -6,6 +6,7 @@ package commonschema
 import (
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
@@ -14,12 +15,14 @@ var _ customFieldMatcher = systemAndUserAssignedIdentityListMatcher{}
 
 type systemAndUserAssignedIdentityListMatcher struct{}
 
-func (systemAndUserAssignedIdentityListMatcher) CustomFieldType() importerModels.CustomFieldType {
-	return importerModels.CustomFieldTypeSystemAndUserAssignedIdentityList
+func (systemAndUserAssignedIdentityListMatcher) ReplacementObjectDefinition() models.SDKObjectDefinition {
+	return models.SDKObjectDefinition{
+		Type: models.SystemAndUserAssignedIdentityListSDKObjectDefinitionType,
+	}
 }
 
-func (systemAndUserAssignedIdentityListMatcher) IsMatch(_ importerModels.FieldDetails, definition importerModels.ObjectDefinition, known internal.ParseResult) bool {
-	if definition.Type != importerModels.ObjectDefinitionReference {
+func (systemAndUserAssignedIdentityListMatcher) IsMatch(_ importerModels.FieldDetails, definition models.SDKObjectDefinition, known internal.ParseResult) bool {
+	if definition.Type != models.ReferenceSDKObjectDefinitionType {
 		return false
 	}
 
@@ -47,10 +50,10 @@ func (systemAndUserAssignedIdentityListMatcher) IsMatch(_ importerModels.FieldDe
 
 		if strings.EqualFold(fieldName, "UserAssignedIdentities") {
 			// this should be a List of Strings
-			if fieldVal.ObjectDefinition == nil || fieldVal.ObjectDefinition.Type != importerModels.ObjectDefinitionList {
+			if fieldVal.ObjectDefinition.Type != models.ListSDKObjectDefinitionType {
 				continue
 			}
-			if fieldVal.ObjectDefinition.NestedItem == nil || fieldVal.ObjectDefinition.NestedItem.Type != importerModels.ObjectDefinitionString {
+			if fieldVal.ObjectDefinition.NestedItem == nil || fieldVal.ObjectDefinition.NestedItem.Type != models.StringSDKObjectDefinitionType {
 				continue
 			}
 
@@ -59,7 +62,7 @@ func (systemAndUserAssignedIdentityListMatcher) IsMatch(_ importerModels.FieldDe
 		}
 
 		if strings.EqualFold(fieldName, "Type") {
-			if fieldVal.ObjectDefinition == nil || fieldVal.ObjectDefinition.Type != importerModels.ObjectDefinitionReference {
+			if fieldVal.ObjectDefinition.Type != models.ReferenceSDKObjectDefinitionType {
 				continue
 			}
 			constant, ok := known.Constants[*fieldVal.ObjectDefinition.ReferenceName]

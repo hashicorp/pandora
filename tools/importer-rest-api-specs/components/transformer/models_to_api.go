@@ -59,17 +59,12 @@ func apiFieldsFromModelFields(input map[string]importerModels.FieldDetails, mode
 	out := make(map[string]resourcemanager.FieldDetails)
 
 	for k, v := range input {
-		objectDefinition, err := apiObjectDefinitionFromModelObjectDefinition(v.ObjectDefinition, v.CustomFieldType)
-		if err != nil {
-			return nil, fmt.Errorf("mapping object definition for field %q: %+v", k, err)
-		}
-
 		details := resourcemanager.FieldDetails{
 			Default:          nil,
 			ForceNew:         false,
 			IsTypeHint:       model.TypeHintIn != nil && *model.TypeHintIn == k,
 			JsonName:         v.JsonName,
-			ObjectDefinition: *objectDefinition,
+			ObjectDefinition: v.ObjectDefinition,
 			Optional:         !v.Required,
 			Required:         v.Required,
 			// TODO: support validation
@@ -82,12 +77,12 @@ func apiFieldsFromModelFields(input map[string]importerModels.FieldDetails, mode
 			details.Optional = false
 		}
 
-		if details.ObjectDefinition.Type == resourcemanager.DateTimeApiObjectDefinitionType {
+		if details.ObjectDefinition.Type == models.DateTimeSDKObjectDefinitionType {
 			dateFormat := resourcemanager.RFC3339
 			details.DateFormat = &dateFormat
 		}
 
-		if details.ObjectDefinition.Type == resourcemanager.ReferenceApiObjectDefinitionType {
+		if details.ObjectDefinition.Type == models.ReferenceSDKObjectDefinitionType {
 			constantName := *details.ObjectDefinition.ReferenceName
 			constant, isConstant := inputConstants[constantName]
 			if isConstant {
@@ -113,133 +108,22 @@ func validationForConstant(input models.SDKConstant) *resourcemanager.FieldValid
 	}
 }
 
-func apiObjectDefinitionFromModelObjectDefinition(input *importerModels.ObjectDefinition, fieldType *importerModels.CustomFieldType) (*resourcemanager.ApiObjectDefinition, error) {
-	if fieldType != nil {
-		mappings := map[importerModels.CustomFieldType]resourcemanager.ApiObjectDefinitionType{
-			importerModels.CustomFieldTypeEdgeZone:                                resourcemanager.EdgeZoneApiObjectDefinitionType,
-			importerModels.CustomFieldTypeLocation:                                resourcemanager.LocationApiObjectDefinitionType,
-			importerModels.CustomFieldTypeSystemAssignedIdentity:                  resourcemanager.SystemAssignedIdentityApiObjectDefinitionType,
-			importerModels.CustomFieldTypeSystemAndUserAssignedIdentityList:       resourcemanager.SystemAndUserAssignedIdentityListApiObjectDefinitionType,
-			importerModels.CustomFieldTypeSystemAndUserAssignedIdentityMap:        resourcemanager.SystemAndUserAssignedIdentityMapApiObjectDefinitionType,
-			importerModels.CustomFieldTypeLegacySystemAndUserAssignedIdentityList: resourcemanager.LegacySystemAndUserAssignedIdentityListApiObjectDefinitionType,
-			importerModels.CustomFieldTypeLegacySystemAndUserAssignedIdentityMap:  resourcemanager.LegacySystemAndUserAssignedIdentityMapApiObjectDefinitionType,
-			importerModels.CustomFieldTypeSystemOrUserAssignedIdentityList:        resourcemanager.SystemOrUserAssignedIdentityListApiObjectDefinitionType,
-			importerModels.CustomFieldTypeSystemOrUserAssignedIdentityMap:         resourcemanager.SystemOrUserAssignedIdentityMapApiObjectDefinitionType,
-			importerModels.CustomFieldTypeUserAssignedIdentityList:                resourcemanager.UserAssignedIdentityListApiObjectDefinitionType,
-			importerModels.CustomFieldTypeUserAssignedIdentityMap:                 resourcemanager.UserAssignedIdentityMapApiObjectDefinitionType,
-			importerModels.CustomFieldTypeTags:                                    resourcemanager.TagsApiObjectDefinitionType,
-			importerModels.CustomFieldTypeSystemData:                              resourcemanager.SystemData,
-			importerModels.CustomFieldTypeZone:                                    resourcemanager.ZoneApiObjectDefinitionType,
-			importerModels.CustomFieldTypeZones:                                   resourcemanager.ZonesApiObjectDefinitionType,
-		}
-		mapping, ok := mappings[*fieldType]
-		if !ok {
-			return nil, fmt.Errorf("missing mapping for CustomFieldType %q", string(*fieldType))
-		}
-
-		return &resourcemanager.ApiObjectDefinition{
-			Type: mapping,
-		}, nil
-	}
-
-	if input == nil {
-		return nil, fmt.Errorf("objectDefinition was neither an ObjectDefinition or a CustomFieldType")
-	}
-
-	if input.Type == importerModels.ObjectDefinitionCsv {
-		nestedItem, err := apiObjectDefinitionFromModelObjectDefinition(input.NestedItem, nil)
-		if err != nil {
-			return nil, fmt.Errorf("mapping list item: %+v", err)
-		}
-
-		return &resourcemanager.ApiObjectDefinition{
-			NestedItem:    nestedItem,
-			ReferenceName: nil,
-			Type:          resourcemanager.CsvApiObjectDefinitionType,
-		}, nil
-	}
-
-	if input.Type == importerModels.ObjectDefinitionDictionary {
-		nestedItem, err := apiObjectDefinitionFromModelObjectDefinition(input.NestedItem, nil)
-		if err != nil {
-			return nil, fmt.Errorf("mapping dictionary item: %+v", err)
-		}
-
-		return &resourcemanager.ApiObjectDefinition{
-			NestedItem:    nestedItem,
-			ReferenceName: nil,
-			Type:          resourcemanager.DictionaryApiObjectDefinitionType,
-		}, nil
-	}
-
-	if input.Type == importerModels.ObjectDefinitionList {
-		nestedItem, err := apiObjectDefinitionFromModelObjectDefinition(input.NestedItem, nil)
-		if err != nil {
-			return nil, fmt.Errorf("mapping list item: %+v", err)
-		}
-
-		return &resourcemanager.ApiObjectDefinition{
-			NestedItem:    nestedItem,
-			ReferenceName: nil,
-			Type:          resourcemanager.ListApiObjectDefinitionType,
-		}, nil
-	}
-
-	if input.Type == importerModels.ObjectDefinitionReference {
-		return &resourcemanager.ApiObjectDefinition{
-			ReferenceName: input.ReferenceName,
-			Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-		}, nil
-	}
-
-	mappings := map[importerModels.ObjectDefinitionType]resourcemanager.ApiObjectDefinitionType{
-		importerModels.ObjectDefinitionBoolean:   resourcemanager.BooleanApiObjectDefinitionType,
-		importerModels.ObjectDefinitionDateTime:  resourcemanager.DateTimeApiObjectDefinitionType,
-		importerModels.ObjectDefinitionInteger:   resourcemanager.IntegerApiObjectDefinitionType,
-		importerModels.ObjectDefinitionFloat:     resourcemanager.FloatApiObjectDefinitionType,
-		importerModels.ObjectDefinitionRawFile:   resourcemanager.RawFileApiObjectDefinitionType,
-		importerModels.ObjectDefinitionRawObject: resourcemanager.RawObjectApiObjectDefinitionType,
-		importerModels.ObjectDefinitionString:    resourcemanager.StringApiObjectDefinitionType,
-	}
-	mapping, ok := mappings[input.Type]
-	if !ok {
-		return nil, fmt.Errorf("unimplemented object definition mapping for %q", string(input.Type))
-	}
-	return &resourcemanager.ApiObjectDefinition{
-		Type: mapping,
-	}, nil
-}
-
 func apiOperationsFromModelOperations(input map[string]importerModels.OperationDetails) (*map[string]resourcemanager.ApiOperation, error) {
 	out := make(map[string]resourcemanager.ApiOperation)
 
 	for k, v := range input {
-		details := resourcemanager.ApiOperation{
+		out[k] = resourcemanager.ApiOperation{
 			ContentType:                      &v.ContentType,
 			ExpectedStatusCodes:              v.ExpectedStatusCodes,
 			LongRunning:                      v.LongRunning,
 			Method:                           v.Method,
+			RequestObject:                    v.RequestObject,
 			ResourceIdName:                   v.ResourceIdName,
+			ResponseObject:                   v.ResponseObject,
 			FieldContainingPaginationDetails: v.FieldContainingPaginationDetails,
 			Options:                          v.Options,
 			UriSuffix:                        v.UriSuffix,
 		}
-		if v.RequestObject != nil {
-			obj, err := apiObjectDefinitionFromModelObjectDefinition(v.RequestObject, nil)
-			if err != nil {
-				return nil, fmt.Errorf("mapping request object for operation %q: %+v", k, err)
-			}
-			details.RequestObject = obj
-		}
-		if v.ResponseObject != nil {
-			obj, err := apiObjectDefinitionFromModelObjectDefinition(v.ResponseObject, nil)
-			if err != nil {
-				return nil, fmt.Errorf("mapping response object for operation %q: %+v", k, err)
-			}
-			details.ResponseObject = obj
-		}
-
-		out[k] = details
 	}
 
 	return &out, nil

@@ -4,9 +4,9 @@
 package resourceids
 
 import (
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
 	"sort"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
@@ -37,7 +37,7 @@ func (p *Parser) distinctResourceIds(input map[string]processedResourceId) ([]mo
 			Segments:      *operation.segments,
 		}
 		item.ExampleValue = helpers.DisplayValueForResourceID(item)
-		
+
 		matchFound := false
 		for _, existing := range out {
 			if ResourceIdsMatch(item, existing) {

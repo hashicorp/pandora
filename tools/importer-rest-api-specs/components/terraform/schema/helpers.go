@@ -32,7 +32,7 @@ func fieldShouldBeIgnored(key string, definition resourcemanager.FieldDetails, c
 
 	// due to differences in the source data, we need to handle both the field being a constant and a string value
 	if strings.Contains(lowered, "state") || strings.Contains(lowered, "status") {
-		if definition.ObjectDefinition.Type == resourcemanager.ReferenceApiObjectDefinitionType {
+		if definition.ObjectDefinition.Type == models.ReferenceSDKObjectDefinitionType {
 			// if it's a reference to a constant, it can be skipped
 			if _, ok := constants[*definition.ObjectDefinition.ReferenceName]; ok {
 				return true
@@ -40,7 +40,7 @@ func fieldShouldBeIgnored(key string, definition resourcemanager.FieldDetails, c
 		}
 
 		// some "State" fields aren't defined as
-		if definition.ObjectDefinition.Type == resourcemanager.StringApiObjectDefinitionType {
+		if definition.ObjectDefinition.Type == models.StringSDKObjectDefinitionType {
 			return true
 		}
 	}

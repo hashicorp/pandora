@@ -54,8 +54,8 @@ func (workaroundHDInsight26838) Process(apiDefinition importerModels.AzureApiDef
 	if !ok {
 		return nil, fmt.Errorf("expected a Field named `Kind`")
 	}
-	field.ObjectDefinition = &importerModels.ObjectDefinition{
-		Type:          importerModels.ObjectDefinitionReference,
+	field.ObjectDefinition = models.SDKObjectDefinition{
+		Type:          models.ReferenceSDKObjectDefinitionType,
 		ReferenceName: pointer.To("ClusterKind"),
 	}
 	model.Fields["Kind"] = field

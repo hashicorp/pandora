@@ -6,6 +6,7 @@ package commonschema
 import (
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
@@ -15,12 +16,14 @@ var _ customFieldMatcher = edgeZoneFieldMatcher{}
 type edgeZoneFieldMatcher struct {
 }
 
-func (e edgeZoneFieldMatcher) CustomFieldType() importerModels.CustomFieldType {
-	return importerModels.CustomFieldTypeEdgeZone
+func (e edgeZoneFieldMatcher) ReplacementObjectDefinition() models.SDKObjectDefinition {
+	return models.SDKObjectDefinition{
+		Type: models.EdgeZoneSDKObjectDefinitionType,
+	}
 }
 
-func (e edgeZoneFieldMatcher) IsMatch(_ importerModels.FieldDetails, definition importerModels.ObjectDefinition, known internal.ParseResult) bool {
-	if definition.Type != importerModels.ObjectDefinitionReference {
+func (e edgeZoneFieldMatcher) IsMatch(_ importerModels.FieldDetails, definition models.SDKObjectDefinition, known internal.ParseResult) bool {
+	if definition.Type != models.ReferenceSDKObjectDefinitionType {
 		return false
 	}
 
@@ -40,7 +43,7 @@ func (e edgeZoneFieldMatcher) IsMatch(_ importerModels.FieldDetails, definition 
 		}
 
 		if strings.EqualFold(fieldName, "Type") {
-			if fieldVal.ObjectDefinition == nil || fieldVal.ObjectDefinition.Type != importerModels.ObjectDefinitionReference {
+			if fieldVal.ObjectDefinition.Type != models.ReferenceSDKObjectDefinitionType {
 				continue
 			}
 			constant, ok := known.Constants[*fieldVal.ObjectDefinition.ReferenceName]

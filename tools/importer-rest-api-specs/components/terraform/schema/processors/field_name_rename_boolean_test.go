@@ -6,6 +6,7 @@ package processors
 import (
 	"testing"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -21,8 +22,8 @@ func TestProcessField_RenameBoolean(t *testing.T) {
 				Model: resourcemanager.ModelDetails{
 					Fields: map[string]resourcemanager.FieldDetails{
 						"enablePandas": {
-							ObjectDefinition: resourcemanager.ApiObjectDefinition{
-								Type: resourcemanager.BooleanApiObjectDefinitionType,
+							ObjectDefinition: models.SDKObjectDefinition{
+								Type: models.BooleanSDKObjectDefinitionType,
 							},
 						},
 					},
@@ -36,8 +37,8 @@ func TestProcessField_RenameBoolean(t *testing.T) {
 				Model: resourcemanager.ModelDetails{
 					Fields: map[string]resourcemanager.FieldDetails{
 						"disablePlanets": {
-							ObjectDefinition: resourcemanager.ApiObjectDefinition{
-								Type: resourcemanager.BooleanApiObjectDefinitionType,
+							ObjectDefinition: models.SDKObjectDefinition{
+								Type: models.BooleanSDKObjectDefinitionType,
 							},
 						},
 					},
@@ -51,8 +52,8 @@ func TestProcessField_RenameBoolean(t *testing.T) {
 				Model: resourcemanager.ModelDetails{
 					Fields: map[string]resourcemanager.FieldDetails{
 						"AllowedPublicAccess": {
-							ObjectDefinition: resourcemanager.ApiObjectDefinition{
-								Type: resourcemanager.BooleanApiObjectDefinitionType,
+							ObjectDefinition: models.SDKObjectDefinition{
+								Type: models.BooleanSDKObjectDefinitionType,
 							},
 						},
 					},
@@ -66,8 +67,8 @@ func TestProcessField_RenameBoolean(t *testing.T) {
 				Model: resourcemanager.ModelDetails{
 					Fields: map[string]resourcemanager.FieldDetails{
 						"AllowTethering": {
-							ObjectDefinition: resourcemanager.ApiObjectDefinition{
-								Type: resourcemanager.BooleanApiObjectDefinitionType,
+							ObjectDefinition: models.SDKObjectDefinition{
+								Type: models.BooleanSDKObjectDefinitionType,
 							},
 						},
 					},
@@ -81,8 +82,8 @@ func TestProcessField_RenameBoolean(t *testing.T) {
 				Model: resourcemanager.ModelDetails{
 					Fields: map[string]resourcemanager.FieldDetails{
 						"TastesLikePancakes": {
-							ObjectDefinition: resourcemanager.ApiObjectDefinition{
-								Type: resourcemanager.BooleanApiObjectDefinitionType,
+							ObjectDefinition: models.SDKObjectDefinition{
+								Type: models.BooleanSDKObjectDefinitionType,
 							},
 						},
 					},
@@ -96,8 +97,8 @@ func TestProcessField_RenameBoolean(t *testing.T) {
 				Model: resourcemanager.ModelDetails{
 					Fields: map[string]resourcemanager.FieldDetails{
 						"ThreeCoffeesADay": {
-							ObjectDefinition: resourcemanager.ApiObjectDefinition{
-								Type: resourcemanager.StringApiObjectDefinitionType,
+							ObjectDefinition: models.SDKObjectDefinition{
+								Type: models.BooleanSDKObjectDefinitionType,
 							},
 						},
 					},
@@ -111,8 +112,8 @@ func TestProcessField_RenameBoolean(t *testing.T) {
 				Model: resourcemanager.ModelDetails{
 					Fields: map[string]resourcemanager.FieldDetails{
 						"Enabled": {
-							ObjectDefinition: resourcemanager.ApiObjectDefinition{
-								Type: resourcemanager.BooleanApiObjectDefinitionType,
+							ObjectDefinition: models.SDKObjectDefinition{
+								Type: models.BooleanSDKObjectDefinitionType,
 							},
 						},
 					},

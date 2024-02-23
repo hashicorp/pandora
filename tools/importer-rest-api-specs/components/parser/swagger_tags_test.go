@@ -7,6 +7,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
@@ -26,8 +27,8 @@ func TestParsingOperationsUsingTheSameSwaggerTagInDifferentCasings(t *testing.T)
 						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -41,9 +42,9 @@ func TestParsingOperationsUsingTheSameSwaggerTagInDifferentCasings(t *testing.T)
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
 						OperationId:         "Hello_First",
-						RequestObject: &importerModels.ObjectDefinition{
+						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						// https://github.com/hashicorp/pandora/issues/3807
 						UriSuffix: pointer.To("/someotheruri"),
@@ -53,9 +54,9 @@ func TestParsingOperationsUsingTheSameSwaggerTagInDifferentCasings(t *testing.T)
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
 						OperationId:         "Hello_PutBar",
-						RequestObject: &importerModels.ObjectDefinition{
+						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/bar"),
 					},
@@ -64,9 +65,9 @@ func TestParsingOperationsUsingTheSameSwaggerTagInDifferentCasings(t *testing.T)
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
 						OperationId:         "hello_PutFoo",
-						RequestObject: &importerModels.ObjectDefinition{
+						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/foo"),
 					},
@@ -75,9 +76,9 @@ func TestParsingOperationsUsingTheSameSwaggerTagInDifferentCasings(t *testing.T)
 						ExpectedStatusCodes: []int{200},
 						Method:              "PATCH",
 						OperationId:         "hello_Second",
-						RequestObject: &importerModels.ObjectDefinition{
+						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						// https://github.com/hashicorp/pandora/issues/3807
 						UriSuffix: pointer.To("/someotheruri"),
@@ -105,8 +106,8 @@ func TestParsingOperationsOnResources(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -119,9 +120,9 @@ func TestParsingOperationsOnResources(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
 						OperationId:         "Hello_First",
-						RequestObject: &importerModels.ObjectDefinition{
+						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						// https://github.com/hashicorp/pandora/issues/3807
 						UriSuffix: pointer.To("/someotheruri"),
@@ -131,9 +132,9 @@ func TestParsingOperationsOnResources(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
 						OperationId:         "Hello_PutBar",
-						RequestObject: &importerModels.ObjectDefinition{
+						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/bar"),
 					},
@@ -142,9 +143,9 @@ func TestParsingOperationsOnResources(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "PATCH",
 						OperationId:         "hello_Second",
-						RequestObject: &importerModels.ObjectDefinition{
+						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						// https://github.com/hashicorp/pandora/issues/3807
 						UriSuffix: pointer.To("/someotheruri"),
@@ -157,8 +158,8 @@ func TestParsingOperationsOnResources(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -171,9 +172,9 @@ func TestParsingOperationsOnResources(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "POST",
 						OperationId:         "Hello_Restart",
-						RequestObject: &importerModels.ObjectDefinition{
+						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/foo"),
 					},

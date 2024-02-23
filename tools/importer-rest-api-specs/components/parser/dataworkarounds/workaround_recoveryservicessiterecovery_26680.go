@@ -7,6 +7,7 @@ import (
 	"fmt"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
@@ -59,8 +60,8 @@ func (w workaroundRecoveryServicesSiteRecovery26680) Process(apiDefinition impor
 			"ValidityInHours": {
 				Required: false,
 				JsonName: "validityInHours",
-				ObjectDefinition: &importerModels.ObjectDefinition{
-					Type: importerModels.ObjectDefinitionInteger,
+				ObjectDefinition: models.SDKObjectDefinition{
+					Type: models.IntegerSDKObjectDefinitionType,
 				},
 			},
 		},
@@ -72,15 +73,14 @@ func (w workaroundRecoveryServicesSiteRecovery26680) Process(apiDefinition impor
 		return nil, fmt.Errorf("expected a Model named `CertificateRequest` but didn't get one")
 	}
 	model.Fields["CertificateCreateOptions"] = importerModels.FieldDetails{
-		Required:        false,
-		ReadOnly:        false,
-		Sensitive:       false,
-		JsonName:        "certificateCreateOptions",
-		Description:     "",
-		CustomFieldType: nil,
-		ObjectDefinition: &importerModels.ObjectDefinition{
+		Required:    false,
+		ReadOnly:    false,
+		Sensitive:   false,
+		JsonName:    "certificateCreateOptions",
+		Description: "",
+		ObjectDefinition: models.SDKObjectDefinition{
 			ReferenceName: pointer.To("CertificateCreateOptions"),
-			Type:          importerModels.ObjectDefinitionReference,
+			Type:          models.ReferenceSDKObjectDefinitionType,
 		},
 	}
 	resource.Models["CertificateRequest"] = model

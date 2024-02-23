@@ -32,45 +32,45 @@ func TestBuildForServiceBusNamespaceHappyPath(t *testing.T) {
 				Fields: map[string]resourcemanager.FieldDetails{
 					"Identity": {
 						JsonName: "identity",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.SystemAndUserAssignedIdentityMapApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.SystemAndUserAssignedIdentityMapSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"Name": {
 						JsonName: "name",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 					},
 					"Location": {
 						JsonName: "location",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.LocationApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.LocationSDKObjectDefinitionType,
 						},
 						Required: true,
 					},
 					"Properties": {
 						JsonName: "properties",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("NamespaceProperties"),
 						},
 						Required: true,
 					},
 					"Sku": {
 						JsonName: "sku",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("Sku"),
 						},
 						Required: true,
 					},
 					"Tags": {
 						JsonName: "tags",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.TagsApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.TagsSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
@@ -80,22 +80,22 @@ func TestBuildForServiceBusNamespaceHappyPath(t *testing.T) {
 				Fields: map[string]resourcemanager.FieldDetails{
 					"DisableLocalAuth": {
 						JsonName: "disableLocalAuth",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.BooleanApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.BooleanSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"ServiceBusEndpoint": {
 						JsonName: "serviceBusEndpoint",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"ZoneRedundant": {
 						JsonName: "zoneRedundant",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.BooleanApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.BooleanSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
@@ -105,8 +105,8 @@ func TestBuildForServiceBusNamespaceHappyPath(t *testing.T) {
 				Fields: map[string]resourcemanager.FieldDetails{
 					"Name": {
 						JsonName: "name",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("SkuName"),
 						},
 						Required: true,
@@ -117,8 +117,8 @@ func TestBuildForServiceBusNamespaceHappyPath(t *testing.T) {
 				Fields: map[string]resourcemanager.FieldDetails{
 					"Name": {
 						JsonName: "name",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("SkuTier"),
 						},
 						Optional: true,
@@ -129,8 +129,8 @@ func TestBuildForServiceBusNamespaceHappyPath(t *testing.T) {
 				Fields: map[string]resourcemanager.FieldDetails{
 					"Capacity": {
 						JsonName: "capacity",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
@@ -141,9 +141,9 @@ func TestBuildForServiceBusNamespaceHappyPath(t *testing.T) {
 			"Create": {
 				LongRunning: false,
 				Method:      "PUT",
-				RequestObject: &resourcemanager.ApiObjectDefinition{
+				RequestObject: &models.SDKObjectDefinition{
 					ReferenceName: pointer.To("Namespace"),
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					Type:          models.ReferenceSDKObjectDefinitionType,
 				},
 				ResourceIdName: pointer.To("NamespaceId"),
 			},
@@ -155,18 +155,18 @@ func TestBuildForServiceBusNamespaceHappyPath(t *testing.T) {
 			"Get": {
 				LongRunning: false,
 				Method:      "GET",
-				ResponseObject: &resourcemanager.ApiObjectDefinition{
+				ResponseObject: &models.SDKObjectDefinition{
 					ReferenceName: pointer.To("Namespace"),
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					Type:          models.ReferenceSDKObjectDefinitionType,
 				},
 				ResourceIdName: pointer.To("NamespaceId"),
 			},
 			"Update": {
 				LongRunning: false,
 				Method:      "PUT",
-				RequestObject: &resourcemanager.ApiObjectDefinition{
+				RequestObject: &models.SDKObjectDefinition{
 					ReferenceName: pointer.To("Namespace"),
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					Type:          models.ReferenceSDKObjectDefinitionType,
 				},
 				ResourceIdName: pointer.To("NamespaceId"),
 			},
@@ -333,14 +333,14 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 				Fields: map[string]resourcemanager.FieldDetails{
 					"Description": {
 						JsonName: "description",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 					},
 					"Status": {
 						JsonName: "status",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("PrivateLinkConnectionStatus"),
 						},
 					},
@@ -350,18 +350,18 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 				Fields: map[string]resourcemanager.FieldDetails{
 					"KeySource": {
 						JsonName: "keySource",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("KeySource"),
 						},
 						Optional: true,
 					},
 					"KeyVaultProperties": {
 						JsonName: "keyVaultProperties",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.ListApiObjectDefinitionType,
-							NestedItem: &resourcemanager.ApiObjectDefinition{
-								Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.ListSDKObjectDefinitionType,
+							NestedItem: &models.SDKObjectDefinition{
+								Type:          models.ReferenceSDKObjectDefinitionType,
 								ReferenceName: pointer.To("KeyVaultProperties"),
 							},
 						},
@@ -369,8 +369,8 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 					},
 					"RequireInfrastructureEncryption": {
 						JsonName: "requireInfrastructureEncryption",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.BooleanApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.BooleanSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
@@ -380,29 +380,29 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 				Fields: map[string]resourcemanager.FieldDetails{
 					"Identity": {
 						JsonName: "identity",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"KeyName": {
 						JsonName: "keyName",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"KeyVaultUri": {
 						JsonName: "keyVaultUri",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 					},
 					"KeyVersion": {
 						JsonName: "keyVersion",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
@@ -412,43 +412,43 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 				Fields: map[string]resourcemanager.FieldDetails{
 					"Id": {
 						JsonName: "id",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"Location": {
 						JsonName: "location",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.LocationApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.LocationSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"Name": {
 						JsonName: "name",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"Properties": {
 						JsonName: "properties",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("PrivateEndpointConnectionProperties"),
 						},
 					},
 					"SystemData": {
 						JsonName: "systemData",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.SystemData,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.SystemData,
 						},
 						Optional: true,
 					},
 					"Type": {
 						JsonName: "type",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
@@ -458,24 +458,24 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 				Fields: map[string]resourcemanager.FieldDetails{
 					"PrivateEndpoint": {
 						JsonName: "privateEndpoint",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("PrivateEndpoint"),
 						},
 						Optional: true,
 					},
 					"PrivateLinkServiceConnectionState": {
 						JsonName: "privateLinkServiceConnectionState",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("ConnectionState"),
 						},
 						Optional: true,
 					},
 					"ProvisioningState": {
 						JsonName: "provisioningState",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("EndPointProvisioningState"),
 						},
 						Optional: true,
@@ -486,8 +486,8 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 				Fields: map[string]resourcemanager.FieldDetails{
 					"Id": {
 						JsonName: "id",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
@@ -497,45 +497,45 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 				Fields: map[string]resourcemanager.FieldDetails{
 					"Identity": {
 						JsonName: "identity",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.SystemAndUserAssignedIdentityMapApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.SystemAndUserAssignedIdentityMapSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"Name": {
 						JsonName: "name",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 					},
 					"Location": {
 						JsonName: "location",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.LocationApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.LocationSDKObjectDefinitionType,
 						},
 						Required: true,
 					},
 					"Properties": {
 						JsonName: "properties",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("NamespaceProperties"),
 						},
 						Required: true,
 					},
 					"Sku": {
 						JsonName: "sku",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("Sku"),
 						},
 						Required: true,
 					},
 					"Tags": {
 						JsonName: "tags",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.TagsApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.TagsSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
@@ -545,45 +545,45 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 				Fields: map[string]resourcemanager.FieldDetails{
 					"AlternateName": {
 						JsonName: "alternateName",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"CreatedAt": {
 						JsonName: "createdAt",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.DateTimeApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.DateTimeSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"DisableLocalAuth": {
 						JsonName: "disableLocalAuth",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.BooleanApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.BooleanSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"Encryption": {
 						JsonName: "encryption",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("Encryption"),
 						},
 						Optional: true,
 					},
 					"MetricId": {
 						JsonName: "metricId",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"MinimumTlsVersion": {
 						JsonName: "minimum_tls_version",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+						ObjectDefinition: models.SDKObjectDefinition{
 							ReferenceName: pointer.To("MinimumTlsVersion"),
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						Optional: true,
 						Validation: &resourcemanager.FieldValidationDetails{
@@ -597,10 +597,10 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 					},
 					"PrivateEndpointConnections": {
 						JsonName: "privateEndpointConnections",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.ListApiObjectDefinitionType,
-							NestedItem: &resourcemanager.ApiObjectDefinition{
-								Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.ListSDKObjectDefinitionType,
+							NestedItem: &models.SDKObjectDefinition{
+								Type:          models.ReferenceSDKObjectDefinitionType,
 								ReferenceName: pointer.To("PrivateEndpointConnection"),
 							},
 						},
@@ -608,36 +608,36 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 					},
 					"PublicNetworkAccess": {
 						JsonName: "publicNetworkAccess",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.BooleanApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.BooleanSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"ServiceBusEndpoint": {
 						JsonName: "serviceBusEndpoint",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"Status": {
 						JsonName: "status",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"ZoneRedundant": {
 						JsonName: "zoneRedundant",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.BooleanApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.BooleanSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"UpdatedAt": {
 						JsonName: "updatedAt",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.DateTimeApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.DateTimeSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
@@ -647,59 +647,59 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 				Fields: map[string]resourcemanager.FieldDetails{
 					"Id": {
 						JsonName: "id",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"Identity": {
 						JsonName: "identity",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.SystemAndUserAssignedIdentityMapApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.SystemAndUserAssignedIdentityMapSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"Name": {
 						JsonName: "name",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"Location": {
 						JsonName: "location",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.LocationApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.LocationSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"Properties": {
 						JsonName: "properties",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("NamespaceUpdateProperties"),
 						},
 						Optional: true,
 					},
 					"Sku": {
 						JsonName: "sku",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("Sku"),
 						},
 						Optional: true,
 					},
 					"Tags": {
 						JsonName: "tags",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.TagsApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.TagsSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"Type": {
 						JsonName: "type",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
@@ -709,46 +709,46 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 				Fields: map[string]resourcemanager.FieldDetails{
 					"AlternateName": {
 						JsonName: "alternateName",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"CreatedAt": {
 						JsonName: "createdAt",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.DateTimeApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.DateTimeSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"DisableLocalAuth": {
 						JsonName: "disableLocalAuth",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.BooleanApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.BooleanSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"Encryption": {
 						JsonName: "encryption",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("Encryption"),
 						},
 						Optional: true,
 					},
 					"MetricId": {
 						JsonName: "metricId",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"PrivateEndpointConnections": {
 						JsonName: "privateEndpointConnections",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.ListApiObjectDefinitionType,
-							NestedItem: &resourcemanager.ApiObjectDefinition{
-								Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.ListSDKObjectDefinitionType,
+							NestedItem: &models.SDKObjectDefinition{
+								Type:          models.ReferenceSDKObjectDefinitionType,
 								ReferenceName: pointer.To("PrivateEndpointConnection"),
 							},
 						},
@@ -756,29 +756,29 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 					},
 					"ServiceBusEndpoint": {
 						JsonName: "serviceBusEndpoint",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"Status": {
 						JsonName: "status",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"ZoneRedundant": {
 						JsonName: "zoneRedundant",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.BooleanApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.BooleanSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"UpdatedAt": {
 						JsonName: "updatedAt",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.DateTimeApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.DateTimeSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
@@ -788,8 +788,8 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 				Fields: map[string]resourcemanager.FieldDetails{
 					"Name": {
 						JsonName: "name",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("SkuName"),
 						},
 						Required: true,
@@ -804,8 +804,8 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 					},
 					"Tier": {
 						JsonName: "tier",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("SkuTier"),
 						},
 						Optional: true,
@@ -820,8 +820,8 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 					},
 					"Capacity": {
 						JsonName: "capacity",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
@@ -831,8 +831,8 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 				Fields: map[string]resourcemanager.FieldDetails{
 					"UserAssignedIdentity": {
 						JsonName: "userAssignedIdentity",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
@@ -843,9 +843,9 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 			"Create": {
 				LongRunning: false,
 				Method:      "PUT",
-				RequestObject: &resourcemanager.ApiObjectDefinition{
+				RequestObject: &models.SDKObjectDefinition{
 					ReferenceName: pointer.To("Namespace"),
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					Type:          models.ReferenceSDKObjectDefinitionType,
 				},
 				ResourceIdName: pointer.To("NamespaceId"),
 			},
@@ -857,18 +857,18 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 			"Get": {
 				LongRunning: false,
 				Method:      "GET",
-				ResponseObject: &resourcemanager.ApiObjectDefinition{
+				ResponseObject: &models.SDKObjectDefinition{
 					ReferenceName: pointer.To("Namespace"),
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					Type:          models.ReferenceSDKObjectDefinitionType,
 				},
 				ResourceIdName: pointer.To("NamespaceId"),
 			},
 			"Update": {
 				LongRunning: false,
 				Method:      "PUT",
-				RequestObject: &resourcemanager.ApiObjectDefinition{
+				RequestObject: &models.SDKObjectDefinition{
 					ReferenceName: pointer.To("NamespaceUpdateParameters"),
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					Type:          models.ReferenceSDKObjectDefinitionType,
 				},
 				ResourceIdName: pointer.To("NamespaceId"),
 			},
