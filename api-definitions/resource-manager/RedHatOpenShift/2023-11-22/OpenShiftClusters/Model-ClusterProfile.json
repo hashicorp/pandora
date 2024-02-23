@@ -1,0 +1,65 @@
+{
+  "name": "ClusterProfile",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "domain",
+      "name": "Domain",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "fipsValidatedModules",
+      "name": "FipsValidatedModules",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "FipsValidatedModules"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "pullSecret",
+      "name": "PullSecret",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "resourceGroupId",
+      "name": "ResourceGroupId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "version",
+      "name": "Version",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
+}
