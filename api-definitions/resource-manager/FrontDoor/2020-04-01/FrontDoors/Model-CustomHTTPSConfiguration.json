@@ -1,65 +1,65 @@
 {
- "name": "CustomHTTPSConfiguration",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "certificateSource",
-   "name": "CertificateSource",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "FrontDoorCertificateSource"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "frontDoorCertificateSourceParameters",
-   "name": "FrontDoorCertificateSourceParameters",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "FrontDoorCertificateSourceParameters"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "keyVaultCertificateSourceParameters",
-   "name": "KeyVaultCertificateSourceParameters",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "KeyVaultCertificateSourceParameters"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "minimumTlsVersion",
-   "name": "MinimumTlsVersion",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "MinimumTLSVersion"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "protocolType",
-   "name": "ProtocolType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "FrontDoorTlsProtocolType"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  "name": "CustomHTTPSConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "certificateSource",
+      "name": "CertificateSource",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "FrontDoorCertificateSource"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "frontDoorCertificateSourceParameters",
+      "name": "FrontDoorCertificateSourceParameters",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "FrontDoorCertificateSourceParameters"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "keyVaultCertificateSourceParameters",
+      "name": "KeyVaultCertificateSourceParameters",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "KeyVaultCertificateSourceParameters"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "minimumTlsVersion",
+      "name": "MinimumTlsVersion",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MinimumTLSVersion"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "protocolType",
+      "name": "ProtocolType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "FrontDoorTlsProtocolType"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    }
+  ]
 }

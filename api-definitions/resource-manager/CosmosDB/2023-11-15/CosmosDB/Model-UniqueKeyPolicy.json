@@ -1,21 +1,21 @@
 {
- "name": "UniqueKeyPolicy",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "uniqueKeys",
-   "name": "UniqueKeys",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "UniqueKey"
+  "name": "UniqueKeyPolicy",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "uniqueKeys",
+      "name": "UniqueKeys",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "UniqueKey"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

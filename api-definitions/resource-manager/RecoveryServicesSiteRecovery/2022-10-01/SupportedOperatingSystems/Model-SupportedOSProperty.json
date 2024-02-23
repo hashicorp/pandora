@@ -1,33 +1,33 @@
 {
- "name": "SupportedOSProperty",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "instanceType",
-   "name": "InstanceType",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "supportedOs",
-   "name": "SupportedOs",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "SupportedOSDetails"
+  "name": "SupportedOSProperty",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "instanceType",
+      "name": "InstanceType",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "supportedOs",
+      "name": "SupportedOs",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "SupportedOSDetails"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

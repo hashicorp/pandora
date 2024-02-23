@@ -1,32 +1,32 @@
 {
- "name": "MigrateSchemaSqlServerSqlDbTaskOutputError",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "commandText",
-   "name": "CommandText",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "errorText",
-   "name": "ErrorText",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "MigrateSchemaSqlServerSqlDbTaskOutput",
- "discriminatedTypeValue": "SchemaErrorOutput",
- "typeHintIn": "ResultType"
+  "name": "MigrateSchemaSqlServerSqlDbTaskOutputError",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "commandText",
+      "name": "CommandText",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "errorText",
+      "name": "ErrorText",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ],
+  "discriminatedParentModelName": "MigrateSchemaSqlServerSqlDbTaskOutput",
+  "discriminatedTypeValue": "SchemaErrorOutput",
+  "typeHintIn": "ResultType"
 }

@@ -1,41 +1,41 @@
 {
- "name": "GetBlobReferenceForConsumptionDto",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "blobUri",
-   "name": "BlobUri",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "credential",
-   "name": "Credential",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "DataReferenceCredential"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "storageAccountArmId",
-   "name": "StorageAccountArmId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "GetBlobReferenceForConsumptionDto",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "blobUri",
+      "name": "BlobUri",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "credential",
+      "name": "Credential",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DataReferenceCredential"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "storageAccountArmId",
+      "name": "StorageAccountArmId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

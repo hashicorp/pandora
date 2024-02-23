@@ -1,29 +1,29 @@
 {
- "name": "MongoDbShardKeyField",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "name",
-   "name": "Name",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "order",
-   "name": "Order",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "MongoDbShardKeyOrder"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  "name": "MongoDbShardKeyField",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "name",
+      "name": "Name",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "order",
+      "name": "Order",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MongoDbShardKeyOrder"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    }
+  ]
 }

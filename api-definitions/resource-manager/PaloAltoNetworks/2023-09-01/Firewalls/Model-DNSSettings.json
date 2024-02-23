@@ -1,45 +1,45 @@
 {
- "name": "DNSSettings",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "dnsServers",
-   "name": "DnsServers",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "IPAddress"
+  "name": "DNSSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "dnsServers",
+      "name": "DnsServers",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "IPAddress"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "enableDnsProxy",
+      "name": "EnableDnsProxy",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DNSProxy"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "enabledDnsType",
+      "name": "EnabledDnsType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EnabledDNSType"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "enableDnsProxy",
-   "name": "EnableDnsProxy",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "DNSProxy"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "enabledDnsType",
-   "name": "EnabledDnsType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "EnabledDNSType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

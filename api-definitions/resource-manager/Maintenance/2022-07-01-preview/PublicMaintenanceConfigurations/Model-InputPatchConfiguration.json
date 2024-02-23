@@ -1,53 +1,53 @@
 {
- "name": "InputPatchConfiguration",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "linuxParameters",
-   "name": "LinuxParameters",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "InputLinuxParameters"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "rebootSetting",
-   "name": "RebootSetting",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "RebootOptions"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "tasks",
-   "name": "Tasks",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SoftwareUpdateConfigurationTasks"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "windowsParameters",
-   "name": "WindowsParameters",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "InputWindowsParameters"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "InputPatchConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "linuxParameters",
+      "name": "LinuxParameters",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "InputLinuxParameters"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rebootSetting",
+      "name": "RebootSetting",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RebootOptions"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "tasks",
+      "name": "Tasks",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SoftwareUpdateConfigurationTasks"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "windowsParameters",
+      "name": "WindowsParameters",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "InputWindowsParameters"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

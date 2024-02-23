@@ -1,113 +1,113 @@
 {
- "name": "VirtualMachineProfile",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "additionalCapabilities",
-   "name": "AdditionalCapabilities",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "VirtualMachineAdditionalCapabilities"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "adminUser",
-   "name": "AdminUser",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "Credentials"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "createOption",
-   "name": "CreateOption",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "CreateOption"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "imageReference",
-   "name": "ImageReference",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ImageReference"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "nonAdminUser",
-   "name": "NonAdminUser",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "Credentials"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "osType",
-   "name": "OsType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "OsType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "sku",
-   "name": "Sku",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "Sku"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "usageQuota",
-   "name": "UsageQuota",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "useSharedPassword",
-   "name": "UseSharedPassword",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "EnableState"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "VirtualMachineProfile",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "additionalCapabilities",
+      "name": "AdditionalCapabilities",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "VirtualMachineAdditionalCapabilities"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "adminUser",
+      "name": "AdminUser",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Credentials"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "createOption",
+      "name": "CreateOption",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CreateOption"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "imageReference",
+      "name": "ImageReference",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ImageReference"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "nonAdminUser",
+      "name": "NonAdminUser",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Credentials"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "osType",
+      "name": "OsType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "OsType"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sku",
+      "name": "Sku",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Sku"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "usageQuota",
+      "name": "UsageQuota",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "useSharedPassword",
+      "name": "UseSharedPassword",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EnableState"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

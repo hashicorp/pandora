@@ -1,20 +1,20 @@
 {
- "name": "EventGridStreamInputDataSource",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "properties",
-   "name": "Properties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "EventGridStreamInputDataSourceProperties"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "StreamInputDataSource",
- "discriminatedTypeValue": "Microsoft.EventGrid/EventSubscriptions",
- "typeHintIn": "Type"
+  "name": "EventGridStreamInputDataSource",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EventGridStreamInputDataSourceProperties"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ],
+  "discriminatedParentModelName": "StreamInputDataSource",
+  "discriminatedTypeValue": "Microsoft.EventGrid/EventSubscriptions",
+  "typeHintIn": "Type"
 }

@@ -1,0 +1,58 @@
+{
+  "name": "UeInfoPropertiesFormat",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "lastReadAt",
+      "name": "LastReadAt",
+      "objectDefinition": {
+        "type": "DateTime",
+        "referenceName": null,
+        "dateFormat": "RFC3339"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "ratType",
+      "name": "RatType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RatType"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "ueIpAddresses",
+      "name": "UeIPAddresses",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "DnnIPPair"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "ueState",
+      "name": "UeState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "UeState"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    }
+  ]
+}

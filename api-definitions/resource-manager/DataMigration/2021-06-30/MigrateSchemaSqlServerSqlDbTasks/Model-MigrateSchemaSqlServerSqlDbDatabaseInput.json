@@ -1,41 +1,41 @@
 {
- "name": "MigrateSchemaSqlServerSqlDbDatabaseInput",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "name",
-   "name": "Name",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "schemaSetting",
-   "name": "SchemaSetting",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SchemaMigrationSetting"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "targetDatabaseName",
-   "name": "TargetDatabaseName",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "MigrateSchemaSqlServerSqlDbDatabaseInput",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "name",
+      "name": "Name",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "schemaSetting",
+      "name": "SchemaSetting",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SchemaMigrationSetting"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "targetDatabaseName",
+      "name": "TargetDatabaseName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

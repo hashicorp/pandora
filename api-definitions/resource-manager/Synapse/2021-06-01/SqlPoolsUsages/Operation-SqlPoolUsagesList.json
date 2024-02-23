@@ -1,16 +1,16 @@
 {
- "name": "SqlPoolUsagesList",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "fieldContainingPaginationDetails": "nextLink",
- "longRunning": false,
- "httpMethod": "GET",
- "resourceIdName": "SqlPoolId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "SqlPoolUsage"
- },
- "uriSuffix": "/usages"
+  "name": "SqlPoolUsagesList",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "SqlPoolId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "SqlPoolUsage"
+  },
+  "uriSuffix": "/usages"
 }

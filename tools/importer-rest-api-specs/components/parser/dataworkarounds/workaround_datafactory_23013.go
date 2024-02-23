@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 var _ workaround = workaroundDataFactory23013{}
@@ -17,7 +17,7 @@ var _ workaround = workaroundDataFactory23013{}
 // Swagger PR: https://github.com/Azure/azure-rest-api-specs/pull/23013
 type workaroundDataFactory23013 struct{}
 
-func (workaroundDataFactory23013) IsApplicable(apiDefinition *models.AzureApiDefinition) bool {
+func (workaroundDataFactory23013) IsApplicable(apiDefinition *importerModels.AzureApiDefinition) bool {
 	return apiDefinition.ServiceName == "DataFactory" && apiDefinition.ApiVersion == "2018-06-01"
 }
 
@@ -25,19 +25,19 @@ func (workaroundDataFactory23013) Name() string {
 	return "DataFactory / 23013"
 }
 
-func (workaroundDataFactory23013) Process(apiDefinition models.AzureApiDefinition) (*models.AzureApiDefinition, error) {
+func (workaroundDataFactory23013) Process(apiDefinition importerModels.AzureApiDefinition) (*importerModels.AzureApiDefinition, error) {
 	resource, ok := apiDefinition.Resources["DataFlowDebugSession"]
 	if !ok {
 		return nil, fmt.Errorf("couldn't find API Resource DataFlowDebugSession")
 	}
 
 	// add the new discriminated parent type
-	resource.Models["Reference"] = models.ModelDetails{
+	resource.Models["Reference"] = importerModels.ModelDetails{
 		TypeHintIn: pointer.To("Type"),
-		Fields: map[string]models.FieldDetails{
+		Fields: map[string]importerModels.FieldDetails{
 			"Type": {
-				ObjectDefinition: &models.ObjectDefinition{
-					Type: models.ObjectDefinitionString,
+				ObjectDefinition: &importerModels.ObjectDefinition{
+					Type: importerModels.ObjectDefinitionString,
 				},
 				Required: true,
 				JsonName: "type",
@@ -45,7 +45,7 @@ func (workaroundDataFactory23013) Process(apiDefinition models.AzureApiDefinitio
 		},
 	}
 
-	// update the existing models to be discriminated types and remove the `type` field from them
+	// update the existing importerModels to be discriminated types and remove the `type` field from them
 	modelNames := []string{
 		"IntegrationRuntimeReference",
 		"LinkedServiceReference",

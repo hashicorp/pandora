@@ -5,6 +5,7 @@ package parser
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"net/http"
 	"sort"
 	"strings"
@@ -15,7 +16,7 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/constants"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/resourceids"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -25,12 +26,12 @@ type operationsParser struct {
 	swaggerDefinition              *SwaggerDefinition
 }
 
-func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, operationIdsToParsedOperations map[string]resourceids.ParsedOperation, resourceProvider *string, found internal.ParseResult) (*map[string]models.OperationDetails, *internal.ParseResult, error) {
+func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, operationIdsToParsedOperations map[string]resourceids.ParsedOperation, resourceProvider *string, found internal.ParseResult) (*map[string]importerModels.OperationDetails, *internal.ParseResult, error) {
 	logger := d.logger.Named("Operations Parser")
-	operations := make(map[string]models.OperationDetails, 0)
+	operations := make(map[string]importerModels.OperationDetails, 0)
 	result := internal.ParseResult{
 		Constants: map[string]resourcemanager.ConstantDetails{},
-		Models:    map[string]models.ModelDetails{},
+		Models:    map[string]importerModels.ModelDetails{},
 	}
 	result.Append(found)
 
@@ -73,10 +74,10 @@ func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, operationIdsTo
 	return &operations, &result, nil
 }
 
-func (p operationsParser) parseOperation(operation parsedOperation, resourceProvider *string, logger hclog.Logger) (*models.OperationDetails, *internal.ParseResult, error) {
+func (p operationsParser) parseOperation(operation parsedOperation, resourceProvider *string, logger hclog.Logger) (*importerModels.OperationDetails, *internal.ParseResult, error) {
 	result := internal.ParseResult{
 		Constants: map[string]resourcemanager.ConstantDetails{},
-		Models:    map[string]models.ModelDetails{},
+		Models:    map[string]importerModels.ModelDetails{},
 	}
 
 	contentType := p.determineContentType(operation)
@@ -125,7 +126,7 @@ func (p operationsParser) parseOperation(operation parsedOperation, resourceProv
 		return nil, nil, nil
 	}
 
-	operationData := models.OperationDetails{
+	operationData := importerModels.OperationDetails{
 		ContentType:                      contentType,
 		ExpectedStatusCodes:              expectedStatusCodes,
 		FieldContainingPaginationDetails: paginationField,
@@ -147,7 +148,7 @@ func (p operationsParser) parseOperation(operation parsedOperation, resourceProv
 	return &operationData, &result, nil
 }
 
-func (p operationsParser) determineObjectDefinitionForOption(input spec.Parameter) (*models.ObjectDefinition, error) {
+func (p operationsParser) determineObjectDefinitionForOption(input spec.Parameter) (*models.SDKOperationOptionObjectDefinition, error) {
 	if strings.EqualFold(input.Type, "array") {
 		// https://github.com/Azure/azure-rest-api-specs/blob/1b0ed8edd58bb7c9ade9a27430759527bd4eec8e/specification/trafficmanager/resource-manager/Microsoft.Network/stable/2018-03-01/trafficmanager.json#L735-L738
 		if input.Items == nil {
@@ -160,14 +161,14 @@ func (p operationsParser) determineObjectDefinitionForOption(input spec.Paramete
 		}
 
 		if strings.EqualFold(input.CollectionFormat, "csv") {
-			return &models.ObjectDefinition{
-				Type:       models.ObjectDefinitionCsv,
+			return &models.SDKOperationOptionObjectDefinition{
+				Type:       models.CSVSDKOperationOptionObjectDefinitionType,
 				NestedItem: innerType,
 			}, nil
 		}
 
-		return &models.ObjectDefinition{
-			Type:       models.ObjectDefinitionList,
+		return &models.SDKOperationOptionObjectDefinition{
+			Type:       models.ListSDKOperationOptionObjectDefinitionType,
 			NestedItem: innerType,
 		}, nil
 	}
@@ -175,7 +176,7 @@ func (p operationsParser) determineObjectDefinitionForOption(input spec.Paramete
 	return p.determineObjectDefinitionForOptionRaw(input.Type, input.CollectionFormat, input.Format)
 }
 
-func (p operationsParser) determineObjectDefinitionForOptionRaw(paramType string, collectionFormat string, format string) (*models.ObjectDefinition, error) {
+func (p operationsParser) determineObjectDefinitionForOptionRaw(paramType string, collectionFormat string, format string) (*models.SDKOperationOptionObjectDefinition, error) {
 	switch strings.ToLower(paramType) {
 	case "array":
 		{
@@ -187,26 +188,26 @@ func (p operationsParser) determineObjectDefinitionForOptionRaw(paramType string
 		}
 
 	case "boolean":
-		return &models.ObjectDefinition{
-			Type: models.ObjectDefinitionBoolean,
+		return &models.SDKOperationOptionObjectDefinition{
+			Type: models.BooleanSDKOperationOptionObjectDefinitionType,
 		}, nil
 
 	case "integer":
-		return &models.ObjectDefinition{
-			Type: models.ObjectDefinitionInteger,
+		return &models.SDKOperationOptionObjectDefinition{
+			Type: models.IntegerSDKOperationOptionObjectDefinitionType,
 		}, nil
 
 	case "number":
 		{
 			if strings.EqualFold(format, "double") {
-				return &models.ObjectDefinition{
-					Type: models.ObjectDefinitionFloat,
+				return &models.SDKOperationOptionObjectDefinition{
+					Type: models.FloatSDKOperationOptionObjectDefinitionType,
 				}, nil
 			}
 
 			if strings.EqualFold(format, "decimal") {
-				return &models.ObjectDefinition{
-					Type: models.ObjectDefinitionFloat,
+				return &models.SDKOperationOptionObjectDefinition{
+					Type: models.FloatSDKOperationOptionObjectDefinitionType,
 				}, nil
 			}
 
@@ -216,14 +217,14 @@ func (p operationsParser) determineObjectDefinitionForOptionRaw(paramType string
 				return nil, fmt.Errorf("unsupported format type for number %q", format)
 			}
 
-			return &models.ObjectDefinition{
-				Type: models.ObjectDefinitionInteger,
+			return &models.SDKOperationOptionObjectDefinition{
+				Type: models.IntegerSDKOperationOptionObjectDefinitionType,
 			}, nil
 		}
 
 	case "string":
-		return &models.ObjectDefinition{
-			Type: models.ObjectDefinitionString,
+		return &models.SDKOperationOptionObjectDefinition{
+			Type: models.StringSDKOperationOptionObjectDefinitionType,
 		}, nil
 	}
 	return nil, fmt.Errorf("unsupported field type %q", paramType)
@@ -336,8 +337,8 @@ func (p operationsParser) operationIsLongRunning(input parsedOperation) bool {
 	return val
 }
 
-func (p operationsParser) optionsForOperation(input parsedOperation, logger hclog.Logger) (*map[string]models.OperationOption, *internal.ParseResult, error) {
-	output := make(map[string]models.OperationOption)
+func (p operationsParser) optionsForOperation(input parsedOperation, logger hclog.Logger) (*map[string]models.SDKOperationOption, *internal.ParseResult, error) {
+	output := make(map[string]models.SDKOperationOption)
 	result := internal.ParseResult{
 		Constants: map[string]resourcemanager.ConstantDetails{},
 	}
@@ -358,7 +359,7 @@ func (p operationsParser) optionsForOperation(input parsedOperation, logger hclo
 			val := param.Name
 			name := cleanup.NormalizeName(val)
 
-			option := models.OperationOption{
+			option := models.SDKOperationOption{
 				Required: param.Required,
 			}
 
@@ -380,7 +381,7 @@ func (p operationsParser) optionsForOperation(input parsedOperation, logger hclo
 			if err != nil {
 				return nil, nil, fmt.Errorf("determining field type for operation: %+v", err)
 			}
-			option.ObjectDefinition = objectDefinition
+			option.ObjectDefinition = *objectDefinition
 
 			if param.Enum != nil {
 				types := []string{
@@ -392,8 +393,8 @@ func (p operationsParser) optionsForOperation(input parsedOperation, logger hclo
 				}
 				result.Constants[constant.Name] = constant.Details
 
-				option.ObjectDefinition = &models.ObjectDefinition{
-					Type:          models.ObjectDefinitionReference,
+				option.ObjectDefinition = models.SDKOperationOptionObjectDefinition{
+					Type:          models.ReferenceSDKOperationOptionObjectDefinitionType,
 					ReferenceName: &constant.Name,
 				}
 			}
@@ -405,7 +406,7 @@ func (p operationsParser) optionsForOperation(input parsedOperation, logger hclo
 	return &output, &result, nil
 }
 
-func (p operationsParser) operationShouldBeIgnored(input models.OperationDetails) bool {
+func (p operationsParser) operationShouldBeIgnored(input importerModels.OperationDetails) bool {
 	// Some HTTP Operations don't make sense for us to expose at this time, for example
 	// a GET request which returns no content. They may at some point in the future but
 	// for now there's not much point
@@ -421,7 +422,7 @@ func (p operationsParser) operationShouldBeIgnored(input models.OperationDetails
 	return false
 }
 
-func (p operationsParser) requestObjectForOperation(input parsedOperation, known internal.ParseResult) (*models.ObjectDefinition, *internal.ParseResult, error) {
+func (p operationsParser) requestObjectForOperation(input parsedOperation, known internal.ParseResult) (*importerModels.ObjectDefinition, *internal.ParseResult, error) {
 	// all we should parse out is the top level object - nothing more.
 
 	// find the same operation in the unexpanded swagger spec since we need the reference name
@@ -447,7 +448,7 @@ func (p operationsParser) requestObjectForOperation(input parsedOperation, known
 }
 
 type operationResponseObjectResult struct {
-	objectDefinition    *models.ObjectDefinition
+	objectDefinition    *importerModels.ObjectDefinition
 	paginationFieldName *string
 }
 
@@ -467,7 +468,7 @@ func (p operationsParser) responseObjectForOperation(input parsedOperation, know
 	output := operationResponseObjectResult{}
 	result := internal.ParseResult{
 		Constants: map[string]resourcemanager.ConstantDetails{},
-		Models:    map[string]models.ModelDetails{},
+		Models:    map[string]importerModels.ModelDetails{},
 	}
 	result.Append(known)
 
@@ -479,7 +480,7 @@ func (p operationsParser) responseObjectForOperation(input parsedOperation, know
 
 	// since it's possible for operations to have multiple status codes, parse out all the objects and then find the most applicable
 	statusCodes := make([]int, 0)
-	objectDefinitionsByStatusCode := map[int]models.ObjectDefinition{}
+	objectDefinitionsByStatusCode := map[int]importerModels.ObjectDefinition{}
 	for statusCode, details := range unexpandedOperation.Responses.StatusCodeResponses {
 		if !p.operationIsASuccess(statusCode, details) {
 			continue

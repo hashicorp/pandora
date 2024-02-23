@@ -1,42 +1,42 @@
 {
- "name": "Selector",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "filter",
-   "name": "Filter",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "Filter"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "id",
-   "name": "Id",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": true,
-   "jsonName": "type",
-   "name": "Type",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SelectorType"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ],
- "typeHintIn": "Type"
+  "name": "Selector",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "filter",
+      "name": "Filter",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Filter"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "id",
+      "name": "Id",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": true,
+      "jsonName": "type",
+      "name": "Type",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SelectorType"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    }
+  ],
+  "typeHintIn": "Type"
 }

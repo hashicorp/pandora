@@ -1,0 +1,29 @@
+{
+  "name": "ScaleProfile",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "capacity",
+      "name": "Capacity",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ScaleProfileCapacity"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "name",
+      "name": "Name",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    }
+  ]
+}

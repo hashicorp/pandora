@@ -1,0 +1,102 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Example",
+    "description": "Example",
+    "version": "2020-01-01"
+  },
+  "host": "management.mysite.com",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "security": [],
+  "securityDefinitions": {},
+  "paths": {
+    "/example": {
+      "put": {
+        "tags": [
+          "Example"
+        ],
+        "operationId": "Example_Test",
+        "description": "Tests parsing of a simple model with inheritance.",
+        "parameters": [
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Model"
+            },
+            "description": "Wrapper class."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/Model"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Model": {
+      "description": "The Resource definition.",
+      "allOf": [
+        {
+          "$ref": "#/definitions/Common"
+        }
+      ],
+      "properties": {
+        "age": {
+          "type": "integer",
+          "description": "the age of this thing"
+        },
+        "enabled": {
+          "type": "boolean",
+          "description": "true or false"
+        },
+        "height": {
+          "type": "number",
+          "format": "float",
+          "description": "the height of this in cm"
+        }
+      },
+      "required": [
+        "enabled",
+        "tags"
+      ],
+      "title": "Example",
+      "type": "object",
+      "x-ms-azure-resource": true
+    },
+    "Common": {
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "the name of this thing"
+        },
+        "tags": {
+          "type": "object",
+          "description": "a key value pair",
+          "additionalProperties": {
+            "description": "the value",
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "name"
+      ]
+    }
+  },
+  "parameters": {}
+}

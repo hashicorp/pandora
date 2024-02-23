@@ -1,41 +1,41 @@
 {
- "name": "InvoiceRebillDetails",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "latestInvoiceId",
-   "name": "LatestInvoiceId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "rebillDocumentType",
-   "name": "RebillDocumentType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "RebillDocumentType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "rebilledInvoiceId",
-   "name": "RebilledInvoiceId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "InvoiceRebillDetails",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "latestInvoiceId",
+      "name": "LatestInvoiceId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rebillDocumentType",
+      "name": "RebillDocumentType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RebillDocumentType"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rebilledInvoiceId",
+      "name": "RebilledInvoiceId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

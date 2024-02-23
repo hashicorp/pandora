@@ -1,19 +1,19 @@
 {
- "name": "Update",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "PATCH",
- "resourceIdName": "IscsiTargetId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "IscsiTargetUpdate"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "IscsiTarget"
- }
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "IscsiTargetId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "IscsiTargetUpdate"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "IscsiTarget"
+  }
 }

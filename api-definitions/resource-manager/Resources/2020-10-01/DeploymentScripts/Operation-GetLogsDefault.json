@@ -1,27 +1,27 @@
 {
- "name": "GetLogsDefault",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "GET",
- "options": [
-  {
-   "optional": true,
-   "queryString": "tail",
-   "required": false,
-   "field": "Tail",
-   "optionsObjectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   }
-  }
- ],
- "resourceIdName": "DeploymentScriptId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "ScriptLog"
- },
- "uriSuffix": "/logs/default"
+  "name": "GetLogsDefault",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "tail",
+      "required": false,
+      "field": "Tail",
+      "optionsObjectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "DeploymentScriptId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ScriptLog"
+  },
+  "uriSuffix": "/logs/default"
 }

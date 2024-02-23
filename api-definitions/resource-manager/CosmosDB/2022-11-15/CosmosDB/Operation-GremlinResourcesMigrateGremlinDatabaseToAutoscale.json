@@ -1,16 +1,16 @@
 {
- "name": "GremlinResourcesMigrateGremlinDatabaseToAutoscale",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "POST",
- "resourceIdName": "GremlinDatabaseId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "ThroughputSettingsGetResults"
- },
- "uriSuffix": "/throughputSettings/default/migrateToAutoscale"
+  "name": "GremlinResourcesMigrateGremlinDatabaseToAutoscale",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "GremlinDatabaseId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ThroughputSettingsGetResults"
+  },
+  "uriSuffix": "/throughputSettings/default/migrateToAutoscale"
 }

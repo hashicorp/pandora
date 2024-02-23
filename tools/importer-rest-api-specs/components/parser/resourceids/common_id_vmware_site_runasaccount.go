@@ -4,7 +4,7 @@
 package resourceids
 
 import (
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -13,22 +13,22 @@ var _ commonIdMatcher = commonIdVMwareSiteRunAsAccount{}
 type commonIdVMwareSiteRunAsAccount struct {
 }
 
-func (c commonIdVMwareSiteRunAsAccount) id() models.ParsedResourceId {
+func (c commonIdVMwareSiteRunAsAccount) id() importerModels.ParsedResourceId {
 	name := "VMwareSiteRunAsAccount"
-	return models.ParsedResourceId{
+	return importerModels.ParsedResourceId{
 		CommonAlias: &name,
 		Constants:   map[string]resourcemanager.ConstantDetails{},
 		Segments: []resourcemanager.ResourceIdSegment{
-			models.StaticResourceIDSegment("subscriptions", "subscriptions"),
-			models.SubscriptionIDResourceIDSegment("subscriptionId"),
-			models.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
-			models.ResourceGroupResourceIDSegment("resourceGroupName"),
-			models.StaticResourceIDSegment("providers", "providers"),
-			models.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.OffAzure"),
-			models.StaticResourceIDSegment("vmwareSites", "vmwareSites"),
-			models.UserSpecifiedResourceIDSegment("vmwareSiteName"),
-			models.StaticResourceIDSegment("runAsAccounts", "runAsAccounts"),
-			models.UserSpecifiedResourceIDSegment("runAsAccountName"),
+			importerModels.StaticResourceIDSegment("subscriptions", "subscriptions"),
+			importerModels.SubscriptionIDResourceIDSegment("subscriptionId"),
+			importerModels.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
+			importerModels.ResourceGroupResourceIDSegment("resourceGroupName"),
+			importerModels.StaticResourceIDSegment("providers", "providers"),
+			importerModels.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.OffAzure"),
+			importerModels.StaticResourceIDSegment("vmwareSites", "vmwareSites"),
+			importerModels.UserSpecifiedResourceIDSegment("vmwareSiteName"),
+			importerModels.StaticResourceIDSegment("runAsAccounts", "runAsAccounts"),
+			importerModels.UserSpecifiedResourceIDSegment("runAsAccountName"),
 		},
 	}
 }

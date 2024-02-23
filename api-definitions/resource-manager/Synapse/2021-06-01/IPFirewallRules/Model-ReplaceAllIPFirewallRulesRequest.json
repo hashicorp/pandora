@@ -1,21 +1,21 @@
 {
- "name": "ReplaceAllIPFirewallRulesRequest",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "ipFirewallRules",
-   "name": "IPFirewallRules",
-   "objectDefinition": {
-    "type": "Dictionary",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "IPFirewallRuleProperties"
+  "name": "ReplaceAllIPFirewallRulesRequest",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "ipFirewallRules",
+      "name": "IPFirewallRules",
+      "objectDefinition": {
+        "type": "Dictionary",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "IPFirewallRuleProperties"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

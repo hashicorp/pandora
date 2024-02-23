@@ -1,44 +1,44 @@
 {
- "name": "HDInsightClusterId",
- "commonAlias": "HDInsightCluster",
- "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}",
- "segments": [
-  {
-   "name": "subscriptions",
-   "type": "Static",
-   "value": "subscriptions"
-  },
-  {
-   "name": "subscriptionId",
-   "type": "SubscriptionId"
-  },
-  {
-   "name": "resourceGroups",
-   "type": "Static",
-   "value": "resourceGroups"
-  },
-  {
-   "name": "resourceGroupName",
-   "type": "ResourceGroup"
-  },
-  {
-   "name": "providers",
-   "type": "Static",
-   "value": "providers"
-  },
-  {
-   "name": "resourceProvider",
-   "type": "ResourceProvider",
-   "value": "Microsoft.HDInsight"
-  },
-  {
-   "name": "clusters",
-   "type": "Static",
-   "value": "clusters"
-  },
-  {
-   "name": "clusterName",
-   "type": "UserSpecified"
-  }
- ]
+  "name": "HDInsightClusterId",
+  "commonAlias": "HDInsightCluster",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}",
+  "segments": [
+    {
+      "name": "subscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "resourceGroups",
+      "type": "Static",
+      "value": "resourceGroups"
+    },
+    {
+      "name": "resourceGroupName",
+      "type": "ResourceGroup"
+    },
+    {
+      "name": "providers",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "resourceProvider",
+      "type": "ResourceProvider",
+      "value": "Microsoft.HDInsight"
+    },
+    {
+      "name": "clusters",
+      "type": "Static",
+      "value": "clusters"
+    },
+    {
+      "name": "clusterName",
+      "type": "UserSpecified"
+    }
+  ]
 }

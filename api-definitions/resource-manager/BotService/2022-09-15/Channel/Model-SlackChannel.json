@@ -1,20 +1,20 @@
 {
- "name": "SlackChannel",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "properties",
-   "name": "Properties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SlackChannelProperties"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "Channel",
- "discriminatedTypeValue": "SlackChannel",
- "typeHintIn": "ChannelName"
+  "name": "SlackChannel",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SlackChannelProperties"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ],
+  "discriminatedParentModelName": "Channel",
+  "discriminatedTypeValue": "SlackChannel",
+  "typeHintIn": "ChannelName"
 }

@@ -263,7 +263,7 @@ service "healthbot" {
 }
 service "healthcareapis" {
   name      = "HealthcareApis"
-  available = ["2022-12-01", "2023-02-28", "2023-09-06", "2023-11-01", "2023-12-01"]
+  available = ["2022-12-01", "2023-02-28", "2023-09-06", "2023-11-01", "2023-12-01", "2024-03-01"]
 }
 service "hybridaks" {
   name      = "HybridAzureKubernetesService"
@@ -352,7 +352,7 @@ service "mixedreality" {
 }
 service "mobilenetwork" {
   name      = "MobileNetwork"
-  available = ["2022-11-01", "2023-06-01", "2023-09-01"]
+  available = ["2022-11-01", "2023-06-01", "2023-09-01", "2024-02-01"]
 }
 service "monitor" {
   name      = "Insights"
@@ -389,7 +389,7 @@ service "newrelic" {
 }
 service "nginx" {
   name      = "Nginx"
-  available = ["2023-04-01", "2023-09-01"]
+  available = ["2023-04-01", "2023-09-01", "2024-01-01-preview"]
 }
 service "notificationhubs" {
   name      = "NotificationHubs"

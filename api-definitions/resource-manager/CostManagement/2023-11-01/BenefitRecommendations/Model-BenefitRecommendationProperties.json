@@ -1,164 +1,164 @@
 {
- "name": "BenefitRecommendationProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "allRecommendationDetails",
-   "name": "AllRecommendationDetails",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "AllSavingsList"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "armSkuName",
-   "name": "ArmSkuName",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "commitmentGranularity",
-   "name": "CommitmentGranularity",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "Grain"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "costWithoutBenefit",
-   "name": "CostWithoutBenefit",
-   "objectDefinition": {
-    "type": "Float",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "currencyCode",
-   "name": "CurrencyCode",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "firstConsumptionDate",
-   "name": "FirstConsumptionDate",
-   "objectDefinition": {
-    "type": "DateTime",
-    "referenceName": null,
-    "dateFormat": "RFC3339"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "lastConsumptionDate",
-   "name": "LastConsumptionDate",
-   "objectDefinition": {
-    "type": "DateTime",
-    "referenceName": null,
-    "dateFormat": "RFC3339"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "lookBackPeriod",
-   "name": "LookBackPeriod",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "LookBackPeriod"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "recommendationDetails",
-   "name": "RecommendationDetails",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "AllSavingsBenefitDetails"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": true,
-   "jsonName": "scope",
-   "name": "Scope",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "Scope"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "term",
-   "name": "Term",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "Term"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "totalHours",
-   "name": "TotalHours",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "usage",
-   "name": "Usage",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "RecommendationUsageDetails"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "typeHintIn": "Scope"
+  "name": "BenefitRecommendationProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "allRecommendationDetails",
+      "name": "AllRecommendationDetails",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AllSavingsList"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "armSkuName",
+      "name": "ArmSkuName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "commitmentGranularity",
+      "name": "CommitmentGranularity",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Grain"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "costWithoutBenefit",
+      "name": "CostWithoutBenefit",
+      "objectDefinition": {
+        "type": "Float",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "currencyCode",
+      "name": "CurrencyCode",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "firstConsumptionDate",
+      "name": "FirstConsumptionDate",
+      "objectDefinition": {
+        "type": "DateTime",
+        "referenceName": null,
+        "dateFormat": "RFC3339"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "lastConsumptionDate",
+      "name": "LastConsumptionDate",
+      "objectDefinition": {
+        "type": "DateTime",
+        "referenceName": null,
+        "dateFormat": "RFC3339"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "lookBackPeriod",
+      "name": "LookBackPeriod",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "LookBackPeriod"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "recommendationDetails",
+      "name": "RecommendationDetails",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AllSavingsBenefitDetails"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": true,
+      "jsonName": "scope",
+      "name": "Scope",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Scope"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "term",
+      "name": "Term",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Term"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "totalHours",
+      "name": "TotalHours",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "usage",
+      "name": "Usage",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RecommendationUsageDetails"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ],
+  "typeHintIn": "Scope"
 }

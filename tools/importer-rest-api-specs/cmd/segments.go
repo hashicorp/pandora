@@ -50,7 +50,6 @@ func (c SegmentsCommand) Run(_ []string) int {
 	}
 	input := pipeline.RunInput{
 		ConfigFilePath:           c.resourceManagerConfigPath,
-		DataApiEndpoint:          nil,
 		JustOutputSegments:       true,
 		Logger:                   logger,
 		OutputDirectory:          os.DevNull,

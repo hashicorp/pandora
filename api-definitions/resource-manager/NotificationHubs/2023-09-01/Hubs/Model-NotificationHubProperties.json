@@ -1,153 +1,153 @@
 {
- "name": "NotificationHubProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "admCredential",
-   "name": "AdmCredential",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "AdmCredential"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "apnsCredential",
-   "name": "ApnsCredential",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ApnsCredential"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "authorizationRules",
-   "name": "AuthorizationRules",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "SharedAccessAuthorizationRuleProperties"
+  "name": "NotificationHubProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "admCredential",
+      "name": "AdmCredential",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AdmCredential"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "apnsCredential",
+      "name": "ApnsCredential",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ApnsCredential"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "authorizationRules",
+      "name": "AuthorizationRules",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "SharedAccessAuthorizationRuleProperties"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "baiduCredential",
+      "name": "BaiduCredential",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "BaiduCredential"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "browserCredential",
+      "name": "BrowserCredential",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "BrowserCredential"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "dailyMaxActiveDevices",
+      "name": "DailyMaxActiveDevices",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "gcmCredential",
+      "name": "GcmCredential",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "GcmCredential"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "mpnsCredential",
+      "name": "MpnsCredential",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MpnsCredential"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "name",
+      "name": "Name",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "registrationTtl",
+      "name": "RegistrationTtl",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "wnsCredential",
+      "name": "WnsCredential",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "WnsCredential"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "xiaomiCredential",
+      "name": "XiaomiCredential",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "XiaomiCredential"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "baiduCredential",
-   "name": "BaiduCredential",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "BaiduCredential"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "browserCredential",
-   "name": "BrowserCredential",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "BrowserCredential"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "dailyMaxActiveDevices",
-   "name": "DailyMaxActiveDevices",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "gcmCredential",
-   "name": "GcmCredential",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "GcmCredential"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "mpnsCredential",
-   "name": "MpnsCredential",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "MpnsCredential"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "name",
-   "name": "Name",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "registrationTtl",
-   "name": "RegistrationTtl",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "wnsCredential",
-   "name": "WnsCredential",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "WnsCredential"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "xiaomiCredential",
-   "name": "XiaomiCredential",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "XiaomiCredential"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

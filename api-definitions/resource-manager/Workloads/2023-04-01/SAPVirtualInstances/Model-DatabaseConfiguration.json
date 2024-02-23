@@ -1,65 +1,65 @@
 {
- "name": "DatabaseConfiguration",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "databaseType",
-   "name": "DatabaseType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SAPDatabaseType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "diskConfiguration",
-   "name": "DiskConfiguration",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "DiskConfiguration"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "instanceCount",
-   "name": "InstanceCount",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "subnetId",
-   "name": "SubnetId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "virtualMachineConfiguration",
-   "name": "VirtualMachineConfiguration",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "VirtualMachineConfiguration"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  "name": "DatabaseConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "databaseType",
+      "name": "DatabaseType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SAPDatabaseType"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "diskConfiguration",
+      "name": "DiskConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DiskConfiguration"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "instanceCount",
+      "name": "InstanceCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "subnetId",
+      "name": "SubnetId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "virtualMachineConfiguration",
+      "name": "VirtualMachineConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "VirtualMachineConfiguration"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    }
+  ]
 }

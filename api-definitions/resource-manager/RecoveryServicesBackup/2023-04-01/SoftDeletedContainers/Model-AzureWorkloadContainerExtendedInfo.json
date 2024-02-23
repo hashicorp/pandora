@@ -1,45 +1,45 @@
 {
- "name": "AzureWorkloadContainerExtendedInfo",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "hostServerName",
-   "name": "HostServerName",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "inquiryInfo",
-   "name": "InquiryInfo",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "InquiryInfo"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "nodesList",
-   "name": "NodesList",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "DistributedNodesInfo"
+  "name": "AzureWorkloadContainerExtendedInfo",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "hostServerName",
+      "name": "HostServerName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "inquiryInfo",
+      "name": "InquiryInfo",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "InquiryInfo"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "nodesList",
+      "name": "NodesList",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "DistributedNodesInfo"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

@@ -1,92 +1,92 @@
 {
-	"fields": [
-		{
-			"computed": true,
-			"documentation": {
-				"markdown": "The ID of the app associated with the Identity."
-			},
-			"hclName": "client_id",
-			"name": "ClientId",
-			"objectDefinition": {
-				"referenceName": null,
-				"type": "String"
-			}
-		},
-		{
-			"documentation": {
-				"markdown": "The Azure Region where the User Assigned Identity should exist."
-			},
-			"forceNew": true,
-			"hclName": "location",
-			"name": "Location",
-			"objectDefinition": {
-				"referenceName": null,
-				"type": "Location"
-			},
-			"required": true
-		},
-		{
-			"documentation": {
-				"markdown": "Specifies the name of this User Assigned Identity."
-			},
-			"forceNew": true,
-			"hclName": "name",
-			"name": "Name",
-			"objectDefinition": {
-				"referenceName": null,
-				"type": "String"
-			},
-			"required": true
-		},
-		{
-			"computed": true,
-			"documentation": {
-				"markdown": "The ID of the Service Principal object associated with the created Identity."
-			},
-			"hclName": "principal_id",
-			"name": "PrincipalId",
-			"objectDefinition": {
-				"referenceName": null,
-				"type": "String"
-			}
-		},
-		{
-			"documentation": {
-				"markdown": "Specifies the name of the Resource Group within which this User Assigned Identity should exist."
-			},
-			"forceNew": true,
-			"hclName": "resource_group_name",
-			"name": "ResourceGroupName",
-			"objectDefinition": {
-				"referenceName": null,
-				"type": "ResourceGroup"
-			},
-			"required": true
-		},
-		{
-			"documentation": {
-				"markdown": "A mapping of tags which should be assigned to the User Assigned Identity."
-			},
-			"hclName": "tags",
-			"optional": true,
-			"name": "Tags",
-			"objectDefinition": {
-				"referenceName": null,
-				"type": "Tags"
-			}
-		},
-		{
-			"computed": true,
-			"documentation": {
-				"markdown": "The ID of the Tenant which the Identity belongs to."
-			},
-			"hclName": "tenant_id",
-			"name": "TenantId",
-			"objectDefinition": {
-				"referenceName": null,
-				"type": "String"
-			}
-		}
-	],
-	"name": "UserAssignedIdentityResourceSchema"
+  "fields": [
+    {
+      "computed": true,
+      "documentation": {
+        "markdown": "The ID of the app associated with the Identity."
+      },
+      "hclName": "client_id",
+      "name": "ClientId",
+      "objectDefinition": {
+        "referenceName": null,
+        "type": "String"
+      }
+    },
+    {
+      "documentation": {
+        "markdown": "The Azure Region where the User Assigned Identity should exist."
+      },
+      "forceNew": true,
+      "hclName": "location",
+      "name": "Location",
+      "objectDefinition": {
+        "referenceName": null,
+        "type": "Location"
+      },
+      "required": true
+    },
+    {
+      "documentation": {
+        "markdown": "Specifies the name of this User Assigned Identity."
+      },
+      "forceNew": true,
+      "hclName": "name",
+      "name": "Name",
+      "objectDefinition": {
+        "referenceName": null,
+        "type": "String"
+      },
+      "required": true
+    },
+    {
+      "computed": true,
+      "documentation": {
+        "markdown": "The ID of the Service Principal object associated with the created Identity."
+      },
+      "hclName": "principal_id",
+      "name": "PrincipalId",
+      "objectDefinition": {
+        "referenceName": null,
+        "type": "String"
+      }
+    },
+    {
+      "documentation": {
+        "markdown": "Specifies the name of the Resource Group within which this User Assigned Identity should exist."
+      },
+      "forceNew": true,
+      "hclName": "resource_group_name",
+      "name": "ResourceGroupName",
+      "objectDefinition": {
+        "referenceName": null,
+        "type": "ResourceGroup"
+      },
+      "required": true
+    },
+    {
+      "documentation": {
+        "markdown": "A mapping of tags which should be assigned to the User Assigned Identity."
+      },
+      "hclName": "tags",
+      "optional": true,
+      "name": "Tags",
+      "objectDefinition": {
+        "referenceName": null,
+        "type": "Tags"
+      }
+    },
+    {
+      "computed": true,
+      "documentation": {
+        "markdown": "The ID of the Tenant which the Identity belongs to."
+      },
+      "hclName": "tenant_id",
+      "name": "TenantId",
+      "objectDefinition": {
+        "referenceName": null,
+        "type": "String"
+      }
+    }
+  ],
+  "name": "UserAssignedIdentityResourceSchema"
 }

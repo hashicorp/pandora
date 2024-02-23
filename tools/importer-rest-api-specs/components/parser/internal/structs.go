@@ -9,13 +9,13 @@ import (
 	"strings"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 type ParseResult struct {
 	Constants map[string]resourcemanager.ConstantDetails
-	Models    map[string]models.ModelDetails
+	Models    map[string]importerModels.ModelDetails
 }
 
 func (r *ParseResult) Append(other ParseResult) error {
@@ -27,7 +27,7 @@ func (r *ParseResult) Append(other ParseResult) error {
 	}
 
 	if r.Models == nil {
-		r.Models = make(map[string]models.ModelDetails)
+		r.Models = make(map[string]importerModels.ModelDetails)
 	}
 	if err := r.AppendModels(other.Models); err != nil {
 		return fmt.Errorf("appending models: %+v", err)
@@ -56,7 +56,7 @@ func (r *ParseResult) AppendConstants(other map[string]resourcemanager.ConstantD
 	return nil
 }
 
-func (r *ParseResult) AppendModels(other map[string]models.ModelDetails) error {
+func (r *ParseResult) AppendModels(other map[string]importerModels.ModelDetails) error {
 	for k, v := range other {
 		existing, hasExisting := r.Models[k]
 		if !hasExisting {
@@ -82,7 +82,7 @@ func (r *ParseResult) AppendModels(other map[string]models.ModelDetails) error {
 	return nil
 }
 
-func compareFields(first map[string]models.FieldDetails, second map[string]models.FieldDetails) error {
+func compareFields(first map[string]importerModels.FieldDetails, second map[string]importerModels.FieldDetails) error {
 	if len(first) != len(second) {
 		return fmt.Errorf("first had %d fields but second had %d fields", len(first), len(second))
 	}
@@ -115,7 +115,7 @@ func compareFields(first map[string]models.FieldDetails, second map[string]model
 	return nil
 }
 
-func objectDefinitionsMatch(first *models.ObjectDefinition, second *models.ObjectDefinition) error {
+func objectDefinitionsMatch(first *importerModels.ObjectDefinition, second *importerModels.ObjectDefinition) error {
 	if first == nil && second == nil {
 		return nil
 	}
@@ -147,7 +147,7 @@ func objectDefinitionsMatch(first *models.ObjectDefinition, second *models.Objec
 	return nil
 }
 
-func customFieldTypesMatch(first *models.CustomFieldType, second *models.CustomFieldType) error {
+func customFieldTypesMatch(first *importerModels.CustomFieldType, second *importerModels.CustomFieldType) error {
 	if first == nil && second == nil {
 		return nil
 	}

@@ -1,21 +1,21 @@
 {
- "name": "ConnectedEnvironmentStoragesCollection",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "value",
-   "name": "Value",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "ConnectedEnvironmentStorage"
+  "name": "ConnectedEnvironmentStoragesCollection",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "value",
+      "name": "Value",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "ConnectedEnvironmentStorage"
+        }
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
     }
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  ]
 }

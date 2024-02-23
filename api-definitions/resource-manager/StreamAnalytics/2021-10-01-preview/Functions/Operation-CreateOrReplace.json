@@ -1,41 +1,41 @@
 {
- "name": "CreateOrReplace",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201
- ],
- "longRunning": false,
- "httpMethod": "PUT",
- "options": [
-  {
-   "headerName": "If-Match",
-   "optional": true,
-   "required": false,
-   "field": "IfMatch",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
+  "name": "CreateOrReplace",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": false,
+  "httpMethod": "PUT",
+  "options": [
+    {
+      "headerName": "If-Match",
+      "optional": true,
+      "required": false,
+      "field": "IfMatch",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "headerName": "If-None-Match",
+      "optional": true,
+      "required": false,
+      "field": "IfNoneMatch",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "FunctionId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "Function"
   },
-  {
-   "headerName": "If-None-Match",
-   "optional": true,
-   "required": false,
-   "field": "IfNoneMatch",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "Function"
   }
- ],
- "resourceIdName": "FunctionId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "Function"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "Function"
- }
 }

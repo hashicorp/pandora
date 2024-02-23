@@ -1,41 +1,41 @@
 {
- "name": "SecurityProfile",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "encryptionAtHost",
-   "name": "EncryptionAtHost",
-   "objectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "securityType",
-   "name": "SecurityType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SecurityTypes"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "uefiSettings",
-   "name": "UefiSettings",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "UefiSettings"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "SecurityProfile",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "encryptionAtHost",
+      "name": "EncryptionAtHost",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "securityType",
+      "name": "SecurityType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SecurityTypes"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "uefiSettings",
+      "name": "UefiSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "UefiSettings"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

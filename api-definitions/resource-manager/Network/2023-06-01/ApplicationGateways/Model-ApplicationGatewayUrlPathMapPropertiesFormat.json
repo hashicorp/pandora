@@ -1,93 +1,93 @@
 {
- "name": "ApplicationGatewayUrlPathMapPropertiesFormat",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "defaultBackendAddressPool",
-   "name": "DefaultBackendAddressPool",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SubResource"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "defaultBackendHttpSettings",
-   "name": "DefaultBackendHTTPSettings",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SubResource"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "defaultLoadDistributionPolicy",
-   "name": "DefaultLoadDistributionPolicy",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SubResource"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "defaultRedirectConfiguration",
-   "name": "DefaultRedirectConfiguration",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SubResource"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "defaultRewriteRuleSet",
-   "name": "DefaultRewriteRuleSet",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SubResource"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "pathRules",
-   "name": "PathRules",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "ApplicationGatewayPathRule"
+  "name": "ApplicationGatewayUrlPathMapPropertiesFormat",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "defaultBackendAddressPool",
+      "name": "DefaultBackendAddressPool",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SubResource"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "defaultBackendHttpSettings",
+      "name": "DefaultBackendHTTPSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SubResource"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "defaultLoadDistributionPolicy",
+      "name": "DefaultLoadDistributionPolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SubResource"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "defaultRedirectConfiguration",
+      "name": "DefaultRedirectConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SubResource"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "defaultRewriteRuleSet",
+      "name": "DefaultRewriteRuleSet",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SubResource"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "pathRules",
+      "name": "PathRules",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "ApplicationGatewayPathRule"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "provisioningState",
+      "name": "ProvisioningState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ProvisioningState"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "provisioningState",
-   "name": "ProvisioningState",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ProvisioningState"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

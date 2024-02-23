@@ -1,33 +1,33 @@
 {
- "name": "RecommendationUsageDetails",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "charges",
-   "name": "Charges",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Float",
-     "referenceName": null
+  "name": "RecommendationUsageDetails",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "charges",
+      "name": "Charges",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Float",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "usageGrain",
+      "name": "UsageGrain",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Grain"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "usageGrain",
-   "name": "UsageGrain",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "Grain"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

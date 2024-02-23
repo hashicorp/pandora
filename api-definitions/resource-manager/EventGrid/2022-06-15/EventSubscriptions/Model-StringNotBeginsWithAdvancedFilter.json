@@ -1,24 +1,24 @@
 {
- "name": "StringNotBeginsWithAdvancedFilter",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "values",
-   "name": "Values",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "String",
-     "referenceName": null
+  "name": "StringNotBeginsWithAdvancedFilter",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "values",
+      "name": "Values",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "AdvancedFilter",
- "discriminatedTypeValue": "StringNotBeginsWith",
- "typeHintIn": "OperatorType"
+  ],
+  "discriminatedParentModelName": "AdvancedFilter",
+  "discriminatedTypeValue": "StringNotBeginsWith",
+  "typeHintIn": "OperatorType"
 }

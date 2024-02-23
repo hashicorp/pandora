@@ -1,33 +1,33 @@
 {
- "name": "GatewayOperatorProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "instances",
-   "name": "Instances",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "GatewayInstance"
+  "name": "GatewayOperatorProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "instances",
+      "name": "Instances",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "GatewayInstance"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "resourceRequests",
+      "name": "ResourceRequests",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "GatewayOperatorResourceRequests"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "resourceRequests",
-   "name": "ResourceRequests",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "GatewayOperatorResourceRequests"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

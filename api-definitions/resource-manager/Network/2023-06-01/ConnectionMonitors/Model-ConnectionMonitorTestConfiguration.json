@@ -1,101 +1,101 @@
 {
- "name": "ConnectionMonitorTestConfiguration",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "httpConfiguration",
-   "name": "HTTPConfiguration",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ConnectionMonitorHTTPConfiguration"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "icmpConfiguration",
-   "name": "IcmpConfiguration",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ConnectionMonitorIcmpConfiguration"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "name",
-   "name": "Name",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "preferredIPVersion",
-   "name": "PreferredIPVersion",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "PreferredIPVersion"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "protocol",
-   "name": "Protocol",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ConnectionMonitorTestConfigurationProtocol"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "successThreshold",
-   "name": "SuccessThreshold",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ConnectionMonitorSuccessThreshold"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "tcpConfiguration",
-   "name": "TcpConfiguration",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ConnectionMonitorTcpConfiguration"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "testFrequencySec",
-   "name": "TestFrequencySec",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "ConnectionMonitorTestConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "httpConfiguration",
+      "name": "HTTPConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ConnectionMonitorHTTPConfiguration"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "icmpConfiguration",
+      "name": "IcmpConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ConnectionMonitorIcmpConfiguration"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "name",
+      "name": "Name",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "preferredIPVersion",
+      "name": "PreferredIPVersion",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PreferredIPVersion"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "protocol",
+      "name": "Protocol",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ConnectionMonitorTestConfigurationProtocol"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "successThreshold",
+      "name": "SuccessThreshold",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ConnectionMonitorSuccessThreshold"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "tcpConfiguration",
+      "name": "TcpConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ConnectionMonitorTcpConfiguration"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "testFrequencySec",
+      "name": "TestFrequencySec",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

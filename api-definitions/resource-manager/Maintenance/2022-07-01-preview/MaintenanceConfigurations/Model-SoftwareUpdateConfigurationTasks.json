@@ -1,37 +1,37 @@
 {
- "name": "SoftwareUpdateConfigurationTasks",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "postTasks",
-   "name": "PostTasks",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "TaskProperties"
+  "name": "SoftwareUpdateConfigurationTasks",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "postTasks",
+      "name": "PostTasks",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "TaskProperties"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "preTasks",
+      "name": "PreTasks",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "TaskProperties"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "preTasks",
-   "name": "PreTasks",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "TaskProperties"
-    }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

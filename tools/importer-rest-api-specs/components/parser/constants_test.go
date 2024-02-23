@@ -7,7 +7,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -18,10 +18,10 @@ func TestParseConstantsIntegersTopLevelAsInts(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
 				Constants: map[string]resourcemanager.ConstantDetails{
 					"TableNumber": {
@@ -34,29 +34,29 @@ func TestParseConstantsIntegersTopLevelAsInts(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"ExampleWrapper": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
-								ObjectDefinition: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
 									ReferenceName: pointer.To("TableNumber"),
-									Type:          models.ObjectDefinitionReference,
+									Type:          importerModels.ObjectDefinitionReference,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Example_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -75,10 +75,10 @@ func TestParseConstantsIntegersTopLevelAsIntsWithDisplayName(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
 				Constants: map[string]resourcemanager.ConstantDetails{
 					"TableNumber": {
@@ -90,29 +90,29 @@ func TestParseConstantsIntegersTopLevelAsIntsWithDisplayName(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"ExampleWrapper": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
-								ObjectDefinition: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
 									ReferenceName: pointer.To("TableNumber"),
-									Type:          models.ObjectDefinitionReference,
+									Type:          importerModels.ObjectDefinitionReference,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Example_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -130,10 +130,10 @@ func TestParseConstantsIntegersTopLevelAsStrings(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
 				Constants: map[string]resourcemanager.ConstantDetails{
 					"TableNumber": {
@@ -145,29 +145,29 @@ func TestParseConstantsIntegersTopLevelAsStrings(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"ExampleWrapper": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
-								ObjectDefinition: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
 									ReferenceName: pointer.To("TableNumber"),
-									Type:          models.ObjectDefinitionReference,
+									Type:          importerModels.ObjectDefinitionReference,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Example_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -185,10 +185,10 @@ func TestParseConstantsIntegersInlinedAsInts(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
 				Constants: map[string]resourcemanager.ConstantDetails{
 					"TableNumber": {
@@ -200,29 +200,29 @@ func TestParseConstantsIntegersInlinedAsInts(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"ExampleWrapper": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
-								ObjectDefinition: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
 									ReferenceName: pointer.To("TableNumber"),
-									Type:          models.ObjectDefinitionReference,
+									Type:          importerModels.ObjectDefinitionReference,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Example_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -241,10 +241,10 @@ func TestParseConstantsIntegersInlinedAsIntsWithDisplayName(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
 				Constants: map[string]resourcemanager.ConstantDetails{
 					"TableNumber": {
@@ -256,29 +256,29 @@ func TestParseConstantsIntegersInlinedAsIntsWithDisplayName(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"ExampleWrapper": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
-								ObjectDefinition: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
 									ReferenceName: pointer.To("TableNumber"),
-									Type:          models.ObjectDefinitionReference,
+									Type:          importerModels.ObjectDefinitionReference,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Example_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -296,10 +296,10 @@ func TestParseConstantsIntegersInlinedAsStrings(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
 				Constants: map[string]resourcemanager.ConstantDetails{
 					"TableNumber": {
@@ -311,29 +311,29 @@ func TestParseConstantsIntegersInlinedAsStrings(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"ExampleWrapper": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
-								ObjectDefinition: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
 									ReferenceName: pointer.To("TableNumber"),
-									Type:          models.ObjectDefinitionReference,
+									Type:          importerModels.ObjectDefinitionReference,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Example_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -351,10 +351,10 @@ func TestParseConstantsFloatsTopLevelAsFloats(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
 				Constants: map[string]resourcemanager.ConstantDetails{
 					"TableNumber": {
@@ -366,29 +366,29 @@ func TestParseConstantsFloatsTopLevelAsFloats(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"ExampleWrapper": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
-								ObjectDefinition: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
 									ReferenceName: pointer.To("TableNumber"),
-									Type:          models.ObjectDefinitionReference,
+									Type:          importerModels.ObjectDefinitionReference,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Example_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -406,10 +406,10 @@ func TestParseConstantsFloatsTopLevelAsStrings(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
 				Constants: map[string]resourcemanager.ConstantDetails{
 					"TableNumber": {
@@ -421,29 +421,29 @@ func TestParseConstantsFloatsTopLevelAsStrings(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"ExampleWrapper": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
-								ObjectDefinition: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
 									ReferenceName: pointer.To("TableNumber"),
-									Type:          models.ObjectDefinitionReference,
+									Type:          importerModels.ObjectDefinitionReference,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Example_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -461,10 +461,10 @@ func TestParseConstantsFloatsInlinedAsFloats(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
 				Constants: map[string]resourcemanager.ConstantDetails{
 					"TableNumber": {
@@ -476,29 +476,29 @@ func TestParseConstantsFloatsInlinedAsFloats(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"ExampleWrapper": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
-								ObjectDefinition: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
 									ReferenceName: pointer.To("TableNumber"),
-									Type:          models.ObjectDefinitionReference,
+									Type:          importerModels.ObjectDefinitionReference,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Example_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -516,10 +516,10 @@ func TestParseConstantsFloatsInlinedAsStrings(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
 				Constants: map[string]resourcemanager.ConstantDetails{
 					"TableNumber": {
@@ -531,29 +531,29 @@ func TestParseConstantsFloatsInlinedAsStrings(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"ExampleWrapper": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
-								ObjectDefinition: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
 									ReferenceName: pointer.To("TableNumber"),
-									Type:          models.ObjectDefinitionReference,
+									Type:          importerModels.ObjectDefinitionReference,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Example_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -570,10 +570,10 @@ func TestParseConstantsStringsTopLevel(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
 				Constants: map[string]resourcemanager.ConstantDetails{
 					"AnimalType": {
@@ -586,29 +586,29 @@ func TestParseConstantsStringsTopLevel(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"ExampleWrapper": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Type": {
 								JsonName: "type",
-								ObjectDefinition: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
 									ReferenceName: pointer.To("AnimalType"),
-									Type:          models.ObjectDefinitionReference,
+									Type:          importerModels.ObjectDefinitionReference,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Example_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -628,10 +628,10 @@ func TestParseConstantsStringsTopLevelAsNonStrings(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
 				Constants: map[string]resourcemanager.ConstantDetails{
 					"AnimalType": {
@@ -643,29 +643,29 @@ func TestParseConstantsStringsTopLevelAsNonStrings(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"ExampleWrapper": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Type": {
 								JsonName: "type",
-								ObjectDefinition: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
 									ReferenceName: pointer.To("AnimalType"),
-									Type:          models.ObjectDefinitionReference,
+									Type:          importerModels.ObjectDefinitionReference,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Example_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -682,10 +682,10 @@ func TestParseConstantsStringsInlined(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
 				Constants: map[string]resourcemanager.ConstantDetails{
 					"AnimalType": {
@@ -697,29 +697,29 @@ func TestParseConstantsStringsInlined(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"ExampleWrapper": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Type": {
 								JsonName: "type",
-								ObjectDefinition: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
 									ReferenceName: pointer.To("AnimalType"),
-									Type:          models.ObjectDefinitionReference,
+									Type:          importerModels.ObjectDefinitionReference,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Example_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -736,10 +736,10 @@ func TestParseConstantsStringsInlinedAsNonStrings(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
 				Constants: map[string]resourcemanager.ConstantDetails{
 					"AnimalType": {
@@ -751,29 +751,29 @@ func TestParseConstantsStringsInlinedAsNonStrings(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"ExampleWrapper": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Type": {
 								JsonName: "type",
-								ObjectDefinition: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
 									ReferenceName: pointer.To("AnimalType"),
-									Type:          models.ObjectDefinitionReference,
+									Type:          importerModels.ObjectDefinitionReference,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Example_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -791,10 +791,10 @@ func TestParseConstantsStringsTopLevelContainingFloats(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
 				Constants: map[string]resourcemanager.ConstantDetails{
 					"TableNumber": {
@@ -806,29 +806,29 @@ func TestParseConstantsStringsTopLevelContainingFloats(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"ExampleWrapper": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
-								ObjectDefinition: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
 									ReferenceName: pointer.To("TableNumber"),
-									Type:          models.ObjectDefinitionReference,
+									Type:          importerModels.ObjectDefinitionReference,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Example_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -846,10 +846,10 @@ func TestParseConstantsStringsInlinedContainingFloats(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
 				Constants: map[string]resourcemanager.ConstantDetails{
 					"TableNumber": {
@@ -861,29 +861,29 @@ func TestParseConstantsStringsInlinedContainingFloats(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"ExampleWrapper": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
-								ObjectDefinition: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
 									ReferenceName: pointer.To("TableNumber"),
-									Type:          models.ObjectDefinitionReference,
+									Type:          importerModels.ObjectDefinitionReference,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Example_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},

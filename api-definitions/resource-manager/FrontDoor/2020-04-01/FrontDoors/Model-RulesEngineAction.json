@@ -1,49 +1,49 @@
 {
- "name": "RulesEngineAction",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "requestHeaderActions",
-   "name": "RequestHeaderActions",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "HeaderAction"
+  "name": "RulesEngineAction",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "requestHeaderActions",
+      "name": "RequestHeaderActions",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "HeaderAction"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "responseHeaderActions",
+      "name": "ResponseHeaderActions",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "HeaderAction"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "routeConfigurationOverride",
+      "name": "RouteConfigurationOverride",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RouteConfiguration"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "responseHeaderActions",
-   "name": "ResponseHeaderActions",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "HeaderAction"
-    }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "routeConfigurationOverride",
-   "name": "RouteConfigurationOverride",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "RouteConfiguration"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

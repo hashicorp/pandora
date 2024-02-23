@@ -1,53 +1,53 @@
 {
- "name": "VirtualMachinePlacementHint",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "hintType",
-   "name": "HintType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "VirtualMachinePlacementHintType"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "resourceId",
-   "name": "ResourceId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "schedulingExecution",
-   "name": "SchedulingExecution",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "VirtualMachineSchedulingExecution"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "scope",
-   "name": "Scope",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "VirtualMachinePlacementHintPodAffinityScope"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  "name": "VirtualMachinePlacementHint",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "hintType",
+      "name": "HintType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "VirtualMachinePlacementHintType"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "resourceId",
+      "name": "ResourceId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "schedulingExecution",
+      "name": "SchedulingExecution",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "VirtualMachineSchedulingExecution"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "scope",
+      "name": "Scope",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "VirtualMachinePlacementHintPodAffinityScope"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    }
+  ]
 }

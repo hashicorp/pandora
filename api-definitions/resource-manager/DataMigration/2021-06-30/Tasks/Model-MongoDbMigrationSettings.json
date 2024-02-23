@@ -1,81 +1,81 @@
 {
- "name": "MongoDbMigrationSettings",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "boostRUs",
-   "name": "BoostRUs",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "databases",
-   "name": "Databases",
-   "objectDefinition": {
-    "type": "Dictionary",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "MongoDbDatabaseSettings"
+  "name": "MongoDbMigrationSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "boostRUs",
+      "name": "BoostRUs",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "databases",
+      "name": "Databases",
+      "objectDefinition": {
+        "type": "Dictionary",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "MongoDbDatabaseSettings"
+        }
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "replication",
+      "name": "Replication",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MongoDbReplication"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "source",
+      "name": "Source",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MongoDbConnectionInfo"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "target",
+      "name": "Target",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MongoDbConnectionInfo"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "throttling",
+      "name": "Throttling",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MongoDbThrottlingSettings"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "replication",
-   "name": "Replication",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "MongoDbReplication"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "source",
-   "name": "Source",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "MongoDbConnectionInfo"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "target",
-   "name": "Target",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "MongoDbConnectionInfo"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "throttling",
-   "name": "Throttling",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "MongoDbThrottlingSettings"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

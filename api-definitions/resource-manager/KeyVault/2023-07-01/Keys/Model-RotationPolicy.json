@@ -1,33 +1,33 @@
 {
- "name": "RotationPolicy",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "attributes",
-   "name": "Attributes",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "KeyRotationPolicyAttributes"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "lifetimeActions",
-   "name": "LifetimeActions",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "LifetimeAction"
+  "name": "RotationPolicy",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "attributes",
+      "name": "Attributes",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "KeyRotationPolicyAttributes"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "lifetimeActions",
+      "name": "LifetimeActions",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "LifetimeAction"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

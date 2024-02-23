@@ -1,20 +1,20 @@
 {
- "name": "Create",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201
- ],
- "longRunning": true,
- "httpMethod": "PUT",
- "resourceIdName": "ScopeId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "GuestAgent"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "GuestAgent"
- },
- "uriSuffix": "/providers/Microsoft.ScVmm/virtualMachineInstances/default/guestAgents/default"
+  "name": "Create",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "ScopeId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "GuestAgent"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "GuestAgent"
+  },
+  "uriSuffix": "/providers/Microsoft.ScVmm/virtualMachineInstances/default/guestAgents/default"
 }

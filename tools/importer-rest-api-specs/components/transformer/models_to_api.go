@@ -6,12 +6,12 @@ package transformer
 import (
 	"fmt"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 	"github.com/hashicorp/pandora/tools/sdk/services"
 )
 
-func ApiResourceFromModelResource(schema models.AzureApiResource) (*services.Resource, error) {
+func ApiResourceFromModelResource(schema importerModels.AzureApiResource) (*services.Resource, error) {
 	operations, err := apiOperationsFromModelOperations(schema.Operations)
 	if err != nil {
 		return nil, fmt.Errorf("converting Model Operation Details into Data API Operation Details: %+v", err)
@@ -39,7 +39,7 @@ func ApiResourceFromModelResource(schema models.AzureApiResource) (*services.Res
 	}, nil
 }
 
-func apiModelsFromModelModels(inputModels map[string]models.ModelDetails, inputConstants map[string]resourcemanager.ConstantDetails) (*map[string]resourcemanager.ModelDetails, error) {
+func apiModelsFromModelModels(inputModels map[string]importerModels.ModelDetails, inputConstants map[string]resourcemanager.ConstantDetails) (*map[string]resourcemanager.ModelDetails, error) {
 	out := make(map[string]resourcemanager.ModelDetails)
 
 	for k, v := range inputModels {
@@ -59,7 +59,7 @@ func apiModelsFromModelModels(inputModels map[string]models.ModelDetails, inputC
 	return &out, nil
 }
 
-func apiFieldsFromModelFields(input map[string]models.FieldDetails, model models.ModelDetails, inputConstants map[string]resourcemanager.ConstantDetails) (*map[string]resourcemanager.FieldDetails, error) {
+func apiFieldsFromModelFields(input map[string]importerModels.FieldDetails, model importerModels.ModelDetails, inputConstants map[string]resourcemanager.ConstantDetails) (*map[string]resourcemanager.FieldDetails, error) {
 	out := make(map[string]resourcemanager.FieldDetails)
 
 	for k, v := range input {
@@ -117,24 +117,24 @@ func validationForConstant(input resourcemanager.ConstantDetails) *resourcemanag
 	}
 }
 
-func apiObjectDefinitionFromModelObjectDefinition(input *models.ObjectDefinition, fieldType *models.CustomFieldType) (*resourcemanager.ApiObjectDefinition, error) {
+func apiObjectDefinitionFromModelObjectDefinition(input *importerModels.ObjectDefinition, fieldType *importerModels.CustomFieldType) (*resourcemanager.ApiObjectDefinition, error) {
 	if fieldType != nil {
-		mappings := map[models.CustomFieldType]resourcemanager.ApiObjectDefinitionType{
-			models.CustomFieldTypeEdgeZone:                                resourcemanager.EdgeZoneApiObjectDefinitionType,
-			models.CustomFieldTypeLocation:                                resourcemanager.LocationApiObjectDefinitionType,
-			models.CustomFieldTypeSystemAssignedIdentity:                  resourcemanager.SystemAssignedIdentityApiObjectDefinitionType,
-			models.CustomFieldTypeSystemAndUserAssignedIdentityList:       resourcemanager.SystemAndUserAssignedIdentityListApiObjectDefinitionType,
-			models.CustomFieldTypeSystemAndUserAssignedIdentityMap:        resourcemanager.SystemAndUserAssignedIdentityMapApiObjectDefinitionType,
-			models.CustomFieldTypeLegacySystemAndUserAssignedIdentityList: resourcemanager.LegacySystemAndUserAssignedIdentityListApiObjectDefinitionType,
-			models.CustomFieldTypeLegacySystemAndUserAssignedIdentityMap:  resourcemanager.LegacySystemAndUserAssignedIdentityMapApiObjectDefinitionType,
-			models.CustomFieldTypeSystemOrUserAssignedIdentityList:        resourcemanager.SystemOrUserAssignedIdentityListApiObjectDefinitionType,
-			models.CustomFieldTypeSystemOrUserAssignedIdentityMap:         resourcemanager.SystemOrUserAssignedIdentityMapApiObjectDefinitionType,
-			models.CustomFieldTypeUserAssignedIdentityList:                resourcemanager.UserAssignedIdentityListApiObjectDefinitionType,
-			models.CustomFieldTypeUserAssignedIdentityMap:                 resourcemanager.UserAssignedIdentityMapApiObjectDefinitionType,
-			models.CustomFieldTypeTags:                                    resourcemanager.TagsApiObjectDefinitionType,
-			models.CustomFieldTypeSystemData:                              resourcemanager.SystemData,
-			models.CustomFieldTypeZone:                                    resourcemanager.ZoneApiObjectDefinitionType,
-			models.CustomFieldTypeZones:                                   resourcemanager.ZonesApiObjectDefinitionType,
+		mappings := map[importerModels.CustomFieldType]resourcemanager.ApiObjectDefinitionType{
+			importerModels.CustomFieldTypeEdgeZone:                                resourcemanager.EdgeZoneApiObjectDefinitionType,
+			importerModels.CustomFieldTypeLocation:                                resourcemanager.LocationApiObjectDefinitionType,
+			importerModels.CustomFieldTypeSystemAssignedIdentity:                  resourcemanager.SystemAssignedIdentityApiObjectDefinitionType,
+			importerModels.CustomFieldTypeSystemAndUserAssignedIdentityList:       resourcemanager.SystemAndUserAssignedIdentityListApiObjectDefinitionType,
+			importerModels.CustomFieldTypeSystemAndUserAssignedIdentityMap:        resourcemanager.SystemAndUserAssignedIdentityMapApiObjectDefinitionType,
+			importerModels.CustomFieldTypeLegacySystemAndUserAssignedIdentityList: resourcemanager.LegacySystemAndUserAssignedIdentityListApiObjectDefinitionType,
+			importerModels.CustomFieldTypeLegacySystemAndUserAssignedIdentityMap:  resourcemanager.LegacySystemAndUserAssignedIdentityMapApiObjectDefinitionType,
+			importerModels.CustomFieldTypeSystemOrUserAssignedIdentityList:        resourcemanager.SystemOrUserAssignedIdentityListApiObjectDefinitionType,
+			importerModels.CustomFieldTypeSystemOrUserAssignedIdentityMap:         resourcemanager.SystemOrUserAssignedIdentityMapApiObjectDefinitionType,
+			importerModels.CustomFieldTypeUserAssignedIdentityList:                resourcemanager.UserAssignedIdentityListApiObjectDefinitionType,
+			importerModels.CustomFieldTypeUserAssignedIdentityMap:                 resourcemanager.UserAssignedIdentityMapApiObjectDefinitionType,
+			importerModels.CustomFieldTypeTags:                                    resourcemanager.TagsApiObjectDefinitionType,
+			importerModels.CustomFieldTypeSystemData:                              resourcemanager.SystemData,
+			importerModels.CustomFieldTypeZone:                                    resourcemanager.ZoneApiObjectDefinitionType,
+			importerModels.CustomFieldTypeZones:                                   resourcemanager.ZonesApiObjectDefinitionType,
 		}
 		mapping, ok := mappings[*fieldType]
 		if !ok {
@@ -150,7 +150,20 @@ func apiObjectDefinitionFromModelObjectDefinition(input *models.ObjectDefinition
 		return nil, fmt.Errorf("objectDefinition was neither an ObjectDefinition or a CustomFieldType")
 	}
 
-	if input.Type == models.ObjectDefinitionDictionary {
+	if input.Type == importerModels.ObjectDefinitionCsv {
+		nestedItem, err := apiObjectDefinitionFromModelObjectDefinition(input.NestedItem, nil)
+		if err != nil {
+			return nil, fmt.Errorf("mapping list item: %+v", err)
+		}
+
+		return &resourcemanager.ApiObjectDefinition{
+			NestedItem:    nestedItem,
+			ReferenceName: nil,
+			Type:          resourcemanager.CsvApiObjectDefinitionType,
+		}, nil
+	}
+
+	if input.Type == importerModels.ObjectDefinitionDictionary {
 		nestedItem, err := apiObjectDefinitionFromModelObjectDefinition(input.NestedItem, nil)
 		if err != nil {
 			return nil, fmt.Errorf("mapping dictionary item: %+v", err)
@@ -163,7 +176,7 @@ func apiObjectDefinitionFromModelObjectDefinition(input *models.ObjectDefinition
 		}, nil
 	}
 
-	if input.Type == models.ObjectDefinitionList {
+	if input.Type == importerModels.ObjectDefinitionList {
 		nestedItem, err := apiObjectDefinitionFromModelObjectDefinition(input.NestedItem, nil)
 		if err != nil {
 			return nil, fmt.Errorf("mapping list item: %+v", err)
@@ -176,22 +189,21 @@ func apiObjectDefinitionFromModelObjectDefinition(input *models.ObjectDefinition
 		}, nil
 	}
 
-	if input.Type == models.ObjectDefinitionReference {
+	if input.Type == importerModels.ObjectDefinitionReference {
 		return &resourcemanager.ApiObjectDefinition{
 			ReferenceName: input.ReferenceName,
 			Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 		}, nil
 	}
 
-	mappings := map[models.ObjectDefinitionType]resourcemanager.ApiObjectDefinitionType{
-		models.ObjectDefinitionBoolean:   resourcemanager.BooleanApiObjectDefinitionType,
-		models.ObjectDefinitionCsv:       resourcemanager.CsvApiObjectDefinitionType,
-		models.ObjectDefinitionDateTime:  resourcemanager.DateTimeApiObjectDefinitionType,
-		models.ObjectDefinitionInteger:   resourcemanager.IntegerApiObjectDefinitionType,
-		models.ObjectDefinitionFloat:     resourcemanager.FloatApiObjectDefinitionType,
-		models.ObjectDefinitionRawFile:   resourcemanager.RawFileApiObjectDefinitionType,
-		models.ObjectDefinitionRawObject: resourcemanager.RawObjectApiObjectDefinitionType,
-		models.ObjectDefinitionString:    resourcemanager.StringApiObjectDefinitionType,
+	mappings := map[importerModels.ObjectDefinitionType]resourcemanager.ApiObjectDefinitionType{
+		importerModels.ObjectDefinitionBoolean:   resourcemanager.BooleanApiObjectDefinitionType,
+		importerModels.ObjectDefinitionDateTime:  resourcemanager.DateTimeApiObjectDefinitionType,
+		importerModels.ObjectDefinitionInteger:   resourcemanager.IntegerApiObjectDefinitionType,
+		importerModels.ObjectDefinitionFloat:     resourcemanager.FloatApiObjectDefinitionType,
+		importerModels.ObjectDefinitionRawFile:   resourcemanager.RawFileApiObjectDefinitionType,
+		importerModels.ObjectDefinitionRawObject: resourcemanager.RawObjectApiObjectDefinitionType,
+		importerModels.ObjectDefinitionString:    resourcemanager.StringApiObjectDefinitionType,
 	}
 	mapping, ok := mappings[input.Type]
 	if !ok {
@@ -202,7 +214,7 @@ func apiObjectDefinitionFromModelObjectDefinition(input *models.ObjectDefinition
 	}, nil
 }
 
-func apiOperationsFromModelOperations(input map[string]models.OperationDetails) (*map[string]resourcemanager.ApiOperation, error) {
+func apiOperationsFromModelOperations(input map[string]importerModels.OperationDetails) (*map[string]resourcemanager.ApiOperation, error) {
 	out := make(map[string]resourcemanager.ApiOperation)
 
 	for k, v := range input {
@@ -213,15 +225,8 @@ func apiOperationsFromModelOperations(input map[string]models.OperationDetails) 
 			Method:                           v.Method,
 			ResourceIdName:                   v.ResourceIdName,
 			FieldContainingPaginationDetails: v.FieldContainingPaginationDetails,
-			Options:                          map[string]resourcemanager.ApiOperationOption{},
+			Options:                          v.Options,
 			UriSuffix:                        v.UriSuffix,
-		}
-		if v.Options != nil {
-			options, err := apiOptionsFromModelOptions(v.Options)
-			if err != nil {
-				return nil, fmt.Errorf("mapping options for operation %q: %+v", k, err)
-			}
-			details.Options = *options
 		}
 		if v.RequestObject != nil {
 			obj, err := apiObjectDefinitionFromModelObjectDefinition(v.RequestObject, nil)
@@ -244,27 +249,7 @@ func apiOperationsFromModelOperations(input map[string]models.OperationDetails) 
 	return &out, nil
 }
 
-func apiOptionsFromModelOptions(input map[string]models.OperationOption) (*map[string]resourcemanager.ApiOperationOption, error) {
-	out := make(map[string]resourcemanager.ApiOperationOption)
-
-	for k, v := range input {
-		objectDefinition, err := apiObjectDefinitionFromModelObjectDefinition(v.ObjectDefinition, nil)
-		if err != nil {
-			return nil, fmt.Errorf("mapping object definition for options key %q: %+v", k, err)
-		}
-
-		out[k] = resourcemanager.ApiOperationOption{
-			HeaderName:       v.HeaderName,
-			QueryStringName:  v.QueryStringName,
-			ObjectDefinition: *objectDefinition,
-			Required:         v.Required,
-		}
-	}
-
-	return &out, nil
-}
-
-func apiResourceIdsFromModelResourceIds(input map[string]models.ParsedResourceId) (*map[string]resourcemanager.ResourceIdDefinition, error) {
+func apiResourceIdsFromModelResourceIds(input map[string]importerModels.ParsedResourceId) (*map[string]resourcemanager.ResourceIdDefinition, error) {
 	out := make(map[string]resourcemanager.ResourceIdDefinition)
 
 	for k, v := range input {

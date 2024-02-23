@@ -1,15 +1,15 @@
 {
- "name": "CassandraResourcesGetCassandraKeyspaceThroughput",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "GET",
- "resourceIdName": "CassandraKeyspaceId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "ThroughputSettingsGetResults"
- },
- "uriSuffix": "/throughputSettings/default"
+  "name": "CassandraResourcesGetCassandraKeyspaceThroughput",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "CassandraKeyspaceId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ThroughputSettingsGetResults"
+  },
+  "uriSuffix": "/throughputSettings/default"
 }

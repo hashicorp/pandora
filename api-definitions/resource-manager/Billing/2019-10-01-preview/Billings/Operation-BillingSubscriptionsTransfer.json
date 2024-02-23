@@ -1,20 +1,20 @@
 {
- "name": "BillingSubscriptionsTransfer",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "POST",
- "resourceIdName": "InvoiceSectionBillingSubscriptionId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "TransferBillingSubscriptionRequestProperties"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "TransferBillingSubscriptionResult"
- },
- "uriSuffix": "/transfer"
+  "name": "BillingSubscriptionsTransfer",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "InvoiceSectionBillingSubscriptionId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "TransferBillingSubscriptionRequestProperties"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "TransferBillingSubscriptionResult"
+  },
+  "uriSuffix": "/transfer"
 }

@@ -1,0 +1,126 @@
+{
+  "name": "UeConnectionInfo4G",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "enbS1apId",
+      "name": "EnbS1apId",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "globalRanNodeId",
+      "name": "GlobalRanNodeId",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "GlobalRanNodeId"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "lastActivityTime",
+      "name": "LastActivityTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "referenceName": null,
+        "dateFormat": "RFC3339"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "lastVisitedTai",
+      "name": "LastVisitedTai",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "locationInfo",
+      "name": "LocationInfo",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "UeLocationInfo"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "mmeS1apId",
+      "name": "MmeS1apId",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "perUeTnla",
+      "name": "PerUeTnla",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rrcEstablishmentCause",
+      "name": "RrcEstablishmentCause",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RrcEstablishmentCause"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "ueState",
+      "name": "UeState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "UeState"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "ueUsageSetting",
+      "name": "UeUsageSetting",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "UeUsageSetting"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
+}

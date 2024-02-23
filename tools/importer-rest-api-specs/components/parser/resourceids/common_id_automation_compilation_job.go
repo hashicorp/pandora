@@ -4,7 +4,7 @@
 package resourceids
 
 import (
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -12,22 +12,22 @@ var _ commonIdMatcher = commonIdAutomationCompilationJob{}
 
 type commonIdAutomationCompilationJob struct{}
 
-func (c commonIdAutomationCompilationJob) id() models.ParsedResourceId {
+func (c commonIdAutomationCompilationJob) id() importerModels.ParsedResourceId {
 	name := "AutomationCompilationJob"
-	return models.ParsedResourceId{
+	return importerModels.ParsedResourceId{
 		CommonAlias: &name,
 		Constants:   map[string]resourcemanager.ConstantDetails{},
 		Segments: []resourcemanager.ResourceIdSegment{
-			models.StaticResourceIDSegment("subscriptions", "subscriptions"),
-			models.SubscriptionIDResourceIDSegment("subscriptionId"),
-			models.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
-			models.ResourceGroupResourceIDSegment("resourceGroupName"),
-			models.StaticResourceIDSegment("providers", "providers"),
-			models.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Automation"),
-			models.StaticResourceIDSegment("automationAccounts", "automationAccounts"),
-			models.UserSpecifiedResourceIDSegment("automationAccountName"),
-			models.StaticResourceIDSegment("compilationJobs", "compilationJobs"),
-			models.UserSpecifiedResourceIDSegment("compilationJobId"),
+			importerModels.StaticResourceIDSegment("subscriptions", "subscriptions"),
+			importerModels.SubscriptionIDResourceIDSegment("subscriptionId"),
+			importerModels.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
+			importerModels.ResourceGroupResourceIDSegment("resourceGroupName"),
+			importerModels.StaticResourceIDSegment("providers", "providers"),
+			importerModels.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Automation"),
+			importerModels.StaticResourceIDSegment("automationAccounts", "automationAccounts"),
+			importerModels.UserSpecifiedResourceIDSegment("automationAccountName"),
+			importerModels.StaticResourceIDSegment("compilationJobs", "compilationJobs"),
+			importerModels.UserSpecifiedResourceIDSegment("compilationJobId"),
 		},
 	}
 }

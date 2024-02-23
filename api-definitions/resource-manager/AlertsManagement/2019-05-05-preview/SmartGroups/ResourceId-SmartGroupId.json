@@ -1,34 +1,34 @@
 {
- "name": "SmartGroupId",
- "id": "/subscriptions/{subscriptionId}/providers/Microsoft.AlertsManagement/smartGroups/{smartGroupId}",
- "segments": [
-  {
-   "name": "staticSubscriptions",
-   "type": "Static",
-   "value": "subscriptions"
-  },
-  {
-   "name": "subscriptionId",
-   "type": "SubscriptionId"
-  },
-  {
-   "name": "staticProviders",
-   "type": "Static",
-   "value": "providers"
-  },
-  {
-   "name": "staticMicrosoftAlertsManagement",
-   "type": "ResourceProvider",
-   "value": "Microsoft.AlertsManagement"
-  },
-  {
-   "name": "staticSmartGroups",
-   "type": "Static",
-   "value": "smartGroups"
-  },
-  {
-   "name": "smartGroupId",
-   "type": "UserSpecified"
-  }
- ]
+  "name": "SmartGroupId",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.AlertsManagement/smartGroups/{smartGroupId}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftAlertsManagement",
+      "type": "ResourceProvider",
+      "value": "Microsoft.AlertsManagement"
+    },
+    {
+      "name": "staticSmartGroups",
+      "type": "Static",
+      "value": "smartGroups"
+    },
+    {
+      "name": "smartGroupId",
+      "type": "UserSpecified"
+    }
+  ]
 }

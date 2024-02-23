@@ -1,15 +1,15 @@
 {
- "name": "GetQueueStatus",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "POST",
- "resourceIdName": "AgentPoolId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "AgentPoolQueueStatus"
- },
- "uriSuffix": "/listQueueStatus"
+  "name": "GetQueueStatus",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "AgentPoolId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "AgentPoolQueueStatus"
+  },
+  "uriSuffix": "/listQueueStatus"
 }

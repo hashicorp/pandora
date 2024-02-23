@@ -1,41 +1,41 @@
 {
- "name": "OSProfile",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "computerName",
-   "name": "ComputerName",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "linuxConfiguration",
-   "name": "LinuxConfiguration",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "OSProfileLinuxConfiguration"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "windowsConfiguration",
-   "name": "WindowsConfiguration",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "OSProfileWindowsConfiguration"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "OSProfile",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "computerName",
+      "name": "ComputerName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "linuxConfiguration",
+      "name": "LinuxConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "OSProfileLinuxConfiguration"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "windowsConfiguration",
+      "name": "WindowsConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "OSProfileWindowsConfiguration"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

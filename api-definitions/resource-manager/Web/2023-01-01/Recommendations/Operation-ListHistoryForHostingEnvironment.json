@@ -1,38 +1,38 @@
 {
- "name": "ListHistoryForHostingEnvironment",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "fieldContainingPaginationDetails": "nextLink",
- "longRunning": false,
- "httpMethod": "GET",
- "options": [
-  {
-   "optional": true,
-   "queryString": "expiredOnly",
-   "required": false,
-   "field": "ExpiredOnly",
-   "optionsObjectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   }
+  "name": "ListHistoryForHostingEnvironment",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "expiredOnly",
+      "required": false,
+      "field": "ExpiredOnly",
+      "optionsObjectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "$filter",
+      "required": false,
+      "field": "Filter",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "AppServiceEnvironmentId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "Recommendation"
   },
-  {
-   "optional": true,
-   "queryString": "$filter",
-   "required": false,
-   "field": "Filter",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  }
- ],
- "resourceIdName": "AppServiceEnvironmentId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "Recommendation"
- },
- "uriSuffix": "/recommendationHistory"
+  "uriSuffix": "/recommendationHistory"
 }

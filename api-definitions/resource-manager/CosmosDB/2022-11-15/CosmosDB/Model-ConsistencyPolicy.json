@@ -1,41 +1,41 @@
 {
- "name": "ConsistencyPolicy",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "defaultConsistencyLevel",
-   "name": "DefaultConsistencyLevel",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "DefaultConsistencyLevel"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "maxIntervalInSeconds",
-   "name": "MaxIntervalInSeconds",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "maxStalenessPrefix",
-   "name": "MaxStalenessPrefix",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "ConsistencyPolicy",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "defaultConsistencyLevel",
+      "name": "DefaultConsistencyLevel",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DefaultConsistencyLevel"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "maxIntervalInSeconds",
+      "name": "MaxIntervalInSeconds",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "maxStalenessPrefix",
+      "name": "MaxStalenessPrefix",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

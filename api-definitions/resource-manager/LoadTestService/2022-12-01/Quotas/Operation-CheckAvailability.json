@@ -1,19 +1,19 @@
 {
- "name": "CheckAvailability",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "POST",
- "resourceIdName": "QuotaId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "QuotaBucketRequest"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "CheckQuotaAvailabilityResponse"
- },
- "uriSuffix": "/checkAvailability"
+  "name": "CheckAvailability",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "QuotaId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "QuotaBucketRequest"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "CheckQuotaAvailabilityResponse"
+  },
+  "uriSuffix": "/checkAvailability"
 }

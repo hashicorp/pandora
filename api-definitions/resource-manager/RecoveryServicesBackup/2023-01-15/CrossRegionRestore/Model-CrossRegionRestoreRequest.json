@@ -1,29 +1,29 @@
 {
- "name": "CrossRegionRestoreRequest",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "crossRegionRestoreAccessDetails",
-   "name": "CrossRegionRestoreAccessDetails",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "CrrAccessToken"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "restoreRequest",
-   "name": "RestoreRequest",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "RestoreRequest"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "CrossRegionRestoreRequest",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "crossRegionRestoreAccessDetails",
+      "name": "CrossRegionRestoreAccessDetails",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CrrAccessToken"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "restoreRequest",
+      "name": "RestoreRequest",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RestoreRequest"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

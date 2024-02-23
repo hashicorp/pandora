@@ -1,19 +1,19 @@
 {
- "name": "GetDeletedWebAppSnapshots",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "GET",
- "resourceIdName": "DeletedSiteId",
- "responseObject": {
-  "type": "List",
-  "referenceName": null,
-  "nestedItem": {
-   "type": "Reference",
-   "referenceName": "Snapshot"
-  }
- },
- "uriSuffix": "/snapshots"
+  "name": "GetDeletedWebAppSnapshots",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "DeletedSiteId",
+  "responseObject": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+      "type": "Reference",
+      "referenceName": "Snapshot"
+    }
+  },
+  "uriSuffix": "/snapshots"
 }

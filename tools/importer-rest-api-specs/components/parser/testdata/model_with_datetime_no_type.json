@@ -1,0 +1,68 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Example",
+    "description": "Example",
+    "version": "2020-01-01"
+  },
+  "host": "management.mysite.com",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "security": [],
+  "securityDefinitions": {},
+  "paths": {
+    "/example": {
+      "put": {
+        "tags": [
+          "Example"
+        ],
+        "operationId": "Example_Test",
+        "description": "Tests parsing of a simple model.",
+        "parameters": [
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Model"
+            },
+            "description": "Wrapper class."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/Model"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Model": {
+      "description": "The Resource definition.",
+      "properties": {
+        "someDateValue": {
+          "format": "date-time",
+          "description": "some date value for this thing"
+        }
+      },
+      "required": [
+        "someDateValue"
+      ],
+      "title": "Example",
+      "type": "object",
+      "x-ms-azure-resource": true
+    }
+  },
+  "parameters": {}
+}

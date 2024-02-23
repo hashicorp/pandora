@@ -1,20 +1,20 @@
 {
- "name": "CreateMonitorAction",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "monitorDefinition",
-   "name": "MonitorDefinition",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "MonitorDefinition"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "ScheduleActionBase",
- "discriminatedTypeValue": "CreateMonitor",
- "typeHintIn": "ActionType"
+  "name": "CreateMonitorAction",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "monitorDefinition",
+      "name": "MonitorDefinition",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MonitorDefinition"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    }
+  ],
+  "discriminatedParentModelName": "ScheduleActionBase",
+  "discriminatedTypeValue": "CreateMonitor",
+  "typeHintIn": "ActionType"
 }

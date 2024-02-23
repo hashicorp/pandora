@@ -1,0 +1,41 @@
+{
+  "name": "Guti4G",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "mTmsi",
+      "name": "MTmsi",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "mmeId",
+      "name": "MmeId",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MmeId"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "plmn",
+      "name": "Plmn",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PlmnId"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    }
+  ]
+}

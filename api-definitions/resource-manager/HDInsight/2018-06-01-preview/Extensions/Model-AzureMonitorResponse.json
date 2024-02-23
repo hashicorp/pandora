@@ -1,41 +1,41 @@
 {
- "name": "AzureMonitorResponse",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "clusterMonitoringEnabled",
-   "name": "ClusterMonitoringEnabled",
-   "objectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "selectedConfigurations",
-   "name": "SelectedConfigurations",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "AzureMonitorSelectedConfigurations"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "workspaceId",
-   "name": "WorkspaceId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "AzureMonitorResponse",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "clusterMonitoringEnabled",
+      "name": "ClusterMonitoringEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "selectedConfigurations",
+      "name": "SelectedConfigurations",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AzureMonitorSelectedConfigurations"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "workspaceId",
+      "name": "WorkspaceId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

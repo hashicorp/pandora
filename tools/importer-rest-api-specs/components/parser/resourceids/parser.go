@@ -6,7 +6,7 @@ package resourceids
 import (
 	"fmt"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 // Parse takes a list of Swagger Resources and returns a ParseResult, containing
@@ -56,7 +56,7 @@ func (p *Parser) Parse() (*ParseResult, error) {
 	}, nil
 }
 
-func (p *Parser) updateParsedOperationsWithProcessedResourceIds(operationIdsToSegments map[string]processedResourceId, namesToResourceIds map[string]models.ParsedResourceId) (*map[string]ParsedOperation, error) {
+func (p *Parser) updateParsedOperationsWithProcessedResourceIds(operationIdsToSegments map[string]processedResourceId, namesToResourceIds map[string]importerModels.ParsedResourceId) (*map[string]ParsedOperation, error) {
 	output := make(map[string]ParsedOperation)
 
 	for operationId, operation := range operationIdsToSegments {
@@ -72,7 +72,7 @@ func (p *Parser) updateParsedOperationsWithProcessedResourceIds(operationIdsToSe
 			continue
 		}
 
-		placeholder := models.ParsedResourceId{
+		placeholder := importerModels.ParsedResourceId{
 			Constants: operation.constants,
 			Segments:  *operation.segments,
 		}
@@ -80,7 +80,7 @@ func (p *Parser) updateParsedOperationsWithProcessedResourceIds(operationIdsToSe
 		found := false
 		for name, resourceId := range namesToResourceIds {
 			// NOTE: we intentionally use an empty `id` here to avoid comparing on the Alias
-			other := models.ParsedResourceId{
+			other := importerModels.ParsedResourceId{
 				Constants: resourceId.Constants,
 				Segments:  resourceId.Segments,
 			}

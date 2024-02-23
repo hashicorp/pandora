@@ -1,29 +1,29 @@
 {
- "name": "ScaleRule",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "metricTrigger",
-   "name": "MetricTrigger",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "MetricTrigger"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "scaleAction",
-   "name": "ScaleAction",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ScaleAction"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  "name": "ScaleRule",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "metricTrigger",
+      "name": "MetricTrigger",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MetricTrigger"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "scaleAction",
+      "name": "ScaleAction",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ScaleAction"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    }
+  ]
 }

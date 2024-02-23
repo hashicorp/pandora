@@ -1,20 +1,20 @@
 {
- "name": "MongoDbCancelCommand",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "input",
-   "name": "Input",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "MongoDbCommandInput"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "CommandProperties",
- "discriminatedTypeValue": "cancel",
- "typeHintIn": "CommandType"
+  "name": "MongoDbCancelCommand",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "input",
+      "name": "Input",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MongoDbCommandInput"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ],
+  "discriminatedParentModelName": "CommandProperties",
+  "discriminatedTypeValue": "cancel",
+  "typeHintIn": "CommandType"
 }

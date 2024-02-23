@@ -1,36 +1,36 @@
 {
- "name": "FirewallPolicyNatRuleCollection",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "action",
-   "name": "Action",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "FirewallPolicyNatRuleCollectionAction"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "rules",
-   "name": "Rules",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "FirewallPolicyRule"
+  "name": "FirewallPolicyNatRuleCollection",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "action",
+      "name": "Action",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "FirewallPolicyNatRuleCollectionAction"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rules",
+      "name": "Rules",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "FirewallPolicyRule"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "FirewallPolicyRuleCollection",
- "discriminatedTypeValue": "FirewallPolicyNatRuleCollection",
- "typeHintIn": "RuleCollectionType"
+  ],
+  "discriminatedParentModelName": "FirewallPolicyRuleCollection",
+  "discriminatedTypeValue": "FirewallPolicyNatRuleCollection",
+  "typeHintIn": "RuleCollectionType"
 }

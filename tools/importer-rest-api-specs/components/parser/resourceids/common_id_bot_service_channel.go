@@ -4,7 +4,7 @@
 package resourceids
 
 import (
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -12,9 +12,9 @@ var _ commonIdMatcher = commonIdBotServiceChannel{}
 
 type commonIdBotServiceChannel struct{}
 
-func (commonIdBotServiceChannel) id() models.ParsedResourceId {
+func (commonIdBotServiceChannel) id() importerModels.ParsedResourceId {
 	name := "BotServiceChannel"
-	return models.ParsedResourceId{
+	return importerModels.ParsedResourceId{
 		CommonAlias: &name,
 		Constants: map[string]resourcemanager.ConstantDetails{
 			"BotServiceChannelType": {
@@ -44,16 +44,16 @@ func (commonIdBotServiceChannel) id() models.ParsedResourceId {
 			},
 		},
 		Segments: []resourcemanager.ResourceIdSegment{
-			models.StaticResourceIDSegment("staticSubscriptions", "subscriptions"),
-			models.SubscriptionIDResourceIDSegment("subscriptionId"),
-			models.StaticResourceIDSegment("staticResourceGroups", "resourceGroups"),
-			models.ResourceGroupResourceIDSegment("resourceGroupName"),
-			models.StaticResourceIDSegment("staticProviders", "providers"),
-			models.ResourceProviderResourceIDSegment("staticMicrosoftBotService", "Microsoft.BotService"),
-			models.StaticResourceIDSegment("staticBotServices", "botServices"),
-			models.UserSpecifiedResourceIDSegment("botServiceName"),
-			models.StaticResourceIDSegment("staticChannels", "channels"),
-			models.ConstantResourceIDSegment("channelType", "BotServiceChannelType"),
+			importerModels.StaticResourceIDSegment("staticSubscriptions", "subscriptions"),
+			importerModels.SubscriptionIDResourceIDSegment("subscriptionId"),
+			importerModels.StaticResourceIDSegment("staticResourceGroups", "resourceGroups"),
+			importerModels.ResourceGroupResourceIDSegment("resourceGroupName"),
+			importerModels.StaticResourceIDSegment("staticProviders", "providers"),
+			importerModels.ResourceProviderResourceIDSegment("staticMicrosoftBotService", "Microsoft.BotService"),
+			importerModels.StaticResourceIDSegment("staticBotServices", "botServices"),
+			importerModels.UserSpecifiedResourceIDSegment("botServiceName"),
+			importerModels.StaticResourceIDSegment("staticChannels", "channels"),
+			importerModels.ConstantResourceIDSegment("channelType", "BotServiceChannelType"),
 		},
 	}
 }

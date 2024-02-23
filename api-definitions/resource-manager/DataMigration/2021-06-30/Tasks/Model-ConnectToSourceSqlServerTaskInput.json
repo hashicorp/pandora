@@ -1,89 +1,89 @@
 {
- "name": "ConnectToSourceSqlServerTaskInput",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "checkPermissionsGroup",
-   "name": "CheckPermissionsGroup",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ServerLevelPermissionsGroup"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "collectAgentJobs",
-   "name": "CollectAgentJobs",
-   "objectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "collectDatabases",
-   "name": "CollectDatabases",
-   "objectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "collectLogins",
-   "name": "CollectLogins",
-   "objectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "collectTdeCertificateInfo",
-   "name": "CollectTdeCertificateInfo",
-   "objectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "sourceConnectionInfo",
-   "name": "SourceConnectionInfo",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SqlConnectionInfo"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "validateSsisCatalogOnly",
-   "name": "ValidateSsisCatalogOnly",
-   "objectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "ConnectToSourceSqlServerTaskInput",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "checkPermissionsGroup",
+      "name": "CheckPermissionsGroup",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ServerLevelPermissionsGroup"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "collectAgentJobs",
+      "name": "CollectAgentJobs",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "collectDatabases",
+      "name": "CollectDatabases",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "collectLogins",
+      "name": "CollectLogins",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "collectTdeCertificateInfo",
+      "name": "CollectTdeCertificateInfo",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sourceConnectionInfo",
+      "name": "SourceConnectionInfo",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SqlConnectionInfo"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "validateSsisCatalogOnly",
+      "name": "ValidateSsisCatalogOnly",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

@@ -1,19 +1,19 @@
 {
- "name": "ServerEndpointsUpdate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "PATCH",
- "resourceIdName": "ServerEndpointId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "ServerEndpointUpdateParameters"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "ServerEndpoint"
- }
+  "name": "ServerEndpointsUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "ServerEndpointId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ServerEndpointUpdateParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ServerEndpoint"
+  }
 }

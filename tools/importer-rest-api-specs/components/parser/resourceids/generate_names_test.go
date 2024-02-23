@@ -8,11 +8,11 @@ import (
 	"testing"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-var subscriptionResourceId = models.ParsedResourceId{
+var subscriptionResourceId = importerModels.ParsedResourceId{
 	Constants: map[string]resourcemanager.ConstantDetails{},
 	Segments: []resourcemanager.ResourceIdSegment{
 		{
@@ -26,7 +26,7 @@ var subscriptionResourceId = models.ParsedResourceId{
 		},
 	},
 }
-var resourceGroupResourceId = models.ParsedResourceId{
+var resourceGroupResourceId = importerModels.ParsedResourceId{
 	Constants: map[string]resourcemanager.ConstantDetails{},
 	Segments: []resourcemanager.ResourceIdSegment{
 		{
@@ -49,7 +49,7 @@ var resourceGroupResourceId = models.ParsedResourceId{
 		},
 	},
 }
-var managementGroupResourceId = models.ParsedResourceId{
+var managementGroupResourceId = importerModels.ParsedResourceId{
 	Constants: map[string]resourcemanager.ConstantDetails{},
 	Segments: []resourcemanager.ResourceIdSegment{
 		{
@@ -73,7 +73,7 @@ var managementGroupResourceId = models.ParsedResourceId{
 		},
 	},
 }
-var virtualMachineResourceId = models.ParsedResourceId{
+var virtualMachineResourceId = importerModels.ParsedResourceId{
 	Constants: map[string]resourcemanager.ConstantDetails{},
 	Segments: []resourcemanager.ResourceIdSegment{
 		{
@@ -115,7 +115,7 @@ var virtualMachineResourceId = models.ParsedResourceId{
 		},
 	},
 }
-var virtualMachineExtensionResourceId = models.ParsedResourceId{
+var virtualMachineExtensionResourceId = importerModels.ParsedResourceId{
 	Constants: map[string]resourcemanager.ConstantDetails{},
 	Segments: []resourcemanager.ResourceIdSegment{
 		{
@@ -166,7 +166,7 @@ var virtualMachineExtensionResourceId = models.ParsedResourceId{
 		},
 	},
 }
-var virtualNetworkExtensionResourceId = models.ParsedResourceId{
+var virtualNetworkExtensionResourceId = importerModels.ParsedResourceId{
 	Constants: map[string]resourcemanager.ConstantDetails{},
 	Segments: []resourcemanager.ResourceIdSegment{
 		{
@@ -208,7 +208,7 @@ var virtualNetworkExtensionResourceId = models.ParsedResourceId{
 		},
 	},
 }
-var scopedMonitorResourceId = models.ParsedResourceId{
+var scopedMonitorResourceId = importerModels.ParsedResourceId{
 	Constants: map[string]resourcemanager.ConstantDetails{},
 	Segments: []resourcemanager.ResourceIdSegment{
 		{
@@ -236,7 +236,7 @@ var scopedMonitorResourceId = models.ParsedResourceId{
 		},
 	},
 }
-var signalRResourceId = models.ParsedResourceId{
+var signalRResourceId = importerModels.ParsedResourceId{
 	Constants: map[string]resourcemanager.ConstantDetails{},
 	Segments: []resourcemanager.ResourceIdSegment{
 		{
@@ -278,7 +278,7 @@ var signalRResourceId = models.ParsedResourceId{
 		},
 	},
 }
-var eventHubSkuResourceId = models.ParsedResourceId{
+var eventHubSkuResourceId = importerModels.ParsedResourceId{
 	Constants: map[string]resourcemanager.ConstantDetails{},
 	Segments: []resourcemanager.ResourceIdSegment{
 		{
@@ -312,7 +312,7 @@ var eventHubSkuResourceId = models.ParsedResourceId{
 		},
 	},
 }
-var trafficManagerProfileResourceId = models.ParsedResourceId{
+var trafficManagerProfileResourceId = importerModels.ParsedResourceId{
 	Constants: map[string]resourcemanager.ConstantDetails{
 		"EndpointType": {
 			Type: resourcemanager.StringConstant,
@@ -374,7 +374,7 @@ var trafficManagerProfileResourceId = models.ParsedResourceId{
 		},
 	},
 }
-var redisPatchSchedulesResourceId = models.ParsedResourceId{
+var redisPatchSchedulesResourceId = importerModels.ParsedResourceId{
 	Constants: map[string]resourcemanager.ConstantDetails{
 		"Default": {
 			Type: resourcemanager.StringConstant,
@@ -437,7 +437,7 @@ var redisPatchSchedulesResourceId = models.ParsedResourceId{
 
 func TestResourceIDNamingEmpty(t *testing.T) {
 	uriToParsedOperation := map[string]ParsedOperation{}
-	actualNamesToIds, err := generateNamesForResourceIds([]models.ParsedResourceId{}, uriToParsedOperation)
+	actualNamesToIds, err := generateNamesForResourceIds([]importerModels.ParsedResourceId{}, uriToParsedOperation)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 		return
@@ -449,10 +449,10 @@ func TestResourceIDNamingEmpty(t *testing.T) {
 }
 
 func TestResourceIDNamingSubscriptionId(t *testing.T) {
-	input := []models.ParsedResourceId{
+	input := []importerModels.ParsedResourceId{
 		subscriptionResourceId,
 	}
-	expectedNamesToIds := map[string]models.ParsedResourceId{
+	expectedNamesToIds := map[string]importerModels.ParsedResourceId{
 		"SubscriptionId": subscriptionResourceId,
 	}
 
@@ -469,12 +469,12 @@ func TestResourceIDNamingSubscriptionId(t *testing.T) {
 }
 
 func TestResourceIDNamingSubscriptionIdAndSuffix(t *testing.T) {
-	input := []models.ParsedResourceId{
+	input := []importerModels.ParsedResourceId{
 		// intentionally here twice
 		subscriptionResourceId,
 		subscriptionResourceId,
 	}
-	expectedNamesToIds := map[string]models.ParsedResourceId{
+	expectedNamesToIds := map[string]importerModels.ParsedResourceId{
 		"SubscriptionId": subscriptionResourceId,
 	}
 
@@ -491,10 +491,10 @@ func TestResourceIDNamingSubscriptionIdAndSuffix(t *testing.T) {
 }
 
 func TestResourceIDNamingResourceGroupId(t *testing.T) {
-	input := []models.ParsedResourceId{
+	input := []importerModels.ParsedResourceId{
 		resourceGroupResourceId,
 	}
-	expectedNamesToIds := map[string]models.ParsedResourceId{
+	expectedNamesToIds := map[string]importerModels.ParsedResourceId{
 		"ResourceGroupId": resourceGroupResourceId,
 	}
 
@@ -511,12 +511,12 @@ func TestResourceIDNamingResourceGroupId(t *testing.T) {
 }
 
 func TestResourceIDNamingResourceGroupIdAndSuffix(t *testing.T) {
-	input := []models.ParsedResourceId{
+	input := []importerModels.ParsedResourceId{
 		// intentionally in here twice
 		resourceGroupResourceId,
 		resourceGroupResourceId,
 	}
-	expectedNamesToIds := map[string]models.ParsedResourceId{
+	expectedNamesToIds := map[string]importerModels.ParsedResourceId{
 		"ResourceGroupId": resourceGroupResourceId,
 	}
 
@@ -533,10 +533,10 @@ func TestResourceIDNamingResourceGroupIdAndSuffix(t *testing.T) {
 }
 
 func TestResourceIDNamingManagementGroupId(t *testing.T) {
-	input := []models.ParsedResourceId{
+	input := []importerModels.ParsedResourceId{
 		managementGroupResourceId,
 	}
-	expectedNamesToIds := map[string]models.ParsedResourceId{
+	expectedNamesToIds := map[string]importerModels.ParsedResourceId{
 		"ManagementGroupId": managementGroupResourceId,
 	}
 
@@ -553,12 +553,12 @@ func TestResourceIDNamingManagementGroupId(t *testing.T) {
 }
 
 func TestResourceIDNamingManagementGroupIdAndSuffix(t *testing.T) {
-	input := []models.ParsedResourceId{
+	input := []importerModels.ParsedResourceId{
 		// intentionally here twice
 		managementGroupResourceId,
 		managementGroupResourceId,
 	}
-	expectedNamesToIds := map[string]models.ParsedResourceId{
+	expectedNamesToIds := map[string]importerModels.ParsedResourceId{
 		"ManagementGroupId": managementGroupResourceId,
 	}
 
@@ -575,10 +575,10 @@ func TestResourceIDNamingManagementGroupIdAndSuffix(t *testing.T) {
 }
 
 func TestResourceIDNamingEventHubSkuId(t *testing.T) {
-	input := []models.ParsedResourceId{
+	input := []importerModels.ParsedResourceId{
 		eventHubSkuResourceId,
 	}
-	expectedNamesToIds := map[string]models.ParsedResourceId{
+	expectedNamesToIds := map[string]importerModels.ParsedResourceId{
 		"SkuId": eventHubSkuResourceId,
 	}
 
@@ -595,7 +595,7 @@ func TestResourceIDNamingEventHubSkuId(t *testing.T) {
 }
 
 func TestResourceIDNamingTopLevelScope(t *testing.T) {
-	scopeResourceId := models.ParsedResourceId{
+	scopeResourceId := importerModels.ParsedResourceId{
 		Constants: map[string]resourcemanager.ConstantDetails{},
 		Segments: []resourcemanager.ResourceIdSegment{
 			{
@@ -605,10 +605,10 @@ func TestResourceIDNamingTopLevelScope(t *testing.T) {
 		},
 	}
 
-	input := []models.ParsedResourceId{
+	input := []importerModels.ParsedResourceId{
 		scopeResourceId,
 	}
-	expectedNamesToIds := map[string]models.ParsedResourceId{
+	expectedNamesToIds := map[string]importerModels.ParsedResourceId{
 		"ScopeId": scopeResourceId,
 	}
 
@@ -625,7 +625,7 @@ func TestResourceIDNamingTopLevelScope(t *testing.T) {
 }
 
 func TestResourceIDNamingContainingAConstant(t *testing.T) {
-	dnsResourceId := models.ParsedResourceId{
+	dnsResourceId := importerModels.ParsedResourceId{
 		Constants: map[string]resourcemanager.ConstantDetails{
 			"DnsRecordType": {
 				Type: resourcemanager.StringConstant,
@@ -676,10 +676,10 @@ func TestResourceIDNamingContainingAConstant(t *testing.T) {
 		},
 	}
 
-	input := []models.ParsedResourceId{
+	input := []importerModels.ParsedResourceId{
 		dnsResourceId,
 	}
-	expectedNamesToIds := map[string]models.ParsedResourceId{
+	expectedNamesToIds := map[string]importerModels.ParsedResourceId{
 		"RecordTypeId": dnsResourceId,
 	}
 
@@ -696,7 +696,7 @@ func TestResourceIDNamingContainingAConstant(t *testing.T) {
 }
 
 func TestResourceIDNamingContainingAConstantAndSuffix(t *testing.T) {
-	dnsResourceId := models.ParsedResourceId{
+	dnsResourceId := importerModels.ParsedResourceId{
 		Constants: map[string]resourcemanager.ConstantDetails{
 			"DnsRecordType": {
 				Type: resourcemanager.StringConstant,
@@ -747,12 +747,12 @@ func TestResourceIDNamingContainingAConstantAndSuffix(t *testing.T) {
 		},
 	}
 
-	input := []models.ParsedResourceId{
+	input := []importerModels.ParsedResourceId{
 		// intentionally in here twice
 		dnsResourceId,
 		dnsResourceId,
 	}
-	expectedNamesToIds := map[string]models.ParsedResourceId{
+	expectedNamesToIds := map[string]importerModels.ParsedResourceId{
 		"RecordTypeId": dnsResourceId,
 	}
 
@@ -769,10 +769,10 @@ func TestResourceIDNamingContainingAConstantAndSuffix(t *testing.T) {
 }
 
 func TestResourceIdNamingTopLevelResourceId(t *testing.T) {
-	input := []models.ParsedResourceId{
+	input := []importerModels.ParsedResourceId{
 		virtualMachineResourceId,
 	}
-	expectedNamesToIds := map[string]models.ParsedResourceId{
+	expectedNamesToIds := map[string]importerModels.ParsedResourceId{
 		"VirtualMachineId": virtualMachineResourceId,
 	}
 
@@ -789,11 +789,11 @@ func TestResourceIdNamingTopLevelResourceId(t *testing.T) {
 }
 
 func TestResourceIdNamingTopLevelAndNestedResourceId(t *testing.T) {
-	input := []models.ParsedResourceId{
+	input := []importerModels.ParsedResourceId{
 		virtualMachineResourceId,
 		virtualMachineExtensionResourceId,
 	}
-	expectedNamesToIds := map[string]models.ParsedResourceId{
+	expectedNamesToIds := map[string]importerModels.ParsedResourceId{
 		"VirtualMachineId": virtualMachineResourceId,
 		"ExtensionId":      virtualMachineExtensionResourceId,
 	}
@@ -811,10 +811,10 @@ func TestResourceIdNamingTopLevelAndNestedResourceId(t *testing.T) {
 }
 
 func TestResourceIdNamingNestedResourceId(t *testing.T) {
-	input := []models.ParsedResourceId{
+	input := []importerModels.ParsedResourceId{
 		virtualMachineExtensionResourceId,
 	}
-	expectedNamesToIds := map[string]models.ParsedResourceId{
+	expectedNamesToIds := map[string]importerModels.ParsedResourceId{
 		"ExtensionId": virtualMachineExtensionResourceId,
 	}
 
@@ -831,10 +831,10 @@ func TestResourceIdNamingNestedResourceId(t *testing.T) {
 }
 
 func TestResourceIdNamingResourceUnderScope(t *testing.T) {
-	input := []models.ParsedResourceId{
+	input := []importerModels.ParsedResourceId{
 		scopedMonitorResourceId,
 	}
-	expectedNamesToIds := map[string]models.ParsedResourceId{
+	expectedNamesToIds := map[string]importerModels.ParsedResourceId{
 		"ScopedExtensionId": scopedMonitorResourceId,
 	}
 
@@ -851,11 +851,11 @@ func TestResourceIdNamingResourceUnderScope(t *testing.T) {
 }
 
 func TestResourceIdNamingConflictingTwoLevels(t *testing.T) {
-	input := []models.ParsedResourceId{
+	input := []importerModels.ParsedResourceId{
 		virtualNetworkExtensionResourceId,
 		virtualMachineExtensionResourceId,
 	}
-	expectedNamesToIds := map[string]models.ParsedResourceId{
+	expectedNamesToIds := map[string]importerModels.ParsedResourceId{
 		"VirtualMachineExtensionId": virtualMachineExtensionResourceId,
 		"ExtensionId":               virtualNetworkExtensionResourceId,
 	}
@@ -873,11 +873,11 @@ func TestResourceIdNamingConflictingTwoLevels(t *testing.T) {
 }
 
 func TestResourceIdNamingConflictingWithUpdatingOperation(t *testing.T) {
-	input := []models.ParsedResourceId{
+	input := []importerModels.ParsedResourceId{
 		virtualNetworkExtensionResourceId,
 		virtualMachineExtensionResourceId,
 	}
-	expectedNamesToIds := map[string]models.ParsedResourceId{
+	expectedNamesToIds := map[string]importerModels.ParsedResourceId{
 		"VirtualMachineExtensionId": virtualMachineExtensionResourceId,
 		"ExtensionId":               virtualNetworkExtensionResourceId,
 	}
@@ -911,7 +911,7 @@ func TestResourceIdNamingConflictingWithUpdatingOperation(t *testing.T) {
 }
 
 func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
-	workerPoolInstanceResourceId := models.ParsedResourceId{
+	workerPoolInstanceResourceId := importerModels.ParsedResourceId{
 		Constants: map[string]resourcemanager.ConstantDetails{},
 		Segments: []resourcemanager.ResourceIdSegment{
 			{
@@ -971,7 +971,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 			},
 		},
 	}
-	multiRolePoolInstanceResourceId := models.ParsedResourceId{
+	multiRolePoolInstanceResourceId := importerModels.ParsedResourceId{
 		Constants: map[string]resourcemanager.ConstantDetails{},
 		Segments: []resourcemanager.ResourceIdSegment{
 			{
@@ -1032,7 +1032,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 			},
 		},
 	}
-	slotInstanceProcessModuleResourceId := models.ParsedResourceId{
+	slotInstanceProcessModuleResourceId := importerModels.ParsedResourceId{
 		Constants: map[string]resourcemanager.ConstantDetails{},
 		Segments: []resourcemanager.ResourceIdSegment{
 			{
@@ -1110,7 +1110,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 			},
 		},
 	}
-	instanceProcessModuleResourceId := models.ParsedResourceId{
+	instanceProcessModuleResourceId := importerModels.ParsedResourceId{
 		Constants: map[string]resourcemanager.ConstantDetails{},
 		Segments: []resourcemanager.ResourceIdSegment{
 			{
@@ -1180,13 +1180,13 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 		},
 	}
 
-	input := []models.ParsedResourceId{
+	input := []importerModels.ParsedResourceId{
 		workerPoolInstanceResourceId,
 		multiRolePoolInstanceResourceId,
 		slotInstanceProcessModuleResourceId,
 		instanceProcessModuleResourceId,
 	}
-	expectedNamesToIds := map[string]models.ParsedResourceId{
+	expectedNamesToIds := map[string]importerModels.ParsedResourceId{
 		"WorkerPoolInstanceId": workerPoolInstanceResourceId,
 		"InstanceId":           multiRolePoolInstanceResourceId,
 		"ProcessModuleId":      slotInstanceProcessModuleResourceId,
@@ -1206,10 +1206,10 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 }
 
 func TestResourceIdNamingSignalRId(t *testing.T) {
-	input := []models.ParsedResourceId{
+	input := []importerModels.ParsedResourceId{
 		signalRResourceId,
 	}
-	expectedNamesToIds := map[string]models.ParsedResourceId{
+	expectedNamesToIds := map[string]importerModels.ParsedResourceId{
 		"SignalRId": signalRResourceId,
 	}
 
@@ -1226,10 +1226,10 @@ func TestResourceIdNamingSignalRId(t *testing.T) {
 }
 
 func TestResourceIdNamingTrafficManagerEndpoint(t *testing.T) {
-	input := []models.ParsedResourceId{
+	input := []importerModels.ParsedResourceId{
 		trafficManagerProfileResourceId,
 	}
-	expectedNamesToIds := map[string]models.ParsedResourceId{
+	expectedNamesToIds := map[string]importerModels.ParsedResourceId{
 		"EndpointTypeId": trafficManagerProfileResourceId,
 	}
 
@@ -1246,10 +1246,10 @@ func TestResourceIdNamingTrafficManagerEndpoint(t *testing.T) {
 }
 
 func TestResourceIDNamingRedisDefaultId(t *testing.T) {
-	input := []models.ParsedResourceId{
+	input := []importerModels.ParsedResourceId{
 		redisPatchSchedulesResourceId,
 	}
-	expectedNamesToIds := map[string]models.ParsedResourceId{
+	expectedNamesToIds := map[string]importerModels.ParsedResourceId{
 		"DefaultId": redisPatchSchedulesResourceId,
 	}
 

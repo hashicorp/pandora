@@ -5,16 +5,23 @@ package pipeline
 
 import (
 	"fmt"
+	"os"
 	"path"
 	"sort"
 
 	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/discovery"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/transformer"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 func runImporter(input RunInput, generationData []discovery.ServiceInput, swaggerGitSha string) error {
+	sourceDataType := models.ResourceManagerSourceDataType
+	sourceDataOrigin := models.AzureRestAPISpecsSourceDataOrigin
+
 	// group the API Versions by Service
 	dataByServices := make(map[string][]discovery.ServiceInput)
 	for _, v := range generationData {
@@ -42,13 +49,13 @@ func runImporter(input RunInput, generationData []discovery.ServiceInput, swagge
 		serviceDetails := dataByServices[serviceName]
 		logger := input.Logger.Named(fmt.Sprintf("Importer for Service %q", serviceName))
 
-		serviceDirectory := path.Join(input.OutputDirectory, serviceName)
+		serviceDirectory := path.Join(input.OutputDirectory, string(sourceDataType), serviceName)
 		logger.Debug("recreating the working directory at %q for Service %q", serviceDirectory, serviceName)
-		if err := dataapigeneratorjson.RecreateDirectory(serviceDirectory, logger); err != nil {
-			fmt.Errorf("recreating directory %q for service %q", serviceDirectory, serviceName)
+		if err := recreateDirectory(serviceDirectory, logger); err != nil {
+			return fmt.Errorf("recreating directory %q for service %q", serviceDirectory, serviceName)
 		}
 
-		if err := runImportForService(input, serviceName, serviceDetails, logger, swaggerGitSha); err != nil {
+		if err := runImportForService(input, serviceName, serviceDetails, sourceDataType, sourceDataOrigin, logger, swaggerGitSha); err != nil {
 			return fmt.Errorf("parsing data for Service %q: %+v", serviceName, err)
 		}
 	}
@@ -56,9 +63,9 @@ func runImporter(input RunInput, generationData []discovery.ServiceInput, swagge
 	return nil
 }
 
-func runImportForService(input RunInput, serviceName string, apiVersionsForService []discovery.ServiceInput, logger hclog.Logger, swaggerGitSha string) error {
+func runImportForService(input RunInput, serviceName string, apiVersionsForService []discovery.ServiceInput, sourceDataType models.SourceDataType, sourceDataOrigin models.SourceDataOrigin, logger hclog.Logger, swaggerGitSha string) error {
 	task := pipelineTask{}
-	apiVersions := make([]models.AzureApiDefinition, 0)
+	apiVersions := make([]importerModels.AzureApiDefinition, 0)
 	var resourceProvider *string
 	var terraformPackageName *string
 
@@ -87,10 +94,10 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 		}
 
 		versionLogger.Trace("Task: Parsing Data..")
-		dataForApiVersion := &models.AzureApiDefinition{
+		dataForApiVersion := &importerModels.AzureApiDefinition{
 			ServiceName: serviceName,
 			ApiVersion:  apiVersion,
-			Resources:   map[string]models.AzureApiResource{},
+			Resources:   map[string]importerModels.AzureApiResource{},
 		}
 		for _, v := range api {
 			tempDataForApiVersion, err := task.parseDataForApiVersion(v, versionLogger)
@@ -105,22 +112,22 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 			}
 		}
 
-		resourceBuildInfo := make(map[string]models.ResourceBuildInfo)
+		resourceBuildInfo := make(map[string]importerModels.ResourceBuildInfo)
 
 		if api[0].TerraformServiceDefinition != nil {
 			for _, versionDetails := range api[0].TerraformServiceDefinition.ApiVersions {
 				for _, pkgDetails := range versionDetails.Packages {
 					for resource, resourceDetails := range pkgDetails.Definitions {
 						if resourceDetails.Overrides != nil {
-							overrides := make([]models.Override, 0)
+							overrides := make([]importerModels.Override, 0)
 							for _, o := range *resourceDetails.Overrides {
-								overrides = append(overrides, models.Override{
+								overrides = append(overrides, importerModels.Override{
 									Name:        o.Name,
 									UpdatedName: o.UpdatedName,
 									Description: o.Description,
 								})
 							}
-							resourceBuildInfo[resource] = models.ResourceBuildInfo{
+							resourceBuildInfo[resource] = importerModels.ResourceBuildInfo{
 								Overrides: overrides,
 							}
 						}
@@ -130,37 +137,39 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 		}
 
 		versionLogger.Trace("generating Terraform Details")
-		var err error
-		dataForApiVersion, err = task.generateTerraformDetails(dataForApiVersion, &resourceBuildInfo, versionLogger.Named("TerraformDetails"))
+		dataForApiVersion, err := terraform.PopulateForResources(dataForApiVersion, resourceBuildInfo, input.ProviderPrefix, versionLogger)
 		if err != nil {
-			return fmt.Errorf(fmt.Sprintf("generating Terraform Details for Service %q / Version %q: %+v", serviceName, apiVersion, err))
-		}
-
-		versionLogger.Trace("generating Terraform Tests")
-		dataForApiVersion, err = task.generateTerraformTests(dataForApiVersion, input.ProviderPrefix, versionLogger.Named("TerraformTests"))
-		if err != nil {
-			return fmt.Errorf(fmt.Sprintf("generating Terraform Tests for Service %q / Version %q: %+v", serviceName, apiVersion, err))
-		}
-
-		versionLogger.Trace("Generating Example Usage from the Terraform Tests")
-		dataForApiVersion, err = task.generateTerraformExampleUsage(dataForApiVersion, input.ProviderPrefix, versionLogger.Named("TerraformExampleUsage"))
-		if err != nil {
-			return fmt.Errorf(fmt.Sprintf("generating Terraform Example Usage for Service %q / Version %q: %+v", serviceName, apiVersion, err))
+			return fmt.Errorf("populating Terraform Details for Service %q / Version %q: %+v", serviceName, apiVersion, err)
 		}
 
 		apiVersions = append(apiVersions, *dataForApiVersion)
 	}
 
+	// temporary glue to enable refactoring this tool piece-by-piece
+	logger.Info("Transforming to the Data API SDK types..")
+	service, err := transformer.MapInternalTypesToDataAPISDKTypes(apiVersions, resourceProvider, terraformPackageName, logger)
+	if err != nil {
+		return fmt.Errorf("transforming the internal types to the Data API SDK types: %+v", err)
+	}
+
 	// Now that we have the populated data, let's go ahead and output that..
-	logger.Trace("Task: Generating Service Definitions (v2 / JSON)..")
-	if err := task.generateApiDefinitionsV2(serviceName, apiVersions, input.OutputDirectory, swaggerGitSha, resourceProvider, terraformPackageName, logger.Named("V2 API Definitions Generator")); err != nil {
-		return fmt.Errorf("generating the Service Definitions for V2 (JSON): %+v", err)
+	logger.Info(fmt.Sprintf("Persisting API Definitions for Service %s..", serviceName))
+	if err := dataapigeneratorjson.Run(serviceName, *service, sourceDataOrigin, sourceDataType, input.OutputDirectory, swaggerGitSha, resourceProvider, logger); err != nil {
+		return fmt.Errorf("persisting Data API Definitions for Service %q: %+v", serviceName, err)
 	}
 
-	logger.Trace("Task: Outputting the Meta Data for this Revision..")
-	if err := task.outputMetaData(input, swaggerGitSha); err != nil {
-		return fmt.Errorf("outputting the Meta Data for this Revision: %+v", err)
-	}
+	return nil
+}
 
+func recreateDirectory(directory string, logger hclog.Logger) error {
+	logger.Trace(fmt.Sprintf("Deleting any existing directory at %q..", directory))
+	if err := os.RemoveAll(directory); err != nil {
+		return fmt.Errorf("removing any existing directory at %q: %+v", directory, err)
+	}
+	logger.Trace(fmt.Sprintf("(Re)Creating the directory at %q..", directory))
+	if err := os.MkdirAll(directory, os.FileMode(0755)); err != nil {
+		return fmt.Errorf("creating directory %q: %+v", directory, err)
+	}
+	logger.Trace(fmt.Sprintf("Created Directory at %q", directory))
 	return nil
 }

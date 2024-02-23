@@ -1,19 +1,19 @@
 {
- "name": "CreatePublicIP",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201
- ],
- "longRunning": true,
- "httpMethod": "PUT",
- "resourceIdName": "PublicIPId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "WorkloadNetworkPublicIP"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "WorkloadNetworkPublicIP"
- }
+  "name": "CreatePublicIP",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "PublicIPId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "WorkloadNetworkPublicIP"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "WorkloadNetworkPublicIP"
+  }
 }

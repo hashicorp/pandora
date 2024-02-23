@@ -7,20 +7,19 @@ import (
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
-
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 var _ customFieldMatcher = systemAndUserAssignedIdentityMapMatcher{}
 
 type systemAndUserAssignedIdentityMapMatcher struct{}
 
-func (systemAndUserAssignedIdentityMapMatcher) CustomFieldType() models.CustomFieldType {
-	return models.CustomFieldTypeSystemAndUserAssignedIdentityMap
+func (systemAndUserAssignedIdentityMapMatcher) CustomFieldType() importerModels.CustomFieldType {
+	return importerModels.CustomFieldTypeSystemAndUserAssignedIdentityMap
 }
 
-func (systemAndUserAssignedIdentityMapMatcher) IsMatch(_ models.FieldDetails, definition models.ObjectDefinition, known internal.ParseResult) bool {
-	if definition.Type != models.ObjectDefinitionReference {
+func (systemAndUserAssignedIdentityMapMatcher) IsMatch(_ importerModels.FieldDetails, definition importerModels.ObjectDefinition, known internal.ParseResult) bool {
+	if definition.Type != importerModels.ObjectDefinitionReference {
 		return false
 	}
 
@@ -48,10 +47,10 @@ func (systemAndUserAssignedIdentityMapMatcher) IsMatch(_ models.FieldDetails, de
 
 		if strings.EqualFold(fieldName, "UserAssignedIdentities") {
 			// this should be a Map of an Object containing ClientId/PrincipalId
-			if fieldVal.ObjectDefinition == nil || fieldVal.ObjectDefinition.Type != models.ObjectDefinitionDictionary {
+			if fieldVal.ObjectDefinition == nil || fieldVal.ObjectDefinition.Type != importerModels.ObjectDefinitionDictionary {
 				continue
 			}
-			if fieldVal.ObjectDefinition.NestedItem == nil || fieldVal.ObjectDefinition.NestedItem.Type != models.ObjectDefinitionReference {
+			if fieldVal.ObjectDefinition.NestedItem == nil || fieldVal.ObjectDefinition.NestedItem.Type != importerModels.ObjectDefinitionReference {
 				continue
 			}
 
@@ -67,7 +66,7 @@ func (systemAndUserAssignedIdentityMapMatcher) IsMatch(_ models.FieldDetails, de
 					if innerVal.ObjectDefinition == nil {
 						continue
 					}
-					if innerVal.ObjectDefinition.Type != models.ObjectDefinitionString {
+					if innerVal.ObjectDefinition.Type != importerModels.ObjectDefinitionString {
 						continue
 					}
 
@@ -79,7 +78,7 @@ func (systemAndUserAssignedIdentityMapMatcher) IsMatch(_ models.FieldDetails, de
 					if innerVal.ObjectDefinition == nil {
 						continue
 					}
-					if innerVal.ObjectDefinition.Type != models.ObjectDefinitionString {
+					if innerVal.ObjectDefinition.Type != importerModels.ObjectDefinitionString {
 						continue
 					}
 
@@ -95,7 +94,7 @@ func (systemAndUserAssignedIdentityMapMatcher) IsMatch(_ models.FieldDetails, de
 		}
 
 		if strings.EqualFold(fieldName, "Type") {
-			if fieldVal.ObjectDefinition == nil || fieldVal.ObjectDefinition.Type != models.ObjectDefinitionReference {
+			if fieldVal.ObjectDefinition == nil || fieldVal.ObjectDefinition.Type != importerModels.ObjectDefinitionReference {
 				continue
 			}
 			constant, ok := known.Constants[*fieldVal.ObjectDefinition.ReferenceName]

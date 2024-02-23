@@ -1,20 +1,20 @@
 {
- "name": "RegistryKeyEntity",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "properties",
-   "name": "Properties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "RegistryKeyEntityProperties"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "Entity",
- "discriminatedTypeValue": "RegistryKey",
- "typeHintIn": "Kind"
+  "name": "RegistryKeyEntity",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RegistryKeyEntityProperties"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ],
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "RegistryKey",
+  "typeHintIn": "Kind"
 }

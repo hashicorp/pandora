@@ -7,7 +7,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 func TestParsingOperationsUsingTheSameSwaggerTagInDifferentCasings(t *testing.T) {
@@ -16,34 +16,34 @@ func TestParsingOperationsUsingTheSameSwaggerTagInDifferentCasings(t *testing.T)
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Example": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 
 					"First": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
 						OperationId:         "Hello_First",
-						RequestObject: &models.ObjectDefinition{
+						RequestObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						// https://github.com/hashicorp/pandora/issues/3807
 						UriSuffix: pointer.To("/someotheruri"),
@@ -53,9 +53,9 @@ func TestParsingOperationsUsingTheSameSwaggerTagInDifferentCasings(t *testing.T)
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
 						OperationId:         "Hello_PutBar",
-						RequestObject: &models.ObjectDefinition{
+						RequestObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/bar"),
 					},
@@ -64,9 +64,9 @@ func TestParsingOperationsUsingTheSameSwaggerTagInDifferentCasings(t *testing.T)
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
 						OperationId:         "hello_PutFoo",
-						RequestObject: &models.ObjectDefinition{
+						RequestObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/foo"),
 					},
@@ -75,9 +75,9 @@ func TestParsingOperationsUsingTheSameSwaggerTagInDifferentCasings(t *testing.T)
 						ExpectedStatusCodes: []int{200},
 						Method:              "PATCH",
 						OperationId:         "hello_Second",
-						RequestObject: &models.ObjectDefinition{
+						RequestObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						// https://github.com/hashicorp/pandora/issues/3807
 						UriSuffix: pointer.To("/someotheruri"),
@@ -95,33 +95,33 @@ func TestParsingOperationsOnResources(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Example": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"First": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
 						OperationId:         "Hello_First",
-						RequestObject: &models.ObjectDefinition{
+						RequestObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						// https://github.com/hashicorp/pandora/issues/3807
 						UriSuffix: pointer.To("/someotheruri"),
@@ -131,9 +131,9 @@ func TestParsingOperationsOnResources(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
 						OperationId:         "Hello_PutBar",
-						RequestObject: &models.ObjectDefinition{
+						RequestObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/bar"),
 					},
@@ -142,9 +142,9 @@ func TestParsingOperationsOnResources(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "PATCH",
 						OperationId:         "hello_Second",
-						RequestObject: &models.ObjectDefinition{
+						RequestObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						// https://github.com/hashicorp/pandora/issues/3807
 						UriSuffix: pointer.To("/someotheruri"),
@@ -152,28 +152,28 @@ func TestParsingOperationsOnResources(t *testing.T) {
 				},
 			},
 			"HelloOperations": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Example": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"HelloRestart": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "POST",
 						OperationId:         "Hello_Restart",
-						RequestObject: &models.ObjectDefinition{
+						RequestObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/foo"),
 					},

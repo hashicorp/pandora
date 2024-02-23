@@ -1,38 +1,38 @@
 {
- "name": "ListWebApps",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "fieldContainingPaginationDetails": "nextLink",
- "longRunning": false,
- "httpMethod": "GET",
- "options": [
-  {
-   "optional": true,
-   "queryString": "$filter",
-   "required": false,
-   "field": "Filter",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
+  "name": "ListWebApps",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "$filter",
+      "required": false,
+      "field": "Filter",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "$top",
+      "required": false,
+      "field": "Top",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "AppServicePlanId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "Site"
   },
-  {
-   "optional": true,
-   "queryString": "$top",
-   "required": false,
-   "field": "Top",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  }
- ],
- "resourceIdName": "AppServicePlanId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "Site"
- },
- "uriSuffix": "/sites"
+  "uriSuffix": "/sites"
 }

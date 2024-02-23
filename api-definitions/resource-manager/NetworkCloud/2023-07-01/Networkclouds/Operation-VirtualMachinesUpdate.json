@@ -1,19 +1,19 @@
 {
- "name": "VirtualMachinesUpdate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "PATCH",
- "resourceIdName": "VirtualMachineId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "VirtualMachinePatchParameters"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "VirtualMachine"
- }
+  "name": "VirtualMachinesUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "VirtualMachineId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "VirtualMachinePatchParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "VirtualMachine"
+  }
 }

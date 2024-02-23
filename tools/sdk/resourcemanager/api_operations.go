@@ -6,6 +6,7 @@ package resourcemanager
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 type ApiOperationsClient struct {
@@ -67,25 +68,11 @@ type ApiOperation struct {
 
 	// Options is a map of options which can be specified for this operation
 	// these are querystring parameters such as 'limit' or 'forceDelete' or similar
-	Options map[string]ApiOperationOption `json:"options"`
+	Options map[string]models.SDKOperationOption `json:"options"`
 
 	// UriSuffix is a suffix which should be appended to the Resource ID for this operation
 	// for example `/shutdown`
 	UriSuffix *string `json:"uriSuffix"`
-}
-
-type ApiOperationOption struct {
-	// HeaderName is the name of the Http Header which this Option should be set into
-	HeaderName *string `json:"headerName,omitempty"`
-
-	// QueryStringName is the Key which should be used for this Option in the QueryString
-	QueryStringName *string `json:"queryStringName,omitempty"`
-
-	// ObjectDefinition defines the Type of Object this Option is
-	ObjectDefinition ApiObjectDefinition `json:"objectDefinition"`
-
-	// Required specifies whether this Option must be specified in the Request
-	Required bool `json:"required"`
 }
 
 type MetaData struct {

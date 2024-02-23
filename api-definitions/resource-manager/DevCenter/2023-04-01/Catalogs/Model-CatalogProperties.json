@@ -1,66 +1,66 @@
 {
- "name": "CatalogProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "adoGit",
-   "name": "AdoGit",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "GitCatalog"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "gitHub",
-   "name": "GitHub",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "GitCatalog"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "lastSyncTime",
-   "name": "LastSyncTime",
-   "objectDefinition": {
-    "type": "DateTime",
-    "referenceName": null,
-    "dateFormat": "RFC3339"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "provisioningState",
-   "name": "ProvisioningState",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ProvisioningState"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "syncState",
-   "name": "SyncState",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "CatalogSyncState"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "CatalogProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "adoGit",
+      "name": "AdoGit",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "GitCatalog"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "gitHub",
+      "name": "GitHub",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "GitCatalog"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "lastSyncTime",
+      "name": "LastSyncTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "referenceName": null,
+        "dateFormat": "RFC3339"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "provisioningState",
+      "name": "ProvisioningState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ProvisioningState"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "syncState",
+      "name": "SyncState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CatalogSyncState"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

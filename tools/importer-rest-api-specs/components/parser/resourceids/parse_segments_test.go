@@ -8,7 +8,7 @@ import (
 
 	"github.com/go-openapi/spec"
 	"github.com/hashicorp/go-hclog"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -68,8 +68,8 @@ func TestParseResourceIDFromOperation_ConstantMultiple(t *testing.T) {
 		t.Fatalf("expected 2 segments but got 0")
 	}
 	expectedSegments := []resourcemanager.ResourceIdSegment{
-		models.StaticResourceIDSegment("planets", "planets"),
-		models.ConstantResourceIDSegment("planetName", "NameOfPlanet"),
+		importerModels.StaticResourceIDSegment("planets", "planets"),
+		importerModels.ConstantResourceIDSegment("planetName", "NameOfPlanet"),
 	}
 	validateSegmentsMatch(t, *resourceId.segments, expectedSegments)
 
@@ -111,8 +111,8 @@ func TestParseResourceIDFromOperation_InvalidSegmentDefaultGetsTransformed(t *te
 		t.Fatalf("expected 2 segments but got 0")
 	}
 	expectedSegments := []resourcemanager.ResourceIdSegment{
-		models.StaticResourceIDSegment("defaults", "defaults"),
-		models.UserSpecifiedResourceIDSegment("defaultName"),
+		importerModels.StaticResourceIDSegment("defaults", "defaults"),
+		importerModels.UserSpecifiedResourceIDSegment("defaultName"),
 	}
 	validateSegmentsMatch(t, *resourceId.segments, expectedSegments)
 
@@ -173,8 +173,8 @@ func TestParseResourceIDFromOperation_InvalidSegmentTypeGetsTransformed(t *testi
 		t.Fatalf("expected 2 segments but got 0")
 	}
 	expectedSegments := []resourcemanager.ResourceIdSegment{
-		models.StaticResourceIDSegment("things", "things"),
-		models.UserSpecifiedResourceIDSegment("typeName"),
+		importerModels.StaticResourceIDSegment("things", "things"),
+		importerModels.UserSpecifiedResourceIDSegment("typeName"),
 	}
 	validateSegmentsMatch(t, *resourceId.segments, expectedSegments)
 
@@ -206,10 +206,10 @@ func TestParseResourceIDFromOperation_ManagementGroupId(t *testing.T) {
 		t.Fatalf("expected 4 segments but got 0")
 	}
 	expectedSegments := []resourcemanager.ResourceIdSegment{
-		models.StaticResourceIDSegment("providers", "providers"),
-		models.ResourceProviderResourceIDSegment("resourceProviders", "Microsoft.Management"),
-		models.StaticResourceIDSegment("managementGroups", "managementGroups"),
-		models.UserSpecifiedResourceIDSegment("groupId"),
+		importerModels.StaticResourceIDSegment("providers", "providers"),
+		importerModels.ResourceProviderResourceIDSegment("resourceProviders", "Microsoft.Management"),
+		importerModels.StaticResourceIDSegment("managementGroups", "managementGroups"),
+		importerModels.UserSpecifiedResourceIDSegment("groupId"),
 	}
 	validateSegmentsMatch(t, *resourceId.segments, expectedSegments)
 }
@@ -234,10 +234,10 @@ func TestParseResourceIDFromOperation_ResourceGroupId(t *testing.T) {
 		t.Fatalf("expected 4 segments but got 0")
 	}
 	expectedSegments := []resourcemanager.ResourceIdSegment{
-		models.StaticResourceIDSegment("providers", "providers"),
-		models.SubscriptionIDResourceIDSegment("subscriptionId"),
-		models.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
-		models.ResourceGroupResourceIDSegment("resourceGroupName"),
+		importerModels.StaticResourceIDSegment("providers", "providers"),
+		importerModels.SubscriptionIDResourceIDSegment("subscriptionId"),
+		importerModels.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
+		importerModels.ResourceGroupResourceIDSegment("resourceGroupName"),
 	}
 	validateSegmentsMatch(t, *resourceId.segments, expectedSegments)
 }
@@ -262,10 +262,10 @@ func TestParseResourceIDFromOperation_ResourceGroupId_IncorrectSegment(t *testin
 		t.Fatalf("expected 4 segments but got 0")
 	}
 	expectedSegments := []resourcemanager.ResourceIdSegment{
-		models.StaticResourceIDSegment("providers", "providers"),
-		models.SubscriptionIDResourceIDSegment("subscriptionId"),
-		models.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
-		models.ResourceGroupResourceIDSegment("resourceGroupName"),
+		importerModels.StaticResourceIDSegment("providers", "providers"),
+		importerModels.SubscriptionIDResourceIDSegment("subscriptionId"),
+		importerModels.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
+		importerModels.ResourceGroupResourceIDSegment("resourceGroupName"),
 	}
 	validateSegmentsMatch(t, *resourceId.segments, expectedSegments)
 }
@@ -290,7 +290,7 @@ func TestParseResourceIDFromOperation_Scope(t *testing.T) {
 		t.Fatalf("expected 1 segments but got 0")
 	}
 	expectedSegments := []resourcemanager.ResourceIdSegment{
-		models.ScopeResourceIDSegment("resourceId"),
+		importerModels.ScopeResourceIDSegment("resourceId"),
 	}
 	validateSegmentsMatch(t, *resourceId.segments, expectedSegments)
 }
@@ -315,8 +315,8 @@ func TestParseResourceIDFromOperation_SubscriptionId(t *testing.T) {
 		t.Fatalf("expected 2 segments but got 0")
 	}
 	expectedSegments := []resourcemanager.ResourceIdSegment{
-		models.StaticResourceIDSegment("providers", "providers"),
-		models.SubscriptionIDResourceIDSegment("subscriptionId"),
+		importerModels.StaticResourceIDSegment("providers", "providers"),
+		importerModels.SubscriptionIDResourceIDSegment("subscriptionId"),
 	}
 	validateSegmentsMatch(t, *resourceId.segments, expectedSegments)
 }
@@ -359,14 +359,14 @@ func TestParseResourceIDFromOperation_UserAssignedIdentityId(t *testing.T) {
 		t.Fatalf("expected 8 segments but got 0")
 	}
 	expectedSegments := []resourcemanager.ResourceIdSegment{
-		models.StaticResourceIDSegment("subscriptions", "subscriptions"),
-		models.SubscriptionIDResourceIDSegment("subscriptionId"),
-		models.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
-		models.ResourceGroupResourceIDSegment("resourceGroupName"),
-		models.StaticResourceIDSegment("providers", "providers"),
-		models.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.ManagedIdentity"),
-		models.StaticResourceIDSegment("userAssignedIdentities", "userAssignedIdentities"),
-		models.UserSpecifiedResourceIDSegment("resourceName"),
+		importerModels.StaticResourceIDSegment("subscriptions", "subscriptions"),
+		importerModels.SubscriptionIDResourceIDSegment("subscriptionId"),
+		importerModels.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
+		importerModels.ResourceGroupResourceIDSegment("resourceGroupName"),
+		importerModels.StaticResourceIDSegment("providers", "providers"),
+		importerModels.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.ManagedIdentity"),
+		importerModels.StaticResourceIDSegment("userAssignedIdentities", "userAssignedIdentities"),
+		importerModels.UserSpecifiedResourceIDSegment("resourceName"),
 	}
 	validateSegmentsMatch(t, *resourceId.segments, expectedSegments)
 }

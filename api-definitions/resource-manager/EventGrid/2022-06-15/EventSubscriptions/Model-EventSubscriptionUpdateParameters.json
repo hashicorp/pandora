@@ -1,118 +1,118 @@
 {
- "name": "EventSubscriptionUpdateParameters",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "deadLetterDestination",
-   "name": "DeadLetterDestination",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "DeadLetterDestination"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "deadLetterWithResourceIdentity",
-   "name": "DeadLetterWithResourceIdentity",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "DeadLetterWithResourceIdentity"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "deliveryWithResourceIdentity",
-   "name": "DeliveryWithResourceIdentity",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "DeliveryWithResourceIdentity"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "destination",
-   "name": "Destination",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "EventSubscriptionDestination"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "eventDeliverySchema",
-   "name": "EventDeliverySchema",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "EventDeliverySchema"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "expirationTimeUtc",
-   "name": "ExpirationTimeUtc",
-   "objectDefinition": {
-    "type": "DateTime",
-    "referenceName": null,
-    "dateFormat": "RFC3339"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "filter",
-   "name": "Filter",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "EventSubscriptionFilter"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "labels",
-   "name": "Labels",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "String",
-     "referenceName": null
+  "name": "EventSubscriptionUpdateParameters",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "deadLetterDestination",
+      "name": "DeadLetterDestination",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DeadLetterDestination"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "deadLetterWithResourceIdentity",
+      "name": "DeadLetterWithResourceIdentity",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DeadLetterWithResourceIdentity"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "deliveryWithResourceIdentity",
+      "name": "DeliveryWithResourceIdentity",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DeliveryWithResourceIdentity"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "destination",
+      "name": "Destination",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EventSubscriptionDestination"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "eventDeliverySchema",
+      "name": "EventDeliverySchema",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EventDeliverySchema"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "expirationTimeUtc",
+      "name": "ExpirationTimeUtc",
+      "objectDefinition": {
+        "type": "DateTime",
+        "referenceName": null,
+        "dateFormat": "RFC3339"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "filter",
+      "name": "Filter",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EventSubscriptionFilter"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "labels",
+      "name": "Labels",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "retryPolicy",
+      "name": "RetryPolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RetryPolicy"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "retryPolicy",
-   "name": "RetryPolicy",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "RetryPolicy"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

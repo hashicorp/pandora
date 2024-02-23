@@ -1,33 +1,33 @@
 {
- "name": "DatabasePropertiesGeoReplication",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "groupNickname",
-   "name": "GroupNickname",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "linkedDatabases",
-   "name": "LinkedDatabases",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "LinkedDatabase"
+  "name": "DatabasePropertiesGeoReplication",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "groupNickname",
+      "name": "GroupNickname",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "linkedDatabases",
+      "name": "LinkedDatabases",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "LinkedDatabase"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

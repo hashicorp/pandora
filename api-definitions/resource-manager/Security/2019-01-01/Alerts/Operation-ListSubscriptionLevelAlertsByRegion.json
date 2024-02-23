@@ -1,58 +1,58 @@
 {
- "name": "ListSubscriptionLevelAlertsByRegion",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "fieldContainingPaginationDetails": "nextLink",
- "longRunning": false,
- "httpMethod": "GET",
- "options": [
-  {
-   "optional": true,
-   "queryString": "autoDismissRuleName",
-   "required": false,
-   "field": "AutoDismissRuleName",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
+  "name": "ListSubscriptionLevelAlertsByRegion",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "autoDismissRuleName",
+      "required": false,
+      "field": "AutoDismissRuleName",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "$expand",
+      "required": false,
+      "field": "Expand",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "$filter",
+      "required": false,
+      "field": "Filter",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "$select",
+      "required": false,
+      "field": "Select",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "LocationId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "Alert"
   },
-  {
-   "optional": true,
-   "queryString": "$expand",
-   "required": false,
-   "field": "Expand",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  },
-  {
-   "optional": true,
-   "queryString": "$filter",
-   "required": false,
-   "field": "Filter",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  },
-  {
-   "optional": true,
-   "queryString": "$select",
-   "required": false,
-   "field": "Select",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  }
- ],
- "resourceIdName": "LocationId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "Alert"
- },
- "uriSuffix": "/alerts"
+  "uriSuffix": "/alerts"
 }

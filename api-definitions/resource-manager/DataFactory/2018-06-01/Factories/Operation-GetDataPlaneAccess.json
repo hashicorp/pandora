@@ -1,19 +1,19 @@
 {
- "name": "GetDataPlaneAccess",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "POST",
- "resourceIdName": "FactoryId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "UserAccessPolicy"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "AccessPolicyResponse"
- },
- "uriSuffix": "/getDataPlaneAccess"
+  "name": "GetDataPlaneAccess",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "FactoryId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "UserAccessPolicy"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "AccessPolicyResponse"
+  },
+  "uriSuffix": "/getDataPlaneAccess"
 }

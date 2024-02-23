@@ -4,7 +4,7 @@
 package resourceids
 
 import (
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -12,22 +12,22 @@ var _ commonIdMatcher = commonIdKeyVaultPrivateEndpointConnection{}
 
 type commonIdKeyVaultPrivateEndpointConnection struct{}
 
-func (c commonIdKeyVaultPrivateEndpointConnection) id() models.ParsedResourceId {
+func (c commonIdKeyVaultPrivateEndpointConnection) id() importerModels.ParsedResourceId {
 	name := "KeyVaultPrivateEndpointConnection"
-	return models.ParsedResourceId{
+	return importerModels.ParsedResourceId{
 		CommonAlias: &name,
 		Constants:   map[string]resourcemanager.ConstantDetails{},
 		Segments: []resourcemanager.ResourceIdSegment{
-			models.StaticResourceIDSegment("subscriptions", "subscriptions"),
-			models.SubscriptionIDResourceIDSegment("subscriptionId"),
-			models.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
-			models.ResourceGroupResourceIDSegment("resourceGroupName"),
-			models.StaticResourceIDSegment("providers", "providers"),
-			models.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.KeyVault"),
-			models.StaticResourceIDSegment("vaults", "vaults"),
-			models.UserSpecifiedResourceIDSegment("vaultName"),
-			models.StaticResourceIDSegment("privateEndpointConnections", "privateEndpointConnections"),
-			models.UserSpecifiedResourceIDSegment("privateEndpointConnectionName"),
+			importerModels.StaticResourceIDSegment("subscriptions", "subscriptions"),
+			importerModels.SubscriptionIDResourceIDSegment("subscriptionId"),
+			importerModels.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
+			importerModels.ResourceGroupResourceIDSegment("resourceGroupName"),
+			importerModels.StaticResourceIDSegment("providers", "providers"),
+			importerModels.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.KeyVault"),
+			importerModels.StaticResourceIDSegment("vaults", "vaults"),
+			importerModels.UserSpecifiedResourceIDSegment("vaultName"),
+			importerModels.StaticResourceIDSegment("privateEndpointConnections", "privateEndpointConnections"),
+			importerModels.UserSpecifiedResourceIDSegment("privateEndpointConnectionName"),
 		},
 	}
 }

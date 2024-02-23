@@ -9,13 +9,13 @@ import (
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/discovery"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/resources"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/resources"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/transformer"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
 )
 
-func (pipelineTask) parseDataForApiVersion(input discovery.ServiceInput, logger hclog.Logger) (*models.AzureApiDefinition, error) {
+func (pipelineTask) parseDataForApiVersion(input discovery.ServiceInput, logger hclog.Logger) (*importerModels.AzureApiDefinition, error) {
 	logger.Trace("Parsing Swagger Files..")
 	data, err := parseSwaggerFiles(input, logger.Named("Swagger"))
 	if err != nil {
@@ -42,7 +42,7 @@ func (pipelineTask) parseDataForApiVersion(input discovery.ServiceInput, logger 
 	return data, nil
 }
 
-func parseSwaggerFiles(input discovery.ServiceInput, logger hclog.Logger) (*models.AzureApiDefinition, error) {
+func parseSwaggerFiles(input discovery.ServiceInput, logger hclog.Logger) (*importerModels.AzureApiDefinition, error) {
 	parseResult, err := parser.LoadAndParseFiles(input.SwaggerDirectory, input.SwaggerFiles, input.ServiceName, input.ApiVersion, input.ResourceProviderToFilterTo, logger)
 	if err != nil {
 		return nil, fmt.Errorf("parsing files in %q: %+v", input.SwaggerDirectory, err)
@@ -51,12 +51,12 @@ func parseSwaggerFiles(input discovery.ServiceInput, logger hclog.Logger) (*mode
 	return parseResult, nil
 }
 
-func identifyCandidateTerraformResources(input *models.AzureApiDefinition, terraformServiceDefinition definitions.ServiceDefinition, logger hclog.Logger) (*models.AzureApiDefinition, error) {
+func identifyCandidateTerraformResources(input *importerModels.AzureApiDefinition, terraformServiceDefinition definitions.ServiceDefinition, logger hclog.Logger) (*importerModels.AzureApiDefinition, error) {
 	if input == nil {
 		return input, nil
 	}
 
-	parsedResources := make(map[string]models.AzureApiResource, 0)
+	parsedResources := make(map[string]importerModels.AzureApiResource, 0)
 
 	for k, v := range input.Resources {
 		definitionsForThisResource := findResourceDefinitionsForResource(input.ApiVersion, k, terraformServiceDefinition)

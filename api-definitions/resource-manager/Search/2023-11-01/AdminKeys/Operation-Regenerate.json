@@ -1,26 +1,26 @@
 {
- "name": "Regenerate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "POST",
- "options": [
-  {
-   "headerName": "x-ms-client-request-id",
-   "optional": true,
-   "required": false,
-   "field": "XMsClientRequestId",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
+  "name": "Regenerate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "headerName": "x-ms-client-request-id",
+      "optional": true,
+      "required": false,
+      "field": "XMsClientRequestId",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "KeyKindId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "AdminKeyResult"
   }
- ],
- "resourceIdName": "KeyKindId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "AdminKeyResult"
- }
 }

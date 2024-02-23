@@ -6,12 +6,12 @@ package parser
 import (
 	"fmt"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func combineResourcesWith(first models.AzureApiDefinition, other map[string]models.AzureApiResource) (*map[string]models.AzureApiResource, error) {
-	resources := make(map[string]models.AzureApiResource)
+func combineResourcesWith(first importerModels.AzureApiDefinition, other map[string]importerModels.AzureApiResource) (*map[string]importerModels.AzureApiResource, error) {
+	resources := make(map[string]importerModels.AzureApiResource)
 	for k, v := range first.Resources {
 		resources[k] = v
 	}
@@ -81,8 +81,8 @@ func combineConstants(first map[string]resourcemanager.ConstantDetails, second m
 	return &constants, nil
 }
 
-func combineModels(first map[string]models.ModelDetails, second map[string]models.ModelDetails) (*map[string]models.ModelDetails, error) {
-	output := make(map[string]models.ModelDetails)
+func combineModels(first map[string]importerModels.ModelDetails, second map[string]importerModels.ModelDetails) (*map[string]importerModels.ModelDetails, error) {
+	output := make(map[string]importerModels.ModelDetails)
 
 	for k, v := range first {
 		output[k] = v
@@ -118,8 +118,8 @@ func combineModels(first map[string]models.ModelDetails, second map[string]model
 	return &output, nil
 }
 
-func combineOperations(first map[string]models.OperationDetails, second map[string]models.OperationDetails) (*map[string]models.OperationDetails, error) {
-	output := make(map[string]models.OperationDetails, 0)
+func combineOperations(first map[string]importerModels.OperationDetails, second map[string]importerModels.OperationDetails) (*map[string]importerModels.OperationDetails, error) {
+	output := make(map[string]importerModels.OperationDetails, 0)
 
 	for k, v := range first {
 		output[k] = v
@@ -138,8 +138,8 @@ func combineOperations(first map[string]models.OperationDetails, second map[stri
 	return &output, nil
 }
 
-func combineResourceIds(first map[string]models.ParsedResourceId, second map[string]models.ParsedResourceId) (*map[string]models.ParsedResourceId, error) {
-	output := make(map[string]models.ParsedResourceId, 0)
+func combineResourceIds(first map[string]importerModels.ParsedResourceId, second map[string]importerModels.ParsedResourceId) (*map[string]importerModels.ParsedResourceId, error) {
+	output := make(map[string]importerModels.ParsedResourceId, 0)
 
 	for k, v := range first {
 		output[k] = v

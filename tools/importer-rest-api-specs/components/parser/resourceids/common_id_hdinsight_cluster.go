@@ -4,7 +4,7 @@
 package resourceids
 
 import (
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -12,20 +12,20 @@ var _ commonIdMatcher = commonIdHDInsightCluster{}
 
 type commonIdHDInsightCluster struct{}
 
-func (c commonIdHDInsightCluster) id() models.ParsedResourceId {
+func (c commonIdHDInsightCluster) id() importerModels.ParsedResourceId {
 	name := "HDInsightCluster"
-	return models.ParsedResourceId{
+	return importerModels.ParsedResourceId{
 		CommonAlias: &name,
 		Constants:   map[string]resourcemanager.ConstantDetails{},
 		Segments: []resourcemanager.ResourceIdSegment{
-			models.StaticResourceIDSegment("subscriptions", "subscriptions"),
-			models.SubscriptionIDResourceIDSegment("subscriptionId"),
-			models.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
-			models.ResourceGroupResourceIDSegment("resourceGroupName"),
-			models.StaticResourceIDSegment("providers", "providers"),
-			models.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.HDInsight"),
-			models.StaticResourceIDSegment("clusters", "clusters"),
-			models.UserSpecifiedResourceIDSegment("clusterName"),
+			importerModels.StaticResourceIDSegment("subscriptions", "subscriptions"),
+			importerModels.SubscriptionIDResourceIDSegment("subscriptionId"),
+			importerModels.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
+			importerModels.ResourceGroupResourceIDSegment("resourceGroupName"),
+			importerModels.StaticResourceIDSegment("providers", "providers"),
+			importerModels.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.HDInsight"),
+			importerModels.StaticResourceIDSegment("clusters", "clusters"),
+			importerModels.UserSpecifiedResourceIDSegment("clusterName"),
 		},
 	}
 }

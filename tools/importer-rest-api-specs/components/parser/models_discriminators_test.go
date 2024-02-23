@@ -7,7 +7,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 func TestParseDiscriminatorsTopLevel(t *testing.T) {
@@ -16,30 +16,30 @@ func TestParseDiscriminatorsTopLevel(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Discriminator": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"ExampleWrapper": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Nested": {
 								JsonName: "nested",
-								ObjectDefinition: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
 									ReferenceName: pointer.To("Animal"),
-									Type:          models.ObjectDefinitionReference,
+									Type:          importerModels.ObjectDefinitionReference,
 								},
 								Required: true,
 							},
 						},
 					},
 					"Animal": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
@@ -50,18 +50,18 @@ func TestParseDiscriminatorsTopLevel(t *testing.T) {
 						ParentTypeName: pointer.To("Animal"),
 						TypeHintIn:     pointer.To("AnimalType"),
 						TypeHintValue:  pointer.To("cat"),
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
 							"IsFluffy": {
 								JsonName: "isFluffy",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionBoolean,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionBoolean,
 								},
 								Required: true,
 							},
@@ -71,33 +71,33 @@ func TestParseDiscriminatorsTopLevel(t *testing.T) {
 						ParentTypeName: pointer.To("Animal"),
 						TypeHintIn:     pointer.To("AnimalType"),
 						TypeHintValue:  pointer.To("dog"),
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
 							"Barks": {
 								JsonName: "barks",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionBoolean,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionBoolean,
 								},
 								Required: true,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Discriminator_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -114,33 +114,33 @@ func TestParseDiscriminatorsWithinArray(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Discriminator": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"ExampleWrapper": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"BiologicalEntities": {
 								JsonName: "biologicalEntities",
-								ObjectDefinition: &models.ObjectDefinition{
-									NestedItem: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									NestedItem: &importerModels.ObjectDefinition{
 										ReferenceName: pointer.To("BiologicalEntity"),
-										Type:          models.ObjectDefinitionReference,
+										Type:          importerModels.ObjectDefinitionReference,
 									},
-									Type: models.ObjectDefinitionList,
+									Type: importerModels.ObjectDefinitionList,
 								},
 								Required: true,
 							},
 						},
 					},
 					"BiologicalEntity": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"TypeName": {
 								JsonName: "typeName",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
@@ -151,18 +151,18 @@ func TestParseDiscriminatorsWithinArray(t *testing.T) {
 						ParentTypeName: pointer.To("BiologicalEntity"),
 						TypeHintIn:     pointer.To("TypeName"),
 						TypeHintValue:  pointer.To("cat"),
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"IsFluffy": {
 								JsonName: "isFluffy",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionBoolean,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionBoolean,
 								},
 								Required: true,
 							},
 							"TypeName": {
 								JsonName: "typeName",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
@@ -172,40 +172,40 @@ func TestParseDiscriminatorsWithinArray(t *testing.T) {
 						ParentTypeName: pointer.To("BiologicalEntity"),
 						TypeHintIn:     pointer.To("TypeName"),
 						TypeHintValue:  pointer.To("human"),
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"FirstName": {
 								JsonName: "firstName",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
 							"LastName": {
 								JsonName: "lastName",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
 							"TypeName": {
 								JsonName: "typeName",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Discriminator_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -222,26 +222,26 @@ func TestParseDiscriminatorsWithinDiscriminators(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Discriminator": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Animal": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
 							"FavouriteToy": {
 								JsonName: "favouriteToy",
-								ObjectDefinition: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
 									ReferenceName: pointer.To("Toy"),
-									Type:          models.ObjectDefinitionReference,
+									Type:          importerModels.ObjectDefinitionReference,
 								},
 								Required: false,
 							},
@@ -249,18 +249,18 @@ func TestParseDiscriminatorsWithinDiscriminators(t *testing.T) {
 						TypeHintIn: pointer.To("AnimalType"),
 					},
 					"Bone": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Length": {
 								JsonName: "length",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionFloat,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionFloat,
 								},
 								Required: true,
 							},
 							"ToyType": {
 								JsonName: "toyType",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
@@ -273,26 +273,26 @@ func TestParseDiscriminatorsWithinDiscriminators(t *testing.T) {
 						ParentTypeName: pointer.To("Animal"),
 						TypeHintIn:     pointer.To("AnimalType"),
 						TypeHintValue:  pointer.To("cat"),
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
 							"FavouriteToy": {
 								JsonName: "favouriteToy",
-								ObjectDefinition: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
 									ReferenceName: pointer.To("Toy"),
-									Type:          models.ObjectDefinitionReference,
+									Type:          importerModels.ObjectDefinitionReference,
 								},
 								Required: false,
 							},
 							"IsFluffy": {
 								JsonName: "isFluffy",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionBoolean,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionBoolean,
 								},
 								Required: true,
 							},
@@ -302,63 +302,63 @@ func TestParseDiscriminatorsWithinDiscriminators(t *testing.T) {
 						ParentTypeName: pointer.To("Animal"),
 						TypeHintIn:     pointer.To("AnimalType"),
 						TypeHintValue:  pointer.To("dog"),
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
 							"FavouriteToy": {
 								JsonName: "favouriteToy",
-								ObjectDefinition: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
 									ReferenceName: pointer.To("Toy"),
-									Type:          models.ObjectDefinitionReference,
+									Type:          importerModels.ObjectDefinitionReference,
 								},
 								Required: false,
 							},
 							"Barks": {
 								JsonName: "barks",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionBoolean,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionBoolean,
 								},
 								Required: true,
 							},
 						},
 					},
 					"ExampleWrapper": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Nested": {
 								JsonName: "nested",
-								ObjectDefinition: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
 									ReferenceName: pointer.To("Animal"),
-									Type:          models.ObjectDefinitionReference,
+									Type:          importerModels.ObjectDefinitionReference,
 								},
 								Required: true,
 							},
 						},
 					},
 					"LaserBeam": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Colour": {
 								JsonName: "colour",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
 							"Intensity": {
 								JsonName: "intensity",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionInteger,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionInteger,
 								},
 								Required: false,
 							},
 							"ToyType": {
 								JsonName: "toyType",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
@@ -368,11 +368,11 @@ func TestParseDiscriminatorsWithinDiscriminators(t *testing.T) {
 						TypeHintValue:  pointer.To("laser-beam"),
 					},
 					"Toy": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"ToyType": {
 								JsonName: "toyType",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
@@ -380,15 +380,15 @@ func TestParseDiscriminatorsWithinDiscriminators(t *testing.T) {
 						TypeHintIn: pointer.To("ToyType"),
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Discriminator_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -408,33 +408,33 @@ func TestParseDiscriminatedParentTypeThatShouldntBe(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Discriminator": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Animal": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Type": {
 								JsonName: "type",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Discriminator_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Animal"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -454,33 +454,33 @@ func TestParseDiscriminatedChildTypeThatShouldntBe(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Discriminator": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Dog": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Barks": {
 								JsonName: "barks",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionBoolean,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionBoolean,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Discriminator_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Dog"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -500,18 +500,18 @@ func TestParseDiscriminatedChildTypeWhereParentShouldNotBeUsed(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Discriminator": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Animal": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
@@ -519,18 +519,18 @@ func TestParseDiscriminatedChildTypeWhereParentShouldNotBeUsed(t *testing.T) {
 						TypeHintIn: pointer.To("AnimalType"),
 					},
 					"Cat": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
 							"IsFluffy": {
 								JsonName: "isFluffy",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionBoolean,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionBoolean,
 								},
 								Required: true,
 							},
@@ -540,18 +540,18 @@ func TestParseDiscriminatedChildTypeWhereParentShouldNotBeUsed(t *testing.T) {
 						TypeHintValue:  pointer.To("cat"),
 					},
 					"Dog": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
 							"Barks": {
 								JsonName: "barks",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionBoolean,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionBoolean,
 								},
 								Required: true,
 							},
@@ -561,27 +561,27 @@ func TestParseDiscriminatedChildTypeWhereParentShouldNotBeUsed(t *testing.T) {
 						TypeHintValue:  pointer.To("dog"),
 					},
 					"ExampleWrapper": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Nested": {
 								JsonName: "nested",
-								ObjectDefinition: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
 									ReferenceName: pointer.To("Dog"),
-									Type:          models.ObjectDefinitionReference,
+									Type:          importerModels.ObjectDefinitionReference,
 								},
 								Required: true,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Discriminator_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -598,18 +598,18 @@ func TestParseDiscriminatorsInheritingFromOtherDiscriminators(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Discriminator": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Animal": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
@@ -617,18 +617,18 @@ func TestParseDiscriminatorsInheritingFromOtherDiscriminators(t *testing.T) {
 						TypeHintIn: pointer.To("AnimalType"),
 					},
 					"Cat": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
 							"IsFluffy": {
 								JsonName: "isFluffy",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionBoolean,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionBoolean,
 								},
 								Required: true,
 							},
@@ -638,25 +638,25 @@ func TestParseDiscriminatorsInheritingFromOtherDiscriminators(t *testing.T) {
 						TypeHintValue:  pointer.To("cat"),
 					},
 					"Dog": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
 							"Barks": {
 								JsonName: "barks",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionBoolean,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionBoolean,
 								},
 								Required: true,
 							},
 							"IsFluffy": {
 								JsonName: "isFluffy",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionBoolean,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionBoolean,
 								},
 								Required: true,
 							},
@@ -666,27 +666,27 @@ func TestParseDiscriminatorsInheritingFromOtherDiscriminators(t *testing.T) {
 						TypeHintValue:  pointer.To("dog"),
 					},
 					"ExampleWrapper": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Nested": {
 								JsonName: "nested",
-								ObjectDefinition: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
 									ReferenceName: pointer.To("Animal"),
-									Type:          models.ObjectDefinitionReference,
+									Type:          importerModels.ObjectDefinitionReference,
 								},
 								Required: true,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Discriminator_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -703,25 +703,25 @@ func TestParseDiscriminatorsDeepInheritance(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Discriminator": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Animal": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"TypeName": {
 								JsonName: "typeName",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
 							"IsPlantEater": {
 								JsonName: "isPlantEater",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionBoolean,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionBoolean,
 								},
 								Required: true,
 							},
@@ -731,11 +731,11 @@ func TestParseDiscriminatorsDeepInheritance(t *testing.T) {
 						TypeHintValue:  pointer.To("animal"),
 					},
 					"BiologicalEntity": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"TypeName": {
 								JsonName: "typeName",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
@@ -743,25 +743,25 @@ func TestParseDiscriminatorsDeepInheritance(t *testing.T) {
 						TypeHintIn: pointer.To("TypeName"),
 					},
 					"Carnivore": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"IsPlantEater": {
 								JsonName: "isPlantEater",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionBoolean,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionBoolean,
 								},
 								Required: true,
 							},
 							"IsPredator": {
 								JsonName: "isPredator",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionBoolean,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionBoolean,
 								},
 								Required: true,
 							},
 							"TypeName": {
 								JsonName: "typeName",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
@@ -771,32 +771,32 @@ func TestParseDiscriminatorsDeepInheritance(t *testing.T) {
 						TypeHintValue:  pointer.To("carnivore"),
 					},
 					"Cat": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"IsFluffy": {
 								JsonName: "isFluffy",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionBoolean,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionBoolean,
 								},
 								Required: true,
 							},
 							"IsPlantEater": {
 								JsonName: "isPlantEater",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionBoolean,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionBoolean,
 								},
 								Required: false,
 							},
 							"IsPredator": {
 								JsonName: "isPredator",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionBoolean,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionBoolean,
 								},
 								Required: true,
 							},
 							"TypeName": {
 								JsonName: "typeName",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
@@ -806,12 +806,12 @@ func TestParseDiscriminatorsDeepInheritance(t *testing.T) {
 						TypeHintValue:  pointer.To("cat"),
 					},
 					"ExampleWrapper": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"BiologicalEntity": {
 								JsonName: "biologicalEntity",
-								ObjectDefinition: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
 									ReferenceName: pointer.To("BiologicalEntity"),
-									Type:          models.ObjectDefinitionReference,
+									Type:          importerModels.ObjectDefinitionReference,
 								},
 								Required: true,
 							},
@@ -821,54 +821,54 @@ func TestParseDiscriminatorsDeepInheritance(t *testing.T) {
 						ParentTypeName: pointer.To("BiologicalEntity"),
 						TypeHintIn:     pointer.To("TypeName"),
 						TypeHintValue:  pointer.To("persian-cat"),
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"IsFluffy": {
 								JsonName: "isFluffy",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionBoolean,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionBoolean,
 								},
 								Required: true,
 							},
 							"IsFriendly": {
 								JsonName: "isFriendly",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionBoolean,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionBoolean,
 								},
 								Required: true,
 							},
 							"IsPlantEater": {
 								JsonName: "isPlantEater",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionBoolean,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionBoolean,
 								},
 								Required: false,
 							},
 							"IsPredator": {
 								JsonName: "isPredator",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionBoolean,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionBoolean,
 								},
 								Required: false,
 							},
 							"TypeName": {
 								JsonName: "typeName",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Discriminator_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -887,25 +887,25 @@ func TestParseDiscriminatorsWithMultipleParents(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Discriminator": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"BiologicalEntity": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"SomeField": {
 								JsonName: "someField",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 							"TypeName": {
 								JsonName: "typeName",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
@@ -913,39 +913,39 @@ func TestParseDiscriminatorsWithMultipleParents(t *testing.T) {
 						TypeHintIn: pointer.To("TypeName"),
 					},
 					"Cat": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"FirstName": {
 								JsonName: "firstName",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
 							"IsFluffy": {
 								JsonName: "isFluffy",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionBoolean,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionBoolean,
 								},
 								Required: true,
 							},
 							"LastName": {
 								JsonName: "lastName",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 							"SomeField": {
 								JsonName: "someField",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 							"TypeName": {
 								JsonName: "typeName",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
@@ -955,51 +955,51 @@ func TestParseDiscriminatorsWithMultipleParents(t *testing.T) {
 						TypeHintValue:  pointer.To("cat"),
 					},
 					"ExampleWrapper": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Item": {
 								JsonName: "item",
-								ObjectDefinition: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
 									ReferenceName: pointer.To("BiologicalEntity"),
-									Type:          models.ObjectDefinitionReference,
+									Type:          importerModels.ObjectDefinitionReference,
 								},
 								Required: true,
 							},
 						},
 					},
 					"Human": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Age": {
 								JsonName: "age",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionInteger,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionInteger,
 								},
 								Required: true,
 							},
 							"FirstName": {
 								JsonName: "firstName",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
 							"LastName": {
 								JsonName: "lastName",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
 							"SomeField": {
 								JsonName: "someField",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 							"TypeName": {
 								JsonName: "typeName",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
@@ -1012,15 +1012,15 @@ func TestParseDiscriminatorsWithMultipleParents(t *testing.T) {
 					// it's just an abstract type (defining the shared fields for Car and Human), rather than
 					// being directly used.
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Discriminator_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -1039,25 +1039,25 @@ func TestParseDiscriminatorsWithMultipleParentsWithinArray(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Discriminator": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"BiologicalEntity": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"SomeField": {
 								JsonName: "someField",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 							"TypeName": {
 								JsonName: "typeName",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
@@ -1065,39 +1065,39 @@ func TestParseDiscriminatorsWithMultipleParentsWithinArray(t *testing.T) {
 						TypeHintIn: pointer.To("TypeName"),
 					},
 					"Cat": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"FirstName": {
 								JsonName: "firstName",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
 							"IsFluffy": {
 								JsonName: "isFluffy",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionBoolean,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionBoolean,
 								},
 								Required: true,
 							},
 							"LastName": {
 								JsonName: "lastName",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 							"SomeField": {
 								JsonName: "someField",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 							"TypeName": {
 								JsonName: "typeName",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
@@ -1107,54 +1107,54 @@ func TestParseDiscriminatorsWithMultipleParentsWithinArray(t *testing.T) {
 						TypeHintValue:  pointer.To("cat"),
 					},
 					"ExampleWrapper": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Items": {
 								JsonName: "items",
-								ObjectDefinition: &models.ObjectDefinition{
-									NestedItem: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									NestedItem: &importerModels.ObjectDefinition{
 										ReferenceName: pointer.To("BiologicalEntity"),
-										Type:          models.ObjectDefinitionReference,
+										Type:          importerModels.ObjectDefinitionReference,
 									},
-									Type: models.ObjectDefinitionList,
+									Type: importerModels.ObjectDefinitionList,
 								},
 								Required: true,
 							},
 						},
 					},
 					"Human": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Age": {
 								JsonName: "age",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionInteger,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionInteger,
 								},
 								Required: true,
 							},
 							"FirstName": {
 								JsonName: "firstName",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
 							"LastName": {
 								JsonName: "lastName",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
 							"SomeField": {
 								JsonName: "someField",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 							"TypeName": {
 								JsonName: "typeName",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
@@ -1167,15 +1167,15 @@ func TestParseDiscriminatorsWithMultipleParentsWithinArray(t *testing.T) {
 					// it's just an abstract type (defining the shared fields for Car and Human), rather than
 					// being directly used.
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Discriminator_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -1192,21 +1192,21 @@ func TestParseDiscriminatorsOrphanedChild(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			// NOTE: since there's no Operations defined the Models are placed into an APIResource based on the
 			// File Name. Whilst in a normal scenario this would make sense - for testing purposes it leads to
 			// some unexpectedly named data, but this is fine providing the APIResource we're expecting exists.
 			"ModelDiscriminatorsOrphanedChildren": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Animal": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
@@ -1214,18 +1214,18 @@ func TestParseDiscriminatorsOrphanedChild(t *testing.T) {
 						TypeHintIn: pointer.To("AnimalType"),
 					},
 					"Cat": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
 							"IsFluffy": {
 								JsonName: "isFluffy",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionBoolean,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionBoolean,
 								},
 								Required: true,
 							},
@@ -1235,18 +1235,18 @@ func TestParseDiscriminatorsOrphanedChild(t *testing.T) {
 						TypeHintValue:  pointer.To("cat"),
 					},
 					"Dog": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
 							"Barks": {
 								JsonName: "barks",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionBoolean,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionBoolean,
 								},
 								Required: true,
 							},
@@ -1269,21 +1269,21 @@ func TestParseDiscriminatorsOrphanedChildWithNestedModel(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			// NOTE: since there's no Operations defined the Models are placed into an APIResource based on the
 			// File Name. Whilst in a normal scenario this would make sense - for testing purposes it leads to
 			// some unexpectedly named data, but this is fine providing the APIResource we're expecting exists.
 			"ModelDiscriminatorsOrphanedChildWithNestedModels": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Animal": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
@@ -1291,18 +1291,18 @@ func TestParseDiscriminatorsOrphanedChildWithNestedModel(t *testing.T) {
 						TypeHintIn: pointer.To("AnimalType"),
 					},
 					"Cat": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
 							"IsFluffy": {
 								JsonName: "isFluffy",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionBoolean,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionBoolean,
 								},
 								Required: true,
 							},
@@ -1312,29 +1312,29 @@ func TestParseDiscriminatorsOrphanedChildWithNestedModel(t *testing.T) {
 						TypeHintValue:  pointer.To("cat"),
 					},
 					"Dog": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
 							"Barks": {
 								JsonName: "barks",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionBoolean,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionBoolean,
 								},
 								Required: true,
 							},
 							"Parameters": {
 								JsonName: "parameters",
-								ObjectDefinition: &models.ObjectDefinition{
-									NestedItem: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									NestedItem: &importerModels.ObjectDefinition{
 										ReferenceName: pointer.To("KeyValuePair"),
-										Type:          models.ObjectDefinitionReference,
+										Type:          importerModels.ObjectDefinitionReference,
 									},
-									Type: models.ObjectDefinitionList,
+									Type: importerModels.ObjectDefinitionList,
 								},
 								Required: false,
 							},
@@ -1345,18 +1345,18 @@ func TestParseDiscriminatorsOrphanedChildWithNestedModel(t *testing.T) {
 					},
 					// ExampleWrapper is present in the Swagger but unused
 					"KeyValuePair": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Key": {
 								JsonName: "key",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
 							"Value": {
 								JsonName: "value",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},

@@ -1,24 +1,24 @@
 {
- "name": "FacetError",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "errors",
-   "name": "Errors",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "ErrorDetails"
+  "name": "FacetError",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "errors",
+      "name": "Errors",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "ErrorDetails"
+        }
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
     }
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "Facet",
- "discriminatedTypeValue": "FacetError",
- "typeHintIn": "ResultType"
+  ],
+  "discriminatedParentModelName": "Facet",
+  "discriminatedTypeValue": "FacetError",
+  "typeHintIn": "ResultType"
 }

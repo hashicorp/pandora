@@ -7,18 +7,17 @@ import (
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
-
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 var _ customFieldMatcher = locationMatcher{}
 
 type locationMatcher struct{}
 
-func (l locationMatcher) IsMatch(field models.FieldDetails, definition models.ObjectDefinition, known internal.ParseResult) bool {
-	return strings.EqualFold(field.JsonName, "location") && definition.Type == models.ObjectDefinitionString
+func (l locationMatcher) IsMatch(field importerModels.FieldDetails, definition importerModels.ObjectDefinition, known internal.ParseResult) bool {
+	return strings.EqualFold(field.JsonName, "location") && definition.Type == importerModels.ObjectDefinitionString
 }
 
-func (locationMatcher) CustomFieldType() models.CustomFieldType {
-	return models.CustomFieldTypeLocation
+func (locationMatcher) CustomFieldType() importerModels.CustomFieldType {
+	return importerModels.CustomFieldTypeLocation
 }

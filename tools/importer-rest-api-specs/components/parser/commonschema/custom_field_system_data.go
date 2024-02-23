@@ -8,21 +8,20 @@ import (
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
-
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 var _ customFieldMatcher = systemDataMatcher{}
 
 type systemDataMatcher struct{}
 
-func (systemDataMatcher) CustomFieldType() models.CustomFieldType {
-	return models.CustomFieldTypeSystemData
+func (systemDataMatcher) CustomFieldType() importerModels.CustomFieldType {
+	return importerModels.CustomFieldTypeSystemData
 }
 
-func (systemDataMatcher) IsMatch(_ models.FieldDetails, definition models.ObjectDefinition, known internal.ParseResult) bool {
-	if definition.Type != models.ObjectDefinitionReference {
+func (systemDataMatcher) IsMatch(_ importerModels.FieldDetails, definition importerModels.ObjectDefinition, known internal.ParseResult) bool {
+	if definition.Type != importerModels.ObjectDefinitionReference {
 		return false
 	}
 
@@ -62,16 +61,16 @@ func (systemDataMatcher) IsMatch(_ models.FieldDetails, definition models.Object
 		}
 
 		if strings.EqualFold(fieldName, "CreatedByType") {
-			if fieldVal.ObjectDefinition == nil || fieldVal.ObjectDefinition.Type != models.ObjectDefinitionReference {
+			if fieldVal.ObjectDefinition == nil || fieldVal.ObjectDefinition.Type != importerModels.ObjectDefinitionReference {
 				continue
 			}
 
-			if fieldVal.ObjectDefinition.Type == models.ObjectDefinitionString {
+			if fieldVal.ObjectDefinition.Type == importerModels.ObjectDefinitionString {
 				// Sometimes this field is a string.
 				// https://github.com/Azure/azure-rest-api-specs/blob/main/specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/stable/2021-05-01/managedcluster.json#L1322-L1325
 				hasCreatedByType = true
 				continue
-			} else if fieldVal.ObjectDefinition.Type == models.ObjectDefinitionReference {
+			} else if fieldVal.ObjectDefinition.Type == importerModels.ObjectDefinitionReference {
 				// Sometimes it's not ...
 				// https://github.com/Azure/azure-rest-api-specs/blob/main/specification/azurearcdata/resource-manager/Microsoft.AzureArcData/stable/2021-08-01/azurearcdata.json#L1294-L1297
 				expected := map[string]string{
@@ -91,15 +90,15 @@ func (systemDataMatcher) IsMatch(_ models.FieldDetails, definition models.Object
 		}
 
 		if strings.EqualFold(fieldName, "LastModifiedByType") {
-			if fieldVal.ObjectDefinition == nil || fieldVal.ObjectDefinition.Type != models.ObjectDefinitionReference {
+			if fieldVal.ObjectDefinition == nil || fieldVal.ObjectDefinition.Type != importerModels.ObjectDefinitionReference {
 				continue
 			}
 
 			// Sometimes this field is a string.
 			// https://github.com/Azure/azure-rest-api-specs/blob/main/specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/stable/2021-05-01/managedcluster.json#L1322-L1325
-			if fieldVal.ObjectDefinition.Type == models.ObjectDefinitionString {
+			if fieldVal.ObjectDefinition.Type == importerModels.ObjectDefinitionString {
 				hasLastModifiedbyType = true
-			} else if fieldVal.ObjectDefinition.Type == models.ObjectDefinitionReference {
+			} else if fieldVal.ObjectDefinition.Type == importerModels.ObjectDefinitionReference {
 				// Sometimes it's not ...
 				// https://github.com/Azure/azure-rest-api-specs/blob/main/specification/azurearcdata/resource-manager/Microsoft.AzureArcData/stable/2021-08-01/azurearcdata.json#L1294-L1297
 				expected := map[string]string{

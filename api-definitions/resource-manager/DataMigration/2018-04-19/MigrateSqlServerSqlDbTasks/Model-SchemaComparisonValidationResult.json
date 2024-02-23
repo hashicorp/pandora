@@ -1,61 +1,61 @@
 {
- "name": "SchemaComparisonValidationResult",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "schemaDifferences",
-   "name": "SchemaDifferences",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SchemaComparisonValidationResultType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "sourceDatabaseObjectCount",
-   "name": "SourceDatabaseObjectCount",
-   "objectDefinition": {
-    "type": "Dictionary",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Integer",
-     "referenceName": null
+  "name": "SchemaComparisonValidationResult",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "schemaDifferences",
+      "name": "SchemaDifferences",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SchemaComparisonValidationResultType"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sourceDatabaseObjectCount",
+      "name": "SourceDatabaseObjectCount",
+      "objectDefinition": {
+        "type": "Dictionary",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Integer",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "targetDatabaseObjectCount",
+      "name": "TargetDatabaseObjectCount",
+      "objectDefinition": {
+        "type": "Dictionary",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Integer",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "validationErrors",
+      "name": "ValidationErrors",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ValidationError"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "targetDatabaseObjectCount",
-   "name": "TargetDatabaseObjectCount",
-   "objectDefinition": {
-    "type": "Dictionary",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Integer",
-     "referenceName": null
-    }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "validationErrors",
-   "name": "ValidationErrors",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ValidationError"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

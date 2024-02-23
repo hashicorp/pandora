@@ -1,53 +1,53 @@
 {
- "name": "Replication",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "endpointType",
-   "name": "EndpointType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "EndpointType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "remoteVolumeRegion",
-   "name": "RemoteVolumeRegion",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "remoteVolumeResourceId",
-   "name": "RemoteVolumeResourceId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "replicationSchedule",
-   "name": "ReplicationSchedule",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ReplicationSchedule"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "Replication",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "endpointType",
+      "name": "EndpointType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EndpointType"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "remoteVolumeRegion",
+      "name": "RemoteVolumeRegion",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "remoteVolumeResourceId",
+      "name": "RemoteVolumeResourceId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "replicationSchedule",
+      "name": "ReplicationSchedule",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ReplicationSchedule"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

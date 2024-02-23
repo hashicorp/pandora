@@ -7,7 +7,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -17,12 +17,12 @@ func TestParseResourceIdBasic(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				ResourceIds: map[string]models.ParsedResourceId{
+				ResourceIds: map[string]importerModels.ParsedResourceId{
 					"ServerId": {
 						Segments: []resourcemanager.ResourceIdSegment{
 							NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
@@ -36,7 +36,7 @@ func TestParseResourceIdBasic(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -57,10 +57,10 @@ func TestParseResourceIdContainingAConstant(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
 				Constants: map[string]resourcemanager.ConstantDetails{
 					"Planet": {
@@ -73,7 +73,7 @@ func TestParseResourceIdContainingAConstant(t *testing.T) {
 						},
 					},
 				},
-				ResourceIds: map[string]models.ParsedResourceId{
+				ResourceIds: map[string]importerModels.ParsedResourceId{
 					"PlanetId": {
 						Constants: map[string]resourcemanager.ConstantDetails{
 							"Planet": {
@@ -92,7 +92,7 @@ func TestParseResourceIdContainingAConstant(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"OperationContainingAConstant": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -113,12 +113,12 @@ func TestParseResourceIdContainingAScope(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				ResourceIds: map[string]models.ParsedResourceId{
+				ResourceIds: map[string]importerModels.ParsedResourceId{
 					"ScopedVirtualMachineId": {
 						Segments: []resourcemanager.ResourceIdSegment{
 							NewScopeResourceIDSegment("scope"),
@@ -129,7 +129,7 @@ func TestParseResourceIdContainingAScope(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"OperationContainingAScope": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -159,12 +159,12 @@ func TestParseResourceIdContainingAHiddenScope(t *testing.T) {
 				t.Fatalf("parsing: %+v", err)
 			}
 
-			expected := models.AzureApiDefinition{
+			expected := importerModels.AzureApiDefinition{
 				ServiceName: "Example",
 				ApiVersion:  "2020-01-01",
-				Resources: map[string]models.AzureApiResource{
+				Resources: map[string]importerModels.AzureApiResource{
 					"Example": {
-						ResourceIds: map[string]models.ParsedResourceId{
+						ResourceIds: map[string]importerModels.ParsedResourceId{
 							"ScopeId": {
 								CommonAlias: pointer.To("Scope"),
 								Segments: []resourcemanager.ResourceIdSegment{
@@ -172,7 +172,7 @@ func TestParseResourceIdContainingAHiddenScope(t *testing.T) {
 								},
 							},
 						},
-						Operations: map[string]models.OperationDetails{
+						Operations: map[string]importerModels.OperationDetails{
 							"OperationContainingAHiddenScope": {
 								ContentType:         "application/json",
 								ExpectedStatusCodes: []int{200},
@@ -196,12 +196,12 @@ func TestParseResourceIdContainingAHiddenScopeWithExtraSegment(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				ResourceIds: map[string]models.ParsedResourceId{
+				ResourceIds: map[string]importerModels.ParsedResourceId{
 					"ScopeId": {
 						CommonAlias: pointer.To("Scope"),
 						Segments: []resourcemanager.ResourceIdSegment{
@@ -209,7 +209,7 @@ func TestParseResourceIdContainingAHiddenScopeWithExtraSegment(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"OperationContainingAHiddenScope": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -230,12 +230,12 @@ func TestParseResourceIdContainingAHiddenScopeWithSuffix(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				ResourceIds: map[string]models.ParsedResourceId{
+				ResourceIds: map[string]importerModels.ParsedResourceId{
 					"ScopeId": {
 						CommonAlias: pointer.To("Scope"),
 						Segments: []resourcemanager.ResourceIdSegment{
@@ -243,7 +243,7 @@ func TestParseResourceIdContainingAHiddenScopeWithSuffix(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"OperationContainingAHiddenScope": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -274,12 +274,12 @@ func TestParseResourceIdContainingAHiddenScopeNested(t *testing.T) {
 				t.Fatalf("parsing: %+v", err)
 			}
 
-			expected := models.AzureApiDefinition{
+			expected := importerModels.AzureApiDefinition{
 				ServiceName: "Example",
 				ApiVersion:  "2020-01-01",
-				Resources: map[string]models.AzureApiResource{
+				Resources: map[string]importerModels.AzureApiResource{
 					"Example": {
-						ResourceIds: map[string]models.ParsedResourceId{
+						ResourceIds: map[string]importerModels.ParsedResourceId{
 							"ScopeId": {
 								CommonAlias: pointer.To("Scope"),
 								Segments: []resourcemanager.ResourceIdSegment{
@@ -287,7 +287,7 @@ func TestParseResourceIdContainingAHiddenScopeNested(t *testing.T) {
 								},
 							},
 						},
-						Operations: map[string]models.OperationDetails{
+						Operations: map[string]importerModels.OperationDetails{
 							"OperationContainingAHiddenScope": {
 								ContentType:         "application/json",
 								ExpectedStatusCodes: []int{200},
@@ -310,12 +310,12 @@ func TestParseResourceIdContainingAHiddenScopeNestedWithExtraSegment(t *testing.
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				ResourceIds: map[string]models.ParsedResourceId{
+				ResourceIds: map[string]importerModels.ParsedResourceId{
 					"ScopeId": {
 						CommonAlias: pointer.To("Scope"),
 						Segments: []resourcemanager.ResourceIdSegment{
@@ -323,7 +323,7 @@ func TestParseResourceIdContainingAHiddenScopeNestedWithExtraSegment(t *testing.
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"OperationContainingAHiddenScope": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -344,12 +344,12 @@ func TestParseResourceIdContainingAHiddenScopeNestedWithSuffix(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				ResourceIds: map[string]models.ParsedResourceId{
+				ResourceIds: map[string]importerModels.ParsedResourceId{
 					"ScopeId": {
 						CommonAlias: pointer.To("Scope"),
 						Segments: []resourcemanager.ResourceIdSegment{
@@ -357,7 +357,7 @@ func TestParseResourceIdContainingAHiddenScopeNestedWithSuffix(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"OperationContainingAHiddenScope": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -379,12 +379,12 @@ func TestParseResourceIdWithJustUriSuffix(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"JustSuffix": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -405,12 +405,12 @@ func TestParseResourceIdWithResourceIdAndUriSuffix(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				ResourceIds: map[string]models.ParsedResourceId{
+				ResourceIds: map[string]importerModels.ParsedResourceId{
 					"ServerId": {
 						Segments: []resourcemanager.ResourceIdSegment{
 							NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
@@ -424,7 +424,7 @@ func TestParseResourceIdWithResourceIdAndUriSuffix(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -446,12 +446,12 @@ func TestParseResourceIdWithResourceIdAndUriSuffixForMultipleUris(t *testing.T) 
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				ResourceIds: map[string]models.ParsedResourceId{
+				ResourceIds: map[string]importerModels.ParsedResourceId{
 					"ServerId": {
 						Segments: []resourcemanager.ResourceIdSegment{
 							NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
@@ -465,7 +465,7 @@ func TestParseResourceIdWithResourceIdAndUriSuffixForMultipleUris(t *testing.T) 
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Restart": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -502,12 +502,12 @@ func TestParseResourceIdContainingResourceProviderShouldGetTitleCased(t *testing
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				ResourceIds: map[string]models.ParsedResourceId{
+				ResourceIds: map[string]importerModels.ParsedResourceId{
 					"ServerId": {
 						Segments: []resourcemanager.ResourceIdSegment{
 							NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
@@ -521,7 +521,7 @@ func TestParseResourceIdContainingResourceProviderShouldGetTitleCased(t *testing
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -542,12 +542,12 @@ func TestParseResourceIdContainingTheSameResourceIdWithDifferentSegments(t *test
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				ResourceIds: map[string]models.ParsedResourceId{
+				ResourceIds: map[string]importerModels.ParsedResourceId{
 					"VirtualMachineId": {
 						Segments: []resourcemanager.ResourceIdSegment{
 							NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
@@ -561,7 +561,7 @@ func TestParseResourceIdContainingTheSameResourceIdWithDifferentSegments(t *test
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Restart": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -590,12 +590,12 @@ func TestParseResourceIdContainingTheSegmentsNamedTheSame(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				ResourceIds: map[string]models.ParsedResourceId{
+				ResourceIds: map[string]importerModels.ParsedResourceId{
 					"BillingPeriodId": {
 						Segments: []resourcemanager.ResourceIdSegment{
 							NewStaticValueResourceIDSegment("staticProviders", "providers"),
@@ -609,7 +609,7 @@ func TestParseResourceIdContainingTheSegmentsNamedTheSame(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -644,10 +644,10 @@ func TestParseResourceIdsWhereTheSameUriContainsDifferentConstantValuesPerOperat
 			t.Fatalf("parsing: %+v", err)
 		}
 
-		expected := models.AzureApiDefinition{
+		expected := importerModels.AzureApiDefinition{
 			ServiceName: "Example",
 			ApiVersion:  "2020-01-01",
-			Resources: map[string]models.AzureApiResource{
+			Resources: map[string]importerModels.AzureApiResource{
 				"Hello": {
 					Constants: map[string]resourcemanager.ConstantDetails{
 						"PlanetNames": {
@@ -658,7 +658,7 @@ func TestParseResourceIdsWhereTheSameUriContainsDifferentConstantValuesPerOperat
 							},
 						},
 					},
-					ResourceIds: map[string]models.ParsedResourceId{
+					ResourceIds: map[string]importerModels.ParsedResourceId{
 						"GalaxyId": {
 							Segments: []resourcemanager.ResourceIdSegment{
 								NewStaticValueResourceIDSegment("staticGalaxies", "galaxies"),
@@ -683,7 +683,7 @@ func TestParseResourceIdsWhereTheSameUriContainsDifferentConstantValuesPerOperat
 							},
 						},
 					},
-					Operations: map[string]models.OperationDetails{
+					Operations: map[string]importerModels.OperationDetails{
 						"Delete": {
 							ContentType:         "application/json",
 							ExpectedStatusCodes: []int{200},
@@ -713,12 +713,12 @@ func TestParseResourceIdsCommon(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				ResourceIds: map[string]models.ParsedResourceId{
+				ResourceIds: map[string]importerModels.ParsedResourceId{
 					"ManagementGroupId": {
 						CommonAlias: pointer.To("ManagementGroup"),
 						Segments: []resourcemanager.ResourceIdSegment{
@@ -764,7 +764,7 @@ func TestParseResourceIdsCommon(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"GetManagementGroup": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},

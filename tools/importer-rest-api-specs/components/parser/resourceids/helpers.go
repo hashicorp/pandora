@@ -8,17 +8,16 @@ import (
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
-
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func normalizedResourceManagerResourceId(pri models.ParsedResourceId) string {
+func normalizedResourceManagerResourceId(pri importerModels.ParsedResourceId) string {
 	segments := segmentsWithoutUriSuffix(pri)
 	return normalizedResourceId(segments)
 }
 
-func segmentsWithoutUriSuffix(pri models.ParsedResourceId) []resourcemanager.ResourceIdSegment {
+func segmentsWithoutUriSuffix(pri importerModels.ParsedResourceId) []resourcemanager.ResourceIdSegment {
 	segments := pri.Segments
 	lastUserValueSegment := -1
 	for i, segment := range segments {

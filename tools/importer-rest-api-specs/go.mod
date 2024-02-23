@@ -8,9 +8,10 @@ require (
 	github.com/go-openapi/analysis v0.20.1
 	github.com/go-openapi/loads v0.20.2
 	github.com/go-openapi/spec v0.20.3
-	github.com/hashicorp/go-azure-helpers v0.64.0
+	github.com/hashicorp/go-azure-helpers v0.66.2
 	github.com/hashicorp/go-hclog v1.4.0
 	github.com/hashicorp/hcl/v2 v2.16.2
+	github.com/hashicorp/pandora/tools/data-api-sdk v0.0.0-00010101000000-000000000000
 	github.com/hashicorp/pandora/tools/sdk v0.0.0-00010101000000-000000000000
 	github.com/mitchellh/cli v1.1.4
 	github.com/zclconf/go-cty v1.13.1
@@ -79,5 +80,7 @@ require (
 )
 
 replace github.com/go-openapi/analysis v0.20.1 => github.com/jackofallops/analysis v0.20.2-0.20210705135157-888aa8dbc8e5
+
+replace github.com/hashicorp/pandora/tools/data-api-sdk => ../data-api-sdk
 
 replace github.com/hashicorp/pandora/tools/sdk => ../sdk

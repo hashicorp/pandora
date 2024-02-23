@@ -4,7 +4,7 @@
 package resourceids
 
 import (
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -12,22 +12,22 @@ var _ commonIdMatcher = commonIdSqlElasticPool{}
 
 type commonIdSqlElasticPool struct{}
 
-func (c commonIdSqlElasticPool) id() models.ParsedResourceId {
+func (c commonIdSqlElasticPool) id() importerModels.ParsedResourceId {
 	name := "SqlElasticPool"
-	return models.ParsedResourceId{
+	return importerModels.ParsedResourceId{
 		CommonAlias: &name,
 		Constants:   map[string]resourcemanager.ConstantDetails{},
 		Segments: []resourcemanager.ResourceIdSegment{
-			models.StaticResourceIDSegment("subscriptions", "subscriptions"),
-			models.SubscriptionIDResourceIDSegment("subscriptionId"),
-			models.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
-			models.ResourceGroupResourceIDSegment("resourceGroupName"),
-			models.StaticResourceIDSegment("providers", "providers"),
-			models.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Sql"),
-			models.StaticResourceIDSegment("servers", "servers"),
-			models.UserSpecifiedResourceIDSegment("serverName"),
-			models.StaticResourceIDSegment("elasticPools", "elasticPools"),
-			models.UserSpecifiedResourceIDSegment("elasticPoolName"),
+			importerModels.StaticResourceIDSegment("subscriptions", "subscriptions"),
+			importerModels.SubscriptionIDResourceIDSegment("subscriptionId"),
+			importerModels.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
+			importerModels.ResourceGroupResourceIDSegment("resourceGroupName"),
+			importerModels.StaticResourceIDSegment("providers", "providers"),
+			importerModels.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Sql"),
+			importerModels.StaticResourceIDSegment("servers", "servers"),
+			importerModels.UserSpecifiedResourceIDSegment("serverName"),
+			importerModels.StaticResourceIDSegment("elasticPools", "elasticPools"),
+			importerModels.UserSpecifiedResourceIDSegment("elasticPoolName"),
 		},
 	}
 }

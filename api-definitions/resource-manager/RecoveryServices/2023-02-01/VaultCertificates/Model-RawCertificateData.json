@@ -1,29 +1,29 @@
 {
- "name": "RawCertificateData",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "authType",
-   "name": "AuthType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "AuthType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "certificate",
-   "name": "Certificate",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "RawCertificateData",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "authType",
+      "name": "AuthType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AuthType"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "certificate",
+      "name": "Certificate",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

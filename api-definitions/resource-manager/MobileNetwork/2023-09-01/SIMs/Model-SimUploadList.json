@@ -1,22 +1,21 @@
 {
- "name": "SimUploadList",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "sims",
-   "name": "Sims",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "SimNameAndProperties",
-     "minItems": 1
+  "name": "SimUploadList",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sims",
+      "name": "Sims",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "SimNameAndProperties"
+        }
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
     }
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  ]
 }

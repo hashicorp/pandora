@@ -6,7 +6,7 @@ package dataworkarounds
 import (
 	"fmt"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 var _ workaround = workaroundDigitalTwins25120{}
@@ -14,7 +14,7 @@ var _ workaround = workaroundDigitalTwins25120{}
 // Swagger PR: https://github.com/Azure/azure-rest-api-specs/pull/21520
 type workaroundDigitalTwins25120 struct{}
 
-func (workaroundDigitalTwins25120) IsApplicable(apiDefinition *models.AzureApiDefinition) bool {
+func (workaroundDigitalTwins25120) IsApplicable(apiDefinition *importerModels.AzureApiDefinition) bool {
 	// API Defines a Constant with the string values `"true"` and `"false`:
 	// RecordPropertyAndItemRemovals           *RecordPropertyAndItemRemovals `json:"recordPropertyAndItemRemovals,omitempty"`
 	// but the API returns a boolean:
@@ -26,7 +26,7 @@ func (workaroundDigitalTwins25120) Name() string {
 	return "DigitalTwins / 25120"
 }
 
-func (workaroundDigitalTwins25120) Process(apiDefinition models.AzureApiDefinition) (*models.AzureApiDefinition, error) {
+func (workaroundDigitalTwins25120) Process(apiDefinition importerModels.AzureApiDefinition) (*importerModels.AzureApiDefinition, error) {
 	resource, ok := apiDefinition.Resources["TimeSeriesDatabaseConnections"]
 	if !ok {
 		return nil, fmt.Errorf("expected a Resource named `TimeSeriesDatabaseConnections`")
@@ -40,8 +40,8 @@ func (workaroundDigitalTwins25120) Process(apiDefinition models.AzureApiDefiniti
 	if !ok {
 		return nil, fmt.Errorf("expected a Field named `RecordPropertyAndItemRemovals`")
 	}
-	field.ObjectDefinition = &models.ObjectDefinition{
-		Type: models.ObjectDefinitionBoolean,
+	field.ObjectDefinition = &importerModels.ObjectDefinition{
+		Type: importerModels.ObjectDefinitionBoolean,
 	}
 	model.Fields["RecordPropertyAndItemRemovals"] = field
 	resource.Models["AzureDataExplorerConnectionProperties"] = model

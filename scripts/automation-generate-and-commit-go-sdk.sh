@@ -99,6 +99,7 @@ function conditionallyCommitAndPushGoSdk {
       git add --all
       git commit -m "microsoft-graph: updating dependencies based on $sha"
     fi
+    cd "${DIR}"
     cd "$workingDirectory"
 
     # Resource Manager: conditional update of dependencies

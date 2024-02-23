@@ -1,29 +1,29 @@
 {
- "name": "VMDiskSecurityProfile",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "diskEncryptionSet",
-   "name": "DiskEncryptionSet",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SubResource"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "securityEncryptionType",
-   "name": "SecurityEncryptionType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SecurityEncryptionTypes"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "VMDiskSecurityProfile",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "diskEncryptionSet",
+      "name": "DiskEncryptionSet",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SubResource"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "securityEncryptionType",
+      "name": "SecurityEncryptionType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SecurityEncryptionTypes"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

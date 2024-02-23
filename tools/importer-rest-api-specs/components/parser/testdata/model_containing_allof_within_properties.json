@@ -18,12 +18,12 @@
   "security": [],
   "securityDefinitions": {},
   "paths": {
-    "/someUri": {
+    "/example": {
       "put": {
         "tags": [
-          "Hello"
+          "Example"
         ],
-        "operationId": "Hello_World",
+        "operationId": "Example_Test",
         "description": "Tests parsing of a simple model.",
         "parameters": [
           {
@@ -31,7 +31,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/Example"
+              "$ref": "#/definitions/Model"
             },
             "description": "Wrapper class."
           }
@@ -40,7 +40,7 @@
           "200": {
             "description": "Success.",
             "schema": {
-              "$ref": "#/definitions/Example"
+              "$ref": "#/definitions/Model"
             }
           }
         }
@@ -82,7 +82,7 @@
       "type": "object",
       "x-ms-azure-resource": true
     },
-    "Example": {
+    "Model": {
       "description": "The Resource definition.",
       "allOf": [
         {

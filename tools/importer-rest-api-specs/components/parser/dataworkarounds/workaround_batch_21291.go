@@ -6,7 +6,7 @@ package dataworkarounds
 import (
 	"fmt"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 var _ workaround = workaroundBatch21291{}
@@ -17,7 +17,7 @@ var _ workaround = workaroundBatch21291{}
 type workaroundBatch21291 struct {
 }
 
-func (workaroundBatch21291) IsApplicable(apiDefinition *models.AzureApiDefinition) bool {
+func (workaroundBatch21291) IsApplicable(apiDefinition *importerModels.AzureApiDefinition) bool {
 	serviceMatches := apiDefinition.ServiceName == "Batch"
 	apiVersionMatches := apiDefinition.ApiVersion == "2022-01-01" || apiDefinition.ApiVersion == "2022-10-01" || apiDefinition.ApiVersion == "2023-05-01"
 	return serviceMatches && apiVersionMatches
@@ -27,7 +27,7 @@ func (workaroundBatch21291) Name() string {
 	return "Batch / 21291"
 }
 
-func (workaroundBatch21291) Process(apiDefinition models.AzureApiDefinition) (*models.AzureApiDefinition, error) {
+func (workaroundBatch21291) Process(apiDefinition importerModels.AzureApiDefinition) (*importerModels.AzureApiDefinition, error) {
 	resource, ok := apiDefinition.Resources["BatchAccount"]
 	if !ok {
 		return nil, fmt.Errorf("couldn't find API Resource BatchAccount")

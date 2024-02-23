@@ -1,34 +1,34 @@
 {
- "name": "InputDefinition",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "includedTracks",
-   "name": "IncludedTracks",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "TrackDescriptor"
+  "name": "InputDefinition",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "includedTracks",
+      "name": "IncludedTracks",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "TrackDescriptor"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": true,
+      "jsonName": "@odata.type",
+      "name": "OdataType",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": true,
-   "jsonName": "@odata.type",
-   "name": "OdataType",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ],
- "typeHintIn": "OdataType"
+  ],
+  "typeHintIn": "OdataType"
 }

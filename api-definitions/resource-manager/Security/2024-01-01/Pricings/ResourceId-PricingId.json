@@ -1,29 +1,29 @@
 {
- "name": "PricingId",
- "id": "/{scopeId}/providers/Microsoft.Security/pricings/{pricingName}",
- "segments": [
-  {
-   "name": "scopeId",
-   "type": "UserSpecified"
-  },
-  {
-   "name": "staticProviders",
-   "type": "Static",
-   "value": "providers"
-  },
-  {
-   "name": "staticMicrosoftSecurity",
-   "type": "ResourceProvider",
-   "value": "Microsoft.Security"
-  },
-  {
-   "name": "staticPricings",
-   "type": "Static",
-   "value": "pricings"
-  },
-  {
-   "name": "pricingName",
-   "type": "UserSpecified"
-  }
- ]
+  "name": "PricingId",
+  "id": "/{scopeId}/providers/Microsoft.Security/pricings/{pricingName}",
+  "segments": [
+    {
+      "name": "scopeId",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftSecurity",
+      "type": "ResourceProvider",
+      "value": "Microsoft.Security"
+    },
+    {
+      "name": "staticPricings",
+      "type": "Static",
+      "value": "pricings"
+    },
+    {
+      "name": "pricingName",
+      "type": "UserSpecified"
+    }
+  ]
 }

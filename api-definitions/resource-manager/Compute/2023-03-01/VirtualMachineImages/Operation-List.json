@@ -1,51 +1,51 @@
 {
- "name": "List",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "GET",
- "options": [
-  {
-   "optional": true,
-   "queryString": "$expand",
-   "required": false,
-   "field": "Expand",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
+  "name": "List",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "$expand",
+      "required": false,
+      "field": "Expand",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "$orderby",
+      "required": false,
+      "field": "Orderby",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "$top",
+      "required": false,
+      "field": "Top",
+      "optionsObjectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "SkuId",
+  "responseObject": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+      "type": "Reference",
+      "referenceName": "VirtualMachineImageResource"
+    }
   },
-  {
-   "optional": true,
-   "queryString": "$orderby",
-   "required": false,
-   "field": "Orderby",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  },
-  {
-   "optional": true,
-   "queryString": "$top",
-   "required": false,
-   "field": "Top",
-   "optionsObjectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   }
-  }
- ],
- "resourceIdName": "SkuId",
- "responseObject": {
-  "type": "List",
-  "referenceName": null,
-  "nestedItem": {
-   "type": "Reference",
-   "referenceName": "VirtualMachineImageResource"
-  }
- },
- "uriSuffix": "/versions"
+  "uriSuffix": "/versions"
 }

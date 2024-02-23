@@ -1,0 +1,37 @@
+{
+  "name": "PublicLandMobileNetworkHomeNetworkPublicKeys",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "profileA",
+      "name": "ProfileA",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "HomeNetworkPublicKey"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "profileB",
+      "name": "ProfileB",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "HomeNetworkPublicKey"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
+}

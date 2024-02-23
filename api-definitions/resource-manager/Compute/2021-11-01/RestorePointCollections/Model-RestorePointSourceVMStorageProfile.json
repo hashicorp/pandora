@@ -1,33 +1,33 @@
 {
- "name": "RestorePointSourceVMStorageProfile",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "dataDisks",
-   "name": "DataDisks",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "RestorePointSourceVMDataDisk"
+  "name": "RestorePointSourceVMStorageProfile",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "dataDisks",
+      "name": "DataDisks",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "RestorePointSourceVMDataDisk"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "osDisk",
+      "name": "OsDisk",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RestorePointSourceVMOSDisk"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "osDisk",
-   "name": "OsDisk",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "RestorePointSourceVMOSDisk"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

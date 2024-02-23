@@ -1,41 +1,41 @@
 {
- "name": "MoveRPAcrossTiersRequest",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "objectType",
-   "name": "ObjectType",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "sourceTierType",
-   "name": "SourceTierType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "RecoveryPointTierType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "targetTierType",
-   "name": "TargetTierType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "RecoveryPointTierType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "MoveRPAcrossTiersRequest",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "objectType",
+      "name": "ObjectType",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sourceTierType",
+      "name": "SourceTierType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RecoveryPointTierType"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "targetTierType",
+      "name": "TargetTierType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RecoveryPointTierType"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

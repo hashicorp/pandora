@@ -1,0 +1,131 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Example",
+    "description": "Example",
+    "version": "2020-01-01"
+  },
+  "host": "management.mysite.com",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "security": [],
+  "securityDefinitions": {},
+  "paths": {
+    "/example": {
+      "get": {
+        "tags": [
+          "Example"
+        ],
+        "operationId": "Example_Get",
+        "description": "Tests parsing of a simple model.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/GetExample"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Example"
+        ],
+        "operationId": "Example_Put",
+        "description": "Tests parsing of a simple model.",
+        "parameters": [
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PutExample"
+            },
+            "description": "Wrapper class."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/PutExample"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "GetExample": {
+      "description": "The Resource definition.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "the name of this thing"
+        },
+        "age": {
+          "type": "integer",
+          "description": "the age of this thing"
+        },
+        "enabled": {
+          "type": "boolean",
+          "description": "true or false"
+        },
+        "tags": {
+          "type": "object",
+          "description": "a key value pair",
+          "additionalProperties": {
+            "description": "the value",
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "title": "GetExample",
+      "type": "object",
+      "x-ms-azure-resource": true
+    },
+    "PutExample": {
+      "description": "The Resource definition.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "the name of this thing"
+        },
+        "age": {
+          "type": "integer",
+          "description": "the age of this thing"
+        },
+        "enabled": {
+          "type": "boolean",
+          "description": "true or false"
+        },
+        "tags": {
+          "type": "object",
+          "description": "a key value pair",
+          "additionalProperties": {
+            "description": "the value",
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "title": "PutExample",
+      "type": "object",
+      "x-ms-azure-resource": true
+    }
+  },
+  "parameters": {}
+}

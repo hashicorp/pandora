@@ -1,16 +1,16 @@
 {
- "name": "ListByCluster",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "fieldContainingPaginationDetails": "nextLink",
- "longRunning": false,
- "httpMethod": "GET",
- "resourceIdName": "HDInsightClusterId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "Application"
- },
- "uriSuffix": "/applications"
+  "name": "ListByCluster",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "HDInsightClusterId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "Application"
+  },
+  "uriSuffix": "/applications"
 }
