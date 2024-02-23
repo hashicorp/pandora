@@ -4,14 +4,14 @@
 package resourceids
 
 import (
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func (p *Parser) findDistinctConstants(input map[string]importerModels.ParsedResourceId) (*map[string]resourcemanager.ConstantDetails, error) {
+func (p *Parser) findDistinctConstants(input map[string]importerModels.ParsedResourceId) (*map[string]models.SDKConstant, error) {
 	intermediate := internal.ParseResult{
-		Constants: map[string]resourcemanager.ConstantDetails{},
+		Constants: map[string]models.SDKConstant{},
 	}
 
 	for _, item := range input {

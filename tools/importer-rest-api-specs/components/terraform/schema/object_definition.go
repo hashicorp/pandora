@@ -6,6 +6,7 @@ package schema
 import (
 	"fmt"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -42,7 +43,7 @@ func (b Builder) convertToFieldObjectDefinition(modelPrefix string, input resour
 	out := resourcemanager.TerraformSchemaFieldObjectDefinition{}
 
 	var isConstant bool
-	var constant resourcemanager.ConstantDetails
+	var constant models.SDKConstant
 	if input.ReferenceName != nil {
 		reference := *input.ReferenceName
 		if constant, isConstant = b.constants[reference]; !isConstant {
@@ -50,11 +51,11 @@ func (b Builder) convertToFieldObjectDefinition(modelPrefix string, input resour
 			reference = fmt.Sprintf("%s%s", modelPrefix, reference)
 		} else {
 			switch constant.Type {
-			case resourcemanager.StringConstant:
+			case models.StringSDKConstantType:
 				out.Type = resourcemanager.TerraformSchemaFieldTypeString
-			case resourcemanager.IntegerConstant:
+			case models.IntegerSDKObjectDefinitionType:
 				out.Type = resourcemanager.TerraformSchemaFieldTypeInteger
-			case resourcemanager.FloatConstant:
+			case models.FloatSDKConstantType:
 				out.Type = resourcemanager.TerraformSchemaFieldTypeFloat
 			default:
 				return nil, fmt.Errorf("constant has unknown or unsupported type: %+v", constant.Type)

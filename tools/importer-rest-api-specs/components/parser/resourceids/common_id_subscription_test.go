@@ -6,20 +6,21 @@ package resourceids
 import (
 	"testing"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 func TestCommonResourceID_Subscription(t *testing.T) {
 	valid := importerModels.ParsedResourceId{
-		Constants: map[string]resourcemanager.ConstantDetails{},
+		Constants: map[string]models.SDKConstant{},
 		Segments: []resourcemanager.ResourceIdSegment{
 			importerModels.StaticResourceIDSegment("subscriptions", "subscriptions"),
 			importerModels.SubscriptionIDResourceIDSegment("subscriptionId"),
 		},
 	}
 	invalid := importerModels.ParsedResourceId{
-		Constants: map[string]resourcemanager.ConstantDetails{},
+		Constants: map[string]models.SDKConstant{},
 		Segments: []resourcemanager.ResourceIdSegment{
 			importerModels.StaticResourceIDSegment("subscriptions", "subscriptions"),
 			importerModels.SubscriptionIDResourceIDSegment("subscriptionId"),

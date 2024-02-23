@@ -8,17 +8,17 @@ import (
 	"strings"
 
 	"github.com/go-openapi/spec"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/commonschema"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/constants"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 func (d *SwaggerDefinition) parseModel(name string, input spec.Schema) (*internal.ParseResult, error) {
 	result := internal.ParseResult{
-		Constants: map[string]resourcemanager.ConstantDetails{},
+		Constants: map[string]models.SDKConstant{},
 		Models:    map[string]importerModels.ModelDetails{},
 	}
 
@@ -60,7 +60,7 @@ func (d *SwaggerDefinition) parseModel(name string, input spec.Schema) (*interna
 func (d *SwaggerDefinition) findConstantsWithinModel(fieldName string, input spec.Schema, known internal.ParseResult) (*internal.ParseResult, error) {
 	// NOTE: both Models and Fields are passed in here
 	result := internal.ParseResult{
-		Constants: map[string]resourcemanager.ConstantDetails{},
+		Constants: map[string]models.SDKConstant{},
 		Models:    map[string]importerModels.ModelDetails{},
 	}
 	result.Append(known)
@@ -136,7 +136,7 @@ func (d *SwaggerDefinition) detailsForField(modelName string, propertyName strin
 	d.logger.Trace(fmt.Sprintf("Parsing details for field %q in %q..", propertyName, modelName))
 
 	result := internal.ParseResult{
-		Constants: map[string]resourcemanager.ConstantDetails{},
+		Constants: map[string]models.SDKConstant{},
 		Models:    map[string]importerModels.ModelDetails{},
 	}
 	result.Append(known)
@@ -243,7 +243,7 @@ func determineCustomFieldType(field importerModels.FieldDetails, definition impo
 func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, known internal.ParseResult) (*map[string]importerModels.FieldDetails, *internal.ParseResult, error) {
 	fields := make(map[string]importerModels.FieldDetails, 0)
 	result := internal.ParseResult{
-		Constants: map[string]resourcemanager.ConstantDetails{},
+		Constants: map[string]models.SDKConstant{},
 		Models:    map[string]importerModels.ModelDetails{},
 	}
 	result.Append(known)
@@ -458,7 +458,7 @@ func (d *SwaggerDefinition) findAncestorType(input spec.Schema) (*string, *strin
 
 func (d *SwaggerDefinition) findOrphanedDiscriminatedModels() (*internal.ParseResult, error) {
 	result := internal.ParseResult{
-		Constants: map[string]resourcemanager.ConstantDetails{},
+		Constants: map[string]models.SDKConstant{},
 		Models:    map[string]importerModels.ModelDetails{},
 	}
 
@@ -497,7 +497,7 @@ func (d SwaggerDefinition) parseObjectDefinition(
 	// find the object and any models and constants etc we can find
 	// however _don't_ look for discriminator implementations - since that should be done when we're completely done
 	result := internal.ParseResult{
-		Constants: map[string]resourcemanager.ConstantDetails{},
+		Constants: map[string]models.SDKConstant{},
 		Models:    map[string]importerModels.ModelDetails{},
 	}
 	result.Append(known)
@@ -537,7 +537,7 @@ func (d SwaggerDefinition) parseObjectDefinition(
 		}
 
 		knownIncludingPlaceholder := internal.ParseResult{
-			Constants: map[string]resourcemanager.ConstantDetails{},
+			Constants: map[string]models.SDKConstant{},
 			Models:    map[string]importerModels.ModelDetails{},
 		}
 

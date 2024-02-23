@@ -5,6 +5,7 @@ package transformer
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
@@ -39,7 +40,7 @@ func ApiResourceFromModelResource(schema importerModels.AzureApiResource) (*serv
 	}, nil
 }
 
-func apiModelsFromModelModels(inputModels map[string]importerModels.ModelDetails, inputConstants map[string]resourcemanager.ConstantDetails) (*map[string]resourcemanager.ModelDetails, error) {
+func apiModelsFromModelModels(inputModels map[string]importerModels.ModelDetails, inputConstants map[string]models.SDKConstant) (*map[string]resourcemanager.ModelDetails, error) {
 	out := make(map[string]resourcemanager.ModelDetails)
 
 	for k, v := range inputModels {
@@ -59,7 +60,7 @@ func apiModelsFromModelModels(inputModels map[string]importerModels.ModelDetails
 	return &out, nil
 }
 
-func apiFieldsFromModelFields(input map[string]importerModels.FieldDetails, model importerModels.ModelDetails, inputConstants map[string]resourcemanager.ConstantDetails) (*map[string]resourcemanager.FieldDetails, error) {
+func apiFieldsFromModelFields(input map[string]importerModels.FieldDetails, model importerModels.ModelDetails, inputConstants map[string]models.SDKConstant) (*map[string]resourcemanager.FieldDetails, error) {
 	out := make(map[string]resourcemanager.FieldDetails)
 
 	for k, v := range input {
@@ -105,7 +106,7 @@ func apiFieldsFromModelFields(input map[string]importerModels.FieldDetails, mode
 	return &out, nil
 }
 
-func validationForConstant(input resourcemanager.ConstantDetails) *resourcemanager.FieldValidationDetails {
+func validationForConstant(input models.SDKConstant) *resourcemanager.FieldValidationDetails {
 	vals := make([]interface{}, 0)
 	for _, v := range input.Values {
 		vals = append(vals, v)

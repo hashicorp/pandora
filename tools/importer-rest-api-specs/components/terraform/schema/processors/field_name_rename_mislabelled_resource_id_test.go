@@ -7,6 +7,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -28,9 +29,9 @@ func TestFieldNameRenameMislabelledResourceID_NotApplicable_DifferentConstantVal
 				},
 			},
 		},
-		Constants: map[string]resourcemanager.ConstantDetails{
+		Constants: map[string]models.SDKConstant{
 			"Type": {
-				Type: resourcemanager.StringConstant,
+				Type: models.StringSDKConstantType,
 				Values: map[string]string{
 					"SystemAssigned": "SystemAssigned",
 				},
@@ -68,7 +69,7 @@ func TestFieldNameRenameMislabelledResourceID_NotApplicable_SingleField(t *testi
 				},
 			},
 		},
-		Constants: map[string]resourcemanager.ConstantDetails{},
+		Constants: map[string]models.SDKConstant{},
 	}
 	actual, err := fieldNameRenameMislabelledResourceID{}.ProcessField("ResourceId", metadata)
 	if err != nil {
@@ -101,7 +102,7 @@ func TestFieldNameRenameMislabelledResourceID_NotApplicable_MultipleFields(t *te
 				},
 			},
 		},
-		Constants: map[string]resourcemanager.ConstantDetails{},
+		Constants: map[string]models.SDKConstant{},
 	}
 	actual, err := fieldNameRenameMislabelledResourceID{}.ProcessField("ResourceId", metadata)
 	if err != nil {
@@ -130,9 +131,9 @@ func TestFieldNameRenameMislabelledResourceID_Applicable_UsingConstant(t *testin
 				},
 			},
 		},
-		Constants: map[string]resourcemanager.ConstantDetails{
+		Constants: map[string]models.SDKConstant{
 			"Type": {
-				Type: resourcemanager.StringConstant,
+				Type: models.StringSDKConstantType,
 				Values: map[string]string{
 					"UserAssigned": "UserAssigned",
 				},
@@ -168,7 +169,7 @@ func TestFieldNameRenameMislabelledResourceID_WithAMatchingTypeFieldThatIsAStrin
 				},
 			},
 		},
-		Constants: map[string]resourcemanager.ConstantDetails{},
+		Constants: map[string]models.SDKConstant{},
 	}
 	actual, err := fieldNameRenameMislabelledResourceID{}.ProcessField("ResourceId", metadata)
 	if err != nil {

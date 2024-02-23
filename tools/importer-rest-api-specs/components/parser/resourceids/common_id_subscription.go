@@ -4,6 +4,7 @@
 package resourceids
 
 import (
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
@@ -16,7 +17,7 @@ func (commonIdSubscriptionMatcher) id() importerModels.ParsedResourceId {
 	name := "Subscription"
 	return importerModels.ParsedResourceId{
 		CommonAlias: &name,
-		Constants:   map[string]resourcemanager.ConstantDetails{},
+		Constants:   map[string]models.SDKConstant{},
 		Segments: []resourcemanager.ResourceIdSegment{
 			importerModels.StaticResourceIDSegment("subscriptions", "subscriptions"),
 			importerModels.SubscriptionIDResourceIDSegment("subscriptionId"),

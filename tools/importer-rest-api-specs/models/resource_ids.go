@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -16,7 +17,7 @@ type ParsedResourceId struct {
 	CommonAlias *string
 
 	// Constants are a map[Name]ConstantDetails for the Constants used in this Resource ID
-	Constants map[string]resourcemanager.ConstantDetails
+	Constants map[string]models.SDKConstant
 
 	// Segments are an ordered list of segments which comprise this Resource ID
 	Segments []resourcemanager.ResourceIdSegment

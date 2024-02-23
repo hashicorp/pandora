@@ -8,6 +8,7 @@ import (
 	"strings"
 
 	"github.com/go-openapi/spec"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/constants"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
@@ -31,7 +32,7 @@ var knownSegmentsUsedForScope = []string{
 type processedResourceId struct {
 	segments  *[]resourcemanager.ResourceIdSegment
 	uriSuffix *string
-	constants map[string]resourcemanager.ConstantDetails
+	constants map[string]models.SDKConstant
 }
 
 func (p *Parser) parseSegmentsForEachOperation() (*map[string]processedResourceId, error) {
@@ -63,7 +64,7 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 
 	segments := make([]resourcemanager.ResourceIdSegment, 0)
 	result := internal.ParseResult{
-		Constants: map[string]resourcemanager.ConstantDetails{},
+		Constants: map[string]models.SDKConstant{},
 	}
 
 	uriSegments := strings.Split(strings.TrimPrefix(uri, "/"), "/")

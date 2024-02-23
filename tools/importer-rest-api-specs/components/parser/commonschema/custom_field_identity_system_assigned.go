@@ -7,9 +7,9 @@ import (
 	"reflect"
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 var _ customFieldMatcher = systemAssignedIdentityMatcher{}
@@ -68,8 +68,8 @@ func (systemAssignedIdentityMatcher) IsMatch(_ importerModels.FieldDetails, defi
 	return hasMatchingType && hasPrincipalId && hasTenantId
 }
 
-func validateIdentityConstantValues(input resourcemanager.ConstantDetails, expected map[string]string) bool {
-	if input.Type != resourcemanager.StringConstant {
+func validateIdentityConstantValues(input models.SDKConstant, expected map[string]string) bool {
+	if input.Type != models.StringSDKConstantType {
 		return false
 	}
 

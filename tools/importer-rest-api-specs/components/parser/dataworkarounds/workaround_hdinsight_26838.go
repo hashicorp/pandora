@@ -7,8 +7,8 @@ import (
 	"fmt"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 var _ workaround = workaroundHDInsight26838{}
@@ -65,8 +65,8 @@ func (workaroundHDInsight26838) Process(apiDefinition importerModels.AzureApiDef
 	if v, ok := resource.Constants["ClusterKind"]; ok {
 		return nil, fmt.Errorf("an existing Constant exists with the name `ClusterKind`: %+v", v)
 	}
-	resource.Constants["ClusterKind"] = resourcemanager.ConstantDetails{
-		Type: resourcemanager.StringConstant,
+	resource.Constants["ClusterKind"] = models.SDKConstant{
+		Type: models.StringSDKConstantType,
 		Values: map[string]string{
 			"Hadoop":          "HADOOP",
 			"HBase":           "HBASE",

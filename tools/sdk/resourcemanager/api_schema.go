@@ -6,6 +6,8 @@ package resourcemanager
 import (
 	"encoding/json"
 	"fmt"
+
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 type ApiSchemaClient struct {
@@ -32,7 +34,7 @@ func (c ApiSchemaClient) Get(input ResourceSummary) (*ApiSchemaDetails, error) {
 type ApiSchemaDetails struct {
 	// Constants is a map of key (Constant Name) to value (ConstantDetails) describing
 	// each Constant supported by this API Version.
-	Constants map[string]ConstantDetails `json:"constants"`
+	Constants map[string]models.SDKConstant `json:"constants"`
 
 	// Models is a map of key (Model Name) to value (ModelDetails) describing
 	// each Model supported by this API version, used in either Requests or Responses
@@ -41,21 +43,6 @@ type ApiSchemaDetails struct {
 	// ResourceIds is a map of key (Resource Name) to value (Resource ID Definitions)
 	// used by this API
 	ResourceIds map[string]ResourceIdDefinition `json:"resourceIds"`
-}
-
-type ConstantDetails struct {
-	// CaseInsensitive specifies that this Constant can be returned insensitively
-	// and should be rewritten on the Client side to be consistent
-	CaseInsensitive bool `json:"caseInsensitive"`
-
-	// Type specifies the backing type for this constant, whilst the name will
-	// always be a String, the backing values can be a Float/Integer/String
-	// albeit returned as a string to maintain formatting.
-	Type ConstantType `json:"type"`
-
-	// Values specifies a key (Display Name) to value (Constant Value) for the
-	// possible values for this Constant
-	Values map[string]string `json:"values"`
 }
 
 type ModelDetails struct {
@@ -119,14 +106,6 @@ type FieldDetails struct {
 	// Description is a description of the field
 	Description string `json:"description"`
 }
-
-type ConstantType string
-
-const (
-	FloatConstant   ConstantType = "float"
-	IntegerConstant ConstantType = "int"
-	StringConstant  ConstantType = "string"
-)
 
 type DateFormat string
 

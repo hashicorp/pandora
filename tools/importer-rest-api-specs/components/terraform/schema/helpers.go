@@ -9,13 +9,14 @@ import (
 	"strings"
 	"unicode"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/helpers"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/schema/processors"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func fieldShouldBeIgnored(key string, definition resourcemanager.FieldDetails, constants map[string]resourcemanager.ConstantDetails) bool {
+func fieldShouldBeIgnored(key string, definition resourcemanager.FieldDetails, constants map[string]models.SDKConstant) bool {
 	for _, v := range fieldsWhichShouldBeIgnoredExactMatch {
 		if strings.EqualFold(key, v) {
 			return true
@@ -57,7 +58,7 @@ func getField(model resourcemanager.ModelDetails, fieldName string) (*resourcema
 	return nil, false
 }
 
-func updateFieldName(fieldName string, model *resourcemanager.ModelDetails, resource *resourcemanager.TerraformResourceDetails, constants map[string]resourcemanager.ConstantDetails, resourceBuildInfo *importerModels.ResourceBuildInfo) (string, error) {
+func updateFieldName(fieldName string, model *resourcemanager.ModelDetails, resource *resourcemanager.TerraformResourceDetails, constants map[string]models.SDKConstant, resourceBuildInfo *importerModels.ResourceBuildInfo) (string, error) {
 	metadata := processors.FieldMetadata{
 		TerraformDetails: *resource,
 		Model:            *model,

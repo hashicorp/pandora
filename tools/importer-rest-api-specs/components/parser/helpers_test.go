@@ -60,12 +60,9 @@ func validateParsedApiResourceMatches(t *testing.T, expected importerModels.Azur
 	validateObjectsMatch(t, expected.Terraform, actual.Terraform, "Terraform", validateParsedTerraformDetailsMatch)
 }
 
-func validateParsedConstantsMatch(t *testing.T, expected resourcemanager.ConstantDetails, actual resourcemanager.ConstantDetails, constantName string) {
+func validateParsedConstantsMatch(t *testing.T, expected, actual models.SDKConstant, constantName string) {
 	if expected.Type != actual.Type {
 		t.Fatalf("expected Type to be %q but got %q for Constant %q", string(expected.Type), string(actual.Type), constantName)
-	}
-	if expected.CaseInsensitive != actual.CaseInsensitive {
-		t.Fatalf("expected CaseInsensitive to be %t but got %t for Constant %q", expected.CaseInsensitive, actual.CaseInsensitive, constantName)
 	}
 	validateMapsMatch(t, expected.Values, actual.Values, "Values", validateStringsMatch)
 }

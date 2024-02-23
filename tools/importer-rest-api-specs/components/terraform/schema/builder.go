@@ -7,6 +7,7 @@ import (
 	"fmt"
 
 	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/helpers"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/schema/processors"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
@@ -23,13 +24,13 @@ Things to do here:
 */
 
 type Builder struct {
-	constants   map[string]resourcemanager.ConstantDetails
+	constants   map[string]models.SDKConstant
 	models      map[string]resourcemanager.ModelDetails
 	operations  map[string]resourcemanager.ApiOperation
 	resourceIds map[string]resourcemanager.ResourceIdDefinition
 }
 
-func NewBuilder(constants map[string]resourcemanager.ConstantDetails, models map[string]resourcemanager.ModelDetails, operations map[string]resourcemanager.ApiOperation, resourceIds map[string]resourcemanager.ResourceIdDefinition) Builder {
+func NewBuilder(constants map[string]models.SDKConstant, models map[string]resourcemanager.ModelDetails, operations map[string]resourcemanager.ApiOperation, resourceIds map[string]resourcemanager.ResourceIdDefinition) Builder {
 	return Builder{
 		constants:   constants,
 		models:      models,

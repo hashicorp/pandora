@@ -37,7 +37,7 @@ func (d AzureApiDefinition) IsPreviewVersion() bool {
 }
 
 type AzureApiResource struct {
-	Constants   map[string]resourcemanager.ConstantDetails
+	Constants   map[string]models.SDKConstant
 	Models      map[string]ModelDetails
 	Operations  map[string]OperationDetails
 	ResourceIds map[string]ParsedResourceId
