@@ -50,7 +50,6 @@ func TestParseModelWithADictionaryOfIntegers(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Hello_GetWorld",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -103,7 +102,6 @@ func TestParseModelWithADictionaryOfIntegersInlined(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Hello_GetWorld",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -189,7 +187,6 @@ func TestParseModelWithADictionaryOfAnObject(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Hello_GetWorld",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -275,7 +272,6 @@ func TestParseModelWithADictionaryOfAnObjectInlined(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Hello_GetWorld",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -328,7 +324,6 @@ func TestParseModelWithADictionaryOfString(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Hello_GetWorld",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -381,7 +376,6 @@ func TestParseModelWithADictionaryOfStringInlined(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Hello_GetWorld",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
 							Type:          models.ReferenceSDKObjectDefinitionType,

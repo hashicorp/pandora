@@ -43,7 +43,6 @@ func TestParseOperationSingleWithTag(t *testing.T) {
 						ExpectedStatusCodes: []int{http.StatusOK},
 						LongRunning:         false,
 						Method:              http.MethodHead,
-						OperationId:         "Hello_HeadWorld",
 						UriSuffix:           pointer.To("/things"),
 					},
 				},
@@ -69,7 +68,6 @@ func TestParseOperationSingleWithTagAndResourceId(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						OperationId:         "Hello_HeadWorld",
 						ResourceIdName:      pointer.To("ThingId"),
 					},
 				},
@@ -109,7 +107,6 @@ func TestParseOperationSingleWithTagAndResourceIdSuffix(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						OperationId:         "Hello_HeadWorld",
 						ResourceIdName:      pointer.To("ThingId"),
 						UriSuffix:           pointer.To("/restart"),
 					},
@@ -163,7 +160,6 @@ func TestParseOperationSingleWithRequestObject(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "Hello_PutWorld",
 						RequestObject: &models.SDKObjectDefinition{
 							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("Example"),
@@ -206,7 +202,6 @@ func TestParseOperationSingleWithRequestObjectInlined(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "Hello_PutWorld",
 						RequestObject: &models.SDKObjectDefinition{
 							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("Example"),
@@ -249,7 +244,6 @@ func TestParseOperationSingleWithResponseObject(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Hello_GetWorld",
 						ResponseObject: &models.SDKObjectDefinition{
 							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("Example"),
@@ -292,7 +286,6 @@ func TestParseOperationSingleWithResponseObjectInlined(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Hello_GetWorld",
 						ResponseObject: &models.SDKObjectDefinition{
 							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("Example"),
@@ -335,7 +328,6 @@ func TestParseOperationSingleWithResponseObjectInlinedList(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Hello_GetWorld",
 						ResponseObject: &models.SDKObjectDefinition{
 							Type: models.ListSDKObjectDefinitionType,
 							NestedItem: &models.SDKObjectDefinition{
@@ -368,7 +360,6 @@ func TestParseOperationSingleRequestingWithABool(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "Hello_PutWorld",
 						RequestObject: &models.SDKObjectDefinition{
 							Type: models.BooleanSDKObjectDefinitionType,
 						},
@@ -397,7 +388,6 @@ func TestParseOperationSingleRequestingWithAInteger(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "Hello_PutWorld",
 						RequestObject: &models.SDKObjectDefinition{
 							Type: models.IntegerSDKObjectDefinitionType,
 						},
@@ -426,7 +416,6 @@ func TestParseOperationSingleRequestingWithADictionaryOfStrings(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "Hello_PutWorld",
 						RequestObject: &models.SDKObjectDefinition{
 							Type: models.DictionarySDKObjectDefinitionType,
 							NestedItem: &models.SDKObjectDefinition{
@@ -458,7 +447,6 @@ func TestParseOperationSingleRequestingWithAListOfStrings(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "Hello_PutWorld",
 						RequestObject: &models.SDKObjectDefinition{
 							Type: models.ListSDKObjectDefinitionType,
 							NestedItem: &models.SDKObjectDefinition{
@@ -492,7 +480,6 @@ func TestParseOperationSingleRequestingWithAString(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "Hello_PutWorld",
 						RequestObject: &models.SDKObjectDefinition{
 							Type: models.StringSDKObjectDefinitionType,
 						},
@@ -521,7 +508,6 @@ func TestParseOperationSingleReturningABool(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Hello_GimmeABoolean",
 						ResponseObject: &models.SDKObjectDefinition{
 							Type: models.BooleanSDKObjectDefinitionType,
 						},
@@ -550,7 +536,6 @@ func TestParseOperationSingleReturningAFloat(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Hello_GimmeAFloat",
 						ResponseObject: &models.SDKObjectDefinition{
 							Type: models.FloatSDKObjectDefinitionType,
 						},
@@ -579,7 +564,6 @@ func TestParseOperationSingleReturningAFile(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Hello_GimmeAFile",
 						ResponseObject: &models.SDKObjectDefinition{
 							Type: models.RawFileSDKObjectDefinitionType,
 						},
@@ -608,7 +592,6 @@ func TestParseOperationSingleReturningAnInteger(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Hello_GimmeAnInteger",
 						ResponseObject: &models.SDKObjectDefinition{
 							Type: models.IntegerSDKObjectDefinitionType,
 						},
@@ -637,7 +620,6 @@ func TestParseOperationSingleReturningAString(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Hello_GimmeAString",
 						ResponseObject: &models.SDKObjectDefinition{
 							Type: models.StringSDKObjectDefinitionType,
 						},
@@ -667,7 +649,6 @@ func TestParseOperationSingleReturningAnErrorStatusCode(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Hello_GimmeAString",
 						ResponseObject: &models.SDKObjectDefinition{
 							Type: models.StringSDKObjectDefinitionType,
 						},
@@ -696,7 +677,6 @@ func TestParseOperationSingleReturningATopLevelRawObject(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Hello_RawObjectToMeToYou",
 						RequestObject: &models.SDKObjectDefinition{
 							Type: models.RawObjectSDKObjectDefinitionType,
 						},
@@ -741,7 +721,6 @@ func TestParseOperationSingleReturningADictionaryOfAModel(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Hello_GimmeADictionaryOfAModel",
 						ResponseObject: &models.SDKObjectDefinition{
 							Type: models.DictionarySDKObjectDefinitionType,
 							NestedItem: &models.SDKObjectDefinition{
@@ -774,7 +753,6 @@ func TestParseOperationSingleReturningADictionaryOfStrings(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Hello_GimmeADictionaryOfStrings",
 						ResponseObject: &models.SDKObjectDefinition{
 							Type: models.DictionarySDKObjectDefinitionType,
 							NestedItem: &models.SDKObjectDefinition{
@@ -806,7 +784,6 @@ func TestParseOperationSingleReturningAListOfIntegers(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Hello_GimmeAListOfIntegers",
 						ResponseObject: &models.SDKObjectDefinition{
 							Type: models.ListSDKObjectDefinitionType,
 							NestedItem: &models.SDKObjectDefinition{
@@ -851,7 +828,6 @@ func TestParseOperationSingleReturningAListOfAModel(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Hello_GimmeAListOfModels",
 						ResponseObject: &models.SDKObjectDefinition{
 							Type: models.ListSDKObjectDefinitionType,
 							NestedItem: &models.SDKObjectDefinition{
@@ -884,7 +860,6 @@ func TestParseOperationSingleReturningAListOfStrings(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Hello_GimmeAListOfStrings",
 						ResponseObject: &models.SDKObjectDefinition{
 							Type: models.ListSDKObjectDefinitionType,
 							NestedItem: &models.SDKObjectDefinition{
@@ -929,7 +904,6 @@ func TestParseOperationSingleReturningAListOfListOfAModel(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Hello_GimmeAListOfListOfModels",
 						ResponseObject: &models.SDKObjectDefinition{
 							Type: models.ListSDKObjectDefinitionType,
 							NestedItem: &models.SDKObjectDefinition{
@@ -965,7 +939,6 @@ func TestParseOperationSingleReturningAListOfListOfStrings(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Hello_GimmeAListOfListOfStrings",
 						ResponseObject: &models.SDKObjectDefinition{
 							Type: models.ListSDKObjectDefinitionType,
 							NestedItem: &models.SDKObjectDefinition{
@@ -1015,7 +988,6 @@ func TestParseOperationSingleWithList(t *testing.T) {
 						FieldContainingPaginationDetails: pointer.To("nextLink"),
 						IsListOperation:                  true,
 						Method:                           "GET",
-						OperationId:                      "Hello_ListWorlds",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("World"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -1064,7 +1036,6 @@ func TestParseOperationSingleWithListWhichIsNotAList(t *testing.T) {
 						FieldContainingPaginationDetails: nil,
 						IsListOperation:                  true,
 						Method:                           "GET",
-						OperationId:                      "Hello_ListWorlds",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("World"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -1096,7 +1067,6 @@ func TestParseOperationSingleWithListReturningAListOfStrings(t *testing.T) {
 						FieldContainingPaginationDetails: pointer.To("nextLink"),
 						IsListOperation:                  true,
 						Method:                           "GET",
-						OperationId:                      "Hello_ListWorlds",
 						ResponseObject: &models.SDKObjectDefinition{
 							Type: models.StringSDKObjectDefinitionType,
 						},
@@ -1142,7 +1112,6 @@ func TestParseOperationSingleWithListWithoutPageable(t *testing.T) {
 						FieldContainingPaginationDetails: pointer.To("nextLink"),
 						IsListOperation:                  true,
 						Method:                           "GET",
-						OperationId:                      "Hello_ListWorlds",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("World"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -1186,7 +1155,6 @@ func TestParseOperationSingleWithLongRunningOperation(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						LongRunning:         true,
 						Method:              "PUT",
-						OperationId:         "Hello_PutWorld",
 						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -1229,7 +1197,6 @@ func TestParseOperationSingleWithRequestAndResponseObject(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "Hello_PutWorld",
 						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -1263,7 +1230,6 @@ func TestParseOperationSingleWithMultipleTags(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						OperationId:         "Hello_HeadThings",
 						UriSuffix:           pointer.To("/things"),
 					},
 				},
@@ -1276,7 +1242,6 @@ func TestParseOperationSingleWithMultipleTags(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						OperationId:         "Hello_HeadThings",
 						UriSuffix:           pointer.To("/things"),
 					},
 				},
@@ -1304,7 +1269,6 @@ func TestParseOperationSingleWithInferredTag(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						OperationId:         "Hello_HeadWorld",
 						UriSuffix:           pointer.To("/things"),
 					},
 				},
@@ -1330,7 +1294,6 @@ func TestParseOperationSingleWithHeaderOptions(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						OperationId:         "Hello_HeadWorld",
 						Options: map[string]models.SDKOperationOption{
 							"BoolValue": {
 								HeaderName: pointer.To("boolValue"),
@@ -1413,7 +1376,6 @@ func TestParseOperationSingleWithQueryStringOptions(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						OperationId:         "Hello_HeadWorld",
 						Options: map[string]models.SDKOperationOption{
 							"BoolValue": {
 								QueryStringName: pointer.To("boolValue"),
@@ -1496,14 +1458,12 @@ func TestParseOperationMultipleBasedOnTheSameResourceId(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						OperationId:         "Hello_HeadWorld",
 						ResourceIdName:      pointer.To("ThingId"),
 					},
 					"RestartWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						OperationId:         "Hello_RestartWorld",
 						ResourceIdName:      pointer.To("ThingId"),
 						UriSuffix:           pointer.To("/restart"),
 					},
@@ -1544,14 +1504,12 @@ func TestParseOperationsContainingContentTypes(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						OperationId:         "Hello_Default",
 						UriSuffix:           pointer.To("/default"),
 					},
 					"JsonRequest": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Hello_JsonRequest",
 						RequestObject: &models.SDKObjectDefinition{
 							Type: models.StringSDKObjectDefinitionType,
 						},
@@ -1562,7 +1520,6 @@ func TestParseOperationsContainingContentTypes(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "Hello_JsonResponse",
 						ResponseObject: &models.SDKObjectDefinition{
 							Type: models.StringSDKObjectDefinitionType,
 						},
@@ -1572,7 +1529,6 @@ func TestParseOperationsContainingContentTypes(t *testing.T) {
 						ContentType:         "application/xml",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Hello_XmlRequest",
 						RequestObject: &models.SDKObjectDefinition{
 							Type: models.StringSDKObjectDefinitionType,
 						},
@@ -1582,7 +1538,6 @@ func TestParseOperationsContainingContentTypes(t *testing.T) {
 						ContentType:         "application/xml",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "Hello_XmlResponse",
 						ResponseObject: &models.SDKObjectDefinition{
 							Type: models.StringSDKObjectDefinitionType,
 						},
@@ -1624,7 +1579,6 @@ func TestParseOperationContainingMultipleReturnObjects(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200, 202},
 						Method:              "PUT",
-						OperationId:         "Hello_HeadWorld",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("FirstModel"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -1654,14 +1608,12 @@ func TestParseOperationsWithStutteringNames(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						OperationId:         "ExampleTags_Mars",
 						UriSuffix:           pointer.To("/mars"),
 					},
 					"There": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						OperationId:         "ExampleTag_There",
 						UriSuffix:           pointer.To("/there"),
 					},
 					"World": {
@@ -1671,7 +1623,6 @@ func TestParseOperationsWithStutteringNames(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						OperationId:         "ExampleTag_World",
 						UriSuffix:           pointer.To("/world"),
 					},
 				},

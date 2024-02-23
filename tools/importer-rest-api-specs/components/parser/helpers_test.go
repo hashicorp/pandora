@@ -143,9 +143,6 @@ func validateParsedOperationsMatch(t *testing.T, expected, actual importerModels
 	if expected.Method != actual.Method {
 		t.Fatalf("expected `Method` to be %q but got %q for Operation %q", expected.Method, actual.Method, operationName)
 	}
-	if expected.OperationId != actual.OperationId {
-		t.Fatalf("expected `OperationId` to be %q but got %q for Operation %q", expected.OperationId, actual.OperationId, operationName)
-	}
 	validateMapsMatch(t, expected.Options, actual.Options, "Options", validateParsedOptionsMatch)
 	if pointer.From(expected.ResourceIdName) != pointer.From(actual.ResourceIdName) {
 		t.Fatalf("expected `ResourceIdName` to be %q but got %q for Operation %q", pointer.From(expected.ResourceIdName), pointer.From(actual.ResourceIdName), operationName)

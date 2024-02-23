@@ -95,7 +95,6 @@ func TestParseDiscriminatorsTopLevel(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Discriminator_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -203,7 +202,6 @@ func TestParseDiscriminatorsWithinArray(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Discriminator_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -386,7 +384,6 @@ func TestParseDiscriminatorsWithinDiscriminators(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Discriminator_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -432,7 +429,6 @@ func TestParseDiscriminatedParentTypeThatShouldntBe(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Discriminator_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Animal"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -478,7 +474,6 @@ func TestParseDiscriminatedChildTypeThatShouldntBe(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Discriminator_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Dog"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -579,7 +574,6 @@ func TestParseDiscriminatedChildTypeWhereParentShouldNotBeUsed(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Discriminator_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -684,7 +678,6 @@ func TestParseDiscriminatorsInheritingFromOtherDiscriminators(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Discriminator_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -866,7 +859,6 @@ func TestParseDiscriminatorsDeepInheritance(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Discriminator_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -1018,7 +1010,6 @@ func TestParseDiscriminatorsWithMultipleParents(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Discriminator_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -1173,7 +1164,6 @@ func TestParseDiscriminatorsWithMultipleParentsWithinArray(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Discriminator_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
 							Type:          models.ReferenceSDKObjectDefinitionType,

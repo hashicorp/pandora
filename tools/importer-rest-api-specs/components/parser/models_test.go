@@ -77,7 +77,6 @@ func TestParseModelTopLevel(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "Example_Test",
 						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -111,7 +110,6 @@ func TestParseModelTopLevelWithRawFile(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "Example_Test",
 						RequestObject: &models.SDKObjectDefinition{
 							Type: models.RawFileSDKObjectDefinitionType,
 						},
@@ -210,7 +208,6 @@ func TestParseModelTopLevelWithInlinedModel(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "Example_Test",
 						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -257,7 +254,6 @@ func TestParseModelWithDateTimeNoType(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "Example_Test",
 						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -357,7 +353,6 @@ func TestParseModelWithInlinedObject(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -407,7 +402,6 @@ func TestParseModelWithNumberPrefixedField(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -491,7 +485,6 @@ func TestParseModelWithReference(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -561,7 +554,6 @@ func TestParseModelWithReferenceToArray(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -643,7 +635,6 @@ func TestParseModelWithReferenceToConstant(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -715,7 +706,6 @@ func TestParseModelWithReferenceToString(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -818,7 +808,6 @@ func TestParseModelWithCircularReferences(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("House"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -861,7 +850,6 @@ func TestParseModelInheritingFromObjectWithNoExtraFields(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							// whilst the response model references SecondObject, it's only inheriting from FirstObject
 							// and doesn't contain any new fields, so it should be switched out
@@ -925,7 +913,6 @@ func TestParseModelInheritingFromObjectWithNoExtraFieldsInlined(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("FirstObject"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -968,7 +955,6 @@ func TestParseModelInheritingFromObjectWithOnlyDescription(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							// whilst the response model references SecondObject, it's only inheriting from FirstObject
 							// and doesn't contain any new fields, so it should be switched out
@@ -1018,7 +1004,6 @@ func TestParseModelInheritingFromObjectWithPropertiesWithinAllOf(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							// SecondObject is referenced as the Response Object, but because it inherits from one Model
 							// (FirstObject) and uses another (ThirdObject) it shouldn't be flattened into the parent type(s)
@@ -1071,7 +1056,6 @@ func TestParseModelContainingAllOfToTypeObject(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "Example_Test",
 						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -1125,7 +1109,6 @@ func TestParseModelContainingAllOfToTypeObjectWithProperties(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "Example_Test",
 						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -1205,7 +1188,6 @@ func TestParseModelContainingAllOfWithinProperties(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "Example_Test",
 						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -1297,7 +1279,6 @@ func TestParseModelContainingMultipleAllOfWithinProperties(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "Example_Test",
 						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -1388,7 +1369,6 @@ func TestParseModelContainingLists(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -1446,7 +1426,6 @@ func TestParseModelInlinedWithNoName(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Container"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -1517,7 +1496,6 @@ func TestParseModelInheritingFromParent(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "Example_Test",
 						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -1617,7 +1595,6 @@ func TestParseModelMultipleTopLevelModelsAndOperations(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Get",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("GetExample"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -1628,7 +1605,6 @@ func TestParseModelMultipleTopLevelModelsAndOperations(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "Example_Put",
 						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("PutExample"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -1820,7 +1796,6 @@ func TestParseModelBug2675DuplicateModel(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "Example_CreateOrUpdate",
 						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleEnvironment"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -1835,7 +1810,6 @@ func TestParseModelBug2675DuplicateModel(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Get",
 						ResourceIdName:      pointer.To("EnvironmentId"),
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleEnvironment"),
@@ -1846,7 +1820,6 @@ func TestParseModelBug2675DuplicateModel(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PATCH",
-						OperationId:         "Example_Update",
 						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleEnvironmentUpdate"),
 							Type:          models.ReferenceSDKObjectDefinitionType,

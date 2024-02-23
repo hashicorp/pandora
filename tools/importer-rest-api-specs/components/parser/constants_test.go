@@ -53,7 +53,6 @@ func TestParseConstantsIntegersTopLevelAsInts(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -109,7 +108,6 @@ func TestParseConstantsIntegersTopLevelAsIntsWithDisplayName(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -164,7 +162,6 @@ func TestParseConstantsIntegersTopLevelAsStrings(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -219,7 +216,6 @@ func TestParseConstantsIntegersInlinedAsInts(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -275,7 +271,6 @@ func TestParseConstantsIntegersInlinedAsIntsWithDisplayName(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -330,7 +325,6 @@ func TestParseConstantsIntegersInlinedAsStrings(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -385,7 +379,6 @@ func TestParseConstantsFloatsTopLevelAsFloats(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -440,7 +433,6 @@ func TestParseConstantsFloatsTopLevelAsStrings(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -495,7 +487,6 @@ func TestParseConstantsFloatsInlinedAsFloats(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -550,7 +541,6 @@ func TestParseConstantsFloatsInlinedAsStrings(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -605,7 +595,6 @@ func TestParseConstantsStringsTopLevel(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -662,7 +651,6 @@ func TestParseConstantsStringsTopLevelAsNonStrings(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -716,7 +704,6 @@ func TestParseConstantsStringsInlined(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -770,7 +757,6 @@ func TestParseConstantsStringsInlinedAsNonStrings(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -825,7 +811,6 @@ func TestParseConstantsStringsTopLevelContainingFloats(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -880,7 +865,6 @@ func TestParseConstantsStringsInlinedContainingFloats(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
 							Type:          models.ReferenceSDKObjectDefinitionType,

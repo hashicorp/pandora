@@ -47,7 +47,6 @@ type OperationDetails struct {
 	IsListOperation                  bool
 	LongRunning                      bool
 	Method                           string
-	OperationId                      string
 	Options                          map[string]models.SDKOperationOption
 	RequestObject                    *models.SDKObjectDefinition
 	ResourceIdName                   *string
