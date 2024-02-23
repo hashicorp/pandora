@@ -42,7 +42,7 @@ type ApiSchemaDetails struct {
 
 	// ResourceIds is a map of key (Resource Name) to value (Resource ID Definitions)
 	// used by this API
-	ResourceIds map[string]ResourceIdDefinition `json:"resourceIds"`
+	ResourceIds map[string]models.ResourceID `json:"resourceIds"`
 }
 
 type ModelDetails struct {
@@ -130,20 +130,3 @@ const (
 	// RangeValidation specifies that this field must fall within a Range of pre-defined values
 	RangeValidation FieldValidationType = "Range"
 )
-
-type ResourceIdDefinition struct {
-	// CommonAlias is the alias used for this Resource ID, if this is a 'Common' Resource ID
-	// examples of a Common Resource ID include Resource Group ID's and Subscription ID's
-	CommonAlias *string `json:"commonAlias,omitempty"`
-
-	// ConstantNames is a list of Constants used by/in this ResourceId
-	ConstantNames []string `json:"constantNames"`
-
-	// Id is the full ResourceId as a string, for example:
-	// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}
-	Id string `json:"id"`
-
-	// Segments is one or more segments present within this ResourceID, each Segment being
-	// for example a StaticSegment, ConstantSegment, UserSpecifiedSegment, etc.
-	Segments []models.ResourceIDSegment `json:"segments"`
-}
