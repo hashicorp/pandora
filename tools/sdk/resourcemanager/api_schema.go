@@ -89,7 +89,7 @@ type FieldDetails struct {
 	JsonName string `json:"jsonName"`
 
 	// ObjectDefinition is the definition defining the Type of this field
-	ObjectDefinition ApiObjectDefinition `json:"objectDefinition"`
+	ObjectDefinition models.SDKObjectDefinition `json:"objectDefinition"`
 
 	// Optional specifies that this field is Optional - since a field can either be
 	// Required or Optional, but not both.
