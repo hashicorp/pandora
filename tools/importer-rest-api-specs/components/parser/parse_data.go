@@ -120,8 +120,8 @@ func combineModels(first map[string]importerModels.ModelDetails, second map[stri
 	return &output, nil
 }
 
-func combineOperations(first map[string]importerModels.OperationDetails, second map[string]importerModels.OperationDetails) (*map[string]importerModels.OperationDetails, error) {
-	output := make(map[string]importerModels.OperationDetails, 0)
+func combineOperations(first map[string]models.SDKOperation, second map[string]models.SDKOperation) (*map[string]models.SDKOperation, error) {
+	output := make(map[string]models.SDKOperation, 0)
 
 	for k, v := range first {
 		output[k] = v

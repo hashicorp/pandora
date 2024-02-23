@@ -48,7 +48,7 @@ func TestParseConstantsIntegersTopLevelAsInts(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -103,7 +103,7 @@ func TestParseConstantsIntegersTopLevelAsIntsWithDisplayName(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -157,7 +157,7 @@ func TestParseConstantsIntegersTopLevelAsStrings(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -211,7 +211,7 @@ func TestParseConstantsIntegersInlinedAsInts(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -266,7 +266,7 @@ func TestParseConstantsIntegersInlinedAsIntsWithDisplayName(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -320,7 +320,7 @@ func TestParseConstantsIntegersInlinedAsStrings(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -374,7 +374,7 @@ func TestParseConstantsFloatsTopLevelAsFloats(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -428,7 +428,7 @@ func TestParseConstantsFloatsTopLevelAsStrings(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -482,7 +482,7 @@ func TestParseConstantsFloatsInlinedAsFloats(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -536,7 +536,7 @@ func TestParseConstantsFloatsInlinedAsStrings(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -590,7 +590,7 @@ func TestParseConstantsStringsTopLevel(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -646,7 +646,7 @@ func TestParseConstantsStringsTopLevelAsNonStrings(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -699,7 +699,7 @@ func TestParseConstantsStringsInlined(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -752,7 +752,7 @@ func TestParseConstantsStringsInlinedAsNonStrings(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -806,7 +806,7 @@ func TestParseConstantsStringsTopLevelContainingFloats(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -860,7 +860,7 @@ func TestParseConstantsStringsInlinedContainingFloats(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},

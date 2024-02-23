@@ -235,7 +235,7 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 				},
 			},
 		},
-		operations: map[string]resourcemanager.ApiOperation{
+		operations: map[string]models.SDKOperation{
 			"Create": {
 				LongRunning: false,
 				Method:      "PUT",
@@ -243,12 +243,12 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 					ReferenceName: pointer.To("Experiment"),
 					Type:          models.ReferenceSDKObjectDefinitionType,
 				},
-				ResourceIdName: pointer.To("ExperimentId"),
+				ResourceIDName: pointer.To("ExperimentId"),
 			},
 			"Delete": {
 				LongRunning:    true,
 				Method:         "DELETE",
-				ResourceIdName: pointer.To("ExperimentId"),
+				ResourceIDName: pointer.To("ExperimentId"),
 			},
 			"Get": {
 				LongRunning: false,
@@ -257,7 +257,7 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 					ReferenceName: pointer.To("Experiment"),
 					Type:          models.ReferenceSDKObjectDefinitionType,
 				},
-				ResourceIdName: pointer.To("ExperimentId"),
+				ResourceIDName: pointer.To("ExperimentId"),
 			},
 			"Update": {
 				LongRunning: false,
@@ -266,7 +266,7 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 					ReferenceName: pointer.To("Experiment"),
 					Type:          models.ReferenceSDKObjectDefinitionType,
 				},
-				ResourceIdName: pointer.To("ExperimentId"),
+				ResourceIDName: pointer.To("ExperimentId"),
 			},
 		},
 		resourceIds: map[string]models.ResourceID{

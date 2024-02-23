@@ -35,7 +35,7 @@ func TestParsingOperationsUsingTheSameSwaggerTagInDifferentCasings(t *testing.T)
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 
 					"First": {
 						ContentType:         "application/json",
@@ -110,7 +110,7 @@ func TestParsingOperationsOnResources(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"First": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -159,7 +159,7 @@ func TestParsingOperationsOnResources(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"HelloRestart": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},

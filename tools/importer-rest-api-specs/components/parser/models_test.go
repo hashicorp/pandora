@@ -72,7 +72,7 @@ func TestParseModelTopLevel(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -105,7 +105,7 @@ func TestParseModelTopLevelWithRawFile(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -203,7 +203,7 @@ func TestParseModelTopLevelWithInlinedModel(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -249,7 +249,7 @@ func TestParseModelWithDateTimeNoType(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -348,7 +348,7 @@ func TestParseModelWithInlinedObject(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -397,7 +397,7 @@ func TestParseModelWithNumberPrefixedField(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -480,7 +480,7 @@ func TestParseModelWithReference(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -549,7 +549,7 @@ func TestParseModelWithReferenceToArray(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -630,7 +630,7 @@ func TestParseModelWithReferenceToConstant(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -701,7 +701,7 @@ func TestParseModelWithReferenceToString(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -803,7 +803,7 @@ func TestParseModelWithCircularReferences(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -845,7 +845,7 @@ func TestParseModelInheritingFromObjectWithNoExtraFields(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -908,7 +908,7 @@ func TestParseModelInheritingFromObjectWithNoExtraFieldsInlined(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -950,7 +950,7 @@ func TestParseModelInheritingFromObjectWithOnlyDescription(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -999,7 +999,7 @@ func TestParseModelInheritingFromObjectWithPropertiesWithinAllOf(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -1051,7 +1051,7 @@ func TestParseModelContainingAllOfToTypeObject(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -1104,7 +1104,7 @@ func TestParseModelContainingAllOfToTypeObjectWithProperties(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -1183,7 +1183,7 @@ func TestParseModelContainingAllOfWithinProperties(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -1274,7 +1274,7 @@ func TestParseModelContainingMultipleAllOfWithinProperties(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -1364,7 +1364,7 @@ func TestParseModelContainingLists(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -1421,7 +1421,7 @@ func TestParseModelInlinedWithNoName(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -1491,7 +1491,7 @@ func TestParseModelInheritingFromParent(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -1590,7 +1590,7 @@ func TestParseModelMultipleTopLevelModelsAndOperations(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Get": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -1791,7 +1791,7 @@ func TestParseModelBug2675DuplicateModel(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"CreateOrUpdate": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -1800,7 +1800,7 @@ func TestParseModelBug2675DuplicateModel(t *testing.T) {
 							ReferenceName: pointer.To("ExampleEnvironment"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						ResourceIdName: pointer.To("EnvironmentId"),
+						ResourceIDName: pointer.To("EnvironmentId"),
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleEnvironment"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -1810,7 +1810,7 @@ func TestParseModelBug2675DuplicateModel(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResourceIdName:      pointer.To("EnvironmentId"),
+						ResourceIDName:      pointer.To("EnvironmentId"),
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleEnvironment"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -1824,7 +1824,7 @@ func TestParseModelBug2675DuplicateModel(t *testing.T) {
 							ReferenceName: pointer.To("ExampleEnvironmentUpdate"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						ResourceIdName: pointer.To("EnvironmentId"),
+						ResourceIDName: pointer.To("EnvironmentId"),
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleEnvironment"),
 							Type:          models.ReferenceSDKObjectDefinitionType,

@@ -64,7 +64,7 @@ func TestBuildForResourceGroupHappyPathAllModelsTheSame(t *testing.T) {
 				},
 			},
 		},
-		operations: map[string]resourcemanager.ApiOperation{
+		operations: map[string]models.SDKOperation{
 			"Create": {
 				LongRunning: false,
 				Method:      "PUT",
@@ -72,12 +72,12 @@ func TestBuildForResourceGroupHappyPathAllModelsTheSame(t *testing.T) {
 					ReferenceName: pointer.To("ResourceGroup"),
 					Type:          models.ReferenceSDKObjectDefinitionType,
 				},
-				ResourceIdName: pointer.To("ResourceGroupId"),
+				ResourceIDName: pointer.To("ResourceGroupId"),
 			},
 			"Delete": {
 				LongRunning:    true,
 				Method:         "DELETE",
-				ResourceIdName: pointer.To("ResourceGroupId"),
+				ResourceIDName: pointer.To("ResourceGroupId"),
 			},
 			"Get": {
 				LongRunning: false,
@@ -86,7 +86,7 @@ func TestBuildForResourceGroupHappyPathAllModelsTheSame(t *testing.T) {
 					ReferenceName: pointer.To("ResourceGroup"),
 					Type:          models.ReferenceSDKObjectDefinitionType,
 				},
-				ResourceIdName: pointer.To("ResourceGroupId"),
+				ResourceIDName: pointer.To("ResourceGroupId"),
 			},
 			"Update": {
 				LongRunning: false,
@@ -95,7 +95,7 @@ func TestBuildForResourceGroupHappyPathAllModelsTheSame(t *testing.T) {
 					ReferenceName: pointer.To("ResourceGroup"),
 					Type:          models.ReferenceSDKObjectDefinitionType,
 				},
-				ResourceIdName: pointer.To("ResourceGroupId"),
+				ResourceIDName: pointer.To("ResourceGroupId"),
 			},
 		},
 		resourceIds: map[string]models.ResourceID{
@@ -253,7 +253,7 @@ func TestBuildForResourceGroupUsingRealData(t *testing.T) {
 				},
 			},
 		},
-		operations: map[string]resourcemanager.ApiOperation{
+		operations: map[string]models.SDKOperation{
 			"Create": {
 				LongRunning: false,
 				Method:      "PUT",
@@ -261,12 +261,12 @@ func TestBuildForResourceGroupUsingRealData(t *testing.T) {
 					ReferenceName: pointer.To("ResourceGroup"),
 					Type:          models.ReferenceSDKObjectDefinitionType,
 				},
-				ResourceIdName: pointer.To("ResourceGroupId"),
+				ResourceIDName: pointer.To("ResourceGroupId"),
 			},
 			"Delete": {
 				LongRunning:    true,
 				Method:         "DELETE",
-				ResourceIdName: pointer.To("ResourceGroupId"),
+				ResourceIDName: pointer.To("ResourceGroupId"),
 			},
 			"Get": {
 				LongRunning: false,
@@ -275,7 +275,7 @@ func TestBuildForResourceGroupUsingRealData(t *testing.T) {
 					ReferenceName: pointer.To("ResourceGroup"),
 					Type:          models.ReferenceSDKObjectDefinitionType,
 				},
-				ResourceIdName: pointer.To("ResourceGroupId"),
+				ResourceIDName: pointer.To("ResourceGroupId"),
 			},
 			"Update": {
 				LongRunning: false,
@@ -284,7 +284,7 @@ func TestBuildForResourceGroupUsingRealData(t *testing.T) {
 					ReferenceName: pointer.To("ResourceGroupPatchable"),
 					Type:          models.ReferenceSDKObjectDefinitionType,
 				},
-				ResourceIdName: pointer.To("ResourceGroupId"),
+				ResourceIDName: pointer.To("ResourceGroupId"),
 			},
 		},
 		resourceIds: map[string]models.ResourceID{

@@ -90,7 +90,7 @@ func TestParseDiscriminatorsTopLevel(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -197,7 +197,7 @@ func TestParseDiscriminatorsWithinArray(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -379,7 +379,7 @@ func TestParseDiscriminatorsWithinDiscriminators(t *testing.T) {
 						TypeHintIn: pointer.To("ToyType"),
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -424,7 +424,7 @@ func TestParseDiscriminatedParentTypeThatShouldntBe(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -469,7 +469,7 @@ func TestParseDiscriminatedChildTypeThatShouldntBe(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -569,7 +569,7 @@ func TestParseDiscriminatedChildTypeWhereParentShouldNotBeUsed(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -673,7 +673,7 @@ func TestParseDiscriminatorsInheritingFromOtherDiscriminators(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -854,7 +854,7 @@ func TestParseDiscriminatorsDeepInheritance(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -1005,7 +1005,7 @@ func TestParseDiscriminatorsWithMultipleParents(t *testing.T) {
 					// it's just an abstract type (defining the shared fields for Car and Human), rather than
 					// being directly used.
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -1159,7 +1159,7 @@ func TestParseDiscriminatorsWithMultipleParentsWithinArray(t *testing.T) {
 					// it's just an abstract type (defining the shared fields for Car and Human), rather than
 					// being directly used.
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},

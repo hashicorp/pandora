@@ -17,14 +17,14 @@ import (
 func TestIdentifyWithCreateAndReadAndUpdateAndDelete(t *testing.T) {
 	services := services.Resource{
 		Operations: resourcemanager.ApiOperationDetails{
-			Operations: map[string]resourcemanager.ApiOperation{
+			Operations: map[string]models.SDKOperation{
 				"Create": {
 					Method: "PUT",
 					RequestObject: &models.SDKObjectDefinition{
 						Type:          models.ReferenceSDKObjectDefinitionType,
 						ReferenceName: pointer.To("SomeModel"),
 					},
-					ResourceIdName: pointer.To("VirtualNetwork"),
+					ResourceIDName: pointer.To("VirtualNetwork"),
 				},
 				"Update": {
 					Method: "PATCH",
@@ -32,7 +32,7 @@ func TestIdentifyWithCreateAndReadAndUpdateAndDelete(t *testing.T) {
 						Type:          models.ReferenceSDKObjectDefinitionType,
 						ReferenceName: pointer.To("SomeModel"),
 					},
-					ResourceIdName: pointer.To("VirtualNetwork"),
+					ResourceIDName: pointer.To("VirtualNetwork"),
 				},
 				"Get": {
 					Method: "GET",
@@ -40,11 +40,11 @@ func TestIdentifyWithCreateAndReadAndUpdateAndDelete(t *testing.T) {
 						Type:          models.ReferenceSDKObjectDefinitionType,
 						ReferenceName: pointer.To("SomeModel"),
 					},
-					ResourceIdName: pointer.To("VirtualNetwork"),
+					ResourceIDName: pointer.To("VirtualNetwork"),
 				},
 				"Delete": {
 					Method:         "DELETE",
-					ResourceIdName: pointer.To("VirtualNetwork"),
+					ResourceIDName: pointer.To("VirtualNetwork"),
 				},
 			},
 		},
@@ -111,14 +111,14 @@ func TestIdentifyWithCreateOrUpdateAndReadAndDelete(t *testing.T) {
 	// shared CreateOrUpdate method
 	services := services.Resource{
 		Operations: resourcemanager.ApiOperationDetails{
-			Operations: map[string]resourcemanager.ApiOperation{
+			Operations: map[string]models.SDKOperation{
 				"CreateOrUpdate": {
 					Method: "PUT",
 					RequestObject: &models.SDKObjectDefinition{
 						Type:          models.ReferenceSDKObjectDefinitionType,
 						ReferenceName: pointer.To("SomeModel"),
 					},
-					ResourceIdName: pointer.To("VirtualNetwork"),
+					ResourceIDName: pointer.To("VirtualNetwork"),
 				},
 				"Get": {
 					Method: "GET",
@@ -126,11 +126,11 @@ func TestIdentifyWithCreateOrUpdateAndReadAndDelete(t *testing.T) {
 						Type:          models.ReferenceSDKObjectDefinitionType,
 						ReferenceName: pointer.To("SomeModel"),
 					},
-					ResourceIdName: pointer.To("VirtualNetwork"),
+					ResourceIDName: pointer.To("VirtualNetwork"),
 				},
 				"Delete": {
 					Method:         "DELETE",
-					ResourceIdName: pointer.To("VirtualNetwork"),
+					ResourceIDName: pointer.To("VirtualNetwork"),
 				},
 			},
 		},
@@ -193,14 +193,14 @@ func TestIdentifyWithCreateOrUpdateAndUpdateAndReadAndDelete(t *testing.T) {
 	// shared CreateOrUpdate method but we should use the specific Update method
 	services := services.Resource{
 		Operations: resourcemanager.ApiOperationDetails{
-			Operations: map[string]resourcemanager.ApiOperation{
+			Operations: map[string]models.SDKOperation{
 				"CreateOrUpdate": {
 					Method: "PUT",
 					RequestObject: &models.SDKObjectDefinition{
 						Type:          models.ReferenceSDKObjectDefinitionType,
 						ReferenceName: pointer.To("SomeModel"),
 					},
-					ResourceIdName: pointer.To("VirtualNetwork"),
+					ResourceIDName: pointer.To("VirtualNetwork"),
 				},
 				"Update": {
 					Method: "PATCH",
@@ -208,7 +208,7 @@ func TestIdentifyWithCreateOrUpdateAndUpdateAndReadAndDelete(t *testing.T) {
 						Type:          models.ReferenceSDKObjectDefinitionType,
 						ReferenceName: pointer.To("SomeModelPatch"),
 					},
-					ResourceIdName: pointer.To("VirtualNetwork"),
+					ResourceIDName: pointer.To("VirtualNetwork"),
 				},
 				"Get": {
 					Method: "GET",
@@ -216,11 +216,11 @@ func TestIdentifyWithCreateOrUpdateAndUpdateAndReadAndDelete(t *testing.T) {
 						Type:          models.ReferenceSDKObjectDefinitionType,
 						ReferenceName: pointer.To("SomeModel"),
 					},
-					ResourceIdName: pointer.To("VirtualNetwork"),
+					ResourceIDName: pointer.To("VirtualNetwork"),
 				},
 				"Delete": {
 					Method:         "DELETE",
-					ResourceIdName: pointer.To("VirtualNetwork"),
+					ResourceIDName: pointer.To("VirtualNetwork"),
 				},
 			},
 		},
@@ -304,14 +304,14 @@ func TestIdentifyWithCreateOrUpdateAndUpdateAndReadAndDelete_NoProperties(t *tes
 	// the Update model doesn't contain a `properties` model we should use CreateOrUpdate here
 	services := services.Resource{
 		Operations: resourcemanager.ApiOperationDetails{
-			Operations: map[string]resourcemanager.ApiOperation{
+			Operations: map[string]models.SDKOperation{
 				"CreateOrUpdate": {
 					Method: "PUT",
 					RequestObject: &models.SDKObjectDefinition{
 						Type:          models.ReferenceSDKObjectDefinitionType,
 						ReferenceName: pointer.To("SomeModel"),
 					},
-					ResourceIdName: pointer.To("VirtualNetwork"),
+					ResourceIDName: pointer.To("VirtualNetwork"),
 				},
 				"Update": {
 					Method: "PATCH",
@@ -319,7 +319,7 @@ func TestIdentifyWithCreateOrUpdateAndUpdateAndReadAndDelete_NoProperties(t *tes
 						Type:          models.ReferenceSDKObjectDefinitionType,
 						ReferenceName: pointer.To("SomeModelPatch"),
 					},
-					ResourceIdName: pointer.To("VirtualNetwork"),
+					ResourceIDName: pointer.To("VirtualNetwork"),
 				},
 				"Get": {
 					Method: "GET",
@@ -327,11 +327,11 @@ func TestIdentifyWithCreateOrUpdateAndUpdateAndReadAndDelete_NoProperties(t *tes
 						Type:          models.ReferenceSDKObjectDefinitionType,
 						ReferenceName: pointer.To("SomeModel"),
 					},
-					ResourceIdName: pointer.To("VirtualNetwork"),
+					ResourceIDName: pointer.To("VirtualNetwork"),
 				},
 				"Delete": {
 					Method:         "DELETE",
-					ResourceIdName: pointer.To("VirtualNetwork"),
+					ResourceIDName: pointer.To("VirtualNetwork"),
 				},
 			},
 		},
@@ -394,14 +394,14 @@ func TestIdentifyWithCreateOrUpdateAndUpdateAndReadAndDelete_NoProperties(t *tes
 func TestIdentityWithCreateReadDeleteAndUpdateTags(t *testing.T) {
 	services := services.Resource{
 		Operations: resourcemanager.ApiOperationDetails{
-			Operations: map[string]resourcemanager.ApiOperation{
+			Operations: map[string]models.SDKOperation{
 				"CreateOrUpdate": {
 					Method: "PUT",
 					RequestObject: &models.SDKObjectDefinition{
 						Type:          models.ReferenceSDKObjectDefinitionType,
 						ReferenceName: pointer.To("SomeModel"),
 					},
-					ResourceIdName: pointer.To("VirtualNetwork"),
+					ResourceIDName: pointer.To("VirtualNetwork"),
 				},
 				"UpdateTags": {
 					Method: "PATCH",
@@ -409,7 +409,7 @@ func TestIdentityWithCreateReadDeleteAndUpdateTags(t *testing.T) {
 						Type:          models.ReferenceSDKObjectDefinitionType,
 						ReferenceName: pointer.To("Tags"),
 					},
-					ResourceIdName: pointer.To("VirtualNetwork"),
+					ResourceIDName: pointer.To("VirtualNetwork"),
 				},
 				"Get": {
 					Method: "GET",
@@ -417,11 +417,11 @@ func TestIdentityWithCreateReadDeleteAndUpdateTags(t *testing.T) {
 						Type:          models.ReferenceSDKObjectDefinitionType,
 						ReferenceName: pointer.To("SomeModel"),
 					},
-					ResourceIdName: pointer.To("VirtualNetwork"),
+					ResourceIDName: pointer.To("VirtualNetwork"),
 				},
 				"Delete": {
 					Method:         "DELETE",
-					ResourceIdName: pointer.To("VirtualNetwork"),
+					ResourceIDName: pointer.To("VirtualNetwork"),
 				},
 			},
 		},

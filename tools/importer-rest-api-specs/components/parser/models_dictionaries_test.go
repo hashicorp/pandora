@@ -45,7 +45,7 @@ func TestParseModelWithADictionaryOfIntegers(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"GetWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -97,7 +97,7 @@ func TestParseModelWithADictionaryOfIntegersInlined(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"GetWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -182,7 +182,7 @@ func TestParseModelWithADictionaryOfAnObject(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"GetWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -267,7 +267,7 @@ func TestParseModelWithADictionaryOfAnObjectInlined(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"GetWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -319,7 +319,7 @@ func TestParseModelWithADictionaryOfString(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"GetWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -371,7 +371,7 @@ func TestParseModelWithADictionaryOfStringInlined(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"GetWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},

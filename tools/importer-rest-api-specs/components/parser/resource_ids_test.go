@@ -36,12 +36,12 @@ func TestParseResourceIdBasic(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						ResourceIdName:      pointer.To("ServerId"),
+						ResourceIDName:      pointer.To("ServerId"),
 					},
 				},
 			},
@@ -83,12 +83,12 @@ func TestParseResourceIdContainingAConstant(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"OperationContainingAConstant": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						ResourceIdName:      pointer.To("PlanetId"),
+						ResourceIDName:      pointer.To("PlanetId"),
 					},
 				},
 			},
@@ -119,12 +119,12 @@ func TestParseResourceIdContainingAScope(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"OperationContainingAScope": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						ResourceIdName:      pointer.To("ScopedVirtualMachineId"),
+						ResourceIDName:      pointer.To("ScopedVirtualMachineId"),
 					},
 				},
 			},
@@ -161,12 +161,12 @@ func TestParseResourceIdContainingAHiddenScope(t *testing.T) {
 								},
 							},
 						},
-						Operations: map[string]importerModels.OperationDetails{
+						Operations: map[string]models.SDKOperation{
 							"OperationContainingAHiddenScope": {
 								ContentType:         "application/json",
 								ExpectedStatusCodes: []int{200},
 								Method:              "HEAD",
-								ResourceIdName:      pointer.To("ScopeId"),
+								ResourceIDName:      pointer.To("ScopeId"),
 							},
 						},
 					},
@@ -197,12 +197,12 @@ func TestParseResourceIdContainingAHiddenScopeWithExtraSegment(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"OperationContainingAHiddenScope": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						ResourceIdName:      pointer.To("ScopeId"),
+						ResourceIDName:      pointer.To("ScopeId"),
 					},
 				},
 			},
@@ -230,12 +230,12 @@ func TestParseResourceIdContainingAHiddenScopeWithSuffix(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"OperationContainingAHiddenScope": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						ResourceIdName:      pointer.To("ScopeId"),
+						ResourceIDName:      pointer.To("ScopeId"),
 						URISuffix:           pointer.To("/someEndpoint"),
 					},
 				},
@@ -273,12 +273,12 @@ func TestParseResourceIdContainingAHiddenScopeNested(t *testing.T) {
 								},
 							},
 						},
-						Operations: map[string]importerModels.OperationDetails{
+						Operations: map[string]models.SDKOperation{
 							"OperationContainingAHiddenScope": {
 								ContentType:         "application/json",
 								ExpectedStatusCodes: []int{200},
 								Method:              "HEAD",
-								ResourceIdName:      pointer.To("ScopeId"),
+								ResourceIDName:      pointer.To("ScopeId"),
 							},
 						},
 					},
@@ -308,12 +308,12 @@ func TestParseResourceIdContainingAHiddenScopeNestedWithExtraSegment(t *testing.
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"OperationContainingAHiddenScope": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						ResourceIdName:      pointer.To("ScopeId"),
+						ResourceIDName:      pointer.To("ScopeId"),
 					},
 				},
 			},
@@ -341,12 +341,12 @@ func TestParseResourceIdContainingAHiddenScopeNestedWithSuffix(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"OperationContainingAHiddenScope": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						ResourceIdName:      pointer.To("ScopeId"),
+						ResourceIDName:      pointer.To("ScopeId"),
 						URISuffix:           pointer.To("/someEndpoint"),
 					},
 				},
@@ -367,7 +367,7 @@ func TestParseResourceIdWithJustUriSuffix(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"JustSuffix": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -406,12 +406,12 @@ func TestParseResourceIdWithResourceIdAndUriSuffix(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						ResourceIdName:      pointer.To("ServerId"),
+						ResourceIDName:      pointer.To("ServerId"),
 						URISuffix:           pointer.To("/someOperation"),
 					},
 				},
@@ -446,26 +446,26 @@ func TestParseResourceIdWithResourceIdAndUriSuffixForMultipleUris(t *testing.T) 
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Restart": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						ResourceIdName:      pointer.To("ServerId"),
+						ResourceIDName:      pointer.To("ServerId"),
 						URISuffix:           pointer.To("/restart"),
 					},
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						ResourceIdName:      pointer.To("ServerId"),
+						ResourceIDName:      pointer.To("ServerId"),
 						URISuffix:           pointer.To("/someOperation"),
 					},
 					"TopLevel": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						ResourceIdName:      pointer.To("ServerId"),
+						ResourceIDName:      pointer.To("ServerId"),
 					},
 				},
 			},
@@ -499,12 +499,12 @@ func TestParseResourceIdContainingResourceProviderShouldGetTitleCased(t *testing
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						ResourceIdName:      pointer.To("ServerId"),
+						ResourceIDName:      pointer.To("ServerId"),
 					},
 				},
 			},
@@ -538,19 +538,19 @@ func TestParseResourceIdContainingTheSameResourceIdWithDifferentSegments(t *test
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Restart": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						ResourceIdName:      pointer.To("VirtualMachineId"),
+						ResourceIDName:      pointer.To("VirtualMachineId"),
 						URISuffix:           pointer.To("/restart"),
 					},
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						ResourceIdName:      pointer.To("VirtualMachineId"),
+						ResourceIDName:      pointer.To("VirtualMachineId"),
 					},
 				},
 			},
@@ -584,12 +584,12 @@ func TestParseResourceIdContainingTheSegmentsNamedTheSame(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						ResourceIdName:      pointer.To("BillingPeriodId"),
+						ResourceIDName:      pointer.To("BillingPeriodId"),
 						URISuffix:           pointer.To("/Microsoft.Consumption/aggregatedCost"),
 					},
 				},
@@ -651,19 +651,19 @@ func TestParseResourceIdsWhereTheSameUriContainsDifferentConstantValuesPerOperat
 							},
 						},
 					},
-					Operations: map[string]importerModels.OperationDetails{
+					Operations: map[string]models.SDKOperation{
 						"Delete": {
 							ContentType:         "application/json",
 							ExpectedStatusCodes: []int{200},
 							Method:              "DELETE",
-							ResourceIdName:      pointer.To("GalaxyId"),
+							ResourceIDName:      pointer.To("GalaxyId"),
 							URISuffix:           pointer.To("/hello/Earth"),
 						},
 						"Head": {
 							ContentType:         "application/json",
 							ExpectedStatusCodes: []int{200},
 							Method:              "HEAD",
-							ResourceIdName:      pointer.To("PlanetId"),
+							ResourceIDName:      pointer.To("PlanetId"),
 						},
 					},
 				},
@@ -730,36 +730,36 @@ func TestParseResourceIdsCommon(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"GetManagementGroup": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						ResourceIdName:      pointer.To("ManagementGroupId"),
+						ResourceIDName:      pointer.To("ManagementGroupId"),
 					},
 					"GetResourceGroup": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						ResourceIdName:      pointer.To("ResourceGroupId"),
+						ResourceIDName:      pointer.To("ResourceGroupId"),
 					},
 					"GetScope": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						ResourceIdName:      pointer.To("ScopeId"),
+						ResourceIDName:      pointer.To("ScopeId"),
 					},
 					"GetSubscription": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						ResourceIdName:      pointer.To("SubscriptionId"),
+						ResourceIDName:      pointer.To("SubscriptionId"),
 					},
 					"GetUserAssignedIdentity": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						ResourceIdName:      pointer.To("UserAssignedIdentityId"),
+						ResourceIDName:      pointer.To("UserAssignedIdentityId"),
 					},
 				},
 			},

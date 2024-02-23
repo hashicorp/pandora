@@ -13,23 +13,18 @@ import (
 )
 
 func ApiResourceFromModelResource(schema importerModels.AzureApiResource) (*services.Resource, error) {
-	operations, err := apiOperationsFromModelOperations(schema.Operations)
-	if err != nil {
-		return nil, fmt.Errorf("converting Model Operation Details into Data API Operation Details: %+v", err)
-	}
-
-	models, err := apiModelsFromModelModels(schema.Models, schema.Constants)
+	mappedModels, err := apiModelsFromModelModels(schema.Models, schema.Constants)
 	if err != nil {
 		return nil, fmt.Errorf("converting Model Constant Details into Data API Constant Details: %+v", err)
 	}
 
 	return &services.Resource{
 		Operations: resourcemanager.ApiOperationDetails{
-			Operations: *operations,
+			Operations: schema.Operations,
 		},
 		Schema: resourcemanager.ApiSchemaDetails{
 			Constants:   schema.Constants,
-			Models:      *models,
+			Models:      *mappedModels,
 			ResourceIds: schema.ResourceIds,
 		},
 	}, nil
@@ -106,25 +101,4 @@ func validationForConstant(input models.SDKConstant) *resourcemanager.FieldValid
 		Type:   resourcemanager.RangeValidation,
 		Values: &vals,
 	}
-}
-
-func apiOperationsFromModelOperations(input map[string]importerModels.OperationDetails) (*map[string]resourcemanager.ApiOperation, error) {
-	out := make(map[string]resourcemanager.ApiOperation)
-
-	for k, v := range input {
-		out[k] = resourcemanager.ApiOperation{
-			ContentType:                      &v.ContentType,
-			ExpectedStatusCodes:              v.ExpectedStatusCodes,
-			LongRunning:                      v.LongRunning,
-			Method:                           v.Method,
-			RequestObject:                    v.RequestObject,
-			ResourceIdName:                   v.ResourceIdName,
-			ResponseObject:                   v.ResponseObject,
-			FieldContainingPaginationDetails: v.FieldContainingPaginationDetails,
-			Options:                          v.Options,
-			UriSuffix:                        v.URISuffix,
-		}
-	}
-
-	return &out, nil
 }

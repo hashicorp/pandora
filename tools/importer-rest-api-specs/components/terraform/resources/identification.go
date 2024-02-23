@@ -41,21 +41,21 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 
 		for operationName, operation := range input.Operations.Operations {
 			// if it's an operation on just a suffix we're not interested
-			if operation.ResourceIdName == nil {
+			if operation.ResourceIDName == nil {
 				continue
 			}
-			if *operation.ResourceIdName != resourceIdName {
+			if *operation.ResourceIDName != resourceIdName {
 				continue
 			}
 
-			if (strings.EqualFold(operation.Method, "POST") || strings.EqualFold(operation.Method, "PUT")) && operation.UriSuffix == nil && operation.RequestObject != nil {
+			if (strings.EqualFold(operation.Method, "POST") || strings.EqualFold(operation.Method, "PUT")) && operation.URISuffix == nil && operation.RequestObject != nil {
 				createMethod = &resourcemanager.MethodDefinition{
 					Generate:         resourceMetaData.GenerateCreate,
 					MethodName:       operationName,
 					TimeoutInMinutes: 30,
 				}
 			}
-			if strings.EqualFold(operation.Method, "PATCH") && operation.UriSuffix == nil && operation.RequestObject != nil {
+			if strings.EqualFold(operation.Method, "PATCH") && operation.URISuffix == nil && operation.RequestObject != nil {
 				v := strings.ToLower(operationName)
 				// if this is UpdateTags etc, ignore it since the model will be totally unrelated
 				if v != "update" && strings.HasPrefix(v, "update") {
@@ -80,8 +80,8 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 					TimeoutInMinutes: 30,
 				}
 			}
-			if strings.EqualFold(operation.Method, "GET") && operation.UriSuffix == nil && operation.ResponseObject != nil {
-				if operation.UriSuffix == nil {
+			if strings.EqualFold(operation.Method, "GET") && operation.URISuffix == nil && operation.ResponseObject != nil {
+				if operation.URISuffix == nil {
 					getMethod = &resourcemanager.MethodDefinition{
 						Generate:         resourceMetaData.GenerateRead,
 						MethodName:       operationName,
@@ -93,7 +93,7 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 					hasList = true
 				}
 			}
-			if strings.EqualFold(operation.Method, "DELETE") && operation.UriSuffix == nil {
+			if strings.EqualFold(operation.Method, "DELETE") && operation.URISuffix == nil {
 				deleteMethod = &resourcemanager.MethodDefinition{
 					Generate:         resourceMetaData.GenerateDelete,
 					MethodName:       operationName,

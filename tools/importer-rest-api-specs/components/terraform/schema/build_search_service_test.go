@@ -419,7 +419,7 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 				},
 			},
 		},
-		operations: map[string]resourcemanager.ApiOperation{
+		operations: map[string]models.SDKOperation{
 			"Create": {
 				LongRunning: false,
 				Method:      "PUT",
@@ -427,12 +427,12 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 					ReferenceName: pointer.To("SearchService"),
 					Type:          models.ReferenceSDKObjectDefinitionType,
 				},
-				ResourceIdName: pointer.To("SearchServiceId"),
+				ResourceIDName: pointer.To("SearchServiceId"),
 			},
 			"Delete": {
 				LongRunning:    true,
 				Method:         "DELETE",
-				ResourceIdName: pointer.To("SearchServiceId"),
+				ResourceIDName: pointer.To("SearchServiceId"),
 			},
 			"Get": {
 				LongRunning: false,
@@ -441,7 +441,7 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 					ReferenceName: pointer.To("SearchService"),
 					Type:          models.ReferenceSDKObjectDefinitionType,
 				},
-				ResourceIdName: pointer.To("SearchServiceId"),
+				ResourceIDName: pointer.To("SearchServiceId"),
 			},
 			"Update": {
 				LongRunning: false,
@@ -450,7 +450,7 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 					ReferenceName: pointer.To("SearchService"),
 					Type:          models.ReferenceSDKObjectDefinitionType,
 				},
-				ResourceIdName: pointer.To("SearchServiceId"),
+				ResourceIDName: pointer.To("SearchServiceId"),
 			},
 		},
 		resourceIds: map[string]models.ResourceID{

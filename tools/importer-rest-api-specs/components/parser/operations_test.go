@@ -37,7 +37,7 @@ func TestParseOperationSingleWithTag(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"HeadWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{http.StatusOK},
@@ -63,12 +63,12 @@ func TestParseOperationSingleWithTagAndResourceId(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"HeadWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						ResourceIdName:      pointer.To("ThingId"),
+						ResourceIDName:      pointer.To("ThingId"),
 					},
 				},
 				ResourceIds: map[string]models.ResourceID{
@@ -102,12 +102,12 @@ func TestParseOperationSingleWithTagAndResourceIdSuffix(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"HeadWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						ResourceIdName:      pointer.To("ThingId"),
+						ResourceIDName:      pointer.To("ThingId"),
 						URISuffix:           pointer.To("/restart"),
 					},
 				},
@@ -155,7 +155,7 @@ func TestParseOperationSingleWithRequestObject(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"PutWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -197,7 +197,7 @@ func TestParseOperationSingleWithRequestObjectInlined(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"PutWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -239,7 +239,7 @@ func TestParseOperationSingleWithResponseObject(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"GetWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -281,7 +281,7 @@ func TestParseOperationSingleWithResponseObjectInlined(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"GetWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -323,7 +323,7 @@ func TestParseOperationSingleWithResponseObjectInlinedList(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"GetWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -355,7 +355,7 @@ func TestParseOperationSingleRequestingWithABool(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"PutWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -383,7 +383,7 @@ func TestParseOperationSingleRequestingWithAInteger(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"PutWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -411,7 +411,7 @@ func TestParseOperationSingleRequestingWithADictionaryOfStrings(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"PutWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -442,7 +442,7 @@ func TestParseOperationSingleRequestingWithAListOfStrings(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"PutWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -475,7 +475,7 @@ func TestParseOperationSingleRequestingWithAString(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"PutWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -503,7 +503,7 @@ func TestParseOperationSingleReturningABool(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"GimmeABoolean": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -531,7 +531,7 @@ func TestParseOperationSingleReturningAFloat(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"GimmeAFloat": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -559,7 +559,7 @@ func TestParseOperationSingleReturningAFile(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"GimmeAFile": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -587,7 +587,7 @@ func TestParseOperationSingleReturningAnInteger(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"GimmeAnInteger": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -615,7 +615,7 @@ func TestParseOperationSingleReturningAString(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"GimmeAString": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -644,7 +644,7 @@ func TestParseOperationSingleReturningAnErrorStatusCode(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"GimmeAString": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -672,7 +672,7 @@ func TestParseOperationSingleReturningATopLevelRawObject(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"RawObjectToMeToYou": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -716,7 +716,7 @@ func TestParseOperationSingleReturningADictionaryOfAModel(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"GimmeADictionaryOfAModel": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -748,7 +748,7 @@ func TestParseOperationSingleReturningADictionaryOfStrings(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"GimmeADictionaryOfStrings": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -779,7 +779,7 @@ func TestParseOperationSingleReturningAListOfIntegers(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"GimmeAListOfIntegers": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -823,7 +823,7 @@ func TestParseOperationSingleReturningAListOfAModel(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"GimmeAListOfModels": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -855,7 +855,7 @@ func TestParseOperationSingleReturningAListOfStrings(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"GimmeAListOfStrings": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -899,7 +899,7 @@ func TestParseOperationSingleReturningAListOfListOfAModel(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"GimmeAListOfListOfModels": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -934,7 +934,7 @@ func TestParseOperationSingleReturningAListOfListOfStrings(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"GimmeAListOfListOfStrings": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -981,12 +981,11 @@ func TestParseOperationSingleWithList(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"ListWorlds": {
 						ContentType:                      "application/json",
 						ExpectedStatusCodes:              []int{200},
 						FieldContainingPaginationDetails: pointer.To("nextLink"),
-						IsListOperation:                  true,
 						Method:                           "GET",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("World"),
@@ -1027,14 +1026,15 @@ func TestParseOperationSingleWithListWhichIsNotAList(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"ListWorlds": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						// This signifies there's a list of items without a means of paging over it.
 						// This is _likely_ a badly documented API Definition, but it's hard to say for sure.
+						// Since there isn't a pagination field present in the response, we have to assume this isn't
+						// a list operation, even if there's a `skipToken` present.
 						FieldContainingPaginationDetails: nil,
-						IsListOperation:                  true,
 						Method:                           "GET",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("World"),
@@ -1060,12 +1060,11 @@ func TestParseOperationSingleWithListReturningAListOfStrings(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"ListWorlds": {
 						ContentType:                      "application/json",
 						ExpectedStatusCodes:              []int{200},
 						FieldContainingPaginationDetails: pointer.To("nextLink"),
-						IsListOperation:                  true,
 						Method:                           "GET",
 						ResponseObject: &models.SDKObjectDefinition{
 							Type: models.StringSDKObjectDefinitionType,
@@ -1105,12 +1104,11 @@ func TestParseOperationSingleWithListWithoutPageable(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"ListWorlds": {
 						ContentType:                      "application/json",
 						ExpectedStatusCodes:              []int{200},
 						FieldContainingPaginationDetails: pointer.To("nextLink"),
-						IsListOperation:                  true,
 						Method:                           "GET",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("World"),
@@ -1149,7 +1147,7 @@ func TestParseOperationSingleWithLongRunningOperation(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"PutWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -1192,7 +1190,7 @@ func TestParseOperationSingleWithRequestAndResponseObject(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"PutWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -1225,7 +1223,7 @@ func TestParseOperationSingleWithMultipleTags(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"HeadThings": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -1235,7 +1233,7 @@ func TestParseOperationSingleWithMultipleTags(t *testing.T) {
 				},
 			},
 			"Other": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					// Whilst the operation name should be `HeadThings`, since this is another Tag
 					// it's intentionally prefixed for when things cross boundaries (to avoid conflicts)
 					"HelloHeadThings": {
@@ -1263,7 +1261,7 @@ func TestParseOperationSingleWithInferredTag(t *testing.T) {
 		Resources: map[string]importerModels.AzureApiResource{
 			// since there's no tags, the file name is used to infer the tag (in this case, 'OperationsSingleWithNoTags')
 			"OperationsSingleWithNoTags": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					// since the prefix doesn't match the Tag (since no tag) this gets a combined name
 					"HelloHeadWorld": {
 						ContentType:         "application/json",
@@ -1289,7 +1287,7 @@ func TestParseOperationSingleWithHeaderOptions(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"HeadWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -1371,7 +1369,7 @@ func TestParseOperationSingleWithQueryStringOptions(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"HeadWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -1453,18 +1451,18 @@ func TestParseOperationMultipleBasedOnTheSameResourceId(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"HeadWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						ResourceIdName:      pointer.To("ThingId"),
+						ResourceIDName:      pointer.To("ThingId"),
 					},
 					"RestartWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						ResourceIdName:      pointer.To("ThingId"),
+						ResourceIDName:      pointer.To("ThingId"),
 						URISuffix:           pointer.To("/restart"),
 					},
 				},
@@ -1499,7 +1497,7 @@ func TestParseOperationsContainingContentTypes(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Default": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -1574,7 +1572,7 @@ func TestParseOperationContainingMultipleReturnObjects(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"HeadWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200, 202},
@@ -1603,7 +1601,7 @@ func TestParseOperationsWithStutteringNames(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"ExampleTag": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Mars": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
