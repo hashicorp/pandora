@@ -34,7 +34,7 @@ func (d AzureApiDefinition) IsPreviewVersion() bool {
 
 type AzureApiResource struct {
 	Constants   map[string]models.SDKConstant
-	Models      map[string]ModelDetails
+	Models      map[string]models.SDKModel
 	Operations  map[string]models.SDKOperation
 	ResourceIds map[string]models.ResourceID
 	Terraform   *resourcemanager.TerraformDetails
@@ -48,24 +48,6 @@ type Override struct {
 	Name        string
 	UpdatedName *string
 	Description *string
-}
-
-type ModelDetails struct {
-	Description string
-	Fields      map[string]FieldDetails
-
-	// @tombuildsstuff: placeholder until the other branch is merged
-	ParentTypeName *string
-	TypeHintIn     *string
-	TypeHintValue  *string
-}
-
-type FieldDetails struct {
-	Required    bool
-	JsonName    string
-	Description string
-
-	ObjectDefinition models.SDKObjectDefinition
 }
 
 func MergeResourcesForTag(base AzureApiResource, merge AzureApiResource) AzureApiResource {
