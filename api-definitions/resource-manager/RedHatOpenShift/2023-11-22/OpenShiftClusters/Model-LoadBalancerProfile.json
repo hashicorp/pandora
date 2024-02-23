@@ -1,0 +1,33 @@
+{
+  "name": "LoadBalancerProfile",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "effectiveOutboundIps",
+      "name": "EffectiveOutboundIPs",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "EffectiveOutboundIP"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "managedOutboundIps",
+      "name": "ManagedOutboundIPs",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ManagedOutboundIPs"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
+}

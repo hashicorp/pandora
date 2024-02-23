@@ -1,0 +1,43 @@
+{
+  "name": "OpenShiftClusterId",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RedHatOpenShift/openShiftCluster/{openShiftClusterName}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticResourceGroups",
+      "type": "Static",
+      "value": "resourceGroups"
+    },
+    {
+      "name": "resourceGroupName",
+      "type": "ResourceGroup"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftRedHatOpenShift",
+      "type": "ResourceProvider",
+      "value": "Microsoft.RedHatOpenShift"
+    },
+    {
+      "name": "staticOpenShiftCluster",
+      "type": "Static",
+      "value": "openShiftCluster"
+    },
+    {
+      "name": "openShiftClusterName",
+      "type": "UserSpecified"
+    }
+  ]
+}
