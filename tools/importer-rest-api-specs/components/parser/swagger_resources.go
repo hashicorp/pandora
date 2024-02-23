@@ -78,8 +78,8 @@ func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resource
 }
 
 type listOperationDetails struct {
-	fieldContainingPaginationDetails string
-	valueObjectDefinition            models.SDKObjectDefinition
+	fieldContainingPaginationDetails *string
+	valueObjectDefinition            *models.SDKObjectDefinition
 }
 
 func listOperationDetailsForOperation(input models.SDKOperation, known internal.ParseResult) *listOperationDetails {
@@ -96,21 +96,21 @@ func listOperationDetailsForOperation(input models.SDKOperation, known internal.
 
 		out := listOperationDetails{}
 		if input.FieldContainingPaginationDetails != nil {
-			out.fieldContainingPaginationDetails = *input.FieldContainingPaginationDetails
+			out.fieldContainingPaginationDetails = input.FieldContainingPaginationDetails
 		}
 		for fieldName, v := range responseModel.Fields {
 			if strings.EqualFold(fieldName, "nextLink") {
-				out.fieldContainingPaginationDetails = fieldName
+				out.fieldContainingPaginationDetails = pointer.To(fieldName)
 			}
 
 			if strings.EqualFold(fieldName, "Value") {
 				// switch out the reference to be the SDKObjectDefinition for the `Value` field, rather than
 				// the wrapper type
 				definition := helpers.InnerMostSDKObjectDefinition(v.ObjectDefinition)
-				out.valueObjectDefinition = definition
+				out.valueObjectDefinition = pointer.To(definition)
 			}
 		}
-		if out.fieldContainingPaginationDetails != "" {
+		if out.fieldContainingPaginationDetails != nil && out.valueObjectDefinition != nil {
 			return &out
 		}
 	}
@@ -130,8 +130,8 @@ func pullOutModelForListOperations(input map[string]models.SDKOperation, known i
 		// if the Response Object is a List Operation (identifiable via
 		listDetails := listOperationDetailsForOperation(operation, known)
 		if listDetails != nil {
-			operation.FieldContainingPaginationDetails = pointer.To(listDetails.fieldContainingPaginationDetails)
-			operation.ResponseObject = pointer.To(listDetails.valueObjectDefinition)
+			operation.FieldContainingPaginationDetails = listDetails.fieldContainingPaginationDetails
+			operation.ResponseObject = listDetails.valueObjectDefinition
 		}
 
 		output[operationName] = operation
