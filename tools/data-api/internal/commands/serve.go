@@ -59,7 +59,7 @@ func (c ServeCommand) Run(args []string) int {
 		serviceNames = pointer.To(strings.Split(serviceNamesRaw, ","))
 	}
 
-	if logLevel := strings.TrimSpace(os.Getenv("PANDORA_LOG")); logLevel != "" {
+	if logLevel := strings.TrimSpace(os.Getenv("LOG_LEVEL")); logLevel != "" {
 		c.Log.SetLevel(hclog.LevelFromString(logLevel))
 	}
 
