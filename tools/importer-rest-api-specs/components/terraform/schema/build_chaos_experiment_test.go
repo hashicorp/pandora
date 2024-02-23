@@ -6,6 +6,7 @@ package schema
 import (
 	"testing"
 
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
@@ -61,7 +62,7 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 						JsonName: "properties",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: stringPointer("ExperimentProperties"),
+							ReferenceName: pointer.To("ExperimentProperties"),
 						},
 						Required: true,
 					},
@@ -80,7 +81,7 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 						JsonName: "selectors",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							NestedItem: &resourcemanager.ApiObjectDefinition{
-								ReferenceName: stringPointer("Selector"),
+								ReferenceName: pointer.To("Selector"),
 								Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 							},
 							Type: resourcemanager.ListApiObjectDefinitionType,
@@ -98,7 +99,7 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 						JsonName: "steps",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							NestedItem: &resourcemanager.ApiObjectDefinition{
-								ReferenceName: stringPointer("Step"),
+								ReferenceName: pointer.To("Step"),
 								Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 							},
 							Type: resourcemanager.ListApiObjectDefinitionType,
@@ -120,7 +121,7 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 						JsonName: "targets",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							NestedItem: &resourcemanager.ApiObjectDefinition{
-								ReferenceName: stringPointer("Target"),
+								ReferenceName: pointer.To("Target"),
 								Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 							},
 							Type: resourcemanager.ListApiObjectDefinitionType,
@@ -130,7 +131,7 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 					"Type": {
 						JsonName: "type",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							ReferenceName: stringPointer("SelectorType"),
+							ReferenceName: pointer.To("SelectorType"),
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 						},
 						Required: true,
@@ -152,7 +153,7 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 						JsonName: "branches",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							NestedItem: &resourcemanager.ApiObjectDefinition{
-								ReferenceName: stringPointer("Branch"),
+								ReferenceName: pointer.To("Branch"),
 								Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 							},
 							Type: resourcemanager.ListApiObjectDefinitionType,
@@ -180,7 +181,7 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 					"Type": {
 						JsonName: "type",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							ReferenceName: stringPointer("TargetReferenceType"),
+							ReferenceName: pointer.To("TargetReferenceType"),
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 						},
 						Required: true,
@@ -199,7 +200,7 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 						JsonName: "actions",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							NestedItem: &resourcemanager.ApiObjectDefinition{
-								ReferenceName: stringPointer("Action"),
+								ReferenceName: pointer.To("Action"),
 								Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 							},
 							Type: resourcemanager.ListApiObjectDefinitionType,
@@ -239,40 +240,40 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 				LongRunning: false,
 				Method:      "PUT",
 				RequestObject: &resourcemanager.ApiObjectDefinition{
-					ReferenceName: stringPointer("Experiment"),
+					ReferenceName: pointer.To("Experiment"),
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 				},
-				ResourceIdName: stringPointer("ExperimentId"),
+				ResourceIdName: pointer.To("ExperimentId"),
 			},
 			"Delete": {
 				LongRunning:    true,
 				Method:         "DELETE",
-				ResourceIdName: stringPointer("ExperimentId"),
+				ResourceIdName: pointer.To("ExperimentId"),
 			},
 			"Get": {
 				LongRunning: false,
 				Method:      "GET",
 				ResponseObject: &resourcemanager.ApiObjectDefinition{
-					ReferenceName: stringPointer("Experiment"),
+					ReferenceName: pointer.To("Experiment"),
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 				},
-				ResourceIdName: stringPointer("ExperimentId"),
+				ResourceIdName: pointer.To("ExperimentId"),
 			},
 			"Update": {
 				LongRunning: false,
 				Method:      "PUT",
 				RequestObject: &resourcemanager.ApiObjectDefinition{
-					ReferenceName: stringPointer("Experiment"),
+					ReferenceName: pointer.To("Experiment"),
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 				},
-				ResourceIdName: stringPointer("ExperimentId"),
+				ResourceIdName: pointer.To("ExperimentId"),
 			},
 		},
-		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		resourceIds: map[string]models.ResourceID{
 			"ExperimentId": {
-				CommonAlias:   nil,
+				CommonIDAlias: nil,
 				ConstantNames: nil,
-				Id:            "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Chaos/experiments/{experimentName}",
+				ExampleValue:  "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Chaos/experiments/{experimentName}",
 				Segments: []models.ResourceIDSegment{
 					models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
 					models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
@@ -361,7 +362,7 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 			ForceNew:            false,
 			FieldType:           resourcemanager.TerraformSchemaFieldTypeList,
 			ReferenceName:       nil,
-			NestedReferenceName: stringPointer("ExperimentSelector"),
+			NestedReferenceName: pointer.To("ExperimentSelector"),
 		})
 
 		r.checkField(t, currentModel, expected{
@@ -376,7 +377,7 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 			HclName:             "step",
 			Required:            true,
 			FieldType:           resourcemanager.TerraformSchemaFieldTypeList,
-			NestedReferenceName: stringPointer("ExperimentStep"),
+			NestedReferenceName: pointer.To("ExperimentStep"),
 		})
 	}
 
@@ -402,7 +403,7 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 			HclName:             "target",
 			Required:            true,
 			FieldType:           resourcemanager.TerraformSchemaFieldTypeList,
-			NestedReferenceName: stringPointer("ExperimentTarget"),
+			NestedReferenceName: pointer.To("ExperimentTarget"),
 		})
 
 		r.checkField(t, currentModel, expected{
@@ -410,7 +411,7 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 			HclName:             "type",
 			Required:            true,
 			FieldType:           resourcemanager.TerraformSchemaFieldTypeReference,
-			ReferenceName:       stringPointer("SelectorType"),
+			ReferenceName:       pointer.To("SelectorType"),
 			NestedReferenceName: nil,
 			Validation: &expectedValidation{
 				Type:               resourcemanager.TerraformSchemaValidationTypePossibleValues,
@@ -433,7 +434,7 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 			HclName:             "branch",
 			Required:            true,
 			FieldType:           resourcemanager.TerraformSchemaFieldTypeList,
-			NestedReferenceName: stringPointer("ExperimentBranch"),
+			NestedReferenceName: pointer.To("ExperimentBranch"),
 		})
 
 		r.checkField(t, currentModel, expected{
@@ -466,7 +467,7 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 			HclName:             "type",
 			Required:            true,
 			FieldType:           resourcemanager.TerraformSchemaFieldTypeReference,
-			ReferenceName:       stringPointer("TargetReferenceType"),
+			ReferenceName:       pointer.To("TargetReferenceType"),
 			NestedReferenceName: nil,
 			Validation: &expectedValidation{
 				Type:               resourcemanager.TerraformSchemaValidationTypePossibleValues,
@@ -497,7 +498,7 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 			HclName:             "action",
 			Required:            true,
 			FieldType:           resourcemanager.TerraformSchemaFieldTypeList,
-			NestedReferenceName: stringPointer("ExperimentAction"),
+			NestedReferenceName: pointer.To("ExperimentAction"),
 		})
 	}
 
@@ -524,5 +525,4 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 			FieldType: resourcemanager.TerraformSchemaFieldTypeString,
 		})
 	}
-
 }

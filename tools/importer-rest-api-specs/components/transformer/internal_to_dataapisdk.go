@@ -2,8 +2,6 @@ package transformer
 
 import (
 	"fmt"
-	"sort"
-
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
@@ -73,16 +71,12 @@ func mapInternalAPIVersionTypeToDataAPISDKType(input importerModels.AzureApiDefi
 		if err != nil {
 			return nil, fmt.Errorf("mapping Operations for API Resource %q: %+v", apiResource, err)
 		}
-		resourceIds, err := mapInternalResourceIDsToDataAPISDKType(apiResourceDetails.ResourceIds)
-		if err != nil {
-			return nil, fmt.Errorf("mapping ResourceIDs for API Resource %q: %+v", apiResource, err)
-		}
 
 		resources[apiResource] = models.APIResource{
 			Constants:   apiResourceDetails.Constants,
 			Models:      *mappedModels,
 			Operations:  *operations,
-			ResourceIDs: *resourceIds,
+			ResourceIDs: apiResourceDetails.ResourceIds,
 		}
 	}
 
@@ -479,55 +473,6 @@ func mapTerraformMethodDefinitionToSDKType(input resourcemanager.MethodDefinitio
 	}
 }
 
-func mapInternalResourceIDsToDataAPISDKType(input map[string]importerModels.ParsedResourceId) (*map[string]models.ResourceID, error) {
-	output := make(map[string]models.ResourceID)
-
-	for key, value := range input {
-		segments, err := mapInternalResourceIDSegmentsToDataAPISDKType(value.Segments)
-		if err != nil {
-			return nil, fmt.Errorf("mapping Segments for Resource ID %q: %+v", key, err)
-		}
-		uniqueConstants := make(map[string]struct{})
-		for _, segment := range value.Segments {
-			if segment.ConstantReference == nil {
-				continue
-			}
-
-			uniqueConstants[*segment.ConstantReference] = struct{}{}
-		}
-		constantNames := make([]string, 0)
-		for k := range uniqueConstants {
-			constantNames = append(constantNames, k)
-		}
-		sort.Strings(constantNames)
-
-		output[key] = models.ResourceID{
-			CommonIDAlias: value.CommonAlias,
-			ConstantNames: constantNames,
-			ExampleValue:  value.ID(),
-			Segments:      *segments,
-		}
-	}
-
-	return &output, nil
-}
-
-func mapInternalResourceIDSegmentsToDataAPISDKType(input []models.ResourceIDSegment) (*[]models.ResourceIDSegment, error) {
-	output := make([]models.ResourceIDSegment, 0)
-
-	for _, item := range input {
-		output = append(output, models.ResourceIDSegment{
-			ConstantReference: item.ConstantReference,
-			ExampleValue:      item.ExampleValue,
-			FixedValue:        item.FixedValue,
-			Type:              item.Type,
-			Name:              item.Name,
-		})
-	}
-
-	return &output, nil
-}
-
 var customFieldTypesToSDKTypes = map[importerModels.CustomFieldType]models.SDKObjectDefinitionType{
 	importerModels.CustomFieldTypeEdgeZone:                                models.EdgeZoneSDKObjectDefinitionType,
 	importerModels.CustomFieldTypeLocation:                                models.LocationSDKObjectDefinitionType,
@@ -558,16 +503,6 @@ var objectDefinitionToSDKTypes = map[importerModels.ObjectDefinitionType]models.
 	importerModels.ObjectDefinitionRawObject:  models.RawObjectSDKObjectDefinitionType,
 	importerModels.ObjectDefinitionReference:  models.ReferenceSDKObjectDefinitionType,
 	importerModels.ObjectDefinitionString:     models.StringSDKObjectDefinitionType,
-}
-
-var operationOptionObjectDefinitionsToSDKTypes = map[importerModels.ObjectDefinitionType]models.SDKOperationOptionObjectDefinitionType{
-	importerModels.ObjectDefinitionBoolean:   models.BooleanSDKOperationOptionObjectDefinitionType,
-	importerModels.ObjectDefinitionCsv:       models.CSVSDKOperationOptionObjectDefinitionType,
-	importerModels.ObjectDefinitionInteger:   models.IntegerSDKOperationOptionObjectDefinitionType,
-	importerModels.ObjectDefinitionFloat:     models.FloatSDKOperationOptionObjectDefinitionType,
-	importerModels.ObjectDefinitionList:      models.ListSDKOperationOptionObjectDefinitionType,
-	importerModels.ObjectDefinitionReference: models.ReferenceSDKOperationOptionObjectDefinitionType,
-	importerModels.ObjectDefinitionString:    models.StringSDKOperationOptionObjectDefinitionType,
 }
 
 var terraformObjectDefinitionToSDKType = map[resourcemanager.TerraformSchemaFieldType]models.TerraformSchemaFieldType{

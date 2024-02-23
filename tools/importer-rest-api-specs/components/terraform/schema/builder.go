@@ -7,8 +7,9 @@ import (
 	"fmt"
 
 	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/helpers"
+	terraformHelpers "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/helpers"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/schema/processors"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
@@ -27,10 +28,10 @@ type Builder struct {
 	constants   map[string]models.SDKConstant
 	models      map[string]resourcemanager.ModelDetails
 	operations  map[string]resourcemanager.ApiOperation
-	resourceIds map[string]resourcemanager.ResourceIdDefinition
+	resourceIds map[string]models.ResourceID
 }
 
-func NewBuilder(constants map[string]models.SDKConstant, models map[string]resourcemanager.ModelDetails, operations map[string]resourcemanager.ApiOperation, resourceIds map[string]resourcemanager.ResourceIdDefinition) Builder {
+func NewBuilder(constants map[string]models.SDKConstant, models map[string]resourcemanager.ModelDetails, operations map[string]resourcemanager.ApiOperation, resourceIds map[string]models.ResourceID) Builder {
 	return Builder{
 		constants:   constants,
 		models:      models,
@@ -101,7 +102,7 @@ func (b Builder) Build(input resourcemanager.TerraformResourceDetails, resourceB
 
 		fieldsWithHclNames := make(map[string]resourcemanager.TerraformSchemaFieldDefinition, 0)
 		for fieldName, field := range schemaModels[modelName].Fields {
-			field.HclName = helpers.ConvertToSnakeCase(fieldName)
+			field.HclName = terraformHelpers.ConvertToSnakeCase(fieldName)
 			fieldsWithHclNames[fieldName] = field
 			objectDefinition := topLevelFieldObjectDefinition(field.ObjectDefinition)
 			if objectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeReference {
@@ -276,7 +277,8 @@ func (b Builder) schemaFromTopLevelModel(input resourcemanager.TerraformResource
 	}
 	fieldsWithinResourceId, mappings, err := b.identifyTopLevelFieldsWithinResourceID(resourceId, mappings, input.DisplayName, resourceBuildInfo, logger.Named("TopLevelFields ResourceID"))
 	if err != nil {
-		return nil, fmt.Errorf("identifying top level fields within Resource ID %q: %+v", resourceId.Id, err)
+		displayValueForResourceId := helpers.DisplayValueForResourceID(resourceId)
+		return nil, fmt.Errorf("identifying top level fields within Resource ID %q: %+v", displayValueForResourceId, err)
 	}
 	for k, v := range *fieldsWithinResourceId {
 		schemaFields[k] = v

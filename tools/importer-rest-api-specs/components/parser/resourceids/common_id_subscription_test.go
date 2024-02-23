@@ -7,19 +7,18 @@ import (
 	"testing"
 
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 func TestCommonResourceID_Subscription(t *testing.T) {
-	valid := importerModels.ParsedResourceId{
-		Constants: map[string]models.SDKConstant{},
+	valid := models.ResourceID{
+		ConstantNames: []string{},
 		Segments: []models.ResourceIDSegment{
 			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
 			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
 		},
 	}
-	invalid := importerModels.ParsedResourceId{
-		Constants: map[string]models.SDKConstant{},
+	invalid := models.ResourceID{
+		ConstantNames: []string{},
 		Segments: []models.ResourceIDSegment{
 			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
 			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
@@ -27,26 +26,26 @@ func TestCommonResourceID_Subscription(t *testing.T) {
 			models.NewUserSpecifiedResourceIDSegment("resourceName", "resourceName"),
 		},
 	}
-	input := []importerModels.ParsedResourceId{
+	input := []models.ResourceID{
 		valid,
 		invalid,
 	}
 	output := switchOutCommonResourceIDsAsNeeded(input)
 	for _, actual := range output {
 		if normalizedResourceId(actual.Segments) == normalizedResourceId(valid.Segments) {
-			if actual.CommonAlias == nil {
-				t.Fatalf("Expected `valid` to have the CommonAlias `Subscription` but got nil")
+			if actual.CommonIDAlias == nil {
+				t.Fatalf("Expected `valid` to have the CommonIDAlias `Subscription` but got nil")
 			}
-			if *actual.CommonAlias != "Subscription" {
-				t.Fatalf("Expected `valid` to have the CommonAlias `Subscription` but got %q", *actual.CommonAlias)
+			if *actual.CommonIDAlias != "Subscription" {
+				t.Fatalf("Expected `valid` to have the CommonIDAlias `Subscription` but got %q", *actual.CommonIDAlias)
 			}
 
 			continue
 		}
 
 		if normalizedResourceId(actual.Segments) == normalizedResourceId(invalid.Segments) {
-			if actual.CommonAlias != nil {
-				t.Fatalf("Expected `invalid` to have no CommonAlias but got %q", *actual.CommonAlias)
+			if actual.CommonIDAlias != nil {
+				t.Fatalf("Expected `invalid` to have no CommonAlias but got %q", *actual.CommonIDAlias)
 			}
 			continue
 		}

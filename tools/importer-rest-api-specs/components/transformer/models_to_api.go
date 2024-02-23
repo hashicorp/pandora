@@ -7,7 +7,6 @@ import (
 	"fmt"
 
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 	"github.com/hashicorp/pandora/tools/sdk/services"
@@ -24,11 +23,6 @@ func ApiResourceFromModelResource(schema importerModels.AzureApiResource) (*serv
 		return nil, fmt.Errorf("converting Model Constant Details into Data API Constant Details: %+v", err)
 	}
 
-	resourceIds, err := apiResourceIdsFromModelResourceIds(schema.ResourceIds)
-	if err != nil {
-		return nil, fmt.Errorf("converting Model ResourceId Details into Data API ResourceId Details: %+v", err)
-	}
-
 	return &services.Resource{
 		Operations: resourcemanager.ApiOperationDetails{
 			Operations: *operations,
@@ -36,7 +30,7 @@ func ApiResourceFromModelResource(schema importerModels.AzureApiResource) (*serv
 		Schema: resourcemanager.ApiSchemaDetails{
 			Constants:   schema.Constants,
 			Models:      *models,
-			ResourceIds: *resourceIds,
+			ResourceIds: schema.ResourceIds,
 		},
 	}, nil
 }
@@ -246,26 +240,6 @@ func apiOperationsFromModelOperations(input map[string]importerModels.OperationD
 		}
 
 		out[k] = details
-	}
-
-	return &out, nil
-}
-
-func apiResourceIdsFromModelResourceIds(input map[string]importerModels.ParsedResourceId) (*map[string]resourcemanager.ResourceIdDefinition, error) {
-	out := make(map[string]resourcemanager.ResourceIdDefinition)
-
-	for k, v := range input {
-		constantNames := make([]string, 0)
-		for constantName := range v.Constants {
-			constantNames = append(constantNames, constantName)
-		}
-
-		out[k] = resourcemanager.ResourceIdDefinition{
-			CommonAlias:   v.CommonAlias,
-			ConstantNames: constantNames,
-			Id:            v.ID(),
-			Segments:      v.Segments,
-		}
 	}
 
 	return &out, nil

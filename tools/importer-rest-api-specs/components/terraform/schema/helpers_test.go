@@ -64,7 +64,7 @@ func TestUpdateField_ApplySchemaOverrides(t *testing.T) {
 					UpdatedName: pointer.To("target_resource_id"),
 				},
 			},
-			expected: stringPointer("TargetResourceId"),
+			expected: pointer.To("TargetResourceId"),
 		},
 		{
 			fieldInput: "ThreeCoffeesADay",

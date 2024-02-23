@@ -73,7 +73,7 @@ func TestParseOperationSingleWithTagAndResourceId(t *testing.T) {
 						ResourceIdName:      pointer.To("ThingId"),
 					},
 				},
-				ResourceIds: map[string]importerModels.ParsedResourceId{
+				ResourceIds: map[string]models.ResourceID{
 					"ThingId": {
 						Segments: []models.ResourceIDSegment{
 							models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
@@ -114,7 +114,7 @@ func TestParseOperationSingleWithTagAndResourceIdSuffix(t *testing.T) {
 						UriSuffix:           pointer.To("/restart"),
 					},
 				},
-				ResourceIds: map[string]importerModels.ParsedResourceId{
+				ResourceIds: map[string]models.ResourceID{
 					"ThingId": {
 						Segments: []models.ResourceIDSegment{
 							models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
@@ -1508,7 +1508,7 @@ func TestParseOperationMultipleBasedOnTheSameResourceId(t *testing.T) {
 						UriSuffix:           pointer.To("/restart"),
 					},
 				},
-				ResourceIds: map[string]importerModels.ParsedResourceId{
+				ResourceIds: map[string]models.ResourceID{
 					"ThingId": {
 						Segments: []models.ResourceIDSegment{
 							models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),

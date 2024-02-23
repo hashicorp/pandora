@@ -6,6 +6,7 @@ package resources
 import (
 	"testing"
 
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
@@ -21,29 +22,29 @@ func TestIdentifyWithCreateAndReadAndUpdateAndDelete(t *testing.T) {
 					Method: "PUT",
 					RequestObject: &resourcemanager.ApiObjectDefinition{
 						Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-						ReferenceName: stringPointer("SomeModel"),
+						ReferenceName: pointer.To("SomeModel"),
 					},
-					ResourceIdName: stringPointer("VirtualNetwork"),
+					ResourceIdName: pointer.To("VirtualNetwork"),
 				},
 				"Update": {
 					Method: "PATCH",
 					RequestObject: &resourcemanager.ApiObjectDefinition{
 						Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-						ReferenceName: stringPointer("SomeModel"),
+						ReferenceName: pointer.To("SomeModel"),
 					},
-					ResourceIdName: stringPointer("VirtualNetwork"),
+					ResourceIdName: pointer.To("VirtualNetwork"),
 				},
 				"Get": {
 					Method: "GET",
 					ResponseObject: &resourcemanager.ApiObjectDefinition{
 						Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-						ReferenceName: stringPointer("SomeModel"),
+						ReferenceName: pointer.To("SomeModel"),
 					},
-					ResourceIdName: stringPointer("VirtualNetwork"),
+					ResourceIdName: pointer.To("VirtualNetwork"),
 				},
 				"Delete": {
 					Method:         "DELETE",
-					ResourceIdName: stringPointer("VirtualNetwork"),
+					ResourceIdName: pointer.To("VirtualNetwork"),
 				},
 			},
 		},
@@ -55,9 +56,9 @@ func TestIdentifyWithCreateAndReadAndUpdateAndDelete(t *testing.T) {
 					},
 				},
 			},
-			ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
+			ResourceIds: map[string]models.ResourceID{
 				"VirtualNetwork": {
-					Id: "/virtualNetworks/{virtualNetworkName}",
+					ExampleValue: "/virtualNetworks/{virtualNetworkName}",
 					Segments: []models.ResourceIDSegment{
 						models.NewStaticValueResourceIDSegment("staticVirtualNetworks", "virtualNetworks"),
 						models.NewUserSpecifiedResourceIDSegment("virtualNetworkName", "virtualNetworkName"),
@@ -115,21 +116,21 @@ func TestIdentifyWithCreateOrUpdateAndReadAndDelete(t *testing.T) {
 					Method: "PUT",
 					RequestObject: &resourcemanager.ApiObjectDefinition{
 						Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-						ReferenceName: stringPointer("SomeModel"),
+						ReferenceName: pointer.To("SomeModel"),
 					},
-					ResourceIdName: stringPointer("VirtualNetwork"),
+					ResourceIdName: pointer.To("VirtualNetwork"),
 				},
 				"Get": {
 					Method: "GET",
 					ResponseObject: &resourcemanager.ApiObjectDefinition{
 						Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-						ReferenceName: stringPointer("SomeModel"),
+						ReferenceName: pointer.To("SomeModel"),
 					},
-					ResourceIdName: stringPointer("VirtualNetwork"),
+					ResourceIdName: pointer.To("VirtualNetwork"),
 				},
 				"Delete": {
 					Method:         "DELETE",
-					ResourceIdName: stringPointer("VirtualNetwork"),
+					ResourceIdName: pointer.To("VirtualNetwork"),
 				},
 			},
 		},
@@ -137,9 +138,9 @@ func TestIdentifyWithCreateOrUpdateAndReadAndDelete(t *testing.T) {
 			Models: map[string]resourcemanager.ModelDetails{
 				"SomeModel": {},
 			},
-			ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
+			ResourceIds: map[string]models.ResourceID{
 				"VirtualNetwork": {
-					Id: "/virtualNetworks/{virtualNetworkName}",
+					ExampleValue: "/virtualNetworks/{virtualNetworkName}",
 					Segments: []models.ResourceIDSegment{
 						models.NewStaticValueResourceIDSegment("staticVirtualNetworks", "virtualNetworks"),
 						models.NewUserSpecifiedResourceIDSegment("virtualNetworkName", "virtualNetworkName"),
@@ -197,29 +198,29 @@ func TestIdentifyWithCreateOrUpdateAndUpdateAndReadAndDelete(t *testing.T) {
 					Method: "PUT",
 					RequestObject: &resourcemanager.ApiObjectDefinition{
 						Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-						ReferenceName: stringPointer("SomeModel"),
+						ReferenceName: pointer.To("SomeModel"),
 					},
-					ResourceIdName: stringPointer("VirtualNetwork"),
+					ResourceIdName: pointer.To("VirtualNetwork"),
 				},
 				"Update": {
 					Method: "PATCH",
 					RequestObject: &resourcemanager.ApiObjectDefinition{
 						Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-						ReferenceName: stringPointer("SomeModelPatch"),
+						ReferenceName: pointer.To("SomeModelPatch"),
 					},
-					ResourceIdName: stringPointer("VirtualNetwork"),
+					ResourceIdName: pointer.To("VirtualNetwork"),
 				},
 				"Get": {
 					Method: "GET",
 					ResponseObject: &resourcemanager.ApiObjectDefinition{
 						Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-						ReferenceName: stringPointer("SomeModel"),
+						ReferenceName: pointer.To("SomeModel"),
 					},
-					ResourceIdName: stringPointer("VirtualNetwork"),
+					ResourceIdName: pointer.To("VirtualNetwork"),
 				},
 				"Delete": {
 					Method:         "DELETE",
-					ResourceIdName: stringPointer("VirtualNetwork"),
+					ResourceIdName: pointer.To("VirtualNetwork"),
 				},
 			},
 		},
@@ -230,7 +231,7 @@ func TestIdentifyWithCreateOrUpdateAndUpdateAndReadAndDelete(t *testing.T) {
 						"Properties": {
 							ObjectDefinition: resourcemanager.ApiObjectDefinition{
 								Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-								ReferenceName: stringPointer("SomeModelProperties"),
+								ReferenceName: pointer.To("SomeModelProperties"),
 							},
 						},
 					},
@@ -240,16 +241,16 @@ func TestIdentifyWithCreateOrUpdateAndUpdateAndReadAndDelete(t *testing.T) {
 						"Properties": {
 							ObjectDefinition: resourcemanager.ApiObjectDefinition{
 								Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-								ReferenceName: stringPointer("SomeModelProperties"),
+								ReferenceName: pointer.To("SomeModelProperties"),
 							},
 						},
 					},
 				},
 				"SomeModelProperties": {},
 			},
-			ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
+			ResourceIds: map[string]models.ResourceID{
 				"VirtualNetwork": {
-					Id: "/virtualNetworks/{virtualNetworkName}",
+					ExampleValue: "/virtualNetworks/{virtualNetworkName}",
 					Segments: []models.ResourceIDSegment{
 						models.NewStaticValueResourceIDSegment("staticVirtualNetworks", "virtualNetworks"),
 						models.NewUserSpecifiedResourceIDSegment("virtualNetworkName", "virtualNetworkName"),
@@ -308,29 +309,29 @@ func TestIdentifyWithCreateOrUpdateAndUpdateAndReadAndDelete_NoProperties(t *tes
 					Method: "PUT",
 					RequestObject: &resourcemanager.ApiObjectDefinition{
 						Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-						ReferenceName: stringPointer("SomeModel"),
+						ReferenceName: pointer.To("SomeModel"),
 					},
-					ResourceIdName: stringPointer("VirtualNetwork"),
+					ResourceIdName: pointer.To("VirtualNetwork"),
 				},
 				"Update": {
 					Method: "PATCH",
 					RequestObject: &resourcemanager.ApiObjectDefinition{
 						Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-						ReferenceName: stringPointer("SomeModelPatch"),
+						ReferenceName: pointer.To("SomeModelPatch"),
 					},
-					ResourceIdName: stringPointer("VirtualNetwork"),
+					ResourceIdName: pointer.To("VirtualNetwork"),
 				},
 				"Get": {
 					Method: "GET",
 					ResponseObject: &resourcemanager.ApiObjectDefinition{
 						Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-						ReferenceName: stringPointer("SomeModel"),
+						ReferenceName: pointer.To("SomeModel"),
 					},
-					ResourceIdName: stringPointer("VirtualNetwork"),
+					ResourceIdName: pointer.To("VirtualNetwork"),
 				},
 				"Delete": {
 					Method:         "DELETE",
-					ResourceIdName: stringPointer("VirtualNetwork"),
+					ResourceIdName: pointer.To("VirtualNetwork"),
 				},
 			},
 		},
@@ -339,9 +340,9 @@ func TestIdentifyWithCreateOrUpdateAndUpdateAndReadAndDelete_NoProperties(t *tes
 				"SomeModel":      {},
 				"SomeModelPatch": {},
 			},
-			ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
+			ResourceIds: map[string]models.ResourceID{
 				"VirtualNetwork": {
-					Id: "/virtualNetworks/{virtualNetworkName}",
+					ExampleValue: "/virtualNetworks/{virtualNetworkName}",
 					Segments: []models.ResourceIDSegment{
 						models.NewStaticValueResourceIDSegment("staticVirtualNetworks", "virtualNetworks"),
 						models.NewUserSpecifiedResourceIDSegment("virtualNetworkName", "virtualNetworkName"),
@@ -398,29 +399,29 @@ func TestIdentityWithCreateReadDeleteAndUpdateTags(t *testing.T) {
 					Method: "PUT",
 					RequestObject: &resourcemanager.ApiObjectDefinition{
 						Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-						ReferenceName: stringPointer("SomeModel"),
+						ReferenceName: pointer.To("SomeModel"),
 					},
-					ResourceIdName: stringPointer("VirtualNetwork"),
+					ResourceIdName: pointer.To("VirtualNetwork"),
 				},
 				"UpdateTags": {
 					Method: "PATCH",
 					RequestObject: &resourcemanager.ApiObjectDefinition{
 						Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-						ReferenceName: stringPointer("Tags"),
+						ReferenceName: pointer.To("Tags"),
 					},
-					ResourceIdName: stringPointer("VirtualNetwork"),
+					ResourceIdName: pointer.To("VirtualNetwork"),
 				},
 				"Get": {
 					Method: "GET",
 					ResponseObject: &resourcemanager.ApiObjectDefinition{
 						Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-						ReferenceName: stringPointer("SomeModel"),
+						ReferenceName: pointer.To("SomeModel"),
 					},
-					ResourceIdName: stringPointer("VirtualNetwork"),
+					ResourceIdName: pointer.To("VirtualNetwork"),
 				},
 				"Delete": {
 					Method:         "DELETE",
-					ResourceIdName: stringPointer("VirtualNetwork"),
+					ResourceIdName: pointer.To("VirtualNetwork"),
 				},
 			},
 		},
@@ -429,9 +430,9 @@ func TestIdentityWithCreateReadDeleteAndUpdateTags(t *testing.T) {
 				"SomeModel": {},
 				"Tags":      {},
 			},
-			ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
+			ResourceIds: map[string]models.ResourceID{
 				"VirtualNetwork": {
-					Id: "/virtualNetworks/{virtualNetworkName}",
+					ExampleValue: "/virtualNetworks/{virtualNetworkName}",
 					Segments: []models.ResourceIDSegment{
 						models.NewStaticValueResourceIDSegment("staticVirtualNetworks", "virtualNetworks"),
 						models.NewUserSpecifiedResourceIDSegment("virtualNetworkName", "virtualNetworkName"),
@@ -478,8 +479,4 @@ func TestIdentityWithCreateReadDeleteAndUpdateTags(t *testing.T) {
 	if virtualNetworkResource.DeleteMethod.MethodName != "Delete" {
 		t.Fatalf("expected the Delete MethodName to be `Delete` but got %q", virtualNetworkResource.DeleteMethod.MethodName)
 	}
-}
-
-func stringPointer(input string) *string {
-	return &input
 }

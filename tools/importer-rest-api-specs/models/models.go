@@ -40,7 +40,7 @@ type AzureApiResource struct {
 	Constants   map[string]models.SDKConstant
 	Models      map[string]ModelDetails
 	Operations  map[string]OperationDetails
-	ResourceIds map[string]ParsedResourceId
+	ResourceIds map[string]models.ResourceID
 	Terraform   *resourcemanager.TerraformDetails
 }
 

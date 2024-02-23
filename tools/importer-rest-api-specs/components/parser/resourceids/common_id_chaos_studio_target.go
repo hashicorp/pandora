@@ -5,18 +5,17 @@ package resourceids
 
 import (
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 var _ commonIdMatcher = commonIdChaosStudioTarget{}
 
 type commonIdChaosStudioTarget struct{}
 
-func (commonIdChaosStudioTarget) id() importerModels.ParsedResourceId {
+func (commonIdChaosStudioTarget) id() models.ResourceID {
 	name := "ChaosStudioTarget"
-	return importerModels.ParsedResourceId{
-		CommonAlias: &name,
-		Constants:   map[string]models.SDKConstant{},
+	return models.ResourceID{
+		CommonIDAlias: &name,
+		ConstantNames: []string{},
 		Segments: []models.ResourceIDSegment{
 			models.NewScopeResourceIDSegment("scope"),
 			models.NewStaticValueResourceIDSegment("staticProviders", "providers"),

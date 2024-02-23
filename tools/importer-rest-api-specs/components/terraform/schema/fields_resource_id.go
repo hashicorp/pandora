@@ -8,14 +8,15 @@ import (
 	"strings"
 
 	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/helpers"
+	terraformHelpers "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/helpers"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func (b Builder) identifyTopLevelFieldsWithinResourceID(input resourcemanager.ResourceIdDefinition, mappings *resourcemanager.MappingDefinition, displayName string, resourceBuildInfo *importerModels.ResourceBuildInfo, logger hclog.Logger) (*map[string]resourcemanager.TerraformSchemaFieldDefinition, *resourcemanager.MappingDefinition, error) {
-	out := make(map[string]resourcemanager.TerraformSchemaFieldDefinition, 0)
+func (b Builder) identifyTopLevelFieldsWithinResourceID(input models.ResourceID, mappings *resourcemanager.MappingDefinition, displayName string, resourceBuildInfo *importerModels.ResourceBuildInfo, logger hclog.Logger) (*map[string]resourcemanager.TerraformSchemaFieldDefinition, *resourcemanager.MappingDefinition, error) {
+	out := make(map[string]resourcemanager.TerraformSchemaFieldDefinition)
 	overrides := make([]importerModels.Override, 0)
 
 	if resourceBuildInfo != nil && resourceBuildInfo.Overrides != nil {
@@ -77,7 +78,7 @@ func (b Builder) identifyTopLevelFieldsWithinResourceID(input resourcemanager.Re
 			// since this is included in the Resource ID it's implicitly Required/ForceNew
 			Required: true,
 			ForceNew: true,
-			HclName:  helpers.ConvertToSnakeCase(parentResourceIdName),
+			HclName:  terraformHelpers.ConvertToSnakeCase(parentResourceIdName),
 			Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
 				Markdown: descriptionForResourceIDSegment(parentResourceIdName, displayName, overrides),
 			},
@@ -125,7 +126,7 @@ func (b Builder) identifyTopLevelFieldsWithinResourceID(input resourcemanager.Re
 				}
 			}
 
-			hclName := helpers.ConvertToSnakeCase(fieldName)
+			hclName := terraformHelpers.ConvertToSnakeCase(fieldName)
 
 			field := resourcemanager.TerraformSchemaFieldDefinition{
 				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
@@ -151,7 +152,7 @@ func (b Builder) identifyTopLevelFieldsWithinResourceID(input resourcemanager.Re
 		}
 
 		if userConfigurableSegments == 0 {
-			return nil, nil, fmt.Errorf("no user-configurable segments were found in the Resource ID %q", input.Id)
+			return nil, nil, fmt.Errorf("no user-configurable segments were found in the Resource ID %q", helpers.DisplayValueForResourceID(input))
 		}
 	}
 
@@ -161,12 +162,12 @@ func (b Builder) identifyTopLevelFieldsWithinResourceID(input resourcemanager.Re
 func descriptionForResourceIDSegment(input, resourceDisplayName string, overrides []importerModels.Override) string {
 	if overrides != nil && len(overrides) > 0 {
 		for _, o := range overrides {
-			if o.UpdatedName != nil && strings.EqualFold(input, helpers.ConvertFromSnakeToTitleCase(*o.UpdatedName)) {
+			if o.UpdatedName != nil && strings.EqualFold(input, terraformHelpers.ConvertFromSnakeToTitleCase(*o.UpdatedName)) {
 				if o.Description != nil {
 					return *o.Description
 				}
 			}
-			if strings.EqualFold(input, helpers.ConvertFromSnakeToTitleCase(o.Name)) {
+			if strings.EqualFold(input, terraformHelpers.ConvertFromSnakeToTitleCase(o.Name)) {
 				if o.Description != nil {
 					return *o.Description
 				}

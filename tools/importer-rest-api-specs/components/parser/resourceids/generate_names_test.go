@@ -8,19 +8,19 @@ import (
 	"testing"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-var subscriptionResourceId = importerModels.ParsedResourceId{
-	Constants: map[string]models.SDKConstant{},
+var subscriptionResourceId = models.ResourceID{
+	ConstantNames: []string{},
 	Segments: []models.ResourceIDSegment{
 		models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
 		models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
 	},
 }
-var resourceGroupResourceId = importerModels.ParsedResourceId{
-	Constants: map[string]models.SDKConstant{},
+var resourceGroupResourceId = models.ResourceID{
+	ConstantNames: []string{},
 	Segments: []models.ResourceIDSegment{
 		models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
 		models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
@@ -28,8 +28,8 @@ var resourceGroupResourceId = importerModels.ParsedResourceId{
 		models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
 	},
 }
-var managementGroupResourceId = importerModels.ParsedResourceId{
-	Constants: map[string]models.SDKConstant{},
+var managementGroupResourceId = models.ResourceID{
+	ConstantNames: []string{},
 	Segments: []models.ResourceIDSegment{
 		models.NewStaticValueResourceIDSegment("staticProviders", "providers"),
 		models.NewResourceProviderResourceIDSegment("staticMicrosoftManagement", "Microsoft.Management"),
@@ -37,8 +37,8 @@ var managementGroupResourceId = importerModels.ParsedResourceId{
 		models.NewUserSpecifiedResourceIDSegment("name", "name"),
 	},
 }
-var virtualMachineResourceId = importerModels.ParsedResourceId{
-	Constants: map[string]models.SDKConstant{},
+var virtualMachineResourceId = models.ResourceID{
+	ConstantNames: []string{},
 	Segments: []models.ResourceIDSegment{
 		models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
 		models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
@@ -50,8 +50,8 @@ var virtualMachineResourceId = importerModels.ParsedResourceId{
 		models.NewUserSpecifiedResourceIDSegment("virtualMachineName", "virtualMachineValue"),
 	},
 }
-var virtualMachineExtensionResourceId = importerModels.ParsedResourceId{
-	Constants: map[string]models.SDKConstant{},
+var virtualMachineExtensionResourceId = models.ResourceID{
+	ConstantNames: []string{},
 	Segments: []models.ResourceIDSegment{
 		models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
 		models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
@@ -65,8 +65,8 @@ var virtualMachineExtensionResourceId = importerModels.ParsedResourceId{
 		models.NewUserSpecifiedResourceIDSegment("extensionName", "extensionValue"),
 	},
 }
-var virtualNetworkExtensionResourceId = importerModels.ParsedResourceId{
-	Constants: map[string]models.SDKConstant{},
+var virtualNetworkExtensionResourceId = models.ResourceID{
+	ConstantNames: []string{},
 	Segments: []models.ResourceIDSegment{
 		models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
 		models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
@@ -78,8 +78,8 @@ var virtualNetworkExtensionResourceId = importerModels.ParsedResourceId{
 		models.NewUserSpecifiedResourceIDSegment("extensionName", "extensionValue"),
 	},
 }
-var scopedMonitorResourceId = importerModels.ParsedResourceId{
-	Constants: map[string]models.SDKConstant{},
+var scopedMonitorResourceId = models.ResourceID{
+	ConstantNames: []string{},
 	Segments: []models.ResourceIDSegment{
 		models.NewScopeResourceIDSegment("scope"),
 		models.NewStaticValueResourceIDSegment("staticProviders", "providers"),
@@ -88,8 +88,8 @@ var scopedMonitorResourceId = importerModels.ParsedResourceId{
 		models.NewUserSpecifiedResourceIDSegment("extensionName", "extensionValue"),
 	},
 }
-var signalRResourceId = importerModels.ParsedResourceId{
-	Constants: map[string]models.SDKConstant{},
+var signalRResourceId = models.ResourceID{
+	ConstantNames: []string{},
 	Segments: []models.ResourceIDSegment{
 		models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
 		models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
@@ -101,8 +101,8 @@ var signalRResourceId = importerModels.ParsedResourceId{
 		models.NewUserSpecifiedResourceIDSegment("resourceName", "resourceValue"),
 	},
 }
-var eventHubSkuResourceId = importerModels.ParsedResourceId{
-	Constants: map[string]models.SDKConstant{},
+var eventHubSkuResourceId = models.ResourceID{
+	ConstantNames: []string{},
 	Segments: []models.ResourceIDSegment{
 		models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
 		models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
@@ -114,16 +114,9 @@ var eventHubSkuResourceId = importerModels.ParsedResourceId{
 		models.NewUserSpecifiedResourceIDSegment("sku", "sku"),
 	},
 }
-var trafficManagerProfileResourceId = importerModels.ParsedResourceId{
-	Constants: map[string]models.SDKConstant{
-		"EndpointType": {
-			Type: models.StringSDKConstantType,
-			Values: map[string]string{
-				"AzureEndpoints":    "azureEndpoints",
-				"ExternalEndpoints": "externalEndpoints",
-				"NestedEndpoints":   "nestedEndpoints",
-			},
-		},
+var trafficManagerProfileResourceId = models.ResourceID{
+	ConstantNames: []string{
+		"EndpointType",
 	},
 	Segments: []models.ResourceIDSegment{
 		models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
@@ -138,14 +131,9 @@ var trafficManagerProfileResourceId = importerModels.ParsedResourceId{
 		models.NewUserSpecifiedResourceIDSegment("endpointName", "endpointValue"),
 	},
 }
-var redisPatchSchedulesResourceId = importerModels.ParsedResourceId{
-	Constants: map[string]models.SDKConstant{
-		"Default": {
-			Type: models.StringSDKConstantType,
-			Values: map[string]string{
-				"First": "first",
-			},
-		},
+var redisPatchSchedulesResourceId = models.ResourceID{
+	ConstantNames: []string{
+		"Default",
 	},
 	Segments: []models.ResourceIDSegment{
 		models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
@@ -163,7 +151,7 @@ var redisPatchSchedulesResourceId = importerModels.ParsedResourceId{
 
 func TestResourceIDNamingEmpty(t *testing.T) {
 	uriToParsedOperation := map[string]ParsedOperation{}
-	actualNamesToIds, err := generateNamesForResourceIds([]importerModels.ParsedResourceId{}, uriToParsedOperation)
+	actualNamesToIds, err := generateNamesForResourceIds([]models.ResourceID{}, uriToParsedOperation)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 		return
@@ -175,10 +163,10 @@ func TestResourceIDNamingEmpty(t *testing.T) {
 }
 
 func TestResourceIDNamingSubscriptionId(t *testing.T) {
-	input := []importerModels.ParsedResourceId{
+	input := []models.ResourceID{
 		subscriptionResourceId,
 	}
-	expectedNamesToIds := map[string]importerModels.ParsedResourceId{
+	expectedNamesToIds := map[string]models.ResourceID{
 		"SubscriptionId": subscriptionResourceId,
 	}
 
@@ -195,12 +183,12 @@ func TestResourceIDNamingSubscriptionId(t *testing.T) {
 }
 
 func TestResourceIDNamingSubscriptionIdAndSuffix(t *testing.T) {
-	input := []importerModels.ParsedResourceId{
+	input := []models.ResourceID{
 		// intentionally here twice
 		subscriptionResourceId,
 		subscriptionResourceId,
 	}
-	expectedNamesToIds := map[string]importerModels.ParsedResourceId{
+	expectedNamesToIds := map[string]models.ResourceID{
 		"SubscriptionId": subscriptionResourceId,
 	}
 
@@ -217,10 +205,10 @@ func TestResourceIDNamingSubscriptionIdAndSuffix(t *testing.T) {
 }
 
 func TestResourceIDNamingResourceGroupId(t *testing.T) {
-	input := []importerModels.ParsedResourceId{
+	input := []models.ResourceID{
 		resourceGroupResourceId,
 	}
-	expectedNamesToIds := map[string]importerModels.ParsedResourceId{
+	expectedNamesToIds := map[string]models.ResourceID{
 		"ResourceGroupId": resourceGroupResourceId,
 	}
 
@@ -237,12 +225,12 @@ func TestResourceIDNamingResourceGroupId(t *testing.T) {
 }
 
 func TestResourceIDNamingResourceGroupIdAndSuffix(t *testing.T) {
-	input := []importerModels.ParsedResourceId{
+	input := []models.ResourceID{
 		// intentionally in here twice
 		resourceGroupResourceId,
 		resourceGroupResourceId,
 	}
-	expectedNamesToIds := map[string]importerModels.ParsedResourceId{
+	expectedNamesToIds := map[string]models.ResourceID{
 		"ResourceGroupId": resourceGroupResourceId,
 	}
 
@@ -259,10 +247,10 @@ func TestResourceIDNamingResourceGroupIdAndSuffix(t *testing.T) {
 }
 
 func TestResourceIDNamingManagementGroupId(t *testing.T) {
-	input := []importerModels.ParsedResourceId{
+	input := []models.ResourceID{
 		managementGroupResourceId,
 	}
-	expectedNamesToIds := map[string]importerModels.ParsedResourceId{
+	expectedNamesToIds := map[string]models.ResourceID{
 		"ManagementGroupId": managementGroupResourceId,
 	}
 
@@ -279,12 +267,12 @@ func TestResourceIDNamingManagementGroupId(t *testing.T) {
 }
 
 func TestResourceIDNamingManagementGroupIdAndSuffix(t *testing.T) {
-	input := []importerModels.ParsedResourceId{
+	input := []models.ResourceID{
 		// intentionally here twice
 		managementGroupResourceId,
 		managementGroupResourceId,
 	}
-	expectedNamesToIds := map[string]importerModels.ParsedResourceId{
+	expectedNamesToIds := map[string]models.ResourceID{
 		"ManagementGroupId": managementGroupResourceId,
 	}
 
@@ -301,10 +289,10 @@ func TestResourceIDNamingManagementGroupIdAndSuffix(t *testing.T) {
 }
 
 func TestResourceIDNamingEventHubSkuId(t *testing.T) {
-	input := []importerModels.ParsedResourceId{
+	input := []models.ResourceID{
 		eventHubSkuResourceId,
 	}
-	expectedNamesToIds := map[string]importerModels.ParsedResourceId{
+	expectedNamesToIds := map[string]models.ResourceID{
 		"SkuId": eventHubSkuResourceId,
 	}
 
@@ -321,17 +309,17 @@ func TestResourceIDNamingEventHubSkuId(t *testing.T) {
 }
 
 func TestResourceIDNamingTopLevelScope(t *testing.T) {
-	scopeResourceId := importerModels.ParsedResourceId{
-		Constants: map[string]models.SDKConstant{},
+	scopeResourceId := models.ResourceID{
+		ConstantNames: []string{},
 		Segments: []models.ResourceIDSegment{
 			models.NewScopeResourceIDSegment("scope"),
 		},
 	}
 
-	input := []importerModels.ParsedResourceId{
+	input := []models.ResourceID{
 		scopeResourceId,
 	}
-	expectedNamesToIds := map[string]importerModels.ParsedResourceId{
+	expectedNamesToIds := map[string]models.ResourceID{
 		"ScopeId": scopeResourceId,
 	}
 
@@ -348,15 +336,9 @@ func TestResourceIDNamingTopLevelScope(t *testing.T) {
 }
 
 func TestResourceIDNamingContainingAConstant(t *testing.T) {
-	dnsResourceId := importerModels.ParsedResourceId{
-		Constants: map[string]models.SDKConstant{
-			"DnsRecordType": {
-				Type: models.StringSDKConstantType,
-				Values: map[string]string{
-					"A":    "A",
-					"AAAA": "AAAA",
-				},
-			},
+	dnsResourceId := models.ResourceID{
+		ConstantNames: []string{
+			"DnsRecordType",
 		},
 		Segments: []models.ResourceIDSegment{
 			models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
@@ -370,10 +352,10 @@ func TestResourceIDNamingContainingAConstant(t *testing.T) {
 		},
 	}
 
-	input := []importerModels.ParsedResourceId{
+	input := []models.ResourceID{
 		dnsResourceId,
 	}
-	expectedNamesToIds := map[string]importerModels.ParsedResourceId{
+	expectedNamesToIds := map[string]models.ResourceID{
 		"RecordTypeId": dnsResourceId,
 	}
 
@@ -390,15 +372,9 @@ func TestResourceIDNamingContainingAConstant(t *testing.T) {
 }
 
 func TestResourceIDNamingContainingAConstantAndSuffix(t *testing.T) {
-	dnsResourceId := importerModels.ParsedResourceId{
-		Constants: map[string]models.SDKConstant{
-			"DnsRecordType": {
-				Type: models.StringSDKConstantType,
-				Values: map[string]string{
-					"A":    "A",
-					"AAAA": "AAAA",
-				},
-			},
+	dnsResourceId := models.ResourceID{
+		ConstantNames: []string{
+			"DnsRecordType",
 		},
 		Segments: []models.ResourceIDSegment{
 			models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
@@ -412,12 +388,12 @@ func TestResourceIDNamingContainingAConstantAndSuffix(t *testing.T) {
 		},
 	}
 
-	input := []importerModels.ParsedResourceId{
+	input := []models.ResourceID{
 		// intentionally in here twice
 		dnsResourceId,
 		dnsResourceId,
 	}
-	expectedNamesToIds := map[string]importerModels.ParsedResourceId{
+	expectedNamesToIds := map[string]models.ResourceID{
 		"RecordTypeId": dnsResourceId,
 	}
 
@@ -434,10 +410,10 @@ func TestResourceIDNamingContainingAConstantAndSuffix(t *testing.T) {
 }
 
 func TestResourceIdNamingTopLevelResourceId(t *testing.T) {
-	input := []importerModels.ParsedResourceId{
+	input := []models.ResourceID{
 		virtualMachineResourceId,
 	}
-	expectedNamesToIds := map[string]importerModels.ParsedResourceId{
+	expectedNamesToIds := map[string]models.ResourceID{
 		"VirtualMachineId": virtualMachineResourceId,
 	}
 
@@ -454,11 +430,11 @@ func TestResourceIdNamingTopLevelResourceId(t *testing.T) {
 }
 
 func TestResourceIdNamingTopLevelAndNestedResourceId(t *testing.T) {
-	input := []importerModels.ParsedResourceId{
+	input := []models.ResourceID{
 		virtualMachineResourceId,
 		virtualMachineExtensionResourceId,
 	}
-	expectedNamesToIds := map[string]importerModels.ParsedResourceId{
+	expectedNamesToIds := map[string]models.ResourceID{
 		"VirtualMachineId": virtualMachineResourceId,
 		"ExtensionId":      virtualMachineExtensionResourceId,
 	}
@@ -476,10 +452,10 @@ func TestResourceIdNamingTopLevelAndNestedResourceId(t *testing.T) {
 }
 
 func TestResourceIdNamingNestedResourceId(t *testing.T) {
-	input := []importerModels.ParsedResourceId{
+	input := []models.ResourceID{
 		virtualMachineExtensionResourceId,
 	}
-	expectedNamesToIds := map[string]importerModels.ParsedResourceId{
+	expectedNamesToIds := map[string]models.ResourceID{
 		"ExtensionId": virtualMachineExtensionResourceId,
 	}
 
@@ -496,10 +472,10 @@ func TestResourceIdNamingNestedResourceId(t *testing.T) {
 }
 
 func TestResourceIdNamingResourceUnderScope(t *testing.T) {
-	input := []importerModels.ParsedResourceId{
+	input := []models.ResourceID{
 		scopedMonitorResourceId,
 	}
-	expectedNamesToIds := map[string]importerModels.ParsedResourceId{
+	expectedNamesToIds := map[string]models.ResourceID{
 		"ScopedExtensionId": scopedMonitorResourceId,
 	}
 
@@ -516,11 +492,11 @@ func TestResourceIdNamingResourceUnderScope(t *testing.T) {
 }
 
 func TestResourceIdNamingConflictingTwoLevels(t *testing.T) {
-	input := []importerModels.ParsedResourceId{
+	input := []models.ResourceID{
 		virtualNetworkExtensionResourceId,
 		virtualMachineExtensionResourceId,
 	}
-	expectedNamesToIds := map[string]importerModels.ParsedResourceId{
+	expectedNamesToIds := map[string]models.ResourceID{
 		"VirtualMachineExtensionId": virtualMachineExtensionResourceId,
 		"ExtensionId":               virtualNetworkExtensionResourceId,
 	}
@@ -538,20 +514,20 @@ func TestResourceIdNamingConflictingTwoLevels(t *testing.T) {
 }
 
 func TestResourceIdNamingConflictingWithUpdatingOperation(t *testing.T) {
-	input := []importerModels.ParsedResourceId{
+	input := []models.ResourceID{
 		virtualNetworkExtensionResourceId,
 		virtualMachineExtensionResourceId,
 	}
-	expectedNamesToIds := map[string]importerModels.ParsedResourceId{
+	expectedNamesToIds := map[string]models.ResourceID{
 		"VirtualMachineExtensionId": virtualMachineExtensionResourceId,
 		"ExtensionId":               virtualNetworkExtensionResourceId,
 	}
 	uriToParsedOperation := map[string]ParsedOperation{
-		virtualMachineExtensionResourceId.ID(): {
+		helpers.DisplayValueForResourceID(virtualMachineExtensionResourceId): {
 			ResourceId:     &virtualMachineExtensionResourceId,
 			ResourceIdName: pointer.To("ExtensionId"),
 		},
-		virtualNetworkExtensionResourceId.ID(): {
+		helpers.DisplayValueForResourceID(virtualNetworkExtensionResourceId): {
 			ResourceId:     &virtualNetworkExtensionResourceId,
 			ResourceIdName: pointer.To("ExtensionId"),
 		},
@@ -568,7 +544,8 @@ func TestResourceIdNamingConflictingWithUpdatingOperation(t *testing.T) {
 	}
 
 	for wantIDName, resourceID := range expectedNamesToIds {
-		got := uriToParsedOperation[resourceID.ID()].ResourceIdName
+		id := helpers.DisplayValueForResourceID(resourceID)
+		got := uriToParsedOperation[id].ResourceIdName
 		if got == nil || *got != wantIDName {
 			t.Fatalf("expected ResourceIdName of virtualMachineResourceId to be: %s\nbut got:%s\n", wantIDName, *got)
 		}
@@ -576,8 +553,8 @@ func TestResourceIdNamingConflictingWithUpdatingOperation(t *testing.T) {
 }
 
 func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
-	workerPoolInstanceResourceId := importerModels.ParsedResourceId{
-		Constants: map[string]models.SDKConstant{},
+	workerPoolInstanceResourceId := models.ResourceID{
+		ConstantNames: []string{},
 		Segments: []models.ResourceIDSegment{
 			models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
 			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
@@ -593,8 +570,8 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 			models.NewUserSpecifiedResourceIDSegment("instance", "instanceValue"),
 		},
 	}
-	multiRolePoolInstanceResourceId := importerModels.ParsedResourceId{
-		Constants: map[string]models.SDKConstant{},
+	multiRolePoolInstanceResourceId := models.ResourceID{
+		ConstantNames: []string{},
 		Segments: []models.ResourceIDSegment{
 			models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
 			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
@@ -610,8 +587,8 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 			models.NewUserSpecifiedResourceIDSegment("instance", "instance"),
 		},
 	}
-	slotInstanceProcessModuleResourceId := importerModels.ParsedResourceId{
-		Constants: map[string]models.SDKConstant{},
+	slotInstanceProcessModuleResourceId := models.ResourceID{
+		ConstantNames: []string{},
 		Segments: []models.ResourceIDSegment{
 			models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
 			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
@@ -631,8 +608,8 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 			models.NewUserSpecifiedResourceIDSegment("baseAddress", "baseAddress"),
 		},
 	}
-	instanceProcessModuleResourceId := importerModels.ParsedResourceId{
-		Constants: map[string]models.SDKConstant{},
+	instanceProcessModuleResourceId := models.ResourceID{
+		ConstantNames: []string{},
 		Segments: []models.ResourceIDSegment{
 			models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
 			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
@@ -651,13 +628,13 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 		},
 	}
 
-	input := []importerModels.ParsedResourceId{
+	input := []models.ResourceID{
 		workerPoolInstanceResourceId,
 		multiRolePoolInstanceResourceId,
 		slotInstanceProcessModuleResourceId,
 		instanceProcessModuleResourceId,
 	}
-	expectedNamesToIds := map[string]importerModels.ParsedResourceId{
+	expectedNamesToIds := map[string]models.ResourceID{
 		"WorkerPoolInstanceId": workerPoolInstanceResourceId,
 		"InstanceId":           multiRolePoolInstanceResourceId,
 		"ProcessModuleId":      slotInstanceProcessModuleResourceId,
@@ -677,10 +654,10 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 }
 
 func TestResourceIdNamingSignalRId(t *testing.T) {
-	input := []importerModels.ParsedResourceId{
+	input := []models.ResourceID{
 		signalRResourceId,
 	}
-	expectedNamesToIds := map[string]importerModels.ParsedResourceId{
+	expectedNamesToIds := map[string]models.ResourceID{
 		"SignalRId": signalRResourceId,
 	}
 
@@ -697,10 +674,10 @@ func TestResourceIdNamingSignalRId(t *testing.T) {
 }
 
 func TestResourceIdNamingTrafficManagerEndpoint(t *testing.T) {
-	input := []importerModels.ParsedResourceId{
+	input := []models.ResourceID{
 		trafficManagerProfileResourceId,
 	}
-	expectedNamesToIds := map[string]importerModels.ParsedResourceId{
+	expectedNamesToIds := map[string]models.ResourceID{
 		"EndpointTypeId": trafficManagerProfileResourceId,
 	}
 
@@ -717,10 +694,10 @@ func TestResourceIdNamingTrafficManagerEndpoint(t *testing.T) {
 }
 
 func TestResourceIDNamingRedisDefaultId(t *testing.T) {
-	input := []importerModels.ParsedResourceId{
+	input := []models.ResourceID{
 		redisPatchSchedulesResourceId,
 	}
-	expectedNamesToIds := map[string]importerModels.ParsedResourceId{
+	expectedNamesToIds := map[string]models.ResourceID{
 		"DefaultId": redisPatchSchedulesResourceId,
 	}
 

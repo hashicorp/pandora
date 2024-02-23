@@ -5,42 +5,18 @@ package resourceids
 
 import (
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 var _ commonIdMatcher = commonIdBotServiceChannel{}
 
 type commonIdBotServiceChannel struct{}
 
-func (commonIdBotServiceChannel) id() importerModels.ParsedResourceId {
+func (commonIdBotServiceChannel) id() models.ResourceID {
 	name := "BotServiceChannel"
-	return importerModels.ParsedResourceId{
-		CommonAlias: &name,
-		Constants: map[string]models.SDKConstant{
-			"BotServiceChannelType": {
-				Type: models.StringSDKConstantType,
-				Values: map[string]string{
-					"AcsChatChannel":          "AcsChatChannel",
-					"AlexaChannel":            "AlexaChannel",
-					"DirectLineChannel":       "DirectLineChannel",
-					"DirectLineSpeechChannel": "DirectLineSpeechChannel",
-					"EmailChannel":            "EmailChannel",
-					"KikChannel":              "KikChannel",
-					"FacebookChannel":         "FacebookChannel",
-					"LineChannel":             "LineChannel",
-					"M365Extensions":          "M365Extensions",
-					"MsTeamsChannel":          "MsTeamsChannel",
-					"Omnichannel":             "Omnichannel",
-					"OutlookChannel":          "OutlookChannel",
-					"SearchAssistant":         "SearchAssistant",
-					"SkypeChannel":            "SkypeChannel",
-					"SlackChannel":            "SlackChannel",
-					"SmsChannel":              "SmsChannel",
-					"TelegramChannel":         "TelegramChannel",
-					"TelephonyChannel":        "TelephonyChannel",
-					"WebChatChannel":          "WebChatChannel",
-				},
-			},
+	return models.ResourceID{
+		CommonIDAlias: &name,
+		ConstantNames: []string{
+			"BotServiceChannelType",
 		},
 		Segments: []models.ResourceIDSegment{
 			models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),

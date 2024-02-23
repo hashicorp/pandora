@@ -5,8 +5,9 @@ package resourceids
 
 import (
 	"fmt"
+	"sort"
 
-	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 // Parse takes a list of Swagger Resources and returns a ParseResult, containing
@@ -22,7 +23,7 @@ func (p *Parser) Parse() (*ParseResult, error) {
 
 	// 2. Process the list of parsed segments to obtain a unique list of Resource IDs
 	p.logger.Trace("Determining the list of unique Resource IDs from the parsed input")
-	uniqueResourceIds := p.distinctResourceIds(*operationIdsToSegments)
+	uniqueResourceIds, distinctConstants := p.distinctResourceIds(*operationIdsToSegments)
 
 	// 3. Then we need to find any Common Resource IDs and switch those references out
 	p.logger.Trace("Generating Names for Resource IDs..")
@@ -42,21 +43,14 @@ func (p *Parser) Parse() (*ParseResult, error) {
 		return nil, fmt.Errorf("updating the parsed Operations with the Processed Resource ID information: %+v", err)
 	}
 
-	// 6. Finally pull out a unique list of Constants from the parsed Resource IDs
-	p.logger.Trace("Finding Distinct Constants for Resource IDs..")
-	distinctConstants, err := p.findDistinctConstants(*namesToResourceIds)
-	if err != nil {
-		return nil, fmt.Errorf("finding Distinct Constants for Resource IDs: %+v", err)
-	}
-
 	return &ParseResult{
 		OperationIdsToParsedResourceIds: *operationIdsToResourceIds,
 		NamesToResourceIDs:              *namesToResourceIds,
-		Constants:                       *distinctConstants,
+		Constants:                       distinctConstants,
 	}, nil
 }
 
-func (p *Parser) updateParsedOperationsWithProcessedResourceIds(operationIdsToSegments map[string]processedResourceId, namesToResourceIds map[string]importerModels.ParsedResourceId) (*map[string]ParsedOperation, error) {
+func (p *Parser) updateParsedOperationsWithProcessedResourceIds(operationIdsToSegments map[string]processedResourceId, namesToResourceIds map[string]models.ResourceID) (*map[string]ParsedOperation, error) {
 	output := make(map[string]ParsedOperation)
 
 	for operationId, operation := range operationIdsToSegments {
@@ -72,19 +66,25 @@ func (p *Parser) updateParsedOperationsWithProcessedResourceIds(operationIdsToSe
 			continue
 		}
 
-		placeholder := importerModels.ParsedResourceId{
-			Constants: operation.constants,
-			Segments:  *operation.segments,
+		constantNames := make([]string, 0)
+		for k := range operation.constants {
+			constantNames = append(constantNames, k)
+		}
+		sort.Strings(constantNames)
+
+		placeholder := models.ResourceID{
+			ConstantNames: constantNames,
+			Segments:      *operation.segments,
 		}
 
 		found := false
 		for name, resourceId := range namesToResourceIds {
 			// NOTE: we intentionally use an empty `id` here to avoid comparing on the Alias
-			other := importerModels.ParsedResourceId{
-				Constants: resourceId.Constants,
-				Segments:  resourceId.Segments,
+			other := models.ResourceID{
+				ConstantNames: resourceId.ConstantNames,
+				Segments:      resourceId.Segments,
 			}
-			if placeholder.Matches(other) {
+			if ResourceIdsMatch(placeholder, other) {
 				output[operationId] = ParsedOperation{
 					ResourceId:     &resourceId,
 					ResourceIdName: &name,

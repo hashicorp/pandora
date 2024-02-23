@@ -7,44 +7,43 @@ import (
 	"testing"
 
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 func TestCommonResourceID_Scope(t *testing.T) {
-	valid := importerModels.ParsedResourceId{
-		Constants: map[string]models.SDKConstant{},
+	valid := models.ResourceID{
+		ConstantNames: []string{},
 		Segments: []models.ResourceIDSegment{
 			models.NewScopeResourceIDSegment("resourcePath"),
 		},
 	}
-	invalid := importerModels.ParsedResourceId{
-		Constants: map[string]models.SDKConstant{},
+	invalid := models.ResourceID{
+		ConstantNames: []string{},
 		Segments: []models.ResourceIDSegment{
 			models.NewScopeResourceIDSegment("scope"),
 			models.NewStaticValueResourceIDSegment("someResource", "someResource"),
 			models.NewUserSpecifiedResourceIDSegment("resourceName", "resourceName"),
 		},
 	}
-	input := []importerModels.ParsedResourceId{
+	input := []models.ResourceID{
 		valid,
 		invalid,
 	}
 	output := switchOutCommonResourceIDsAsNeeded(input)
 	for _, actual := range output {
-		if actual.Matches(valid) {
-			if actual.CommonAlias == nil {
-				t.Fatalf("Expected `valid` to have the CommonAlias `Scope` but got nil")
+		if ResourceIdsMatch(actual, valid) {
+			if actual.CommonIDAlias == nil {
+				t.Fatalf("Expected `valid` to have the CommonIDAlias `Scope` but got nil")
 			}
-			if *actual.CommonAlias != "Scope" {
-				t.Fatalf("Expected `valid` to have the CommonAlias `Scope` but got %q", *actual.CommonAlias)
+			if *actual.CommonIDAlias != "Scope" {
+				t.Fatalf("Expected `valid` to have the CommonIDAlias `Scope` but got %q", *actual.CommonIDAlias)
 			}
 
 			continue
 		}
 
-		if actual.Matches(invalid) {
-			if actual.CommonAlias != nil {
-				t.Fatalf("Expected `invalid` to have no CommonAlias but got %q", *actual.CommonAlias)
+		if ResourceIdsMatch(actual, invalid) {
+			if actual.CommonIDAlias != nil {
+				t.Fatalf("Expected `invalid` to have no CommonIDAlias but got %q", *actual.CommonIDAlias)
 			}
 			continue
 		}

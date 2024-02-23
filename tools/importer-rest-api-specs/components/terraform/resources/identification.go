@@ -5,6 +5,7 @@ package resources
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
 	"strings"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
@@ -30,9 +31,10 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 		var deleteMethod *resourcemanager.MethodDefinition
 		var getMethod *resourcemanager.MethodDefinition
 
-		resourceLabel, resourceMetaData := findResourceName(resourceDefinitions, resourceId.Id)
+		resourceIDDisplayValue := helpers.DisplayValueForResourceID(resourceId)
+		resourceLabel, resourceMetaData := findResourceName(resourceDefinitions, resourceIDDisplayValue)
 		if resourceLabel == nil || resourceMetaData == nil {
-			logger.Debug(fmt.Sprintf("Identified Resource %q but not defined - skipping", resourceId.Id))
+			logger.Debug(fmt.Sprintf("Identified Resource %q but not defined - skipping", resourceIDDisplayValue))
 			continue
 		}
 
@@ -162,10 +164,10 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 		// TODO: make use of Data Sources
 		hasDiscriminatedType, err := containsDiscriminatedTypes(resourceDefinition, input)
 		if err != nil {
-			return nil, fmt.Errorf("determining if the Resource Definition for %q contains Discriminated Types: %+v", resourceId.Id, err)
+			return nil, fmt.Errorf("determining if the Resource Definition for %q contains Discriminated Types: %+v", resourceIDDisplayValue, err)
 		}
 		if *hasDiscriminatedType {
-			logger.Debug(fmt.Sprintf("Resource %q is/contains a Discriminated Type - not supported at this time", resourceId.Id))
+			logger.Debug(fmt.Sprintf("Resource %q is/contains a Discriminated Type - not supported at this time", resourceIDDisplayValue))
 			continue
 		}
 

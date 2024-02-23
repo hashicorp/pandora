@@ -199,11 +199,11 @@ func validateParsedOptionsObjectDefinitionsMatch(t *testing.T, expected, actual 
 	validateObjectsMatch(t, expected.NestedItem, actual.NestedItem, "NestedItem", validateParsedOptionsObjectDefinitionsMatch)
 }
 
-func validateParsedResourceIDsMatch(t *testing.T, expected, actual importerModels.ParsedResourceId, resourceIdName string) {
-	if pointer.From(expected.CommonAlias) != pointer.From(actual.CommonAlias) {
-		t.Errorf("expected `CommonAlias` to be %q but got %q for Resource ID %q", pointer.From(expected.CommonAlias), pointer.From(actual.CommonAlias), resourceIdName)
+func validateParsedResourceIDsMatch(t *testing.T, expected, actual models.ResourceID, resourceIdName string) {
+	if pointer.From(expected.CommonIDAlias) != pointer.From(actual.CommonIDAlias) {
+		t.Errorf("expected `CommonIDAlias` to be %q but got %q for Resource ID %q", pointer.From(expected.CommonIDAlias), pointer.From(actual.CommonIDAlias), resourceIdName)
 	}
-	validateMapsMatch(t, expected.Constants, actual.Constants, "Constants", validateParsedConstantsMatch)
+	validateSlicesMatch(t, expected.ConstantNames, actual.ConstantNames, "ConstantNames", validateStringsMatch)
 	validateSlicesMatch(t, expected.Segments, actual.Segments, "Segments", validateParsedResourceIDSegmentsMatch)
 }
 
