@@ -55,7 +55,6 @@ func (d *SwaggerDefinition) parse(serviceName, apiVersion string, resourceProvid
 
 			if mergeResources, ok := resources[normalizedTag]; ok {
 				resources[normalizedTag] = importerModels.MergeResourcesForTag(mergeResources, *resource)
-
 			} else {
 				resources[normalizedTag] = *resource
 			}
