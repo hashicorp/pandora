@@ -5,9 +5,9 @@ package models
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
