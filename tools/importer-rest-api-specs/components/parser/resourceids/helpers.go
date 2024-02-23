@@ -9,15 +9,14 @@ import (
 
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
-	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func normalizedResourceManagerResourceId(pri importerModels.ParsedResourceId) string {
+func normalizedResourceManagerResourceId(pri models.ResourceID) string {
 	segments := segmentsWithoutUriSuffix(pri)
 	return normalizedResourceId(segments)
 }
 
-func segmentsWithoutUriSuffix(pri importerModels.ParsedResourceId) []models.ResourceIDSegment {
+func segmentsWithoutUriSuffix(pri models.ResourceID) []models.ResourceIDSegment {
 	segments := pri.Segments
 	lastUserValueSegment := -1
 	for i, segment := range segments {
@@ -64,4 +63,65 @@ func normalizedResourceId(segments []models.ResourceIDSegment) string {
 	}
 
 	return fmt.Sprintf("/%s", strings.Join(components, "/"))
+}
+
+func ResourceIdsMatch(first, second models.ResourceID) bool {
+	if len(first.Segments) != len(second.Segments) {
+		return false
+	}
+
+	for i, first := range first.Segments {
+		second := second.Segments[i]
+		if first.Type != second.Type {
+			return false
+		}
+
+		// Whilst these should match, it's possible that they don't but are the same e.g.
+		// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/provisioningServices/{resourceName}
+		// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/provisioningServices/{provisioningServiceName}
+		// as such providing they're both user specified segments (and the rest is the same) then they're the same
+		if first.Type == models.ResourceGroupResourceIDSegmentType || first.Type == models.SubscriptionIDResourceIDSegmentType || first.Type == models.UserSpecifiedResourceIDSegmentType {
+			continue
+		}
+
+		// With a Scope the key doesn't matter as much as that it's a Scope, so presuming the types match (above) we're good.
+		if first.Type == models.ScopeResourceIDSegmentType {
+			continue
+		}
+
+		if first.Type == models.ConstantResourceIDSegmentType {
+			if first.ConstantReference != nil && second.ConstantReference == nil {
+				return false
+			}
+			if first.ConstantReference == nil && second.ConstantReference != nil {
+				return false
+			}
+
+			// We're intentionally not checking the constants involved, since both the name and values could differ
+			// between different operations due to data issues - however when either happens we'd end up using a
+			// Common ID to resolve this - therefore presuming the rest of the Resource ID matches we should be good.
+
+			continue
+		}
+
+		if first.Type == models.ResourceProviderResourceIDSegmentType || first.Type == models.StaticResourceIDSegmentType {
+			if first.FixedValue != nil && second.FixedValue == nil {
+				return false
+			}
+			if first.FixedValue == nil && second.FixedValue != nil {
+				return false
+			}
+			if first.FixedValue != nil && second.FixedValue != nil && *first.FixedValue != *second.FixedValue {
+				return false
+			}
+
+			continue
+		}
+
+		if !strings.EqualFold(first.Name, second.Name) {
+			return false
+		}
+	}
+
+	return true
 }

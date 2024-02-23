@@ -13,7 +13,6 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/constants"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
-	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 var knownSegmentsUsedForScope = []string{
@@ -240,11 +239,17 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 		}
 	}
 	if allSegmentsAreStatic {
+		constantNames := make([]string, 0)
+		for k := range result.Constants {
+			constantNames = append(constantNames, k)
+		}
+		sort.Strings(constantNames)
+
 		// if it's not an ARM ID there's nothing to output here, but new up a placeholder
 		// to be able to give us a normalized id for the suffix
-		pri := importerModels.ParsedResourceId{
-			Constants: result.Constants,
-			Segments:  segments,
+		pri := models.ResourceID{
+			ConstantNames: constantNames,
+			Segments:      segments,
 		}
 		suffix := normalizedResourceId(pri.Segments)
 		out.uriSuffix = &suffix

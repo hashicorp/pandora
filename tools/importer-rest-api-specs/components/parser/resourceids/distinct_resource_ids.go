@@ -3,25 +3,44 @@
 
 package resourceids
 
-import importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+import (
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
+	"sort"
 
-func (p *Parser) distinctResourceIds(input map[string]processedResourceId) []importerModels.ParsedResourceId {
-	out := make([]importerModels.ParsedResourceId, 0)
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+)
 
+func (p *Parser) distinctResourceIds(input map[string]processedResourceId) ([]models.ResourceID, map[string]models.SDKConstant) {
+	out := make([]models.ResourceID, 0)
+
+	allConstants := make(map[string]models.SDKConstant)
 	for _, operation := range input {
 		if operation.segments == nil {
 			continue
 		}
 
-		item := importerModels.ParsedResourceId{
-			CommonAlias: nil,
-			Constants:   operation.constants,
-			Segments:    *operation.segments,
+		uniqueConstantNames := make(map[string]struct{})
+		for k := range operation.constants {
+			v := operation.constants[k]
+			uniqueConstantNames[k] = struct{}{}
+			allConstants[k] = v
 		}
+		constantNames := make([]string, 0)
+		for k := range uniqueConstantNames {
+			constantNames = append(constantNames, k)
+		}
+		sort.Strings(constantNames)
 
+		item := models.ResourceID{
+			CommonIDAlias: nil,
+			ConstantNames: constantNames,
+			Segments:      *operation.segments,
+		}
+		item.ExampleValue = helpers.DisplayValueForResourceID(item)
+		
 		matchFound := false
 		for _, existing := range out {
-			if item.Matches(existing) {
+			if ResourceIdsMatch(item, existing) {
 				matchFound = true
 			}
 		}
@@ -30,5 +49,5 @@ func (p *Parser) distinctResourceIds(input map[string]processedResourceId) []imp
 		}
 	}
 
-	return out
+	return out, allConstants
 }

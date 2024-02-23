@@ -5,18 +5,17 @@ package resourceids
 
 import (
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 var _ commonIdMatcher = commonIdProvisioningService{}
 
 type commonIdProvisioningService struct{}
 
-func (c commonIdProvisioningService) id() importerModels.ParsedResourceId {
+func (c commonIdProvisioningService) id() models.ResourceID {
 	name := "ProvisioningService"
-	return importerModels.ParsedResourceId{
-		CommonAlias: &name,
-		Constants:   map[string]models.SDKConstant{},
+	return models.ResourceID{
+		CommonIDAlias: &name,
+		ConstantNames: []string{},
 		Segments: []models.ResourceIDSegment{
 			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
 			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),

@@ -6,7 +6,9 @@ package parser
 import (
 	"fmt"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/resourceids"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
@@ -138,8 +140,8 @@ func combineOperations(first map[string]importerModels.OperationDetails, second 
 	return &output, nil
 }
 
-func combineResourceIds(first map[string]importerModels.ParsedResourceId, second map[string]importerModels.ParsedResourceId) (*map[string]importerModels.ParsedResourceId, error) {
-	output := make(map[string]importerModels.ParsedResourceId, 0)
+func combineResourceIds(first map[string]models.ResourceID, second map[string]models.ResourceID) (*map[string]models.ResourceID, error) {
+	output := make(map[string]models.ResourceID)
 
 	for k, v := range first {
 		output[k] = v
@@ -148,8 +150,8 @@ func combineResourceIds(first map[string]importerModels.ParsedResourceId, second
 	for k, v := range second {
 		// if there's duplicate Resource ID's named the same thing in different Swaggers, this is likely a data issue
 		otherVal, ok := output[k]
-		if ok && !v.Matches(otherVal) {
-			return nil, fmt.Errorf("duplicate Resource ID named %q (First %q / Second %q)", k, v.String(), otherVal.String())
+		if ok && !resourceids.ResourceIdsMatch(v, otherVal) {
+			return nil, fmt.Errorf("duplicate Resource ID named %q (First %q / Second %q)", k, helpers.DisplayValueForResourceID(v), helpers.DisplayValueForResourceID(otherVal))
 		}
 
 		output[k] = v

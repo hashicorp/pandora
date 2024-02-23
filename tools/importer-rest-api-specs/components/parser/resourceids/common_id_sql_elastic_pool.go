@@ -5,18 +5,17 @@ package resourceids
 
 import (
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 var _ commonIdMatcher = commonIdSqlElasticPool{}
 
 type commonIdSqlElasticPool struct{}
 
-func (c commonIdSqlElasticPool) id() importerModels.ParsedResourceId {
+func (c commonIdSqlElasticPool) id() models.ResourceID {
 	name := "SqlElasticPool"
-	return importerModels.ParsedResourceId{
-		CommonAlias: &name,
-		Constants:   map[string]models.SDKConstant{},
+	return models.ResourceID{
+		CommonIDAlias: &name,
+		ConstantNames: []string{},
 		Segments: []models.ResourceIDSegment{
 			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
 			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),

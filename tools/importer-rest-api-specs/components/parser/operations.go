@@ -5,11 +5,11 @@ package parser
 
 import (
 	"fmt"
+	"github.com/go-openapi/spec"
 	"net/http"
 	"sort"
 	"strings"
 
-	"github.com/go-openapi/spec"
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"

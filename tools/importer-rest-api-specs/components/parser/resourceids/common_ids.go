@@ -4,12 +4,13 @@
 package resourceids
 
 import (
-	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 type commonIdMatcher interface {
 	// id returns the Resource ID for this Common ID
-	id() importerModels.ParsedResourceId
+	id() models.ResourceID
 }
 
 var commonIdTypes = []commonIdMatcher{
@@ -36,6 +37,7 @@ var commonIdTypes = []commonIdMatcher{
 	commonIdCloudServicesPublicIPAddress{},
 	commonIdExpressRouteCircuitPeering{},
 	commonIdNetworkInterfaceIPConfiguration{},
+	commonIdP2sVPNGateway{},
 	commonIdVirtualHubBGPConnection{},
 	commonIdVirtualHubIPConfiguration{},
 	commonIdVirtualMachineScaleSetIPConfiguration{},
@@ -80,6 +82,9 @@ var commonIdTypes = []commonIdMatcher{
 	commonIdKeyVaultKeyVersion{},
 	commonIdKeyVaultPrivateEndpointConnection{},
 
+	// Kubernetes
+	commonIdKubernetesFleet{},
+
 	// SQL
 	commonIdSqlDatabase{},
 	commonIdSqlElasticPool{},
@@ -106,13 +111,16 @@ var commonIdTypes = []commonIdMatcher{
 	commonIdSharedImageGallery{},
 }
 
-func switchOutCommonResourceIDsAsNeeded(input []importerModels.ParsedResourceId) []importerModels.ParsedResourceId {
-	output := make([]importerModels.ParsedResourceId, 0)
+func switchOutCommonResourceIDsAsNeeded(input []models.ResourceID) []models.ResourceID {
+	output := make([]models.ResourceID, 0)
 
 	for _, value := range input {
+		// TODO: we should expose a `[]CommonIDs` function from `hashicorp/go-azure-helpers` so that we can reuse these
+		// the types (intentionally) don't align but we have enough information here to map the data across
 		for _, commonId := range commonIdTypes {
-			if commonId.id().Matches(value) {
+			if ResourceIdsMatch(commonId.id(), value) {
 				value = commonId.id()
+				value.ExampleValue = helpers.DisplayValueForResourceID(value)
 				break
 			}
 		}

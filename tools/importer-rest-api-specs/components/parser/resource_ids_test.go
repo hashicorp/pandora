@@ -22,7 +22,7 @@ func TestParseResourceIdBasic(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				ResourceIds: map[string]importerModels.ParsedResourceId{
+				ResourceIds: map[string]models.ResourceID{
 					"ServerId": {
 						Segments: []models.ResourceIDSegment{
 							models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
@@ -73,18 +73,10 @@ func TestParseResourceIdContainingAConstant(t *testing.T) {
 						},
 					},
 				},
-				ResourceIds: map[string]importerModels.ParsedResourceId{
+				ResourceIds: map[string]models.ResourceID{
 					"PlanetId": {
-						Constants: map[string]models.SDKConstant{
-							"Planet": {
-								Type: models.StringSDKConstantType,
-								Values: map[string]string{
-									"Earth":   "Earth",
-									"Jupiter": "Jupiter",
-									"Mars":    "Mars",
-									"Saturn":  "Saturn",
-								},
-							},
+						ConstantNames: []string{
+							"Planet",
 						},
 						Segments: []models.ResourceIDSegment{
 							models.NewStaticValueResourceIDSegment("staticPlanets", "planets"),
@@ -118,7 +110,7 @@ func TestParseResourceIdContainingAScope(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				ResourceIds: map[string]importerModels.ParsedResourceId{
+				ResourceIds: map[string]models.ResourceID{
 					"ScopedVirtualMachineId": {
 						Segments: []models.ResourceIDSegment{
 							models.NewScopeResourceIDSegment("scope"),
@@ -164,9 +156,9 @@ func TestParseResourceIdContainingAHiddenScope(t *testing.T) {
 				ApiVersion:  "2020-01-01",
 				Resources: map[string]importerModels.AzureApiResource{
 					"Example": {
-						ResourceIds: map[string]importerModels.ParsedResourceId{
+						ResourceIds: map[string]models.ResourceID{
 							"ScopeId": {
-								CommonAlias: pointer.To("Scope"),
+								CommonIDAlias: pointer.To("Scope"),
 								Segments: []models.ResourceIDSegment{
 									models.NewScopeResourceIDSegment("scope"),
 								},
@@ -201,9 +193,9 @@ func TestParseResourceIdContainingAHiddenScopeWithExtraSegment(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				ResourceIds: map[string]importerModels.ParsedResourceId{
+				ResourceIds: map[string]models.ResourceID{
 					"ScopeId": {
-						CommonAlias: pointer.To("Scope"),
+						CommonIDAlias: pointer.To("Scope"),
 						Segments: []models.ResourceIDSegment{
 							models.NewScopeResourceIDSegment("scope"),
 						},
@@ -235,9 +227,9 @@ func TestParseResourceIdContainingAHiddenScopeWithSuffix(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				ResourceIds: map[string]importerModels.ParsedResourceId{
+				ResourceIds: map[string]models.ResourceID{
 					"ScopeId": {
-						CommonAlias: pointer.To("Scope"),
+						CommonIDAlias: pointer.To("Scope"),
 						Segments: []models.ResourceIDSegment{
 							models.NewScopeResourceIDSegment("scope"),
 						},
@@ -279,9 +271,9 @@ func TestParseResourceIdContainingAHiddenScopeNested(t *testing.T) {
 				ApiVersion:  "2020-01-01",
 				Resources: map[string]importerModels.AzureApiResource{
 					"Example": {
-						ResourceIds: map[string]importerModels.ParsedResourceId{
+						ResourceIds: map[string]models.ResourceID{
 							"ScopeId": {
-								CommonAlias: pointer.To("Scope"),
+								CommonIDAlias: pointer.To("Scope"),
 								Segments: []models.ResourceIDSegment{
 									models.NewScopeResourceIDSegment("scope"),
 								},
@@ -315,9 +307,9 @@ func TestParseResourceIdContainingAHiddenScopeNestedWithExtraSegment(t *testing.
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				ResourceIds: map[string]importerModels.ParsedResourceId{
+				ResourceIds: map[string]models.ResourceID{
 					"ScopeId": {
-						CommonAlias: pointer.To("Scope"),
+						CommonIDAlias: pointer.To("Scope"),
 						Segments: []models.ResourceIDSegment{
 							models.NewScopeResourceIDSegment("scope"),
 						},
@@ -349,9 +341,9 @@ func TestParseResourceIdContainingAHiddenScopeNestedWithSuffix(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				ResourceIds: map[string]importerModels.ParsedResourceId{
+				ResourceIds: map[string]models.ResourceID{
 					"ScopeId": {
-						CommonAlias: pointer.To("Scope"),
+						CommonIDAlias: pointer.To("Scope"),
 						Segments: []models.ResourceIDSegment{
 							models.NewScopeResourceIDSegment("scope"),
 						},
@@ -410,7 +402,7 @@ func TestParseResourceIdWithResourceIdAndUriSuffix(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				ResourceIds: map[string]importerModels.ParsedResourceId{
+				ResourceIds: map[string]models.ResourceID{
 					"ServerId": {
 						Segments: []models.ResourceIDSegment{
 							models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
@@ -451,7 +443,7 @@ func TestParseResourceIdWithResourceIdAndUriSuffixForMultipleUris(t *testing.T) 
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				ResourceIds: map[string]importerModels.ParsedResourceId{
+				ResourceIds: map[string]models.ResourceID{
 					"ServerId": {
 						Segments: []models.ResourceIDSegment{
 							models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
@@ -507,7 +499,7 @@ func TestParseResourceIdContainingResourceProviderShouldGetTitleCased(t *testing
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				ResourceIds: map[string]importerModels.ParsedResourceId{
+				ResourceIds: map[string]models.ResourceID{
 					"ServerId": {
 						Segments: []models.ResourceIDSegment{
 							models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
@@ -547,7 +539,7 @@ func TestParseResourceIdContainingTheSameResourceIdWithDifferentSegments(t *test
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				ResourceIds: map[string]importerModels.ParsedResourceId{
+				ResourceIds: map[string]models.ResourceID{
 					"VirtualMachineId": {
 						Segments: []models.ResourceIDSegment{
 							models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
@@ -595,7 +587,7 @@ func TestParseResourceIdContainingTheSegmentsNamedTheSame(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				ResourceIds: map[string]importerModels.ParsedResourceId{
+				ResourceIds: map[string]models.ResourceID{
 					"BillingPeriodId": {
 						Segments: []models.ResourceIDSegment{
 							models.NewStaticValueResourceIDSegment("staticProviders", "providers"),
@@ -658,7 +650,7 @@ func TestParseResourceIdsWhereTheSameUriContainsDifferentConstantValuesPerOperat
 							},
 						},
 					},
-					ResourceIds: map[string]importerModels.ParsedResourceId{
+					ResourceIds: map[string]models.ResourceID{
 						"GalaxyId": {
 							Segments: []models.ResourceIDSegment{
 								models.NewStaticValueResourceIDSegment("staticGalaxies", "galaxies"),
@@ -666,14 +658,8 @@ func TestParseResourceIdsWhereTheSameUriContainsDifferentConstantValuesPerOperat
 							},
 						},
 						"PlanetId": {
-							Constants: map[string]models.SDKConstant{
-								"PlanetNames": {
-									Type: models.StringSDKConstantType,
-									Values: map[string]string{
-										"Earth": "Earth",
-										"Mars":  "Mars",
-									},
-								},
+							ConstantNames: []string{
+								"PlanetNames",
 							},
 							Segments: []models.ResourceIDSegment{
 								models.NewStaticValueResourceIDSegment("staticGalaxies", "galaxies"),
@@ -718,9 +704,9 @@ func TestParseResourceIdsCommon(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				ResourceIds: map[string]importerModels.ParsedResourceId{
+				ResourceIds: map[string]models.ResourceID{
 					"ManagementGroupId": {
-						CommonAlias: pointer.To("ManagementGroup"),
+						CommonIDAlias: pointer.To("ManagementGroup"),
 						Segments: []models.ResourceIDSegment{
 							models.NewStaticValueResourceIDSegment("providers", "providers"),
 							models.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Management"),
@@ -729,7 +715,7 @@ func TestParseResourceIdsCommon(t *testing.T) {
 						},
 					},
 					"ResourceGroupId": {
-						CommonAlias: pointer.To("ResourceGroup"),
+						CommonIDAlias: pointer.To("ResourceGroup"),
 						Segments: []models.ResourceIDSegment{
 							models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
 							models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
@@ -738,20 +724,20 @@ func TestParseResourceIdsCommon(t *testing.T) {
 						},
 					},
 					"ScopeId": {
-						CommonAlias: pointer.To("Scope"),
+						CommonIDAlias: pointer.To("Scope"),
 						Segments: []models.ResourceIDSegment{
 							models.NewScopeResourceIDSegment("scope"),
 						},
 					},
 					"SubscriptionId": {
-						CommonAlias: pointer.To("Subscription"),
+						CommonIDAlias: pointer.To("Subscription"),
 						Segments: []models.ResourceIDSegment{
 							models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
 							models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
 						},
 					},
 					"UserAssignedIdentityId": {
-						CommonAlias: pointer.To("UserAssignedIdentity"),
+						CommonIDAlias: pointer.To("UserAssignedIdentity"),
 						Segments: []models.ResourceIDSegment{
 							models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
 							models.NewSubscriptionIDResourceIDSegment("subscriptionId"),

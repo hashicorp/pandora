@@ -6,6 +6,7 @@ package schema
 import (
 	"testing"
 
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
@@ -54,7 +55,7 @@ func TestBuildForServiceBusNamespaceHappyPath(t *testing.T) {
 						JsonName: "properties",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: stringPointer("NamespaceProperties"),
+							ReferenceName: pointer.To("NamespaceProperties"),
 						},
 						Required: true,
 					},
@@ -62,7 +63,7 @@ func TestBuildForServiceBusNamespaceHappyPath(t *testing.T) {
 						JsonName: "sku",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: stringPointer("Sku"),
+							ReferenceName: pointer.To("Sku"),
 						},
 						Required: true,
 					},
@@ -106,7 +107,7 @@ func TestBuildForServiceBusNamespaceHappyPath(t *testing.T) {
 						JsonName: "name",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: stringPointer("SkuName"),
+							ReferenceName: pointer.To("SkuName"),
 						},
 						Required: true,
 					},
@@ -118,7 +119,7 @@ func TestBuildForServiceBusNamespaceHappyPath(t *testing.T) {
 						JsonName: "name",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: stringPointer("SkuTier"),
+							ReferenceName: pointer.To("SkuTier"),
 						},
 						Optional: true,
 					},
@@ -141,40 +142,40 @@ func TestBuildForServiceBusNamespaceHappyPath(t *testing.T) {
 				LongRunning: false,
 				Method:      "PUT",
 				RequestObject: &resourcemanager.ApiObjectDefinition{
-					ReferenceName: stringPointer("Namespace"),
+					ReferenceName: pointer.To("Namespace"),
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 				},
-				ResourceIdName: stringPointer("NamespaceId"),
+				ResourceIdName: pointer.To("NamespaceId"),
 			},
 			"Delete": {
 				LongRunning:    true,
 				Method:         "DELETE",
-				ResourceIdName: stringPointer("NamespaceId"),
+				ResourceIdName: pointer.To("NamespaceId"),
 			},
 			"Get": {
 				LongRunning: false,
 				Method:      "GET",
 				ResponseObject: &resourcemanager.ApiObjectDefinition{
-					ReferenceName: stringPointer("Namespace"),
+					ReferenceName: pointer.To("Namespace"),
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 				},
-				ResourceIdName: stringPointer("NamespaceId"),
+				ResourceIdName: pointer.To("NamespaceId"),
 			},
 			"Update": {
 				LongRunning: false,
 				Method:      "PUT",
 				RequestObject: &resourcemanager.ApiObjectDefinition{
-					ReferenceName: stringPointer("Namespace"),
+					ReferenceName: pointer.To("Namespace"),
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 				},
-				ResourceIdName: stringPointer("NamespaceId"),
+				ResourceIdName: pointer.To("NamespaceId"),
 			},
 		},
-		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		resourceIds: map[string]models.ResourceID{
 			"NamespaceId": {
-				CommonAlias:   nil,
+				CommonIDAlias: nil,
 				ConstantNames: nil,
-				Id:            "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}",
+				ExampleValue:  "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}",
 				Segments: []models.ResourceIDSegment{
 					models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
 					models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
@@ -340,7 +341,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 						JsonName: "status",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: stringPointer("PrivateLinkConnectionStatus"),
+							ReferenceName: pointer.To("PrivateLinkConnectionStatus"),
 						},
 					},
 				},
@@ -351,7 +352,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 						JsonName: "keySource",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: stringPointer("KeySource"),
+							ReferenceName: pointer.To("KeySource"),
 						},
 						Optional: true,
 					},
@@ -361,7 +362,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 							Type: resourcemanager.ListApiObjectDefinitionType,
 							NestedItem: &resourcemanager.ApiObjectDefinition{
 								Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-								ReferenceName: stringPointer("KeyVaultProperties"),
+								ReferenceName: pointer.To("KeyVaultProperties"),
 							},
 						},
 						Optional: true,
@@ -434,7 +435,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 						JsonName: "properties",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: stringPointer("PrivateEndpointConnectionProperties"),
+							ReferenceName: pointer.To("PrivateEndpointConnectionProperties"),
 						},
 					},
 					"SystemData": {
@@ -459,7 +460,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 						JsonName: "privateEndpoint",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: stringPointer("PrivateEndpoint"),
+							ReferenceName: pointer.To("PrivateEndpoint"),
 						},
 						Optional: true,
 					},
@@ -467,7 +468,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 						JsonName: "privateLinkServiceConnectionState",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: stringPointer("ConnectionState"),
+							ReferenceName: pointer.To("ConnectionState"),
 						},
 						Optional: true,
 					},
@@ -475,7 +476,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 						JsonName: "provisioningState",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: stringPointer("EndPointProvisioningState"),
+							ReferenceName: pointer.To("EndPointProvisioningState"),
 						},
 						Optional: true,
 					},
@@ -519,7 +520,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 						JsonName: "properties",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: stringPointer("NamespaceProperties"),
+							ReferenceName: pointer.To("NamespaceProperties"),
 						},
 						Required: true,
 					},
@@ -527,7 +528,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 						JsonName: "sku",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: stringPointer("Sku"),
+							ReferenceName: pointer.To("Sku"),
 						},
 						Required: true,
 					},
@@ -567,7 +568,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 						JsonName: "encryption",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: stringPointer("Encryption"),
+							ReferenceName: pointer.To("Encryption"),
 						},
 						Optional: true,
 					},
@@ -581,7 +582,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 					"MinimumTlsVersion": {
 						JsonName: "minimum_tls_version",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							ReferenceName: stringPointer("MinimumTlsVersion"),
+							ReferenceName: pointer.To("MinimumTlsVersion"),
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 						},
 						Optional: true,
@@ -600,7 +601,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 							Type: resourcemanager.ListApiObjectDefinitionType,
 							NestedItem: &resourcemanager.ApiObjectDefinition{
 								Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-								ReferenceName: stringPointer("PrivateEndpointConnection"),
+								ReferenceName: pointer.To("PrivateEndpointConnection"),
 							},
 						},
 						Optional: true,
@@ -676,7 +677,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 						JsonName: "properties",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: stringPointer("NamespaceUpdateProperties"),
+							ReferenceName: pointer.To("NamespaceUpdateProperties"),
 						},
 						Optional: true,
 					},
@@ -684,7 +685,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 						JsonName: "sku",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: stringPointer("Sku"),
+							ReferenceName: pointer.To("Sku"),
 						},
 						Optional: true,
 					},
@@ -731,7 +732,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 						JsonName: "encryption",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: stringPointer("Encryption"),
+							ReferenceName: pointer.To("Encryption"),
 						},
 						Optional: true,
 					},
@@ -748,7 +749,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 							Type: resourcemanager.ListApiObjectDefinitionType,
 							NestedItem: &resourcemanager.ApiObjectDefinition{
 								Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-								ReferenceName: stringPointer("PrivateEndpointConnection"),
+								ReferenceName: pointer.To("PrivateEndpointConnection"),
 							},
 						},
 						Optional: true,
@@ -789,7 +790,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 						JsonName: "name",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: stringPointer("SkuName"),
+							ReferenceName: pointer.To("SkuName"),
 						},
 						Required: true,
 						Validation: &resourcemanager.FieldValidationDetails{
@@ -805,7 +806,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 						JsonName: "tier",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: stringPointer("SkuTier"),
+							ReferenceName: pointer.To("SkuTier"),
 						},
 						Optional: true,
 						Validation: &resourcemanager.FieldValidationDetails{
@@ -843,40 +844,40 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 				LongRunning: false,
 				Method:      "PUT",
 				RequestObject: &resourcemanager.ApiObjectDefinition{
-					ReferenceName: stringPointer("Namespace"),
+					ReferenceName: pointer.To("Namespace"),
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 				},
-				ResourceIdName: stringPointer("NamespaceId"),
+				ResourceIdName: pointer.To("NamespaceId"),
 			},
 			"Delete": {
 				LongRunning:    true,
 				Method:         "DELETE",
-				ResourceIdName: stringPointer("NamespaceId"),
+				ResourceIdName: pointer.To("NamespaceId"),
 			},
 			"Get": {
 				LongRunning: false,
 				Method:      "GET",
 				ResponseObject: &resourcemanager.ApiObjectDefinition{
-					ReferenceName: stringPointer("Namespace"),
+					ReferenceName: pointer.To("Namespace"),
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 				},
-				ResourceIdName: stringPointer("NamespaceId"),
+				ResourceIdName: pointer.To("NamespaceId"),
 			},
 			"Update": {
 				LongRunning: false,
 				Method:      "PUT",
 				RequestObject: &resourcemanager.ApiObjectDefinition{
-					ReferenceName: stringPointer("NamespaceUpdateParameters"),
+					ReferenceName: pointer.To("NamespaceUpdateParameters"),
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 				},
-				ResourceIdName: stringPointer("NamespaceId"),
+				ResourceIdName: pointer.To("NamespaceId"),
 			},
 		},
-		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		resourceIds: map[string]models.ResourceID{
 			"NamespaceId": {
-				CommonAlias:   nil,
+				CommonIDAlias: nil,
 				ConstantNames: nil,
-				Id:            "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}",
+				ExampleValue:  "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}",
 				Segments: []models.ResourceIDSegment{
 					models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
 					models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
@@ -972,7 +973,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 			HclName:       "sku_tier",
 			Optional:      true,
 			FieldType:     resourcemanager.TerraformSchemaFieldTypeString,
-			ReferenceName: stringPointer("NamespaceSkuTier"),
+			ReferenceName: pointer.To("NamespaceSkuTier"),
 			Validation: &expectedValidation{
 				Type:               resourcemanager.TerraformSchemaValidationTypePossibleValues,
 				PossibleValueCount: 3,
@@ -991,7 +992,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 			HclName:       "minimum_tls_version",
 			Optional:      true,
 			FieldType:     resourcemanager.TerraformSchemaFieldTypeString,
-			ReferenceName: stringPointer("MinimumTlsVersion"),
+			ReferenceName: pointer.To("MinimumTlsVersion"),
 		})
 
 		r.checkField(t, currentModel, expected{
@@ -1035,7 +1036,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 			HclName:       "encryption",
 			Optional:      true,
 			FieldType:     resourcemanager.TerraformSchemaFieldTypeReference,
-			ReferenceName: stringPointer("NamespaceEncryption"),
+			ReferenceName: pointer.To("NamespaceEncryption"),
 		})
 
 		r.checkField(t, currentModel, expected{
@@ -1043,7 +1044,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 			HclName:             "private_endpoint_connection",
 			Optional:            true,
 			FieldType:           resourcemanager.TerraformSchemaFieldTypeList,
-			NestedReferenceName: stringPointer("NamespacePrivateEndpointConnection"),
+			NestedReferenceName: pointer.To("NamespacePrivateEndpointConnection"),
 		})
 
 		r.checkField(t, currentModel, expected{
@@ -1135,14 +1136,14 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 			HclName:       "private_endpoint",
 			Optional:      true,
 			FieldType:     resourcemanager.TerraformSchemaFieldTypeReference,
-			ReferenceName: stringPointer("NamespacePrivateEndpoint"),
+			ReferenceName: pointer.To("NamespacePrivateEndpoint"),
 		})
 		r.checkField(t, currentModel, expected{
 			FieldName:     "PrivateLinkServiceConnectionState",
 			HclName:       "private_link_service_connection_state",
 			Computed:      true,
 			FieldType:     resourcemanager.TerraformSchemaFieldTypeReference,
-			ReferenceName: stringPointer("NamespaceConnectionState"),
+			ReferenceName: pointer.To("NamespaceConnectionState"),
 		})
 	}
 

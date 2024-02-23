@@ -1846,7 +1846,7 @@ func TestParseModelBug2675DuplicateModel(t *testing.T) {
 						},
 					},
 				},
-				ResourceIds: map[string]importerModels.ParsedResourceId{
+				ResourceIds: map[string]models.ResourceID{
 					"EnvironmentId": {
 						Segments: []models.ResourceIDSegment{
 							models.NewStaticValueResourceIDSegment("staticEnvironments", "environments"),

@@ -104,10 +104,6 @@ func applySchemaOverrides(fieldName string, overrides []importerModels.Override)
 	return nil, nil
 }
 
-func stringPointer(input string) *string {
-	return &input
-}
-
 func getFieldValidation(input *resourcemanager.FieldValidationDetails, fieldName string) (*resourcemanager.TerraformSchemaValidationDefinition, error) {
 	if input == nil {
 		return nil, nil

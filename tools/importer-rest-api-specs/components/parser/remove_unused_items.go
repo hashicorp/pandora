@@ -11,13 +11,13 @@ import (
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func removeUnusedItems(operations map[string]importerModels.OperationDetails, resourceIds map[string]importerModels.ParsedResourceId, result internal.ParseResult) (internal.ParseResult, map[string]importerModels.ParsedResourceId) {
+func removeUnusedItems(operations map[string]importerModels.OperationDetails, resourceIds map[string]models.ResourceID, result internal.ParseResult) (internal.ParseResult, map[string]models.ResourceID) {
 	// The ordering matters here, we need to remove the ResourceIDs first since
 	// they contain references to Constants - as do Models, so remove unused
 	// Resource IDs, then Models, then Constants else we can have orphaned
 	// constants within a package
 
-	resourceIdsForThisResource := make(map[string]importerModels.ParsedResourceId, 0)
+	resourceIdsForThisResource := make(map[string]models.ResourceID)
 	for k, v := range resourceIds {
 		resourceIdsForThisResource[k] = v
 	}
@@ -56,7 +56,7 @@ func removeUnusedItems(operations map[string]importerModels.OperationDetails, re
 	return result, resourceIdsForThisResource
 }
 
-func findUnusedConstants(operations map[string]importerModels.OperationDetails, resourceIds map[string]importerModels.ParsedResourceId, result internal.ParseResult) []string {
+func findUnusedConstants(operations map[string]importerModels.OperationDetails, resourceIds map[string]models.ResourceID, result internal.ParseResult) []string {
 	unusedConstants := make(map[string]struct{}, 0)
 	for constantName := range result.Constants {
 		// constants are either housed inside a Model
@@ -244,7 +244,7 @@ func findUnusedModels(operations map[string]importerModels.OperationDetails, res
 	return out
 }
 
-func findUnusedResourceIds(operations map[string]importerModels.OperationDetails, resourceIds map[string]importerModels.ParsedResourceId) []string {
+func findUnusedResourceIds(operations map[string]importerModels.OperationDetails, resourceIds map[string]models.ResourceID) []string {
 	unusedResourceIds := make(map[string]struct{}, 0)
 
 	// first add everything

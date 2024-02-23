@@ -7,12 +7,11 @@ import (
 	"testing"
 
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 func TestCommonResourceID_ResourceGroup(t *testing.T) {
-	valid := importerModels.ParsedResourceId{
-		Constants: map[string]models.SDKConstant{},
+	valid := models.ResourceID{
+		ConstantNames: []string{},
 		Segments: []models.ResourceIDSegment{
 			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
 			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
@@ -20,8 +19,8 @@ func TestCommonResourceID_ResourceGroup(t *testing.T) {
 			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
 		},
 	}
-	invalid := importerModels.ParsedResourceId{
-		Constants: map[string]models.SDKConstant{},
+	invalid := models.ResourceID{
+		ConstantNames: []string{},
 		Segments: []models.ResourceIDSegment{
 			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
 			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
@@ -31,26 +30,26 @@ func TestCommonResourceID_ResourceGroup(t *testing.T) {
 			models.NewUserSpecifiedResourceIDSegment("resourceName", "resourceName"),
 		},
 	}
-	input := []importerModels.ParsedResourceId{
+	input := []models.ResourceID{
 		valid,
 		invalid,
 	}
 	output := switchOutCommonResourceIDsAsNeeded(input)
 	for _, actual := range output {
 		if normalizedResourceId(actual.Segments) == normalizedResourceId(valid.Segments) {
-			if actual.CommonAlias == nil {
-				t.Fatalf("Expected `valid` to have the CommonAlias `ResourceGroup` but got nil")
+			if actual.CommonIDAlias == nil {
+				t.Fatalf("Expected `valid` to have the CommonIDAlias `ResourceGroup` but got nil")
 			}
-			if *actual.CommonAlias != "ResourceGroup" {
-				t.Fatalf("Expected `valid` to have the CommonAlias `ResourceGroup` but got %q", *actual.CommonAlias)
+			if *actual.CommonIDAlias != "ResourceGroup" {
+				t.Fatalf("Expected `valid` to have the CommonIDAlias `ResourceGroup` but got %q", *actual.CommonIDAlias)
 			}
 
 			continue
 		}
 
 		if normalizedResourceId(actual.Segments) == normalizedResourceId(invalid.Segments) {
-			if actual.CommonAlias != nil {
-				t.Fatalf("Expected `invalid` to have no CommonAlias but got %q", *actual.CommonAlias)
+			if actual.CommonIDAlias != nil {
+				t.Fatalf("Expected `invalid` to have no CommonIDAlias but got %q", *actual.CommonIDAlias)
 			}
 			continue
 		}
@@ -60,9 +59,9 @@ func TestCommonResourceID_ResourceGroup(t *testing.T) {
 }
 
 func TestCommonResourceID_ResourceGroupIncorrectSegment(t *testing.T) {
-	input := []importerModels.ParsedResourceId{
+	input := []models.ResourceID{
 		{
-			Constants: map[string]models.SDKConstant{},
+			ConstantNames: []string{},
 			Segments: []models.ResourceIDSegment{
 				models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
 				models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
@@ -71,7 +70,7 @@ func TestCommonResourceID_ResourceGroupIncorrectSegment(t *testing.T) {
 			},
 		},
 		{
-			Constants: map[string]models.SDKConstant{},
+			ConstantNames: []string{},
 			Segments: []models.ResourceIDSegment{
 				models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
 				models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
@@ -83,7 +82,7 @@ func TestCommonResourceID_ResourceGroupIncorrectSegment(t *testing.T) {
 	output := switchOutCommonResourceIDsAsNeeded(input)
 	for i, actual := range output {
 		t.Logf("testing %d", i)
-		if actual.CommonAlias == nil || *actual.CommonAlias != "ResourceGroup" {
+		if actual.CommonIDAlias == nil || *actual.CommonIDAlias != "ResourceGroup" {
 			t.Fatalf("expected item %d to be detected as a ResourceGroup but it wasn't", i)
 		}
 	}

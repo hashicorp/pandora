@@ -29,7 +29,7 @@ func (workaroundInconsistentlyDefinedSegments) Process(apiDefinition importerMod
 	for resourceName := range apiDefinition.Resources {
 		resource := apiDefinition.Resources[resourceName]
 
-		ids := make(map[string]importerModels.ParsedResourceId, 0)
+		ids := make(map[string]models.ResourceID)
 		for key := range resource.ResourceIds {
 			id := resource.ResourceIds[key]
 			segments := make([]models.ResourceIDSegment, 0)

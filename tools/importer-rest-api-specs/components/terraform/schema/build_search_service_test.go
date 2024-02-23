@@ -6,6 +6,7 @@ package schema
 import (
 	"testing"
 
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
@@ -118,7 +119,7 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 						JsonName: "properties",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: stringPointer("SearchServiceProperties"),
+							ReferenceName: pointer.To("SearchServiceProperties"),
 						},
 						Optional: true,
 					},
@@ -126,7 +127,7 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 						JsonName: "sku",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: stringPointer("Sku"),
+							ReferenceName: pointer.To("Sku"),
 						},
 						Optional: true,
 					},
@@ -156,7 +157,7 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							// Note: This is a collapsed tree to a list of strings, rather than a list of models.
 							Type:          resourcemanager.ListApiObjectDefinitionType,
-							ReferenceName: stringPointer("IPRule"),
+							ReferenceName: pointer.To("IPRule"),
 						},
 					},
 				},
@@ -167,7 +168,7 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 						JsonName: "hostingMode",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: stringPointer("HostingMode"),
+							ReferenceName: pointer.To("HostingMode"),
 						},
 						Optional: true,
 					},
@@ -175,7 +176,7 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 						JsonName: "networkRuleSet",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: stringPointer("NetworkRuleSet"),
+							ReferenceName: pointer.To("NetworkRuleSet"),
 						},
 						Optional: true,
 					},
@@ -192,7 +193,7 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 							Type: resourcemanager.ListApiObjectDefinitionType,
 							NestedItem: &resourcemanager.ApiObjectDefinition{
 								Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-								ReferenceName: stringPointer("PrivateEndpointConnection"),
+								ReferenceName: pointer.To("PrivateEndpointConnection"),
 							},
 						},
 					},
@@ -200,14 +201,14 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 						JsonName: "provisioningState",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: stringPointer("ProvisioningState"),
+							ReferenceName: pointer.To("ProvisioningState"),
 						},
 					},
 					"PublicNetworkAccess": {
 						JsonName: "publicNetworkAccess",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: stringPointer("PublicNetworkAccess"),
+							ReferenceName: pointer.To("PublicNetworkAccess"),
 						},
 						Optional: true,
 					},
@@ -223,7 +224,7 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type: resourcemanager.ListApiObjectDefinitionType,
 							NestedItem: &resourcemanager.ApiObjectDefinition{
-								ReferenceName: stringPointer("SharedPrivateLinkResource"),
+								ReferenceName: pointer.To("SharedPrivateLinkResource"),
 								Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 							},
 						},
@@ -232,7 +233,7 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 						JsonName: "status",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: stringPointer("SearchServiceStatus"),
+							ReferenceName: pointer.To("SearchServiceStatus"),
 						},
 					},
 					"StatusDetails": {
@@ -250,7 +251,7 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 						JsonName: "properties",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: stringPointer("PrivateEndpointProperties"),
+							ReferenceName: pointer.To("PrivateEndpointProperties"),
 						},
 					},
 				},
@@ -270,7 +271,7 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 					"Properties": {
 						JsonName: "properties",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							ReferenceName: stringPointer("PrivateEndpointConnectionProperties"),
+							ReferenceName: pointer.To("PrivateEndpointConnectionProperties"),
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 						},
 					},
@@ -281,7 +282,7 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 					"Properties": {
 						JsonName: "properties",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							ReferenceName: stringPointer("PrivateEndpointConnectionPropertiesProperties"),
+							ReferenceName: pointer.To("PrivateEndpointConnectionPropertiesProperties"),
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 						},
 					},
@@ -295,7 +296,7 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 							Type: resourcemanager.ListApiObjectDefinitionType,
 							NestedItem: &resourcemanager.ApiObjectDefinition{
 								Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-								ReferenceName: stringPointer("PrivateEndpoint"),
+								ReferenceName: pointer.To("PrivateEndpoint"),
 							},
 						},
 					},
@@ -305,7 +306,7 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 							Type: resourcemanager.ListApiObjectDefinitionType,
 							NestedItem: &resourcemanager.ApiObjectDefinition{
 								Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-								ReferenceName: stringPointer("PrivateLinkServiceConnectionState"),
+								ReferenceName: pointer.To("PrivateLinkServiceConnectionState"),
 							},
 						},
 					},
@@ -319,7 +320,7 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 							Type: resourcemanager.ListApiObjectDefinitionType,
 							NestedItem: &resourcemanager.ApiObjectDefinition{
 								Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-								ReferenceName: stringPointer("PrivateLinkServiceConnectionStateProperties"),
+								ReferenceName: pointer.To("PrivateLinkServiceConnectionStateProperties"),
 							},
 						},
 					},
@@ -331,7 +332,7 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 						JsonName: "status",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: stringPointer("PrivateLinkServiceConnectionStatus"),
+							ReferenceName: pointer.To("PrivateLinkServiceConnectionStatus"),
 						},
 					},
 					"Description": {
@@ -353,7 +354,7 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 					"Properties": {
 						JsonName: "properties",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							ReferenceName: stringPointer("SharedPrivateLinkResourceProperties"),
+							ReferenceName: pointer.To("SharedPrivateLinkResourceProperties"),
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 						},
 					},
@@ -364,7 +365,7 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 					"Properties": {
 						JsonName: "properties",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							ReferenceName: stringPointer("SharedPrivateLinkResourcePropertiesProperties"),
+							ReferenceName: pointer.To("SharedPrivateLinkResourcePropertiesProperties"),
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 						},
 					},
@@ -400,7 +401,7 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 						JsonName: "status",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: stringPointer("SharedPrivateLinkResourceStatus"),
+							ReferenceName: pointer.To("SharedPrivateLinkResourceStatus"),
 						},
 					},
 				},
@@ -411,7 +412,7 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 						JsonName: "name",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: stringPointer("SkuName"),
+							ReferenceName: pointer.To("SkuName"),
 						},
 						Required: true,
 					},
@@ -423,40 +424,40 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 				LongRunning: false,
 				Method:      "PUT",
 				RequestObject: &resourcemanager.ApiObjectDefinition{
-					ReferenceName: stringPointer("SearchService"),
+					ReferenceName: pointer.To("SearchService"),
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 				},
-				ResourceIdName: stringPointer("SearchServiceId"),
+				ResourceIdName: pointer.To("SearchServiceId"),
 			},
 			"Delete": {
 				LongRunning:    true,
 				Method:         "DELETE",
-				ResourceIdName: stringPointer("SearchServiceId"),
+				ResourceIdName: pointer.To("SearchServiceId"),
 			},
 			"Get": {
 				LongRunning: false,
 				Method:      "GET",
 				ResponseObject: &resourcemanager.ApiObjectDefinition{
-					ReferenceName: stringPointer("SearchService"),
+					ReferenceName: pointer.To("SearchService"),
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 				},
-				ResourceIdName: stringPointer("SearchServiceId"),
+				ResourceIdName: pointer.To("SearchServiceId"),
 			},
 			"Update": {
 				LongRunning: false,
 				Method:      "PUT",
 				RequestObject: &resourcemanager.ApiObjectDefinition{
-					ReferenceName: stringPointer("SearchService"),
+					ReferenceName: pointer.To("SearchService"),
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 				},
-				ResourceIdName: stringPointer("SearchServiceId"),
+				ResourceIdName: pointer.To("SearchServiceId"),
 			},
 		},
-		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		resourceIds: map[string]models.ResourceID{
 			"SearchServiceId": {
-				CommonAlias:   stringPointer("ResourceGroup"),
+				CommonIDAlias: pointer.To("ResourceGroup"),
 				ConstantNames: nil,
-				Id:            "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Search/searchServices/{searchServiceName}",
+				ExampleValue:  "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Search/searchServices/{searchServiceName}",
 				Segments: []models.ResourceIDSegment{
 					models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
 					models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
@@ -539,7 +540,7 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 			HclName:       "hosting_mode",
 			Optional:      true,
 			FieldType:     resourcemanager.TerraformSchemaFieldTypeString,
-			ReferenceName: stringPointer("HostingMode"),
+			ReferenceName: pointer.To("HostingMode"),
 			Validation: &expectedValidation{
 				Type:               resourcemanager.TerraformSchemaValidationTypePossibleValues,
 				PossibleValueCount: 2,
@@ -550,7 +551,7 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 			HclName:       "allowed_ips",
 			Optional:      true,
 			FieldType:     resourcemanager.TerraformSchemaFieldTypeList,
-			ReferenceName: stringPointer("IPRules"),
+			ReferenceName: pointer.To("IPRules"),
 		})
 		r.checkField(t, currentModel, expected{
 			FieldName: "PartitionCount",
@@ -582,7 +583,7 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 			HclName:             "shared_private_link_resource",
 			Computed:            true,
 			FieldType:           resourcemanager.TerraformSchemaFieldTypeList,
-			NestedReferenceName: stringPointer("SearchServiceSharedPrivateLinkResource"),
+			NestedReferenceName: pointer.To("SearchServiceSharedPrivateLinkResource"),
 			NestedReferenceType: resourcemanager.TerraformSchemaFieldTypeReference,
 		})
 		r.checkField(t, currentModel, expected{
@@ -634,7 +635,7 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 			HclName:       "private_endpoint",
 			Computed:      true,
 			FieldType:     resourcemanager.TerraformSchemaFieldTypeReference,
-			ReferenceName: stringPointer("PrivateEndpoint"),
+			ReferenceName: pointer.To("PrivateEndpoint"),
 		})
 	}
 

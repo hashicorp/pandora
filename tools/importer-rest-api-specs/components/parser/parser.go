@@ -8,6 +8,7 @@ import (
 	"strings"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/resourceids"
@@ -163,14 +164,14 @@ func (d *SwaggerDefinition) ParseResourceIds(resourceProvider *string) (*resourc
 func (d *SwaggerDefinition) filterResourceIdsToResourceProvider(input resourceids.ParseResult, resourceProvider string) (*resourceids.ParseResult, error) {
 	output := resourceids.ParseResult{
 		OperationIdsToParsedResourceIds: input.OperationIdsToParsedResourceIds,
-		NamesToResourceIDs:              map[string]importerModels.ParsedResourceId{},
+		NamesToResourceIDs:              map[string]models.ResourceID{},
 		Constants:                       input.Constants,
 	}
 
 	for name := range input.NamesToResourceIDs {
 		value := input.NamesToResourceIDs[name]
 
-		d.logger.Trace(fmt.Sprintf("Processing ID %q (%q)", name, value.ID()))
+		d.logger.Trace(fmt.Sprintf("Processing ID %q (%q)", name, helpers.DisplayValueForResourceID(value)))
 		usesADifferentResourceProvider, err := resourceIdUsesAResourceProviderOtherThan(pointer.To(value), pointer.To(resourceProvider))
 		if err != nil {
 			return nil, err
@@ -184,7 +185,7 @@ func (d *SwaggerDefinition) filterResourceIdsToResourceProvider(input resourceid
 	return &output, nil
 }
 
-func resourceIdUsesAResourceProviderOtherThan(input *importerModels.ParsedResourceId, resourceProvider *string) (*bool, error) {
+func resourceIdUsesAResourceProviderOtherThan(input *models.ResourceID, resourceProvider *string) (*bool, error) {
 	if input == nil || resourceProvider == nil {
 		return pointer.To(false), nil
 	}
@@ -195,7 +196,7 @@ func resourceIdUsesAResourceProviderOtherThan(input *importerModels.ParsedResour
 		}
 
 		if segment.FixedValue == nil {
-			return nil, fmt.Errorf("the Resource ID %q Segment %d was a ResourceProviderSegment with no FixedValue", input.ID(), i)
+			return nil, fmt.Errorf("the Resource ID %q Segment %d was a ResourceProviderSegment with no FixedValue", helpers.DisplayValueForResourceID(*input), i)
 		}
 		if !strings.EqualFold(*segment.FixedValue, *resourceProvider) {
 			return pointer.To(true), nil

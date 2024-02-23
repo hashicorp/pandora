@@ -5,18 +5,17 @@ package resourceids
 
 import (
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 var _ commonIdMatcher = commonIdVirtualRouterPeering{}
 
 type commonIdVirtualRouterPeering struct{}
 
-func (c commonIdVirtualRouterPeering) id() importerModels.ParsedResourceId {
+func (c commonIdVirtualRouterPeering) id() models.ResourceID {
 	name := "VirtualRouterPeering"
-	return importerModels.ParsedResourceId{
-		CommonAlias: &name,
-		Constants:   map[string]models.SDKConstant{},
+	return models.ResourceID{
+		CommonIDAlias: &name,
+		ConstantNames: []string{},
 		Segments: []models.ResourceIDSegment{
 			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
 			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),

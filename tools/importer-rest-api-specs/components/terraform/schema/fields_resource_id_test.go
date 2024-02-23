@@ -15,7 +15,7 @@ import (
 )
 
 func TestTopLevelFieldsWithinResourceId_NoSegmentsShouldError(t *testing.T) {
-	input := resourcemanager.ResourceIdDefinition{
+	input := models.ResourceID{
 		Segments: []models.ResourceIDSegment{
 			// intentionally none
 		},
@@ -38,7 +38,7 @@ func TestTopLevelFieldsWithinResourceId_NoSegmentsShouldError(t *testing.T) {
 }
 
 func TestTopLevelFieldsWithinResourceId_ResourceGroup(t *testing.T) {
-	input := resourcemanager.ResourceIdDefinition{
+	input := models.ResourceID{
 		Segments: []models.ResourceIDSegment{
 			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
 			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
@@ -94,7 +94,7 @@ func TestTopLevelFieldsWithinResourceId_ResourceGroup(t *testing.T) {
 }
 
 func TestTopLevelFieldsWithinResourceId_VirtualMachine(t *testing.T) {
-	input := resourcemanager.ResourceIdDefinition{
+	input := models.ResourceID{
 		Segments: []models.ResourceIDSegment{
 			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
 			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
@@ -172,7 +172,7 @@ func TestTopLevelFieldsWithinResourceId_VirtualMachine(t *testing.T) {
 }
 
 func TestTopLevelFieldsWithinResourceId_VirtualMachineExtension(t *testing.T) {
-	input := resourcemanager.ResourceIdDefinition{
+	input := models.ResourceID{
 		Segments: []models.ResourceIDSegment{
 			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
 			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
@@ -191,9 +191,9 @@ func TestTopLevelFieldsWithinResourceId_VirtualMachineExtension(t *testing.T) {
 		ResourceId: []resourcemanager.ResourceIdMappingDefinition{},
 	}
 	actualFields, actualMappings, err := Builder{
-		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		resourceIds: map[string]models.ResourceID{
 			"VirtualMachineId": {
-				CommonAlias: pointer.To("VirtualMachine"),
+				CommonIDAlias: pointer.To("VirtualMachine"),
 				Segments: []models.ResourceIDSegment{
 					models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
 					models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
@@ -274,7 +274,7 @@ func TestTopLevelFieldsWithinResourceId_VirtualMachineExtension(t *testing.T) {
 }
 
 func TestTopLevelFieldsWithinResourceId_KubernetesTrustedAccessRoleBinding(t *testing.T) {
-	input := resourcemanager.ResourceIdDefinition{
+	input := models.ResourceID{
 		Segments: []models.ResourceIDSegment{
 			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
 			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
@@ -293,10 +293,10 @@ func TestTopLevelFieldsWithinResourceId_KubernetesTrustedAccessRoleBinding(t *te
 		ResourceId: []resourcemanager.ResourceIdMappingDefinition{},
 	}
 	actualFields, actualMappings, err := Builder{
-		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		resourceIds: map[string]models.ResourceID{
 			"KubernetesClusterId": {
-				CommonAlias: pointer.To("KubernetesCluster"),
-				Id:          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{managedClusterName}",
+				CommonIDAlias: pointer.To("KubernetesCluster"),
+				ExampleValue:  "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{managedClusterName}",
 				Segments: []models.ResourceIDSegment{
 					models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
 					models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
@@ -375,7 +375,7 @@ func TestTopLevelFieldsWithinResourceId_KubernetesTrustedAccessRoleBinding(t *te
 }
 
 func TestTopLevelFieldsWithinResourceId_ParentIdSchemaOverride(t *testing.T) {
-	input := resourcemanager.ResourceIdDefinition{
+	input := models.ResourceID{
 		Segments: []models.ResourceIDSegment{
 			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
 			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
@@ -402,10 +402,10 @@ func TestTopLevelFieldsWithinResourceId_ParentIdSchemaOverride(t *testing.T) {
 		},
 	}
 	actualFields, actualMappings, err := Builder{
-		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		resourceIds: map[string]models.ResourceID{
 			"KubernetesClusterId": {
-				CommonAlias: pointer.To("KubernetesCluster"),
-				Id:          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{managedClusterName}",
+				CommonIDAlias: pointer.To("KubernetesCluster"),
+				ExampleValue:  "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{managedClusterName}",
 				Segments: []models.ResourceIDSegment{
 					models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
 					models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
@@ -484,7 +484,7 @@ func TestTopLevelFieldsWithinResourceId_ParentIdSchemaOverride(t *testing.T) {
 }
 
 func TestTopLevelFieldsWithinResourceId_SchemaOverride(t *testing.T) {
-	input := resourcemanager.ResourceIdDefinition{
+	input := models.ResourceID{
 		Segments: []models.ResourceIDSegment{
 			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
 			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
@@ -574,7 +574,7 @@ func TestTopLevelFieldsWithinResourceId_SchemaOverride(t *testing.T) {
 }
 
 func TestTopLevelFieldsWithinResourceId_DocumentationOverride(t *testing.T) {
-	input := resourcemanager.ResourceIdDefinition{
+	input := models.ResourceID{
 		Segments: []models.ResourceIDSegment{
 			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
 			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),

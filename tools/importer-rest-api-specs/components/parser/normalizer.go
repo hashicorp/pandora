@@ -77,16 +77,16 @@ func normalizeAzureApiResource(input importerModels.AzureApiResource) importerMo
 		normalizedOperations[k] = v
 	}
 
-	normalizedResourceIds := make(map[string]importerModels.ParsedResourceId)
+	normalizedResourceIds := make(map[string]models.ResourceID)
 	for k, v := range input.ResourceIds {
 		segments := make([]models.ResourceIDSegment, 0)
 
-		normalizedConstants := make(map[string]models.SDKConstant)
-		for k, constant := range v.Constants {
-			name := cleanup.NormalizeName(k)
-			normalizedConstants[name] = constant
+		normalizedConstantNames := make([]string, 0)
+		for _, cn := range v.ConstantNames {
+			name := cleanup.NormalizeName(cn)
+			normalizedConstantNames = append(normalizedConstantNames, name)
 		}
-		v.Constants = normalizedConstants
+		v.ConstantNames = normalizedConstantNames
 
 		for _, segment := range v.Segments {
 			if segment.ConstantReference != nil {
