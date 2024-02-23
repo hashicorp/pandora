@@ -149,7 +149,7 @@ func mapInternalOperationsToDataAPISDKType(input map[string]importerModels.Opera
 			RequestObject:                    value.RequestObject,
 			ResourceIDName:                   value.ResourceIdName,
 			ResponseObject:                   value.ResponseObject,
-			URISuffix:                        value.UriSuffix,
+			URISuffix:                        value.URISuffix,
 		}
 
 		operation.Options = map[string]models.SDKOperationOption{}

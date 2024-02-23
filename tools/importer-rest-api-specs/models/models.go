@@ -51,7 +51,7 @@ type OperationDetails struct {
 	RequestObject                    *models.SDKObjectDefinition
 	ResourceIdName                   *string
 	ResponseObject                   *models.SDKObjectDefinition
-	UriSuffix                        *string
+	URISuffix                        *string
 }
 
 type ResourceBuildInfo struct {

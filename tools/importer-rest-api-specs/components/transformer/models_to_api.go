@@ -122,7 +122,7 @@ func apiOperationsFromModelOperations(input map[string]importerModels.OperationD
 			ResponseObject:                   v.ResponseObject,
 			FieldContainingPaginationDetails: v.FieldContainingPaginationDetails,
 			Options:                          v.Options,
-			UriSuffix:                        v.UriSuffix,
+			UriSuffix:                        v.URISuffix,
 		}
 	}
 

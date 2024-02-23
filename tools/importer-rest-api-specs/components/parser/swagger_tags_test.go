@@ -46,7 +46,7 @@ func TestParsingOperationsUsingTheSameSwaggerTagInDifferentCasings(t *testing.T)
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						// https://github.com/hashicorp/pandora/issues/3807
-						UriSuffix: pointer.To("/someotheruri"),
+						URISuffix: pointer.To("/someotheruri"),
 					},
 					"PutBar": {
 						ContentType:         "application/json",
@@ -56,7 +56,7 @@ func TestParsingOperationsUsingTheSameSwaggerTagInDifferentCasings(t *testing.T)
 							ReferenceName: pointer.To("Example"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/bar"),
+						URISuffix: pointer.To("/bar"),
 					},
 					"PutFoo": {
 						ContentType:         "application/json",
@@ -66,7 +66,7 @@ func TestParsingOperationsUsingTheSameSwaggerTagInDifferentCasings(t *testing.T)
 							ReferenceName: pointer.To("Example"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/foo"),
+						URISuffix: pointer.To("/foo"),
 					},
 					"Second": {
 						ContentType:         "application/json",
@@ -77,7 +77,7 @@ func TestParsingOperationsUsingTheSameSwaggerTagInDifferentCasings(t *testing.T)
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						// https://github.com/hashicorp/pandora/issues/3807
-						UriSuffix: pointer.To("/someotheruri"),
+						URISuffix: pointer.To("/someotheruri"),
 					},
 				},
 			},
@@ -120,7 +120,7 @@ func TestParsingOperationsOnResources(t *testing.T) {
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						// https://github.com/hashicorp/pandora/issues/3807
-						UriSuffix: pointer.To("/someotheruri"),
+						URISuffix: pointer.To("/someotheruri"),
 					},
 					"PutBar": {
 						ContentType:         "application/json",
@@ -130,7 +130,7 @@ func TestParsingOperationsOnResources(t *testing.T) {
 							ReferenceName: pointer.To("Example"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/bar"),
+						URISuffix: pointer.To("/bar"),
 					},
 					"Second": {
 						ContentType:         "application/json",
@@ -141,7 +141,7 @@ func TestParsingOperationsOnResources(t *testing.T) {
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						// https://github.com/hashicorp/pandora/issues/3807
-						UriSuffix: pointer.To("/someotheruri"),
+						URISuffix: pointer.To("/someotheruri"),
 					},
 				},
 			},
@@ -168,7 +168,7 @@ func TestParsingOperationsOnResources(t *testing.T) {
 							ReferenceName: pointer.To("Example"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/foo"),
+						URISuffix: pointer.To("/foo"),
 					},
 				},
 			},

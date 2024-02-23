@@ -101,7 +101,7 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 				}
 			}
 			// TODO: determine if we're concerned with these in the future (e.g. ListKeys etc)
-			//if operation.UriSuffix != nil && !strings.EqualFold(operation.Method, "GET") {
+			//if operation.URISuffix != nil && !strings.EqualFold(operation.Method, "GET") {
 			//	hasSuffixedMethods = true
 			//}
 		}

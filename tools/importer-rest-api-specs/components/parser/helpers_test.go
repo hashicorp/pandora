@@ -149,8 +149,8 @@ func validateParsedOperationsMatch(t *testing.T, expected, actual importerModels
 	}
 	validateObjectsMatch(t, expected.RequestObject, actual.RequestObject, "RequestObject", validateParsedObjectDefinitionsMatch)
 	validateObjectsMatch(t, expected.ResponseObject, actual.ResponseObject, "ResponseObject", validateParsedObjectDefinitionsMatch)
-	if pointer.From(expected.UriSuffix) != pointer.From(actual.UriSuffix) {
-		t.Fatalf("expected `UriSuffix` to be %q but got %q for Operation %q", pointer.From(expected.UriSuffix), pointer.From(actual.UriSuffix), operationName)
+	if pointer.From(expected.URISuffix) != pointer.From(actual.URISuffix) {
+		t.Fatalf("expected `URISuffix` to be %q but got %q for Operation %q", pointer.From(expected.URISuffix), pointer.From(actual.URISuffix), operationName)
 	}
 }
 

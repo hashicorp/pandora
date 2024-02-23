@@ -136,7 +136,7 @@ func (p operationsParser) parseOperation(operation parsedOperation, resourceProv
 		RequestObject:                    requestObject,
 		ResourceIdName:                   resourceId.ResourceIdName,
 		ResponseObject:                   responseResult.objectDefinition,
-		UriSuffix:                        resourceId.UriSuffix,
+		URISuffix:                        resourceId.UriSuffix,
 	}
 
 	if p.operationShouldBeIgnored(operationData) {
