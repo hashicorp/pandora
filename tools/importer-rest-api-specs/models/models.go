@@ -8,6 +8,7 @@ import (
 	"strings"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -51,7 +52,7 @@ type OperationDetails struct {
 	LongRunning                      bool
 	Method                           string
 	OperationId                      string
-	Options                          map[string]OperationOption
+	Options                          map[string]models.SDKOperationOption
 	RequestObject                    *ObjectDefinition
 	ResourceIdName                   *string
 	ResponseObject                   *ObjectDefinition
@@ -120,13 +121,6 @@ const (
 	ObjectDefinitionReference  ObjectDefinitionType = "Reference"
 	ObjectDefinitionString     ObjectDefinitionType = "String"
 )
-
-type OperationOption struct {
-	ObjectDefinition *ObjectDefinition
-	HeaderName       *string
-	QueryStringName  *string
-	Required         bool
-}
 
 type ModelDetails struct {
 	Description string
