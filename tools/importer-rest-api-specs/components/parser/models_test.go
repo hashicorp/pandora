@@ -7,7 +7,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -19,70 +19,70 @@ func TestParseModelTopLevel(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Model": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Age": {
 								JsonName: "age",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionInteger,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionInteger,
 								},
 								Required: false,
 							},
 							"Enabled": {
 								JsonName: "enabled",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionBoolean,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionBoolean,
 								},
 								Required: false,
 							},
 							"Height": {
 								JsonName: "height",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionFloat,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionFloat,
 								},
 								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
 							"Tags": {
-								CustomFieldType: pointer.To(models.CustomFieldTypeTags),
+								CustomFieldType: pointer.To(importerModels.CustomFieldTypeTags),
 								JsonName:        "tags",
 								Required:        false,
 							},
 							"Value": {
 								JsonName: "value",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionRawObject,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionRawObject,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
 						OperationId:         "Example_Test",
-						RequestObject: &models.ObjectDefinition{
+						RequestObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -99,22 +99,22 @@ func TestParseModelTopLevelWithRawFile(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
 						OperationId:         "Example_Test",
-						RequestObject: &models.ObjectDefinition{
-							Type: models.ObjectDefinitionRawFile,
+						RequestObject: &importerModels.ObjectDefinition{
+							Type: importerModels.ObjectDefinitionRawFile,
 						},
-						ResponseObject: &models.ObjectDefinition{
-							Type: models.ObjectDefinitionRawFile,
+						ResponseObject: &importerModels.ObjectDefinition{
+							Type: importerModels.ObjectDefinitionRawFile,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -131,89 +131,89 @@ func TestParseModelTopLevelWithInlinedModel(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Model": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
 							"Properties": {
 								JsonName: "properties",
-								ObjectDefinition: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
 									ReferenceName: pointer.To("ModelProperties"),
-									Type:          models.ObjectDefinitionReference,
+									Type:          importerModels.ObjectDefinitionReference,
 								},
 								Required: false,
 							},
 						},
 					},
 					"ModelProperties": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Age": {
 								JsonName: "age",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionInteger,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionInteger,
 								},
 								Required: false,
 							},
 							"Enabled": {
 								JsonName: "enabled",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionBoolean,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionBoolean,
 								},
 								Required: false,
 							},
 							"Height": {
 								JsonName: "height",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionFloat,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionFloat,
 								},
 								Required: false,
 							},
 							"Nickname": {
 								JsonName: "nickname",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 							"Tags": {
-								CustomFieldType: pointer.To(models.CustomFieldTypeTags),
+								CustomFieldType: pointer.To(importerModels.CustomFieldTypeTags),
 								JsonName:        "tags",
 								Required:        false,
 							},
 							"Value": {
 								JsonName: "value",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionRawObject,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionRawObject,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
 						OperationId:         "Example_Test",
-						RequestObject: &models.ObjectDefinition{
+						RequestObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -230,37 +230,37 @@ func TestParseModelWithDateTimeNoType(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Model": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"SomeDateValue": {
 								JsonName: "someDateValue",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionDateTime,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionDateTime,
 								},
 								Required: true,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
 						OperationId:         "Example_Test",
-						RequestObject: &models.ObjectDefinition{
+						RequestObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -277,70 +277,70 @@ func TestParseModelWithInlinedObject(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Model": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 							"ThingProps": {
 								JsonName: "thingProps",
-								ObjectDefinition: &models.ObjectDefinition{
-									NestedItem: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									NestedItem: &importerModels.ObjectDefinition{
 										ReferenceName: pointer.To("ThingProperties"),
-										Type:          models.ObjectDefinitionReference,
+										Type:          importerModels.ObjectDefinitionReference,
 									},
-									Type: models.ObjectDefinitionList,
+									Type: importerModels.ObjectDefinitionList,
 								},
 								Required: false,
 							},
 						},
 					},
 					"ThingProperties": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"KeyName": {
 								JsonName: "keyName",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 							"UserAssignedIdentities": {
 								JsonName: "userAssignedIdentities",
-								ObjectDefinition: &models.ObjectDefinition{
-									NestedItem: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									NestedItem: &importerModels.ObjectDefinition{
 										ReferenceName: pointer.To("UserAssignedIdentitiesProperties"),
-										Type:          models.ObjectDefinitionReference,
+										Type:          importerModels.ObjectDefinitionReference,
 									},
-									Type: models.ObjectDefinitionDictionary,
+									Type: importerModels.ObjectDefinitionDictionary,
 								},
 								Required: false,
 							},
 						},
 					},
 					"UserAssignedIdentitiesProperties": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"ClientId": {
 								JsonName: "clientId",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								ReadOnly: true,
 								Required: false,
 							},
 							"PrincipalId": {
 								JsonName: "principalId",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								ReadOnly: true,
 								Required: false,
@@ -348,15 +348,15 @@ func TestParseModelWithInlinedObject(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Example_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -373,40 +373,40 @@ func TestParseModelWithNumberPrefixedField(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Model": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 							"Five0PercentDone": {
 								JsonName: "50PercentDone",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Example_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -423,74 +423,74 @@ func TestParseModelWithReference(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Model": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 							"ThingProps": {
 								JsonName: "thingProps",
-								ObjectDefinition: &models.ObjectDefinition{
-									NestedItem: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									NestedItem: &importerModels.ObjectDefinition{
 										ReferenceName: pointer.To("ThingProperties"),
-										Type:          models.ObjectDefinitionReference,
+										Type:          importerModels.ObjectDefinitionReference,
 									},
-									Type: models.ObjectDefinitionList,
+									Type: importerModels.ObjectDefinitionList,
 								},
 								Required: false,
 							},
 						},
 					},
 					"ThingProperties": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"KeyName": {
 								JsonName: "keyName",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 							"Identity": {
 								JsonName: "identity",
-								ObjectDefinition: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
 									ReferenceName: pointer.To("UserAssignedIdentityProperties"),
-									Type:          models.ObjectDefinitionReference,
+									Type:          importerModels.ObjectDefinitionReference,
 								},
 								Required: false,
 							},
 						},
 					},
 					"UserAssignedIdentityProperties": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"UserAssignedIdentity": {
 								JsonName: "userAssignedIdentity",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Example_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -507,60 +507,60 @@ func TestParseModelWithReferenceToArray(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Model": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 							"Pets": {
 								JsonName: "pets",
-								ObjectDefinition: &models.ObjectDefinition{
-									NestedItem: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									NestedItem: &importerModels.ObjectDefinition{
 										ReferenceName: pointer.To("Pet"),
-										Type:          models.ObjectDefinitionReference,
+										Type:          importerModels.ObjectDefinitionReference,
 
 										// note: these change substantially in the sdk swap
 										Minimum:     pointer.To(1),
 										Maximum:     pointer.To(2),
 										UniqueItems: pointer.To(true),
 									},
-									Type: models.ObjectDefinitionList,
+									Type: importerModels.ObjectDefinitionList,
 								},
 								Required: false,
 							},
 						},
 					},
 					"Pet": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Example_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -577,10 +577,10 @@ func TestParseModelWithReferenceToConstant(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
 				Constants: map[string]resourcemanager.ConstantDetails{
 					"AnimalType": {
@@ -591,58 +591,58 @@ func TestParseModelWithReferenceToConstant(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Model": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 							"ThingProps": {
 								JsonName: "thingProps",
-								ObjectDefinition: &models.ObjectDefinition{
-									NestedItem: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									NestedItem: &importerModels.ObjectDefinition{
 										ReferenceName: pointer.To("ThingProperties"),
-										Type:          models.ObjectDefinitionReference,
+										Type:          importerModels.ObjectDefinitionReference,
 									},
-									Type: models.ObjectDefinitionList,
+									Type: importerModels.ObjectDefinitionList,
 								},
 								Required: false,
 							},
 						},
 					},
 					"ThingProperties": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Animal": {
 								JsonName: "animal",
-								ObjectDefinition: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
 									ReferenceName: pointer.To("AnimalType"),
-									Type:          models.ObjectDefinitionReference,
+									Type:          importerModels.ObjectDefinitionReference,
 								},
 								Required: false,
 							},
 							"KeyName": {
 								JsonName: "keyName",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Example_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -659,62 +659,62 @@ func TestParseModelWithReferenceToString(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Model": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 							"ThingProps": {
 								JsonName: "thingProps",
-								ObjectDefinition: &models.ObjectDefinition{
-									NestedItem: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									NestedItem: &importerModels.ObjectDefinition{
 										ReferenceName: pointer.To("ThingProperties"),
-										Type:          models.ObjectDefinitionReference,
+										Type:          importerModels.ObjectDefinitionReference,
 									},
-									Type: models.ObjectDefinitionList,
+									Type: importerModels.ObjectDefinitionList,
 								},
 								Required: false,
 							},
 						},
 					},
 					"ThingProperties": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"FullyQualifiedDomainName": {
 								JsonName: "fullyQualifiedDomainName",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 							"KeyName": {
 								JsonName: "keyName",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Example_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -731,93 +731,93 @@ func TestParseModelWithCircularReferences(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Animal": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"FavouriteHouse": {
 								JsonName: "favouriteHouse",
-								ObjectDefinition: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
 									ReferenceName: pointer.To("House"),
-									Type:          models.ObjectDefinitionReference,
+									Type:          importerModels.ObjectDefinitionReference,
 								},
 								Required: false,
 							},
 							"FavouriteHuman": {
 								JsonName: "favouriteHuman",
-								ObjectDefinition: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
 									ReferenceName: pointer.To("Human"),
-									Type:          models.ObjectDefinitionReference,
+									Type:          importerModels.ObjectDefinitionReference,
 								},
 								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 						},
 					},
 					"House": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Address": {
 								JsonName: "address",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 							"Residents": {
 								JsonName: "residents",
-								ObjectDefinition: &models.ObjectDefinition{
-									NestedItem: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									NestedItem: &importerModels.ObjectDefinition{
 										ReferenceName: pointer.To("Human"),
-										Type:          models.ObjectDefinitionReference,
+										Type:          importerModels.ObjectDefinitionReference,
 									},
-									Type: models.ObjectDefinitionList,
+									Type: importerModels.ObjectDefinitionList,
 								},
 								Required: false,
 							},
 						},
 					},
 					"Human": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Pets": {
 								JsonName: "pets",
-								ObjectDefinition: &models.ObjectDefinition{
-									NestedItem: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									NestedItem: &importerModels.ObjectDefinition{
 										ReferenceName: pointer.To("Animal"),
-										Type:          models.ObjectDefinitionReference,
+										Type:          importerModels.ObjectDefinitionReference,
 									},
-									Type: models.ObjectDefinitionList,
+									Type: importerModels.ObjectDefinitionList,
 								},
 								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Example_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("House"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -834,35 +834,35 @@ func TestParseModelInheritingFromObjectWithNoExtraFields(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"FirstObject": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Example_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							// whilst the response model references SecondObject, it's only inheriting from FirstObject
 							// and doesn't contain any new fields, so it should be switched out
 							ReferenceName: pointer.To("FirstObject"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -879,52 +879,52 @@ func TestParseModelInheritingFromObjectWithNoExtraFieldsInlined(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"FirstObject": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Endpoints": {
 								JsonName: "endpoints",
-								ObjectDefinition: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
 									ReferenceName: pointer.To("SecondObject"),
-									Type:          models.ObjectDefinitionReference,
+									Type:          importerModels.ObjectDefinitionReference,
 								},
 								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 						},
 					},
 					"SecondObject": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Example_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("FirstObject"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -941,35 +941,35 @@ func TestParseModelInheritingFromObjectWithOnlyDescription(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"FirstObject": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Example_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							// whilst the response model references SecondObject, it's only inheriting from FirstObject
 							// and doesn't contain any new fields, so it should be switched out
 							ReferenceName: pointer.To("FirstObject"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -991,36 +991,36 @@ func TestParseModelInheritingFromObjectWithPropertiesWithinAllOf(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"SecondObject": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Example_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							// SecondObject is referenced as the Response Object, but because it inherits from one Model
 							// (FirstObject) and uses another (ThirdObject) it shouldn't be flattened into the parent type(s)
 							// and should instead remain `SecondObject`.
 							ReferenceName: pointer.To("SecondObject"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -1037,44 +1037,44 @@ func TestParseModelContainingAllOfToTypeObject(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Model": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
 							"Country": {
 								JsonName: "country",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
 						OperationId:         "Example_Test",
-						RequestObject: &models.ObjectDefinition{
+						RequestObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -1091,44 +1091,44 @@ func TestParseModelContainingAllOfToTypeObjectWithProperties(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Model": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 							"Country": {
 								JsonName: "country",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
 						OperationId:         "Example_Test",
-						RequestObject: &models.ObjectDefinition{
+						RequestObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -1145,70 +1145,70 @@ func TestParseModelContainingAllOfWithinProperties(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Model": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Country": {
 								JsonName: "country",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
 							"Properties": {
 								JsonName: "properties",
-								ObjectDefinition: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
 									ReferenceName: pointer.To("ModelProperties"),
-									Type:          models.ObjectDefinitionReference,
+									Type:          importerModels.ObjectDefinitionReference,
 								},
 								Required: false,
 							},
 						},
 					},
 					"ModelProperties": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"MoreNested": {
 								JsonName: "moreNested",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
 							"Nested": {
 								JsonName: "nested",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
 						OperationId:         "Example_Test",
-						RequestObject: &models.ObjectDefinition{
+						RequestObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -1225,82 +1225,82 @@ func TestParseModelContainingMultipleAllOfWithinProperties(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Model": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Options": {
 								JsonName: "options",
-								ObjectDefinition: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
 									ReferenceName: pointer.To("ResourceWithLocation"),
-									Type:          models.ObjectDefinitionReference,
+									Type:          importerModels.ObjectDefinitionReference,
 								},
 								Required: false,
 							},
 							"Resource": {
 								JsonName: "resource",
-								ObjectDefinition: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
 									ReferenceName: pointer.To("ModelResource"),
-									Type:          models.ObjectDefinitionReference,
+									Type:          importerModels.ObjectDefinitionReference,
 								},
 								Required: false,
 							},
 						},
 					},
 					"ModelResource": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Country": {
 								JsonName: "country",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 							"MoreNested": {
 								JsonName: "moreNested",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 							"Nested": {
 								JsonName: "nested",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 						},
 					},
 					"ResourceWithLocation": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Country": {
 								JsonName: "country",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
 						OperationId:         "Example_Test",
-						RequestObject: &models.ObjectDefinition{
+						RequestObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -1317,77 +1317,77 @@ func TestParseModelContainingLists(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Model": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Animals": {
 								JsonName: "animals",
-								ObjectDefinition: &models.ObjectDefinition{
-									NestedItem: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									NestedItem: &importerModels.ObjectDefinition{
 										ReferenceName: pointer.To("Animal"),
-										Type:          models.ObjectDefinitionReference,
+										Type:          importerModels.ObjectDefinitionReference,
 									},
-									Type: models.ObjectDefinitionList,
+									Type: importerModels.ObjectDefinitionList,
 								},
 								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
 							"Plants": {
 								JsonName: "plants",
-								ObjectDefinition: &models.ObjectDefinition{
-									NestedItem: &models.ObjectDefinition{
-										Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									NestedItem: &importerModels.ObjectDefinition{
+										Type: importerModels.ObjectDefinitionString,
 
 										// NOTE: these change substantially in the new SDK
 										Maximum:     pointer.To(10),
 										Minimum:     pointer.To(1),
 										UniqueItems: pointer.To(true),
 									},
-									Type: models.ObjectDefinitionList,
+									Type: importerModels.ObjectDefinitionList,
 								},
 								Required: false,
 							},
 						},
 					},
 					"Animal": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Age": {
 								JsonName: "age",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionInteger,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionInteger,
 								},
 								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Example_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -1404,48 +1404,48 @@ func TestParseModelInlinedWithNoName(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Container": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Planets": {
 								JsonName: "planets",
-								ObjectDefinition: &models.ObjectDefinition{
-									NestedItem: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									NestedItem: &importerModels.ObjectDefinition{
 										ReferenceName: pointer.To("ContainerPlanetsInlined"),
-										Type:          models.ObjectDefinitionReference,
+										Type:          importerModels.ObjectDefinitionReference,
 									},
-									Type: models.ObjectDefinitionList,
+									Type: importerModels.ObjectDefinitionList,
 								},
 								Required: false,
 							},
 						},
 					},
 					"ContainerPlanetsInlined": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"ExampleField": {
 								JsonName: "exampleField",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Example_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Container"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -1462,63 +1462,63 @@ func TestParseModelInheritingFromParent(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Model": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Age": {
 								JsonName: "age",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionInteger,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionInteger,
 								},
 								Required: false,
 							},
 							"Enabled": {
 								JsonName: "enabled",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionBoolean,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionBoolean,
 								},
 								Required: true,
 							},
 							"Height": {
 								JsonName: "height",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionFloat,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionFloat,
 								},
 								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
 							"Tags": {
 								JsonName:        "tags",
-								CustomFieldType: pointer.To(models.CustomFieldTypeTags),
+								CustomFieldType: pointer.To(importerModels.CustomFieldTypeTags),
 								Required:        true,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
 						OperationId:         "Example_Test",
-						RequestObject: &models.ObjectDefinition{
+						RequestObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -1535,82 +1535,82 @@ func TestParseModelMultipleTopLevelModelsAndOperations(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"GetExample": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Age": {
 								JsonName: "age",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionInteger,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionInteger,
 								},
 								Required: false,
 							},
 							"Enabled": {
 								JsonName: "enabled",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionBoolean,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionBoolean,
 								},
 								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
 							"Tags": {
 								JsonName:        "tags",
-								CustomFieldType: pointer.To(models.CustomFieldTypeTags),
+								CustomFieldType: pointer.To(importerModels.CustomFieldTypeTags),
 								Required:        false,
 							},
 						},
 					},
 					"PutExample": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Age": {
 								JsonName: "age",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionInteger,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionInteger,
 								},
 								Required: false,
 							},
 							"Enabled": {
 								JsonName: "enabled",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionBoolean,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionBoolean,
 								},
 								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: true,
 							},
 							"Tags": {
 								JsonName:        "tags",
-								CustomFieldType: pointer.To(models.CustomFieldTypeTags),
+								CustomFieldType: pointer.To(importerModels.CustomFieldTypeTags),
 								Required:        false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Get": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Example_Get",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("GetExample"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -1619,13 +1619,13 @@ func TestParseModelMultipleTopLevelModelsAndOperations(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
 						OperationId:         "Example_Put",
-						RequestObject: &models.ObjectDefinition{
+						RequestObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("PutExample"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("PutExample"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -1642,26 +1642,26 @@ func TestParseModelBug2675DuplicateModel(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"EnvironmentRole": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Description": {
 								JsonName: "description",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								ReadOnly: true,
 								Required: false,
 							},
 							"RoleName": {
 								JsonName: "roleName",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								ReadOnly: true,
 								Required: false,
@@ -1669,154 +1669,154 @@ func TestParseModelBug2675DuplicateModel(t *testing.T) {
 						},
 					},
 					"ExampleEnvironment": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Location": {
 								JsonName:        "location",
-								CustomFieldType: pointer.To(models.CustomFieldTypeLocation),
+								CustomFieldType: pointer.To(importerModels.CustomFieldTypeLocation),
 								Required:        false,
 							},
 							"Properties": {
 								JsonName: "properties",
-								ObjectDefinition: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
 									ReferenceName: pointer.To("ExampleEnvironmentProperties"),
-									Type:          models.ObjectDefinitionReference,
+									Type:          importerModels.ObjectDefinitionReference,
 								},
 								Required: false,
 							},
 						},
 					},
 					"ExampleEnvironmentProperties": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"CreatorRoleAssignment": {
 								JsonName: "creatorRoleAssignment",
-								ObjectDefinition: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
 									ReferenceName: pointer.To("ExampleEnvironmentUpdatePropertiesCreatorRoleAssignment"),
-									Type:          models.ObjectDefinitionReference,
+									Type:          importerModels.ObjectDefinitionReference,
 								},
 								Required: false,
 							},
 							"DeploymentTargetId": {
 								JsonName: "deploymentTargetId",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 							"ProvisioningState": {
 								JsonName: "provisioningState",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								ReadOnly: true,
 								Required: false,
 							},
 							"UserRoleAssignments": {
 								JsonName: "userRoleAssignments",
-								ObjectDefinition: &models.ObjectDefinition{
-									NestedItem: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									NestedItem: &importerModels.ObjectDefinition{
 										ReferenceName: pointer.To("UserRoleAssignment"),
-										Type:          models.ObjectDefinitionReference,
+										Type:          importerModels.ObjectDefinitionReference,
 									},
-									Type: models.ObjectDefinitionDictionary,
+									Type: importerModels.ObjectDefinitionDictionary,
 								},
 								Required: false,
 							},
 						},
 					},
 					"ExampleEnvironmentUpdate": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Example": {
 								JsonName: "example",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 							"Properties": {
 								JsonName: "properties",
-								ObjectDefinition: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
 									ReferenceName: pointer.To("ExampleEnvironmentUpdateProperties"),
-									Type:          models.ObjectDefinitionReference,
+									Type:          importerModels.ObjectDefinitionReference,
 								},
 								Required: false,
 							},
 						},
 					},
 					"ExampleEnvironmentUpdateProperties": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"CreatorRoleAssignment": {
 								JsonName: "creatorRoleAssignment",
-								ObjectDefinition: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
 									ReferenceName: pointer.To("ExampleEnvironmentUpdatePropertiesCreatorRoleAssignment"),
-									Type:          models.ObjectDefinitionReference,
+									Type:          importerModels.ObjectDefinitionReference,
 								},
 								Required: false,
 							},
 							"DeploymentTargetId": {
 								JsonName: "deploymentTargetId",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 							"UserRoleAssignments": {
 								JsonName: "userRoleAssignments",
-								ObjectDefinition: &models.ObjectDefinition{
-									NestedItem: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									NestedItem: &importerModels.ObjectDefinition{
 										ReferenceName: pointer.To("UserRoleAssignment"),
-										Type:          models.ObjectDefinitionReference,
+										Type:          importerModels.ObjectDefinitionReference,
 									},
-									Type: models.ObjectDefinitionDictionary,
+									Type: importerModels.ObjectDefinitionDictionary,
 								},
 								Required: false,
 							},
 						},
 					},
 					"ExampleEnvironmentUpdatePropertiesCreatorRoleAssignment": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Roles": {
 								JsonName: "roles",
-								ObjectDefinition: &models.ObjectDefinition{
-									NestedItem: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									NestedItem: &importerModels.ObjectDefinition{
 										ReferenceName: pointer.To("EnvironmentRole"),
-										Type:          models.ObjectDefinitionReference,
+										Type:          importerModels.ObjectDefinitionReference,
 									},
-									Type: models.ObjectDefinitionDictionary,
+									Type: importerModels.ObjectDefinitionDictionary,
 								},
 								Required: false,
 							},
 						},
 					},
 					"UserRoleAssignment": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Roles": {
 								JsonName: "roles",
-								ObjectDefinition: &models.ObjectDefinition{
-									NestedItem: &models.ObjectDefinition{
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									NestedItem: &importerModels.ObjectDefinition{
 										ReferenceName: pointer.To("EnvironmentRole"),
-										Type:          models.ObjectDefinitionReference,
+										Type:          importerModels.ObjectDefinitionReference,
 									},
-									Type: models.ObjectDefinitionDictionary,
+									Type: importerModels.ObjectDefinitionDictionary,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"CreateOrUpdate": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
 						OperationId:         "Example_CreateOrUpdate",
-						RequestObject: &models.ObjectDefinition{
+						RequestObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("ExampleEnvironment"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						ResourceIdName: pointer.To("EnvironmentId"),
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("ExampleEnvironment"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 					},
 					"Get": {
@@ -1825,9 +1825,9 @@ func TestParseModelBug2675DuplicateModel(t *testing.T) {
 						Method:              "GET",
 						OperationId:         "Example_Get",
 						ResourceIdName:      pointer.To("EnvironmentId"),
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("ExampleEnvironment"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 					},
 					"Update": {
@@ -1835,18 +1835,18 @@ func TestParseModelBug2675DuplicateModel(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "PATCH",
 						OperationId:         "Example_Update",
-						RequestObject: &models.ObjectDefinition{
+						RequestObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("ExampleEnvironmentUpdate"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						ResourceIdName: pointer.To("EnvironmentId"),
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("ExampleEnvironment"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 					},
 				},
-				ResourceIds: map[string]models.ParsedResourceId{
+				ResourceIds: map[string]importerModels.ParsedResourceId{
 					"EnvironmentId": {
 						Segments: []resourcemanager.ResourceIdSegment{
 							NewStaticValueResourceIDSegment("staticEnvironments", "environments"),

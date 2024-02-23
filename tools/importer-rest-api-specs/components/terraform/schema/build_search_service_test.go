@@ -7,7 +7,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/go-hclog"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -524,7 +524,7 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 		},
 	}
 
-	var inputResourceBuildInfo *models.ResourceBuildInfo
+	var inputResourceBuildInfo *importerModels.ResourceBuildInfo
 
 	actualModels, actualMappings, err := builder.Build(input, inputResourceBuildInfo, hclog.New(hclog.DefaultOptions))
 	if err != nil {

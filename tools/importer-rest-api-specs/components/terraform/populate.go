@@ -11,13 +11,13 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/schema"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/testing"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/transformer"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 // NOTE: this file wants further refactoring and is just a minimal viable grouping for now
 
-func PopulateForResources(data *models.AzureApiDefinition, resourceBuildInfo map[string]models.ResourceBuildInfo, providerPrefix string, logger hclog.Logger) (*models.AzureApiDefinition, error) {
+func PopulateForResources(data *importerModels.AzureApiDefinition, resourceBuildInfo map[string]importerModels.ResourceBuildInfo, providerPrefix string, logger hclog.Logger) (*importerModels.AzureApiDefinition, error) {
 	logger.Trace("generating Terraform Details")
 	var err error
 	data, err = generateTerraformDetails(data, resourceBuildInfo, logger.Named("TerraformDetails"))
@@ -40,7 +40,7 @@ func PopulateForResources(data *models.AzureApiDefinition, resourceBuildInfo map
 	return data, nil
 }
 
-func generateTerraformDetails(data *models.AzureApiDefinition, resourceBuildInfo map[string]models.ResourceBuildInfo, logger hclog.Logger) (*models.AzureApiDefinition, error) {
+func generateTerraformDetails(data *importerModels.AzureApiDefinition, resourceBuildInfo map[string]importerModels.ResourceBuildInfo, logger hclog.Logger) (*importerModels.AzureApiDefinition, error) {
 	for key, resource := range data.Resources {
 		if resource.Terraform == nil {
 			continue
@@ -62,7 +62,7 @@ func generateTerraformDetails(data *models.AzureApiDefinition, resourceBuildInfo
 			// use the ResourceName to build up the name for this Schema Model
 			resourceDetails.SchemaModelName = fmt.Sprintf("%sResource", resourceDetails.ResourceName)
 
-			var buildInfo *models.ResourceBuildInfo
+			var buildInfo *importerModels.ResourceBuildInfo
 			if resourceBuildInfo != nil {
 				if b, ok := resourceBuildInfo[resourceLabel]; ok {
 					buildInfo = &b
@@ -106,8 +106,8 @@ func generateTerraformDetails(data *models.AzureApiDefinition, resourceBuildInfo
 	return data, nil
 }
 
-func generateTerraformExampleUsage(data *models.AzureApiDefinition) (*models.AzureApiDefinition, error) {
-	apiResources := make(map[string]models.AzureApiResource)
+func generateTerraformExampleUsage(data *importerModels.AzureApiDefinition) (*importerModels.AzureApiDefinition, error) {
+	apiResources := make(map[string]importerModels.AzureApiResource)
 	for k, v := range data.Resources {
 		if v.Terraform != nil {
 			// TODO: support Data Sources
@@ -129,7 +129,7 @@ func generateTerraformExampleUsage(data *models.AzureApiDefinition) (*models.Azu
 	return data, nil
 }
 
-func generateTerraformTests(data *models.AzureApiDefinition, providerPrefix string, logger hclog.Logger) (*models.AzureApiDefinition, error) {
+func generateTerraformTests(data *importerModels.AzureApiDefinition, providerPrefix string, logger hclog.Logger) (*importerModels.AzureApiDefinition, error) {
 	for _, resource := range data.Resources {
 		if resource.Terraform == nil {
 			continue

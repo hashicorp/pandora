@@ -8,7 +8,7 @@ import (
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -16,7 +16,7 @@ var _ workaround = workaroundInconsistentlyDefinedSegments{}
 
 type workaroundInconsistentlyDefinedSegments struct{}
 
-func (workaroundInconsistentlyDefinedSegments) IsApplicable(_ *models.AzureApiDefinition) bool {
+func (workaroundInconsistentlyDefinedSegments) IsApplicable(_ *importerModels.AzureApiDefinition) bool {
 	return true
 }
 
@@ -24,12 +24,12 @@ func (workaroundInconsistentlyDefinedSegments) Name() string {
 	return "Workaround Inconsistently Defined Resource ID Segments"
 }
 
-func (workaroundInconsistentlyDefinedSegments) Process(apiDefinition models.AzureApiDefinition) (*models.AzureApiDefinition, error) {
-	resources := make(map[string]models.AzureApiResource, 0)
+func (workaroundInconsistentlyDefinedSegments) Process(apiDefinition importerModels.AzureApiDefinition) (*importerModels.AzureApiDefinition, error) {
+	resources := make(map[string]importerModels.AzureApiResource, 0)
 	for resourceName := range apiDefinition.Resources {
 		resource := apiDefinition.Resources[resourceName]
 
-		ids := make(map[string]models.ParsedResourceId, 0)
+		ids := make(map[string]importerModels.ParsedResourceId, 0)
 		for key := range resource.ResourceIds {
 			id := resource.ResourceIds[key]
 			segments := make([]resourcemanager.ResourceIdSegment, 0)

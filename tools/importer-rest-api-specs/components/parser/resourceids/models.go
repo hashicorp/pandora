@@ -6,16 +6,15 @@ package resourceids
 import (
 	"fmt"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
-
 	"github.com/hashicorp/go-hclog"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 type ParsedOperation struct {
 	// ResourceId is the ParsedResourceId object for this Resource Id
-	ResourceId *models.ParsedResourceId
+	ResourceId *importerModels.ParsedResourceId
 
 	// ResourceIdName is the name of the ResourceID
 	ResourceIdName *string
@@ -32,7 +31,7 @@ type ParseResult struct {
 	OperationIdsToParsedResourceIds map[string]ParsedOperation
 
 	// NamesToResourceIDs is a mapping of the ResourceID Names to the Parsed Resource ID objects
-	NamesToResourceIDs map[string]models.ParsedResourceId
+	NamesToResourceIDs map[string]importerModels.ParsedResourceId
 
 	// Constants is a map of Name - ConstantDetails found within the Resource IDs
 	Constants map[string]resourcemanager.ConstantDetails
@@ -77,7 +76,7 @@ func (r *ParseResult) Append(other ParseResult, logger hclog.Logger) error {
 
 		// since we have a new list of Resource IDs we also need to go through and regenerate the names
 		// as we may have conflicts etc
-		combinedResourceIds := make([]models.ParsedResourceId, 0)
+		combinedResourceIds := make([]importerModels.ParsedResourceId, 0)
 		for _, v := range r.NamesToResourceIDs {
 			combinedResourceIds = append(combinedResourceIds, v)
 		}

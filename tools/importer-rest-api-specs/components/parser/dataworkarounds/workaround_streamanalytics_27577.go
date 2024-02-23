@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 // workaroundStreamAnalytics27577 is a workaround to account for StreamAnalytics containing its own
@@ -17,7 +17,7 @@ import (
 type workaroundStreamAnalytics27577 struct {
 }
 
-func (w workaroundStreamAnalytics27577) IsApplicable(apiDefinition *models.AzureApiDefinition) bool {
+func (w workaroundStreamAnalytics27577) IsApplicable(apiDefinition *importerModels.AzureApiDefinition) bool {
 	serviceMatches := apiDefinition.ServiceName == "StreamAnalytics"
 	apiVersionMatches := apiDefinition.ApiVersion == "2020-03-01" || apiDefinition.ApiVersion == "2021-10-01-preview"
 	return serviceMatches && apiVersionMatches
@@ -27,7 +27,7 @@ func (w workaroundStreamAnalytics27577) Name() string {
 	return "StreamAnalytics / 27577"
 }
 
-func (w workaroundStreamAnalytics27577) Process(apiDefinition models.AzureApiDefinition) (*models.AzureApiDefinition, error) {
+func (w workaroundStreamAnalytics27577) Process(apiDefinition importerModels.AzureApiDefinition) (*importerModels.AzureApiDefinition, error) {
 	apiResourcesToFix := []string{
 		"StreamingJobs",
 	}
@@ -54,10 +54,10 @@ func (w workaroundStreamAnalytics27577) Process(apiDefinition models.AzureApiDef
 		}
 
 		// update the reference to be a System OR UserAssigned identity
-		field.CustomFieldType = pointer.To(models.CustomFieldTypeSystemOrUserAssignedIdentityMap)
+		field.CustomFieldType = pointer.To(importerModels.CustomFieldTypeSystemOrUserAssignedIdentityMap)
 		if apiDefinition.ApiVersion == "2020-03-01" {
 			// however API version 2020-03-01 only supports SystemAssigned
-			field.CustomFieldType = pointer.To(models.CustomFieldTypeSystemAssignedIdentity)
+			field.CustomFieldType = pointer.To(importerModels.CustomFieldTypeSystemAssignedIdentity)
 		}
 		field.ObjectDefinition = nil
 

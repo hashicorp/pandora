@@ -6,7 +6,7 @@ package dataworkarounds
 import (
 	"fmt"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 // This workaround fixes an issue in DevCenter where the field `DevCenterUri` is not
@@ -25,7 +25,7 @@ var _ workaround = workaroundDevCenter26189{}
 type workaroundDevCenter26189 struct {
 }
 
-func (workaroundDevCenter26189) IsApplicable(apiDefinition *models.AzureApiDefinition) bool {
+func (workaroundDevCenter26189) IsApplicable(apiDefinition *importerModels.AzureApiDefinition) bool {
 	return apiDefinition.ServiceName == "DevCenter" && apiDefinition.ApiVersion == "2023-04-01"
 }
 
@@ -33,7 +33,7 @@ func (workaroundDevCenter26189) Name() string {
 	return "DevCenter / 26189"
 }
 
-func (workaroundDevCenter26189) Process(apiDefinition models.AzureApiDefinition) (*models.AzureApiDefinition, error) {
+func (workaroundDevCenter26189) Process(apiDefinition importerModels.AzureApiDefinition) (*importerModels.AzureApiDefinition, error) {
 	// First we need to patch the DevCenters issue (marking DevCenterUri as required)
 	devCentersResource, ok := apiDefinition.Resources["DevCenters"]
 	if !ok {

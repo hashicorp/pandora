@@ -4,7 +4,7 @@
 package resourceids
 
 import (
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -12,20 +12,20 @@ var _ commonIdMatcher = commonIdUserAssignedIdentity{}
 
 type commonIdUserAssignedIdentity struct{}
 
-func (commonIdUserAssignedIdentity) id() models.ParsedResourceId {
+func (commonIdUserAssignedIdentity) id() importerModels.ParsedResourceId {
 	name := "UserAssignedIdentity"
-	return models.ParsedResourceId{
+	return importerModels.ParsedResourceId{
 		CommonAlias: &name,
 		Constants:   map[string]resourcemanager.ConstantDetails{},
 		Segments: []resourcemanager.ResourceIdSegment{
-			models.StaticResourceIDSegment("subscriptions", "subscriptions"),
-			models.SubscriptionIDResourceIDSegment("subscriptionId"),
-			models.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
-			models.ResourceGroupResourceIDSegment("resourceGroupName"),
-			models.StaticResourceIDSegment("providers", "providers"),
-			models.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.ManagedIdentity"),
-			models.StaticResourceIDSegment("userAssignedIdentities", "userAssignedIdentities"),
-			models.UserSpecifiedResourceIDSegment("userAssignedIdentityName"),
+			importerModels.StaticResourceIDSegment("subscriptions", "subscriptions"),
+			importerModels.SubscriptionIDResourceIDSegment("subscriptionId"),
+			importerModels.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
+			importerModels.ResourceGroupResourceIDSegment("resourceGroupName"),
+			importerModels.StaticResourceIDSegment("providers", "providers"),
+			importerModels.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.ManagedIdentity"),
+			importerModels.StaticResourceIDSegment("userAssignedIdentities", "userAssignedIdentities"),
+			importerModels.UserSpecifiedResourceIDSegment("userAssignedIdentityName"),
 		},
 	}
 }

@@ -10,12 +10,12 @@ import (
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/resourceids"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func (d *SwaggerDefinition) parse(serviceName, apiVersion string, resourceProvider *string, resourceIds resourceids.ParseResult) (*models.AzureApiDefinition, error) {
-	resources := make(map[string]models.AzureApiResource, 0)
+func (d *SwaggerDefinition) parse(serviceName, apiVersion string, resourceProvider *string, resourceIds resourceids.ParseResult) (*importerModels.AzureApiDefinition, error) {
+	resources := make(map[string]importerModels.AzureApiResource, 0)
 
 	tags := d.findTags()
 	// first we assume everything has a tag
@@ -53,7 +53,7 @@ func (d *SwaggerDefinition) parse(serviceName, apiVersion string, resourceProvid
 			normalizedTag = cleanup.NormalizeResourceName(normalizedTag)
 
 			if mergeResources, ok := resources[normalizedTag]; ok {
-				resources[normalizedTag] = models.MergeResourcesForTag(mergeResources, *resource)
+				resources[normalizedTag] = importerModels.MergeResourcesForTag(mergeResources, *resource)
 
 			} else {
 				resources[normalizedTag] = *resource
@@ -62,7 +62,7 @@ func (d *SwaggerDefinition) parse(serviceName, apiVersion string, resourceProvid
 	}
 
 	// now that we have a canonical list of resources, can we simplify the Operation names at all?
-	resourcesOut := make(map[string]models.AzureApiResource)
+	resourcesOut := make(map[string]importerModels.AzureApiResource)
 	for resourceName, resource := range resources {
 		d.logger.Trace(fmt.Sprintf("Simplifying operation names for resource %q", resourceName))
 		updated := d.simplifyOperationNamesForResource(resource, resourceName)
@@ -87,14 +87,14 @@ func (d *SwaggerDefinition) parse(serviceName, apiVersion string, resourceProvid
 
 			// this is to avoid the creation of empty packages/directories in the api definitions
 			if len(result.Models) > 0 || len(result.Constants) > 0 {
-				resource := models.AzureApiResource{
+				resource := importerModels.AzureApiResource{
 					Constants: result.Constants,
 					Models:    result.Models,
 				}
 				resource = normalizeAzureApiResource(resource)
 
 				if mergeResources, ok := resources[normalizedTag]; ok {
-					resources[normalizedTag] = models.MergeResourcesForTag(mergeResources, resource)
+					resources[normalizedTag] = importerModels.MergeResourcesForTag(mergeResources, resource)
 				} else {
 					resourcesOut[normalizedTag] = resource
 				}
@@ -102,14 +102,14 @@ func (d *SwaggerDefinition) parse(serviceName, apiVersion string, resourceProvid
 		}
 	}
 
-	return &models.AzureApiDefinition{
+	return &importerModels.AzureApiDefinition{
 		ServiceName: cleanup.NormalizeServiceName(serviceName),
 		ApiVersion:  apiVersion,
 		Resources:   resourcesOut,
 	}, nil
 }
 
-func (d *SwaggerDefinition) simplifyOperationNamesForResource(resource models.AzureApiResource, resourceName string) models.AzureApiResource {
+func (d *SwaggerDefinition) simplifyOperationNamesForResource(resource importerModels.AzureApiResource, resourceName string) importerModels.AzureApiResource {
 	allOperationsStartWithPrefix := true
 	resourceNameLower := strings.ToLower(resourceName)
 	for operationName := range resource.Operations {
@@ -125,7 +125,7 @@ func (d *SwaggerDefinition) simplifyOperationNamesForResource(resource models.Az
 		return resource
 	}
 
-	output := make(map[string]models.OperationDetails)
+	output := make(map[string]importerModels.OperationDetails)
 	for key, value := range resource.Operations {
 		updatedKey := key[len(resourceNameLower):]
 		// Trim off any spurious `s` at the start. This happens when the Swagger Tag and the Operation ID
@@ -163,7 +163,7 @@ func (d *SwaggerDefinition) ParseResourceIds(resourceProvider *string) (*resourc
 func (d *SwaggerDefinition) filterResourceIdsToResourceProvider(input resourceids.ParseResult, resourceProvider string) (*resourceids.ParseResult, error) {
 	output := resourceids.ParseResult{
 		OperationIdsToParsedResourceIds: input.OperationIdsToParsedResourceIds,
-		NamesToResourceIDs:              map[string]models.ParsedResourceId{},
+		NamesToResourceIDs:              map[string]importerModels.ParsedResourceId{},
 		Constants:                       input.Constants,
 	}
 
@@ -184,7 +184,7 @@ func (d *SwaggerDefinition) filterResourceIdsToResourceProvider(input resourceid
 	return &output, nil
 }
 
-func resourceIdUsesAResourceProviderOtherThan(input *models.ParsedResourceId, resourceProvider *string) (*bool, error) {
+func resourceIdUsesAResourceProviderOtherThan(input *importerModels.ParsedResourceId, resourceProvider *string) (*bool, error) {
 	if input == nil || resourceProvider == nil {
 		return pointer.To(false), nil
 	}

@@ -11,7 +11,7 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/constants"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -86,7 +86,7 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 				}
 			}
 			if isScope {
-				segments = append(segments, models.ScopeResourceIDSegment(normalizedSegment))
+				segments = append(segments, importerModels.ScopeResourceIDSegment(normalizedSegment))
 				continue
 			}
 
@@ -101,7 +101,7 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 				}
 
 				if previousSegmentWasSubscriptions {
-					segments = append(segments, models.SubscriptionIDResourceIDSegment(normalizedSegment))
+					segments = append(segments, importerModels.SubscriptionIDResourceIDSegment(normalizedSegment))
 					continue
 				}
 			}
@@ -117,7 +117,7 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 				}
 
 				if previousSegmentWasResourceGroups {
-					segments = append(segments, models.ResourceGroupResourceIDSegment(normalizedSegment))
+					segments = append(segments, importerModels.ResourceGroupResourceIDSegment(normalizedSegment))
 					continue
 				}
 			}
@@ -161,7 +161,7 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 						}
 
 						result.Constants[constant.Name] = constant.Details
-						segments = append(segments, models.ConstantResourceIDSegment(normalizedSegment, constant.Name))
+						segments = append(segments, importerModels.ConstantResourceIDSegment(normalizedSegment, constant.Name))
 						isConstant = true
 						break
 					}
@@ -173,7 +173,7 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 
 			// user specified segments are output as variables, so we need to ensure these aren't language keywords
 			normalizedSegment = cleanup.NormalizeReservedKeywords(normalizedSegment)
-			segments = append(segments, models.UserSpecifiedResourceIDSegment(normalizedSegment))
+			segments = append(segments, importerModels.UserSpecifiedResourceIDSegment(normalizedSegment))
 			continue
 		}
 
@@ -185,14 +185,14 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 			// prefix this with `static{name}` so that the segment is unique
 			// these aren't parsed out anyway, but we need unique names
 			normalizedSegment = normalizeSegment(fmt.Sprintf("static%s", strings.Title(resourceProviderValue)))
-			segments = append(segments, models.ResourceProviderResourceIDSegment(normalizedSegment, resourceProviderValue))
+			segments = append(segments, importerModels.ResourceProviderResourceIDSegment(normalizedSegment, resourceProviderValue))
 			continue
 		}
 
 		// prefix this with `static{name}` so that the segment is unique
 		// these aren't parsed out anyway, but we need unique names
 		normalizedName := normalizeSegment(fmt.Sprintf("static%s", strings.Title(normalizedSegment)))
-		segments = append(segments, models.StaticResourceIDSegment(normalizedName, normalizedSegment))
+		segments = append(segments, importerModels.StaticResourceIDSegment(normalizedName, normalizedSegment))
 	}
 
 	// now that we've parsed all of the URI Segments, let's determine if this contains a Resource ID scope
@@ -244,7 +244,7 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 	if allSegmentsAreStatic {
 		// if it's not an ARM ID there's nothing to output here, but new up a placeholder
 		// to be able to give us a normalized id for the suffix
-		pri := models.ParsedResourceId{
+		pri := importerModels.ParsedResourceId{
 			Constants: result.Constants,
 			Segments:  segments,
 		}

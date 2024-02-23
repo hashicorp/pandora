@@ -9,13 +9,13 @@ import (
 
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/helpers"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func (b Builder) identifyTopLevelFieldsWithinResourceID(input resourcemanager.ResourceIdDefinition, mappings *resourcemanager.MappingDefinition, displayName string, resourceBuildInfo *models.ResourceBuildInfo, logger hclog.Logger) (*map[string]resourcemanager.TerraformSchemaFieldDefinition, *resourcemanager.MappingDefinition, error) {
+func (b Builder) identifyTopLevelFieldsWithinResourceID(input resourcemanager.ResourceIdDefinition, mappings *resourcemanager.MappingDefinition, displayName string, resourceBuildInfo *importerModels.ResourceBuildInfo, logger hclog.Logger) (*map[string]resourcemanager.TerraformSchemaFieldDefinition, *resourcemanager.MappingDefinition, error) {
 	out := make(map[string]resourcemanager.TerraformSchemaFieldDefinition, 0)
-	overrides := make([]models.Override, 0)
+	overrides := make([]importerModels.Override, 0)
 
 	if resourceBuildInfo != nil && resourceBuildInfo.Overrides != nil {
 		overrides = resourceBuildInfo.Overrides
@@ -157,7 +157,7 @@ func (b Builder) identifyTopLevelFieldsWithinResourceID(input resourcemanager.Re
 	return &out, mappings, nil
 }
 
-func descriptionForResourceIDSegment(input, resourceDisplayName string, overrides []models.Override) string {
+func descriptionForResourceIDSegment(input, resourceDisplayName string, overrides []importerModels.Override) string {
 	if overrides != nil && len(overrides) > 0 {
 		for _, o := range overrides {
 			if o.UpdatedName != nil && strings.EqualFold(input, helpers.ConvertFromSnakeToTitleCase(*o.UpdatedName)) {

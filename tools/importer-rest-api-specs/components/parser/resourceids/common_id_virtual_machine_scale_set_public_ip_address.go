@@ -4,7 +4,7 @@
 package resourceids
 
 import (
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -12,28 +12,28 @@ var _ commonIdMatcher = commonIdVirtualMachineScaleSetPublicIPAddress{}
 
 type commonIdVirtualMachineScaleSetPublicIPAddress struct{}
 
-func (c commonIdVirtualMachineScaleSetPublicIPAddress) id() models.ParsedResourceId {
+func (c commonIdVirtualMachineScaleSetPublicIPAddress) id() importerModels.ParsedResourceId {
 	name := "VirtualMachineScaleSetPublicIPAddress"
-	return models.ParsedResourceId{
+	return importerModels.ParsedResourceId{
 		CommonAlias: &name,
 		Constants:   map[string]resourcemanager.ConstantDetails{},
 		Segments: []resourcemanager.ResourceIdSegment{
-			models.StaticResourceIDSegment("subscriptions", "subscriptions"),
-			models.SubscriptionIDResourceIDSegment("subscriptionId"),
-			models.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
-			models.ResourceGroupResourceIDSegment("resourceGroupName"),
-			models.StaticResourceIDSegment("providers", "providers"),
-			models.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Compute"),
-			models.StaticResourceIDSegment("virtualMachineScaleSets", "virtualMachineScaleSets"),
-			models.UserSpecifiedResourceIDSegment("virtualMachineScaleSetName"),
-			models.StaticResourceIDSegment("virtualMachines", "virtualMachines"),
-			models.UserSpecifiedResourceIDSegment("virtualMachineIndex"),
-			models.StaticResourceIDSegment("networkInterfaces", "networkInterfaces"),
-			models.UserSpecifiedResourceIDSegment("networkInterfaceName"),
-			models.StaticResourceIDSegment("ipConfigurations", "ipConfigurations"),
-			models.UserSpecifiedResourceIDSegment("ipConfigurationName"),
-			models.StaticResourceIDSegment("publicIPAddresses", "publicIPAddresses"),
-			models.UserSpecifiedResourceIDSegment("publicIpAddressName"),
+			importerModels.StaticResourceIDSegment("subscriptions", "subscriptions"),
+			importerModels.SubscriptionIDResourceIDSegment("subscriptionId"),
+			importerModels.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
+			importerModels.ResourceGroupResourceIDSegment("resourceGroupName"),
+			importerModels.StaticResourceIDSegment("providers", "providers"),
+			importerModels.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Compute"),
+			importerModels.StaticResourceIDSegment("virtualMachineScaleSets", "virtualMachineScaleSets"),
+			importerModels.UserSpecifiedResourceIDSegment("virtualMachineScaleSetName"),
+			importerModels.StaticResourceIDSegment("virtualMachines", "virtualMachines"),
+			importerModels.UserSpecifiedResourceIDSegment("virtualMachineIndex"),
+			importerModels.StaticResourceIDSegment("networkInterfaces", "networkInterfaces"),
+			importerModels.UserSpecifiedResourceIDSegment("networkInterfaceName"),
+			importerModels.StaticResourceIDSegment("ipConfigurations", "ipConfigurations"),
+			importerModels.UserSpecifiedResourceIDSegment("ipConfigurationName"),
+			importerModels.StaticResourceIDSegment("publicIPAddresses", "publicIPAddresses"),
+			importerModels.UserSpecifiedResourceIDSegment("publicIpAddressName"),
 		},
 	}
 

@@ -7,7 +7,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -53,12 +53,12 @@ func TestExtractDescription(t *testing.T) {
 func TestUpdateField_ApplySchemaOverrides(t *testing.T) {
 	testData := []struct {
 		fieldInput string
-		overrides  []models.Override
+		overrides  []importerModels.Override
 		expected   *string
 	}{
 		{
 			fieldInput: "name",
-			overrides: []models.Override{
+			overrides: []importerModels.Override{
 				{
 					Name:        "name",
 					UpdatedName: pointer.To("target_resource_id"),
@@ -68,7 +68,7 @@ func TestUpdateField_ApplySchemaOverrides(t *testing.T) {
 		},
 		{
 			fieldInput: "ThreeCoffeesADay",
-			overrides: []models.Override{
+			overrides: []importerModels.Override{
 				{
 					Name:        "name",
 					UpdatedName: pointer.To("target_resource_id"),

@@ -4,7 +4,7 @@
 package resourceids
 
 import (
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -12,20 +12,20 @@ var _ commonIdMatcher = commonIdBotService{}
 
 type commonIdBotService struct{}
 
-func (commonIdBotService) id() models.ParsedResourceId {
+func (commonIdBotService) id() importerModels.ParsedResourceId {
 	name := "BotService"
-	return models.ParsedResourceId{
+	return importerModels.ParsedResourceId{
 		CommonAlias: &name,
 		Constants:   map[string]resourcemanager.ConstantDetails{},
 		Segments: []resourcemanager.ResourceIdSegment{
-			models.StaticResourceIDSegment("staticSubscriptions", "subscriptions"),
-			models.SubscriptionIDResourceIDSegment("subscriptionId"),
-			models.StaticResourceIDSegment("staticResourceGroups", "resourceGroups"),
-			models.ResourceGroupResourceIDSegment("resourceGroupName"),
-			models.StaticResourceIDSegment("staticProviders", "providers"),
-			models.ResourceProviderResourceIDSegment("staticMicrosoftBotService", "Microsoft.BotService"),
-			models.StaticResourceIDSegment("staticBotServices", "botServices"),
-			models.UserSpecifiedResourceIDSegment("botServiceName"),
+			importerModels.StaticResourceIDSegment("staticSubscriptions", "subscriptions"),
+			importerModels.SubscriptionIDResourceIDSegment("subscriptionId"),
+			importerModels.StaticResourceIDSegment("staticResourceGroups", "resourceGroups"),
+			importerModels.ResourceGroupResourceIDSegment("resourceGroupName"),
+			importerModels.StaticResourceIDSegment("staticProviders", "providers"),
+			importerModels.ResourceProviderResourceIDSegment("staticMicrosoftBotService", "Microsoft.BotService"),
+			importerModels.StaticResourceIDSegment("staticBotServices", "botServices"),
+			importerModels.UserSpecifiedResourceIDSegment("botServiceName"),
 		},
 	}
 }

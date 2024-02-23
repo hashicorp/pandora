@@ -7,20 +7,19 @@ import (
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
-
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 var _ customFieldMatcher = userAssignedIdentityListMatcher{}
 
 type userAssignedIdentityListMatcher struct{}
 
-func (userAssignedIdentityListMatcher) CustomFieldType() models.CustomFieldType {
-	return models.CustomFieldTypeUserAssignedIdentityList
+func (userAssignedIdentityListMatcher) CustomFieldType() importerModels.CustomFieldType {
+	return importerModels.CustomFieldTypeUserAssignedIdentityList
 }
 
-func (userAssignedIdentityListMatcher) IsMatch(_ models.FieldDetails, definition models.ObjectDefinition, known internal.ParseResult) bool {
-	if definition.Type != models.ObjectDefinitionReference {
+func (userAssignedIdentityListMatcher) IsMatch(_ importerModels.FieldDetails, definition importerModels.ObjectDefinition, known internal.ParseResult) bool {
+	if definition.Type != importerModels.ObjectDefinitionReference {
 		return false
 	}
 
@@ -35,10 +34,10 @@ func (userAssignedIdentityListMatcher) IsMatch(_ models.FieldDetails, definition
 	for fieldName, fieldVal := range model.Fields {
 		if strings.EqualFold(fieldName, "UserAssignedIdentities") {
 			// this should be a List of Strings
-			if fieldVal.ObjectDefinition == nil || fieldVal.ObjectDefinition.Type != models.ObjectDefinitionList {
+			if fieldVal.ObjectDefinition == nil || fieldVal.ObjectDefinition.Type != importerModels.ObjectDefinitionList {
 				continue
 			}
-			if fieldVal.ObjectDefinition.NestedItem == nil || fieldVal.ObjectDefinition.NestedItem.Type != models.ObjectDefinitionString {
+			if fieldVal.ObjectDefinition.NestedItem == nil || fieldVal.ObjectDefinition.NestedItem.Type != importerModels.ObjectDefinitionString {
 				continue
 			}
 
@@ -50,7 +49,7 @@ func (userAssignedIdentityListMatcher) IsMatch(_ models.FieldDetails, definition
 		// https://github.com/Azure/azure-rest-api-specs/blob/c803720c6bcfcb0fcf4c97f3463ec33a18f9e55c/specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabricManagedClusters/stable/2021-05-01/nodetype.json#L763
 		// as such we're only concerned if it's defined and doesn't match
 		if strings.EqualFold(fieldName, "Type") {
-			if fieldVal.ObjectDefinition == nil || fieldVal.ObjectDefinition.Type != models.ObjectDefinitionReference {
+			if fieldVal.ObjectDefinition == nil || fieldVal.ObjectDefinition.Type != importerModels.ObjectDefinitionReference {
 				continue
 			}
 			constant, ok := known.Constants[*fieldVal.ObjectDefinition.ReferenceName]

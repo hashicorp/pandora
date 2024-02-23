@@ -4,7 +4,7 @@
 package resourceids
 
 import (
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -12,24 +12,24 @@ var _ commonIdMatcher = commonIdStorageContainer{}
 
 type commonIdStorageContainer struct{}
 
-func (c commonIdStorageContainer) id() models.ParsedResourceId {
+func (c commonIdStorageContainer) id() importerModels.ParsedResourceId {
 	name := "StorageContainer"
-	return models.ParsedResourceId{
+	return importerModels.ParsedResourceId{
 		CommonAlias: &name,
 		Constants:   map[string]resourcemanager.ConstantDetails{},
 		Segments: []resourcemanager.ResourceIdSegment{
-			models.StaticResourceIDSegment("subscriptions", "subscriptions"),
-			models.SubscriptionIDResourceIDSegment("subscriptionId"),
-			models.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
-			models.ResourceGroupResourceIDSegment("resourceGroupName"),
-			models.StaticResourceIDSegment("providers", "providers"),
-			models.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Storage"),
-			models.StaticResourceIDSegment("storageAccounts", "storageAccounts"),
-			models.UserSpecifiedResourceIDSegment("storageAccountName"),
-			models.StaticResourceIDSegment("blobServices", "blobServices"),
-			models.StaticResourceIDSegment("default", "default"),
-			models.StaticResourceIDSegment("containers", "containers"),
-			models.UserSpecifiedResourceIDSegment("containerName"),
+			importerModels.StaticResourceIDSegment("subscriptions", "subscriptions"),
+			importerModels.SubscriptionIDResourceIDSegment("subscriptionId"),
+			importerModels.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
+			importerModels.ResourceGroupResourceIDSegment("resourceGroupName"),
+			importerModels.StaticResourceIDSegment("providers", "providers"),
+			importerModels.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Storage"),
+			importerModels.StaticResourceIDSegment("storageAccounts", "storageAccounts"),
+			importerModels.UserSpecifiedResourceIDSegment("storageAccountName"),
+			importerModels.StaticResourceIDSegment("blobServices", "blobServices"),
+			importerModels.StaticResourceIDSegment("default", "default"),
+			importerModels.StaticResourceIDSegment("containers", "containers"),
+			importerModels.UserSpecifiedResourceIDSegment("containerName"),
 		},
 	}
 }

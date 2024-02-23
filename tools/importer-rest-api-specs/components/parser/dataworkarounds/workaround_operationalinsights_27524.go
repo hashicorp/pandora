@@ -6,7 +6,7 @@ package dataworkarounds
 import (
 	"fmt"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 var _ workaround = workaroundOperationalinsights27524{}
@@ -15,7 +15,7 @@ var _ workaround = workaroundOperationalinsights27524{}
 // Swagger PR: https://github.com/Azure/azure-rest-api-specs/pull/27524
 type workaroundOperationalinsights27524 struct{}
 
-func (workaroundOperationalinsights27524) IsApplicable(apiDefinition *models.AzureApiDefinition) bool {
+func (workaroundOperationalinsights27524) IsApplicable(apiDefinition *importerModels.AzureApiDefinition) bool {
 	return apiDefinition.ServiceName == "OperationalInsights" && apiDefinition.ApiVersion == "2019-09-01"
 }
 
@@ -23,7 +23,7 @@ func (workaroundOperationalinsights27524) Name() string {
 	return "OperationalInsights / 27524"
 }
 
-func (workaroundOperationalinsights27524) Process(apiDefinition models.AzureApiDefinition) (*models.AzureApiDefinition, error) {
+func (workaroundOperationalinsights27524) Process(apiDefinition importerModels.AzureApiDefinition) (*importerModels.AzureApiDefinition, error) {
 	resource, ok := apiDefinition.Resources["QueryPacks"]
 	if !ok {
 		return nil, fmt.Errorf("expected a Resource named `QueryPacks` but didn't get one")

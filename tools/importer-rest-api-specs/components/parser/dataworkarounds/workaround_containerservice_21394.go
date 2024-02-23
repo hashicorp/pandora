@@ -6,7 +6,7 @@ package dataworkarounds
 import (
 	"fmt"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 var _ workaround = workaroundContainerService21394{}
@@ -15,7 +15,7 @@ var _ workaround = workaroundContainerService21394{}
 // Swagger PR: https://github.com/Azure/azure-rest-api-specs/pull/21394
 type workaroundContainerService21394 struct{}
 
-func (workaroundContainerService21394) IsApplicable(apiDefinition *models.AzureApiDefinition) bool {
+func (workaroundContainerService21394) IsApplicable(apiDefinition *importerModels.AzureApiDefinition) bool {
 	return apiDefinition.ServiceName == "ContainerService" && apiDefinition.ApiVersion == "2022-09-02-preview"
 }
 
@@ -23,7 +23,7 @@ func (workaroundContainerService21394) Name() string {
 	return "ContainerService / 21394"
 }
 
-func (workaroundContainerService21394) Process(apiDefinition models.AzureApiDefinition) (*models.AzureApiDefinition, error) {
+func (workaroundContainerService21394) Process(apiDefinition importerModels.AzureApiDefinition) (*importerModels.AzureApiDefinition, error) {
 	resource, ok := apiDefinition.Resources["Fleets"]
 	if !ok {
 		return nil, fmt.Errorf("couldn't find API Resource Fleets")

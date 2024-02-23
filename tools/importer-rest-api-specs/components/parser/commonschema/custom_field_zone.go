@@ -7,7 +7,7 @@ import (
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 var _ customFieldMatcher = zoneFieldMatcher{}
@@ -15,12 +15,12 @@ var _ customFieldMatcher = zoneFieldMatcher{}
 type zoneFieldMatcher struct {
 }
 
-func (e zoneFieldMatcher) CustomFieldType() models.CustomFieldType {
-	return models.CustomFieldTypeZone
+func (e zoneFieldMatcher) CustomFieldType() importerModels.CustomFieldType {
+	return importerModels.CustomFieldTypeZone
 }
 
-func (e zoneFieldMatcher) IsMatch(field models.FieldDetails, definition models.ObjectDefinition, _ internal.ParseResult) bool {
+func (e zoneFieldMatcher) IsMatch(field importerModels.FieldDetails, definition importerModels.ObjectDefinition, _ internal.ParseResult) bool {
 	nameMatches := strings.EqualFold(field.JsonName, "availabilityZone") || strings.EqualFold(field.JsonName, "zone")
-	typeMatches := definition.Type == models.ObjectDefinitionString
+	typeMatches := definition.Type == importerModels.ObjectDefinitionString
 	return nameMatches && typeMatches
 }

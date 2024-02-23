@@ -4,7 +4,7 @@
 package resourceids
 
 import (
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -12,24 +12,24 @@ var _ commonIdMatcher = commonIdKeyVaultKeyVersion{}
 
 type commonIdKeyVaultKeyVersion struct{}
 
-func (c commonIdKeyVaultKeyVersion) id() models.ParsedResourceId {
+func (c commonIdKeyVaultKeyVersion) id() importerModels.ParsedResourceId {
 	name := "KeyVaultKeyVersion"
-	return models.ParsedResourceId{
+	return importerModels.ParsedResourceId{
 		CommonAlias: &name,
 		Constants:   map[string]resourcemanager.ConstantDetails{},
 		Segments: []resourcemanager.ResourceIdSegment{
-			models.StaticResourceIDSegment("subscriptions", "subscriptions"),
-			models.SubscriptionIDResourceIDSegment("subscriptionId"),
-			models.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
-			models.ResourceGroupResourceIDSegment("resourceGroupName"),
-			models.StaticResourceIDSegment("providers", "providers"),
-			models.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.KeyVault"),
-			models.StaticResourceIDSegment("vaults", "vaults"),
-			models.UserSpecifiedResourceIDSegment("vaultName"),
-			models.StaticResourceIDSegment("keys", "keys"),
-			models.UserSpecifiedResourceIDSegment("keyName"),
-			models.StaticResourceIDSegment("versions", "versions"),
-			models.UserSpecifiedResourceIDSegment("versionName"),
+			importerModels.StaticResourceIDSegment("subscriptions", "subscriptions"),
+			importerModels.SubscriptionIDResourceIDSegment("subscriptionId"),
+			importerModels.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
+			importerModels.ResourceGroupResourceIDSegment("resourceGroupName"),
+			importerModels.StaticResourceIDSegment("providers", "providers"),
+			importerModels.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.KeyVault"),
+			importerModels.StaticResourceIDSegment("vaults", "vaults"),
+			importerModels.UserSpecifiedResourceIDSegment("vaultName"),
+			importerModels.StaticResourceIDSegment("keys", "keys"),
+			importerModels.UserSpecifiedResourceIDSegment("keyName"),
+			importerModels.StaticResourceIDSegment("versions", "versions"),
+			importerModels.UserSpecifiedResourceIDSegment("versionName"),
 		},
 	}
 }

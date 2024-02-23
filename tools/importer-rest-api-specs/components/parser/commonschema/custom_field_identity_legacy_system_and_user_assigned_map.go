@@ -7,20 +7,19 @@ import (
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
-
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 var _ customFieldMatcher = legacySystemAndUserAssignedIdentityMapMatcher{}
 
 type legacySystemAndUserAssignedIdentityMapMatcher struct{}
 
-func (legacySystemAndUserAssignedIdentityMapMatcher) CustomFieldType() models.CustomFieldType {
-	return models.CustomFieldTypeLegacySystemAndUserAssignedIdentityMap
+func (legacySystemAndUserAssignedIdentityMapMatcher) CustomFieldType() importerModels.CustomFieldType {
+	return importerModels.CustomFieldTypeLegacySystemAndUserAssignedIdentityMap
 }
 
-func (legacySystemAndUserAssignedIdentityMapMatcher) IsMatch(_ models.FieldDetails, definition models.ObjectDefinition, known internal.ParseResult) bool {
-	if definition.Type != models.ObjectDefinitionReference {
+func (legacySystemAndUserAssignedIdentityMapMatcher) IsMatch(_ importerModels.FieldDetails, definition importerModels.ObjectDefinition, known internal.ParseResult) bool {
+	if definition.Type != importerModels.ObjectDefinitionReference {
 		return false
 	}
 
@@ -51,7 +50,7 @@ func (legacySystemAndUserAssignedIdentityMapMatcher) IsMatch(_ models.FieldDetai
 			if fieldVal.ObjectDefinition == nil {
 				continue
 			}
-			if fieldVal.ObjectDefinition.Type == models.ObjectDefinitionDictionary {
+			if fieldVal.ObjectDefinition.Type == importerModels.ObjectDefinitionDictionary {
 				// however some Swaggers don't define the internals e.g. DataFactory
 				//type FactoryIdentity struct {
 				//	PrincipalId            *string                 `json:"principalId,omitempty"`
@@ -62,7 +61,7 @@ func (legacySystemAndUserAssignedIdentityMapMatcher) IsMatch(_ models.FieldDetai
 				hasUserAssignedIdentities = true
 				continue
 			}
-			if fieldVal.ObjectDefinition.NestedItem == nil || fieldVal.ObjectDefinition.NestedItem.Type != models.ObjectDefinitionReference {
+			if fieldVal.ObjectDefinition.NestedItem == nil || fieldVal.ObjectDefinition.NestedItem.Type != importerModels.ObjectDefinitionReference {
 				continue
 			}
 
@@ -78,7 +77,7 @@ func (legacySystemAndUserAssignedIdentityMapMatcher) IsMatch(_ models.FieldDetai
 					if innerVal.ObjectDefinition == nil {
 						continue
 					}
-					if innerVal.ObjectDefinition.Type != models.ObjectDefinitionString {
+					if innerVal.ObjectDefinition.Type != importerModels.ObjectDefinitionString {
 						continue
 					}
 
@@ -90,7 +89,7 @@ func (legacySystemAndUserAssignedIdentityMapMatcher) IsMatch(_ models.FieldDetai
 					if innerVal.ObjectDefinition == nil {
 						continue
 					}
-					if innerVal.ObjectDefinition.Type != models.ObjectDefinitionString {
+					if innerVal.ObjectDefinition.Type != importerModels.ObjectDefinitionString {
 						continue
 					}
 
@@ -106,7 +105,7 @@ func (legacySystemAndUserAssignedIdentityMapMatcher) IsMatch(_ models.FieldDetai
 		}
 
 		if strings.EqualFold(fieldName, "Type") {
-			if fieldVal.ObjectDefinition == nil || fieldVal.ObjectDefinition.Type != models.ObjectDefinitionReference {
+			if fieldVal.ObjectDefinition == nil || fieldVal.ObjectDefinition.Type != importerModels.ObjectDefinitionReference {
 				continue
 			}
 			constant, ok := known.Constants[*fieldVal.ObjectDefinition.ReferenceName]

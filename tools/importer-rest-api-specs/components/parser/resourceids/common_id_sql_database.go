@@ -4,7 +4,7 @@
 package resourceids
 
 import (
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -12,22 +12,22 @@ var _ commonIdMatcher = commonIdSqlDatabase{}
 
 type commonIdSqlDatabase struct{}
 
-func (c commonIdSqlDatabase) id() models.ParsedResourceId {
+func (c commonIdSqlDatabase) id() importerModels.ParsedResourceId {
 	name := "SqlDatabase"
-	return models.ParsedResourceId{
+	return importerModels.ParsedResourceId{
 		CommonAlias: &name,
 		Constants:   map[string]resourcemanager.ConstantDetails{},
 		Segments: []resourcemanager.ResourceIdSegment{
-			models.StaticResourceIDSegment("subscriptions", "subscriptions"),
-			models.SubscriptionIDResourceIDSegment("subscriptionId"),
-			models.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
-			models.ResourceGroupResourceIDSegment("resourceGroupName"),
-			models.StaticResourceIDSegment("providers", "providers"),
-			models.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Sql"),
-			models.StaticResourceIDSegment("servers", "servers"),
-			models.UserSpecifiedResourceIDSegment("serverName"),
-			models.StaticResourceIDSegment("databases", "databases"),
-			models.UserSpecifiedResourceIDSegment("databaseName"),
+			importerModels.StaticResourceIDSegment("subscriptions", "subscriptions"),
+			importerModels.SubscriptionIDResourceIDSegment("subscriptionId"),
+			importerModels.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
+			importerModels.ResourceGroupResourceIDSegment("resourceGroupName"),
+			importerModels.StaticResourceIDSegment("providers", "providers"),
+			importerModels.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Sql"),
+			importerModels.StaticResourceIDSegment("servers", "servers"),
+			importerModels.UserSpecifiedResourceIDSegment("serverName"),
+			importerModels.StaticResourceIDSegment("databases", "databases"),
+			importerModels.UserSpecifiedResourceIDSegment("databaseName"),
 		},
 	}
 }

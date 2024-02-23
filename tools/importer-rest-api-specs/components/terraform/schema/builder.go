@@ -9,7 +9,7 @@ import (
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/helpers"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/schema/processors"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -39,7 +39,7 @@ func NewBuilder(constants map[string]resourcemanager.ConstantDetails, models map
 }
 
 // Build produces a map of TerraformSchemaModelDefinitions which comprise the Schema for this Resource
-func (b Builder) Build(input resourcemanager.TerraformResourceDetails, resourceBuildInfo *models.ResourceBuildInfo, logger hclog.Logger) (*map[string]resourcemanager.TerraformSchemaModelDefinition, *resourcemanager.MappingDefinition, error) {
+func (b Builder) Build(input resourcemanager.TerraformResourceDetails, resourceBuildInfo *importerModels.ResourceBuildInfo, logger hclog.Logger) (*map[string]resourcemanager.TerraformSchemaModelDefinition, *resourcemanager.MappingDefinition, error) {
 	mappings := resourcemanager.MappingDefinition{
 		Fields:     []resourcemanager.FieldMappingDefinition{},
 		ResourceId: []resourcemanager.ResourceIdMappingDefinition{},
@@ -251,7 +251,7 @@ type modelParseResult struct {
 	nestedModels map[string]resourcemanager.ModelDetails
 }
 
-func (b Builder) schemaFromTopLevelModel(input resourcemanager.TerraformResourceDetails, mappings *resourcemanager.MappingDefinition, resourceBuildInfo *models.ResourceBuildInfo, logger hclog.Logger) (*modelParseResult, error) {
+func (b Builder) schemaFromTopLevelModel(input resourcemanager.TerraformResourceDetails, mappings *resourcemanager.MappingDefinition, resourceBuildInfo *importerModels.ResourceBuildInfo, logger hclog.Logger) (*modelParseResult, error) {
 	createReadUpdateMethods, err := b.findCreateUpdateReadPayloads(input)
 	if err != nil {
 		return nil, fmt.Errorf("finding create/update/read payloads: %+v", err)
@@ -438,7 +438,7 @@ func (b Builder) findCreateUpdateReadPayloads(input resourcemanager.TerraformRes
 	return &out, nil
 }
 
-func (b Builder) buildNestedModelDefinition(schemaModelName, topLevelModelName, sdkModelName string, model resourcemanager.ModelDetails, details resourcemanager.TerraformResourceDetails, mappings resourcemanager.MappingDefinition, resourceBuildInfo *models.ResourceBuildInfo, logger hclog.Logger) (*resourcemanager.TerraformSchemaModelDefinition, *resourcemanager.MappingDefinition, error) {
+func (b Builder) buildNestedModelDefinition(schemaModelName, topLevelModelName, sdkModelName string, model resourcemanager.ModelDetails, details resourcemanager.TerraformResourceDetails, mappings resourcemanager.MappingDefinition, resourceBuildInfo *importerModels.ResourceBuildInfo, logger hclog.Logger) (*resourcemanager.TerraformSchemaModelDefinition, *resourcemanager.MappingDefinition, error) {
 	out := make(map[string]resourcemanager.TerraformSchemaFieldDefinition, 0)
 
 	for sdkFieldName, sdkField := range model.Fields {

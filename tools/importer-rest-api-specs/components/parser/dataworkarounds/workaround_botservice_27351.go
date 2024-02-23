@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -16,7 +16,7 @@ var _ workaround = workaroundBotService27351{}
 type workaroundBotService27351 struct {
 }
 
-func (workaroundBotService27351) IsApplicable(apiDefinition *models.AzureApiDefinition) bool {
+func (workaroundBotService27351) IsApplicable(apiDefinition *importerModels.AzureApiDefinition) bool {
 	// This workaround fixes an issue where the BotService Channel URI is defined using two subtly different Resource IDs.
 	// Fix: https://github.com/Azure/azure-rest-api-specs/pull/27351
 	//
@@ -45,7 +45,7 @@ func (workaroundBotService27351) Name() string {
 	return "BotService / 27351"
 }
 
-func (workaroundBotService27351) Process(input models.AzureApiDefinition) (*models.AzureApiDefinition, error) {
+func (workaroundBotService27351) Process(input importerModels.AzureApiDefinition) (*importerModels.AzureApiDefinition, error) {
 	output := input
 
 	resource, ok := output.Resources["Channel"]

@@ -9,22 +9,22 @@ import (
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func (p *Parser) generateNamesForResourceIds(input []models.ParsedResourceId, uriToResourceId map[string]ParsedOperation) (*map[string]models.ParsedResourceId, error) {
+func (p *Parser) generateNamesForResourceIds(input []importerModels.ParsedResourceId, uriToResourceId map[string]ParsedOperation) (*map[string]importerModels.ParsedResourceId, error) {
 	return generateNamesForResourceIds(input, uriToResourceId)
 }
 
-func generateNamesForResourceIds(input []models.ParsedResourceId, uriToResourceId map[string]ParsedOperation) (*map[string]models.ParsedResourceId, error) {
+func generateNamesForResourceIds(input []importerModels.ParsedResourceId, uriToResourceId map[string]ParsedOperation) (*map[string]importerModels.ParsedResourceId, error) {
 	// now that we have all of the Resource ID's, we then need to go through and determine Unique ID's for those
 	// we need all of them here to avoid conflicts, e.g. AuthorizationRule which can be a NamespaceAuthorizationRule
 	// or an EventHubAuthorizationRule, but is named AuthorizationRule in both
 
 	// Before we do anything else, let's go through remove any containing uri suffixes (since these are duplicated without
 	// where they contain a Resource ID - and then sort them short -> long for consistency
-	uniqueUris := make(map[string]models.ParsedResourceId, 0)
+	uniqueUris := make(map[string]importerModels.ParsedResourceId, 0)
 	sortedUris := make([]string, 0)
 	for i := range input {
 		resourceId := input[i]
@@ -40,8 +40,8 @@ func generateNamesForResourceIds(input []models.ParsedResourceId, uriToResourceI
 		return len(sortedUris[x]) < len(sortedUris[y])
 	})
 
-	candidateNamesToUris := make(map[string]models.ParsedResourceId, 0)
-	conflictingNamesToUris := make(map[string][]models.ParsedResourceId, 0)
+	candidateNamesToUris := make(map[string]importerModels.ParsedResourceId, 0)
+	conflictingNamesToUris := make(map[string][]importerModels.ParsedResourceId, 0)
 
 	// first detect any CommonIDs and output those, to save the names
 	urisThatAreCommonIds := make(map[string]struct{})
@@ -89,7 +89,7 @@ func generateNamesForResourceIds(input []models.ParsedResourceId, uriToResourceI
 
 		// if there's an existing candidate name for this key, move both this URI and that one to the Conflicts
 		if existingUri, existing := candidateNamesToUris[candidateSegmentName]; existing {
-			conflictingNamesToUris[candidateSegmentName] = []models.ParsedResourceId{existingUri, resourceId}
+			conflictingNamesToUris[candidateSegmentName] = []importerModels.ParsedResourceId{existingUri, resourceId}
 			delete(candidateNamesToUris, candidateSegmentName)
 			continue
 		}
@@ -119,7 +119,7 @@ func generateNamesForResourceIds(input []models.ParsedResourceId, uriToResourceI
 	}
 
 	// now we have unique ID's, we should go through and suffix `Id` onto the end of each of them
-	outputNamesToUris := make(map[string]models.ParsedResourceId)
+	outputNamesToUris := make(map[string]importerModels.ParsedResourceId)
 	for k, v := range candidateNamesToUris {
 		key := fmt.Sprintf("%sId", cleanup.NormalizeName(k))
 		outputNamesToUris[key] = v
@@ -137,8 +137,8 @@ func generateNamesForResourceIds(input []models.ParsedResourceId, uriToResourceI
 	return &outputNamesToUris, nil
 }
 
-func determineUniqueNamesFor(conflictingUris []models.ParsedResourceId, existingCandidateNames map[string]models.ParsedResourceId) (*map[string]models.ParsedResourceId, error) {
-	proposedNames := make(map[string]models.ParsedResourceId)
+func determineUniqueNamesFor(conflictingUris []importerModels.ParsedResourceId, existingCandidateNames map[string]importerModels.ParsedResourceId) (*map[string]importerModels.ParsedResourceId, error) {
+	proposedNames := make(map[string]importerModels.ParsedResourceId)
 	for _, resourceId := range conflictingUris {
 		availableSegments := SegmentsAvailableForNaming(resourceId)
 
@@ -190,7 +190,7 @@ func determineUniqueNamesFor(conflictingUris []models.ParsedResourceId, existing
 	return &proposedNames, nil
 }
 
-func SegmentsAvailableForNaming(pri models.ParsedResourceId) []string {
+func SegmentsAvailableForNaming(pri importerModels.ParsedResourceId) []string {
 	// first reverse the segments, since we want to take from right -> left
 	reversedSegments := make([]resourcemanager.ResourceIdSegment, 0)
 	for i := len(pri.Segments); i > 0; i-- {
