@@ -62,8 +62,6 @@ type ModelDetails struct {
 
 type FieldDetails struct {
 	Required    bool
-	ReadOnly    bool
-	Sensitive   bool
 	JsonName    string
 	Description string
 

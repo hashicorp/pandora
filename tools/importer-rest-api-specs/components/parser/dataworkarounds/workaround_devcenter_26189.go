@@ -34,6 +34,8 @@ func (workaroundDevCenter26189) Name() string {
 }
 
 func (workaroundDevCenter26189) Process(apiDefinition importerModels.AzureApiDefinition) (*importerModels.AzureApiDefinition, error) {
+	// TODO: investigate removing this now the upstream PR has been merged
+
 	// First we need to patch the DevCenters issue (marking DevCenterUri as required)
 	devCentersResource, ok := apiDefinition.Resources["DevCenters"]
 	if !ok {
@@ -48,7 +50,9 @@ func (workaroundDevCenter26189) Process(apiDefinition importerModels.AzureApiDef
 	if !ok {
 		return nil, fmt.Errorf("expected a Field named `DevCenterUri` but didn't get one")
 	}
-	devCenterField.ReadOnly = true
+
+	// TODO: re-enable readonly/sensitive
+	//devCenterField.ReadOnly = true
 
 	devCenterModel.Fields["DevCenterUri"] = devCenterField
 	devCentersResource.Models["DevCenterProperties"] = devCenterModel
@@ -75,7 +79,9 @@ func (workaroundDevCenter26189) Process(apiDefinition importerModels.AzureApiDef
 	if !ok {
 		return nil, fmt.Errorf("expected a Field named `DevCenterUri` but didn't get one")
 	}
-	projectDevCenterUriField.ReadOnly = true
+	// TODO: re-enable readonly/sensitive
+	//projectDevCenterUriField.ReadOnly = true
+	projectDevCenterUriField.Required = false
 	projectModel.Fields["DevCenterUri"] = projectDevCenterUriField
 
 	projectsResource.Models["ProjectProperties"] = projectModel

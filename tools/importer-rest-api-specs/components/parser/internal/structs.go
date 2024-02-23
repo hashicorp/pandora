@@ -100,9 +100,10 @@ func compareFields(first map[string]importerModels.FieldDetails, second map[stri
 		if firstVal.Required != secondVal.Required {
 			return fmt.Errorf("first.Required was %t but second.Required was %t", firstVal.Required, secondVal.Required)
 		}
-		if firstVal.Sensitive != secondVal.Sensitive {
-			return fmt.Errorf("first.Sensitive was %t but second.Sensitive was %t", firstVal.Sensitive, secondVal.Sensitive)
-		}
+		// TODO: re-enable readonly/sensitive
+		//if firstVal.Sensitive != secondVal.Sensitive {
+		//	return fmt.Errorf("first.Sensitive was %t but second.Sensitive was %t", firstVal.Sensitive, secondVal.Sensitive)
+		//}
 		if err := objectDefinitionsMatch(firstVal.ObjectDefinition, secondVal.ObjectDefinition); err != nil {
 			return fmt.Errorf("object definitions differ: %+v.\n\nFirst %q\n\nSecond %q", err, firstVal.ObjectDefinition, secondVal.ObjectDefinition)
 		}
