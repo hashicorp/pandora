@@ -8,7 +8,6 @@ import (
 
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
-	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 var _ customFieldMatcher = tagsMatcher{}
@@ -21,6 +20,6 @@ func (tagsMatcher) ReplacementObjectDefinition() models.SDKObjectDefinition {
 	}
 }
 
-func (tagsMatcher) IsMatch(field importerModels.FieldDetails, definition models.SDKObjectDefinition, known internal.ParseResult) bool {
+func (tagsMatcher) IsMatch(field models.SDKField, definition models.SDKObjectDefinition, known internal.ParseResult) bool {
 	return strings.EqualFold(field.JsonName, "tags") && definition.Type == models.DictionarySDKObjectDefinitionType && definition.NestedItem.Type == models.StringSDKObjectDefinitionType
 }

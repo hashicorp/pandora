@@ -64,14 +64,9 @@ func mapInternalAPIVersionTypeToDataAPISDKType(input importerModels.AzureApiDefi
 	resources := make(map[string]models.APIResource)
 
 	for apiResource, apiResourceDetails := range input.Resources {
-		mappedModels, err := mapInternalModelsToDataAPISDKType(apiResourceDetails.Models)
-		if err != nil {
-			return nil, fmt.Errorf("mapping Models for API Resource %q: %+v", apiResource, err)
-		}
-
 		resources[apiResource] = models.APIResource{
 			Constants:   apiResourceDetails.Constants,
-			Models:      *mappedModels,
+			Models:      apiResourceDetails.Models,
 			Operations:  apiResourceDetails.Operations,
 			ResourceIDs: apiResourceDetails.ResourceIds,
 		}
@@ -83,52 +78,6 @@ func mapInternalAPIVersionTypeToDataAPISDKType(input importerModels.AzureApiDefi
 		Resources: resources,
 		Source:    models.AzureRestAPISpecsSourceDataOrigin,
 	}, nil
-}
-
-func mapInternalModelsToDataAPISDKType(input map[string]importerModels.ModelDetails) (*map[string]models.SDKModel, error) {
-	output := make(map[string]models.SDKModel)
-
-	for key, value := range input {
-		fields, err := mapInternalModelFieldsToDataAPISDKType(value.Fields, value.TypeHintIn)
-		if err != nil {
-			return nil, fmt.Errorf("mapping Field %q: %+v", key, err)
-		}
-
-		output[key] = models.SDKModel{
-			DiscriminatedValue:                    value.TypeHintValue,
-			FieldNameContainingDiscriminatedValue: value.TypeHintIn,
-			Fields:                                *fields,
-			ParentTypeName:                        value.ParentTypeName,
-		}
-	}
-
-	return &output, nil
-}
-
-func mapInternalModelFieldsToDataAPISDKType(input map[string]importerModels.FieldDetails, fieldNameContainingDiscriminatedValue *string) (*map[string]models.SDKField, error) {
-	output := make(map[string]models.SDKField)
-
-	for key, value := range input {
-		field := models.SDKField{
-			ContainsDiscriminatedValue: false,
-			DateFormat:                 nil,
-			Description:                value.Description,
-			JsonName:                   value.JsonName,
-			ObjectDefinition:           value.ObjectDefinition,
-			Optional:                   !value.Required,
-			Required:                   value.Required,
-		}
-		if fieldNameContainingDiscriminatedValue != nil && *fieldNameContainingDiscriminatedValue != key {
-			field.ContainsDiscriminatedValue = *fieldNameContainingDiscriminatedValue != key
-		}
-		if value.ObjectDefinition.Type == models.DateTimeSDKObjectDefinitionType {
-			field.DateFormat = pointer.To(models.RFC3339SDKDateFormat) // everything is for now
-		}
-
-		output[key] = field
-	}
-
-	return &output, nil
 }
 
 func mapTerraformResourceDefinitionToSDKType(input resourcemanager.TerraformResourceDetails) (*models.TerraformResourceDefinition, error) {

@@ -10,12 +10,11 @@ import (
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 type ParseResult struct {
 	Constants map[string]models.SDKConstant
-	Models    map[string]importerModels.ModelDetails
+	Models    map[string]models.SDKModel
 }
 
 func (r *ParseResult) Append(other ParseResult) error {
@@ -27,7 +26,7 @@ func (r *ParseResult) Append(other ParseResult) error {
 	}
 
 	if r.Models == nil {
-		r.Models = make(map[string]importerModels.ModelDetails)
+		r.Models = make(map[string]models.SDKModel)
 	}
 	if err := r.AppendModels(other.Models); err != nil {
 		return fmt.Errorf("appending models: %+v", err)
@@ -56,7 +55,7 @@ func (r *ParseResult) AppendConstants(other map[string]models.SDKConstant) error
 	return nil
 }
 
-func (r *ParseResult) AppendModels(other map[string]importerModels.ModelDetails) error {
+func (r *ParseResult) AppendModels(other map[string]models.SDKModel) error {
 	for k, v := range other {
 		existing, hasExisting := r.Models[k]
 		if !hasExisting {
@@ -64,14 +63,14 @@ func (r *ParseResult) AppendModels(other map[string]importerModels.ModelDetails)
 			continue
 		}
 
+		if err := compareNilableString(existing.DiscriminatedValue, v.DiscriminatedValue); err != nil {
+			return fmt.Errorf("comparing DiscriminatedValue: %+v", err)
+		}
+		if err := compareNilableString(existing.FieldNameContainingDiscriminatedValue, v.FieldNameContainingDiscriminatedValue); err != nil {
+			return fmt.Errorf("comparing FieldNameContainingDiscriminatedValue: %+v", err)
+		}
 		if err := compareNilableString(existing.ParentTypeName, v.ParentTypeName); err != nil {
 			return fmt.Errorf("comparing ParentTypeName: %+v", err)
-		}
-		if err := compareNilableString(existing.TypeHintIn, v.TypeHintIn); err != nil {
-			return fmt.Errorf("comparing TypeHintIn: %+v", err)
-		}
-		if err := compareNilableString(existing.TypeHintValue, v.TypeHintValue); err != nil {
-			return fmt.Errorf("comparing TypeHintValue: %+v", err)
 		}
 
 		if err := compareFields(existing.Fields, v.Fields); err != nil {
@@ -82,7 +81,7 @@ func (r *ParseResult) AppendModels(other map[string]importerModels.ModelDetails)
 	return nil
 }
 
-func compareFields(first map[string]importerModels.FieldDetails, second map[string]importerModels.FieldDetails) error {
+func compareFields(first map[string]models.SDKField, second map[string]models.SDKField) error {
 	if len(first) != len(second) {
 		return fmt.Errorf("first had %d fields but second had %d fields", len(first), len(second))
 	}

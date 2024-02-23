@@ -55,8 +55,8 @@ func (w workaroundRecoveryServicesSiteRecovery26680) Process(apiDefinition impor
 	}
 
 	// 1. Add the missing model
-	resource.Models["CertificateCreateOptions"] = importerModels.ModelDetails{
-		Fields: map[string]importerModels.FieldDetails{
+	resource.Models["CertificateCreateOptions"] = models.SDKModel{
+		Fields: map[string]models.SDKField{
 			"ValidityInHours": {
 				Required: false,
 				JsonName: "validityInHours",
@@ -72,7 +72,7 @@ func (w workaroundRecoveryServicesSiteRecovery26680) Process(apiDefinition impor
 	if !ok {
 		return nil, fmt.Errorf("expected a Model named `CertificateRequest` but didn't get one")
 	}
-	model.Fields["CertificateCreateOptions"] = importerModels.FieldDetails{
+	model.Fields["CertificateCreateOptions"] = models.SDKField{
 		Required: false,
 		// TODO: re-enable readonly/sensitive
 		//ReadOnly:    false,

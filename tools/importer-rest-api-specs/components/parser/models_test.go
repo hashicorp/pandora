@@ -24,9 +24,9 @@ func TestParseModelTopLevel(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Model": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Age": {
 								JsonName: "age",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -136,9 +136,9 @@ func TestParseModelTopLevelWithInlinedModel(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Model": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -157,7 +157,7 @@ func TestParseModelTopLevelWithInlinedModel(t *testing.T) {
 						},
 					},
 					"ModelProperties": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Age": {
 								JsonName: "age",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -236,9 +236,9 @@ func TestParseModelWithDateTimeNoType(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Model": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"SomeDateValue": {
 								JsonName: "someDateValue",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -282,9 +282,9 @@ func TestParseModelWithInlinedObject(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Model": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -306,7 +306,7 @@ func TestParseModelWithInlinedObject(t *testing.T) {
 						},
 					},
 					"ThingProperties": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"KeyName": {
 								JsonName: "keyName",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -328,7 +328,7 @@ func TestParseModelWithInlinedObject(t *testing.T) {
 						},
 					},
 					"UserAssignedIdentitiesProperties": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"ClientId": {
 								JsonName: "clientId",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -379,9 +379,9 @@ func TestParseModelWithNumberPrefixedField(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Model": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -428,9 +428,9 @@ func TestParseModelWithReference(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Model": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -452,7 +452,7 @@ func TestParseModelWithReference(t *testing.T) {
 						},
 					},
 					"ThingProperties": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"KeyName": {
 								JsonName: "keyName",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -471,7 +471,7 @@ func TestParseModelWithReference(t *testing.T) {
 						},
 					},
 					"UserAssignedIdentityProperties": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"UserAssignedIdentity": {
 								JsonName: "userAssignedIdentity",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -511,9 +511,9 @@ func TestParseModelWithReferenceToArray(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Model": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -540,7 +540,7 @@ func TestParseModelWithReferenceToArray(t *testing.T) {
 						},
 					},
 					"Pet": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -589,9 +589,9 @@ func TestParseModelWithReferenceToConstant(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Model": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -613,7 +613,7 @@ func TestParseModelWithReferenceToConstant(t *testing.T) {
 						},
 					},
 					"ThingProperties": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Animal": {
 								JsonName: "animal",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -661,9 +661,9 @@ func TestParseModelWithReferenceToString(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Model": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -685,7 +685,7 @@ func TestParseModelWithReferenceToString(t *testing.T) {
 						},
 					},
 					"ThingProperties": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"FullyQualifiedDomainName": {
 								JsonName: "fullyQualifiedDomainName",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -732,9 +732,9 @@ func TestParseModelWithCircularReferences(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Animal": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"FavouriteHouse": {
 								JsonName: "favouriteHouse",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -761,7 +761,7 @@ func TestParseModelWithCircularReferences(t *testing.T) {
 						},
 					},
 					"House": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Address": {
 								JsonName: "address",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -783,7 +783,7 @@ func TestParseModelWithCircularReferences(t *testing.T) {
 						},
 					},
 					"Human": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Pets": {
 								JsonName: "pets",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -834,9 +834,9 @@ func TestParseModelInheritingFromObjectWithNoExtraFields(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"FirstObject": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -878,9 +878,9 @@ func TestParseModelInheritingFromObjectWithNoExtraFieldsInlined(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"FirstObject": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Endpoints": {
 								JsonName: "endpoints",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -899,7 +899,7 @@ func TestParseModelInheritingFromObjectWithNoExtraFieldsInlined(t *testing.T) {
 						},
 					},
 					"SecondObject": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -939,9 +939,9 @@ func TestParseModelInheritingFromObjectWithOnlyDescription(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"FirstObject": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -988,9 +988,9 @@ func TestParseModelInheritingFromObjectWithPropertiesWithinAllOf(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"SecondObject": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -1033,9 +1033,9 @@ func TestParseModelContainingAllOfToTypeObject(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Model": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -1086,9 +1086,9 @@ func TestParseModelContainingAllOfToTypeObjectWithProperties(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Model": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -1139,9 +1139,9 @@ func TestParseModelContainingAllOfWithinProperties(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Model": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Country": {
 								JsonName: "country",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -1160,7 +1160,7 @@ func TestParseModelContainingAllOfWithinProperties(t *testing.T) {
 						},
 					},
 					"ModelProperties": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"MoreNested": {
 								JsonName: "moreNested",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -1218,9 +1218,9 @@ func TestParseModelContainingMultipleAllOfWithinProperties(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Model": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Options": {
 								JsonName: "options",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -1240,7 +1240,7 @@ func TestParseModelContainingMultipleAllOfWithinProperties(t *testing.T) {
 						},
 					},
 					"ModelResource": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Country": {
 								JsonName: "country",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -1265,7 +1265,7 @@ func TestParseModelContainingMultipleAllOfWithinProperties(t *testing.T) {
 						},
 					},
 					"ResourceWithLocation": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Country": {
 								JsonName: "country",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -1309,9 +1309,9 @@ func TestParseModelContainingLists(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Model": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Animals": {
 								JsonName: "animals",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -1348,7 +1348,7 @@ func TestParseModelContainingLists(t *testing.T) {
 						},
 					},
 					"Animal": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Age": {
 								JsonName: "age",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -1395,9 +1395,9 @@ func TestParseModelInlinedWithNoName(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Container": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Planets": {
 								JsonName: "planets",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -1412,7 +1412,7 @@ func TestParseModelInlinedWithNoName(t *testing.T) {
 						},
 					},
 					"ContainerPlanetsInlined": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"ExampleField": {
 								JsonName: "exampleField",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -1452,9 +1452,9 @@ func TestParseModelInheritingFromParent(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Model": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Age": {
 								JsonName: "age",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -1526,9 +1526,9 @@ func TestParseModelMultipleTopLevelModelsAndOperations(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"GetExample": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Age": {
 								JsonName: "age",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -1560,7 +1560,7 @@ func TestParseModelMultipleTopLevelModelsAndOperations(t *testing.T) {
 						},
 					},
 					"PutExample": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Age": {
 								JsonName: "age",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -1635,9 +1635,9 @@ func TestParseModelBug2675DuplicateModel(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"EnvironmentRole": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Description": {
 								JsonName: "description",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -1659,7 +1659,7 @@ func TestParseModelBug2675DuplicateModel(t *testing.T) {
 						},
 					},
 					"ExampleEnvironment": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Location": {
 								JsonName: "location",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -1678,7 +1678,7 @@ func TestParseModelBug2675DuplicateModel(t *testing.T) {
 						},
 					},
 					"ExampleEnvironmentProperties": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"CreatorRoleAssignment": {
 								JsonName: "creatorRoleAssignment",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -1717,7 +1717,7 @@ func TestParseModelBug2675DuplicateModel(t *testing.T) {
 						},
 					},
 					"ExampleEnvironmentUpdate": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Example": {
 								JsonName: "example",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -1736,7 +1736,7 @@ func TestParseModelBug2675DuplicateModel(t *testing.T) {
 						},
 					},
 					"ExampleEnvironmentUpdateProperties": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"CreatorRoleAssignment": {
 								JsonName: "creatorRoleAssignment",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -1766,7 +1766,7 @@ func TestParseModelBug2675DuplicateModel(t *testing.T) {
 						},
 					},
 					"ExampleEnvironmentUpdatePropertiesCreatorRoleAssignment": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Roles": {
 								JsonName: "roles",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -1781,7 +1781,7 @@ func TestParseModelBug2675DuplicateModel(t *testing.T) {
 						},
 					},
 					"UserRoleAssignment": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Roles": {
 								JsonName: "roles",
 								ObjectDefinition: models.SDKObjectDefinition{

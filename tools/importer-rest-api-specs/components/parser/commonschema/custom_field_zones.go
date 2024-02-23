@@ -8,7 +8,6 @@ import (
 
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
-	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 var _ customFieldMatcher = zonesFieldMatcher{}
@@ -22,7 +21,7 @@ func (zonesFieldMatcher) ReplacementObjectDefinition() models.SDKObjectDefinitio
 	}
 }
 
-func (zonesFieldMatcher) IsMatch(field importerModels.FieldDetails, definition models.SDKObjectDefinition, _ internal.ParseResult) bool {
+func (zonesFieldMatcher) IsMatch(field models.SDKField, definition models.SDKObjectDefinition, _ internal.ParseResult) bool {
 	nameMatches := strings.EqualFold(field.JsonName, "availabilityZones") || strings.EqualFold(field.JsonName, "zones")
 	typesMatch := definition.Type == models.ListSDKObjectDefinitionType && definition.NestedItem != nil && definition.NestedItem.Type == models.StringSDKObjectDefinitionType
 	return nameMatches && typesMatch

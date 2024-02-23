@@ -14,8 +14,8 @@ import (
 func TestFieldNameRenameMislabelledResourceID_NotApplicable_DifferentConstantValue(t *testing.T) {
 	metadata := FieldMetadata{
 		TerraformDetails: resourcemanager.TerraformResourceDetails{},
-		Model: resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		Model: models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"ResourceId": {
 					ObjectDefinition: models.SDKObjectDefinition{
 						Type: models.StringSDKObjectDefinitionType,
@@ -60,8 +60,8 @@ func TestFieldNameRenameMislabelledResourceID_NotApplicable_DifferentName(t *tes
 func TestFieldNameRenameMislabelledResourceID_NotApplicable_SingleField(t *testing.T) {
 	metadata := FieldMetadata{
 		TerraformDetails: resourcemanager.TerraformResourceDetails{},
-		Model: resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		Model: models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"ResourceId": {
 					ObjectDefinition: models.SDKObjectDefinition{
 						Type: models.StringSDKObjectDefinitionType,
@@ -83,8 +83,8 @@ func TestFieldNameRenameMislabelledResourceID_NotApplicable_SingleField(t *testi
 func TestFieldNameRenameMislabelledResourceID_NotApplicable_MultipleFields(t *testing.T) {
 	metadata := FieldMetadata{
 		TerraformDetails: resourcemanager.TerraformResourceDetails{},
-		Model: resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		Model: models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"ResourceId": {
 					ObjectDefinition: models.SDKObjectDefinition{
 						Type: models.StringSDKObjectDefinitionType,
@@ -116,8 +116,8 @@ func TestFieldNameRenameMislabelledResourceID_NotApplicable_MultipleFields(t *te
 func TestFieldNameRenameMislabelledResourceID_Applicable_UsingConstant(t *testing.T) {
 	metadata := FieldMetadata{
 		TerraformDetails: resourcemanager.TerraformResourceDetails{},
-		Model: resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		Model: models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"ResourceId": {
 					ObjectDefinition: models.SDKObjectDefinition{
 						Type: models.StringSDKObjectDefinitionType,
@@ -155,8 +155,8 @@ func TestFieldNameRenameMislabelledResourceID_Applicable_UsingConstant(t *testin
 func TestFieldNameRenameMislabelledResourceID_WithAMatchingTypeFieldThatIsAString(t *testing.T) {
 	metadata := FieldMetadata{
 		TerraformDetails: resourcemanager.TerraformResourceDetails{},
-		Model: resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		Model: models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"ResourceId": {
 					ObjectDefinition: models.SDKObjectDefinition{
 						Type: models.StringSDKObjectDefinitionType,

@@ -16,7 +16,6 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/constants"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/resourceids"
-	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 type operationsParser struct {
@@ -30,7 +29,7 @@ func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, operationIdsTo
 	operations := make(map[string]models.SDKOperation, 0)
 	result := internal.ParseResult{
 		Constants: map[string]models.SDKConstant{},
-		Models:    map[string]importerModels.ModelDetails{},
+		Models:    map[string]models.SDKModel{},
 	}
 	result.Append(found)
 
@@ -76,7 +75,7 @@ func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, operationIdsTo
 func (p operationsParser) parseOperation(operation parsedOperation, resourceProvider *string, logger hclog.Logger) (*models.SDKOperation, *internal.ParseResult, error) {
 	result := internal.ParseResult{
 		Constants: map[string]models.SDKConstant{},
-		Models:    map[string]importerModels.ModelDetails{},
+		Models:    map[string]models.SDKModel{},
 	}
 
 	contentType := p.determineContentType(operation)
@@ -464,7 +463,7 @@ func (p operationsParser) responseObjectForOperation(input parsedOperation, know
 	output := operationResponseObjectResult{}
 	result := internal.ParseResult{
 		Constants: map[string]models.SDKConstant{},
-		Models:    map[string]importerModels.ModelDetails{},
+		Models:    map[string]models.SDKModel{},
 	}
 	result.Append(known)
 

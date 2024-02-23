@@ -27,9 +27,9 @@ func TestBuildForServiceBusNamespaceHappyPath(t *testing.T) {
 				},
 			},
 		},
-		models: map[string]resourcemanager.ModelDetails{
+		models: map[string]models.SDKModel{
 			"Namespace": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Identity": {
 						JsonName: "identity",
 						ObjectDefinition: models.SDKObjectDefinition{
@@ -77,7 +77,7 @@ func TestBuildForServiceBusNamespaceHappyPath(t *testing.T) {
 				},
 			},
 			"NamespaceProperties": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"DisableLocalAuth": {
 						JsonName: "disableLocalAuth",
 						ObjectDefinition: models.SDKObjectDefinition{
@@ -102,7 +102,7 @@ func TestBuildForServiceBusNamespaceHappyPath(t *testing.T) {
 				},
 			},
 			"Sku": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Name": {
 						JsonName: "name",
 						ObjectDefinition: models.SDKObjectDefinition{
@@ -114,7 +114,7 @@ func TestBuildForServiceBusNamespaceHappyPath(t *testing.T) {
 				},
 			},
 			"SkuTier": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Name": {
 						JsonName: "name",
 						ObjectDefinition: models.SDKObjectDefinition{
@@ -126,7 +126,7 @@ func TestBuildForServiceBusNamespaceHappyPath(t *testing.T) {
 				},
 			},
 			"SkuCapacity": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Capacity": {
 						JsonName: "capacity",
 						ObjectDefinition: models.SDKObjectDefinition{
@@ -328,9 +328,9 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 				},
 			},
 		},
-		models: map[string]resourcemanager.ModelDetails{
+		models: map[string]models.SDKModel{
 			"ConnectionState": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Description": {
 						JsonName: "description",
 						ObjectDefinition: models.SDKObjectDefinition{
@@ -347,7 +347,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 				},
 			},
 			"Encryption": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"KeySource": {
 						JsonName: "keySource",
 						ObjectDefinition: models.SDKObjectDefinition{
@@ -377,7 +377,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 				},
 			},
 			"KeyVaultProperties": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Identity": {
 						JsonName: "identity",
 						ObjectDefinition: models.SDKObjectDefinition{
@@ -409,7 +409,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 				},
 			},
 			"PrivateEndpointConnection": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Id": {
 						JsonName: "id",
 						ObjectDefinition: models.SDKObjectDefinition{
@@ -455,7 +455,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 				},
 			},
 			"PrivateEndpointConnectionProperties": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"PrivateEndpoint": {
 						JsonName: "privateEndpoint",
 						ObjectDefinition: models.SDKObjectDefinition{
@@ -483,7 +483,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 				},
 			},
 			"PrivateEndpoint": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Id": {
 						JsonName: "id",
 						ObjectDefinition: models.SDKObjectDefinition{
@@ -494,7 +494,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 				},
 			},
 			"Namespace": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Identity": {
 						JsonName: "identity",
 						ObjectDefinition: models.SDKObjectDefinition{
@@ -542,7 +542,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 				},
 			},
 			"NamespaceProperties": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"AlternateName": {
 						JsonName: "alternateName",
 						ObjectDefinition: models.SDKObjectDefinition{
@@ -586,14 +586,6 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						Optional: true,
-						Validation: &resourcemanager.FieldValidationDetails{
-							Type: resourcemanager.RangeValidation,
-							Values: &[]interface{}{
-								"1.0",
-								"1.1",
-								"1.2",
-							},
-						},
 					},
 					"PrivateEndpointConnections": {
 						JsonName: "privateEndpointConnections",
@@ -644,7 +636,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 				},
 			},
 			"NamespaceUpdateParameters": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Id": {
 						JsonName: "id",
 						ObjectDefinition: models.SDKObjectDefinition{
@@ -706,7 +698,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 				},
 			},
 			"NamespaceUpdateProperties": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"AlternateName": {
 						JsonName: "alternateName",
 						ObjectDefinition: models.SDKObjectDefinition{
@@ -785,7 +777,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 				},
 			},
 			"Sku": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Name": {
 						JsonName: "name",
 						ObjectDefinition: models.SDKObjectDefinition{
@@ -793,14 +785,6 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 							ReferenceName: pointer.To("SkuName"),
 						},
 						Required: true,
-						Validation: &resourcemanager.FieldValidationDetails{
-							Type: resourcemanager.RangeValidation,
-							Values: &[]interface{}{
-								"Basic",
-								"Premium",
-								"Standard",
-							},
-						},
 					},
 					"Tier": {
 						JsonName: "tier",
@@ -809,14 +793,6 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 							ReferenceName: pointer.To("SkuTier"),
 						},
 						Optional: true,
-						Validation: &resourcemanager.FieldValidationDetails{
-							Type: resourcemanager.RangeValidation,
-							Values: &[]interface{}{
-								"Basic",
-								"Premium",
-								"Standard",
-							},
-						},
 					},
 					"Capacity": {
 						JsonName: "capacity",
@@ -828,7 +804,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 				},
 			},
 			"UserAssignedIdentityProperties": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"UserAssignedIdentity": {
 						JsonName: "userAssignedIdentity",
 						ObjectDefinition: models.SDKObjectDefinition{

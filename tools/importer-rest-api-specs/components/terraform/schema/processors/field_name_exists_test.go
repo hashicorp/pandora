@@ -7,7 +7,6 @@ import (
 	"testing"
 
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 func TestProcessField_Exists(t *testing.T) {
@@ -19,8 +18,8 @@ func TestProcessField_Exists(t *testing.T) {
 		{
 			fieldInput: "Pandas",
 			metadataInput: FieldMetadata{
-				Model: resourcemanager.ModelDetails{
-					Fields: map[string]resourcemanager.FieldDetails{
+				Model: models.SDKModel{
+					Fields: map[string]models.SDKField{
 						"Pandas": {
 							ObjectDefinition: models.SDKObjectDefinition{
 								Type: models.ListSDKObjectDefinitionType,
@@ -37,8 +36,8 @@ func TestProcessField_Exists(t *testing.T) {
 		{
 			fieldInput: "Planets",
 			metadataInput: FieldMetadata{
-				Model: resourcemanager.ModelDetails{
-					Fields: map[string]resourcemanager.FieldDetails{
+				Model: models.SDKModel{
+					Fields: map[string]models.SDKField{
 						"Pandas": {
 							ObjectDefinition: models.SDKObjectDefinition{
 								Type: models.StringSDKObjectDefinitionType,

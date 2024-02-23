@@ -22,9 +22,9 @@ func TestParseDiscriminatorsTopLevel(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Discriminator": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Nested": {
 								JsonName: "nested",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -36,7 +36,7 @@ func TestParseDiscriminatorsTopLevel(t *testing.T) {
 						},
 					},
 					"Animal": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"AnimalType": {
 								JsonName: "animalType",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -45,13 +45,13 @@ func TestParseDiscriminatorsTopLevel(t *testing.T) {
 								Required: true,
 							},
 						},
-						TypeHintIn: pointer.To("AnimalType"),
+						FieldNameContainingDiscriminatedValue: pointer.To("AnimalType"),
 					},
 					"Cat": {
-						ParentTypeName: pointer.To("Animal"),
-						TypeHintIn:     pointer.To("AnimalType"),
-						TypeHintValue:  pointer.To("cat"),
-						Fields: map[string]importerModels.FieldDetails{
+						ParentTypeName:                        pointer.To("Animal"),
+						FieldNameContainingDiscriminatedValue: pointer.To("AnimalType"),
+						DiscriminatedValue:                    pointer.To("cat"),
+						Fields: map[string]models.SDKField{
 							"AnimalType": {
 								JsonName: "animalType",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -69,10 +69,10 @@ func TestParseDiscriminatorsTopLevel(t *testing.T) {
 						},
 					},
 					"Dog": {
-						ParentTypeName: pointer.To("Animal"),
-						TypeHintIn:     pointer.To("AnimalType"),
-						TypeHintValue:  pointer.To("dog"),
-						Fields: map[string]importerModels.FieldDetails{
+						ParentTypeName:                        pointer.To("Animal"),
+						FieldNameContainingDiscriminatedValue: pointer.To("AnimalType"),
+						DiscriminatedValue:                    pointer.To("dog"),
+						Fields: map[string]models.SDKField{
 							"AnimalType": {
 								JsonName: "animalType",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -119,9 +119,9 @@ func TestParseDiscriminatorsWithinArray(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Discriminator": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"BiologicalEntities": {
 								JsonName: "biologicalEntities",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -136,7 +136,7 @@ func TestParseDiscriminatorsWithinArray(t *testing.T) {
 						},
 					},
 					"BiologicalEntity": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"TypeName": {
 								JsonName: "typeName",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -145,13 +145,13 @@ func TestParseDiscriminatorsWithinArray(t *testing.T) {
 								Required: true,
 							},
 						},
-						TypeHintIn: pointer.To("TypeName"),
+						FieldNameContainingDiscriminatedValue: pointer.To("TypeName"),
 					},
 					"Cat": {
-						ParentTypeName: pointer.To("BiologicalEntity"),
-						TypeHintIn:     pointer.To("TypeName"),
-						TypeHintValue:  pointer.To("cat"),
-						Fields: map[string]importerModels.FieldDetails{
+						ParentTypeName:                        pointer.To("BiologicalEntity"),
+						FieldNameContainingDiscriminatedValue: pointer.To("TypeName"),
+						DiscriminatedValue:                    pointer.To("cat"),
+						Fields: map[string]models.SDKField{
 							"IsFluffy": {
 								JsonName: "isFluffy",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -169,10 +169,10 @@ func TestParseDiscriminatorsWithinArray(t *testing.T) {
 						},
 					},
 					"Human": {
-						ParentTypeName: pointer.To("BiologicalEntity"),
-						TypeHintIn:     pointer.To("TypeName"),
-						TypeHintValue:  pointer.To("human"),
-						Fields: map[string]importerModels.FieldDetails{
+						ParentTypeName:                        pointer.To("BiologicalEntity"),
+						FieldNameContainingDiscriminatedValue: pointer.To("TypeName"),
+						DiscriminatedValue:                    pointer.To("human"),
+						Fields: map[string]models.SDKField{
 							"FirstName": {
 								JsonName: "firstName",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -226,9 +226,9 @@ func TestParseDiscriminatorsWithinDiscriminators(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Discriminator": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Animal": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"AnimalType": {
 								JsonName: "animalType",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -245,10 +245,10 @@ func TestParseDiscriminatorsWithinDiscriminators(t *testing.T) {
 								Required: false,
 							},
 						},
-						TypeHintIn: pointer.To("AnimalType"),
+						FieldNameContainingDiscriminatedValue: pointer.To("AnimalType"),
 					},
 					"Bone": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Length": {
 								JsonName: "length",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -264,15 +264,15 @@ func TestParseDiscriminatorsWithinDiscriminators(t *testing.T) {
 								Required: true,
 							},
 						},
-						ParentTypeName: pointer.To("Toy"),
-						TypeHintIn:     pointer.To("ToyType"),
-						TypeHintValue:  pointer.To("bone"),
+						ParentTypeName:                        pointer.To("Toy"),
+						FieldNameContainingDiscriminatedValue: pointer.To("ToyType"),
+						DiscriminatedValue:                    pointer.To("bone"),
 					},
 					"Cat": {
-						ParentTypeName: pointer.To("Animal"),
-						TypeHintIn:     pointer.To("AnimalType"),
-						TypeHintValue:  pointer.To("cat"),
-						Fields: map[string]importerModels.FieldDetails{
+						ParentTypeName:                        pointer.To("Animal"),
+						FieldNameContainingDiscriminatedValue: pointer.To("AnimalType"),
+						DiscriminatedValue:                    pointer.To("cat"),
+						Fields: map[string]models.SDKField{
 							"AnimalType": {
 								JsonName: "animalType",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -298,10 +298,10 @@ func TestParseDiscriminatorsWithinDiscriminators(t *testing.T) {
 						},
 					},
 					"Dog": {
-						ParentTypeName: pointer.To("Animal"),
-						TypeHintIn:     pointer.To("AnimalType"),
-						TypeHintValue:  pointer.To("dog"),
-						Fields: map[string]importerModels.FieldDetails{
+						ParentTypeName:                        pointer.To("Animal"),
+						FieldNameContainingDiscriminatedValue: pointer.To("AnimalType"),
+						DiscriminatedValue:                    pointer.To("dog"),
+						Fields: map[string]models.SDKField{
 							"AnimalType": {
 								JsonName: "animalType",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -327,7 +327,7 @@ func TestParseDiscriminatorsWithinDiscriminators(t *testing.T) {
 						},
 					},
 					"ExampleWrapper": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Nested": {
 								JsonName: "nested",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -339,7 +339,7 @@ func TestParseDiscriminatorsWithinDiscriminators(t *testing.T) {
 						},
 					},
 					"LaserBeam": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Colour": {
 								JsonName: "colour",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -362,12 +362,12 @@ func TestParseDiscriminatorsWithinDiscriminators(t *testing.T) {
 								Required: true,
 							},
 						},
-						ParentTypeName: pointer.To("Toy"),
-						TypeHintIn:     pointer.To("ToyType"),
-						TypeHintValue:  pointer.To("laser-beam"),
+						ParentTypeName:                        pointer.To("Toy"),
+						FieldNameContainingDiscriminatedValue: pointer.To("ToyType"),
+						DiscriminatedValue:                    pointer.To("laser-beam"),
 					},
 					"Toy": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"ToyType": {
 								JsonName: "toyType",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -376,7 +376,7 @@ func TestParseDiscriminatorsWithinDiscriminators(t *testing.T) {
 								Required: true,
 							},
 						},
-						TypeHintIn: pointer.To("ToyType"),
+						FieldNameContainingDiscriminatedValue: pointer.To("ToyType"),
 					},
 				},
 				Operations: map[string]models.SDKOperation{
@@ -411,9 +411,9 @@ func TestParseDiscriminatedParentTypeThatShouldntBe(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Discriminator": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Animal": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Type": {
 								JsonName: "type",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -456,9 +456,9 @@ func TestParseDiscriminatedChildTypeThatShouldntBe(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Discriminator": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Dog": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Barks": {
 								JsonName: "barks",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -501,9 +501,9 @@ func TestParseDiscriminatedChildTypeWhereParentShouldNotBeUsed(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Discriminator": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Animal": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"AnimalType": {
 								JsonName: "animalType",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -512,10 +512,10 @@ func TestParseDiscriminatedChildTypeWhereParentShouldNotBeUsed(t *testing.T) {
 								Required: true,
 							},
 						},
-						TypeHintIn: pointer.To("AnimalType"),
+						FieldNameContainingDiscriminatedValue: pointer.To("AnimalType"),
 					},
 					"Cat": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"AnimalType": {
 								JsonName: "animalType",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -531,12 +531,12 @@ func TestParseDiscriminatedChildTypeWhereParentShouldNotBeUsed(t *testing.T) {
 								Required: true,
 							},
 						},
-						ParentTypeName: pointer.To("Animal"),
-						TypeHintIn:     pointer.To("AnimalType"),
-						TypeHintValue:  pointer.To("cat"),
+						ParentTypeName:                        pointer.To("Animal"),
+						FieldNameContainingDiscriminatedValue: pointer.To("AnimalType"),
+						DiscriminatedValue:                    pointer.To("cat"),
 					},
 					"Dog": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"AnimalType": {
 								JsonName: "animalType",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -552,12 +552,12 @@ func TestParseDiscriminatedChildTypeWhereParentShouldNotBeUsed(t *testing.T) {
 								Required: true,
 							},
 						},
-						ParentTypeName: pointer.To("Animal"),
-						TypeHintIn:     pointer.To("AnimalType"),
-						TypeHintValue:  pointer.To("dog"),
+						ParentTypeName:                        pointer.To("Animal"),
+						FieldNameContainingDiscriminatedValue: pointer.To("AnimalType"),
+						DiscriminatedValue:                    pointer.To("dog"),
 					},
 					"ExampleWrapper": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Nested": {
 								JsonName: "nested",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -598,9 +598,9 @@ func TestParseDiscriminatorsInheritingFromOtherDiscriminators(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Discriminator": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Animal": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"AnimalType": {
 								JsonName: "animalType",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -609,10 +609,10 @@ func TestParseDiscriminatorsInheritingFromOtherDiscriminators(t *testing.T) {
 								Required: true,
 							},
 						},
-						TypeHintIn: pointer.To("AnimalType"),
+						FieldNameContainingDiscriminatedValue: pointer.To("AnimalType"),
 					},
 					"Cat": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"AnimalType": {
 								JsonName: "animalType",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -628,12 +628,12 @@ func TestParseDiscriminatorsInheritingFromOtherDiscriminators(t *testing.T) {
 								Required: true,
 							},
 						},
-						ParentTypeName: pointer.To("Animal"),
-						TypeHintIn:     pointer.To("AnimalType"),
-						TypeHintValue:  pointer.To("cat"),
+						ParentTypeName:                        pointer.To("Animal"),
+						FieldNameContainingDiscriminatedValue: pointer.To("AnimalType"),
+						DiscriminatedValue:                    pointer.To("cat"),
 					},
 					"Dog": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"AnimalType": {
 								JsonName: "animalType",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -656,12 +656,12 @@ func TestParseDiscriminatorsInheritingFromOtherDiscriminators(t *testing.T) {
 								Required: true,
 							},
 						},
-						ParentTypeName: pointer.To("Animal"),
-						TypeHintIn:     pointer.To("AnimalType"),
-						TypeHintValue:  pointer.To("dog"),
+						ParentTypeName:                        pointer.To("Animal"),
+						FieldNameContainingDiscriminatedValue: pointer.To("AnimalType"),
+						DiscriminatedValue:                    pointer.To("dog"),
 					},
 					"ExampleWrapper": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Nested": {
 								JsonName: "nested",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -702,9 +702,9 @@ func TestParseDiscriminatorsDeepInheritance(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Discriminator": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Animal": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"TypeName": {
 								JsonName: "typeName",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -720,12 +720,12 @@ func TestParseDiscriminatorsDeepInheritance(t *testing.T) {
 								Required: true,
 							},
 						},
-						ParentTypeName: pointer.To("BiologicalEntity"),
-						TypeHintIn:     pointer.To("TypeName"),
-						TypeHintValue:  pointer.To("animal"),
+						ParentTypeName:                        pointer.To("BiologicalEntity"),
+						FieldNameContainingDiscriminatedValue: pointer.To("TypeName"),
+						DiscriminatedValue:                    pointer.To("animal"),
 					},
 					"BiologicalEntity": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"TypeName": {
 								JsonName: "typeName",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -734,10 +734,10 @@ func TestParseDiscriminatorsDeepInheritance(t *testing.T) {
 								Required: true,
 							},
 						},
-						TypeHintIn: pointer.To("TypeName"),
+						FieldNameContainingDiscriminatedValue: pointer.To("TypeName"),
 					},
 					"Carnivore": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"IsPlantEater": {
 								JsonName: "isPlantEater",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -760,12 +760,12 @@ func TestParseDiscriminatorsDeepInheritance(t *testing.T) {
 								Required: true,
 							},
 						},
-						ParentTypeName: pointer.To("BiologicalEntity"),
-						TypeHintIn:     pointer.To("TypeName"),
-						TypeHintValue:  pointer.To("carnivore"),
+						ParentTypeName:                        pointer.To("BiologicalEntity"),
+						FieldNameContainingDiscriminatedValue: pointer.To("TypeName"),
+						DiscriminatedValue:                    pointer.To("carnivore"),
 					},
 					"Cat": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"IsFluffy": {
 								JsonName: "isFluffy",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -795,12 +795,12 @@ func TestParseDiscriminatorsDeepInheritance(t *testing.T) {
 								Required: true,
 							},
 						},
-						ParentTypeName: pointer.To("BiologicalEntity"),
-						TypeHintIn:     pointer.To("TypeName"),
-						TypeHintValue:  pointer.To("cat"),
+						ParentTypeName:                        pointer.To("BiologicalEntity"),
+						FieldNameContainingDiscriminatedValue: pointer.To("TypeName"),
+						DiscriminatedValue:                    pointer.To("cat"),
 					},
 					"ExampleWrapper": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"BiologicalEntity": {
 								JsonName: "biologicalEntity",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -812,10 +812,10 @@ func TestParseDiscriminatorsDeepInheritance(t *testing.T) {
 						},
 					},
 					"PersianCat": {
-						ParentTypeName: pointer.To("BiologicalEntity"),
-						TypeHintIn:     pointer.To("TypeName"),
-						TypeHintValue:  pointer.To("persian-cat"),
-						Fields: map[string]importerModels.FieldDetails{
+						ParentTypeName:                        pointer.To("BiologicalEntity"),
+						FieldNameContainingDiscriminatedValue: pointer.To("TypeName"),
+						DiscriminatedValue:                    pointer.To("persian-cat"),
+						Fields: map[string]models.SDKField{
 							"IsFluffy": {
 								JsonName: "isFluffy",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -885,9 +885,9 @@ func TestParseDiscriminatorsWithMultipleParents(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Discriminator": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"BiologicalEntity": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"SomeField": {
 								JsonName: "someField",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -903,10 +903,10 @@ func TestParseDiscriminatorsWithMultipleParents(t *testing.T) {
 								Required: true,
 							},
 						},
-						TypeHintIn: pointer.To("TypeName"),
+						FieldNameContainingDiscriminatedValue: pointer.To("TypeName"),
 					},
 					"Cat": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"FirstName": {
 								JsonName: "firstName",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -943,12 +943,12 @@ func TestParseDiscriminatorsWithMultipleParents(t *testing.T) {
 								Required: true,
 							},
 						},
-						ParentTypeName: pointer.To("BiologicalEntity"),
-						TypeHintIn:     pointer.To("TypeName"),
-						TypeHintValue:  pointer.To("cat"),
+						ParentTypeName:                        pointer.To("BiologicalEntity"),
+						FieldNameContainingDiscriminatedValue: pointer.To("TypeName"),
+						DiscriminatedValue:                    pointer.To("cat"),
 					},
 					"ExampleWrapper": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Item": {
 								JsonName: "item",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -960,7 +960,7 @@ func TestParseDiscriminatorsWithMultipleParents(t *testing.T) {
 						},
 					},
 					"Human": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Age": {
 								JsonName: "age",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -997,9 +997,9 @@ func TestParseDiscriminatorsWithMultipleParents(t *testing.T) {
 								Required: true,
 							},
 						},
-						ParentTypeName: pointer.To("BiologicalEntity"),
-						TypeHintIn:     pointer.To("TypeName"),
-						TypeHintValue:  pointer.To("human"),
+						ParentTypeName:                        pointer.To("BiologicalEntity"),
+						FieldNameContainingDiscriminatedValue: pointer.To("TypeName"),
+						DiscriminatedValue:                    pointer.To("human"),
 					},
 					// NOTE: Whilst NamedEntity is present in the Swagger it shouldn't be in the result since
 					// it's just an abstract type (defining the shared fields for Car and Human), rather than
@@ -1036,9 +1036,9 @@ func TestParseDiscriminatorsWithMultipleParentsWithinArray(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Discriminator": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"BiologicalEntity": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"SomeField": {
 								JsonName: "someField",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -1054,10 +1054,10 @@ func TestParseDiscriminatorsWithMultipleParentsWithinArray(t *testing.T) {
 								Required: true,
 							},
 						},
-						TypeHintIn: pointer.To("TypeName"),
+						FieldNameContainingDiscriminatedValue: pointer.To("TypeName"),
 					},
 					"Cat": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"FirstName": {
 								JsonName: "firstName",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -1094,12 +1094,12 @@ func TestParseDiscriminatorsWithMultipleParentsWithinArray(t *testing.T) {
 								Required: true,
 							},
 						},
-						ParentTypeName: pointer.To("BiologicalEntity"),
-						TypeHintIn:     pointer.To("TypeName"),
-						TypeHintValue:  pointer.To("cat"),
+						ParentTypeName:                        pointer.To("BiologicalEntity"),
+						FieldNameContainingDiscriminatedValue: pointer.To("TypeName"),
+						DiscriminatedValue:                    pointer.To("cat"),
 					},
 					"ExampleWrapper": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Items": {
 								JsonName: "items",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -1114,7 +1114,7 @@ func TestParseDiscriminatorsWithMultipleParentsWithinArray(t *testing.T) {
 						},
 					},
 					"Human": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Age": {
 								JsonName: "age",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -1151,9 +1151,9 @@ func TestParseDiscriminatorsWithMultipleParentsWithinArray(t *testing.T) {
 								Required: true,
 							},
 						},
-						ParentTypeName: pointer.To("BiologicalEntity"),
-						TypeHintIn:     pointer.To("TypeName"),
-						TypeHintValue:  pointer.To("human"),
+						ParentTypeName:                        pointer.To("BiologicalEntity"),
+						FieldNameContainingDiscriminatedValue: pointer.To("TypeName"),
+						DiscriminatedValue:                    pointer.To("human"),
 					},
 					// NOTE: Whilst NamedEntity is present in the Swagger it shouldn't be in the result since
 					// it's just an abstract type (defining the shared fields for Car and Human), rather than
@@ -1191,9 +1191,9 @@ func TestParseDiscriminatorsOrphanedChild(t *testing.T) {
 			// File Name. Whilst in a normal scenario this would make sense - for testing purposes it leads to
 			// some unexpectedly named data, but this is fine providing the APIResource we're expecting exists.
 			"ModelDiscriminatorsOrphanedChildren": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Animal": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"AnimalType": {
 								JsonName: "animalType",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -1202,10 +1202,10 @@ func TestParseDiscriminatorsOrphanedChild(t *testing.T) {
 								Required: true,
 							},
 						},
-						TypeHintIn: pointer.To("AnimalType"),
+						FieldNameContainingDiscriminatedValue: pointer.To("AnimalType"),
 					},
 					"Cat": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"AnimalType": {
 								JsonName: "animalType",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -1221,12 +1221,12 @@ func TestParseDiscriminatorsOrphanedChild(t *testing.T) {
 								Required: true,
 							},
 						},
-						ParentTypeName: pointer.To("Animal"),
-						TypeHintIn:     pointer.To("AnimalType"),
-						TypeHintValue:  pointer.To("cat"),
+						ParentTypeName:                        pointer.To("Animal"),
+						FieldNameContainingDiscriminatedValue: pointer.To("AnimalType"),
+						DiscriminatedValue:                    pointer.To("cat"),
 					},
 					"Dog": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"AnimalType": {
 								JsonName: "animalType",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -1242,9 +1242,9 @@ func TestParseDiscriminatorsOrphanedChild(t *testing.T) {
 								Required: true,
 							},
 						},
-						ParentTypeName: pointer.To("Animal"),
-						TypeHintIn:     pointer.To("AnimalType"),
-						TypeHintValue:  pointer.To("dog"),
+						ParentTypeName:                        pointer.To("Animal"),
+						FieldNameContainingDiscriminatedValue: pointer.To("AnimalType"),
+						DiscriminatedValue:                    pointer.To("dog"),
 					},
 					// ExampleWrapper is present in the Swagger but unused
 				},
@@ -1268,9 +1268,9 @@ func TestParseDiscriminatorsOrphanedChildWithNestedModel(t *testing.T) {
 			// File Name. Whilst in a normal scenario this would make sense - for testing purposes it leads to
 			// some unexpectedly named data, but this is fine providing the APIResource we're expecting exists.
 			"ModelDiscriminatorsOrphanedChildWithNestedModels": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Animal": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"AnimalType": {
 								JsonName: "animalType",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -1279,10 +1279,10 @@ func TestParseDiscriminatorsOrphanedChildWithNestedModel(t *testing.T) {
 								Required: true,
 							},
 						},
-						TypeHintIn: pointer.To("AnimalType"),
+						FieldNameContainingDiscriminatedValue: pointer.To("AnimalType"),
 					},
 					"Cat": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"AnimalType": {
 								JsonName: "animalType",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -1298,12 +1298,12 @@ func TestParseDiscriminatorsOrphanedChildWithNestedModel(t *testing.T) {
 								Required: true,
 							},
 						},
-						ParentTypeName: pointer.To("Animal"),
-						TypeHintIn:     pointer.To("AnimalType"),
-						TypeHintValue:  pointer.To("cat"),
+						ParentTypeName:                        pointer.To("Animal"),
+						FieldNameContainingDiscriminatedValue: pointer.To("AnimalType"),
+						DiscriminatedValue:                    pointer.To("cat"),
 					},
 					"Dog": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"AnimalType": {
 								JsonName: "animalType",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -1330,13 +1330,13 @@ func TestParseDiscriminatorsOrphanedChildWithNestedModel(t *testing.T) {
 								Required: false,
 							},
 						},
-						ParentTypeName: pointer.To("Animal"),
-						TypeHintIn:     pointer.To("AnimalType"),
-						TypeHintValue:  pointer.To("dog"),
+						ParentTypeName:                        pointer.To("Animal"),
+						FieldNameContainingDiscriminatedValue: pointer.To("AnimalType"),
+						DiscriminatedValue:                    pointer.To("dog"),
 					},
 					// ExampleWrapper is present in the Swagger but unused
 					"KeyValuePair": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Key": {
 								JsonName: "key",
 								ObjectDefinition: models.SDKObjectDefinition{

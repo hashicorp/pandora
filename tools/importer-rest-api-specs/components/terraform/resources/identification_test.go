@@ -49,9 +49,9 @@ func TestIdentifyWithCreateAndReadAndUpdateAndDelete(t *testing.T) {
 			},
 		},
 		Schema: resourcemanager.ApiSchemaDetails{
-			Models: map[string]resourcemanager.ModelDetails{
+			Models: map[string]models.SDKModel{
 				"SomeModel": {
-					Fields: map[string]resourcemanager.FieldDetails{
+					Fields: map[string]models.SDKField{
 						"Properties": {},
 					},
 				},
@@ -135,7 +135,7 @@ func TestIdentifyWithCreateOrUpdateAndReadAndDelete(t *testing.T) {
 			},
 		},
 		Schema: resourcemanager.ApiSchemaDetails{
-			Models: map[string]resourcemanager.ModelDetails{
+			Models: map[string]models.SDKModel{
 				"SomeModel": {},
 			},
 			ResourceIds: map[string]models.ResourceID{
@@ -225,9 +225,9 @@ func TestIdentifyWithCreateOrUpdateAndUpdateAndReadAndDelete(t *testing.T) {
 			},
 		},
 		Schema: resourcemanager.ApiSchemaDetails{
-			Models: map[string]resourcemanager.ModelDetails{
+			Models: map[string]models.SDKModel{
 				"SomeModel": {
-					Fields: map[string]resourcemanager.FieldDetails{
+					Fields: map[string]models.SDKField{
 						"Properties": {
 							ObjectDefinition: models.SDKObjectDefinition{
 								Type:          models.ReferenceSDKObjectDefinitionType,
@@ -237,7 +237,7 @@ func TestIdentifyWithCreateOrUpdateAndUpdateAndReadAndDelete(t *testing.T) {
 					},
 				},
 				"SomeModelPatch": {
-					Fields: map[string]resourcemanager.FieldDetails{
+					Fields: map[string]models.SDKField{
 						"Properties": {
 							ObjectDefinition: models.SDKObjectDefinition{
 								Type:          models.ReferenceSDKObjectDefinitionType,
@@ -336,7 +336,7 @@ func TestIdentifyWithCreateOrUpdateAndUpdateAndReadAndDelete_NoProperties(t *tes
 			},
 		},
 		Schema: resourcemanager.ApiSchemaDetails{
-			Models: map[string]resourcemanager.ModelDetails{
+			Models: map[string]models.SDKModel{
 				"SomeModel":      {},
 				"SomeModelPatch": {},
 			},
@@ -426,7 +426,7 @@ func TestIdentityWithCreateReadDeleteAndUpdateTags(t *testing.T) {
 			},
 		},
 		Schema: resourcemanager.ApiSchemaDetails{
-			Models: map[string]resourcemanager.ModelDetails{
+			Models: map[string]models.SDKModel{
 				"SomeModel": {},
 				"Tags":      {},
 			},

@@ -8,7 +8,6 @@ import (
 
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
-	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 var _ customFieldMatcher = userAssignedIdentityListMatcher{}
@@ -21,7 +20,7 @@ func (userAssignedIdentityListMatcher) ReplacementObjectDefinition() models.SDKO
 	}
 }
 
-func (userAssignedIdentityListMatcher) IsMatch(_ importerModels.FieldDetails, definition models.SDKObjectDefinition, known internal.ParseResult) bool {
+func (userAssignedIdentityListMatcher) IsMatch(_ models.SDKField, definition models.SDKObjectDefinition, known internal.ParseResult) bool {
 	if definition.Type != models.ReferenceSDKObjectDefinitionType {
 		return false
 	}

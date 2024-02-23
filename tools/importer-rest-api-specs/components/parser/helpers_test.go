@@ -54,7 +54,7 @@ func validateParsedApiResourceMatches(t *testing.T, expected importerModels.Azur
 	t.Logf("Validating API Resource %q..", apiResourceName)
 	// Validate each of the maps matches what we're expecting
 	validateMapsMatch(t, expected.Constants, actual.Constants, "Constants", validateParsedConstantsMatch)
-	validateMapsMatch(t, expected.Models, actual.Models, "Models", validateParsedModelsMatch)
+	validateMapsMatch(t, expected.Models, actual.Models, "Models", validateParsedSDKModelsMatch)
 	validateMapsMatch(t, expected.Operations, actual.Operations, "Operations", validateParsedOperationsMatch)
 	validateMapsMatch(t, expected.ResourceIds, actual.ResourceIds, "Resource IDs", validateParsedResourceIDsMatch)
 	validateObjectsMatch(t, expected.Terraform, actual.Terraform, "Terraform", validateParsedTerraformDetailsMatch)
@@ -67,7 +67,7 @@ func validateParsedConstantsMatch(t *testing.T, expected, actual models.SDKConst
 	validateMapsMatch(t, expected.Values, actual.Values, "Values", validateStringsMatch)
 }
 
-func validateParsedFieldsMatch(t *testing.T, expected importerModels.FieldDetails, actual importerModels.FieldDetails, fieldName string) {
+func validateParsedSDKFieldsMatch(t *testing.T, expected, actual models.SDKField, fieldName string) {
 	if expected.JsonName != actual.JsonName {
 		t.Fatalf("expected `JsonName` to be %q but got %q for Field %q", expected.JsonName, actual.JsonName, fieldName)
 	}
@@ -86,24 +86,25 @@ func validateParsedFieldsMatch(t *testing.T, expected importerModels.FieldDetail
 	validateParsedObjectDefinitionsMatch(t, expected.ObjectDefinition, actual.ObjectDefinition, fieldName)
 }
 
-func validateParsedModelsMatch(t *testing.T, expected importerModels.ModelDetails, actual importerModels.ModelDetails, modelName string) {
+func validateParsedSDKModelsMatch(t *testing.T, expected, actual models.SDKModel, modelName string) {
 	t.Logf("Validating Model %q...", modelName)
 	if pointer.From(expected.ParentTypeName) != pointer.From(actual.ParentTypeName) {
 		// NOTE: this should be nil when unset, otherwise a value
 		t.Fatalf("expected `ParentTypeName` to be %q but got %q for Model %q", pointer.From(expected.ParentTypeName), pointer.From(actual.ParentTypeName), modelName)
 	}
-	if pointer.From(expected.TypeHintIn) != pointer.From(actual.TypeHintIn) {
+	if pointer.From(expected.FieldNameContainingDiscriminatedValue) != pointer.From(actual.FieldNameContainingDiscriminatedValue) {
 		// NOTE: this should be nil when unset, otherwise a value
-		t.Fatalf("expected `TypeHintIn` to be %q but got %q for Model %q", pointer.From(expected.TypeHintIn), pointer.From(actual.TypeHintIn), modelName)
+		t.Fatalf("expected `FieldNameContainingDiscriminatedValue` to be %q but got %q for Model %q", pointer.From(expected.FieldNameContainingDiscriminatedValue), pointer.From(actual.FieldNameContainingDiscriminatedValue), modelName)
 	}
-	if pointer.From(expected.TypeHintValue) != pointer.From(actual.TypeHintValue) {
+	if pointer.From(expected.DiscriminatedValue) != pointer.From(actual.DiscriminatedValue) {
 		// NOTE: this should be nil when unset, otherwise a value
-		t.Fatalf("expected `TypeHintValue` to be %q but got %q for Model %q", pointer.From(expected.TypeHintValue), pointer.From(actual.TypeHintValue), modelName)
+		t.Fatalf("expected `DiscriminatedValue` to be %q but got %q for Model %q", pointer.From(expected.DiscriminatedValue), pointer.From(actual.DiscriminatedValue), modelName)
 	}
-	if expected.Description != actual.Description {
-		t.Fatalf("expected `Description` to be %q but got %q for Model %q", expected.Description, actual.Description, modelName)
-	}
-	validateMapsMatch(t, expected.Fields, actual.Fields, "Fields", validateParsedFieldsMatch)
+	// TODO: thread description through once https://github.com/hashicorp/pandora/issues/3325 is completed
+	//if expected.Description != actual.Description {
+	//	t.Fatalf("expected `Description` to be %q but got %q for Model %q", expected.Description, actual.Description, modelName)
+	//}
+	validateMapsMatch(t, expected.Fields, actual.Fields, "Fields", validateParsedSDKFieldsMatch)
 }
 
 func validateParsedObjectDefinitionsMatch(t *testing.T, expected, actual models.SDKObjectDefinition, fieldName string) {

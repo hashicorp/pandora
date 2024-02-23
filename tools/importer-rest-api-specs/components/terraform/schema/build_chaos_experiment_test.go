@@ -34,9 +34,9 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 				},
 			},
 		},
-		models: map[string]resourcemanager.ModelDetails{
+		models: map[string]models.SDKModel{
 			"Experiment": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Identity": {
 						JsonName: "identity",
 						ObjectDefinition: models.SDKObjectDefinition{
@@ -76,7 +76,7 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 				},
 			},
 			"ExperimentProperties": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Selector": {
 						JsonName: "selectors",
 						ObjectDefinition: models.SDKObjectDefinition{
@@ -109,7 +109,7 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 				},
 			},
 			"Selector": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Id": {
 						JsonName: "id",
 						ObjectDefinition: models.SDKObjectDefinition{
@@ -135,20 +135,11 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						Required: true,
-						Validation: &resourcemanager.FieldValidationDetails{
-							Type: resourcemanager.RangeValidation,
-							Values: &[]interface{}{
-								"List",
-								"Percent",
-								"Random",
-								"Tag",
-							},
-						},
 					},
 				},
 			},
 			"Step": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Branch": {
 						JsonName: "branches",
 						ObjectDefinition: models.SDKObjectDefinition{
@@ -170,7 +161,7 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 				},
 			},
 			"Target": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Id": {
 						JsonName: "id",
 						ObjectDefinition: models.SDKObjectDefinition{
@@ -185,17 +176,11 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						Required: true,
-						Validation: &resourcemanager.FieldValidationDetails{
-							Type: resourcemanager.RangeValidation,
-							Values: &[]interface{}{
-								"ChaosTarget",
-							},
-						},
 					},
 				},
 			},
 			"Branch": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Action": {
 						JsonName: "actions",
 						ObjectDefinition: models.SDKObjectDefinition{
@@ -217,7 +202,7 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 				},
 			},
 			"Action": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Name": {
 						JsonName: "name",
 						ObjectDefinition: models.SDKObjectDefinition{

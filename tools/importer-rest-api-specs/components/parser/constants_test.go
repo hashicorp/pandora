@@ -34,9 +34,9 @@ func TestParseConstantsIntegersTopLevelAsInts(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -89,9 +89,9 @@ func TestParseConstantsIntegersTopLevelAsIntsWithDisplayName(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -143,9 +143,9 @@ func TestParseConstantsIntegersTopLevelAsStrings(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -197,9 +197,9 @@ func TestParseConstantsIntegersInlinedAsInts(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -252,9 +252,9 @@ func TestParseConstantsIntegersInlinedAsIntsWithDisplayName(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -306,9 +306,9 @@ func TestParseConstantsIntegersInlinedAsStrings(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -360,9 +360,9 @@ func TestParseConstantsFloatsTopLevelAsFloats(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -414,9 +414,9 @@ func TestParseConstantsFloatsTopLevelAsStrings(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -468,9 +468,9 @@ func TestParseConstantsFloatsInlinedAsFloats(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -522,9 +522,9 @@ func TestParseConstantsFloatsInlinedAsStrings(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -576,9 +576,9 @@ func TestParseConstantsStringsTopLevel(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Type": {
 								JsonName: "type",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -632,9 +632,9 @@ func TestParseConstantsStringsTopLevelAsNonStrings(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Type": {
 								JsonName: "type",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -685,9 +685,9 @@ func TestParseConstantsStringsInlined(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Type": {
 								JsonName: "type",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -738,9 +738,9 @@ func TestParseConstantsStringsInlinedAsNonStrings(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Type": {
 								JsonName: "type",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -792,9 +792,9 @@ func TestParseConstantsStringsTopLevelContainingFloats(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -846,9 +846,9 @@ func TestParseConstantsStringsInlinedContainingFloats(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
 								ObjectDefinition: models.SDKObjectDefinition{
