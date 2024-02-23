@@ -4,6 +4,7 @@
 package resourceids
 
 import (
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
@@ -114,9 +115,12 @@ func switchOutCommonResourceIDsAsNeeded(input []models.ResourceID) []models.Reso
 	output := make([]models.ResourceID, 0)
 
 	for _, value := range input {
+		// TODO: we should expose a `[]CommonIDs` function from `hashicorp/go-azure-helpers` so that we can reuse these
+		// the types (intentionally) don't align but we have enough information here to map the data across
 		for _, commonId := range commonIdTypes {
 			if ResourceIdsMatch(commonId.id(), value) {
 				value = commonId.id()
+				value.ExampleValue = helpers.DisplayValueForResourceID(value)
 				break
 			}
 		}
