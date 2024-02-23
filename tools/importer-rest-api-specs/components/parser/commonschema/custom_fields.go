@@ -11,7 +11,7 @@ import (
 type customFieldMatcher interface {
 	// IsMatch returns whether the field and definition provided match this Custom Field Matcher
 	// meaning that the types should be replaced with the CustomFieldType found in customFieldType
-	IsMatch(field models.SDKField, definition models.SDKObjectDefinition, known internal.ParseResult) bool
+	IsMatch(field models.SDKField, known internal.ParseResult) bool
 
 	// ReplacementObjectDefinition returns the replacement SDKObjectDefinition which should be used
 	// in place of the parsed SDKObjectDefinition for this SDKField.

@@ -21,13 +21,13 @@ func (systemDataMatcher) ReplacementObjectDefinition() models.SDKObjectDefinitio
 	}
 }
 
-func (systemDataMatcher) IsMatch(_ models.SDKField, definition models.SDKObjectDefinition, known internal.ParseResult) bool {
-	if definition.Type != models.ReferenceSDKObjectDefinitionType {
+func (systemDataMatcher) IsMatch(field models.SDKField, known internal.ParseResult) bool {
+	if field.ObjectDefinition.Type != models.ReferenceSDKObjectDefinitionType {
 		return false
 	}
 
 	// retrieve the model from the reference
-	model, ok := known.Models[*definition.ReferenceName]
+	model, ok := known.Models[*field.ObjectDefinition.ReferenceName]
 	if !ok {
 		return false
 	}

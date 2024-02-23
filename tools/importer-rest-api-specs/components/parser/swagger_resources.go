@@ -161,7 +161,7 @@ func switchOutCustomTypesAsNeeded(input internal.ParseResult) internal.ParseResu
 
 			// switch out the Object Definition for this field if needed
 			for _, matcher := range commonschema.CustomFieldMatchers {
-				if matcher.IsMatch(field, field.ObjectDefinition, result) {
+				if matcher.IsMatch(field, result) {
 					field.ObjectDefinition = matcher.ReplacementObjectDefinition()
 					break
 				}

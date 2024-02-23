@@ -20,13 +20,13 @@ func (systemOrUserAssignedIdentityListMatcher) ReplacementObjectDefinition() mod
 	}
 }
 
-func (systemOrUserAssignedIdentityListMatcher) IsMatch(field models.SDKField, definition models.SDKObjectDefinition, known internal.ParseResult) bool {
-	if definition.Type != models.ReferenceSDKObjectDefinitionType {
+func (systemOrUserAssignedIdentityListMatcher) IsMatch(field models.SDKField, known internal.ParseResult) bool {
+	if field.ObjectDefinition.Type != models.ReferenceSDKObjectDefinitionType {
 		return false
 	}
 
 	// retrieve the model from the reference
-	model, ok := known.Models[*definition.ReferenceName]
+	model, ok := known.Models[*field.ObjectDefinition.ReferenceName]
 	if !ok {
 		return false
 	}

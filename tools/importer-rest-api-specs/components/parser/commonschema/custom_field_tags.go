@@ -20,6 +20,8 @@ func (tagsMatcher) ReplacementObjectDefinition() models.SDKObjectDefinition {
 	}
 }
 
-func (tagsMatcher) IsMatch(field models.SDKField, definition models.SDKObjectDefinition, known internal.ParseResult) bool {
-	return strings.EqualFold(field.JsonName, "tags") && definition.Type == models.DictionarySDKObjectDefinitionType && definition.NestedItem.Type == models.StringSDKObjectDefinitionType
+func (tagsMatcher) IsMatch(field models.SDKField, _ internal.ParseResult) bool {
+	nameMatches := strings.EqualFold(field.JsonName, "tags") || strings.EqualFold(field.JsonName, "zone")
+	typeMatches := field.ObjectDefinition.Type == models.DictionarySDKObjectDefinitionType && field.ObjectDefinition.NestedItem.Type == models.StringSDKObjectDefinitionType
+	return nameMatches && typeMatches
 }

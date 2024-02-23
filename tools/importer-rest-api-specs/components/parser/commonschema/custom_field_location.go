@@ -20,6 +20,6 @@ func (l locationMatcher) ReplacementObjectDefinition() models.SDKObjectDefinitio
 	}
 }
 
-func (l locationMatcher) IsMatch(field models.SDKField, definition models.SDKObjectDefinition, _ internal.ParseResult) bool {
-	return strings.EqualFold(field.JsonName, "location") && definition.Type == models.StringSDKObjectDefinitionType
+func (l locationMatcher) IsMatch(field models.SDKField, _ internal.ParseResult) bool {
+	return strings.EqualFold(field.JsonName, "location") && field.ObjectDefinition.Type == models.StringSDKObjectDefinitionType
 }

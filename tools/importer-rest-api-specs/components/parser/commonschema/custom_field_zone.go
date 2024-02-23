@@ -21,8 +21,8 @@ func (zoneFieldMatcher) ReplacementObjectDefinition() models.SDKObjectDefinition
 	}
 }
 
-func (zoneFieldMatcher) IsMatch(field models.SDKField, definition models.SDKObjectDefinition, _ internal.ParseResult) bool {
+func (zoneFieldMatcher) IsMatch(field models.SDKField, _ internal.ParseResult) bool {
 	nameMatches := strings.EqualFold(field.JsonName, "availabilityZone") || strings.EqualFold(field.JsonName, "zone")
-	typeMatches := definition.Type == models.StringSDKObjectDefinitionType
+	typeMatches := field.ObjectDefinition.Type == models.StringSDKObjectDefinitionType
 	return nameMatches && typeMatches
 }
