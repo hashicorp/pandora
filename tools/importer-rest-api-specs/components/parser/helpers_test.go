@@ -207,7 +207,7 @@ func validateParsedResourceIDsMatch(t *testing.T, expected, actual importerModel
 	validateSlicesMatch(t, expected.Segments, actual.Segments, "Segments", validateParsedResourceIDSegmentsMatch)
 }
 
-func validateParsedResourceIDSegmentsMatch(t *testing.T, expected, actual resourcemanager.ResourceIdSegment, segmentName string) {
+func validateParsedResourceIDSegmentsMatch(t *testing.T, expected, actual models.ResourceIDSegment, segmentName string) {
 	if pointer.From(expected.ConstantReference) != pointer.From(actual.ConstantReference) {
 		t.Errorf("expected `ConstantReference` to be %q but got %q for %s", pointer.From(expected.ConstantReference), pointer.From(actual.ConstantReference), segmentName)
 	}

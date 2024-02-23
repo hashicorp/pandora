@@ -8,28 +8,27 @@ import (
 
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 func TestCommonResourceID_ResourceGroup(t *testing.T) {
 	valid := importerModels.ParsedResourceId{
 		Constants: map[string]models.SDKConstant{},
-		Segments: []resourcemanager.ResourceIdSegment{
-			importerModels.StaticResourceIDSegment("subscriptions", "subscriptions"),
-			importerModels.SubscriptionIDResourceIDSegment("subscriptionId"),
-			importerModels.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
-			importerModels.ResourceGroupResourceIDSegment("resourceGroupName"),
+		Segments: []models.ResourceIDSegment{
+			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
 		},
 	}
 	invalid := importerModels.ParsedResourceId{
 		Constants: map[string]models.SDKConstant{},
-		Segments: []resourcemanager.ResourceIdSegment{
-			importerModels.StaticResourceIDSegment("subscriptions", "subscriptions"),
-			importerModels.SubscriptionIDResourceIDSegment("subscriptionId"),
-			importerModels.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
-			importerModels.ResourceGroupResourceIDSegment("resourceGroupName"),
-			importerModels.StaticResourceIDSegment("someResource", "someResource"),
-			importerModels.UserSpecifiedResourceIDSegment("resourceName"),
+		Segments: []models.ResourceIDSegment{
+			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			models.NewStaticValueResourceIDSegment("someResource", "someResource"),
+			models.NewUserSpecifiedResourceIDSegment("resourceName", "resourceName"),
 		},
 	}
 	input := []importerModels.ParsedResourceId{
@@ -64,20 +63,20 @@ func TestCommonResourceID_ResourceGroupIncorrectSegment(t *testing.T) {
 	input := []importerModels.ParsedResourceId{
 		{
 			Constants: map[string]models.SDKConstant{},
-			Segments: []resourcemanager.ResourceIdSegment{
-				importerModels.StaticResourceIDSegment("subscriptions", "subscriptions"),
-				importerModels.SubscriptionIDResourceIDSegment("subscriptionId"),
-				importerModels.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
-				importerModels.ResourceGroupResourceIDSegment("resourceGroupName"),
+			Segments: []models.ResourceIDSegment{
+				models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+				models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+				models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+				models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
 			},
 		},
 		{
 			Constants: map[string]models.SDKConstant{},
-			Segments: []resourcemanager.ResourceIdSegment{
-				importerModels.StaticResourceIDSegment("subscriptions", "subscriptions"),
-				importerModels.SubscriptionIDResourceIDSegment("subscriptionId"),
-				importerModels.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
-				importerModels.ResourceGroupResourceIDSegment("sourceResourceGroupName"),
+			Segments: []models.ResourceIDSegment{
+				models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+				models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+				models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+				models.NewResourceGroupNameResourceIDSegment("sourceResourceGroupName"),
 			},
 		},
 	}

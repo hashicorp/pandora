@@ -102,25 +102,11 @@ func TestBuildForResourceGroupHappyPathAllModelsTheSame(t *testing.T) {
 				CommonAlias:   stringPointer("ResourceGroup"),
 				ConstantNames: nil,
 				Id:            "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
-				Segments: []resourcemanager.ResourceIdSegment{
-					{
-						FixedValue: stringPointer("subscriptions"),
-						Name:       "subscriptions",
-						Type:       resourcemanager.StaticSegment,
-					},
-					{
-						Name: "subscriptionId",
-						Type: resourcemanager.SubscriptionIdSegment,
-					},
-					{
-						FixedValue: stringPointer("providers"),
-						Name:       "providers",
-						Type:       resourcemanager.StaticSegment,
-					},
-					{
-						Name: "resourceGroupName",
-						Type: resourcemanager.ResourceGroupSegment,
-					},
+				Segments: []models.ResourceIDSegment{
+					models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+					models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+					models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+					models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
 				},
 			},
 		},
@@ -305,25 +291,11 @@ func TestBuildForResourceGroupUsingRealData(t *testing.T) {
 				CommonAlias:   stringPointer("ResourceGroup"),
 				ConstantNames: nil,
 				Id:            "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
-				Segments: []resourcemanager.ResourceIdSegment{
-					{
-						FixedValue: stringPointer("subscriptions"),
-						Name:       "subscriptions",
-						Type:       resourcemanager.StaticSegment,
-					},
-					{
-						Name: "subscriptionId",
-						Type: resourcemanager.SubscriptionIdSegment,
-					},
-					{
-						FixedValue: stringPointer("providers"),
-						Name:       "providers",
-						Type:       resourcemanager.StaticSegment,
-					},
-					{
-						Name: "resourceGroupName",
-						Type: resourcemanager.ResourceGroupSegment,
-					},
+				Segments: []models.ResourceIDSegment{
+					models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+					models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+					models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+					models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
 				},
 			},
 		},

@@ -10,7 +10,6 @@ import (
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 // TODO: tests for the different types of Operation Object Definition - including CSV's inner object
@@ -76,15 +75,15 @@ func TestParseOperationSingleWithTagAndResourceId(t *testing.T) {
 				},
 				ResourceIds: map[string]importerModels.ParsedResourceId{
 					"ThingId": {
-						Segments: []resourcemanager.ResourceIdSegment{
-							NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
-							NewSubscriptionIDResourceIDSegment("subscriptionId"),
-							NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
-							NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-							NewStaticValueResourceIDSegment("staticProviders", "providers"),
-							NewResourceProviderResourceIDSegment("staticMicrosoftFooBar", "Microsoft.FooBar"),
-							NewStaticValueResourceIDSegment("staticThings", "things"),
-							NewUserSpecifiedResourceIDSegment("thing", "thing"),
+						Segments: []models.ResourceIDSegment{
+							models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
+							models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+							models.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
+							models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+							models.NewStaticValueResourceIDSegment("staticProviders", "providers"),
+							models.NewResourceProviderResourceIDSegment("staticMicrosoftFooBar", "Microsoft.FooBar"),
+							models.NewStaticValueResourceIDSegment("staticThings", "things"),
+							models.NewUserSpecifiedResourceIDSegment("thing", "thing"),
 						},
 					},
 				},
@@ -117,15 +116,15 @@ func TestParseOperationSingleWithTagAndResourceIdSuffix(t *testing.T) {
 				},
 				ResourceIds: map[string]importerModels.ParsedResourceId{
 					"ThingId": {
-						Segments: []resourcemanager.ResourceIdSegment{
-							NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
-							NewSubscriptionIDResourceIDSegment("subscriptionId"),
-							NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
-							NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-							NewStaticValueResourceIDSegment("staticProviders", "providers"),
-							NewResourceProviderResourceIDSegment("staticMicrosoftFooBar", "Microsoft.FooBar"),
-							NewStaticValueResourceIDSegment("staticThings", "things"),
-							NewUserSpecifiedResourceIDSegment("thing", "thing"),
+						Segments: []models.ResourceIDSegment{
+							models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
+							models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+							models.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
+							models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+							models.NewStaticValueResourceIDSegment("staticProviders", "providers"),
+							models.NewResourceProviderResourceIDSegment("staticMicrosoftFooBar", "Microsoft.FooBar"),
+							models.NewStaticValueResourceIDSegment("staticThings", "things"),
+							models.NewUserSpecifiedResourceIDSegment("thing", "thing"),
 						},
 					},
 				},
@@ -1511,15 +1510,15 @@ func TestParseOperationMultipleBasedOnTheSameResourceId(t *testing.T) {
 				},
 				ResourceIds: map[string]importerModels.ParsedResourceId{
 					"ThingId": {
-						Segments: []resourcemanager.ResourceIdSegment{
-							NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
-							NewSubscriptionIDResourceIDSegment("subscriptionId"),
-							NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
-							NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-							NewStaticValueResourceIDSegment("staticProviders", "providers"),
-							NewResourceProviderResourceIDSegment("staticMicrosoftFooBar", "Microsoft.FooBar"),
-							NewStaticValueResourceIDSegment("staticThings", "things"),
-							NewUserSpecifiedResourceIDSegment("thing", "thing"),
+						Segments: []models.ResourceIDSegment{
+							models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
+							models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+							models.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
+							models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+							models.NewStaticValueResourceIDSegment("staticProviders", "providers"),
+							models.NewResourceProviderResourceIDSegment("staticMicrosoftFooBar", "Microsoft.FooBar"),
+							models.NewStaticValueResourceIDSegment("staticThings", "things"),
+							models.NewUserSpecifiedResourceIDSegment("thing", "thing"),
 						},
 					},
 				},

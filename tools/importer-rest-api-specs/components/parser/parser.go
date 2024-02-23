@@ -8,10 +8,10 @@ import (
 	"strings"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/resourceids"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 func (d *SwaggerDefinition) parse(serviceName, apiVersion string, resourceProvider *string, resourceIds resourceids.ParseResult) (*importerModels.AzureApiDefinition, error) {
@@ -190,7 +190,7 @@ func resourceIdUsesAResourceProviderOtherThan(input *importerModels.ParsedResour
 	}
 
 	for i, segment := range input.Segments {
-		if segment.Type != resourcemanager.ResourceProviderSegment {
+		if segment.Type != models.ResourceProviderResourceIDSegmentType {
 			continue
 		}
 

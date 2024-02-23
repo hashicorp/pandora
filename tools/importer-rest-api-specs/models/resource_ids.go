@@ -8,10 +8,11 @@ import (
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 type ParsedResourceId struct {
+	// TODO: this type wants consolidating
+
 	// CommonAlias is the alias used for this Resource ID, if this is a 'Common' Resource ID
 	// examples of a Common Resource ID include Resource Group ID's and Subscription ID's
 	CommonAlias *string
@@ -20,7 +21,7 @@ type ParsedResourceId struct {
 	Constants map[string]models.SDKConstant
 
 	// Segments are an ordered list of segments which comprise this Resource ID
-	Segments []resourcemanager.ResourceIdSegment
+	Segments []models.ResourceIDSegment
 }
 
 func (pri ParsedResourceId) ID() string {
@@ -52,16 +53,16 @@ func (pri ParsedResourceId) Matches(other ParsedResourceId) bool {
 		// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/provisioningServices/{resourceName}
 		// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/provisioningServices/{provisioningServiceName}
 		// as such providing they're both user specified segments (and the rest is the same) then they're the same
-		if first.Type == resourcemanager.ResourceGroupSegment || first.Type == resourcemanager.SubscriptionIdSegment || first.Type == resourcemanager.UserSpecifiedSegment {
+		if first.Type == models.ResourceGroupResourceIDSegmentType || first.Type == models.SubscriptionIDResourceIDSegmentType || first.Type == models.UserSpecifiedResourceIDSegmentType {
 			continue
 		}
 
 		// With a Scope the key doesn't matter as much as that it's a Scope, so presuming the types match (above) we're good.
-		if first.Type == resourcemanager.ScopeSegment {
+		if first.Type == models.ScopeResourceIDSegmentType {
 			continue
 		}
 
-		if first.Type == resourcemanager.ConstantSegment {
+		if first.Type == models.ConstantResourceIDSegmentType {
 			if first.ConstantReference != nil && second.ConstantReference == nil {
 				return false
 			}
@@ -76,7 +77,7 @@ func (pri ParsedResourceId) Matches(other ParsedResourceId) bool {
 			continue
 		}
 
-		if first.Type == resourcemanager.ResourceProviderSegment || first.Type == resourcemanager.StaticSegment {
+		if first.Type == models.ResourceProviderResourceIDSegmentType || first.Type == models.StaticResourceIDSegmentType {
 			if first.FixedValue != nil && second.FixedValue == nil {
 				return false
 			}
@@ -101,56 +102,4 @@ func (pri ParsedResourceId) Matches(other ParsedResourceId) bool {
 func (pri ParsedResourceId) String() string {
 	// only used for debug purposes
 	return pri.ID()
-}
-
-func ConstantResourceIDSegment(name, constantName string) resourcemanager.ResourceIdSegment {
-	return resourcemanager.ResourceIdSegment{
-		Type:              resourcemanager.ConstantSegment,
-		Name:              name,
-		ConstantReference: &constantName,
-	}
-}
-
-func ResourceProviderResourceIDSegment(name, resourceProvider string) resourcemanager.ResourceIdSegment {
-	return resourcemanager.ResourceIdSegment{
-		Type:       resourcemanager.ResourceProviderSegment,
-		Name:       name,
-		FixedValue: &resourceProvider,
-	}
-}
-
-func ResourceGroupResourceIDSegment(name string) resourcemanager.ResourceIdSegment {
-	return resourcemanager.ResourceIdSegment{
-		Type: resourcemanager.ResourceGroupSegment,
-		Name: name,
-	}
-}
-
-func StaticResourceIDSegment(name, fixedValue string) resourcemanager.ResourceIdSegment {
-	return resourcemanager.ResourceIdSegment{
-		Type:       resourcemanager.StaticSegment,
-		Name:       name,
-		FixedValue: &fixedValue,
-	}
-}
-
-func ScopeResourceIDSegment(name string) resourcemanager.ResourceIdSegment {
-	return resourcemanager.ResourceIdSegment{
-		Name: name,
-		Type: resourcemanager.ScopeSegment,
-	}
-}
-
-func SubscriptionIDResourceIDSegment(name string) resourcemanager.ResourceIdSegment {
-	return resourcemanager.ResourceIdSegment{
-		Type: resourcemanager.SubscriptionIdSegment,
-		Name: name,
-	}
-}
-
-func UserSpecifiedResourceIDSegment(name string) resourcemanager.ResourceIdSegment {
-	return resourcemanager.ResourceIdSegment{
-		Type: resourcemanager.UserSpecifiedSegment,
-		Name: name,
-	}
 }

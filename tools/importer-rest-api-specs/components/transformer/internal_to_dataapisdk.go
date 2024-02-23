@@ -512,20 +512,15 @@ func mapInternalResourceIDsToDataAPISDKType(input map[string]importerModels.Pars
 	return &output, nil
 }
 
-func mapInternalResourceIDSegmentsToDataAPISDKType(input []resourcemanager.ResourceIdSegment) (*[]models.ResourceIDSegment, error) {
+func mapInternalResourceIDSegmentsToDataAPISDKType(input []models.ResourceIDSegment) (*[]models.ResourceIDSegment, error) {
 	output := make([]models.ResourceIDSegment, 0)
 
 	for _, item := range input {
-		val, ok := resourceIdSegmentTypesToDataAPISDKType[item.Type]
-		if !ok {
-			return nil, fmt.Errorf("internal-error: missing mapping for Resource ID Segment Type %q", string(item.Type))
-		}
-
 		output = append(output, models.ResourceIDSegment{
 			ConstantReference: item.ConstantReference,
 			ExampleValue:      item.ExampleValue,
 			FixedValue:        item.FixedValue,
-			Type:              val,
+			Type:              item.Type,
 			Name:              item.Name,
 		})
 	}
@@ -603,14 +598,4 @@ var terraformSchemaValidationPossibleValuesTypeToSDKType = map[resourcemanager.T
 	resourcemanager.TerraformSchemaValidationPossibleValueTypeFloat:  models.FloatTerraformSchemaFieldValidationPossibleValuesType,
 	resourcemanager.TerraformSchemaValidationPossibleValueTypeInt:    models.IntegerTerraformSchemaFieldValidationPossibleValuesType,
 	resourcemanager.TerraformSchemaValidationPossibleValueTypeString: models.StringTerraformSchemaFieldValidationPossibleValuesType,
-}
-
-var resourceIdSegmentTypesToDataAPISDKType = map[resourcemanager.ResourceIdSegmentType]models.ResourceIDSegmentType{
-	resourcemanager.ConstantSegment:         models.ConstantResourceIDSegmentType,
-	resourcemanager.ResourceGroupSegment:    models.ResourceGroupResourceIDSegmentType,
-	resourcemanager.ResourceProviderSegment: models.ResourceProviderResourceIDSegmentType,
-	resourcemanager.ScopeSegment:            models.ScopeResourceIDSegmentType,
-	resourcemanager.StaticSegment:           models.StaticResourceIDSegmentType,
-	resourcemanager.SubscriptionIdSegment:   models.SubscriptionIDResourceIDSegmentType,
-	resourcemanager.UserSpecifiedSegment:    models.UserSpecifiedResourceIDSegmentType,
 }

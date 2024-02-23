@@ -8,8 +8,7 @@ import (
 
 	"github.com/go-openapi/spec"
 	"github.com/hashicorp/go-hclog"
-	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 func TestParseResourceIDFromOperation_ConstantSingle(t *testing.T) {
@@ -67,9 +66,9 @@ func TestParseResourceIDFromOperation_ConstantMultiple(t *testing.T) {
 	if resourceId.segments == nil {
 		t.Fatalf("expected 2 segments but got 0")
 	}
-	expectedSegments := []resourcemanager.ResourceIdSegment{
-		importerModels.StaticResourceIDSegment("planets", "planets"),
-		importerModels.ConstantResourceIDSegment("planetName", "NameOfPlanet"),
+	expectedSegments := []models.ResourceIDSegment{
+		models.NewStaticValueResourceIDSegment("planets", "planets"),
+		models.NewConstantResourceIDSegment("planetName", "NameOfPlanet", "Earth"),
 	}
 	validateSegmentsMatch(t, *resourceId.segments, expectedSegments)
 
@@ -110,9 +109,9 @@ func TestParseResourceIDFromOperation_InvalidSegmentDefaultGetsTransformed(t *te
 	if resourceId.segments == nil {
 		t.Fatalf("expected 2 segments but got 0")
 	}
-	expectedSegments := []resourcemanager.ResourceIdSegment{
-		importerModels.StaticResourceIDSegment("defaults", "defaults"),
-		importerModels.UserSpecifiedResourceIDSegment("defaultName"),
+	expectedSegments := []models.ResourceIDSegment{
+		models.NewStaticValueResourceIDSegment("defaults", "defaults"),
+		models.NewUserSpecifiedResourceIDSegment("defaultName", "defaultName"),
 	}
 	validateSegmentsMatch(t, *resourceId.segments, expectedSegments)
 
@@ -172,9 +171,9 @@ func TestParseResourceIDFromOperation_InvalidSegmentTypeGetsTransformed(t *testi
 	if resourceId.segments == nil {
 		t.Fatalf("expected 2 segments but got 0")
 	}
-	expectedSegments := []resourcemanager.ResourceIdSegment{
-		importerModels.StaticResourceIDSegment("things", "things"),
-		importerModels.UserSpecifiedResourceIDSegment("typeName"),
+	expectedSegments := []models.ResourceIDSegment{
+		models.NewStaticValueResourceIDSegment("things", "things"),
+		models.NewUserSpecifiedResourceIDSegment("typeName", "typeName"),
 	}
 	validateSegmentsMatch(t, *resourceId.segments, expectedSegments)
 
@@ -205,11 +204,11 @@ func TestParseResourceIDFromOperation_ManagementGroupId(t *testing.T) {
 	if resourceId.segments == nil {
 		t.Fatalf("expected 4 segments but got 0")
 	}
-	expectedSegments := []resourcemanager.ResourceIdSegment{
-		importerModels.StaticResourceIDSegment("providers", "providers"),
-		importerModels.ResourceProviderResourceIDSegment("resourceProviders", "Microsoft.Management"),
-		importerModels.StaticResourceIDSegment("managementGroups", "managementGroups"),
-		importerModels.UserSpecifiedResourceIDSegment("groupId"),
+	expectedSegments := []models.ResourceIDSegment{
+		models.NewStaticValueResourceIDSegment("providers", "providers"),
+		models.NewResourceProviderResourceIDSegment("resourceProviders", "Microsoft.Management"),
+		models.NewStaticValueResourceIDSegment("managementGroups", "managementGroups"),
+		models.NewUserSpecifiedResourceIDSegment("groupId", "groupId"),
 	}
 	validateSegmentsMatch(t, *resourceId.segments, expectedSegments)
 }
@@ -233,11 +232,11 @@ func TestParseResourceIDFromOperation_ResourceGroupId(t *testing.T) {
 	if resourceId.segments == nil {
 		t.Fatalf("expected 4 segments but got 0")
 	}
-	expectedSegments := []resourcemanager.ResourceIdSegment{
-		importerModels.StaticResourceIDSegment("providers", "providers"),
-		importerModels.SubscriptionIDResourceIDSegment("subscriptionId"),
-		importerModels.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
-		importerModels.ResourceGroupResourceIDSegment("resourceGroupName"),
+	expectedSegments := []models.ResourceIDSegment{
+		models.NewStaticValueResourceIDSegment("providers", "providers"),
+		models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+		models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+		models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
 	}
 	validateSegmentsMatch(t, *resourceId.segments, expectedSegments)
 }
@@ -261,11 +260,11 @@ func TestParseResourceIDFromOperation_ResourceGroupId_IncorrectSegment(t *testin
 	if resourceId.segments == nil {
 		t.Fatalf("expected 4 segments but got 0")
 	}
-	expectedSegments := []resourcemanager.ResourceIdSegment{
-		importerModels.StaticResourceIDSegment("providers", "providers"),
-		importerModels.SubscriptionIDResourceIDSegment("subscriptionId"),
-		importerModels.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
-		importerModels.ResourceGroupResourceIDSegment("resourceGroupName"),
+	expectedSegments := []models.ResourceIDSegment{
+		models.NewStaticValueResourceIDSegment("providers", "providers"),
+		models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+		models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+		models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
 	}
 	validateSegmentsMatch(t, *resourceId.segments, expectedSegments)
 }
@@ -289,8 +288,8 @@ func TestParseResourceIDFromOperation_Scope(t *testing.T) {
 	if resourceId.segments == nil {
 		t.Fatalf("expected 1 segments but got 0")
 	}
-	expectedSegments := []resourcemanager.ResourceIdSegment{
-		importerModels.ScopeResourceIDSegment("resourceId"),
+	expectedSegments := []models.ResourceIDSegment{
+		models.NewScopeResourceIDSegment("resourceId"),
 	}
 	validateSegmentsMatch(t, *resourceId.segments, expectedSegments)
 }
@@ -314,9 +313,9 @@ func TestParseResourceIDFromOperation_SubscriptionId(t *testing.T) {
 	if resourceId.segments == nil {
 		t.Fatalf("expected 2 segments but got 0")
 	}
-	expectedSegments := []resourcemanager.ResourceIdSegment{
-		importerModels.StaticResourceIDSegment("providers", "providers"),
-		importerModels.SubscriptionIDResourceIDSegment("subscriptionId"),
+	expectedSegments := []models.ResourceIDSegment{
+		models.NewStaticValueResourceIDSegment("providers", "providers"),
+		models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
 	}
 	validateSegmentsMatch(t, *resourceId.segments, expectedSegments)
 }
@@ -358,20 +357,20 @@ func TestParseResourceIDFromOperation_UserAssignedIdentityId(t *testing.T) {
 	if resourceId.segments == nil {
 		t.Fatalf("expected 8 segments but got 0")
 	}
-	expectedSegments := []resourcemanager.ResourceIdSegment{
-		importerModels.StaticResourceIDSegment("subscriptions", "subscriptions"),
-		importerModels.SubscriptionIDResourceIDSegment("subscriptionId"),
-		importerModels.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
-		importerModels.ResourceGroupResourceIDSegment("resourceGroupName"),
-		importerModels.StaticResourceIDSegment("providers", "providers"),
-		importerModels.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.ManagedIdentity"),
-		importerModels.StaticResourceIDSegment("userAssignedIdentities", "userAssignedIdentities"),
-		importerModels.UserSpecifiedResourceIDSegment("resourceName"),
+	expectedSegments := []models.ResourceIDSegment{
+		models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+		models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+		models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+		models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+		models.NewStaticValueResourceIDSegment("providers", "providers"),
+		models.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.ManagedIdentity"),
+		models.NewStaticValueResourceIDSegment("userAssignedIdentities", "userAssignedIdentities"),
+		models.NewUserSpecifiedResourceIDSegment("resourceName", "resourceName"),
 	}
 	validateSegmentsMatch(t, *resourceId.segments, expectedSegments)
 }
 
-func validateSegmentsMatch(t *testing.T, actual []resourcemanager.ResourceIdSegment, expected []resourcemanager.ResourceIdSegment) {
+func validateSegmentsMatch(t *testing.T, actual []models.ResourceIDSegment, expected []models.ResourceIDSegment) {
 	if len(actual) != len(expected) {
 		t.Fatalf("expected there to be %d segments but got %d", len(expected), len(actual))
 	}

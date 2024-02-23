@@ -8,22 +8,21 @@ import (
 
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 func TestCommonResourceID_Scope(t *testing.T) {
 	valid := importerModels.ParsedResourceId{
 		Constants: map[string]models.SDKConstant{},
-		Segments: []resourcemanager.ResourceIdSegment{
-			importerModels.ScopeResourceIDSegment("resourcePath"),
+		Segments: []models.ResourceIDSegment{
+			models.NewScopeResourceIDSegment("resourcePath"),
 		},
 	}
 	invalid := importerModels.ParsedResourceId{
 		Constants: map[string]models.SDKConstant{},
-		Segments: []resourcemanager.ResourceIdSegment{
-			importerModels.ScopeResourceIDSegment("scope"),
-			importerModels.StaticResourceIDSegment("someResource", "someResource"),
-			importerModels.UserSpecifiedResourceIDSegment("resourceName"),
+		Segments: []models.ResourceIDSegment{
+			models.NewScopeResourceIDSegment("scope"),
+			models.NewStaticValueResourceIDSegment("someResource", "someResource"),
+			models.NewUserSpecifiedResourceIDSegment("resourceName", "resourceName"),
 		},
 	}
 	input := []importerModels.ParsedResourceId{

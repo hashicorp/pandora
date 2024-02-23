@@ -8,6 +8,7 @@ import (
 	"strings"
 
 	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/helpers"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
@@ -24,7 +25,7 @@ func (b Builder) identifyTopLevelFieldsWithinResourceID(input resourcemanager.Re
 	// first determine whether we are dealing with a nested resource
 	parentResourceFound := false
 	parentResourceIdName := ""
-	parentSegments := make([]resourcemanager.ResourceIdSegment, 0)
+	parentSegments := make([]models.ResourceIDSegment, 0)
 	if len(input.Segments) > 2 {
 		parentSegments = input.Segments[0 : len(input.Segments)-2]
 		if segmentsContainResource(parentSegments) {
@@ -88,7 +89,7 @@ func (b Builder) identifyTopLevelFieldsWithinResourceID(input resourcemanager.Re
 		})
 
 		for _, v := range parentSegments {
-			if v.Type == resourcemanager.StaticSegment || v.Type == resourcemanager.SubscriptionIdSegment || v.Type == resourcemanager.ResourceProviderSegment {
+			if v.Type == models.StaticResourceIDSegmentType || v.Type == models.SubscriptionIDResourceIDSegmentType || v.Type == models.ResourceProviderResourceIDSegmentType {
 				continue
 			}
 
@@ -103,7 +104,7 @@ func (b Builder) identifyTopLevelFieldsWithinResourceID(input resourcemanager.Re
 		userConfigurableSegments := 0
 		for i, v := range input.Segments {
 			logger.Trace(fmt.Sprintf("Processing Segment %q", v.Name))
-			if v.Type == resourcemanager.StaticSegment || v.Type == resourcemanager.SubscriptionIdSegment || v.Type == resourcemanager.ResourceProviderSegment {
+			if v.Type == models.StaticResourceIDSegmentType || v.Type == models.SubscriptionIDResourceIDSegmentType || v.Type == models.ResourceProviderResourceIDSegmentType {
 				continue
 			}
 
@@ -138,7 +139,7 @@ func (b Builder) identifyTopLevelFieldsWithinResourceID(input resourcemanager.Re
 					Markdown: descriptionForResourceIDSegment(fieldName, displayName, overrides),
 				},
 			}
-			if v.Type == resourcemanager.ResourceGroupSegment {
+			if v.Type == models.ResourceGroupResourceIDSegmentType {
 				field.ObjectDefinition.Type = resourcemanager.TerraformSchemaFieldTypeResourceGroup
 			}
 			out[fieldName] = field
@@ -221,7 +222,7 @@ func wordifyParentSegment(input string) string {
 	return result.String()
 }
 
-func segmentsMatch(first []resourcemanager.ResourceIdSegment, second []resourcemanager.ResourceIdSegment) bool {
+func segmentsMatch(first []models.ResourceIDSegment, second []models.ResourceIDSegment) bool {
 	if len(first) != len(second) {
 		return false
 	}
@@ -232,7 +233,7 @@ func segmentsMatch(first []resourcemanager.ResourceIdSegment, second []resourcem
 			return false
 		}
 
-		if firstVal.Type == resourcemanager.StaticSegment || firstVal.Type == resourcemanager.ResourceProviderSegment {
+		if firstVal.Type == models.StaticResourceIDSegmentType || firstVal.Type == models.ResourceProviderResourceIDSegmentType {
 			if firstVal.FixedValue == nil || secondVal.FixedValue == nil {
 				return false
 			}
@@ -242,7 +243,7 @@ func segmentsMatch(first []resourcemanager.ResourceIdSegment, second []resourcem
 			}
 		}
 
-		if firstVal.Type == resourcemanager.ConstantSegment {
+		if firstVal.Type == models.ConstantResourceIDSegmentType {
 			if firstVal.ConstantReference == nil || secondVal.ConstantReference == nil {
 				return false
 			}
@@ -256,15 +257,15 @@ func segmentsMatch(first []resourcemanager.ResourceIdSegment, second []resourcem
 	return true
 }
 
-func segmentsContainResource(input []resourcemanager.ResourceIdSegment) bool {
+func segmentsContainResource(input []models.ResourceIDSegment) bool {
 	penultimateSegmentIsStatic := false
 	lastSegmentIsUserSpecifiable := false
 	if len(input) >= 4 {
 		penultimateSegment := input[len(input)-2]
 		lastSegment := input[len(input)-1]
 
-		penultimateSegmentIsStatic = penultimateSegment.Type == resourcemanager.StaticSegment
-		lastSegmentIsUserSpecifiable = lastSegment.Type == resourcemanager.UserSpecifiedSegment
+		penultimateSegmentIsStatic = penultimateSegment.Type == models.StaticResourceIDSegmentType
+		lastSegmentIsUserSpecifiable = lastSegment.Type == models.UserSpecifiedResourceIDSegmentType
 	}
 	return penultimateSegmentIsStatic && lastSegmentIsUserSpecifiable
 }

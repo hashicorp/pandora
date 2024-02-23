@@ -145,49 +145,5 @@ type ResourceIdDefinition struct {
 
 	// Segments is one or more segments present within this ResourceID, each Segment being
 	// for example a StaticSegment, ConstantSegment, UserSpecifiedSegment, etc.
-	Segments []ResourceIdSegment `json:"segments"`
+	Segments []models.ResourceIDSegment `json:"segments"`
 }
-
-type ResourceIdSegment struct {
-	// ConstantReference is the name of the Constant which this Segment is associated with
-	// this is only present when `Type` is `ConstantSegment`
-	ConstantReference *string `json:"constantReference,omitempty"`
-
-	// ExampleValue is an example of a valid value for this segment
-	ExampleValue string `json:"exampleValue"`
-
-	// FixedValue is the Fixed/Static value for this segment - only present when `Type` is `StaticSegment`.
-	FixedValue *string `json:"fixedValue,omitempty"`
-
-	// Name is the camelCased name of this segment, which is normalized (and safe to use as a
-	// parameter/a field if necessary).
-	Name string `json:"name"`
-
-	// Type specifies the Type of Segment that this is, for example a `StaticSegment`
-	Type ResourceIdSegmentType `json:"type"`
-}
-
-type ResourceIdSegmentType string
-
-const (
-	// ConstantSegment specifies that this Segment is a Constant
-	ConstantSegment ResourceIdSegmentType = "Constant"
-
-	// ResourceGroupSegment specifies that this Segment is a Resource Group name
-	ResourceGroupSegment ResourceIdSegmentType = "ResourceGroup"
-
-	// ResourceProviderSegment specifies that this Segment is a Resource Provider
-	ResourceProviderSegment ResourceIdSegmentType = "ResourceProvider"
-
-	// ScopeSegment specifies that this Segment is a Scope
-	ScopeSegment ResourceIdSegmentType = "Scope"
-
-	// StaticSegment specifies that this Segment is a Static/Fixed Value
-	StaticSegment ResourceIdSegmentType = "Static"
-
-	// SubscriptionIdSegment specifies that this Segment is a Subscription ID
-	SubscriptionIdSegment ResourceIdSegmentType = "SubscriptionId"
-
-	// UserSpecifiedSegment specifies that this Segment is User-Specifiable
-	UserSpecifiedSegment ResourceIdSegmentType = "UserSpecified"
-)

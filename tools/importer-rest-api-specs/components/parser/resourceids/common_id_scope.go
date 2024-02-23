@@ -6,7 +6,6 @@ package resourceids
 import (
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 var _ commonIdMatcher = commonIdScopeMatcher{}
@@ -18,8 +17,8 @@ func (commonIdScopeMatcher) id() importerModels.ParsedResourceId {
 	return importerModels.ParsedResourceId{
 		CommonAlias: &name,
 		Constants:   map[string]models.SDKConstant{},
-		Segments: []resourcemanager.ResourceIdSegment{
-			importerModels.ScopeResourceIDSegment("scope"),
+		Segments: []models.ResourceIDSegment{
+			models.NewScopeResourceIDSegment("scope"),
 		},
 	}
 }

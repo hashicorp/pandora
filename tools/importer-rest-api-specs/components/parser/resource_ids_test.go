@@ -9,7 +9,6 @@ import (
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 func TestParseResourceIdBasic(t *testing.T) {
@@ -25,15 +24,15 @@ func TestParseResourceIdBasic(t *testing.T) {
 			"Example": {
 				ResourceIds: map[string]importerModels.ParsedResourceId{
 					"ServerId": {
-						Segments: []resourcemanager.ResourceIdSegment{
-							NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
-							NewSubscriptionIDResourceIDSegment("subscriptionId"),
-							NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
-							NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-							NewStaticValueResourceIDSegment("staticProviders", "providers"),
-							NewResourceProviderResourceIDSegment("staticMicrosoftSomeResourceProvider", "Microsoft.SomeResourceProvider"),
-							NewStaticValueResourceIDSegment("staticServers", "servers"),
-							NewUserSpecifiedResourceIDSegment("serverName", "serverName"),
+						Segments: []models.ResourceIDSegment{
+							models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
+							models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+							models.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
+							models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+							models.NewStaticValueResourceIDSegment("staticProviders", "providers"),
+							models.NewResourceProviderResourceIDSegment("staticMicrosoftSomeResourceProvider", "Microsoft.SomeResourceProvider"),
+							models.NewStaticValueResourceIDSegment("staticServers", "servers"),
+							models.NewUserSpecifiedResourceIDSegment("serverName", "serverName"),
 						},
 					},
 				},
@@ -87,9 +86,9 @@ func TestParseResourceIdContainingAConstant(t *testing.T) {
 								},
 							},
 						},
-						Segments: []resourcemanager.ResourceIdSegment{
-							NewStaticValueResourceIDSegment("staticPlanets", "planets"),
-							NewConstantResourceIDSegment("planetName", "Planet", "Earth"),
+						Segments: []models.ResourceIDSegment{
+							models.NewStaticValueResourceIDSegment("staticPlanets", "planets"),
+							models.NewConstantResourceIDSegment("planetName", "Planet", "Earth"),
 						},
 					},
 				},
@@ -121,12 +120,12 @@ func TestParseResourceIdContainingAScope(t *testing.T) {
 			"Example": {
 				ResourceIds: map[string]importerModels.ParsedResourceId{
 					"ScopedVirtualMachineId": {
-						Segments: []resourcemanager.ResourceIdSegment{
-							NewScopeResourceIDSegment("scope"),
-							NewStaticValueResourceIDSegment("staticProviders", "providers"),
-							NewResourceProviderResourceIDSegment("staticMicrosoftFooBar", "Microsoft.FooBar"),
-							NewStaticValueResourceIDSegment("staticVirtualMachines", "virtualMachines"),
-							NewUserSpecifiedResourceIDSegment("virtualMachineName", "virtualMachinesName"),
+						Segments: []models.ResourceIDSegment{
+							models.NewScopeResourceIDSegment("scope"),
+							models.NewStaticValueResourceIDSegment("staticProviders", "providers"),
+							models.NewResourceProviderResourceIDSegment("staticMicrosoftFooBar", "Microsoft.FooBar"),
+							models.NewStaticValueResourceIDSegment("staticVirtualMachines", "virtualMachines"),
+							models.NewUserSpecifiedResourceIDSegment("virtualMachineName", "virtualMachinesName"),
 						},
 					},
 				},
@@ -168,8 +167,8 @@ func TestParseResourceIdContainingAHiddenScope(t *testing.T) {
 						ResourceIds: map[string]importerModels.ParsedResourceId{
 							"ScopeId": {
 								CommonAlias: pointer.To("Scope"),
-								Segments: []resourcemanager.ResourceIdSegment{
-									NewScopeResourceIDSegment("scope"),
+								Segments: []models.ResourceIDSegment{
+									models.NewScopeResourceIDSegment("scope"),
 								},
 							},
 						},
@@ -205,8 +204,8 @@ func TestParseResourceIdContainingAHiddenScopeWithExtraSegment(t *testing.T) {
 				ResourceIds: map[string]importerModels.ParsedResourceId{
 					"ScopeId": {
 						CommonAlias: pointer.To("Scope"),
-						Segments: []resourcemanager.ResourceIdSegment{
-							NewScopeResourceIDSegment("scope"),
+						Segments: []models.ResourceIDSegment{
+							models.NewScopeResourceIDSegment("scope"),
 						},
 					},
 				},
@@ -239,8 +238,8 @@ func TestParseResourceIdContainingAHiddenScopeWithSuffix(t *testing.T) {
 				ResourceIds: map[string]importerModels.ParsedResourceId{
 					"ScopeId": {
 						CommonAlias: pointer.To("Scope"),
-						Segments: []resourcemanager.ResourceIdSegment{
-							NewScopeResourceIDSegment("scope"),
+						Segments: []models.ResourceIDSegment{
+							models.NewScopeResourceIDSegment("scope"),
 						},
 					},
 				},
@@ -283,8 +282,8 @@ func TestParseResourceIdContainingAHiddenScopeNested(t *testing.T) {
 						ResourceIds: map[string]importerModels.ParsedResourceId{
 							"ScopeId": {
 								CommonAlias: pointer.To("Scope"),
-								Segments: []resourcemanager.ResourceIdSegment{
-									NewScopeResourceIDSegment("scope"),
+								Segments: []models.ResourceIDSegment{
+									models.NewScopeResourceIDSegment("scope"),
 								},
 							},
 						},
@@ -319,8 +318,8 @@ func TestParseResourceIdContainingAHiddenScopeNestedWithExtraSegment(t *testing.
 				ResourceIds: map[string]importerModels.ParsedResourceId{
 					"ScopeId": {
 						CommonAlias: pointer.To("Scope"),
-						Segments: []resourcemanager.ResourceIdSegment{
-							NewScopeResourceIDSegment("scope"),
+						Segments: []models.ResourceIDSegment{
+							models.NewScopeResourceIDSegment("scope"),
 						},
 					},
 				},
@@ -353,8 +352,8 @@ func TestParseResourceIdContainingAHiddenScopeNestedWithSuffix(t *testing.T) {
 				ResourceIds: map[string]importerModels.ParsedResourceId{
 					"ScopeId": {
 						CommonAlias: pointer.To("Scope"),
-						Segments: []resourcemanager.ResourceIdSegment{
-							NewScopeResourceIDSegment("scope"),
+						Segments: []models.ResourceIDSegment{
+							models.NewScopeResourceIDSegment("scope"),
 						},
 					},
 				},
@@ -413,15 +412,15 @@ func TestParseResourceIdWithResourceIdAndUriSuffix(t *testing.T) {
 			"Example": {
 				ResourceIds: map[string]importerModels.ParsedResourceId{
 					"ServerId": {
-						Segments: []resourcemanager.ResourceIdSegment{
-							NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
-							NewSubscriptionIDResourceIDSegment("subscriptionId"),
-							NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
-							NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-							NewStaticValueResourceIDSegment("staticProviders", "providers"),
-							NewResourceProviderResourceIDSegment("staticMicrosoftSomeResourceProvider", "Microsoft.SomeResourceProvider"),
-							NewStaticValueResourceIDSegment("staticServers", "servers"),
-							NewUserSpecifiedResourceIDSegment("serverName", "serverName"),
+						Segments: []models.ResourceIDSegment{
+							models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
+							models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+							models.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
+							models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+							models.NewStaticValueResourceIDSegment("staticProviders", "providers"),
+							models.NewResourceProviderResourceIDSegment("staticMicrosoftSomeResourceProvider", "Microsoft.SomeResourceProvider"),
+							models.NewStaticValueResourceIDSegment("staticServers", "servers"),
+							models.NewUserSpecifiedResourceIDSegment("serverName", "serverName"),
 						},
 					},
 				},
@@ -454,15 +453,15 @@ func TestParseResourceIdWithResourceIdAndUriSuffixForMultipleUris(t *testing.T) 
 			"Example": {
 				ResourceIds: map[string]importerModels.ParsedResourceId{
 					"ServerId": {
-						Segments: []resourcemanager.ResourceIdSegment{
-							NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
-							NewSubscriptionIDResourceIDSegment("subscriptionId"),
-							NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
-							NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-							NewStaticValueResourceIDSegment("staticProviders", "providers"),
-							NewResourceProviderResourceIDSegment("staticMicrosoftSomeResourceProvider", "Microsoft.SomeResourceProvider"),
-							NewStaticValueResourceIDSegment("staticServers", "servers"),
-							NewUserSpecifiedResourceIDSegment("serverName", "serverName"),
+						Segments: []models.ResourceIDSegment{
+							models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
+							models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+							models.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
+							models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+							models.NewStaticValueResourceIDSegment("staticProviders", "providers"),
+							models.NewResourceProviderResourceIDSegment("staticMicrosoftSomeResourceProvider", "Microsoft.SomeResourceProvider"),
+							models.NewStaticValueResourceIDSegment("staticServers", "servers"),
+							models.NewUserSpecifiedResourceIDSegment("serverName", "serverName"),
 						},
 					},
 				},
@@ -510,15 +509,15 @@ func TestParseResourceIdContainingResourceProviderShouldGetTitleCased(t *testing
 			"Example": {
 				ResourceIds: map[string]importerModels.ParsedResourceId{
 					"ServerId": {
-						Segments: []resourcemanager.ResourceIdSegment{
-							NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
-							NewSubscriptionIDResourceIDSegment("subscriptionId"),
-							NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
-							NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-							NewStaticValueResourceIDSegment("staticProviders", "providers"),
-							NewResourceProviderResourceIDSegment("staticMicrosoftSomeResourceProvider", "Microsoft.SomeResourceProvider"),
-							NewStaticValueResourceIDSegment("staticServers", "servers"),
-							NewUserSpecifiedResourceIDSegment("serverName", "serverName"),
+						Segments: []models.ResourceIDSegment{
+							models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
+							models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+							models.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
+							models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+							models.NewStaticValueResourceIDSegment("staticProviders", "providers"),
+							models.NewResourceProviderResourceIDSegment("staticMicrosoftSomeResourceProvider", "Microsoft.SomeResourceProvider"),
+							models.NewStaticValueResourceIDSegment("staticServers", "servers"),
+							models.NewUserSpecifiedResourceIDSegment("serverName", "serverName"),
 						},
 					},
 				},
@@ -550,15 +549,15 @@ func TestParseResourceIdContainingTheSameResourceIdWithDifferentSegments(t *test
 			"Example": {
 				ResourceIds: map[string]importerModels.ParsedResourceId{
 					"VirtualMachineId": {
-						Segments: []resourcemanager.ResourceIdSegment{
-							NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
-							NewSubscriptionIDResourceIDSegment("subscriptionId"),
-							NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
-							NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-							NewStaticValueResourceIDSegment("staticProviders", "providers"),
-							NewResourceProviderResourceIDSegment("staticMicrosoftSomeResourceProvider", "Microsoft.SomeResourceProvider"),
-							NewStaticValueResourceIDSegment("staticVirtualMachines", "virtualMachines"),
-							NewUserSpecifiedResourceIDSegment("machineName", "machineName"),
+						Segments: []models.ResourceIDSegment{
+							models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
+							models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+							models.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
+							models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+							models.NewStaticValueResourceIDSegment("staticProviders", "providers"),
+							models.NewResourceProviderResourceIDSegment("staticMicrosoftSomeResourceProvider", "Microsoft.SomeResourceProvider"),
+							models.NewStaticValueResourceIDSegment("staticVirtualMachines", "virtualMachines"),
+							models.NewUserSpecifiedResourceIDSegment("machineName", "machineName"),
 						},
 					},
 				},
@@ -598,15 +597,15 @@ func TestParseResourceIdContainingTheSegmentsNamedTheSame(t *testing.T) {
 			"Example": {
 				ResourceIds: map[string]importerModels.ParsedResourceId{
 					"BillingPeriodId": {
-						Segments: []resourcemanager.ResourceIdSegment{
-							NewStaticValueResourceIDSegment("staticProviders", "providers"),
-							NewResourceProviderResourceIDSegment("staticMicrosoftManagement", "Microsoft.Management"),
-							NewStaticValueResourceIDSegment("staticManagementGroups", "managementGroups"),
-							NewUserSpecifiedResourceIDSegment("managementGroupId", "managementGroupId"),
-							NewStaticValueResourceIDSegment("staticProviders2", "providers"),
-							NewResourceProviderResourceIDSegment("staticMicrosoftBilling", "Microsoft.Billing"),
-							NewStaticValueResourceIDSegment("staticBillingPeriods", "billingPeriods"),
-							NewUserSpecifiedResourceIDSegment("billingPeriodName", "billingPeriodName"),
+						Segments: []models.ResourceIDSegment{
+							models.NewStaticValueResourceIDSegment("staticProviders", "providers"),
+							models.NewResourceProviderResourceIDSegment("staticMicrosoftManagement", "Microsoft.Management"),
+							models.NewStaticValueResourceIDSegment("staticManagementGroups", "managementGroups"),
+							models.NewUserSpecifiedResourceIDSegment("managementGroupId", "managementGroupId"),
+							models.NewStaticValueResourceIDSegment("staticProviders2", "providers"),
+							models.NewResourceProviderResourceIDSegment("staticMicrosoftBilling", "Microsoft.Billing"),
+							models.NewStaticValueResourceIDSegment("staticBillingPeriods", "billingPeriods"),
+							models.NewUserSpecifiedResourceIDSegment("billingPeriodName", "billingPeriodName"),
 						},
 					},
 				},
@@ -661,9 +660,9 @@ func TestParseResourceIdsWhereTheSameUriContainsDifferentConstantValuesPerOperat
 					},
 					ResourceIds: map[string]importerModels.ParsedResourceId{
 						"GalaxyId": {
-							Segments: []resourcemanager.ResourceIdSegment{
-								NewStaticValueResourceIDSegment("staticGalaxies", "galaxies"),
-								NewUserSpecifiedResourceIDSegment("galaxyName", "galaxyName"),
+							Segments: []models.ResourceIDSegment{
+								models.NewStaticValueResourceIDSegment("staticGalaxies", "galaxies"),
+								models.NewUserSpecifiedResourceIDSegment("galaxyName", "galaxyName"),
 							},
 						},
 						"PlanetId": {
@@ -676,11 +675,11 @@ func TestParseResourceIdsWhereTheSameUriContainsDifferentConstantValuesPerOperat
 									},
 								},
 							},
-							Segments: []resourcemanager.ResourceIdSegment{
-								NewStaticValueResourceIDSegment("staticGalaxies", "galaxies"),
-								NewUserSpecifiedResourceIDSegment("galaxyName", "galaxyName"),
-								NewStaticValueResourceIDSegment("staticHello", "hello"),
-								NewConstantResourceIDSegment("planetName", "PlanetNames", "Earth"),
+							Segments: []models.ResourceIDSegment{
+								models.NewStaticValueResourceIDSegment("staticGalaxies", "galaxies"),
+								models.NewUserSpecifiedResourceIDSegment("galaxyName", "galaxyName"),
+								models.NewStaticValueResourceIDSegment("staticHello", "hello"),
+								models.NewConstantResourceIDSegment("planetName", "PlanetNames", "Earth"),
 							},
 						},
 					},
@@ -722,46 +721,46 @@ func TestParseResourceIdsCommon(t *testing.T) {
 				ResourceIds: map[string]importerModels.ParsedResourceId{
 					"ManagementGroupId": {
 						CommonAlias: pointer.To("ManagementGroup"),
-						Segments: []resourcemanager.ResourceIdSegment{
-							NewStaticValueResourceIDSegment("providers", "providers"),
-							NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Management"),
-							NewStaticValueResourceIDSegment("managementGroups", "managementGroups"),
-							NewUserSpecifiedResourceIDSegment("groupId", "groupId"),
+						Segments: []models.ResourceIDSegment{
+							models.NewStaticValueResourceIDSegment("providers", "providers"),
+							models.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Management"),
+							models.NewStaticValueResourceIDSegment("managementGroups", "managementGroups"),
+							models.NewUserSpecifiedResourceIDSegment("groupId", "groupId"),
 						},
 					},
 					"ResourceGroupId": {
 						CommonAlias: pointer.To("ResourceGroup"),
-						Segments: []resourcemanager.ResourceIdSegment{
-							NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
-							NewSubscriptionIDResourceIDSegment("subscriptionId"),
-							NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
-							NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+						Segments: []models.ResourceIDSegment{
+							models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+							models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+							models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+							models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
 						},
 					},
 					"ScopeId": {
 						CommonAlias: pointer.To("Scope"),
-						Segments: []resourcemanager.ResourceIdSegment{
-							NewScopeResourceIDSegment("scope"),
+						Segments: []models.ResourceIDSegment{
+							models.NewScopeResourceIDSegment("scope"),
 						},
 					},
 					"SubscriptionId": {
 						CommonAlias: pointer.To("Subscription"),
-						Segments: []resourcemanager.ResourceIdSegment{
-							NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
-							NewSubscriptionIDResourceIDSegment("subscriptionId"),
+						Segments: []models.ResourceIDSegment{
+							models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+							models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
 						},
 					},
 					"UserAssignedIdentityId": {
 						CommonAlias: pointer.To("UserAssignedIdentity"),
-						Segments: []resourcemanager.ResourceIdSegment{
-							NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
-							NewSubscriptionIDResourceIDSegment("subscriptionId"),
-							NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
-							NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-							NewStaticValueResourceIDSegment("providers", "providers"),
-							NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.ManagedIdentity"),
-							NewStaticValueResourceIDSegment("userAssignedIdentities", "userAssignedIdentities"),
-							NewUserSpecifiedResourceIDSegment("userAssignedIdentityName", "userAssignedIdentityName"),
+						Segments: []models.ResourceIDSegment{
+							models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+							models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+							models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+							models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+							models.NewStaticValueResourceIDSegment("providers", "providers"),
+							models.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.ManagedIdentity"),
+							models.NewStaticValueResourceIDSegment("userAssignedIdentities", "userAssignedIdentities"),
+							models.NewUserSpecifiedResourceIDSegment("userAssignedIdentityName", "userAssignedIdentityName"),
 						},
 					},
 				},

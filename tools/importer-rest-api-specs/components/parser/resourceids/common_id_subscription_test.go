@@ -8,24 +8,23 @@ import (
 
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 func TestCommonResourceID_Subscription(t *testing.T) {
 	valid := importerModels.ParsedResourceId{
 		Constants: map[string]models.SDKConstant{},
-		Segments: []resourcemanager.ResourceIdSegment{
-			importerModels.StaticResourceIDSegment("subscriptions", "subscriptions"),
-			importerModels.SubscriptionIDResourceIDSegment("subscriptionId"),
+		Segments: []models.ResourceIDSegment{
+			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
 		},
 	}
 	invalid := importerModels.ParsedResourceId{
 		Constants: map[string]models.SDKConstant{},
-		Segments: []resourcemanager.ResourceIdSegment{
-			importerModels.StaticResourceIDSegment("subscriptions", "subscriptions"),
-			importerModels.SubscriptionIDResourceIDSegment("subscriptionId"),
-			importerModels.StaticResourceIDSegment("someResource", "someResource"),
-			importerModels.UserSpecifiedResourceIDSegment("resourceName"),
+		Segments: []models.ResourceIDSegment{
+			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			models.NewStaticValueResourceIDSegment("someResource", "someResource"),
+			models.NewUserSpecifiedResourceIDSegment("resourceName", "resourceName"),
 		},
 	}
 	input := []importerModels.ParsedResourceId{

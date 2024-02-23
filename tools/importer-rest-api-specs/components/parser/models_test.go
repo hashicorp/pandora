@@ -9,7 +9,6 @@ import (
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 // TODO: tests for the different types of Object Definition
@@ -1849,9 +1848,9 @@ func TestParseModelBug2675DuplicateModel(t *testing.T) {
 				},
 				ResourceIds: map[string]importerModels.ParsedResourceId{
 					"EnvironmentId": {
-						Segments: []resourcemanager.ResourceIdSegment{
-							NewStaticValueResourceIDSegment("staticEnvironments", "environments"),
-							NewUserSpecifiedResourceIDSegment("environmentName", "environmentName"),
+						Segments: []models.ResourceIDSegment{
+							models.NewStaticValueResourceIDSegment("staticEnvironments", "environments"),
+							models.NewUserSpecifiedResourceIDSegment("environmentName", "environmentName"),
 						},
 					},
 				},
