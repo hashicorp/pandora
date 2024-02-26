@@ -18,6 +18,32 @@ func (commonIdBotServiceChannel) id() models.ResourceID {
 		ConstantNames: []string{
 			"BotServiceChannelType",
 		},
+		Constants: map[string]models.SDKConstant{
+			"BotServiceChannelType": {
+				Type: models.StringSDKConstantType,
+				Values: map[string]string{
+					"AcsChatChannel":          "AcsChatChannel",
+					"AlexaChannel":            "AlexaChannel",
+					"DirectLineChannel":       "DirectLineChannel",
+					"DirectLineSpeechChannel": "DirectLineSpeechChannel",
+					"EmailChannel":            "EmailChannel",
+					"KikChannel":              "KikChannel",
+					"FacebookChannel":         "FacebookChannel",
+					"LineChannel":             "LineChannel",
+					"M365Extensions":          "M365Extensions",
+					"MsTeamsChannel":          "MsTeamsChannel",
+					"Omnichannel":             "Omnichannel",
+					"OutlookChannel":          "OutlookChannel",
+					"SearchAssistant":         "SearchAssistant",
+					"SkypeChannel":            "SkypeChannel",
+					"SlackChannel":            "SlackChannel",
+					"SmsChannel":              "SmsChannel",
+					"TelegramChannel":         "TelegramChannel",
+					"TelephonyChannel":        "TelephonyChannel",
+					"WebChatChannel":          "WebChatChannel",
+				},
+			},
+		},
 		Segments: []models.ResourceIDSegment{
 			models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
 			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
