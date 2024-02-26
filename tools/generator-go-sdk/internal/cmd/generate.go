@@ -64,7 +64,6 @@ func (g GenerateCommand) Run(args []string) int {
 		"FrontDoor",
 		"Insights",
 		"RecoveryServicesBackup", // error: generating Service "RecoveryServicesBackup" / Version "2023-04-01" / Resource "Operation": generating methods: templating methods (using hashicorp/go-azure-sdk): templating: building methods: building response struct template: existing model "ValidateOperationResponse" conflicts with the operation response model for "Validate"
-		"Security",
 		"Subscription",
 
 		// @tombuildsstuff: The Key Vault API has an issue where it requires that the EXACT casing returned in the Response
