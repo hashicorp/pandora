@@ -19,13 +19,16 @@ func mapSDKFieldToRepository(fieldName string, fieldDetails models.SDKField, isT
 
 	return &dataapimodels.ModelField{
 		ContainsDiscriminatedTypeValue: isTypeHint,
-		JsonName:                       fieldDetails.JsonName,
-		Name:                           fieldName,
-		ObjectDefinition:               *objectDefinition,
-		// TODO: support Optional being a distinct value in-time so we can have ReadOnly fields too
-		Optional: !fieldDetails.Required,
-		Required: fieldDetails.Required,
+		DateFormat:                     nil,
+		Description:                    nil,
 		// TODO this can be uncommented when #3325 has been fixed
 		// Description: fieldDetails.Description,
+		JsonName:         fieldDetails.JsonName,
+		Name:             fieldName,
+		ObjectDefinition: *objectDefinition,
+		Optional:         fieldDetails.Optional,
+		ReadOnly:         fieldDetails.ReadOnly,
+		Required:         fieldDetails.Required,
+		Sensitive:        fieldDetails.Sensitive,
 	}, nil
 }
