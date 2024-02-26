@@ -27,6 +27,11 @@ type SDKField struct {
 	// NOTE that a field must be either Optional or Required but not both.
 	Optional bool `json:"optional"`
 
+	// ReadOnly specifies that this SDKField is ReadOnly and so should be omitted from Requests but may
+	// be present in the Response.
+	// NOTE: This can either be used in conjunction with Optional and Computed or by itself (i.e. Computed).
+	ReadOnly bool `json:"readOnly"`
+
 	// Required specifies that this SDKField is Required and must be present in the Request/Response.
 	// NOTE that a field must be either Optional or Required but not both.
 	Required bool `json:"required"`
