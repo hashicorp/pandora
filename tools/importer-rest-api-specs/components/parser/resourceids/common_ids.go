@@ -85,7 +85,7 @@ var commonIdTypes = []commonIdMatcher{
 
 	// Kubernetes
 	commonIdKubernetesCluster{},
-	commonIdKubernetesFleet{},
+	//commonIdKubernetesFleet{},
 
 	// SQL
 	commonIdSqlDatabase{},
