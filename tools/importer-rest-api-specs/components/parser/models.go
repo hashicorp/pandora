@@ -12,13 +12,12 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/constants"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
-	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 func (d *SwaggerDefinition) parseModel(name string, input spec.Schema) (*internal.ParseResult, error) {
 	result := internal.ParseResult{
 		Constants: map[string]models.SDKConstant{},
-		Models:    map[string]importerModels.ModelDetails{},
+		Models:    map[string]models.SDKModel{},
 	}
 
 	// 1. find any constants used within this model
@@ -60,7 +59,7 @@ func (d *SwaggerDefinition) findConstantsWithinModel(fieldName string, input spe
 	// NOTE: both Models and Fields are passed in here
 	result := internal.ParseResult{
 		Constants: map[string]models.SDKConstant{},
-		Models:    map[string]importerModels.ModelDetails{},
+		Models:    map[string]models.SDKModel{},
 	}
 	result.Append(known)
 
@@ -131,20 +130,20 @@ func (d *SwaggerDefinition) findConstantsWithinModel(fieldName string, input spe
 	return &result, nil
 }
 
-func (d *SwaggerDefinition) detailsForField(modelName string, propertyName string, value spec.Schema, isRequired bool, known internal.ParseResult) (*importerModels.FieldDetails, *internal.ParseResult, error) {
+func (d *SwaggerDefinition) detailsForField(modelName string, propertyName string, value spec.Schema, isRequired bool, known internal.ParseResult) (*models.SDKField, *internal.ParseResult, error) {
 	d.logger.Trace(fmt.Sprintf("Parsing details for field %q in %q..", propertyName, modelName))
 
 	result := internal.ParseResult{
 		Constants: map[string]models.SDKConstant{},
-		Models:    map[string]importerModels.ModelDetails{},
+		Models:    map[string]models.SDKModel{},
 	}
 	result.Append(known)
 
-	field := importerModels.FieldDetails{
-		Required: isRequired,
-		// TODO: re-enable readonly/sensitive
-		//ReadOnly:    value.ReadOnly,
-		//Sensitive:   false,          // todo: this probably needs to be a predefined list, unless there's something we can parse
+	field := models.SDKField{
+		Required:    isRequired,
+		Optional:    !isRequired,
+		ReadOnly:    value.ReadOnly,
+		Sensitive:   false, // todo: this probably needs to be a predefined list, unless there's something we can parse
 		JsonName:    propertyName,
 		Description: value.Description,
 	}
@@ -163,7 +162,7 @@ func (d *SwaggerDefinition) detailsForField(modelName string, propertyName strin
 	if len(value.Properties) > 0 || len(value.AllOf) > 1 {
 		// there's a nested model we need to pull out
 		inlinedName := inlinedModelName(modelName, propertyName)
-		nestedFields := make(map[string]importerModels.FieldDetails, 0)
+		nestedFields := make(map[string]models.SDKField, 0)
 		for propName, propVal := range value.Properties {
 			nestedFieldRequired := false
 			for _, field := range value.Required {
@@ -229,11 +228,11 @@ func (d *SwaggerDefinition) detailsForField(modelName string, propertyName strin
 	return &field, &result, err
 }
 
-func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, known internal.ParseResult) (*map[string]importerModels.FieldDetails, *internal.ParseResult, error) {
-	fields := make(map[string]importerModels.FieldDetails, 0)
+func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, known internal.ParseResult) (*map[string]models.SDKField, *internal.ParseResult, error) {
+	fields := make(map[string]models.SDKField, 0)
 	result := internal.ParseResult{
 		Constants: map[string]models.SDKConstant{},
-		Models:    map[string]importerModels.ModelDetails{},
+		Models:    map[string]models.SDKModel{},
 	}
 	result.Append(known)
 
@@ -368,15 +367,14 @@ func (d *SwaggerDefinition) findTopLevelObject(name string) (*spec.Schema, error
 	return nil, fmt.Errorf("the top level object %q was not found", name)
 }
 
-func (d *SwaggerDefinition) modelDetailsFromObject(modelName string, input spec.Schema, fields map[string]importerModels.FieldDetails) (*importerModels.ModelDetails, error) {
-	details := importerModels.ModelDetails{
-		Description: "",
-		Fields:      fields,
+func (d *SwaggerDefinition) modelDetailsFromObject(modelName string, input spec.Schema, fields map[string]models.SDKField) (*models.SDKModel, error) {
+	details := models.SDKModel{
+		Fields: fields,
 	}
 
 	// if this is a Parent
 	if input.Discriminator != "" {
-		details.TypeHintIn = &input.Discriminator
+		details.FieldNameContainingDiscriminatedValue = &input.Discriminator
 
 		// check that there's at least one implementation of this type - otherwise this this isn't a discriminated type
 		// but bad data we should ignore
@@ -386,13 +384,13 @@ func (d *SwaggerDefinition) modelDetailsFromObject(modelName string, input spec.
 		}
 		hasAtLeastOneImplementation := len(*implementations) > 0
 		if !hasAtLeastOneImplementation {
-			details.TypeHintIn = nil
+			details.FieldNameContainingDiscriminatedValue = nil
 		}
 	}
 
 	// this would be an Implementation
 	if v, ok := input.Extensions.GetString("x-ms-discriminator-value"); ok {
-		details.TypeHintValue = &v
+		details.DiscriminatedValue = &v
 
 		// so we need to find the ancestor details
 		parentTypeName, discriminator, err := d.findAncestorType(input)
@@ -401,12 +399,12 @@ func (d *SwaggerDefinition) modelDetailsFromObject(modelName string, input spec.
 		}
 		if parentTypeName != nil && discriminator != nil {
 			details.ParentTypeName = parentTypeName
-			details.TypeHintIn = discriminator
+			details.FieldNameContainingDiscriminatedValue = discriminator
 		}
 
 		// however if there's a Discriminator value defined but no parent type - this is bad data - so we should ignore it
-		if details.ParentTypeName == nil || details.TypeHintIn == nil {
-			details.TypeHintValue = nil
+		if details.ParentTypeName == nil || details.FieldNameContainingDiscriminatedValue == nil {
+			details.DiscriminatedValue = nil
 		}
 	}
 
@@ -448,7 +446,7 @@ func (d *SwaggerDefinition) findAncestorType(input spec.Schema) (*string, *strin
 func (d *SwaggerDefinition) findOrphanedDiscriminatedModels() (*internal.ParseResult, error) {
 	result := internal.ParseResult{
 		Constants: map[string]models.SDKConstant{},
-		Models:    map[string]importerModels.ModelDetails{},
+		Models:    map[string]models.SDKModel{},
 	}
 
 	for modelName, definition := range d.swaggerSpecRaw.Definitions {
@@ -487,7 +485,7 @@ func (d SwaggerDefinition) parseObjectDefinition(
 	// however _don't_ look for discriminator implementations - since that should be done when we're completely done
 	result := internal.ParseResult{
 		Constants: map[string]models.SDKConstant{},
-		Models:    map[string]importerModels.ModelDetails{},
+		Models:    map[string]models.SDKModel{},
 	}
 	result.Append(known)
 
@@ -529,14 +527,14 @@ func (d SwaggerDefinition) parseObjectDefinition(
 
 		knownIncludingPlaceholder := internal.ParseResult{
 			Constants: map[string]models.SDKConstant{},
-			Models:    map[string]importerModels.ModelDetails{},
+			Models:    map[string]models.SDKModel{},
 		}
 
 		if err := knownIncludingPlaceholder.Append(result); err != nil {
 			return nil, nil, fmt.Errorf("appending nestedResult: %+v", err)
 		}
 		if *objectName != "" {
-			knownIncludingPlaceholder.Models[*objectName] = importerModels.ModelDetails{
+			knownIncludingPlaceholder.Models[*objectName] = models.SDKModel{
 				// add a placeholder to avoid circular references
 			}
 		}

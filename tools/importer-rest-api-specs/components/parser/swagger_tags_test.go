@@ -22,9 +22,9 @@ func TestParsingOperationsUsingTheSameSwaggerTagInDifferentCasings(t *testing.T)
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Example": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -97,9 +97,9 @@ func TestParsingOperationsOnResources(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Example": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -146,9 +146,9 @@ func TestParsingOperationsOnResources(t *testing.T) {
 				},
 			},
 			"HelloOperations": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Example": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
 								ObjectDefinition: models.SDKObjectDefinition{

@@ -22,9 +22,9 @@ func TestParseModelWithADictionaryOfIntegers(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Example": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -74,9 +74,9 @@ func TestParseModelWithADictionaryOfIntegersInlined(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Example": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -126,9 +126,9 @@ func TestParseModelWithADictionaryOfAnObject(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Example": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -150,7 +150,7 @@ func TestParseModelWithADictionaryOfAnObject(t *testing.T) {
 						},
 					},
 					"MapFieldProperties": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Line1": {
 								JsonName: "line1",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -211,9 +211,9 @@ func TestParseModelWithADictionaryOfAnObjectInlined(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Example": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -235,7 +235,7 @@ func TestParseModelWithADictionaryOfAnObjectInlined(t *testing.T) {
 						},
 					},
 					"MapFieldProperties": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Line1": {
 								JsonName: "line1",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -296,9 +296,9 @@ func TestParseModelWithADictionaryOfString(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Example": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -348,9 +348,9 @@ func TestParseModelWithADictionaryOfStringInlined(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Example": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
 								ObjectDefinition: models.SDKObjectDefinition{

@@ -442,11 +442,15 @@ func parseModelFromFilePath(filePath string) (*ModelDetails, error) {
 	fieldDetails := make(map[string]FieldDetails)
 	for _, field := range model.Fields {
 		fieldDetail := FieldDetails{
-			IsTypeHint:  field.ContainsDiscriminatedTypeValue,
-			JsonName:    field.JsonName,
-			Optional:    field.Optional,
-			Required:    field.Required,
-			Description: field.Description,
+			ForceNew:         false,
+			IsTypeHint:       field.ContainsDiscriminatedTypeValue,
+			JsonName:         field.JsonName,
+			ObjectDefinition: ObjectDefinition{},
+			Optional:         field.Optional,
+			Required:         field.Required,
+			Description:      pointer.From(field.Description),
+			ReadOnly:         field.ReadOnly,
+			Sensitive:        field.Sensitive,
 		}
 
 		objectDefinition, err := mapObjectDefinition(&field.ObjectDefinition)
@@ -965,7 +969,17 @@ func parseResourceIdFromFilePath(filePath string, constants map[string]ConstantD
 			if s.ConstantReference == nil {
 				return nil, fmt.Errorf("constant segment has no constant reference")
 			}
-			s.ExampleValue = "example"
+
+			constant, ok := constants[*s.ConstantReference]
+			if !ok {
+				return nil, fmt.Errorf("no constant definition found for constant segment reference %q", *s.ConstantReference)
+			}
+			constantValues := make([]string, 0)
+			for _, v := range constant.Values {
+				constantValues = append(constantValues, v)
+			}
+			sort.Strings(constantValues)
+			s.ExampleValue = constantValues[0]
 
 			constantNames = append(constantNames, *s.ConstantReference)
 		case ResourceGroupResourceIdSegmentType:

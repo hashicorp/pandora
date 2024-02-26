@@ -91,9 +91,9 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 				},
 			},
 		},
-		models: map[string]resourcemanager.ModelDetails{
+		models: map[string]models.SDKModel{
 			"SearchService": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Name": {
 						JsonName: "name",
 						ObjectDefinition: models.SDKObjectDefinition{
@@ -141,7 +141,7 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 				},
 			},
 			"IPRule": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Value": {
 						JsonName: "value",
 						ObjectDefinition: models.SDKObjectDefinition{
@@ -151,7 +151,7 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 				},
 			},
 			"NetworkRuleSet": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"IPRules": {
 						JsonName: "ipRules",
 						ObjectDefinition: models.SDKObjectDefinition{
@@ -163,7 +163,7 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 				},
 			},
 			"SearchServiceProperties": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"HostingMode": {
 						JsonName: "hostingMode",
 						ObjectDefinition: models.SDKObjectDefinition{
@@ -246,7 +246,7 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 				},
 			},
 			"PrivateEndpoint": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Properties": {
 						JsonName: "properties",
 						ObjectDefinition: models.SDKObjectDefinition{
@@ -257,7 +257,7 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 				},
 			},
 			"PrivateEndpointProperties": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Id": {
 						JsonName: "id",
 						ObjectDefinition: models.SDKObjectDefinition{
@@ -267,7 +267,7 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 				},
 			},
 			"PrivateEndpointConnection": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Properties": {
 						JsonName: "properties",
 						ObjectDefinition: models.SDKObjectDefinition{
@@ -278,7 +278,7 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 				},
 			},
 			"PrivateEndpointConnectionProperties": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Properties": {
 						JsonName: "properties",
 						ObjectDefinition: models.SDKObjectDefinition{
@@ -289,7 +289,7 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 				},
 			},
 			"PrivateEndpointConnectionPropertiesProperties": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"PrivateEndpoint": {
 						JsonName: "privateEndpoint",
 						ObjectDefinition: models.SDKObjectDefinition{
@@ -313,7 +313,7 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 				},
 			},
 			"PrivateLinkServiceConnectionState": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Properties": {
 						JsonName: "properties",
 						ObjectDefinition: models.SDKObjectDefinition{
@@ -327,7 +327,7 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 				},
 			},
 			"PrivateLinkServiceConnectionStateProperties": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Status": {
 						JsonName: "status",
 						ObjectDefinition: models.SDKObjectDefinition{
@@ -350,7 +350,7 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 				},
 			},
 			"SharedPrivateLinkResource": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Properties": {
 						JsonName: "properties",
 						ObjectDefinition: models.SDKObjectDefinition{
@@ -361,7 +361,7 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 				},
 			},
 			"SharedPrivateLinkResourceProperties": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Properties": {
 						JsonName: "properties",
 						ObjectDefinition: models.SDKObjectDefinition{
@@ -372,7 +372,7 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 				},
 			},
 			"SharedPrivateLinkResourcePropertiesProperties": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"PrivateLinkResourceId": {
 						JsonName: "privateLinkResourceId",
 						ObjectDefinition: models.SDKObjectDefinition{
@@ -407,7 +407,7 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 				},
 			},
 			"Sku": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Name": {
 						JsonName: "name",
 						ObjectDefinition: models.SDKObjectDefinition{

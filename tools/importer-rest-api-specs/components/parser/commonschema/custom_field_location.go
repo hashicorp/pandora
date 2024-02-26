@@ -8,7 +8,6 @@ import (
 
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
-	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 var _ customFieldMatcher = locationMatcher{}
@@ -21,6 +20,6 @@ func (l locationMatcher) ReplacementObjectDefinition() models.SDKObjectDefinitio
 	}
 }
 
-func (l locationMatcher) IsMatch(field importerModels.FieldDetails, definition models.SDKObjectDefinition, _ internal.ParseResult) bool {
-	return strings.EqualFold(field.JsonName, "location") && definition.Type == models.StringSDKObjectDefinitionType
+func (l locationMatcher) IsMatch(field models.SDKField, _ internal.ParseResult) bool {
+	return strings.EqualFold(field.JsonName, "location") && field.ObjectDefinition.Type == models.StringSDKObjectDefinitionType
 }

@@ -33,9 +33,9 @@ func (workaroundDataFactory23013) Process(apiDefinition importerModels.AzureApiD
 	}
 
 	// add the new discriminated parent type
-	resource.Models["Reference"] = importerModels.ModelDetails{
-		TypeHintIn: pointer.To("Type"),
-		Fields: map[string]importerModels.FieldDetails{
+	resource.Models["Reference"] = models.SDKModel{
+		FieldNameContainingDiscriminatedValue: pointer.To("Type"),
+		Fields: map[string]models.SDKField{
 			"Type": {
 				ObjectDefinition: models.SDKObjectDefinition{
 					Type: models.StringSDKObjectDefinitionType,
@@ -58,8 +58,8 @@ func (workaroundDataFactory23013) Process(apiDefinition importerModels.AzureApiD
 		}
 		delete(model.Fields, "Type")
 		model.ParentTypeName = pointer.To("Reference")
-		model.TypeHintIn = pointer.To("Type")
-		model.TypeHintValue = pointer.To(modelName)
+		model.FieldNameContainingDiscriminatedValue = pointer.To("Type")
+		model.DiscriminatedValue = pointer.To(modelName)
 		resource.Models[modelName] = model
 	}
 

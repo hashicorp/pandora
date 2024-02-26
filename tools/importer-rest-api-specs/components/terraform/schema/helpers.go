@@ -16,7 +16,7 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func fieldShouldBeIgnored(key string, definition resourcemanager.FieldDetails, constants map[string]models.SDKConstant) bool {
+func fieldShouldBeIgnored(key string, definition models.SDKField, constants map[string]models.SDKConstant) bool {
 	for _, v := range fieldsWhichShouldBeIgnoredExactMatch {
 		if strings.EqualFold(key, v) {
 			return true
@@ -48,7 +48,7 @@ func fieldShouldBeIgnored(key string, definition resourcemanager.FieldDetails, c
 	return false
 }
 
-func getField(model resourcemanager.ModelDetails, fieldName string) (*resourcemanager.FieldDetails, bool) {
+func getField(model models.SDKModel, fieldName string) (*models.SDKField, bool) {
 	for field, val := range model.Fields {
 		if strings.EqualFold(field, fieldName) {
 			return &val, true
@@ -58,7 +58,7 @@ func getField(model resourcemanager.ModelDetails, fieldName string) (*resourcema
 	return nil, false
 }
 
-func updateFieldName(fieldName string, model *resourcemanager.ModelDetails, resource *resourcemanager.TerraformResourceDetails, constants map[string]models.SDKConstant, resourceBuildInfo *importerModels.ResourceBuildInfo) (string, error) {
+func updateFieldName(fieldName string, model *models.SDKModel, resource *resourcemanager.TerraformResourceDetails, constants map[string]models.SDKConstant, resourceBuildInfo *importerModels.ResourceBuildInfo) (string, error) {
 	metadata := processors.FieldMetadata{
 		TerraformDetails: *resource,
 		Model:            *model,
@@ -104,47 +104,38 @@ func applySchemaOverrides(fieldName string, overrides []importerModels.Override)
 	return nil, nil
 }
 
-func getFieldValidation(input *resourcemanager.FieldValidationDetails, fieldName string) (*resourcemanager.TerraformSchemaValidationDefinition, error) {
-	if input == nil {
+func getFieldValidation(input models.SDKField, sdkConstants map[string]models.SDKConstant) (*resourcemanager.TerraformSchemaValidationDefinition, error) {
+	// at this time we only support constant values
+	if input.ObjectDefinition.Type != models.ReferenceSDKObjectDefinitionType {
 		return nil, nil
 	}
-	var validationType resourcemanager.TerraformSchemaValidationType
-	var possibleValues *resourcemanager.TerraformSchemaValidationPossibleValuesDefinition
-	switch input.Type {
-	case resourcemanager.RangeValidation:
-		validationType = resourcemanager.TerraformSchemaValidationTypePossibleValues
-		if values := input.Values; values == nil || len(*values) == 0 {
-			return nil, fmt.Errorf("field %q had Range Validation type but had no defined values", fieldName)
-		} else {
-			t := (*values)[0]
-			switch t.(type) {
-			case string:
-				possibleValues = &resourcemanager.TerraformSchemaValidationPossibleValuesDefinition{
-					Type:   resourcemanager.TerraformSchemaValidationPossibleValueTypeString,
-					Values: *values,
-				}
-				break
+	constant, ok := sdkConstants[*input.ObjectDefinition.ReferenceName]
+	if !ok {
+		// could be a model
+		return nil, nil
+	}
 
-			case int64:
-				possibleValues = &resourcemanager.TerraformSchemaValidationPossibleValuesDefinition{
-					Type:   resourcemanager.TerraformSchemaValidationPossibleValueTypeInt,
-					Values: *values,
-				}
-				break
+	vals := make([]interface{}, 0)
+	for _, val := range constant.Values {
+		vals = append(vals, val)
+	}
 
-			case float64:
-				possibleValues = &resourcemanager.TerraformSchemaValidationPossibleValuesDefinition{
-					Type:   resourcemanager.TerraformSchemaValidationPossibleValueTypeFloat,
-					Values: *values,
-				}
-				break
-			}
-		}
+	constantTypesToPossibleValueTypes := map[models.SDKConstantType]resourcemanager.TerraformSchemaValidationPossibleValueType{
+		models.FloatSDKConstantType:   resourcemanager.TerraformSchemaValidationPossibleValueTypeFloat,
+		models.IntegerSDKConstantType: resourcemanager.TerraformSchemaValidationPossibleValueTypeInt,
+		models.StringSDKConstantType:  resourcemanager.TerraformSchemaValidationPossibleValueTypeString,
+	}
+	possibleValueType, ok := constantTypesToPossibleValueTypes[constant.Type]
+	if !ok {
+		return nil, fmt.Errorf("internal-error: unimplemented constant type %q", string(constant.Type))
 	}
 
 	return &resourcemanager.TerraformSchemaValidationDefinition{
-		Type:           validationType,
-		PossibleValues: possibleValues,
+		Type: resourcemanager.TerraformSchemaValidationTypePossibleValues,
+		PossibleValues: &resourcemanager.TerraformSchemaValidationPossibleValuesDefinition{
+			Type:   possibleValueType,
+			Values: vals,
+		},
 	}, nil
 }
 

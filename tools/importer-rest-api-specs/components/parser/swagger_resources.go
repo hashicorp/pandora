@@ -5,8 +5,9 @@ package parser
 
 import (
 	"fmt"
-	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"strings"
+
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 
 	"github.com/go-openapi/spec"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
@@ -21,7 +22,7 @@ import (
 func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resourceProvider *string, resourceIds resourceids.ParseResult) (*importerModels.AzureApiResource, error) {
 	result := internal.ParseResult{
 		Constants: map[string]models.SDKConstant{},
-		Models:    map[string]importerModels.ModelDetails{},
+		Models:    map[string]models.SDKModel{},
 	}
 
 	// note that Resource ID's can contain Constants (used as segments)
@@ -149,7 +150,7 @@ func pullOutModelForListOperations(input map[string]models.SDKOperation, known i
 func switchOutCustomTypesAsNeeded(input internal.ParseResult) internal.ParseResult {
 	result := internal.ParseResult{
 		Constants: map[string]models.SDKConstant{},
-		Models:    map[string]importerModels.ModelDetails{},
+		Models:    map[string]models.SDKModel{},
 	}
 	result.Append(input)
 
@@ -160,7 +161,7 @@ func switchOutCustomTypesAsNeeded(input internal.ParseResult) internal.ParseResu
 
 			// switch out the Object Definition for this field if needed
 			for _, matcher := range commonschema.CustomFieldMatchers {
-				if matcher.IsMatch(field, field.ObjectDefinition, result) {
+				if matcher.IsMatch(field, result) {
 					field.ObjectDefinition = matcher.ReplacementObjectDefinition()
 					break
 				}
@@ -178,7 +179,7 @@ func switchOutCustomTypesAsNeeded(input internal.ParseResult) internal.ParseResu
 func (d *SwaggerDefinition) findNestedItemsYetToBeParsed(operations map[string]models.SDKOperation, known internal.ParseResult) (*internal.ParseResult, error) {
 	result := internal.ParseResult{
 		Constants: map[string]models.SDKConstant{},
-		Models:    map[string]importerModels.ModelDetails{},
+		Models:    map[string]models.SDKModel{},
 	}
 	result.Append(known)
 
@@ -249,7 +250,7 @@ func referencesAreTheSame(first []string, second []string) bool {
 func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations map[string]models.SDKOperation, known internal.ParseResult) (*[]string, error) {
 	referencesToFind := make(map[string]struct{}, 0)
 
-	var objectsRequiredByModel = func(modelName string, model importerModels.ModelDetails) (*[]string, error) {
+	var objectsRequiredByModel = func(modelName string, model models.SDKModel) (*[]string, error) {
 		result := make(map[string]struct{}, 0)
 		// if it's a model, we need to check all of the fields for this to find any constant or models
 		// that we don't know about
@@ -357,7 +358,7 @@ func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations map[
 	return &out, nil
 }
 
-func (d *SwaggerDefinition) objectsUsedByModel(modelName string, model importerModels.ModelDetails) (*[]string, error) {
+func (d *SwaggerDefinition) objectsUsedByModel(modelName string, model models.SDKModel) (*[]string, error) {
 	typeNames := make(map[string]struct{}, 0)
 
 	for _, field := range model.Fields {
@@ -371,7 +372,7 @@ func (d *SwaggerDefinition) objectsUsedByModel(modelName string, model importerM
 		typeNames[*model.ParentTypeName] = struct{}{}
 	}
 
-	if model.TypeHintIn != nil {
+	if model.FieldNameContainingDiscriminatedValue != nil {
 		// this must be a discriminator
 		modelNamesThatImplementThis, err := d.findModelNamesWhichImplement(modelName)
 		if err != nil {

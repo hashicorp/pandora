@@ -142,9 +142,9 @@ func TestParseOperationSingleWithRequestObject(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Example": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -184,9 +184,9 @@ func TestParseOperationSingleWithRequestObjectInlined(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Example": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -226,9 +226,9 @@ func TestParseOperationSingleWithResponseObject(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Example": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -268,9 +268,9 @@ func TestParseOperationSingleWithResponseObjectInlined(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Example": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -310,9 +310,9 @@ func TestParseOperationSingleWithResponseObjectInlinedList(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Example": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -703,9 +703,9 @@ func TestParseOperationSingleReturningADictionaryOfAModel(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Person": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -810,9 +810,9 @@ func TestParseOperationSingleReturningAListOfAModel(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Person": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -886,9 +886,9 @@ func TestParseOperationSingleReturningAListOfListOfAModel(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Person": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -968,9 +968,9 @@ func TestParseOperationSingleWithList(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"World": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -1013,9 +1013,9 @@ func TestParseOperationSingleWithListWhichIsNotAList(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"World": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -1091,9 +1091,9 @@ func TestParseOperationSingleWithListWithoutPageable(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"World": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -1134,9 +1134,9 @@ func TestParseOperationSingleWithLongRunningOperation(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Example": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -1177,9 +1177,9 @@ func TestParseOperationSingleWithRequestAndResponseObject(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Example": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -1559,9 +1559,9 @@ func TestParseOperationContainingMultipleReturnObjects(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"FirstModel": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Hello": {
 								JsonName: "hello",
 								ObjectDefinition: models.SDKObjectDefinition{

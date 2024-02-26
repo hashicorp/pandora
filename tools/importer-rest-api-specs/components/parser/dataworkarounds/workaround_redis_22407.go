@@ -26,11 +26,10 @@ func (w workaroundRedis22407) Process(apiDefinition importerModels.AzureApiDefin
 		if model, ok := resource.Models["RedisCommonPropertiesRedisConfiguration"]; ok {
 
 			if _, ok := model.Fields["NotifyKeyspaceEvents"]; !ok {
-				model.Fields["NotifyKeyspaceEvents"] = importerModels.FieldDetails{
-					Required: false,
-					// TODO: re-enable readonly/sensitive
-					//ReadOnly:    false,
-					//Sensitive:   false,
+				model.Fields["NotifyKeyspaceEvents"] = models.SDKField{
+					Required:    false,
+					ReadOnly:    false,
+					Sensitive:   false,
 					JsonName:    "notify-keyspace-events",
 					Description: "The KeySpace Events which should be monitored.",
 					ObjectDefinition: models.SDKObjectDefinition{

@@ -5,30 +5,29 @@ package schema
 
 import (
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 type operationPayloads struct {
 	createModelName string
-	createPayload   resourcemanager.ModelDetails
+	createPayload   models.SDKModel
 	// TODO once #3588 has been resolved these should become pointers
 	createPropertiesModelName string
-	createPropertiesPayload   resourcemanager.ModelDetails
+	createPropertiesPayload   models.SDKModel
 
 	readModelName string
-	readPayload   resourcemanager.ModelDetails
+	readPayload   models.SDKModel
 	// TODO once #3588 has been resolved these should become pointers
 	readPropertiesModelName string
-	readPropertiesPayload   resourcemanager.ModelDetails
+	readPropertiesPayload   models.SDKModel
 
 	updateModelName           *string
-	updatePayload             *resourcemanager.ModelDetails
+	updatePayload             *models.SDKModel
 	updatePropertiesModelName *string
-	updatePropertiesPayload   *resourcemanager.ModelDetails
+	updatePropertiesPayload   *models.SDKModel
 }
 
-func (p operationPayloads) createReadUpdatePayloads() []resourcemanager.ModelDetails {
-	out := []resourcemanager.ModelDetails{
+func (p operationPayloads) createReadUpdatePayloads() []models.SDKModel {
+	out := []models.SDKModel{
 		p.createPayload,
 		p.readPayload,
 	}
@@ -38,8 +37,8 @@ func (p operationPayloads) createReadUpdatePayloads() []resourcemanager.ModelDet
 	return out
 }
 
-func (p operationPayloads) createReadUpdatePayloadsProperties() []resourcemanager.ModelDetails {
-	out := []resourcemanager.ModelDetails{
+func (p operationPayloads) createReadUpdatePayloadsProperties() []models.SDKModel {
+	out := []models.SDKModel{
 		p.createPropertiesPayload,
 		p.readPropertiesPayload,
 	}
@@ -50,7 +49,7 @@ func (p operationPayloads) createReadUpdatePayloadsProperties() []resourcemanage
 	return out
 }
 
-func (p operationPayloads) getPropertiesModelWithinModel(input resourcemanager.ModelDetails, sdkModels map[string]resourcemanager.ModelDetails) (*string, *resourcemanager.ModelDetails) {
+func (p operationPayloads) getPropertiesModelWithinModel(input models.SDKModel, sdkModels map[string]models.SDKModel) (*string, *models.SDKModel) {
 	if props, ok := getField(input, "Properties"); ok {
 		if props.ObjectDefinition.Type != models.ReferenceSDKObjectDefinitionType {
 			return nil, nil

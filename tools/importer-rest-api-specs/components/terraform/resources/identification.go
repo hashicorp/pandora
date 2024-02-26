@@ -220,13 +220,13 @@ func containsDiscriminatedTypes(resource *resourcemanager.TerraformResourceDetai
 	return pointer.FromBool(false), nil
 }
 
-func modelContainsDiscriminatedTypes(model resourcemanager.ModelDetails, data services.Resource) bool {
-	if model.ParentTypeName != nil || model.TypeHintIn != nil || model.TypeHintValue != nil {
+func modelContainsDiscriminatedTypes(model models.SDKModel, data services.Resource) bool {
+	if model.ParentTypeName != nil || model.FieldNameContainingDiscriminatedValue != nil || model.DiscriminatedValue != nil {
 		return true
 	}
 
 	for _, field := range model.Fields {
-		if field.IsTypeHint {
+		if field.ContainsDiscriminatedValue {
 			return true
 		}
 

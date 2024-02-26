@@ -16,9 +16,9 @@ import (
 func TestBuildForResourceGroupHappyPathAllModelsTheSame(t *testing.T) {
 	builder := Builder{
 		constants: map[string]models.SDKConstant{},
-		models: map[string]resourcemanager.ModelDetails{
+		models: map[string]models.SDKModel{
 			"ResourceGroup": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Name": {
 						JsonName: "name",
 						ObjectDefinition: models.SDKObjectDefinition{
@@ -51,7 +51,7 @@ func TestBuildForResourceGroupHappyPathAllModelsTheSame(t *testing.T) {
 				},
 			},
 			"ResourceGroupProperties": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"ProvisioningState": {
 						JsonName: "provisioningState",
 						ObjectDefinition: models.SDKObjectDefinition{
@@ -153,9 +153,9 @@ func TestBuildForResourceGroupUsingRealData(t *testing.T) {
 
 	builder := Builder{
 		constants: map[string]models.SDKConstant{},
-		models: map[string]resourcemanager.ModelDetails{
+		models: map[string]models.SDKModel{
 			"ResourceGroup": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Id": {
 						JsonName: "id",
 						ObjectDefinition: models.SDKObjectDefinition{
@@ -209,7 +209,7 @@ func TestBuildForResourceGroupUsingRealData(t *testing.T) {
 				},
 			},
 			"ResourceGroupPatchable": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"ManagedBy": {
 						JsonName: "managedBy",
 						ObjectDefinition: models.SDKObjectDefinition{
@@ -242,7 +242,7 @@ func TestBuildForResourceGroupUsingRealData(t *testing.T) {
 				},
 			},
 			"ResourceGroupProperties": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"ProvisioningState": {
 						JsonName: "provisioningState",
 						ObjectDefinition: models.SDKObjectDefinition{

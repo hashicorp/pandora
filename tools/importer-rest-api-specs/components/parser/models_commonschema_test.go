@@ -28,9 +28,9 @@ func TestParseModel_CommonSchema_IdentityLegacySystemAndUserAssignedList(t *test
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Resource": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Model": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Identity": {
 								JsonName: "identity",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -77,9 +77,9 @@ func TestParseModel_CommonSchema_IdentityLegacySystemAndUserAssignedMap(t *testi
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Resource": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Model": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Identity": {
 								JsonName: "identity",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -128,9 +128,9 @@ func TestParseModel_CommonSchema_IdentityLegacySystemAndUserAssignedMap_ExtraFie
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Resource": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Model": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Identity": {
 								JsonName: "identity",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -177,9 +177,9 @@ func TestParseModel_CommonSchema_IdentityLegacySystemAndUserAssignedMap_GenericD
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Resource": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Model": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Identity": {
 								JsonName: "identity",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -226,9 +226,9 @@ func TestParseModel_CommonSchema_IdentitySystemAssigned(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Resource": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Model": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Identity": {
 								JsonName: "identity",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -275,9 +275,9 @@ func TestParseModel_CommonSchema_IdentitySystemAndUserAssignedList(t *testing.T)
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Resource": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Model": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Identity": {
 								JsonName: "identity",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -324,9 +324,9 @@ func TestParseModel_CommonSchema_IdentitySystemAndUserAssignedMap(t *testing.T) 
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Resource": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Model": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Identity": {
 								JsonName: "identity",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -375,9 +375,9 @@ func TestParseModel_CommonSchema_IdentitySystemAndUserAssignedMap_ExtraFields(t 
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Resource": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Model": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Identity": {
 								JsonName: "identity",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -424,9 +424,9 @@ func TestParseModel_CommonSchema_IdentitySystemOrUserAssignedList(t *testing.T) 
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Resource": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Model": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Identity": {
 								JsonName: "identity",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -473,9 +473,9 @@ func TestParseModel_CommonSchema_IdentitySystemOrUserAssignedMap(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Resource": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Model": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Identity": {
 								JsonName: "identity",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -524,9 +524,9 @@ func TestParseModel_CommonSchema_IdentitySystemOrUserAssignedMap_DelegatedResour
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Resource": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Model": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Identity": {
 								JsonName: "identity",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -575,9 +575,9 @@ func TestParseModel_CommonSchema_IdentitySystemOrUserAssignedMap_ExtraFields(t *
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Resource": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Model": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Identity": {
 								JsonName: "identity",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -624,9 +624,9 @@ func TestParseModel_CommonSchema_IdentityUserAssignedList(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Resource": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Model": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Identity": {
 								JsonName: "identity",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -673,9 +673,9 @@ func TestParseModel_CommonSchema_IdentityUserAssignedMap(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Resource": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Model": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Identity": {
 								JsonName: "identity",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -722,9 +722,9 @@ func TestParseModel_CommonSchema_IdentityUserAssignedMap_PrincipalID(t *testing.
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Resource": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Model": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Identity": {
 								JsonName: "identity",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -771,9 +771,9 @@ func TestParseModel_CommonSchema_IdentityUserAssignedMap_TenantID(t *testing.T) 
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Resource": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Model": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Identity": {
 								JsonName: "identity",
 								ObjectDefinition: models.SDKObjectDefinition{
@@ -820,9 +820,9 @@ func TestParseModel_CommonSchema_Location(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Resource": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Model": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Location": {
 								JsonName: "location",
 								ObjectDefinition: models.SDKObjectDefinition{

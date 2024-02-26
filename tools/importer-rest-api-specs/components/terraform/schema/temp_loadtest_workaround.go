@@ -6,10 +6,11 @@ package schema
 import (
 	"fmt"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func applyTemporaryWorkaroundToLoadTestModelsAndMappings(models map[string]resourcemanager.ModelDetails, mappings *resourcemanager.MappingDefinition) (*map[string]resourcemanager.ModelDetails, *resourcemanager.MappingDefinition, error) {
+func applyTemporaryWorkaroundToLoadTestModelsAndMappings(models map[string]models.SDKModel, mappings *resourcemanager.MappingDefinition) (*map[string]models.SDKModel, *resourcemanager.MappingDefinition, error) {
 
 	// 1: remove the `Encryption` field within the `LoadTestProperties` model
 	loadTestProps, ok := models["LoadTestProperties"]

@@ -8,7 +8,6 @@ import (
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 func TestProcessField_PluralToSingular(t *testing.T) {
@@ -20,8 +19,8 @@ func TestProcessField_PluralToSingular(t *testing.T) {
 		{
 			fieldInput: "Pandas",
 			metadataInput: FieldMetadata{
-				Model: resourcemanager.ModelDetails{
-					Fields: map[string]resourcemanager.FieldDetails{
+				Model: models.SDKModel{
+					Fields: map[string]models.SDKField{
 						"Pandas": {
 							ObjectDefinition: models.SDKObjectDefinition{
 								Type: models.ListSDKObjectDefinitionType,
@@ -38,8 +37,8 @@ func TestProcessField_PluralToSingular(t *testing.T) {
 		{
 			fieldInput: "Statuses",
 			metadataInput: FieldMetadata{
-				Model: resourcemanager.ModelDetails{
-					Fields: map[string]resourcemanager.FieldDetails{
+				Model: models.SDKModel{
+					Fields: map[string]models.SDKField{
 						"Statuses": {
 							ObjectDefinition: models.SDKObjectDefinition{
 								Type: models.ListSDKObjectDefinitionType,
@@ -56,8 +55,8 @@ func TestProcessField_PluralToSingular(t *testing.T) {
 		{
 			fieldInput: "Metadata",
 			metadataInput: FieldMetadata{
-				Model: resourcemanager.ModelDetails{
-					Fields: map[string]resourcemanager.FieldDetails{
+				Model: models.SDKModel{
+					Fields: map[string]models.SDKField{
 						"Metadata": {
 							ObjectDefinition: models.SDKObjectDefinition{
 								Type: models.ListSDKObjectDefinitionType,
@@ -74,8 +73,8 @@ func TestProcessField_PluralToSingular(t *testing.T) {
 		{
 			fieldInput: "Planets",
 			metadataInput: FieldMetadata{
-				Model: resourcemanager.ModelDetails{
-					Fields: map[string]resourcemanager.FieldDetails{
+				Model: models.SDKModel{
+					Fields: map[string]models.SDKField{
 						"Planets": {
 							ObjectDefinition: models.SDKObjectDefinition{
 								Type: models.StringSDKObjectDefinitionType,
@@ -89,8 +88,8 @@ func TestProcessField_PluralToSingular(t *testing.T) {
 		{
 			fieldInput: "Bass",
 			metadataInput: FieldMetadata{
-				Model: resourcemanager.ModelDetails{
-					Fields: map[string]resourcemanager.FieldDetails{
+				Model: models.SDKModel{
+					Fields: map[string]models.SDKField{
 						"Bass": {
 							ObjectDefinition: models.SDKObjectDefinition{
 								Type: models.StringSDKObjectDefinitionType,

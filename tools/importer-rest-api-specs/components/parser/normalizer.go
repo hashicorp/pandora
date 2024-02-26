@@ -20,10 +20,10 @@ func normalizeAzureApiResource(input importerModels.AzureApiResource) importerMo
 		normalizedConstants[name] = v
 	}
 
-	normalizedModels := make(map[string]importerModels.ModelDetails)
+	normalizedModels := make(map[string]models.SDKModel)
 	for k, v := range input.Models {
 		modelName := cleanup.NormalizeName(k)
-		fields := make(map[string]importerModels.FieldDetails)
+		fields := make(map[string]models.SDKField)
 		for fieldName, fieldVal := range v.Fields {
 			normalizedFieldName := cleanup.NormalizeName(fieldName)
 			fieldVal.ObjectDefinition = normalizeSDKObjectDefinition(fieldVal.ObjectDefinition)
@@ -37,9 +37,9 @@ func normalizeAzureApiResource(input importerModels.AzureApiResource) importerMo
 		}
 
 		// Discriminators can be `@type` which get normalized to `Type` so we need to normalize the field name here
-		if v.TypeHintIn != nil {
-			val := cleanup.NormalizeName(*v.TypeHintIn)
-			v.TypeHintIn = &val
+		if v.FieldNameContainingDiscriminatedValue != nil {
+			val := cleanup.NormalizeName(*v.FieldNameContainingDiscriminatedValue)
+			v.FieldNameContainingDiscriminatedValue = &val
 		}
 
 		normalizedModels[modelName] = v
