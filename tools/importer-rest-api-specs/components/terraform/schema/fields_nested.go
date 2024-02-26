@@ -46,7 +46,7 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(schemaModelName string, inp
 		}
 
 		// based on this information
-		isComputed := false
+		isComputed := (hasCreate && createField.ReadOnly) || (hasRead && readField.ReadOnly)
 		isForceNew := false
 		isRequired := false
 		isOptional := false
@@ -63,6 +63,11 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(schemaModelName string, inp
 				isRequired = updateField.Required
 				isOptional = updateField.Optional
 			}
+		}
+		if isComputed {
+			isRequired = false
+			isOptional = false
+			isForceNew = false
 		}
 
 		var validation *resourcemanager.TerraformSchemaValidationDefinition

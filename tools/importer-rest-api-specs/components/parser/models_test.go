@@ -334,8 +334,7 @@ func TestParseModelWithInlinedObject(t *testing.T) {
 								ObjectDefinition: models.SDKObjectDefinition{
 									Type: models.StringSDKObjectDefinitionType,
 								},
-								// TODO: re-enable readonly/sensitive
-								//ReadOnly: true,
+								ReadOnly: true,
 								Required: false,
 							},
 							"PrincipalId": {
@@ -343,8 +342,7 @@ func TestParseModelWithInlinedObject(t *testing.T) {
 								ObjectDefinition: models.SDKObjectDefinition{
 									Type: models.StringSDKObjectDefinitionType,
 								},
-								// TODO: re-enable readonly/sensitive
-								//ReadOnly: true,
+								ReadOnly: true,
 								Required: false,
 							},
 						},
@@ -1643,8 +1641,7 @@ func TestParseModelBug2675DuplicateModel(t *testing.T) {
 								ObjectDefinition: models.SDKObjectDefinition{
 									Type: models.StringSDKObjectDefinitionType,
 								},
-								// TODO: re-enable readonly/sensitive
-								//ReadOnly: true,
+								ReadOnly: true,
 								Required: false,
 							},
 							"RoleName": {
@@ -1652,8 +1649,7 @@ func TestParseModelBug2675DuplicateModel(t *testing.T) {
 								ObjectDefinition: models.SDKObjectDefinition{
 									Type: models.StringSDKObjectDefinitionType,
 								},
-								// TODO: re-enable readonly/sensitive
-								//ReadOnly: true,
+								ReadOnly: true,
 								Required: false,
 							},
 						},
@@ -1699,8 +1695,7 @@ func TestParseModelBug2675DuplicateModel(t *testing.T) {
 								ObjectDefinition: models.SDKObjectDefinition{
 									Type: models.StringSDKObjectDefinitionType,
 								},
-								// TODO: re-enable readonly/sensitive
-								//ReadOnly: true,
+								ReadOnly: true,
 								Required: false,
 							},
 							"UserRoleAssignments": {

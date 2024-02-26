@@ -51,8 +51,7 @@ func (workaroundDevCenter26189) Process(apiDefinition importerModels.AzureApiDef
 		return nil, fmt.Errorf("expected a Field named `DevCenterUri` but didn't get one")
 	}
 
-	// TODO: re-enable readonly/sensitive
-	//devCenterField.ReadOnly = true
+	devCenterField.ReadOnly = true
 
 	devCenterModel.Fields["DevCenterUri"] = devCenterField
 	devCentersResource.Models["DevCenterProperties"] = devCenterModel
@@ -79,8 +78,7 @@ func (workaroundDevCenter26189) Process(apiDefinition importerModels.AzureApiDef
 	if !ok {
 		return nil, fmt.Errorf("expected a Field named `DevCenterUri` but didn't get one")
 	}
-	// TODO: re-enable readonly/sensitive
-	//projectDevCenterUriField.ReadOnly = true
+	projectDevCenterUriField.ReadOnly = true
 	projectDevCenterUriField.Required = false
 	projectModel.Fields["DevCenterUri"] = projectDevCenterUriField
 

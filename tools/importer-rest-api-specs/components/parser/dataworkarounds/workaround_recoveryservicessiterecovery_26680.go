@@ -73,10 +73,9 @@ func (w workaroundRecoveryServicesSiteRecovery26680) Process(apiDefinition impor
 		return nil, fmt.Errorf("expected a Model named `CertificateRequest` but didn't get one")
 	}
 	model.Fields["CertificateCreateOptions"] = models.SDKField{
-		Required: false,
-		// TODO: re-enable readonly/sensitive
-		//ReadOnly:    false,
-		//Sensitive:   false,
+		Required:    false,
+		ReadOnly:    false,
+		Sensitive:   false,
 		JsonName:    "certificateCreateOptions",
 		Description: "",
 		ObjectDefinition: models.SDKObjectDefinition{
