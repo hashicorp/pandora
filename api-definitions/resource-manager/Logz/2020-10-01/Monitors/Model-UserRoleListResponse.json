@@ -1,0 +1,35 @@
+{
+  "name": "UserRoleListResponse",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "nextLink",
+      "name": "NextLink",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "value",
+      "name": "Value",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "UserRoleResponse"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

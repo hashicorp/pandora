@@ -2,6 +2,7 @@
   "fields": [
     {
       "hclName": "dns_prefix",
+      "optional": true,
       "name": "DnsPrefix",
       "objectDefinition": {
         "referenceName": null,
@@ -10,8 +11,8 @@
       "required": true
     },
     {
-      "computed": true,
       "hclName": "fqdn",
+      "optional": true,
       "name": "Fqdn",
       "objectDefinition": {
         "referenceName": null,
@@ -19,8 +20,8 @@
       }
     },
     {
-      "computed": true,
       "hclName": "kubernetes_version",
+      "optional": true,
       "name": "KubernetesVersion",
       "objectDefinition": {
         "referenceName": null,
