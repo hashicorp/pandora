@@ -15,7 +15,12 @@ type ResourceID struct {
 	CommonIDAlias *string `json:"commonAlias,omitempty"` // TODO: update the json struct tag when everything is switched over
 
 	// ConstantNames specifies a list of Constant Names used within Segments.
-	ConstantNames []string `json:"constantNames"`
+	ConstantNames []string `json:"constantNames"` // TODO: remove this once everything is switched over
+
+	// Constants specifies a map of Constant Name (Key) to SDKConstant (value) describing the Constants
+	// used within Segments.
+	// Note: the Constant Name is a valid Identifier.
+	Constants map[string]SDKConstant `json:"constants"`
 
 	// ExampleValue specifies a full example value for this ResourceID.
 	// This is intended to be used in both documentation and error messages, so should be both
