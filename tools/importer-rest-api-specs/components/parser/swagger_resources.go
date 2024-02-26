@@ -5,6 +5,7 @@ package parser
 
 import (
 	"fmt"
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"strings"
 
 	"github.com/go-openapi/spec"
@@ -76,54 +77,64 @@ func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resource
 	return &resource, nil
 }
 
-func pullOutModelForListOperations(input map[string]importerModels.OperationDetails, known internal.ParseResult) (*map[string]importerModels.OperationDetails, error) {
+type listOperationDetails struct {
+	fieldContainingPaginationDetails *string
+	valueObjectDefinition            *models.SDKObjectDefinition
+}
+
+func listOperationDetailsForOperation(input models.SDKOperation, known internal.ParseResult) *listOperationDetails {
+	// an operation without a response object isn't going to be listable
+	if input.ResponseObject == nil {
+		return nil
+	}
+	if input.ResponseObject.Type == models.ReferenceSDKObjectDefinitionType {
+		responseModel, isModel := known.Models[*input.ResponseObject.ReferenceName]
+		if !isModel {
+			// a constant wouldn't be listable
+			return nil
+		}
+
+		out := listOperationDetails{}
+		if input.FieldContainingPaginationDetails != nil {
+			out.fieldContainingPaginationDetails = input.FieldContainingPaginationDetails
+		}
+		for fieldName, v := range responseModel.Fields {
+			if strings.EqualFold(fieldName, "nextLink") {
+				out.fieldContainingPaginationDetails = pointer.To(fieldName)
+			}
+
+			if strings.EqualFold(fieldName, "Value") {
+				// switch out the reference to be the SDKObjectDefinition for the `Value` field, rather than
+				// the wrapper type
+				definition := helpers.InnerMostSDKObjectDefinition(v.ObjectDefinition)
+				out.valueObjectDefinition = pointer.To(definition)
+			}
+		}
+		if out.fieldContainingPaginationDetails != nil && out.valueObjectDefinition != nil {
+			return &out
+		}
+	}
+
+	return nil
+}
+
+func pullOutModelForListOperations(input map[string]models.SDKOperation, known internal.ParseResult) (*map[string]models.SDKOperation, error) {
 	// List Operations return an object which contains a NextLink and a Value (which is the actual Object
 	// being paginated on) - so we want to replace the wrapper object with the Value so that these can be
 	// paginated correctly as needed.
-	output := make(map[string]importerModels.OperationDetails)
+	output := make(map[string]models.SDKOperation)
 
-	for k, operation := range input {
-		if !operation.IsListOperation {
-			output[k] = operation
-			continue
-		}
-		if operation.ResponseObject == nil {
-			return nil, fmt.Errorf("a List Operation must have a Response Object but it was nil")
-		}
-		objectDefinition := *operation.ResponseObject
-		if objectDefinition.Type != models.ReferenceSDKObjectDefinitionType {
-			return nil, fmt.Errorf("TODO: add support for %q - list operations only support references at this time", string(objectDefinition.Type))
-		}
-		if objectDefinition.ReferenceName == nil {
-			return nil, fmt.Errorf("the reference name was nil for the nested object")
+	for operationName := range input {
+		operation := input[operationName]
+
+		// if the Response Object is a List Operation (identifiable via
+		listDetails := listOperationDetailsForOperation(operation, known)
+		if listDetails != nil {
+			operation.FieldContainingPaginationDetails = listDetails.fieldContainingPaginationDetails
+			operation.ResponseObject = listDetails.valueObjectDefinition
 		}
 
-		// find the real object and then return that instead
-		modelName := *objectDefinition.ReferenceName
-
-		// then look it up
-		model, ok := known.Models[modelName]
-		if !ok {
-			return nil, fmt.Errorf("the model %q was not found", modelName)
-		}
-
-		for k, v := range model.Fields {
-			if strings.EqualFold(k, "nextLink") {
-				key := k // copy it locally so this isn't a reference to the moving key value
-				operation.FieldContainingPaginationDetails = &key
-				continue
-			}
-
-			if strings.EqualFold(k, "Value") {
-				// switch out the reference
-				definition := helpers.InnerMostSDKObjectDefinition(v.ObjectDefinition)
-				operation.ResponseObject = &definition
-
-				continue
-			}
-		}
-
-		output[k] = operation
+		output[operationName] = operation
 	}
 
 	return &output, nil
@@ -158,7 +169,7 @@ func switchOutCustomTypesAsNeeded(input internal.ParseResult) internal.ParseResu
 	return input
 }
 
-func (d *SwaggerDefinition) findNestedItemsYetToBeParsed(operations map[string]importerModels.OperationDetails, known internal.ParseResult) (*internal.ParseResult, error) {
+func (d *SwaggerDefinition) findNestedItemsYetToBeParsed(operations map[string]models.SDKOperation, known internal.ParseResult) (*internal.ParseResult, error) {
 	result := internal.ParseResult{
 		Constants: map[string]models.SDKConstant{},
 		Models:    map[string]importerModels.ModelDetails{},
@@ -229,7 +240,7 @@ func referencesAreTheSame(first []string, second []string) bool {
 	return true
 }
 
-func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations map[string]importerModels.OperationDetails, known internal.ParseResult) (*[]string, error) {
+func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations map[string]models.SDKOperation, known internal.ParseResult) (*[]string, error) {
 	referencesToFind := make(map[string]struct{}, 0)
 
 	var objectsRequiredByModel = func(modelName string, model importerModels.ModelDetails) (*[]string, error) {

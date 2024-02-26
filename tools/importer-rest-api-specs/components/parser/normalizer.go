@@ -45,11 +45,11 @@ func normalizeAzureApiResource(input importerModels.AzureApiResource) importerMo
 		normalizedModels[modelName] = v
 	}
 
-	normalizedOperations := make(map[string]importerModels.OperationDetails)
+	normalizedOperations := make(map[string]models.SDKOperation)
 	for k, v := range input.Operations {
-		if v.ResourceIdName != nil {
-			normalized := cleanup.NormalizeName(*v.ResourceIdName)
-			v.ResourceIdName = &normalized
+		if v.ResourceIDName != nil {
+			normalized := cleanup.NormalizeName(*v.ResourceIDName)
+			v.ResourceIDName = &normalized
 		}
 
 		if v.RequestObject != nil {

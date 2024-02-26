@@ -35,53 +35,49 @@ func TestParsingOperationsUsingTheSameSwaggerTagInDifferentCasings(t *testing.T)
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 
 					"First": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "Hello_First",
 						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						// https://github.com/hashicorp/pandora/issues/3807
-						UriSuffix: pointer.To("/someotheruri"),
+						URISuffix: pointer.To("/someotheruri"),
 					},
 					"PutBar": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "Hello_PutBar",
 						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/bar"),
+						URISuffix: pointer.To("/bar"),
 					},
 					"PutFoo": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "hello_PutFoo",
 						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/foo"),
+						URISuffix: pointer.To("/foo"),
 					},
 					"Second": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PATCH",
-						OperationId:         "hello_Second",
 						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						// https://github.com/hashicorp/pandora/issues/3807
-						UriSuffix: pointer.To("/someotheruri"),
+						URISuffix: pointer.To("/someotheruri"),
 					},
 				},
 			},
@@ -114,41 +110,38 @@ func TestParsingOperationsOnResources(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"First": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "Hello_First",
 						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						// https://github.com/hashicorp/pandora/issues/3807
-						UriSuffix: pointer.To("/someotheruri"),
+						URISuffix: pointer.To("/someotheruri"),
 					},
 					"PutBar": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "Hello_PutBar",
 						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/bar"),
+						URISuffix: pointer.To("/bar"),
 					},
 					"Second": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PATCH",
-						OperationId:         "hello_Second",
 						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						// https://github.com/hashicorp/pandora/issues/3807
-						UriSuffix: pointer.To("/someotheruri"),
+						URISuffix: pointer.To("/someotheruri"),
 					},
 				},
 			},
@@ -166,17 +159,16 @@ func TestParsingOperationsOnResources(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"HelloRestart": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "POST",
-						OperationId:         "Hello_Restart",
 						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/foo"),
+						URISuffix: pointer.To("/foo"),
 					},
 				},
 			},

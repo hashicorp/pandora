@@ -90,17 +90,16 @@ func TestParseDiscriminatorsTopLevel(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Discriminator_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -198,17 +197,16 @@ func TestParseDiscriminatorsWithinArray(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Discriminator_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -381,17 +379,16 @@ func TestParseDiscriminatorsWithinDiscriminators(t *testing.T) {
 						TypeHintIn: pointer.To("ToyType"),
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Discriminator_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -427,17 +424,16 @@ func TestParseDiscriminatedParentTypeThatShouldntBe(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Discriminator_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Animal"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -473,17 +469,16 @@ func TestParseDiscriminatedChildTypeThatShouldntBe(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Discriminator_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Dog"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -574,17 +569,16 @@ func TestParseDiscriminatedChildTypeWhereParentShouldNotBeUsed(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Discriminator_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -679,17 +673,16 @@ func TestParseDiscriminatorsInheritingFromOtherDiscriminators(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Discriminator_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -861,17 +854,16 @@ func TestParseDiscriminatorsDeepInheritance(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Discriminator_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -1013,17 +1005,16 @@ func TestParseDiscriminatorsWithMultipleParents(t *testing.T) {
 					// it's just an abstract type (defining the shared fields for Car and Human), rather than
 					// being directly used.
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Discriminator_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -1168,17 +1159,16 @@ func TestParseDiscriminatorsWithMultipleParentsWithinArray(t *testing.T) {
 					// it's just an abstract type (defining the shared fields for Car and Human), rather than
 					// being directly used.
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Discriminator_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},

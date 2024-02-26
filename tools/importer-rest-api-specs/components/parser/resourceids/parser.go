@@ -14,7 +14,7 @@ import (
 // a list of ResourceIDs found within the Swagger Resources.
 func (p *Parser) Parse() (*ParseResult, error) {
 	// 1. Go through and map the Operation IDs to the parsed Resource ID
-	// (which includes the Resource ID and any UriSuffix as needed)
+	// (which includes the Resource ID and any URISuffix as needed)
 	p.logger.Trace("Parsing the segments for each operation..")
 	operationIdsToSegments, err := p.parseSegmentsForEachOperation()
 	if err != nil {
@@ -57,7 +57,7 @@ func (p *Parser) updateParsedOperationsWithProcessedResourceIds(operationIdsToSe
 		p.logger.Trace(fmt.Sprintf("Processing Operation ID %q", operationId))
 		if operation.segments == nil {
 			if operation.uriSuffix == nil {
-				return nil, fmt.Errorf("the Operation ID %q had no Segments and no UriSuffix", operationId)
+				return nil, fmt.Errorf("the Operation ID %q had no Segments and no URISuffix", operationId)
 			}
 
 			output[operationId] = ParsedOperation{

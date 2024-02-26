@@ -27,11 +27,11 @@ Things to do here:
 type Builder struct {
 	constants   map[string]models.SDKConstant
 	models      map[string]resourcemanager.ModelDetails
-	operations  map[string]resourcemanager.ApiOperation
+	operations  map[string]models.SDKOperation
 	resourceIds map[string]models.ResourceID
 }
 
-func NewBuilder(constants map[string]models.SDKConstant, models map[string]resourcemanager.ModelDetails, operations map[string]resourcemanager.ApiOperation, resourceIds map[string]models.ResourceID) Builder {
+func NewBuilder(constants map[string]models.SDKConstant, models map[string]resourcemanager.ModelDetails, operations map[string]models.SDKOperation, resourceIds map[string]models.ResourceID) Builder {
 	return Builder{
 		constants:   constants,
 		models:      models,

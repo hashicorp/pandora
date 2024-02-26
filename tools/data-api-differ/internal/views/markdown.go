@@ -294,19 +294,19 @@ func renderChangeToMarkdown(input changes.Change) (*string, error) {
 	case changes.OperationUriSuffixAdded:
 		{
 			v := input.(changes.OperationUriSuffixAdded)
-			line := fmt.Sprintf("**Operation UriSuffix Added:** `%s` (now `%s`) in `%s@%s/%s`.", v.OperationName, v.NewValue, v.ServiceName, v.ApiVersion, v.ResourceName)
+			line := fmt.Sprintf("**Operation URISuffix Added:** `%s` (now `%s`) in `%s@%s/%s`.", v.OperationName, v.NewValue, v.ServiceName, v.ApiVersion, v.ResourceName)
 			return trimSpaceAround(line)
 		}
 	case changes.OperationUriSuffixChanged:
 		{
 			v := input.(changes.OperationUriSuffixChanged)
-			line := fmt.Sprintf("**Operation UriSuffix Changed:** `%s` (was `%s` now `%s`) in `%s@%s/%s`.", v.OperationName, v.OldValue, v.NewValue, v.ServiceName, v.ApiVersion, v.ResourceName)
+			line := fmt.Sprintf("**Operation URISuffix Changed:** `%s` (was `%s` now `%s`) in `%s@%s/%s`.", v.OperationName, v.OldValue, v.NewValue, v.ServiceName, v.ApiVersion, v.ResourceName)
 			return trimSpaceAround(line)
 		}
 	case changes.OperationUriSuffixRemoved:
 		{
 			v := input.(changes.OperationUriSuffixRemoved)
-			line := fmt.Sprintf("**Operation UriSuffix Removed:** `%s` (now `%s`) in `%s@%s/%s`.", v.OperationName, v.OldValue, v.ServiceName, v.ApiVersion, v.ResourceName)
+			line := fmt.Sprintf("**Operation URISuffix Removed:** `%s` (now `%s`) in `%s@%s/%s`.", v.OperationName, v.OldValue, v.ServiceName, v.ApiVersion, v.ResourceName)
 			return trimSpaceAround(line)
 		}
 

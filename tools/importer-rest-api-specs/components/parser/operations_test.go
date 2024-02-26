@@ -37,14 +37,13 @@ func TestParseOperationSingleWithTag(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"HeadWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{http.StatusOK},
 						LongRunning:         false,
 						Method:              http.MethodHead,
-						OperationId:         "Hello_HeadWorld",
-						UriSuffix:           pointer.To("/things"),
+						URISuffix:           pointer.To("/things"),
 					},
 				},
 			},
@@ -64,13 +63,12 @@ func TestParseOperationSingleWithTagAndResourceId(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"HeadWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						OperationId:         "Hello_HeadWorld",
-						ResourceIdName:      pointer.To("ThingId"),
+						ResourceIDName:      pointer.To("ThingId"),
 					},
 				},
 				ResourceIds: map[string]models.ResourceID{
@@ -104,14 +102,13 @@ func TestParseOperationSingleWithTagAndResourceIdSuffix(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"HeadWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						OperationId:         "Hello_HeadWorld",
-						ResourceIdName:      pointer.To("ThingId"),
-						UriSuffix:           pointer.To("/restart"),
+						ResourceIDName:      pointer.To("ThingId"),
+						URISuffix:           pointer.To("/restart"),
 					},
 				},
 				ResourceIds: map[string]models.ResourceID{
@@ -158,17 +155,16 @@ func TestParseOperationSingleWithRequestObject(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"PutWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "Hello_PutWorld",
 						RequestObject: &models.SDKObjectDefinition{
 							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("Example"),
 						},
-						UriSuffix: pointer.To("/things"),
+						URISuffix: pointer.To("/things"),
 					},
 				},
 			},
@@ -201,17 +197,16 @@ func TestParseOperationSingleWithRequestObjectInlined(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"PutWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "Hello_PutWorld",
 						RequestObject: &models.SDKObjectDefinition{
 							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("Example"),
 						},
-						UriSuffix: pointer.To("/things"),
+						URISuffix: pointer.To("/things"),
 					},
 				},
 			},
@@ -244,17 +239,16 @@ func TestParseOperationSingleWithResponseObject(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"GetWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Hello_GetWorld",
 						ResponseObject: &models.SDKObjectDefinition{
 							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("Example"),
 						},
-						UriSuffix: pointer.To("/things"),
+						URISuffix: pointer.To("/things"),
 					},
 				},
 			},
@@ -287,17 +281,16 @@ func TestParseOperationSingleWithResponseObjectInlined(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"GetWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Hello_GetWorld",
 						ResponseObject: &models.SDKObjectDefinition{
 							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("Example"),
 						},
-						UriSuffix: pointer.To("/things"),
+						URISuffix: pointer.To("/things"),
 					},
 				},
 			},
@@ -330,12 +323,11 @@ func TestParseOperationSingleWithResponseObjectInlinedList(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"GetWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Hello_GetWorld",
 						ResponseObject: &models.SDKObjectDefinition{
 							Type: models.ListSDKObjectDefinitionType,
 							NestedItem: &models.SDKObjectDefinition{
@@ -343,7 +335,7 @@ func TestParseOperationSingleWithResponseObjectInlinedList(t *testing.T) {
 								ReferenceName: pointer.To("Example"),
 							},
 						},
-						UriSuffix: pointer.To("/things"),
+						URISuffix: pointer.To("/things"),
 					},
 				},
 			},
@@ -363,16 +355,15 @@ func TestParseOperationSingleRequestingWithABool(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"PutWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "Hello_PutWorld",
 						RequestObject: &models.SDKObjectDefinition{
 							Type: models.BooleanSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/things"),
+						URISuffix: pointer.To("/things"),
 					},
 				},
 			},
@@ -392,16 +383,15 @@ func TestParseOperationSingleRequestingWithAInteger(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"PutWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "Hello_PutWorld",
 						RequestObject: &models.SDKObjectDefinition{
 							Type: models.IntegerSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/things"),
+						URISuffix: pointer.To("/things"),
 					},
 				},
 			},
@@ -421,19 +411,18 @@ func TestParseOperationSingleRequestingWithADictionaryOfStrings(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"PutWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "Hello_PutWorld",
 						RequestObject: &models.SDKObjectDefinition{
 							Type: models.DictionarySDKObjectDefinitionType,
 							NestedItem: &models.SDKObjectDefinition{
 								Type: models.StringSDKObjectDefinitionType,
 							},
 						},
-						UriSuffix: pointer.To("/things"),
+						URISuffix: pointer.To("/things"),
 					},
 				},
 			},
@@ -453,19 +442,18 @@ func TestParseOperationSingleRequestingWithAListOfStrings(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"PutWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "Hello_PutWorld",
 						RequestObject: &models.SDKObjectDefinition{
 							Type: models.ListSDKObjectDefinitionType,
 							NestedItem: &models.SDKObjectDefinition{
 								Type: models.StringSDKObjectDefinitionType,
 							},
 						},
-						UriSuffix: pointer.To("/things"),
+						URISuffix: pointer.To("/things"),
 					},
 				},
 			},
@@ -487,16 +475,15 @@ func TestParseOperationSingleRequestingWithAString(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"PutWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "Hello_PutWorld",
 						RequestObject: &models.SDKObjectDefinition{
 							Type: models.StringSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/things"),
+						URISuffix: pointer.To("/things"),
 					},
 				},
 			},
@@ -516,16 +503,15 @@ func TestParseOperationSingleReturningABool(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"GimmeABoolean": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Hello_GimmeABoolean",
 						ResponseObject: &models.SDKObjectDefinition{
 							Type: models.BooleanSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/worlds/favourite"),
+						URISuffix: pointer.To("/worlds/favourite"),
 					},
 				},
 			},
@@ -545,16 +531,15 @@ func TestParseOperationSingleReturningAFloat(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"GimmeAFloat": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Hello_GimmeAFloat",
 						ResponseObject: &models.SDKObjectDefinition{
 							Type: models.FloatSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/worlds/favourite"),
+						URISuffix: pointer.To("/worlds/favourite"),
 					},
 				},
 			},
@@ -574,16 +559,15 @@ func TestParseOperationSingleReturningAFile(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"GimmeAFile": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Hello_GimmeAFile",
 						ResponseObject: &models.SDKObjectDefinition{
 							Type: models.RawFileSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/worlds/favourite"),
+						URISuffix: pointer.To("/worlds/favourite"),
 					},
 				},
 			},
@@ -603,16 +587,15 @@ func TestParseOperationSingleReturningAnInteger(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"GimmeAnInteger": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Hello_GimmeAnInteger",
 						ResponseObject: &models.SDKObjectDefinition{
 							Type: models.IntegerSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/worlds/favourite"),
+						URISuffix: pointer.To("/worlds/favourite"),
 					},
 				},
 			},
@@ -632,16 +615,15 @@ func TestParseOperationSingleReturningAString(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"GimmeAString": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Hello_GimmeAString",
 						ResponseObject: &models.SDKObjectDefinition{
 							Type: models.StringSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/worlds/favourite"),
+						URISuffix: pointer.To("/worlds/favourite"),
 					},
 				},
 			},
@@ -662,16 +644,15 @@ func TestParseOperationSingleReturningAnErrorStatusCode(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"GimmeAString": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Hello_GimmeAString",
 						ResponseObject: &models.SDKObjectDefinition{
 							Type: models.StringSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/worlds/favourite"),
+						URISuffix: pointer.To("/worlds/favourite"),
 					},
 				},
 			},
@@ -691,19 +672,18 @@ func TestParseOperationSingleReturningATopLevelRawObject(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"RawObjectToMeToYou": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Hello_RawObjectToMeToYou",
 						RequestObject: &models.SDKObjectDefinition{
 							Type: models.RawObjectSDKObjectDefinitionType,
 						},
 						ResponseObject: &models.SDKObjectDefinition{
 							Type: models.RawObjectSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/chuckle"),
+						URISuffix: pointer.To("/chuckle"),
 					},
 				},
 			},
@@ -736,12 +716,11 @@ func TestParseOperationSingleReturningADictionaryOfAModel(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"GimmeADictionaryOfAModel": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Hello_GimmeADictionaryOfAModel",
 						ResponseObject: &models.SDKObjectDefinition{
 							Type: models.DictionarySDKObjectDefinitionType,
 							NestedItem: &models.SDKObjectDefinition{
@@ -749,7 +728,7 @@ func TestParseOperationSingleReturningADictionaryOfAModel(t *testing.T) {
 								Type:          models.ReferenceSDKObjectDefinitionType,
 							},
 						},
-						UriSuffix: pointer.To("/worlds/favourite"),
+						URISuffix: pointer.To("/worlds/favourite"),
 					},
 				},
 			},
@@ -769,19 +748,18 @@ func TestParseOperationSingleReturningADictionaryOfStrings(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"GimmeADictionaryOfStrings": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Hello_GimmeADictionaryOfStrings",
 						ResponseObject: &models.SDKObjectDefinition{
 							Type: models.DictionarySDKObjectDefinitionType,
 							NestedItem: &models.SDKObjectDefinition{
 								Type: models.StringSDKObjectDefinitionType,
 							},
 						},
-						UriSuffix: pointer.To("/worlds/favourite"),
+						URISuffix: pointer.To("/worlds/favourite"),
 					},
 				},
 			},
@@ -801,19 +779,18 @@ func TestParseOperationSingleReturningAListOfIntegers(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"GimmeAListOfIntegers": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Hello_GimmeAListOfIntegers",
 						ResponseObject: &models.SDKObjectDefinition{
 							Type: models.ListSDKObjectDefinitionType,
 							NestedItem: &models.SDKObjectDefinition{
 								Type: models.IntegerSDKObjectDefinitionType,
 							},
 						},
-						UriSuffix: pointer.To("/worlds/favourite"),
+						URISuffix: pointer.To("/worlds/favourite"),
 					},
 				},
 			},
@@ -846,12 +823,11 @@ func TestParseOperationSingleReturningAListOfAModel(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"GimmeAListOfModels": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Hello_GimmeAListOfModels",
 						ResponseObject: &models.SDKObjectDefinition{
 							Type: models.ListSDKObjectDefinitionType,
 							NestedItem: &models.SDKObjectDefinition{
@@ -859,7 +835,7 @@ func TestParseOperationSingleReturningAListOfAModel(t *testing.T) {
 								Type:          models.ReferenceSDKObjectDefinitionType,
 							},
 						},
-						UriSuffix: pointer.To("/worlds/favourite"),
+						URISuffix: pointer.To("/worlds/favourite"),
 					},
 				},
 			},
@@ -879,19 +855,18 @@ func TestParseOperationSingleReturningAListOfStrings(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"GimmeAListOfStrings": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Hello_GimmeAListOfStrings",
 						ResponseObject: &models.SDKObjectDefinition{
 							Type: models.ListSDKObjectDefinitionType,
 							NestedItem: &models.SDKObjectDefinition{
 								Type: models.StringSDKObjectDefinitionType,
 							},
 						},
-						UriSuffix: pointer.To("/worlds/favourite"),
+						URISuffix: pointer.To("/worlds/favourite"),
 					},
 				},
 			},
@@ -924,12 +899,11 @@ func TestParseOperationSingleReturningAListOfListOfAModel(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"GimmeAListOfListOfModels": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Hello_GimmeAListOfListOfModels",
 						ResponseObject: &models.SDKObjectDefinition{
 							Type: models.ListSDKObjectDefinitionType,
 							NestedItem: &models.SDKObjectDefinition{
@@ -940,7 +914,7 @@ func TestParseOperationSingleReturningAListOfListOfAModel(t *testing.T) {
 								},
 							},
 						},
-						UriSuffix: pointer.To("/worlds/favourite"),
+						URISuffix: pointer.To("/worlds/favourite"),
 					},
 				},
 			},
@@ -960,12 +934,11 @@ func TestParseOperationSingleReturningAListOfListOfStrings(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"GimmeAListOfListOfStrings": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Hello_GimmeAListOfListOfStrings",
 						ResponseObject: &models.SDKObjectDefinition{
 							Type: models.ListSDKObjectDefinitionType,
 							NestedItem: &models.SDKObjectDefinition{
@@ -975,7 +948,7 @@ func TestParseOperationSingleReturningAListOfListOfStrings(t *testing.T) {
 								},
 							},
 						},
-						UriSuffix: pointer.To("/worlds/favourite"),
+						URISuffix: pointer.To("/worlds/favourite"),
 					},
 				},
 			},
@@ -1008,19 +981,17 @@ func TestParseOperationSingleWithList(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"ListWorlds": {
 						ContentType:                      "application/json",
 						ExpectedStatusCodes:              []int{200},
 						FieldContainingPaginationDetails: pointer.To("nextLink"),
-						IsListOperation:                  true,
 						Method:                           "GET",
-						OperationId:                      "Hello_ListWorlds",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("World"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/worlds"),
+						URISuffix: pointer.To("/worlds"),
 					},
 				},
 			},
@@ -1055,21 +1026,21 @@ func TestParseOperationSingleWithListWhichIsNotAList(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"ListWorlds": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						// This signifies there's a list of items without a means of paging over it.
 						// This is _likely_ a badly documented API Definition, but it's hard to say for sure.
+						// Since there isn't a pagination field present in the response, we have to assume this isn't
+						// a list operation, even if there's a `skipToken` present.
 						FieldContainingPaginationDetails: nil,
-						IsListOperation:                  true,
 						Method:                           "GET",
-						OperationId:                      "Hello_ListWorlds",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("World"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/worlds"),
+						URISuffix: pointer.To("/worlds"),
 					},
 				},
 			},
@@ -1089,18 +1060,16 @@ func TestParseOperationSingleWithListReturningAListOfStrings(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"ListWorlds": {
 						ContentType:                      "application/json",
 						ExpectedStatusCodes:              []int{200},
 						FieldContainingPaginationDetails: pointer.To("nextLink"),
-						IsListOperation:                  true,
 						Method:                           "GET",
-						OperationId:                      "Hello_ListWorlds",
 						ResponseObject: &models.SDKObjectDefinition{
 							Type: models.StringSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/worlds"),
+						URISuffix: pointer.To("/worlds"),
 					},
 				},
 			},
@@ -1135,19 +1104,17 @@ func TestParseOperationSingleWithListWithoutPageable(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"ListWorlds": {
 						ContentType:                      "application/json",
 						ExpectedStatusCodes:              []int{200},
 						FieldContainingPaginationDetails: pointer.To("nextLink"),
-						IsListOperation:                  true,
 						Method:                           "GET",
-						OperationId:                      "Hello_ListWorlds",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("World"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/worlds"),
+						URISuffix: pointer.To("/worlds"),
 					},
 				},
 			},
@@ -1180,18 +1147,17 @@ func TestParseOperationSingleWithLongRunningOperation(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"PutWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						LongRunning:         true,
 						Method:              "PUT",
-						OperationId:         "Hello_PutWorld",
 						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/things"),
+						URISuffix: pointer.To("/things"),
 					},
 				},
 			},
@@ -1224,12 +1190,11 @@ func TestParseOperationSingleWithRequestAndResponseObject(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"PutWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "Hello_PutWorld",
 						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
@@ -1238,7 +1203,7 @@ func TestParseOperationSingleWithRequestAndResponseObject(t *testing.T) {
 							ReferenceName: pointer.To("Example"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/things"),
+						URISuffix: pointer.To("/things"),
 					},
 				},
 			},
@@ -1258,26 +1223,24 @@ func TestParseOperationSingleWithMultipleTags(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"HeadThings": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						OperationId:         "Hello_HeadThings",
-						UriSuffix:           pointer.To("/things"),
+						URISuffix:           pointer.To("/things"),
 					},
 				},
 			},
 			"Other": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					// Whilst the operation name should be `HeadThings`, since this is another Tag
 					// it's intentionally prefixed for when things cross boundaries (to avoid conflicts)
 					"HelloHeadThings": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						OperationId:         "Hello_HeadThings",
-						UriSuffix:           pointer.To("/things"),
+						URISuffix:           pointer.To("/things"),
 					},
 				},
 			},
@@ -1298,14 +1261,13 @@ func TestParseOperationSingleWithInferredTag(t *testing.T) {
 		Resources: map[string]importerModels.AzureApiResource{
 			// since there's no tags, the file name is used to infer the tag (in this case, 'OperationsSingleWithNoTags')
 			"OperationsSingleWithNoTags": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					// since the prefix doesn't match the Tag (since no tag) this gets a combined name
 					"HelloHeadWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						OperationId:         "Hello_HeadWorld",
-						UriSuffix:           pointer.To("/things"),
+						URISuffix:           pointer.To("/things"),
 					},
 				},
 			},
@@ -1325,12 +1287,11 @@ func TestParseOperationSingleWithHeaderOptions(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"HeadWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						OperationId:         "Hello_HeadWorld",
 						Options: map[string]models.SDKOperationOption{
 							"BoolValue": {
 								HeaderName: pointer.To("boolValue"),
@@ -1388,7 +1349,7 @@ func TestParseOperationSingleWithHeaderOptions(t *testing.T) {
 								Required: true,
 							},
 						},
-						UriSuffix: pointer.To("/things"),
+						URISuffix: pointer.To("/things"),
 					},
 				},
 			},
@@ -1408,12 +1369,11 @@ func TestParseOperationSingleWithQueryStringOptions(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"HeadWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						OperationId:         "Hello_HeadWorld",
 						Options: map[string]models.SDKOperationOption{
 							"BoolValue": {
 								QueryStringName: pointer.To("boolValue"),
@@ -1471,7 +1431,7 @@ func TestParseOperationSingleWithQueryStringOptions(t *testing.T) {
 								Required: true,
 							},
 						},
-						UriSuffix: pointer.To("/things"),
+						URISuffix: pointer.To("/things"),
 					},
 				},
 			},
@@ -1491,21 +1451,19 @@ func TestParseOperationMultipleBasedOnTheSameResourceId(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"HeadWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						OperationId:         "Hello_HeadWorld",
-						ResourceIdName:      pointer.To("ThingId"),
+						ResourceIDName:      pointer.To("ThingId"),
 					},
 					"RestartWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						OperationId:         "Hello_RestartWorld",
-						ResourceIdName:      pointer.To("ThingId"),
-						UriSuffix:           pointer.To("/restart"),
+						ResourceIDName:      pointer.To("ThingId"),
+						URISuffix:           pointer.To("/restart"),
 					},
 				},
 				ResourceIds: map[string]models.ResourceID{
@@ -1539,54 +1497,49 @@ func TestParseOperationsContainingContentTypes(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Default": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						OperationId:         "Hello_Default",
-						UriSuffix:           pointer.To("/default"),
+						URISuffix:           pointer.To("/default"),
 					},
 					"JsonRequest": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Hello_JsonRequest",
 						RequestObject: &models.SDKObjectDefinition{
 							Type: models.StringSDKObjectDefinitionType,
 						},
 						// this can become `/json-request` when https://github.com/hashicorp/pandora/issues/3807 is fixed
-						UriSuffix: pointer.To("/jsonRequest"),
+						URISuffix: pointer.To("/jsonRequest"),
 					},
 					"JsonResponse": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "Hello_JsonResponse",
 						ResponseObject: &models.SDKObjectDefinition{
 							Type: models.StringSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/jsonResponse"),
+						URISuffix: pointer.To("/jsonResponse"),
 					},
 					"XmlRequest": {
 						ContentType:         "application/xml",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Hello_XmlRequest",
 						RequestObject: &models.SDKObjectDefinition{
 							Type: models.StringSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/xmlRequest"),
+						URISuffix: pointer.To("/xmlRequest"),
 					},
 					"XmlResponse": {
 						ContentType:         "application/xml",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "Hello_XmlResponse",
 						ResponseObject: &models.SDKObjectDefinition{
 							Type: models.StringSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/xmlResponse"),
+						URISuffix: pointer.To("/xmlResponse"),
 					},
 				},
 			},
@@ -1619,17 +1572,16 @@ func TestParseOperationContainingMultipleReturnObjects(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"HeadWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200, 202},
 						Method:              "PUT",
-						OperationId:         "Hello_HeadWorld",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("FirstModel"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/things"),
+						URISuffix: pointer.To("/things"),
 					},
 				},
 			},
@@ -1649,20 +1601,18 @@ func TestParseOperationsWithStutteringNames(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"ExampleTag": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Mars": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						OperationId:         "ExampleTags_Mars",
-						UriSuffix:           pointer.To("/mars"),
+						URISuffix:           pointer.To("/mars"),
 					},
 					"There": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						OperationId:         "ExampleTag_There",
-						UriSuffix:           pointer.To("/there"),
+						URISuffix:           pointer.To("/there"),
 					},
 					"World": {
 						// TODO: change the Swagger Tag to be `ExampleTag` for this operation
@@ -1671,8 +1621,7 @@ func TestParseOperationsWithStutteringNames(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						OperationId:         "ExampleTag_World",
-						UriSuffix:           pointer.To("/world"),
+						URISuffix:           pointer.To("/world"),
 					},
 				},
 			},

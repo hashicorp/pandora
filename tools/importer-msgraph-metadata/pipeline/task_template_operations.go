@@ -125,7 +125,7 @@ internal class %[3]sOperation : Operations.ListOperation
    public override string? FieldContainingPaginationDetails() => "nextLink";
    public override ResourceID? ResourceId() => %[4]s;
    public override Type NestedItemType() => %[5]s;
-   public override string? UriSuffix() => %[6]s;
+   public override string? URISuffix() => %[6]s;
 }
 `, namespace, modelsImportCode, operation.Name, resourceIdCode, nestedItemTypeCode, uriSuffixCode)
 
@@ -188,7 +188,7 @@ internal class %[3]sOperation : Operations.%[4]sOperation
         };
     public override ResourceID? ResourceId() => %[6]s;
     public override Type? ResponseObject() => %[10]s;
-    public override string? UriSuffix() => %[8]s;
+    public override string? URISuffix() => %[8]s;
 }
 `, namespace, modelsImportCode, operation.Name, strings.Title(strings.ToLower(operation.Method)), expectedStatusesCode, resourceIdCode, responseModel, uriSuffixCode, contentTypeCode, responseObjectCode)
 }
@@ -256,7 +256,7 @@ internal class %[3]sOperation : Operations.%[4]sOperation
     public override Type? RequestObject() => %[6]s;
     public override ResourceID? ResourceId() => %[7]s;
     public override Type? ResponseObject() => %[8]s;
-    public override string? UriSuffix() => %[9]s;
+    public override string? URISuffix() => %[9]s;
 }
 `, namespace, modelsImportCode, operation.Name, strings.Title(strings.ToLower(operation.Method)), expectedStatusesCode, requestObjectCode, resourceIdCode, responseObjectCode, uriSuffixCode, contentTypeCode)
 }
@@ -297,7 +297,7 @@ internal class %[2]sOperation : Operations.%[3]sOperation
 %[4]s,
         };
     public override ResourceID? ResourceId() => %[5]s;
-    public override string? UriSuffix() => %[6]s;
+    public override string? URISuffix() => %[6]s;
 }
 `, namespace, operation.Name, strings.Title(strings.ToLower(operation.Method)), expectedStatusesCode, resourceIdCode, uriSuffixCode)
 }

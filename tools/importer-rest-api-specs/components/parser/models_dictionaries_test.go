@@ -45,17 +45,16 @@ func TestParseModelWithADictionaryOfIntegers(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"GetWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Hello_GetWorld",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/things"),
+						URISuffix: pointer.To("/things"),
 					},
 				},
 			},
@@ -98,17 +97,16 @@ func TestParseModelWithADictionaryOfIntegersInlined(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"GetWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Hello_GetWorld",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/things"),
+						URISuffix: pointer.To("/things"),
 					},
 				},
 			},
@@ -184,17 +182,16 @@ func TestParseModelWithADictionaryOfAnObject(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"GetWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Hello_GetWorld",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/things"),
+						URISuffix: pointer.To("/things"),
 					},
 				},
 			},
@@ -270,17 +267,16 @@ func TestParseModelWithADictionaryOfAnObjectInlined(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"GetWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Hello_GetWorld",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/things"),
+						URISuffix: pointer.To("/things"),
 					},
 				},
 			},
@@ -323,17 +319,16 @@ func TestParseModelWithADictionaryOfString(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"GetWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Hello_GetWorld",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/things"),
+						URISuffix: pointer.To("/things"),
 					},
 				},
 			},
@@ -376,17 +371,16 @@ func TestParseModelWithADictionaryOfStringInlined(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"GetWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Hello_GetWorld",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/things"),
+						URISuffix: pointer.To("/things"),
 					},
 				},
 			},

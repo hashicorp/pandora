@@ -64,8 +64,8 @@ func (workaroundBotService27351) Process(input importerModels.AzureApiDefinition
 	delete(resource.ResourceIds, "ChannelId")
 
 	for operationName, operation := range resource.Operations {
-		if operation.ResourceIdName != nil && *operation.ResourceIdName == "ChannelId" {
-			operation.ResourceIdName = pointer.To("BotServiceChannelId")
+		if operation.ResourceIDName != nil && *operation.ResourceIDName == "ChannelId" {
+			operation.ResourceIDName = pointer.To("BotServiceChannelId")
 		}
 		resource.Operations[operationName] = operation
 	}

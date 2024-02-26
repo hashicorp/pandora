@@ -125,7 +125,7 @@ func validateParsedObjectDefinitionsMatch(t *testing.T, expected, actual models.
 	validateObjectsMatch(t, expected.NestedItem, actual.NestedItem, "NestedItem", validateParsedObjectDefinitionsMatch)
 }
 
-func validateParsedOperationsMatch(t *testing.T, expected, actual importerModels.OperationDetails, operationName string) {
+func validateParsedOperationsMatch(t *testing.T, expected, actual models.SDKOperation, operationName string) {
 	t.Logf("Validating Operation %q..", operationName)
 	if expected.ContentType != actual.ContentType {
 		t.Fatalf("expected `ContentType` to be %q but got %q for Operation %q", expected.ContentType, actual.ContentType, operationName)
@@ -134,26 +134,20 @@ func validateParsedOperationsMatch(t *testing.T, expected, actual importerModels
 	if pointer.From(expected.FieldContainingPaginationDetails) != pointer.From(actual.FieldContainingPaginationDetails) {
 		t.Fatalf("expected `FieldContainingPaginationDetails` to be %q but got %q for Operation %q", pointer.From(expected.FieldContainingPaginationDetails), pointer.From(actual.FieldContainingPaginationDetails), operationName)
 	}
-	if expected.IsListOperation != actual.IsListOperation {
-		t.Fatalf("expected `IsListOperation` to be %t but got %t for Operation %q", expected.IsListOperation, actual.IsListOperation, operationName)
-	}
 	if expected.LongRunning != actual.LongRunning {
 		t.Fatalf("expected `LongRunning` to be %t but got %t for Operation %q", expected.LongRunning, actual.LongRunning, operationName)
 	}
 	if expected.Method != actual.Method {
 		t.Fatalf("expected `Method` to be %q but got %q for Operation %q", expected.Method, actual.Method, operationName)
 	}
-	if expected.OperationId != actual.OperationId {
-		t.Fatalf("expected `OperationId` to be %q but got %q for Operation %q", expected.OperationId, actual.OperationId, operationName)
-	}
 	validateMapsMatch(t, expected.Options, actual.Options, "Options", validateParsedOptionsMatch)
-	if pointer.From(expected.ResourceIdName) != pointer.From(actual.ResourceIdName) {
-		t.Fatalf("expected `ResourceIdName` to be %q but got %q for Operation %q", pointer.From(expected.ResourceIdName), pointer.From(actual.ResourceIdName), operationName)
+	if pointer.From(expected.ResourceIDName) != pointer.From(actual.ResourceIDName) {
+		t.Fatalf("expected `ResourceIDName` to be %q but got %q for Operation %q", pointer.From(expected.ResourceIDName), pointer.From(actual.ResourceIDName), operationName)
 	}
 	validateObjectsMatch(t, expected.RequestObject, actual.RequestObject, "RequestObject", validateParsedObjectDefinitionsMatch)
 	validateObjectsMatch(t, expected.ResponseObject, actual.ResponseObject, "ResponseObject", validateParsedObjectDefinitionsMatch)
-	if pointer.From(expected.UriSuffix) != pointer.From(actual.UriSuffix) {
-		t.Fatalf("expected `UriSuffix` to be %q but got %q for Operation %q", pointer.From(expected.UriSuffix), pointer.From(actual.UriSuffix), operationName)
+	if pointer.From(expected.URISuffix) != pointer.From(actual.URISuffix) {
+		t.Fatalf("expected `URISuffix` to be %q but got %q for Operation %q", pointer.From(expected.URISuffix), pointer.From(actual.URISuffix), operationName)
 	}
 }
 

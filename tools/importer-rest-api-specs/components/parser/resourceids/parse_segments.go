@@ -212,7 +212,7 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 	// UriSuffixes are "operations" on a given Resource ID/URI - for example `/restart`
 	// or in the case of List operations /providers/Microsoft.Blah/listAllTheThings
 	// we treat these as "operations" on the Resource ID and as such the "segments" should
-	// only be for the Resource ID and not for the UriSuffix (which is as an additional field)
+	// only be for the Resource ID and not for the URISuffix (which is as an additional field)
 	lastUserValueSegment := -1
 	for i, segment := range segments {
 		// everything else technically is a user configurable component

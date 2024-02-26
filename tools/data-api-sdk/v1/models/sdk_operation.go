@@ -42,7 +42,7 @@ type SDKOperation struct {
 
 	// ResourceIDName optionally specifies the name of the Resource ID related to this Operation.
 	// When specified, this forms part of the Request URI - and MAY or MAY NOT be supplemented by
-	// a UriSuffix.
+	// a URISuffix.
 	// This means the Request URI can be either:
 	//   1. {formattedResourceId}
 	//   2. {formattedResourceId}{uriSuffix}

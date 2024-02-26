@@ -137,7 +137,7 @@ func TestBuildForServiceBusNamespaceHappyPath(t *testing.T) {
 				},
 			},
 		},
-		operations: map[string]resourcemanager.ApiOperation{
+		operations: map[string]models.SDKOperation{
 			"Create": {
 				LongRunning: false,
 				Method:      "PUT",
@@ -145,12 +145,12 @@ func TestBuildForServiceBusNamespaceHappyPath(t *testing.T) {
 					ReferenceName: pointer.To("Namespace"),
 					Type:          models.ReferenceSDKObjectDefinitionType,
 				},
-				ResourceIdName: pointer.To("NamespaceId"),
+				ResourceIDName: pointer.To("NamespaceId"),
 			},
 			"Delete": {
 				LongRunning:    true,
 				Method:         "DELETE",
-				ResourceIdName: pointer.To("NamespaceId"),
+				ResourceIDName: pointer.To("NamespaceId"),
 			},
 			"Get": {
 				LongRunning: false,
@@ -159,7 +159,7 @@ func TestBuildForServiceBusNamespaceHappyPath(t *testing.T) {
 					ReferenceName: pointer.To("Namespace"),
 					Type:          models.ReferenceSDKObjectDefinitionType,
 				},
-				ResourceIdName: pointer.To("NamespaceId"),
+				ResourceIDName: pointer.To("NamespaceId"),
 			},
 			"Update": {
 				LongRunning: false,
@@ -168,7 +168,7 @@ func TestBuildForServiceBusNamespaceHappyPath(t *testing.T) {
 					ReferenceName: pointer.To("Namespace"),
 					Type:          models.ReferenceSDKObjectDefinitionType,
 				},
-				ResourceIdName: pointer.To("NamespaceId"),
+				ResourceIDName: pointer.To("NamespaceId"),
 			},
 		},
 		resourceIds: map[string]models.ResourceID{
@@ -839,7 +839,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 				},
 			},
 		},
-		operations: map[string]resourcemanager.ApiOperation{
+		operations: map[string]models.SDKOperation{
 			"Create": {
 				LongRunning: false,
 				Method:      "PUT",
@@ -847,12 +847,12 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 					ReferenceName: pointer.To("Namespace"),
 					Type:          models.ReferenceSDKObjectDefinitionType,
 				},
-				ResourceIdName: pointer.To("NamespaceId"),
+				ResourceIDName: pointer.To("NamespaceId"),
 			},
 			"Delete": {
 				LongRunning:    true,
 				Method:         "DELETE",
-				ResourceIdName: pointer.To("NamespaceId"),
+				ResourceIDName: pointer.To("NamespaceId"),
 			},
 			"Get": {
 				LongRunning: false,
@@ -861,7 +861,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 					ReferenceName: pointer.To("Namespace"),
 					Type:          models.ReferenceSDKObjectDefinitionType,
 				},
-				ResourceIdName: pointer.To("NamespaceId"),
+				ResourceIDName: pointer.To("NamespaceId"),
 			},
 			"Update": {
 				LongRunning: false,
@@ -870,7 +870,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 					ReferenceName: pointer.To("NamespaceUpdateParameters"),
 					Type:          models.ReferenceSDKObjectDefinitionType,
 				},
-				ResourceIdName: pointer.To("NamespaceId"),
+				ResourceIDName: pointer.To("NamespaceId"),
 			},
 		},
 		resourceIds: map[string]models.ResourceID{

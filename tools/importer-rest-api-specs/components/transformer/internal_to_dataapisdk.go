@@ -68,15 +68,11 @@ func mapInternalAPIVersionTypeToDataAPISDKType(input importerModels.AzureApiDefi
 		if err != nil {
 			return nil, fmt.Errorf("mapping Models for API Resource %q: %+v", apiResource, err)
 		}
-		operations, err := mapInternalOperationsToDataAPISDKType(apiResourceDetails.Operations)
-		if err != nil {
-			return nil, fmt.Errorf("mapping Operations for API Resource %q: %+v", apiResource, err)
-		}
 
 		resources[apiResource] = models.APIResource{
 			Constants:   apiResourceDetails.Constants,
 			Models:      *mappedModels,
-			Operations:  *operations,
+			Operations:  apiResourceDetails.Operations,
 			ResourceIDs: apiResourceDetails.ResourceIds,
 		}
 	}
@@ -130,38 +126,6 @@ func mapInternalModelFieldsToDataAPISDKType(input map[string]importerModels.Fiel
 		}
 
 		output[key] = field
-	}
-
-	return &output, nil
-}
-
-func mapInternalOperationsToDataAPISDKType(input map[string]importerModels.OperationDetails) (*map[string]models.SDKOperation, error) {
-	output := make(map[string]models.SDKOperation)
-
-	for key, value := range input {
-		operation := models.SDKOperation{
-			ContentType:                      value.ContentType,
-			ExpectedStatusCodes:              value.ExpectedStatusCodes,
-			FieldContainingPaginationDetails: value.FieldContainingPaginationDetails,
-			LongRunning:                      value.LongRunning,
-			Method:                           value.Method,
-			Options:                          nil,
-			RequestObject:                    value.RequestObject,
-			ResourceIDName:                   value.ResourceIdName,
-			ResponseObject:                   value.ResponseObject,
-			URISuffix:                        value.UriSuffix,
-		}
-
-		operation.Options = map[string]models.SDKOperationOption{}
-		for k, v := range value.Options {
-			operation.Options[k] = models.SDKOperationOption{
-				HeaderName:       v.HeaderName,
-				QueryStringName:  v.QueryStringName,
-				ObjectDefinition: v.ObjectDefinition,
-				Required:         v.Required,
-			}
-		}
-		output[key] = operation
 	}
 
 	return &output, nil

@@ -48,17 +48,16 @@ func TestParseModel_CommonSchema_IdentityLegacySystemAndUserAssignedList(t *test
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Resource_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -98,17 +97,16 @@ func TestParseModel_CommonSchema_IdentityLegacySystemAndUserAssignedMap(t *testi
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Resource_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -150,17 +148,16 @@ func TestParseModel_CommonSchema_IdentityLegacySystemAndUserAssignedMap_ExtraFie
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Resource_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -200,17 +197,16 @@ func TestParseModel_CommonSchema_IdentityLegacySystemAndUserAssignedMap_GenericD
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Resource_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -250,17 +246,16 @@ func TestParseModel_CommonSchema_IdentitySystemAssigned(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Resource_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -300,17 +295,16 @@ func TestParseModel_CommonSchema_IdentitySystemAndUserAssignedList(t *testing.T)
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Resource_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -350,17 +344,16 @@ func TestParseModel_CommonSchema_IdentitySystemAndUserAssignedMap(t *testing.T) 
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Resource_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -402,17 +395,16 @@ func TestParseModel_CommonSchema_IdentitySystemAndUserAssignedMap_ExtraFields(t 
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Resource_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -452,17 +444,16 @@ func TestParseModel_CommonSchema_IdentitySystemOrUserAssignedList(t *testing.T) 
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Resource_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -502,17 +493,16 @@ func TestParseModel_CommonSchema_IdentitySystemOrUserAssignedMap(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Resource_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -554,17 +544,16 @@ func TestParseModel_CommonSchema_IdentitySystemOrUserAssignedMap_DelegatedResour
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Resource_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -606,17 +595,16 @@ func TestParseModel_CommonSchema_IdentitySystemOrUserAssignedMap_ExtraFields(t *
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Resource_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -656,17 +644,16 @@ func TestParseModel_CommonSchema_IdentityUserAssignedList(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Resource_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -706,17 +693,16 @@ func TestParseModel_CommonSchema_IdentityUserAssignedMap(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Resource_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -756,17 +742,16 @@ func TestParseModel_CommonSchema_IdentityUserAssignedMap_PrincipalID(t *testing.
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Resource_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -806,17 +791,16 @@ func TestParseModel_CommonSchema_IdentityUserAssignedMap_TenantID(t *testing.T) 
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Resource_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -856,17 +840,16 @@ func TestParseModel_CommonSchema_Location(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Resource_Test",
 						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
 							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},

@@ -25,9 +25,9 @@ type operationsParser struct {
 	swaggerDefinition              *SwaggerDefinition
 }
 
-func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, operationIdsToParsedOperations map[string]resourceids.ParsedOperation, resourceProvider *string, found internal.ParseResult) (*map[string]importerModels.OperationDetails, *internal.ParseResult, error) {
+func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, operationIdsToParsedOperations map[string]resourceids.ParsedOperation, resourceProvider *string, found internal.ParseResult) (*map[string]models.SDKOperation, *internal.ParseResult, error) {
 	logger := d.logger.Named("Operations Parser")
-	operations := make(map[string]importerModels.OperationDetails, 0)
+	operations := make(map[string]models.SDKOperation, 0)
 	result := internal.ParseResult{
 		Constants: map[string]models.SDKConstant{},
 		Models:    map[string]importerModels.ModelDetails{},
@@ -60,7 +60,7 @@ func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, operationIdsTo
 		}
 
 		if existing, hasExisting := operations[operation.name]; hasExisting {
-			return nil, nil, fmt.Errorf("conflicting operations with the Name %q - first %q %q - second %q %q", operation.name, existing.Method, existing.OperationId, parsedOperation.Method, parsedOperation.OperationId)
+			return nil, nil, fmt.Errorf("conflicting operations with the Name %q - first %q - second %q", operation.name, existing.Method, parsedOperation.Method)
 		}
 
 		if parsedOperation == nil {
@@ -73,7 +73,7 @@ func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, operationIdsTo
 	return &operations, &result, nil
 }
 
-func (p operationsParser) parseOperation(operation parsedOperation, resourceProvider *string, logger hclog.Logger) (*importerModels.OperationDetails, *internal.ParseResult, error) {
+func (p operationsParser) parseOperation(operation parsedOperation, resourceProvider *string, logger hclog.Logger) (*models.SDKOperation, *internal.ParseResult, error) {
 	result := internal.ParseResult{
 		Constants: map[string]models.SDKConstant{},
 		Models:    map[string]importerModels.ModelDetails{},
@@ -91,7 +91,6 @@ func (p operationsParser) parseOperation(operation parsedOperation, resourceProv
 			return nil, nil, fmt.Errorf("appending nestedResult: %+v", err)
 		}
 	}
-	isAListOperation := p.isListOperation(operation)
 	responseResult, nestedResult, err := p.responseObjectForOperation(operation, result)
 	if err != nil {
 		return nil, nil, fmt.Errorf("determining response operation for %q (method %q / ID %q): %+v", operation.name, operation.httpMethod, operation.operation.ID, err)
@@ -125,19 +124,17 @@ func (p operationsParser) parseOperation(operation parsedOperation, resourceProv
 		return nil, nil, nil
 	}
 
-	operationData := importerModels.OperationDetails{
+	operationData := models.SDKOperation{
 		ContentType:                      contentType,
 		ExpectedStatusCodes:              expectedStatusCodes,
 		FieldContainingPaginationDetails: paginationField,
-		IsListOperation:                  isAListOperation,
 		LongRunning:                      longRunning,
 		Method:                           strings.ToUpper(operation.httpMethod),
-		OperationId:                      operation.operation.ID,
 		Options:                          *options,
 		RequestObject:                    requestObject,
-		ResourceIdName:                   resourceId.ResourceIdName,
+		ResourceIDName:                   resourceId.ResourceIdName,
 		ResponseObject:                   responseResult.objectDefinition,
-		UriSuffix:                        resourceId.UriSuffix,
+		URISuffix:                        resourceId.UriSuffix,
 	}
 
 	if p.operationShouldBeIgnored(operationData) {
@@ -405,7 +402,7 @@ func (p operationsParser) optionsForOperation(input parsedOperation, logger hclo
 	return &output, &result, nil
 }
 
-func (p operationsParser) operationShouldBeIgnored(input importerModels.OperationDetails) bool {
+func (p operationsParser) operationShouldBeIgnored(input models.SDKOperation) bool {
 	// Some HTTP Operations don't make sense for us to expose at this time, for example
 	// a GET request which returns no content. They may at some point in the future but
 	// for now there's not much point

@@ -35,24 +35,9 @@ func (d AzureApiDefinition) IsPreviewVersion() bool {
 type AzureApiResource struct {
 	Constants   map[string]models.SDKConstant
 	Models      map[string]ModelDetails
-	Operations  map[string]OperationDetails
+	Operations  map[string]models.SDKOperation
 	ResourceIds map[string]models.ResourceID
 	Terraform   *resourcemanager.TerraformDetails
-}
-
-type OperationDetails struct {
-	ContentType                      string
-	ExpectedStatusCodes              []int
-	FieldContainingPaginationDetails *string
-	IsListOperation                  bool
-	LongRunning                      bool
-	Method                           string
-	OperationId                      string
-	Options                          map[string]models.SDKOperationOption
-	RequestObject                    *models.SDKObjectDefinition
-	ResourceIdName                   *string
-	ResponseObject                   *models.SDKObjectDefinition
-	UriSuffix                        *string
 }
 
 type ResourceBuildInfo struct {
