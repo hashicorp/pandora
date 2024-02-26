@@ -442,11 +442,15 @@ func parseModelFromFilePath(filePath string) (*ModelDetails, error) {
 	fieldDetails := make(map[string]FieldDetails)
 	for _, field := range model.Fields {
 		fieldDetail := FieldDetails{
-			IsTypeHint:  field.ContainsDiscriminatedTypeValue,
-			JsonName:    field.JsonName,
-			Optional:    field.Optional,
-			Required:    field.Required,
-			Description: field.Description,
+			ForceNew:         false,
+			IsTypeHint:       field.ContainsDiscriminatedTypeValue,
+			JsonName:         field.JsonName,
+			ObjectDefinition: ObjectDefinition{},
+			Optional:         field.Optional,
+			Required:         field.Required,
+			Description:      pointer.From(field.Description),
+			ReadOnly:         field.ReadOnly,
+			Sensitive:        field.Sensitive,
 		}
 
 		objectDefinition, err := mapObjectDefinition(&field.ObjectDefinition)

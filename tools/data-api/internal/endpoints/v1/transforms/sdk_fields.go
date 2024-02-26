@@ -31,11 +31,14 @@ func mapSDKField(input repositories.FieldDetails) (*models.SDKField, error) {
 
 	output := models.SDKField{
 		ContainsDiscriminatedValue: input.IsTypeHint,
+		DateFormat:                 nil,
 		Description:                input.Description,
 		JsonName:                   input.JsonName,
 		ObjectDefinition:           *objectDefinition,
 		Optional:                   input.Optional,
+		ReadOnly:                   input.ReadOnly,
 		Required:                   input.Required,
+		Sensitive:                  input.Sensitive,
 	}
 
 	if input.DateFormat != nil {
