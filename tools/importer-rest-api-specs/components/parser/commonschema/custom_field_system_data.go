@@ -16,12 +16,14 @@ var _ customFieldMatcher = systemDataMatcher{}
 
 type systemDataMatcher struct{}
 
-func (systemDataMatcher) CustomFieldType() importerModels.CustomFieldType {
-	return importerModels.CustomFieldTypeSystemData
+func (systemDataMatcher) ReplacementObjectDefinition() models.SDKObjectDefinition {
+	return models.SDKObjectDefinition{
+		Type: models.SystemDataSDKObjectDefinitionType,
+	}
 }
 
-func (systemDataMatcher) IsMatch(_ importerModels.FieldDetails, definition importerModels.ObjectDefinition, known internal.ParseResult) bool {
-	if definition.Type != importerModels.ObjectDefinitionReference {
+func (systemDataMatcher) IsMatch(_ importerModels.FieldDetails, definition models.SDKObjectDefinition, known internal.ParseResult) bool {
+	if definition.Type != models.ReferenceSDKObjectDefinitionType {
 		return false
 	}
 
@@ -61,16 +63,16 @@ func (systemDataMatcher) IsMatch(_ importerModels.FieldDetails, definition impor
 		}
 
 		if strings.EqualFold(fieldName, "CreatedByType") {
-			if fieldVal.ObjectDefinition == nil || fieldVal.ObjectDefinition.Type != importerModels.ObjectDefinitionReference {
+			if fieldVal.ObjectDefinition.Type != models.ReferenceSDKObjectDefinitionType {
 				continue
 			}
 
-			if fieldVal.ObjectDefinition.Type == importerModels.ObjectDefinitionString {
+			if fieldVal.ObjectDefinition.Type == models.StringSDKObjectDefinitionType {
 				// Sometimes this field is a string.
 				// https://github.com/Azure/azure-rest-api-specs/blob/main/specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/stable/2021-05-01/managedcluster.json#L1322-L1325
 				hasCreatedByType = true
 				continue
-			} else if fieldVal.ObjectDefinition.Type == importerModels.ObjectDefinitionReference {
+			} else if fieldVal.ObjectDefinition.Type == models.ReferenceSDKObjectDefinitionType {
 				// Sometimes it's not ...
 				// https://github.com/Azure/azure-rest-api-specs/blob/main/specification/azurearcdata/resource-manager/Microsoft.AzureArcData/stable/2021-08-01/azurearcdata.json#L1294-L1297
 				expected := map[string]string{
@@ -90,15 +92,15 @@ func (systemDataMatcher) IsMatch(_ importerModels.FieldDetails, definition impor
 		}
 
 		if strings.EqualFold(fieldName, "LastModifiedByType") {
-			if fieldVal.ObjectDefinition == nil || fieldVal.ObjectDefinition.Type != importerModels.ObjectDefinitionReference {
+			if fieldVal.ObjectDefinition.Type != models.ReferenceSDKObjectDefinitionType {
 				continue
 			}
 
 			// Sometimes this field is a string.
 			// https://github.com/Azure/azure-rest-api-specs/blob/main/specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/stable/2021-05-01/managedcluster.json#L1322-L1325
-			if fieldVal.ObjectDefinition.Type == importerModels.ObjectDefinitionString {
+			if fieldVal.ObjectDefinition.Type == models.StringSDKConstantType {
 				hasLastModifiedbyType = true
-			} else if fieldVal.ObjectDefinition.Type == importerModels.ObjectDefinitionReference {
+			} else if fieldVal.ObjectDefinition.Type == models.ReferenceSDKObjectDefinitionType {
 				// Sometimes it's not ...
 				// https://github.com/Azure/azure-rest-api-specs/blob/main/specification/azurearcdata/resource-manager/Microsoft.AzureArcData/stable/2021-08-01/azurearcdata.json#L1294-L1297
 				expected := map[string]string{
@@ -130,7 +132,7 @@ func validateSystemDataConstantValues(input models.SDKConstant, expected map[str
 
 	// we can't guarantee the casing on these, so we should parse this insensitively since it'll be swapped
 	// out anyway
-	actual := make(map[string]string, 0)
+	actual := make(map[string]string)
 	for k, v := range input.Values {
 		actual[strings.ToLower(k)] = strings.ToLower(v)
 	}

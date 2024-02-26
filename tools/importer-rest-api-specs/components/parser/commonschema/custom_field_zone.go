@@ -6,6 +6,7 @@ package commonschema
 import (
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
@@ -15,12 +16,14 @@ var _ customFieldMatcher = zoneFieldMatcher{}
 type zoneFieldMatcher struct {
 }
 
-func (e zoneFieldMatcher) CustomFieldType() importerModels.CustomFieldType {
-	return importerModels.CustomFieldTypeZone
+func (zoneFieldMatcher) ReplacementObjectDefinition() models.SDKObjectDefinition {
+	return models.SDKObjectDefinition{
+		Type: models.ZoneTerraformSchemaObjectDefinitionType,
+	}
 }
 
-func (e zoneFieldMatcher) IsMatch(field importerModels.FieldDetails, definition importerModels.ObjectDefinition, _ internal.ParseResult) bool {
+func (zoneFieldMatcher) IsMatch(field importerModels.FieldDetails, definition models.SDKObjectDefinition, _ internal.ParseResult) bool {
 	nameMatches := strings.EqualFold(field.JsonName, "availabilityZone") || strings.EqualFold(field.JsonName, "zone")
-	typeMatches := definition.Type == importerModels.ObjectDefinitionString
+	typeMatches := definition.Type == models.StringSDKObjectDefinitionType
 	return nameMatches && typeMatches
 }

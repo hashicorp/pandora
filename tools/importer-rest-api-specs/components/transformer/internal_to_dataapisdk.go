@@ -2,6 +2,7 @@ package transformer
 
 import (
 	"fmt"
+
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
@@ -112,24 +113,19 @@ func mapInternalModelFieldsToDataAPISDKType(input map[string]importerModels.Fiel
 	output := make(map[string]models.SDKField)
 
 	for key, value := range input {
-		objectDefinition, err := mapInternalFieldObjectDefinitionToDataAPISDKType(value.CustomFieldType, value.ObjectDefinition)
-		if err != nil {
-			return nil, fmt.Errorf("mapping ObjectDefinition for Field %q: %+v", key, err)
-		}
-
 		field := models.SDKField{
 			ContainsDiscriminatedValue: false,
 			DateFormat:                 nil,
 			Description:                value.Description,
 			JsonName:                   value.JsonName,
-			ObjectDefinition:           *objectDefinition,
+			ObjectDefinition:           value.ObjectDefinition,
 			Optional:                   !value.Required,
 			Required:                   value.Required,
 		}
 		if fieldNameContainingDiscriminatedValue != nil && *fieldNameContainingDiscriminatedValue != key {
 			field.ContainsDiscriminatedValue = *fieldNameContainingDiscriminatedValue != key
 		}
-		if value.ObjectDefinition != nil && value.ObjectDefinition.Type == importerModels.ObjectDefinitionDateTime {
+		if value.ObjectDefinition.Type == models.DateTimeSDKObjectDefinitionType {
 			field.DateFormat = pointer.To(models.RFC3339SDKDateFormat) // everything is for now
 		}
 
@@ -137,28 +133,6 @@ func mapInternalModelFieldsToDataAPISDKType(input map[string]importerModels.Fiel
 	}
 
 	return &output, nil
-}
-
-func mapInternalFieldObjectDefinitionToDataAPISDKType(customFieldType *importerModels.CustomFieldType, objectDefinition *importerModels.ObjectDefinition) (*models.SDKObjectDefinition, error) {
-	if customFieldType != nil {
-		// Custom Field Types == Top Level Common Schema Types so this is a direct mapping
-		val, ok := customFieldTypesToSDKTypes[*customFieldType]
-		if !ok {
-			return nil, fmt.Errorf("internal-error: missing mapping for CustomFieldType %q", string(*customFieldType))
-		}
-
-		return &models.SDKObjectDefinition{
-			NestedItem:    nil,
-			ReferenceName: nil,
-			Type:          val,
-		}, nil
-	}
-
-	if objectDefinition != nil {
-		return mapInternalObjectDefinitionToDataAPISDKType(*objectDefinition)
-	}
-
-	return nil, fmt.Errorf("internal-error: expected either a CustomFieldType or ObjectDefinition but got neither")
 }
 
 func mapInternalOperationsToDataAPISDKType(input map[string]importerModels.OperationDetails) (*map[string]models.SDKOperation, error) {
@@ -172,24 +146,10 @@ func mapInternalOperationsToDataAPISDKType(input map[string]importerModels.Opera
 			LongRunning:                      value.LongRunning,
 			Method:                           value.Method,
 			Options:                          nil,
-			RequestObject:                    nil,
+			RequestObject:                    value.RequestObject,
 			ResourceIDName:                   value.ResourceIdName,
-			ResponseObject:                   nil,
+			ResponseObject:                   value.ResponseObject,
 			URISuffix:                        value.UriSuffix,
-		}
-		if value.RequestObject != nil {
-			obj, err := mapInternalObjectDefinitionToDataAPISDKType(*value.RequestObject)
-			if err != nil {
-				return nil, fmt.Errorf("mapping RequestObject for Operation %q: %+v", key, err)
-			}
-			operation.RequestObject = obj
-		}
-		if value.ResponseObject != nil {
-			obj, err := mapInternalObjectDefinitionToDataAPISDKType(*value.ResponseObject)
-			if err != nil {
-				return nil, fmt.Errorf("mapping ResponseObject for Operation %q: %+v", key, err)
-			}
-			operation.ResponseObject = obj
 		}
 
 		operation.Options = map[string]models.SDKOperationOption{}
@@ -205,29 +165,6 @@ func mapInternalOperationsToDataAPISDKType(input map[string]importerModels.Opera
 	}
 
 	return &output, nil
-}
-
-func mapInternalObjectDefinitionToDataAPISDKType(input importerModels.ObjectDefinition) (*models.SDKObjectDefinition, error) {
-	var ok bool
-	out := models.SDKObjectDefinition{}
-
-	if out.Type, ok = objectDefinitionToSDKTypes[input.Type]; !ok {
-		return nil, fmt.Errorf("internal-error: missing mapping for ObjectDefinition %q", string(input.Type))
-	}
-
-	if input.ReferenceName != nil {
-		out.ReferenceName = input.ReferenceName
-	}
-
-	if input.NestedItem != nil {
-		mapped, err := mapInternalObjectDefinitionToDataAPISDKType(*input.NestedItem)
-		if err != nil {
-			return nil, fmt.Errorf("mapping Nested Object: %+v", err)
-		}
-		out.NestedItem = mapped
-	}
-
-	return &out, nil
 }
 
 func mapTerraformResourceDefinitionToSDKType(input resourcemanager.TerraformResourceDetails) (*models.TerraformResourceDefinition, error) {
@@ -471,38 +408,6 @@ func mapTerraformMethodDefinitionToSDKType(input resourcemanager.MethodDefinitio
 		SDKOperationName: input.MethodName,
 		TimeoutInMinutes: input.TimeoutInMinutes,
 	}
-}
-
-var customFieldTypesToSDKTypes = map[importerModels.CustomFieldType]models.SDKObjectDefinitionType{
-	importerModels.CustomFieldTypeEdgeZone:                                models.EdgeZoneSDKObjectDefinitionType,
-	importerModels.CustomFieldTypeLocation:                                models.LocationSDKObjectDefinitionType,
-	importerModels.CustomFieldTypeSystemAssignedIdentity:                  models.SystemAssignedIdentitySDKObjectDefinitionType,
-	importerModels.CustomFieldTypeSystemAndUserAssignedIdentityList:       models.SystemAndUserAssignedIdentityListSDKObjectDefinitionType,
-	importerModels.CustomFieldTypeSystemAndUserAssignedIdentityMap:        models.SystemAndUserAssignedIdentityMapSDKObjectDefinitionType,
-	importerModels.CustomFieldTypeLegacySystemAndUserAssignedIdentityList: models.LegacySystemAndUserAssignedIdentityListSDKObjectDefinitionType,
-	importerModels.CustomFieldTypeLegacySystemAndUserAssignedIdentityMap:  models.LegacySystemAndUserAssignedIdentityMapSDKObjectDefinitionType,
-	importerModels.CustomFieldTypeSystemOrUserAssignedIdentityList:        models.SystemOrUserAssignedIdentityListSDKObjectDefinitionType,
-	importerModels.CustomFieldTypeSystemOrUserAssignedIdentityMap:         models.SystemOrUserAssignedIdentityMapSDKObjectDefinitionType,
-	importerModels.CustomFieldTypeUserAssignedIdentityList:                models.UserAssignedIdentityListSDKObjectDefinitionType,
-	importerModels.CustomFieldTypeUserAssignedIdentityMap:                 models.UserAssignedIdentityMapSDKObjectDefinitionType,
-	importerModels.CustomFieldTypeTags:                                    models.TagsSDKObjectDefinitionType,
-	importerModels.CustomFieldTypeSystemData:                              models.SystemDataSDKObjectDefinitionType,
-	importerModels.CustomFieldTypeZone:                                    models.ZoneTerraformSchemaObjectDefinitionType,
-	importerModels.CustomFieldTypeZones:                                   models.ZonesTerraformSchemaObjectDefinitionType,
-}
-
-var objectDefinitionToSDKTypes = map[importerModels.ObjectDefinitionType]models.SDKObjectDefinitionType{
-	importerModels.ObjectDefinitionBoolean:    models.BooleanSDKObjectDefinitionType,
-	importerModels.ObjectDefinitionCsv:        models.CSVSDKObjectDefinitionType,
-	importerModels.ObjectDefinitionDateTime:   models.DateTimeSDKObjectDefinitionType,
-	importerModels.ObjectDefinitionDictionary: models.DictionarySDKObjectDefinitionType,
-	importerModels.ObjectDefinitionInteger:    models.IntegerSDKObjectDefinitionType,
-	importerModels.ObjectDefinitionFloat:      models.FloatSDKObjectDefinitionType,
-	importerModels.ObjectDefinitionList:       models.ListSDKObjectDefinitionType,
-	importerModels.ObjectDefinitionRawFile:    models.RawFileSDKObjectDefinitionType,
-	importerModels.ObjectDefinitionRawObject:  models.RawObjectSDKObjectDefinitionType,
-	importerModels.ObjectDefinitionReference:  models.ReferenceSDKObjectDefinitionType,
-	importerModels.ObjectDefinitionString:     models.StringSDKObjectDefinitionType,
 }
 
 var terraformObjectDefinitionToSDKType = map[resourcemanager.TerraformSchemaFieldType]models.TerraformSchemaFieldType{

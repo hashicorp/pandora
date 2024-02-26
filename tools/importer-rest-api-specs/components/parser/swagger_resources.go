@@ -8,7 +8,9 @@ import (
 	"strings"
 
 	"github.com/go-openapi/spec"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/commonschema"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/constants"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/resourceids"
@@ -89,7 +91,7 @@ func pullOutModelForListOperations(input map[string]importerModels.OperationDeta
 			return nil, fmt.Errorf("a List Operation must have a Response Object but it was nil")
 		}
 		objectDefinition := *operation.ResponseObject
-		if objectDefinition.Type != importerModels.ObjectDefinitionReference {
+		if objectDefinition.Type != models.ReferenceSDKObjectDefinitionType {
 			return nil, fmt.Errorf("TODO: add support for %q - list operations only support references at this time", string(objectDefinition.Type))
 		}
 		if objectDefinition.ReferenceName == nil {
@@ -113,12 +115,8 @@ func pullOutModelForListOperations(input map[string]importerModels.OperationDeta
 			}
 
 			if strings.EqualFold(k, "Value") {
-				if v.ObjectDefinition == nil {
-					return nil, fmt.Errorf("parsing model %q for list operation to find real model: missing object definition for field 'value'", modelName)
-				}
-
 				// switch out the reference
-				definition := topLevelObjectDefinition(*v.ObjectDefinition)
+				definition := helpers.InnerMostSDKObjectDefinition(v.ObjectDefinition)
 				operation.ResponseObject = &definition
 
 				continue
@@ -140,16 +138,15 @@ func switchOutCustomTypesAsNeeded(input internal.ParseResult) internal.ParseResu
 
 	for modelName, model := range result.Models {
 		fields := model.Fields
-		for fieldName, field := range model.Fields {
-			if field.CustomFieldType != nil || field.ObjectDefinition == nil {
-				continue
-			}
+		for fieldName := range model.Fields {
+			field := model.Fields[fieldName]
 
-			// work out if this is a custom type now that we have all of the models/constants
-			customFieldType := determineCustomFieldType(field, *field.ObjectDefinition, result)
-			if customFieldType != nil {
-				field.CustomFieldType = customFieldType
-				field.ObjectDefinition = nil
+			// switch out the Object Definition for this field if needed
+			for _, matcher := range commonschema.CustomFieldMatchers {
+				if matcher.IsMatch(field, field.ObjectDefinition, result) {
+					field.ObjectDefinition = matcher.ReplacementObjectDefinition()
+					break
+				}
 			}
 
 			fields[fieldName] = field
@@ -260,8 +257,8 @@ func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations map[
 
 	for _, operation := range operations {
 		if operation.RequestObject != nil {
-			topLevelRef := topLevelObjectDefinition(*operation.RequestObject)
-			if topLevelRef.Type == importerModels.ObjectDefinitionReference {
+			topLevelRef := helpers.InnerMostSDKObjectDefinition(*operation.RequestObject)
+			if topLevelRef.Type == models.ReferenceSDKObjectDefinitionType {
 				isKnownConstant, isKnownModel := isObjectKnown(*topLevelRef.ReferenceName, known)
 				if !isKnownConstant && !isKnownModel {
 					referencesToFind[*topLevelRef.ReferenceName] = struct{}{}
@@ -282,8 +279,8 @@ func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations map[
 		}
 
 		if operation.ResponseObject != nil {
-			topLevelRef := topLevelObjectDefinition(*operation.ResponseObject)
-			if topLevelRef.Type == importerModels.ObjectDefinitionReference {
+			topLevelRef := helpers.InnerMostSDKObjectDefinition(*operation.ResponseObject)
+			if topLevelRef.Type == models.ReferenceSDKObjectDefinitionType {
 				isKnownConstant, isKnownModel := isObjectKnown(*topLevelRef.ReferenceName, known)
 				if !isKnownConstant && !isKnownModel {
 					referencesToFind[*topLevelRef.ReferenceName] = struct{}{}
@@ -347,11 +344,7 @@ func (d *SwaggerDefinition) objectsUsedByModel(modelName string, model importerM
 	typeNames := make(map[string]struct{}, 0)
 
 	for _, field := range model.Fields {
-		if field.ObjectDefinition == nil {
-			continue
-		}
-
-		definition := topLevelObjectDefinition(*field.ObjectDefinition)
+		definition := helpers.InnerMostSDKObjectDefinition(field.ObjectDefinition)
 		if definition.ReferenceName != nil {
 			typeNames[*definition.ReferenceName] = struct{}{}
 		}

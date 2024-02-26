@@ -190,8 +190,8 @@ func (b Builder) removeUnusedModelToModelMappings(input resourcemanager.MappingD
 		if !ok {
 			return nil, fmt.Errorf("field %q was not found in SDK Model %q", mapping.ModelToModel.SdkFieldName, mapping.ModelToModel.SdkModelName)
 		}
-		objectDefinition := topLevelObjectDefinition(sdkField.ObjectDefinition)
-		if objectDefinition.Type != resourcemanager.ReferenceApiObjectDefinitionType {
+		objectDefinition := helpers.InnerMostSDKObjectDefinition(sdkField.ObjectDefinition)
+		if objectDefinition.Type != models.ReferenceSDKObjectDefinitionType {
 			// nothing to do here, move along now.
 			output.Fields = append(output.Fields, mapping)
 			continue
@@ -374,7 +374,7 @@ func (b Builder) findCreateUpdateReadPayloads(input resourcemanager.TerraformRes
 	if !ok {
 		return nil, nil
 	}
-	if createOperation.RequestObject == nil || createOperation.RequestObject.Type != resourcemanager.ReferenceApiObjectDefinitionType || createOperation.RequestObject.ReferenceName == nil {
+	if createOperation.RequestObject == nil || createOperation.RequestObject.Type != models.ReferenceSDKObjectDefinitionType || createOperation.RequestObject.ReferenceName == nil {
 		// we don't generate resources for operations returning lists etc, debatable if we should
 		return nil, nil
 	}
@@ -395,7 +395,7 @@ func (b Builder) findCreateUpdateReadPayloads(input resourcemanager.TerraformRes
 	if !ok {
 		return nil, nil
 	}
-	if readOperation.ResponseObject == nil || readOperation.ResponseObject.Type != resourcemanager.ReferenceApiObjectDefinitionType || readOperation.ResponseObject.ReferenceName == nil {
+	if readOperation.ResponseObject == nil || readOperation.ResponseObject.Type != models.ReferenceSDKObjectDefinitionType || readOperation.ResponseObject.ReferenceName == nil {
 		// we don't generate resources for operations returning lists etc, debatable if we should
 		return nil, nil
 	}
@@ -418,7 +418,7 @@ func (b Builder) findCreateUpdateReadPayloads(input resourcemanager.TerraformRes
 		if !ok {
 			return nil, nil
 		}
-		if updateOperation.RequestObject == nil || updateOperation.RequestObject.Type != resourcemanager.ReferenceApiObjectDefinitionType || updateOperation.RequestObject.ReferenceName == nil {
+		if updateOperation.RequestObject == nil || updateOperation.RequestObject.Type != models.ReferenceSDKObjectDefinitionType || updateOperation.RequestObject.ReferenceName == nil {
 			// we don't generate resources for operations returning lists etc, debatable if we should
 			return nil, nil
 		}
@@ -492,7 +492,7 @@ func (b Builder) buildNestedModelDefinition(schemaModelName, topLevelModelName, 
 func (b Builder) identifyModelsWithinField(field resourcemanager.FieldDetails, knownModels map[string]resourcemanager.ModelDetails, logger hclog.Logger) (*map[string]resourcemanager.ModelDetails, error) {
 	out := make(map[string]resourcemanager.ModelDetails, 0)
 
-	objectDefinition := topLevelObjectDefinition(field.ObjectDefinition)
+	objectDefinition := helpers.InnerMostSDKObjectDefinition(field.ObjectDefinition)
 	if objectDefinition.ReferenceName != nil {
 		// we need to identify both this model and any models nested within it
 		allModels := make(map[string]resourcemanager.ModelDetails)
@@ -542,25 +542,18 @@ func (b Builder) identifyModelsWithinField(field resourcemanager.FieldDetails, k
 	return &out, nil
 }
 
-func objectDefinitionShouldBeSkipped(input resourcemanager.ApiObjectDefinitionType) bool {
-	toSkip := map[resourcemanager.ApiObjectDefinitionType]struct{}{
-		resourcemanager.RawFileApiObjectDefinitionType:   {},
-		resourcemanager.RawObjectApiObjectDefinitionType: {},
-		resourcemanager.SystemData:                       {},
+func objectDefinitionShouldBeSkipped(input models.SDKObjectDefinitionType) bool {
+	toSkip := map[models.SDKObjectDefinitionType]struct{}{
+		models.RawFileSDKObjectDefinitionType:    {},
+		models.RawObjectSDKObjectDefinitionType:  {},
+		models.SystemDataSDKObjectDefinitionType: {},
 	}
 	_, ok := toSkip[input]
 	return ok
 }
 
-func topLevelObjectDefinition(input resourcemanager.ApiObjectDefinition) resourcemanager.ApiObjectDefinition {
-	if input.NestedItem != nil {
-		return topLevelObjectDefinition(*input.NestedItem)
-	}
-
-	return input
-}
-
 func topLevelFieldObjectDefinition(input resourcemanager.TerraformSchemaFieldObjectDefinition) resourcemanager.TerraformSchemaFieldObjectDefinition {
+	// TODO: this should be moved into the data-api-sdk/v1/helpers package
 	if input.NestedObject != nil {
 		return topLevelFieldObjectDefinition(*input.NestedObject)
 	}

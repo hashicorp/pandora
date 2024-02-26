@@ -7,6 +7,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
@@ -31,14 +32,16 @@ func TestParseModel_CommonSchema_IdentityLegacySystemAndUserAssignedList(t *test
 					"Model": {
 						Fields: map[string]importerModels.FieldDetails{
 							"Identity": {
-								JsonName:        "identity",
-								CustomFieldType: pointer.To(importerModels.CustomFieldTypeLegacySystemAndUserAssignedIdentityList),
-								Required:        false,
+								JsonName: "identity",
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.LegacySystemAndUserAssignedIdentityListSDKObjectDefinitionType,
+								},
+								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -51,9 +54,9 @@ func TestParseModel_CommonSchema_IdentityLegacySystemAndUserAssignedList(t *test
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Resource_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -79,14 +82,16 @@ func TestParseModel_CommonSchema_IdentityLegacySystemAndUserAssignedMap(t *testi
 					"Model": {
 						Fields: map[string]importerModels.FieldDetails{
 							"Identity": {
-								JsonName:        "identity",
-								CustomFieldType: pointer.To(importerModels.CustomFieldTypeLegacySystemAndUserAssignedIdentityMap),
-								Required:        false,
+								JsonName: "identity",
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.LegacySystemAndUserAssignedIdentityMapSDKObjectDefinitionType,
+								},
+								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -99,9 +104,9 @@ func TestParseModel_CommonSchema_IdentityLegacySystemAndUserAssignedMap(t *testi
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Resource_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -129,14 +134,16 @@ func TestParseModel_CommonSchema_IdentityLegacySystemAndUserAssignedMap_ExtraFie
 					"Model": {
 						Fields: map[string]importerModels.FieldDetails{
 							"Identity": {
-								JsonName:        "identity",
-								CustomFieldType: pointer.To(importerModels.CustomFieldTypeLegacySystemAndUserAssignedIdentityMap),
-								Required:        false,
+								JsonName: "identity",
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.LegacySystemAndUserAssignedIdentityMapSDKObjectDefinitionType,
+								},
+								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -149,9 +156,9 @@ func TestParseModel_CommonSchema_IdentityLegacySystemAndUserAssignedMap_ExtraFie
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Resource_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -177,14 +184,16 @@ func TestParseModel_CommonSchema_IdentityLegacySystemAndUserAssignedMap_GenericD
 					"Model": {
 						Fields: map[string]importerModels.FieldDetails{
 							"Identity": {
-								JsonName:        "identity",
-								CustomFieldType: pointer.To(importerModels.CustomFieldTypeLegacySystemAndUserAssignedIdentityMap),
-								Required:        false,
+								JsonName: "identity",
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.LegacySystemAndUserAssignedIdentityMapSDKObjectDefinitionType,
+								},
+								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -197,9 +206,9 @@ func TestParseModel_CommonSchema_IdentityLegacySystemAndUserAssignedMap_GenericD
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Resource_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -225,14 +234,16 @@ func TestParseModel_CommonSchema_IdentitySystemAssigned(t *testing.T) {
 					"Model": {
 						Fields: map[string]importerModels.FieldDetails{
 							"Identity": {
-								JsonName:        "identity",
-								CustomFieldType: pointer.To(importerModels.CustomFieldTypeSystemAssignedIdentity),
-								Required:        false,
+								JsonName: "identity",
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.SystemAssignedIdentitySDKObjectDefinitionType,
+								},
+								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -245,9 +256,9 @@ func TestParseModel_CommonSchema_IdentitySystemAssigned(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Resource_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -273,14 +284,16 @@ func TestParseModel_CommonSchema_IdentitySystemAndUserAssignedList(t *testing.T)
 					"Model": {
 						Fields: map[string]importerModels.FieldDetails{
 							"Identity": {
-								JsonName:        "identity",
-								CustomFieldType: pointer.To(importerModels.CustomFieldTypeSystemAndUserAssignedIdentityList),
-								Required:        false,
+								JsonName: "identity",
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.SystemAndUserAssignedIdentityListSDKObjectDefinitionType,
+								},
+								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -293,9 +306,9 @@ func TestParseModel_CommonSchema_IdentitySystemAndUserAssignedList(t *testing.T)
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Resource_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -321,14 +334,16 @@ func TestParseModel_CommonSchema_IdentitySystemAndUserAssignedMap(t *testing.T) 
 					"Model": {
 						Fields: map[string]importerModels.FieldDetails{
 							"Identity": {
-								JsonName:        "identity",
-								CustomFieldType: pointer.To(importerModels.CustomFieldTypeSystemAndUserAssignedIdentityMap),
-								Required:        false,
+								JsonName: "identity",
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.SystemAndUserAssignedIdentityMapSDKObjectDefinitionType,
+								},
+								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -341,9 +356,9 @@ func TestParseModel_CommonSchema_IdentitySystemAndUserAssignedMap(t *testing.T) 
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Resource_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -371,14 +386,16 @@ func TestParseModel_CommonSchema_IdentitySystemAndUserAssignedMap_ExtraFields(t 
 					"Model": {
 						Fields: map[string]importerModels.FieldDetails{
 							"Identity": {
-								JsonName:        "identity",
-								CustomFieldType: pointer.To(importerModels.CustomFieldTypeSystemAndUserAssignedIdentityMap),
-								Required:        false,
+								JsonName: "identity",
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.SystemAndUserAssignedIdentityMapSDKObjectDefinitionType,
+								},
+								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -391,9 +408,9 @@ func TestParseModel_CommonSchema_IdentitySystemAndUserAssignedMap_ExtraFields(t 
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Resource_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -419,14 +436,16 @@ func TestParseModel_CommonSchema_IdentitySystemOrUserAssignedList(t *testing.T) 
 					"Model": {
 						Fields: map[string]importerModels.FieldDetails{
 							"Identity": {
-								JsonName:        "identity",
-								CustomFieldType: pointer.To(importerModels.CustomFieldTypeSystemOrUserAssignedIdentityList),
-								Required:        false,
+								JsonName: "identity",
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.SystemOrUserAssignedIdentityListSDKObjectDefinitionType,
+								},
+								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -439,9 +458,9 @@ func TestParseModel_CommonSchema_IdentitySystemOrUserAssignedList(t *testing.T) 
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Resource_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -467,14 +486,16 @@ func TestParseModel_CommonSchema_IdentitySystemOrUserAssignedMap(t *testing.T) {
 					"Model": {
 						Fields: map[string]importerModels.FieldDetails{
 							"Identity": {
-								JsonName:        "identity",
-								CustomFieldType: pointer.To(importerModels.CustomFieldTypeSystemOrUserAssignedIdentityMap),
-								Required:        false,
+								JsonName: "identity",
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.SystemOrUserAssignedIdentityMapSDKObjectDefinitionType,
+								},
+								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -487,9 +508,9 @@ func TestParseModel_CommonSchema_IdentitySystemOrUserAssignedMap(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Resource_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -517,14 +538,16 @@ func TestParseModel_CommonSchema_IdentitySystemOrUserAssignedMap_DelegatedResour
 					"Model": {
 						Fields: map[string]importerModels.FieldDetails{
 							"Identity": {
-								JsonName:        "identity",
-								CustomFieldType: pointer.To(importerModels.CustomFieldTypeSystemOrUserAssignedIdentityMap),
-								Required:        false,
+								JsonName: "identity",
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.SystemOrUserAssignedIdentityMapSDKObjectDefinitionType,
+								},
+								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -537,9 +560,9 @@ func TestParseModel_CommonSchema_IdentitySystemOrUserAssignedMap_DelegatedResour
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Resource_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -567,14 +590,16 @@ func TestParseModel_CommonSchema_IdentitySystemOrUserAssignedMap_ExtraFields(t *
 					"Model": {
 						Fields: map[string]importerModels.FieldDetails{
 							"Identity": {
-								JsonName:        "identity",
-								CustomFieldType: pointer.To(importerModels.CustomFieldTypeSystemOrUserAssignedIdentityMap),
-								Required:        false,
+								JsonName: "identity",
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.SystemOrUserAssignedIdentityMapSDKObjectDefinitionType,
+								},
+								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -587,9 +612,9 @@ func TestParseModel_CommonSchema_IdentitySystemOrUserAssignedMap_ExtraFields(t *
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Resource_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -615,14 +640,16 @@ func TestParseModel_CommonSchema_IdentityUserAssignedList(t *testing.T) {
 					"Model": {
 						Fields: map[string]importerModels.FieldDetails{
 							"Identity": {
-								JsonName:        "identity",
-								CustomFieldType: pointer.To(importerModels.CustomFieldTypeUserAssignedIdentityList),
-								Required:        false,
+								JsonName: "identity",
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.UserAssignedIdentityListSDKObjectDefinitionType,
+								},
+								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -635,9 +662,9 @@ func TestParseModel_CommonSchema_IdentityUserAssignedList(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Resource_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -663,14 +690,16 @@ func TestParseModel_CommonSchema_IdentityUserAssignedMap(t *testing.T) {
 					"Model": {
 						Fields: map[string]importerModels.FieldDetails{
 							"Identity": {
-								JsonName:        "identity",
-								CustomFieldType: pointer.To(importerModels.CustomFieldTypeUserAssignedIdentityMap),
-								Required:        false,
+								JsonName: "identity",
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.UserAssignedIdentityMapSDKObjectDefinitionType,
+								},
+								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -683,9 +712,9 @@ func TestParseModel_CommonSchema_IdentityUserAssignedMap(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Resource_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -711,14 +740,16 @@ func TestParseModel_CommonSchema_IdentityUserAssignedMap_PrincipalID(t *testing.
 					"Model": {
 						Fields: map[string]importerModels.FieldDetails{
 							"Identity": {
-								JsonName:        "identity",
-								CustomFieldType: pointer.To(importerModels.CustomFieldTypeUserAssignedIdentityMap),
-								Required:        false,
+								JsonName: "identity",
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.UserAssignedIdentityMapSDKObjectDefinitionType,
+								},
+								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -731,9 +762,9 @@ func TestParseModel_CommonSchema_IdentityUserAssignedMap_PrincipalID(t *testing.
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Resource_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -759,14 +790,16 @@ func TestParseModel_CommonSchema_IdentityUserAssignedMap_TenantID(t *testing.T) 
 					"Model": {
 						Fields: map[string]importerModels.FieldDetails{
 							"Identity": {
-								JsonName:        "identity",
-								CustomFieldType: pointer.To(importerModels.CustomFieldTypeUserAssignedIdentityMap),
-								Required:        false,
+								JsonName: "identity",
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.UserAssignedIdentityMapSDKObjectDefinitionType,
+								},
+								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -779,9 +812,9 @@ func TestParseModel_CommonSchema_IdentityUserAssignedMap_TenantID(t *testing.T) 
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Resource_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -807,14 +840,16 @@ func TestParseModel_CommonSchema_Location(t *testing.T) {
 					"Model": {
 						Fields: map[string]importerModels.FieldDetails{
 							"Location": {
-								JsonName:        "location",
-								CustomFieldType: pointer.To(importerModels.CustomFieldTypeLocation),
-								Required:        false,
+								JsonName: "location",
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.LocationSDKObjectDefinitionType,
+								},
+								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -827,9 +862,9 @@ func TestParseModel_CommonSchema_Location(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Resource_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/example"),
 					},

@@ -5,11 +5,11 @@ package parser
 
 import (
 	"fmt"
-	"github.com/go-openapi/spec"
 	"net/http"
 	"sort"
 	"strings"
 
+	"github.com/go-openapi/spec"
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
@@ -421,7 +421,7 @@ func (p operationsParser) operationShouldBeIgnored(input importerModels.Operatio
 	return false
 }
 
-func (p operationsParser) requestObjectForOperation(input parsedOperation, known internal.ParseResult) (*importerModels.ObjectDefinition, *internal.ParseResult, error) {
+func (p operationsParser) requestObjectForOperation(input parsedOperation, known internal.ParseResult) (*models.SDKObjectDefinition, *internal.ParseResult, error) {
 	// all we should parse out is the top level object - nothing more.
 
 	// find the same operation in the unexpanded swagger spec since we need the reference name
@@ -447,7 +447,7 @@ func (p operationsParser) requestObjectForOperation(input parsedOperation, known
 }
 
 type operationResponseObjectResult struct {
-	objectDefinition    *importerModels.ObjectDefinition
+	objectDefinition    *models.SDKObjectDefinition
 	paginationFieldName *string
 }
 
@@ -479,7 +479,7 @@ func (p operationsParser) responseObjectForOperation(input parsedOperation, know
 
 	// since it's possible for operations to have multiple status codes, parse out all the objects and then find the most applicable
 	statusCodes := make([]int, 0)
-	objectDefinitionsByStatusCode := map[int]importerModels.ObjectDefinition{}
+	objectDefinitionsByStatusCode := map[int]models.SDKObjectDefinition{}
 	for statusCode, details := range unexpandedOperation.Responses.StatusCodeResponses {
 		if !p.operationIsASuccess(statusCode, details) {
 			continue

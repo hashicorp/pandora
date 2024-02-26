@@ -4,6 +4,7 @@
 package schema
 
 import (
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -49,14 +50,14 @@ func (p operationPayloads) createReadUpdatePayloadsProperties() []resourcemanage
 	return out
 }
 
-func (p operationPayloads) getPropertiesModelWithinModel(input resourcemanager.ModelDetails, models map[string]resourcemanager.ModelDetails) (*string, *resourcemanager.ModelDetails) {
+func (p operationPayloads) getPropertiesModelWithinModel(input resourcemanager.ModelDetails, sdkModels map[string]resourcemanager.ModelDetails) (*string, *resourcemanager.ModelDetails) {
 	if props, ok := getField(input, "Properties"); ok {
-		if props.ObjectDefinition.Type != resourcemanager.ReferenceApiObjectDefinitionType {
+		if props.ObjectDefinition.Type != models.ReferenceSDKObjectDefinitionType {
 			return nil, nil
 		}
 
 		modelName := *props.ObjectDefinition.ReferenceName
-		model, ok := models[modelName]
+		model, ok := sdkModels[modelName]
 		if !ok {
 			return nil, nil
 		}

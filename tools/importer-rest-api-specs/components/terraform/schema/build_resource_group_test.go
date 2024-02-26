@@ -21,30 +21,30 @@ func TestBuildForResourceGroupHappyPathAllModelsTheSame(t *testing.T) {
 				Fields: map[string]resourcemanager.FieldDetails{
 					"Name": {
 						JsonName: "name",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"Location": {
 						JsonName: "location",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.LocationApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.LocationSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"Properties": {
 						JsonName: "properties",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("ResourceGroupProperties"),
 						},
 						Optional: true,
 					},
 					"Tags": {
 						JsonName: "tags",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.TagsApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.TagsSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
@@ -54,8 +54,8 @@ func TestBuildForResourceGroupHappyPathAllModelsTheSame(t *testing.T) {
 				Fields: map[string]resourcemanager.FieldDetails{
 					"ProvisioningState": {
 						JsonName: "provisioningState",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						// Computed
 						Optional: false,
@@ -68,9 +68,9 @@ func TestBuildForResourceGroupHappyPathAllModelsTheSame(t *testing.T) {
 			"Create": {
 				LongRunning: false,
 				Method:      "PUT",
-				RequestObject: &resourcemanager.ApiObjectDefinition{
+				RequestObject: &models.SDKObjectDefinition{
 					ReferenceName: pointer.To("ResourceGroup"),
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					Type:          models.ReferenceSDKObjectDefinitionType,
 				},
 				ResourceIdName: pointer.To("ResourceGroupId"),
 			},
@@ -82,18 +82,18 @@ func TestBuildForResourceGroupHappyPathAllModelsTheSame(t *testing.T) {
 			"Get": {
 				LongRunning: false,
 				Method:      "GET",
-				ResponseObject: &resourcemanager.ApiObjectDefinition{
+				ResponseObject: &models.SDKObjectDefinition{
 					ReferenceName: pointer.To("ResourceGroup"),
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					Type:          models.ReferenceSDKObjectDefinitionType,
 				},
 				ResourceIdName: pointer.To("ResourceGroupId"),
 			},
 			"Update": {
 				LongRunning: false,
 				Method:      "PUT",
-				RequestObject: &resourcemanager.ApiObjectDefinition{
+				RequestObject: &models.SDKObjectDefinition{
 					ReferenceName: pointer.To("ResourceGroup"),
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					Type:          models.ReferenceSDKObjectDefinitionType,
 				},
 				ResourceIdName: pointer.To("ResourceGroupId"),
 			},
@@ -158,51 +158,51 @@ func TestBuildForResourceGroupUsingRealData(t *testing.T) {
 				Fields: map[string]resourcemanager.FieldDetails{
 					"Id": {
 						JsonName: "id",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"Location": {
 						JsonName: "location",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.LocationApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.LocationSDKObjectDefinitionType,
 						},
 						Required: true,
 					},
 					"ManagedBy": {
 						JsonName: "managedBy",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"Name": {
 						JsonName: "name",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"Properties": {
 						JsonName: "properties",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("ResourceGroupProperties"),
 						},
 						Optional: true,
 					},
 					"Tags": {
 						JsonName: "tags",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.TagsApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.TagsSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"Type": {
 						JsonName: "type",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
@@ -212,30 +212,30 @@ func TestBuildForResourceGroupUsingRealData(t *testing.T) {
 				Fields: map[string]resourcemanager.FieldDetails{
 					"ManagedBy": {
 						JsonName: "managedBy",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"Name": {
 						JsonName: "name",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"Properties": {
 						JsonName: "properties",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("ResourceGroupProperties"),
 						},
 						Optional: true,
 					},
 					"Tags": {
 						JsonName: "tags",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.TagsApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.TagsSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
@@ -245,8 +245,8 @@ func TestBuildForResourceGroupUsingRealData(t *testing.T) {
 				Fields: map[string]resourcemanager.FieldDetails{
 					"ProvisioningState": {
 						JsonName: "provisioningState",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
@@ -257,9 +257,9 @@ func TestBuildForResourceGroupUsingRealData(t *testing.T) {
 			"Create": {
 				LongRunning: false,
 				Method:      "PUT",
-				RequestObject: &resourcemanager.ApiObjectDefinition{
+				RequestObject: &models.SDKObjectDefinition{
 					ReferenceName: pointer.To("ResourceGroup"),
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					Type:          models.ReferenceSDKObjectDefinitionType,
 				},
 				ResourceIdName: pointer.To("ResourceGroupId"),
 			},
@@ -271,18 +271,18 @@ func TestBuildForResourceGroupUsingRealData(t *testing.T) {
 			"Get": {
 				LongRunning: false,
 				Method:      "GET",
-				ResponseObject: &resourcemanager.ApiObjectDefinition{
+				ResponseObject: &models.SDKObjectDefinition{
 					ReferenceName: pointer.To("ResourceGroup"),
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					Type:          models.ReferenceSDKObjectDefinitionType,
 				},
 				ResourceIdName: pointer.To("ResourceGroupId"),
 			},
 			"Update": {
 				LongRunning: false,
 				Method:      "PUT",
-				RequestObject: &resourcemanager.ApiObjectDefinition{
+				RequestObject: &models.SDKObjectDefinition{
 					ReferenceName: pointer.To("ResourceGroupPatchable"),
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					Type:          models.ReferenceSDKObjectDefinitionType,
 				},
 				ResourceIdName: pointer.To("ResourceGroupId"),
 			},

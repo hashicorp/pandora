@@ -39,9 +39,9 @@ func TestParseConstantsIntegersTopLevelAsInts(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("TableNumber"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -54,9 +54,9 @@ func TestParseConstantsIntegersTopLevelAsInts(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Example_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -95,9 +95,9 @@ func TestParseConstantsIntegersTopLevelAsIntsWithDisplayName(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("TableNumber"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -110,9 +110,9 @@ func TestParseConstantsIntegersTopLevelAsIntsWithDisplayName(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Example_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -150,9 +150,9 @@ func TestParseConstantsIntegersTopLevelAsStrings(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("TableNumber"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -165,9 +165,9 @@ func TestParseConstantsIntegersTopLevelAsStrings(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Example_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -205,9 +205,9 @@ func TestParseConstantsIntegersInlinedAsInts(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("TableNumber"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -220,9 +220,9 @@ func TestParseConstantsIntegersInlinedAsInts(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Example_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -261,9 +261,9 @@ func TestParseConstantsIntegersInlinedAsIntsWithDisplayName(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("TableNumber"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -276,9 +276,9 @@ func TestParseConstantsIntegersInlinedAsIntsWithDisplayName(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Example_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -316,9 +316,9 @@ func TestParseConstantsIntegersInlinedAsStrings(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("TableNumber"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -331,9 +331,9 @@ func TestParseConstantsIntegersInlinedAsStrings(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Example_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -371,9 +371,9 @@ func TestParseConstantsFloatsTopLevelAsFloats(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("TableNumber"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -386,9 +386,9 @@ func TestParseConstantsFloatsTopLevelAsFloats(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Example_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -426,9 +426,9 @@ func TestParseConstantsFloatsTopLevelAsStrings(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("TableNumber"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -441,9 +441,9 @@ func TestParseConstantsFloatsTopLevelAsStrings(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Example_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -481,9 +481,9 @@ func TestParseConstantsFloatsInlinedAsFloats(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("TableNumber"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -496,9 +496,9 @@ func TestParseConstantsFloatsInlinedAsFloats(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Example_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -536,9 +536,9 @@ func TestParseConstantsFloatsInlinedAsStrings(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("TableNumber"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -551,9 +551,9 @@ func TestParseConstantsFloatsInlinedAsStrings(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Example_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -591,9 +591,9 @@ func TestParseConstantsStringsTopLevel(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"Type": {
 								JsonName: "type",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("AnimalType"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -606,9 +606,9 @@ func TestParseConstantsStringsTopLevel(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Example_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -648,9 +648,9 @@ func TestParseConstantsStringsTopLevelAsNonStrings(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"Type": {
 								JsonName: "type",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("AnimalType"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -663,9 +663,9 @@ func TestParseConstantsStringsTopLevelAsNonStrings(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Example_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -702,9 +702,9 @@ func TestParseConstantsStringsInlined(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"Type": {
 								JsonName: "type",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("AnimalType"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -717,9 +717,9 @@ func TestParseConstantsStringsInlined(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Example_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -756,9 +756,9 @@ func TestParseConstantsStringsInlinedAsNonStrings(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"Type": {
 								JsonName: "type",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("AnimalType"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -771,9 +771,9 @@ func TestParseConstantsStringsInlinedAsNonStrings(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Example_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -811,9 +811,9 @@ func TestParseConstantsStringsTopLevelContainingFloats(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("TableNumber"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -826,9 +826,9 @@ func TestParseConstantsStringsTopLevelContainingFloats(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Example_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -866,9 +866,9 @@ func TestParseConstantsStringsInlinedContainingFloats(t *testing.T) {
 						Fields: map[string]importerModels.FieldDetails{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("TableNumber"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
@@ -881,9 +881,9 @@ func TestParseConstantsStringsInlinedContainingFloats(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Example_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						UriSuffix: pointer.To("/example"),
 					},

@@ -6,7 +6,7 @@ package dataworkarounds
 import (
 	"fmt"
 
-	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
@@ -54,12 +54,13 @@ func (w workaroundStreamAnalytics27577) Process(apiDefinition importerModels.Azu
 		}
 
 		// update the reference to be a System OR UserAssigned identity
-		field.CustomFieldType = pointer.To(importerModels.CustomFieldTypeSystemOrUserAssignedIdentityMap)
+		field.ObjectDefinition = models.SDKObjectDefinition{
+			Type: models.SystemOrUserAssignedIdentityMapSDKObjectDefinitionType,
+		}
 		if apiDefinition.ApiVersion == "2020-03-01" {
 			// however API version 2020-03-01 only supports SystemAssigned
-			field.CustomFieldType = pointer.To(importerModels.CustomFieldTypeSystemAssignedIdentity)
+			field.ObjectDefinition.Type = models.SystemAssignedIdentitySDKObjectDefinitionType
 		}
-		field.ObjectDefinition = nil
 
 		model.Fields["Identity"] = field
 		resource.Models["StreamingJob"] = model

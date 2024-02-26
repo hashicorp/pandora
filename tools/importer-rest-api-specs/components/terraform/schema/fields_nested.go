@@ -9,6 +9,7 @@ import (
 	"strings"
 
 	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/helpers"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
@@ -91,7 +92,7 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(schemaModelName string, inp
 			return nil, nil, err
 		}
 
-		var inputObjectDefinition resourcemanager.ApiObjectDefinition
+		var inputObjectDefinition models.SDKObjectDefinition
 		if hasRead {
 			inputObjectDefinition = readField.ObjectDefinition
 		} else if hasCreate {

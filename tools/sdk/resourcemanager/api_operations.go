@@ -53,14 +53,14 @@ type ApiOperation struct {
 	Method string `json:"method"`
 
 	// RequestObject defines the optional Object which must be specified in the Request
-	RequestObject *ApiObjectDefinition `json:"requestObject"`
+	RequestObject *models.SDKObjectDefinition `json:"requestObject"`
 
 	// ResourceIdName is the optional name of the Resource ID type used for this
 	// operation, used either on it's own or in conjunction with the `suffix`
 	ResourceIdName *string `json:"resourceIdName"`
 
 	// ResponseObject defines the optional Object which can be returned in the Response
-	ResponseObject *ApiObjectDefinition `json:"responseObject"`
+	ResponseObject *models.SDKObjectDefinition `json:"responseObject"`
 
 	// FieldContainingPaginationDetails is a reference to the field within the Response
 	// which contains the pagination details, that is a 'nextLink' or similar

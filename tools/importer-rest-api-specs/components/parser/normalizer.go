@@ -26,11 +26,7 @@ func normalizeAzureApiResource(input importerModels.AzureApiResource) importerMo
 		fields := make(map[string]importerModels.FieldDetails)
 		for fieldName, fieldVal := range v.Fields {
 			normalizedFieldName := cleanup.NormalizeName(fieldName)
-
-			if fieldVal.ObjectDefinition != nil {
-				fieldVal.ObjectDefinition = normalizeObjectDefinition(*fieldVal.ObjectDefinition)
-			}
-
+			fieldVal.ObjectDefinition = normalizeSDKObjectDefinition(fieldVal.ObjectDefinition)
 			fields[normalizedFieldName] = fieldVal
 		}
 		v.Fields = fields
@@ -57,11 +53,13 @@ func normalizeAzureApiResource(input importerModels.AzureApiResource) importerMo
 		}
 
 		if v.RequestObject != nil {
-			v.RequestObject = normalizeObjectDefinition(*v.RequestObject)
+			request := normalizeSDKObjectDefinition(*v.RequestObject)
+			v.RequestObject = pointer.To(request)
 		}
 
 		if v.ResponseObject != nil {
-			v.ResponseObject = normalizeObjectDefinition(*v.ResponseObject)
+			response := normalizeSDKObjectDefinition(*v.ResponseObject)
+			v.ResponseObject = pointer.To(response)
 		}
 
 		normalizedOptions := make(map[string]models.SDKOperationOption, 0)
@@ -112,17 +110,18 @@ func normalizeAzureApiResource(input importerModels.AzureApiResource) importerMo
 	}
 }
 
-func normalizeObjectDefinition(input importerModels.ObjectDefinition) *importerModels.ObjectDefinition {
+func normalizeSDKObjectDefinition(input models.SDKObjectDefinition) models.SDKObjectDefinition {
 	if input.ReferenceName != nil {
 		normalized := cleanup.NormalizeName(*input.ReferenceName)
 		input.ReferenceName = &normalized
 	}
 
 	if input.NestedItem != nil {
-		input.NestedItem = normalizeObjectDefinition(*input.NestedItem)
+		nested := normalizeSDKObjectDefinition(*input.NestedItem)
+		input.NestedItem = pointer.To(nested)
 	}
 
-	return &input
+	return input
 }
 
 func normalizeOptionsObjectDefinition(input models.SDKOperationOptionObjectDefinition) models.SDKOperationOptionObjectDefinition {

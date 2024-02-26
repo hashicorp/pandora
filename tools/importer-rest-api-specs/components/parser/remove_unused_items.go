@@ -6,6 +6,7 @@ package parser
 import (
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
@@ -63,11 +64,8 @@ func findUnusedConstants(operations map[string]importerModels.OperationDetails, 
 		usedInAModel := false
 		for _, model := range result.Models {
 			for _, field := range model.Fields {
-				if field.ObjectDefinition == nil {
-					continue
-				}
-				definition := topLevelObjectDefinition(*field.ObjectDefinition)
-				if definition.Type != importerModels.ObjectDefinitionReference {
+				definition := helpers.InnerMostSDKObjectDefinition(field.ObjectDefinition)
+				if definition.Type != models.ReferenceSDKObjectDefinitionType {
 					continue
 				}
 				if *definition.ReferenceName == constantName {
@@ -87,16 +85,16 @@ func findUnusedConstants(operations map[string]importerModels.OperationDetails, 
 		usedInAnOperation := false
 		for _, operation := range operations {
 			if operation.RequestObject != nil {
-				definition := topLevelObjectDefinition(*operation.RequestObject)
-				if definition.Type == importerModels.ObjectDefinitionReference && *definition.ReferenceName == constantName {
+				definition := helpers.InnerMostSDKObjectDefinition(*operation.RequestObject)
+				if definition.Type == models.ReferenceSDKObjectDefinitionType && *definition.ReferenceName == constantName {
 					usedInAnOperation = true
 					break
 				}
 			}
 
 			if operation.ResponseObject != nil {
-				definition := topLevelObjectDefinition(*operation.ResponseObject)
-				if definition.Type == importerModels.ObjectDefinitionReference && *definition.ReferenceName == constantName {
+				definition := helpers.InnerMostSDKObjectDefinition(*operation.ResponseObject)
+				if definition.Type == models.ReferenceSDKObjectDefinitionType && *definition.ReferenceName == constantName {
 					usedInAnOperation = true
 					break
 				}
@@ -164,16 +162,16 @@ func findUnusedModels(operations map[string]importerModels.OperationDetails, res
 		usedInAnOperation := false
 		for _, operation := range operations {
 			if operation.RequestObject != nil {
-				definition := topLevelObjectDefinition(*operation.RequestObject)
-				if definition.Type == importerModels.ObjectDefinitionReference && *definition.ReferenceName == modelName {
+				definition := helpers.InnerMostSDKObjectDefinition(*operation.RequestObject)
+				if definition.Type == models.ReferenceSDKObjectDefinitionType && *definition.ReferenceName == modelName {
 					usedInAnOperation = true
 					break
 				}
 			}
 
 			if operation.ResponseObject != nil {
-				definition := topLevelObjectDefinition(*operation.ResponseObject)
-				if definition.Type == importerModels.ObjectDefinitionReference && *definition.ReferenceName == modelName {
+				definition := helpers.InnerMostSDKObjectDefinition(*operation.ResponseObject)
+				if definition.Type == models.ReferenceSDKObjectDefinitionType && *definition.ReferenceName == modelName {
 					usedInAnOperation = true
 					break
 				}
@@ -203,12 +201,8 @@ func findUnusedModels(operations map[string]importerModels.OperationDetails, res
 			}
 
 			for _, field := range thisModel.Fields {
-				if field.ObjectDefinition == nil {
-					continue
-				}
-
-				definition := topLevelObjectDefinition(*field.ObjectDefinition)
-				if definition.Type != importerModels.ObjectDefinitionReference {
+				definition := helpers.InnerMostSDKObjectDefinition(field.ObjectDefinition)
+				if definition.Type != models.ReferenceSDKObjectDefinitionType {
 					continue
 				}
 				if *definition.ReferenceName == modelName {
