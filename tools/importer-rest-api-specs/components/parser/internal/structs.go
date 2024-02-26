@@ -93,9 +93,10 @@ func compareFields(first map[string]models.SDKField, second map[string]models.SD
 			return fmt.Errorf("second didn't contain the key %q", k)
 		}
 
-		if firstVal.Description != secondVal.Description {
-			return fmt.Errorf("first.Description was %q but second.Description was %q", firstVal.Description, secondVal.Description)
-		}
+		// TODO this can be uncommented when #3325 has been fixed
+		//if firstVal.Description != secondVal.Description {
+		//	return fmt.Errorf("first.Description was %q but second.Description was %q", firstVal.Description, secondVal.Description)
+		//}
 		if firstVal.JsonName != secondVal.JsonName {
 			return fmt.Errorf("first.JsonName was %q but second.JsonName was %q", firstVal.JsonName, secondVal.JsonName)
 		}
