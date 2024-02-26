@@ -37,7 +37,7 @@ var commonIdTypes = []commonIdMatcher{
 	commonIdCloudServicesPublicIPAddress{},
 	commonIdExpressRouteCircuitPeering{},
 	commonIdNetworkInterfaceIPConfiguration{},
-	commonIdP2sVPNGateway{},
+	//commonIdP2sVPNGateway{},
 	commonIdVirtualHubBGPConnection{},
 	commonIdVirtualHubIPConfiguration{},
 	commonIdVirtualMachineScaleSetIPConfiguration{},
