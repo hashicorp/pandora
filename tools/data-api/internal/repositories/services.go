@@ -969,7 +969,17 @@ func parseResourceIdFromFilePath(filePath string, constants map[string]ConstantD
 			if s.ConstantReference == nil {
 				return nil, fmt.Errorf("constant segment has no constant reference")
 			}
-			s.ExampleValue = "example"
+
+			constant, ok := constants[*s.ConstantReference]
+			if !ok {
+				return nil, fmt.Errorf("no constant definition found for constant segment reference %q", *s.ConstantReference)
+			}
+			constantValues := make([]string, 0)
+			for _, v := range constant.Values {
+				constantValues = append(constantValues, v)
+			}
+			sort.Strings(constantValues)
+			s.ExampleValue = constantValues[0]
 
 			constantNames = append(constantNames, *s.ConstantReference)
 		case ResourceGroupResourceIdSegmentType:
