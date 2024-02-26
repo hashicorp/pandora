@@ -83,6 +83,10 @@ type listOperationDetails struct {
 }
 
 func listOperationDetailsForOperation(input models.SDKOperation, known internal.ParseResult) *listOperationDetails {
+	if input.Method != "GET" {
+		return nil
+	}
+
 	// an operation without a response object isn't going to be listable
 	if input.ResponseObject == nil {
 		return nil
@@ -101,6 +105,7 @@ func listOperationDetailsForOperation(input models.SDKOperation, known internal.
 		for fieldName, v := range responseModel.Fields {
 			if strings.EqualFold(fieldName, "nextLink") {
 				out.fieldContainingPaginationDetails = pointer.To(fieldName)
+				continue
 			}
 
 			if strings.EqualFold(fieldName, "Value") {
@@ -108,6 +113,7 @@ func listOperationDetailsForOperation(input models.SDKOperation, known internal.
 				// the wrapper type
 				definition := helpers.InnerMostSDKObjectDefinition(v.ObjectDefinition)
 				out.valueObjectDefinition = pointer.To(definition)
+				continue
 			}
 		}
 		if out.fieldContainingPaginationDetails != nil && out.valueObjectDefinition != nil {
