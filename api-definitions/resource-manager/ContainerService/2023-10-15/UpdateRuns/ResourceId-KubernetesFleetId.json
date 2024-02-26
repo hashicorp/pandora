@@ -1,7 +1,7 @@
 {
-  "name": "VirtualWANP2SVPNGatewayId",
-  "commonAlias": "VirtualWANP2SVPNGateway",
-  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/p2sVpnGateways/{p2sVpnGatewayName}",
+  "name": "KubernetesFleetId",
+  "commonAlias": "KubernetesFleet",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}",
   "segments": [
     {
       "name": "subscriptions",
@@ -29,15 +29,15 @@
     {
       "name": "resourceProvider",
       "type": "ResourceProvider",
-      "value": "Microsoft.Network"
+      "value": "Microsoft.ContainerService"
     },
     {
-      "name": "p2sVpnGateways",
+      "name": "fleets",
       "type": "Static",
-      "value": "p2sVpnGateways"
+      "value": "fleets"
     },
     {
-      "name": "p2sVpnGatewayName",
+      "name": "fleetName",
       "type": "UserSpecified"
     }
   ]

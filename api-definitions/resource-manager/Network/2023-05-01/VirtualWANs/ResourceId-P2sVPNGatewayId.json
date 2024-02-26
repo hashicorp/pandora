@@ -1,9 +1,10 @@
 {
-  "name": "FleetId",
-  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}",
+  "name": "P2sVPNGatewayId",
+  "commonAlias": "P2sVPNGateway",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/p2sVpnGateways/{gatewayName}",
   "segments": [
     {
-      "name": "staticSubscriptions",
+      "name": "subscriptions",
       "type": "Static",
       "value": "subscriptions"
     },
@@ -12,7 +13,7 @@
       "type": "SubscriptionId"
     },
     {
-      "name": "staticResourceGroups",
+      "name": "resourceGroups",
       "type": "Static",
       "value": "resourceGroups"
     },
@@ -21,22 +22,22 @@
       "type": "ResourceGroup"
     },
     {
-      "name": "staticProviders",
+      "name": "providers",
       "type": "Static",
       "value": "providers"
     },
     {
-      "name": "staticMicrosoftContainerService",
+      "name": "resourceProvider",
       "type": "ResourceProvider",
-      "value": "Microsoft.ContainerService"
+      "value": "Microsoft.Network"
     },
     {
-      "name": "staticFleets",
+      "name": "p2sVpnGateways",
       "type": "Static",
-      "value": "fleets"
+      "value": "p2sVpnGateways"
     },
     {
-      "name": "fleetName",
+      "name": "p2sVpnGatewayName",
       "type": "UserSpecified"
     }
   ]
