@@ -5,6 +5,7 @@ package dataworkarounds
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
@@ -51,6 +52,7 @@ func (workaroundInconsistentlyDefinedSegments) Process(apiDefinition importerMod
 				segments = append(segments, val)
 			}
 			id.Segments = segments
+			id.ExampleValue = helpers.DisplayValueForResourceID(id)
 			ids[key] = id
 		}
 		resource.ResourceIds = ids

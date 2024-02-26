@@ -42,6 +42,7 @@ func (p *Parser) distinctResourceIds(input map[string]processedResourceId) ([]mo
 		for _, existing := range out {
 			if ResourceIdsMatch(item, existing) {
 				matchFound = true
+				break
 			}
 		}
 		if !matchFound {
