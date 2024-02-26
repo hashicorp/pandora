@@ -34,6 +34,9 @@ type ModelField struct {
 	// DateFormat specifies the date format that this field should use
 	DateFormat *DateFormat `json:"dateFormat,omitempty"`
 
+	// Description contains the description for this field
+	Description *string `json:"description,omitempty"`
+
 	// JsonName contains the Name following JSON casing convention
 	JsonName string `json:"jsonName"`
 
@@ -47,10 +50,11 @@ type ModelField struct {
 	// Required or Optional, but not both.
 	Optional bool `json:"optional"`
 
+	// ReadOnly specifies that this field is ReadOnly - meaning it cannot be sent to the API
+	// and has a read-only value.
+	ReadOnly bool `json:"readOnly"`
+
 	// Required specifies that this field is Required - since a field can either be
 	// Required or Optional, but not both.
 	Required bool `json:"required"`
-
-	// Description contains the description for this field
-	Description string `json:"description"`
 }
