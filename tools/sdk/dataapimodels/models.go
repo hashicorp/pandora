@@ -57,4 +57,7 @@ type ModelField struct {
 	// Required specifies that this field is Required - since a field can either be
 	// Required or Optional, but not both.
 	Required bool `json:"required"`
+
+	// Sensitive specifies that this field contains a Sensitive value (such as a password or an API Key).
+	Sensitive bool `json:"sensitive"`
 }
