@@ -72,6 +72,7 @@ var commonIdTypes = []commonIdMatcher{
 	commonIdDedicatedHostGroup{},
 	commonIdDiskEncryptionSet{},
 	commonIdManagedDisk{},
+	commonIdSharedImageGallery{},
 
 	// HDInsight
 	commonIdHDInsightCluster{},
@@ -83,6 +84,7 @@ var commonIdTypes = []commonIdMatcher{
 	commonIdKeyVaultPrivateEndpointConnection{},
 
 	// Kubernetes
+	commonIdKubernetesCluster{},
 	commonIdKubernetesFleet{},
 
 	// SQL
@@ -103,12 +105,6 @@ var commonIdTypes = []commonIdMatcher{
 	commonIdAppService{},
 	commonIdAppServiceEnvironment{},
 	commonIdAppServicePlan{},
-
-	// Parent IDs
-	commonIdKubernetesCluster{},
-
-	// Shared Image Gallery
-	commonIdSharedImageGallery{},
 }
 
 func switchOutCommonResourceIDsAsNeeded(input []models.ResourceID) []models.ResourceID {
