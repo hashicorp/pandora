@@ -141,9 +141,10 @@ func (d *SwaggerDefinition) detailsForField(modelName string, propertyName strin
 	result.Append(known)
 
 	field := importerModels.FieldDetails{
-		Required:    isRequired,
-		ReadOnly:    value.ReadOnly, // TODO: generator should handle this in some manner?
-		Sensitive:   false,          // todo: this probably needs to be a predefined list, unless there's something we can parse
+		Required: isRequired,
+		// TODO: re-enable readonly/sensitive
+		//ReadOnly:    value.ReadOnly,
+		//Sensitive:   false,          // todo: this probably needs to be a predefined list, unless there's something we can parse
 		JsonName:    propertyName,
 		Description: value.Description,
 	}

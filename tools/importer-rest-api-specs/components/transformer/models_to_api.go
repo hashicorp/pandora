@@ -67,10 +67,11 @@ func apiFieldsFromModelFields(input map[string]importerModels.FieldDetails, mode
 			Description: v.Description,
 		}
 
-		if v.ReadOnly {
-			details.Required = false
-			details.Optional = false
-		}
+		// TODO: re-enable readonly/sensitive
+		//if v.ReadOnly {
+		//	details.Required = false
+		//	details.Optional = false
+		//}
 
 		if details.ObjectDefinition.Type == models.DateTimeSDKObjectDefinitionType {
 			dateFormat := resourcemanager.RFC3339
