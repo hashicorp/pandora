@@ -27,7 +27,7 @@ func MapTerraformResourceDefinitionToRepository(resourceLabel string, input mode
 		GenerateSchema:               input.GenerateSchema,
 		Label:                        resourceLabel,
 		ReadMethod:                   mapTerraformMethodDefinitionToRepository(input.ReadMethod),
-		Resource:                     input.ResourceName,
+		Resource:                     input.APIResource,
 		ResourceIdName:               input.ResourceIDName,
 		// todo remove Schema when https://github.com/hashicorp/pandora/issues/3346 is addressed
 		SchemaModelName: fmt.Sprintf("%sSchema", input.SchemaModelName),
