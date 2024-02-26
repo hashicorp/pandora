@@ -35,4 +35,7 @@ type SDKField struct {
 	// Required specifies that this SDKField is Required and must be present in the Request/Response.
 	// NOTE that a field must be either Optional or Required but not both.
 	Required bool `json:"required"`
+
+	// Sensitive specifies that this field contains a Sensitive value (such as a password or an API Key).
+	Sensitive bool `json:"sensitive"`
 }
