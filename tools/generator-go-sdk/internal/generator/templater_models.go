@@ -216,7 +216,8 @@ func (c modelsTemplater) structLineForField(fieldName, fieldType string, fieldDe
 			}
 		}
 	}
-	if isOptional {
+	// TODO: proper support for ReadOnly fields, which is likely to necessitate a custom marshal func
+	if isOptional || fieldDetails.ReadOnly {
 		fieldType = fmt.Sprintf("*%s", fieldType)
 		jsonDetails += ",omitempty"
 	}
