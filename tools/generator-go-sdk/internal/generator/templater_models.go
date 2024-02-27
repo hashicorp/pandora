@@ -216,7 +216,8 @@ func (c modelsTemplater) structLineForField(fieldName, fieldType string, fieldDe
 			}
 		}
 	}
-	if isOptional {
+	// TODO: proper support for ReadOnly fields, which is likely to necessitate a custom marshal func
+	if isOptional || fieldDetails.ReadOnly {
 		fieldType = fmt.Sprintf("*%s", fieldType)
 		jsonDetails += ",omitempty"
 	}
@@ -303,7 +304,7 @@ func (c modelsTemplater) dateFunctionForField(fieldName string, fieldDetails mod
 	}
 
 	// Get{Name}AsTime method for getting *time.Time from a string
-	if fieldDetails.Optional {
+	if fieldDetails.Optional || fieldDetails.ReadOnly { // TODO: work out how to handle ReadOnly fields
 		linesForField = append(linesForField, fmt.Sprintf("\t\tif o.%s == nil {", fieldName))
 		linesForField = append(linesForField, fmt.Sprintf("\t\t\treturn nil, nil"))
 		linesForField = append(linesForField, fmt.Sprintf("\t\t}"))
@@ -314,15 +315,18 @@ func (c modelsTemplater) dateFunctionForField(fieldName string, fieldDetails mod
 
 	linesForField = append(linesForField, fmt.Sprintf("\t}\n"))
 
-	// Set{Name}AsTime method - for setting time.Time -> string
-	linesForField = append(linesForField, fmt.Sprintf("\tfunc (o *%[1]s) Set%[2]sAsTime(input time.Time) {", c.name, fieldName))
-	linesForField = append(linesForField, fmt.Sprintf("\t\tformatted := input.Format(%q)", dateFormat))
-	if fieldDetails.Optional {
-		linesForField = append(linesForField, fmt.Sprintf("\t\to.%s = &formatted", fieldName))
-	} else {
-		linesForField = append(linesForField, fmt.Sprintf("\t\to.%s = formatted", fieldName))
+	// if the Field is ReadOnly then there's no point outputting a Setable function.
+	if !fieldDetails.ReadOnly {
+		// Set{Name}AsTime method - for setting time.Time -> string
+		linesForField = append(linesForField, fmt.Sprintf("\tfunc (o *%[1]s) Set%[2]sAsTime(input time.Time) {", c.name, fieldName))
+		linesForField = append(linesForField, fmt.Sprintf("\t\tformatted := input.Format(%q)", dateFormat))
+		if fieldDetails.Optional {
+			linesForField = append(linesForField, fmt.Sprintf("\t\to.%s = &formatted", fieldName))
+		} else {
+			linesForField = append(linesForField, fmt.Sprintf("\t\to.%s = formatted", fieldName))
+		}
+		linesForField = append(linesForField, fmt.Sprintf("\t}\n"))
 	}
-	linesForField = append(linesForField, fmt.Sprintf("\t}\n"))
 
 	out := strings.Join(linesForField, "\n")
 	return &out, nil

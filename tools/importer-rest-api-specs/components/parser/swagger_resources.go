@@ -5,6 +5,7 @@ package parser
 
 import (
 	"fmt"
+	"net/http"
 	"strings"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
@@ -84,7 +85,7 @@ type listOperationDetails struct {
 }
 
 func listOperationDetailsForOperation(input models.SDKOperation, known internal.ParseResult) *listOperationDetails {
-	if input.Method != "GET" {
+	if !strings.EqualFold(input.Method, http.MethodGet) && !strings.EqualFold(input.Method, http.MethodPost) {
 		return nil
 	}
 
