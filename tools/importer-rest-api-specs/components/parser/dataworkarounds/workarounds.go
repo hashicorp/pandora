@@ -31,6 +31,7 @@ var workarounds = []workaround{
 
 	// These workarounds relate to Terraform specific overrides we want to apply (for example for Resource Generation)
 	workaroundDevCenterIdToRequired{},
+	workaroundTempReadOnlyFields{},
 
 	// These workarounds relate to data inconsistencies
 	workaroundInconsistentlyDefinedSegments{},
