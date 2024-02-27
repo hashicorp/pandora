@@ -5,8 +5,9 @@ package generator
 
 import (
 	"fmt"
-	"github.com/hashicorp/go-hclog"
 	"strings"
+
+	"github.com/hashicorp/go-hclog"
 )
 
 func (s *ServiceGenerator) methods(data ServiceGeneratorData, logger hclog.Logger) error {

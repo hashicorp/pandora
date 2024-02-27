@@ -5,6 +5,7 @@ package generator
 
 import (
 	"fmt"
+
 	"github.com/hashicorp/go-hclog"
 )
 

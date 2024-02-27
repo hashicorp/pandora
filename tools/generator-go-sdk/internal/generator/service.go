@@ -5,12 +5,12 @@ package generator
 
 import (
 	"fmt"
-	"github.com/hashicorp/go-hclog"
 	"os"
 	"os/exec"
 	"path/filepath"
 	"strings"
 
+	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 

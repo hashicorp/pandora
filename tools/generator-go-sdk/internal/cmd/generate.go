@@ -7,7 +7,6 @@ import (
 	"context"
 	"flag"
 	"fmt"
-	"github.com/hashicorp/go-hclog"
 	"log"
 	"os"
 	"path"
@@ -15,6 +14,7 @@ import (
 	"strings"
 	"sync"
 
+	"github.com/hashicorp/go-hclog"
 	v1 "github.com/hashicorp/pandora/tools/data-api-sdk/v1"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/generator-go-sdk/internal/generator"
@@ -81,7 +81,7 @@ func (g GenerateCommand) Run(args []string) int {
 	var serviceNames string
 
 	f := flag.NewFlagSet("generator-go-sdk", flag.ExitOnError)
-	f.StringVar(&input.apiServerEndpoint, "data-api", "http://localhost:8080", "-data-api=http://localhost:5000")
+	f.StringVar(&input.apiServerEndpoint, "data-api", "http://localhost:5000", "-data-api=http://localhost:5000")
 	f.StringVar(&input.outputDirectory, "output-dir", "", "-output-dir=../generated-sdk-dev")
 	f.StringVar(&serviceNames, "services", "", "A list of comma separated Service named from the Data API to import")
 	if err := f.Parse(args); err != nil {

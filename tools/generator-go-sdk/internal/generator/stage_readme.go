@@ -5,9 +5,10 @@ package generator
 
 import (
 	"fmt"
+	"sort"
+
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/generator-go-sdk/internal/logging"
-	"sort"
 )
 
 func (s *ServiceGenerator) readmeFile(data ServiceGeneratorData, logger hclog.Logger) error {

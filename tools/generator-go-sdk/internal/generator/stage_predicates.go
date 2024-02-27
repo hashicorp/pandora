@@ -5,8 +5,9 @@ package generator
 
 import (
 	"fmt"
-	"github.com/hashicorp/go-hclog"
 	"sort"
+
+	"github.com/hashicorp/go-hclog"
 )
 
 func (s *ServiceGenerator) predicates(data ServiceGeneratorData, logger hclog.Logger) error {
