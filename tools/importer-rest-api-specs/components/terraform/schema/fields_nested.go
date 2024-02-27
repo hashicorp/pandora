@@ -46,13 +46,13 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(schemaModelName string, inp
 		}
 
 		// based on this information
-		isComputed := (hasCreate && createField.ReadOnly) || (hasRead && readField.ReadOnly)
+		isReadOnlyField := (hasCreate && createField.ReadOnly) || (hasRead && readField.ReadOnly)
 		isForceNew := false
 		isRequired := false
 		isOptional := false
 
 		if !hasCreate && !hasUpdate && hasRead {
-			isComputed = true
+			isReadOnlyField = true
 		}
 		if hasCreate || hasUpdate {
 			if hasCreate {
@@ -64,7 +64,7 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(schemaModelName string, inp
 				isOptional = updateField.Optional
 			}
 		}
-		if isComputed {
+		if isReadOnlyField {
 			isRequired = false
 			isOptional = false
 			isForceNew = false
@@ -105,7 +105,7 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(schemaModelName string, inp
 		log.Printf("[DEBUG] Properties Field %q would be output as %q / %q", k, fieldNameForTypedModel, schemaFieldName)
 
 		if !isOptional && !isRequired {
-			isComputed = true
+			isReadOnlyField = true
 			isForceNew = false
 		}
 
@@ -115,7 +115,7 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(schemaModelName string, inp
 			Required: isRequired,
 			ForceNew: isForceNew,
 			Optional: isOptional,
-			Computed: isComputed,
+			Computed: isReadOnlyField,
 			// this is only used when outputting the mappings
 			// 4 types of mappings: Create/Read/Update/Resource ID - all nullable
 			// If a Create and Update Mapping are present but a Read isn't it's implicitly WriteOnly
