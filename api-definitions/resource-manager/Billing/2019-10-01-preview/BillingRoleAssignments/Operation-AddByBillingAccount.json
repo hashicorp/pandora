@@ -4,6 +4,7 @@
   "expectedStatusCodes": [
     201
   ],
+  "fieldContainingPaginationDetails": "nextLink",
   "longRunning": false,
   "httpMethod": "POST",
   "resourceIdName": "BillingAccountId",
@@ -13,7 +14,7 @@
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BillingRoleAssignmentListResult"
+    "referenceName": "BillingRoleAssignment"
   },
   "uriSuffix": "/createBillingRoleAssignment"
 }
