@@ -141,9 +141,9 @@ func (d *SwaggerDefinition) detailsForField(modelName string, propertyName strin
 
 	field := models.SDKField{
 		Required:    isRequired,
-		Optional:    !isRequired && !value.ReadOnly,
-		ReadOnly:    value.ReadOnly,
-		Sensitive:   false, // todo: this probably needs to be a predefined list, unless there's something we can parse
+		Optional:    !isRequired, //TODO: re-enable readonly && !value.ReadOnly,
+		ReadOnly:    false,       // TODO: re-enable readonly value.ReadOnly,
+		Sensitive:   false,       // todo: this probably needs to be a predefined list, unless there's something we can parse
 		JsonName:    propertyName,
 		Description: value.Description,
 	}
