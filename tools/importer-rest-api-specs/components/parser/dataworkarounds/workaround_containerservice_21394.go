@@ -37,6 +37,8 @@ func (workaroundContainerService21394) Process(apiDefinition importerModels.Azur
 		return nil, fmt.Errorf("couldn't find field DnsPrefix within model FleetHubProfile")
 	}
 	field.Required = true
+	field.Optional = false
+	field.ReadOnly = false
 
 	model.Fields["DnsPrefix"] = field
 	resource.Models["FleetHubProfile"] = model
