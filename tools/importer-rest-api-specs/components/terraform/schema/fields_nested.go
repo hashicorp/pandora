@@ -70,6 +70,10 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(schemaModelName string, inp
 			isForceNew = false
 		}
 
+		if isRequired && isOptional {
+			return nil, nil, fmt.Errorf("internal-error: the Field %q was both Required and Optional", k)
+		}
+
 		var validation *resourcemanager.TerraformSchemaValidationDefinition
 		var err error
 		if hasCreate {
