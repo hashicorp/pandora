@@ -5,10 +5,11 @@ package generator
 
 import (
 	"fmt"
+	"github.com/hashicorp/go-hclog"
 	"strings"
 )
 
-func (s *ServiceGenerator) ids(data ServiceGeneratorData) error {
+func (s *ServiceGenerator) ids(data ServiceGeneratorData, logger hclog.Logger) error {
 	outputDirectory := data.resourceOutputPath
 
 	for idName, resourceData := range data.resourceIds {
@@ -23,7 +24,7 @@ func (s *ServiceGenerator) ids(data ServiceGeneratorData) error {
 			resource:        resourceData,
 			constantDetails: data.constants,
 		}
-		if err := s.writeToPathForResource(outputDirectory, fmt.Sprintf("id_%s.go", fileNamePrefix), pt, data); err != nil {
+		if err := s.writeToPathForResource(outputDirectory, fmt.Sprintf("id_%s.go", fileNamePrefix), pt, data, logger); err != nil {
 			return fmt.Errorf("templating ids: %+v", err)
 		}
 
@@ -32,7 +33,7 @@ func (s *ServiceGenerator) ids(data ServiceGeneratorData) error {
 			resourceData:    resourceData,
 			constantDetails: data.constants,
 		}
-		if err := s.writeToPathForResource(outputDirectory, fmt.Sprintf("id_%s_test.go", fileNamePrefix), tpt, data); err != nil {
+		if err := s.writeToPathForResource(outputDirectory, fmt.Sprintf("id_%s_test.go", fileNamePrefix), tpt, data, logger); err != nil {
 			return fmt.Errorf("templating tests for id: %+v", err)
 		}
 	}

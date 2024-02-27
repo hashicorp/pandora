@@ -5,10 +5,11 @@ package generator
 
 import (
 	"fmt"
+	"github.com/hashicorp/go-hclog"
 	"strings"
 )
 
-func (s *ServiceGenerator) methods(data ServiceGeneratorData) error {
+func (s *ServiceGenerator) methods(data ServiceGeneratorData, logger hclog.Logger) error {
 	for operationName, operation := range data.operations {
 
 		if data.useNewBaseLayer {
@@ -18,7 +19,7 @@ func (s *ServiceGenerator) methods(data ServiceGeneratorData) error {
 				operation:     operation,
 				constants:     data.constants,
 			}
-			if err := s.writeToPathForResource(data.resourceOutputPath, fileName, gen, data); err != nil {
+			if err := s.writeToPathForResource(data.resourceOutputPath, fileName, gen, data, logger); err != nil {
 				return fmt.Errorf("templating methods (using hashicorp/go-azure-sdk): %+v", err)
 			}
 		} else {
@@ -28,7 +29,7 @@ func (s *ServiceGenerator) methods(data ServiceGeneratorData) error {
 				operation:     operation,
 				constants:     data.constants,
 			}
-			if err := s.writeToPathForResource(data.resourceOutputPath, fileName, gen, data); err != nil {
+			if err := s.writeToPathForResource(data.resourceOutputPath, fileName, gen, data, logger); err != nil {
 				return fmt.Errorf("templating methods (using autorest): %+v", err)
 			}
 		}

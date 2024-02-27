@@ -5,7 +5,7 @@ package generator
 
 import (
 	"fmt"
-	"log"
+	"github.com/hashicorp/go-hclog"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -16,6 +16,7 @@ import (
 
 type ServiceGenerator struct {
 	settings Settings
+	logger   hclog.Logger
 }
 
 func NewServiceGenerator(settings Settings) ServiceGenerator {
@@ -35,7 +36,7 @@ type ServiceGeneratorInput struct {
 	Source          models.SourceDataOrigin
 }
 
-func (s *ServiceGenerator) Generate(input ServiceGeneratorInput) error {
+func (s *ServiceGenerator) Generate(input ServiceGeneratorInput, logger hclog.Logger) error {
 	data := input.generatorData(s.settings)
 
 	if err := cleanAndRecreateWorkingDirectory(data.resourceOutputPath); err != nil {
@@ -47,7 +48,7 @@ func (s *ServiceGenerator) Generate(input ServiceGeneratorInput) error {
 		}
 	}
 
-	stages := map[string]func(data ServiceGeneratorData) error{
+	stages := map[string]func(data ServiceGeneratorData, logger hclog.Logger) error{
 		"clients":    s.clients,
 		"constants":  s.constants,
 		"ids":        s.ids,
@@ -58,8 +59,9 @@ func (s *ServiceGenerator) Generate(input ServiceGeneratorInput) error {
 		"version":    s.version,
 	}
 	for name, stage := range stages {
-		log.Printf("[DEBUG] Running Stage %q..", name)
-		if err := stage(data); err != nil {
+		logger.Debug(fmt.Sprintf("Running Stage %q..", name))
+		stageLogger := logger.Named(name)
+		if err := stage(data, stageLogger); err != nil {
 			return fmt.Errorf("generating %s: %+v", name, err)
 		}
 	}
@@ -79,17 +81,17 @@ type VersionInput struct {
 	VersionName     string
 }
 
-func (s *ServiceGenerator) GenerateForVersion(input VersionInput) error {
+func (s *ServiceGenerator) GenerateForVersion(input VersionInput, logger hclog.Logger) error {
 	input.ServiceName = strings.ToLower(input.ServiceName)
 	input.VersionName = strings.ToLower(input.VersionName)
 	versionDirectory := filepath.Join(input.OutputDirectory, input.ServiceName, input.VersionName)
 
-	stages := map[string]func(data VersionInput, versionDirectory string) error{
+	stages := map[string]func(data VersionInput, versionDirectory string, logger hclog.Logger) error{
 		"metaClient": s.metaClient,
 	}
 	for name, stage := range stages {
-		log.Printf("[DEBUG] Running Stage %q..", name)
-		if err := stage(input, versionDirectory); err != nil {
+		logger.Debug(fmt.Sprintf("Running Stage %q..", name))
+		if err := stage(input, versionDirectory, logger); err != nil {
 			return fmt.Errorf("generating %s: %+v", name, err)
 		}
 	}

@@ -5,10 +5,11 @@ package generator
 
 import (
 	"fmt"
+	"github.com/hashicorp/go-hclog"
 	"strings"
 )
 
-func (s *ServiceGenerator) models(data ServiceGeneratorData) error {
+func (s *ServiceGenerator) models(data ServiceGeneratorData, logger hclog.Logger) error {
 	if len(data.models) == 0 {
 		return nil
 	}
@@ -21,7 +22,7 @@ func (s *ServiceGenerator) models(data ServiceGeneratorData) error {
 			name:  modelName,
 			model: model,
 		}
-		if err := s.writeToPathForResource(data.resourceOutputPath, fileName, gen, data); err != nil {
+		if err := s.writeToPathForResource(data.resourceOutputPath, fileName, gen, data, logger); err != nil {
 			return fmt.Errorf("templating model for %q: %+v", modelName, err)
 		}
 	}

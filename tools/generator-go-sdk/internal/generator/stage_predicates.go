@@ -5,10 +5,11 @@ package generator
 
 import (
 	"fmt"
+	"github.com/hashicorp/go-hclog"
 	"sort"
 )
 
-func (s *ServiceGenerator) predicates(data ServiceGeneratorData) error {
+func (s *ServiceGenerator) predicates(data ServiceGeneratorData, logger hclog.Logger) error {
 	modelNames := make(map[string]struct{}, 0)
 	for _, operation := range data.operations {
 		if operation.FieldContainingPaginationDetails == nil {
@@ -40,7 +41,7 @@ func (s *ServiceGenerator) predicates(data ServiceGeneratorData) error {
 		sortedModelNames: sortedModelNames,
 		models:           data.models,
 	}
-	if err := s.writeToPathForResource(data.resourceOutputPath, "predicates.go", templater, data); err != nil {
+	if err := s.writeToPathForResource(data.resourceOutputPath, "predicates.go", templater, data, logger); err != nil {
 		return fmt.Errorf("templating predicate models: %+v", err)
 	}
 

@@ -3,10 +3,13 @@
 
 package generator
 
-import "fmt"
+import (
+	"fmt"
+	"github.com/hashicorp/go-hclog"
+)
 
-func (s *ServiceGenerator) version(data ServiceGeneratorData) error {
-	if err := s.writeToPathForResource(data.resourceOutputPath, "version.go", versionTemplater{}, data); err != nil {
+func (s *ServiceGenerator) version(data ServiceGeneratorData, logger hclog.Logger) error {
+	if err := s.writeToPathForResource(data.resourceOutputPath, "version.go", versionTemplater{}, data, logger); err != nil {
 		return fmt.Errorf("templating version: %+v", err)
 	}
 

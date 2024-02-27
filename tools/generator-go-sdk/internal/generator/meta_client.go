@@ -5,9 +5,10 @@ package generator
 
 import (
 	"fmt"
+	"github.com/hashicorp/go-hclog"
 )
 
-func (s *ServiceGenerator) metaClient(data VersionInput, versionDirectory string) error {
+func (s *ServiceGenerator) metaClient(data VersionInput, versionDirectory string, logger hclog.Logger) error {
 	if len(data.Resources) == 0 {
 		return nil
 	}
@@ -29,7 +30,7 @@ func (s *ServiceGenerator) metaClient(data VersionInput, versionDirectory string
 		}
 	}
 
-	if err := s.writeToPathForVersion(versionDirectory, "client.go", templater); err != nil {
+	if err := s.writeToPathForVersion(versionDirectory, "client.go", templater, logger); err != nil {
 		return fmt.Errorf("templating meta client for API Version %q / Service %q: %+v", data.VersionName, data.ServiceName, err)
 	}
 
