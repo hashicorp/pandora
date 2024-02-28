@@ -6,11 +6,9 @@ package cmd
 import (
 	"flag"
 	"log"
-	"os"
 	"strings"
-	"time"
 
-	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/pipeline"
 	"github.com/mitchellh/cli"
 )
@@ -56,17 +54,9 @@ func (c ImportCommand) Run(args []string) int {
 		serviceNames = strings.Split(serviceNamesRaw, ",")
 	}
 
-	logger := hclog.New(&hclog.LoggerOptions{
-		Level:  hclog.DefaultLevel,
-		Output: hclog.DefaultOutput,
-		TimeFn: time.Now,
-	})
-	if strings.TrimSpace(os.Getenv("DEBUG")) != "" {
-		logger.SetLevel(hclog.Trace)
-	}
 	input := pipeline.RunInput{
 		ConfigFilePath:           c.resourceManagerConfigPath,
-		Logger:                   logger,
+		Logger:                   logging.Log,
 		OutputDirectory:          c.outputDirectory,
 		ProviderPrefix:           "azurerm",
 		Services:                 serviceNames,
