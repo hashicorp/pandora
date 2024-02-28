@@ -26,8 +26,6 @@ func main() {
 	c.Args = os.Args[1:]
 	c.Commands = map[string]cli.CommandFactory{
 		"import":   cmd.NewImportCommand(swaggerDirectory, resourceManagerConfig, terraformDefinitionsPath, outputDirectoryJson),
-		"schema":   cmd.NewSchemaCommand(),
-		"segments": cmd.NewSegmentsCommand(swaggerDirectory, resourceManagerConfig, terraformDefinitionsPath),
 		"validate": cmd.NewValidateCommand(swaggerDirectory, resourceManagerConfig, terraformDefinitionsPath),
 	}
 
