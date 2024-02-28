@@ -1,0 +1,21 @@
+{
+  "name": "AzureSqlProtectionPolicy",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "retentionPolicy",
+      "name": "RetentionPolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RetentionPolicy"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "ProtectionPolicy",
+  "discriminatedTypeValue": "AzureSql",
+  "typeHintIn": "BackupManagementType"
+}

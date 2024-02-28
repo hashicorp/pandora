@@ -1,0 +1,23 @@
+{
+  "name": "Inquire",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    202
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "$filter",
+      "required": false,
+      "field": "Filter",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "ProtectionContainerId",
+  "uriSuffix": "/inquire"
+}
