@@ -16,6 +16,10 @@ func (w workaroundTempReadOnlyFields) IsApplicable(apiDefinition *models.AzureAp
 		return true
 	}
 
+	if apiDefinition.ServiceName == "LoadTestService" && apiDefinition.ApiVersion == "2022-12-01" {
+		return true
+	}
+
 	if apiDefinition.ServiceName == "ManagedIdentity" && apiDefinition.ApiVersion == "2023-01-31" {
 		return true
 	}
@@ -35,6 +39,15 @@ func (w workaroundTempReadOnlyFields) Process(apiDefinition models.AzureApiDefin
 		}
 
 		definition, err = w.markFieldAsComputed(*definition, "DevCenters", "DevCenterProperties", "DevCenterUri")
+		if err != nil {
+			return nil, err
+		}
+
+		return definition, nil
+	}
+
+	if apiDefinition.ServiceName == "LoadTestService" && apiDefinition.ApiVersion == "2022-12-01" {
+		definition, err := w.markFieldAsComputed(apiDefinition, "LoadTests", "LoadTestProperties", "DataPlaneURI")
 		if err != nil {
 			return nil, err
 		}
