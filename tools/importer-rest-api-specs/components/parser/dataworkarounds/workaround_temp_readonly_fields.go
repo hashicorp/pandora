@@ -12,6 +12,10 @@ type workaroundTempReadOnlyFields struct {
 }
 
 func (w workaroundTempReadOnlyFields) IsApplicable(apiDefinition *models.AzureApiDefinition) bool {
+	if apiDefinition.ServiceName == "ContainerService" && apiDefinition.ApiVersion == "2022-09-02-preview" {
+		return true
+	}
+
 	if apiDefinition.ServiceName == "DevCenter" && apiDefinition.ApiVersion == "2023-04-01" {
 		return true
 	}
@@ -32,6 +36,20 @@ func (w workaroundTempReadOnlyFields) Name() string {
 }
 
 func (w workaroundTempReadOnlyFields) Process(apiDefinition models.AzureApiDefinition) (*models.AzureApiDefinition, error) {
+	if apiDefinition.ServiceName == "ContainerService" && apiDefinition.ApiVersion == "2022-09-02-preview" {
+		definition, err := w.markFieldAsComputed(apiDefinition, "Fleets", "FleetHubProfile", "Fqdn")
+		if err != nil {
+			return nil, err
+		}
+
+		definition, err = w.markFieldAsComputed(*definition, "Fleets", "FleetHubProfile", "KubernetesVersion")
+		if err != nil {
+			return nil, err
+		}
+
+		return definition, nil
+	}
+
 	if apiDefinition.ServiceName == "DevCenter" && apiDefinition.ApiVersion == "2023-04-01" {
 		definition, err := w.markFieldAsComputed(apiDefinition, "Projects", "ProjectProperties", "DevCenterUri")
 		if err != nil {
