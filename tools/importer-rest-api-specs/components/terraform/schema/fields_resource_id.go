@@ -32,7 +32,7 @@ func (b Builder) identifyTopLevelFieldsWithinResourceID(input models.ResourceID,
 		if segmentsContainResource(parentSegments) {
 			parentResourceFound = true
 			// find the parent Resource ID and use that
-			for name, id := range b.resourceIds {
+			for name, id := range b.apiResource.ResourceIDs {
 				if segmentsMatch(id.Segments, parentSegments) {
 					parentResourceIdName = name
 					break

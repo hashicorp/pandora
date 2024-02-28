@@ -45,7 +45,7 @@ func (b Builder) convertToFieldObjectDefinition(modelPrefix string, input models
 	var constant models.SDKConstant
 	if input.ReferenceName != nil {
 		reference := *input.ReferenceName
-		if constant, isConstant = b.constants[reference]; !isConstant {
+		if constant, isConstant = b.apiResource.Constants[reference]; !isConstant {
 			// models are prefixed to be globally unique
 			reference = fmt.Sprintf("%s%s", modelPrefix, reference)
 		} else {

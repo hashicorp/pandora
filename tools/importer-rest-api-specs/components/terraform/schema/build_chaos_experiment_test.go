@@ -6,9 +6,10 @@ package schema
 import (
 	"testing"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/go-hclog"
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
@@ -16,8 +17,8 @@ import (
 func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 	t.Skipf("TODO: update schema gen & re-enable this test")
 	r := resourceUnderTest{Name: "chaos_studio_experiment"}
-	builder := Builder{
-		constants: map[string]models.SDKConstant{
+	apiResource := models.APIResource{
+		Constants: map[string]models.SDKConstant{
 			"TargetReferenceType": {
 				Type: models.StringSDKConstantType,
 				Values: map[string]string{
@@ -34,7 +35,7 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 				},
 			},
 		},
-		models: map[string]models.SDKModel{
+		Models: map[string]models.SDKModel{
 			"Experiment": {
 				Fields: map[string]models.SDKField{
 					"Identity": {
@@ -220,7 +221,7 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 				},
 			},
 		},
-		operations: map[string]models.SDKOperation{
+		Operations: map[string]models.SDKOperation{
 			"Create": {
 				LongRunning: false,
 				Method:      "PUT",
@@ -254,7 +255,7 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 				ResourceIDName: pointer.To("ExperimentId"),
 			},
 		},
-		resourceIds: map[string]models.ResourceID{
+		ResourceIDs: map[string]models.ResourceID{
 			"ExperimentId": {
 				CommonIDAlias: nil,
 				ConstantNames: nil,
@@ -272,7 +273,7 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 			},
 		},
 	}
-
+	builder := NewBuilder(apiResource)
 	input := resourcemanager.TerraformResourceDetails{
 		ApiVersion: "2022-07-01",
 		CreateMethod: resourcemanager.MethodDefinition{

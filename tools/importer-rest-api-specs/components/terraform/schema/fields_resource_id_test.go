@@ -190,8 +190,8 @@ func TestTopLevelFieldsWithinResourceId_VirtualMachineExtension(t *testing.T) {
 		Fields:     []resourcemanager.FieldMappingDefinition{},
 		ResourceId: []resourcemanager.ResourceIdMappingDefinition{},
 	}
-	actualFields, actualMappings, err := Builder{
-		resourceIds: map[string]models.ResourceID{
+	apiResource := models.APIResource{
+		ResourceIDs: map[string]models.ResourceID{
 			"VirtualMachineId": {
 				CommonIDAlias: pointer.To("VirtualMachine"),
 				Segments: []models.ResourceIDSegment{
@@ -206,7 +206,9 @@ func TestTopLevelFieldsWithinResourceId_VirtualMachineExtension(t *testing.T) {
 				},
 			},
 		},
-	}.identifyTopLevelFieldsWithinResourceID(input, &inputMappings, "Virtual Machine Extension", &importerModels.ResourceBuildInfo{}, hclog.New(hclog.DefaultOptions))
+	}
+	builder := NewBuilder(apiResource)
+	actualFields, actualMappings, err := builder.identifyTopLevelFieldsWithinResourceID(input, &inputMappings, "Virtual Machine Extension", &importerModels.ResourceBuildInfo{}, hclog.New(hclog.DefaultOptions))
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 	}
@@ -292,8 +294,8 @@ func TestTopLevelFieldsWithinResourceId_KubernetesTrustedAccessRoleBinding(t *te
 		Fields:     []resourcemanager.FieldMappingDefinition{},
 		ResourceId: []resourcemanager.ResourceIdMappingDefinition{},
 	}
-	actualFields, actualMappings, err := Builder{
-		resourceIds: map[string]models.ResourceID{
+	apiResource := models.APIResource{
+		ResourceIDs: map[string]models.ResourceID{
 			"KubernetesClusterId": {
 				CommonIDAlias: pointer.To("KubernetesCluster"),
 				ExampleValue:  "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{managedClusterName}",
@@ -309,7 +311,9 @@ func TestTopLevelFieldsWithinResourceId_KubernetesTrustedAccessRoleBinding(t *te
 				},
 			},
 		},
-	}.identifyTopLevelFieldsWithinResourceID(input, &inputMappings, "Kubernetes Cluster Trusted Access Role Binding", &importerModels.ResourceBuildInfo{}, hclog.New(hclog.DefaultOptions))
+	}
+	builder := NewBuilder(apiResource)
+	actualFields, actualMappings, err := builder.identifyTopLevelFieldsWithinResourceID(input, &inputMappings, "Kubernetes Cluster Trusted Access Role Binding", &importerModels.ResourceBuildInfo{}, hclog.New(hclog.DefaultOptions))
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 	}
@@ -401,8 +405,9 @@ func TestTopLevelFieldsWithinResourceId_ParentIdSchemaOverride(t *testing.T) {
 			},
 		},
 	}
-	actualFields, actualMappings, err := Builder{
-		resourceIds: map[string]models.ResourceID{
+
+	apiResource := models.APIResource{
+		ResourceIDs: map[string]models.ResourceID{
 			"KubernetesClusterId": {
 				CommonIDAlias: pointer.To("KubernetesCluster"),
 				ExampleValue:  "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{managedClusterName}",
@@ -418,7 +423,9 @@ func TestTopLevelFieldsWithinResourceId_ParentIdSchemaOverride(t *testing.T) {
 				},
 			},
 		},
-	}.identifyTopLevelFieldsWithinResourceID(input, &inputMappings, "Kubernetes Cluster Trusted Access Role Binding", &inputResourceBuildInfo, hclog.New(hclog.DefaultOptions))
+	}
+	builder := NewBuilder(apiResource)
+	actualFields, actualMappings, err := builder.identifyTopLevelFieldsWithinResourceID(input, &inputMappings, "Kubernetes Cluster Trusted Access Role Binding", &inputResourceBuildInfo, hclog.New(hclog.DefaultOptions))
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 	}
