@@ -46,7 +46,7 @@ func (workaroundDataFactory23013) Process(apiDefinition importerModels.AzureApiD
 		},
 	}
 
-	// update the existing importerModels to be discriminated types and remove the `type` field from them
+	// update the existing models to be discriminated types and remove the `type` field from them
 	modelNames := []string{
 		"IntegrationRuntimeReference",
 		"LinkedServiceReference",
