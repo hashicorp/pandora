@@ -4,36 +4,9 @@
 package resourcemanager
 
 import (
-	"encoding/json"
 	"fmt"
-	"net/http"
 	"strings"
 )
-
-type TerraformClient struct {
-	Client
-}
-
-func (c TerraformClient) Get(input ServiceDetails) (*TerraformDetails, error) {
-	endpoint := fmt.Sprintf("%s%s", c.endpoint, input.TerraformUri)
-	resp, err := c.client.Get(endpoint)
-	if err != nil {
-		return nil, err
-	}
-
-	// TODO: handle this being a 404 etc
-
-	var response TerraformDetails
-
-	// Data API V2 now returns a 204 when nothing
-	if resp.StatusCode == http.StatusOK {
-		if err := json.NewDecoder(resp.Body).Decode(&response); err != nil {
-			return nil, err
-		}
-	}
-
-	return &response, nil
-}
 
 type TerraformDetails struct {
 	// DataSources is a key (Resource Label) value (TerraformDataSourceDetails) pair of
