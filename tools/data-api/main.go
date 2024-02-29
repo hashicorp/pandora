@@ -5,12 +5,12 @@ package main
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/data-api/internal/logging"
 	"log"
 	"os"
 
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/data-api/internal/commands"
+	"github.com/hashicorp/pandora/tools/data-api/internal/logging"
 	"github.com/mitchellh/cli"
 )
 
