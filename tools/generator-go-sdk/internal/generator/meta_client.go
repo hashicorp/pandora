@@ -5,11 +5,9 @@ package generator
 
 import (
 	"fmt"
-
-	"github.com/hashicorp/go-hclog"
 )
 
-func (s *ServiceGenerator) metaClient(data VersionInput, versionDirectory string, logger hclog.Logger) error {
+func (s *ServiceGenerator) metaClient(data VersionInput, versionDirectory string) error {
 	if len(data.Resources) == 0 {
 		return nil
 	}

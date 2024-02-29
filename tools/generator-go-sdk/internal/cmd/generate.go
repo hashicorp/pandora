@@ -14,7 +14,6 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/hashicorp/go-hclog"
 	v1 "github.com/hashicorp/pandora/tools/data-api-sdk/v1"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/generator-go-sdk/internal/generator"
@@ -25,7 +24,6 @@ import (
 var _ cli.Command = GenerateCommand{}
 
 type GenerateCommand struct {
-	Log            hclog.Logger
 	sourceDataType models.SourceDataType
 }
 
@@ -82,7 +80,7 @@ func (g GenerateCommand) Run(args []string) int {
 	var serviceNames string
 
 	f := flag.NewFlagSet("generator-go-sdk", flag.ExitOnError)
-	f.StringVar(&input.apiServerEndpoint, "data-api", "http://localhost:8080", "-data-api=http://localhost:5000")
+	f.StringVar(&input.apiServerEndpoint, "data-api", "http://localhost:5000", "-data-api=http://localhost:5000")
 	f.StringVar(&input.outputDirectory, "output-dir", "", "-output-dir=../generated-sdk-dev")
 	f.StringVar(&serviceNames, "services", "", "A list of comma separated Service named from the Data API to import")
 	if err := f.Parse(args); err != nil {
@@ -98,7 +96,7 @@ func (g GenerateCommand) Run(args []string) int {
 		input.outputDirectory = filepath.Join(homeDir, "/Desktop/generated-sdk-dev")
 	}
 
-	if err := g.run(ctx, input, logging.Log); err != nil {
+	if err := g.run(ctx, input); err != nil {
 		log.Fatalf("running generator: %+v", err)
 	}
 
@@ -109,7 +107,7 @@ func (g GenerateCommand) Synopsis() string {
 	return "Generates a Go SDK based on the API Definitions from the Data API"
 }
 
-func (g GenerateCommand) run(ctx context.Context, input GeneratorInput, logger hclog.Logger) error {
+func (g GenerateCommand) run(ctx context.Context, input GeneratorInput) error {
 	// output into a directory named after the source data type (e.g. `{dir}/resource-manager`)
 	input.outputDirectory = path.Join(input.outputDirectory, string(g.sourceDataType))
 
@@ -132,7 +130,7 @@ func (g GenerateCommand) run(ctx context.Context, input GeneratorInput, logger h
 
 	generatorService := generator.NewServiceGenerator(input.settings)
 	for serviceName, service := range data.Services {
-		logger.Debug(fmt.Sprintf("Service %q", serviceName))
+		logging.Debugf("Service %q", serviceName)
 		if !service.Generate {
 			logging.Debugf(".. is opted out of generation, skipping..")
 			continue
@@ -177,7 +175,7 @@ func (g GenerateCommand) run(ctx context.Context, input GeneratorInput, logger h
 					generatorData.UseNewBaseLayer = true
 				}
 				logging.Debugf("Generating Service %q / Version %q", serviceName, versionNumber)
-				if err := generatorService.GenerateForVersion(generatorData, logger); err != nil {
+				if err := generatorService.GenerateForVersion(generatorData); err != nil {
 					addErr(fmt.Errorf("generating Service %q / Version %q: %+v", serviceName, versionNumber, err))
 					return
 				}

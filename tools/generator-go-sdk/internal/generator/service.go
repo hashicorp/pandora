@@ -81,17 +81,17 @@ type VersionInput struct {
 	VersionName     string
 }
 
-func (s *ServiceGenerator) GenerateForVersion(input VersionInput, logger hclog.Logger) error {
+func (s *ServiceGenerator) GenerateForVersion(input VersionInput) error {
 	input.ServiceName = strings.ToLower(input.ServiceName)
 	input.VersionName = strings.ToLower(input.VersionName)
 	versionDirectory := filepath.Join(input.OutputDirectory, input.ServiceName, input.VersionName)
 
-	stages := map[string]func(data VersionInput, versionDirectory string, logger hclog.Logger) error{
+	stages := map[string]func(data VersionInput, versionDirectory string) error{
 		"metaClient": s.metaClient,
 	}
 	for name, stage := range stages {
-		logger.Debug(fmt.Sprintf("Running Stage %q..", name))
-		if err := stage(input, versionDirectory, logger); err != nil {
+		logging.Debugf("Running Stage %q..", name)
+		if err := stage(input, versionDirectory); err != nil {
 			return fmt.Errorf("generating %s: %+v", name, err)
 		}
 	}
