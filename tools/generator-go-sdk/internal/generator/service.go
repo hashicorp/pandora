@@ -5,19 +5,17 @@ package generator
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/generator-go-sdk/internal/logging"
 	"os"
 	"os/exec"
 	"path/filepath"
 	"strings"
 
-	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/generator-go-sdk/internal/logging"
 )
 
 type ServiceGenerator struct {
 	settings Settings
-	logger   hclog.Logger
 }
 
 func NewServiceGenerator(settings Settings) ServiceGenerator {

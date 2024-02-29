@@ -5,6 +5,7 @@ package logging
 
 import (
 	"fmt"
+
 	"github.com/hashicorp/go-hclog"
 )
 

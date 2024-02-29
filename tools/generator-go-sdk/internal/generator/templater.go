@@ -5,9 +5,10 @@ package generator
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/generator-go-sdk/internal/logging"
 	"os"
 	"path/filepath"
+
+	"github.com/hashicorp/pandora/tools/generator-go-sdk/internal/logging"
 )
 
 type templaterForResource interface {
