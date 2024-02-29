@@ -25,6 +25,7 @@ import (
 var _ cli.Command = GenerateCommand{}
 
 type GenerateCommand struct {
+	Log            hclog.Logger
 	sourceDataType models.SourceDataType
 }
 
@@ -81,7 +82,7 @@ func (g GenerateCommand) Run(args []string) int {
 	var serviceNames string
 
 	f := flag.NewFlagSet("generator-go-sdk", flag.ExitOnError)
-	f.StringVar(&input.apiServerEndpoint, "data-api", "http://localhost:5000", "-data-api=http://localhost:5000")
+	f.StringVar(&input.apiServerEndpoint, "data-api", "http://localhost:8080", "-data-api=http://localhost:5000")
 	f.StringVar(&input.outputDirectory, "output-dir", "", "-output-dir=../generated-sdk-dev")
 	f.StringVar(&serviceNames, "services", "", "A list of comma separated Service named from the Data API to import")
 	if err := f.Parse(args); err != nil {
@@ -133,18 +134,18 @@ func (g GenerateCommand) run(ctx context.Context, input GeneratorInput, logger h
 	for serviceName, service := range data.Services {
 		logger.Debug(fmt.Sprintf("Service %q", serviceName))
 		if !service.Generate {
-			logger.Debug(".. is opted out of generation, skipping..")
+			logging.Debugf(".. is opted out of generation, skipping..")
 			continue
 		}
 
 		wg.Add(1)
 		go func(serviceName string, service models.Service, input GeneratorInput) {
 			defer wg.Done()
-			logger.Debug(fmt.Sprintf("Service %q", serviceName))
+			logging.Debugf("Service %q", serviceName)
 			for versionNumber, versionDetails := range service.APIVersions {
-				logger.Debug(fmt.Sprintf("   Version %q", versionNumber))
+				logging.Debugf("   Version %q", versionNumber)
 				for resourceName, resourceDetails := range versionDetails.Resources {
-					logger.Debug(fmt.Sprintf("      Resource %q", resourceName))
+					logging.Debugf("      Resource %q", resourceName)
 					generatorData := generator.ServiceGeneratorInput{
 						ServiceName:     serviceName,
 						ServiceDetails:  service,
@@ -155,12 +156,12 @@ func (g GenerateCommand) run(ctx context.Context, input GeneratorInput, logger h
 						OutputDirectory: input.outputDirectory,
 						Source:          versionDetails.Source,
 					}
-					logger.Debug("Generating", "Service", serviceName, "Version", versionNumber, "Resource", resourceName)
-					if err := generatorService.Generate(generatorData, logger); err != nil {
+					logging.Debugf("Generating Service %q / Version %q / Resource %q", serviceName, versionNumber, resourceName)
+					if err := generatorService.Generate(generatorData); err != nil {
 						addErr(fmt.Errorf("generating Service %q / Version %q / Resource %q: %+v", serviceName, versionNumber, resourceName, err))
 						return
 					}
-					logger.Debug("Generated", "Service", serviceName, "Version", versionNumber, "Resource", resourceName)
+					logging.Debugf("Generated Service %q / Version %q / Resource %q", serviceName, versionNumber, resourceName)
 				}
 
 				// then output the Meta Client
@@ -175,12 +176,12 @@ func (g GenerateCommand) run(ctx context.Context, input GeneratorInput, logger h
 				if input.settings.ShouldUseNewBaseLayer(serviceName, versionNumber) {
 					generatorData.UseNewBaseLayer = true
 				}
-				logger.Debug("Generating", "Service", serviceName, "Version", versionNumber)
+				logging.Debugf("Generating Service %q / Version %q", serviceName, versionNumber)
 				if err := generatorService.GenerateForVersion(generatorData, logger); err != nil {
 					addErr(fmt.Errorf("generating Service %q / Version %q: %+v", serviceName, versionNumber, err))
 					return
 				}
-				logger.Debug("Generated", "Service", serviceName, "Version", versionNumber)
+				logging.Debugf("Generated Service %q / Version %q", serviceName, versionNumber)
 			}
 		}(serviceName, service, input)
 	}

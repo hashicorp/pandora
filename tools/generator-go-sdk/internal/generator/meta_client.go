@@ -31,7 +31,7 @@ func (s *ServiceGenerator) metaClient(data VersionInput, versionDirectory string
 		}
 	}
 
-	if err := s.writeToPathForVersion(versionDirectory, "client.go", templater, logger); err != nil {
+	if err := s.writeToPathForVersion(versionDirectory, "client.go", templater); err != nil {
 		return fmt.Errorf("templating meta client for API Version %q / Service %q: %+v", data.VersionName, data.ServiceName, err)
 	}
 

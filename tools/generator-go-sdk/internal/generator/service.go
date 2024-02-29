@@ -5,6 +5,7 @@ package generator
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/generator-go-sdk/internal/logging"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -36,7 +37,7 @@ type ServiceGeneratorInput struct {
 	Source          models.SourceDataOrigin
 }
 
-func (s *ServiceGenerator) Generate(input ServiceGeneratorInput, logger hclog.Logger) error {
+func (s *ServiceGenerator) Generate(input ServiceGeneratorInput) error {
 	data := input.generatorData(s.settings)
 
 	if err := cleanAndRecreateWorkingDirectory(data.resourceOutputPath); err != nil {
@@ -48,7 +49,7 @@ func (s *ServiceGenerator) Generate(input ServiceGeneratorInput, logger hclog.Lo
 		}
 	}
 
-	stages := map[string]func(data ServiceGeneratorData, logger hclog.Logger) error{
+	stages := map[string]func(data ServiceGeneratorData) error{
 		"clients":    s.clients,
 		"constants":  s.constants,
 		"ids":        s.ids,
@@ -59,9 +60,8 @@ func (s *ServiceGenerator) Generate(input ServiceGeneratorInput, logger hclog.Lo
 		"version":    s.version,
 	}
 	for name, stage := range stages {
-		logger.Debug(fmt.Sprintf("Running Stage %q..", name))
-		stageLogger := logger.Named(name)
-		if err := stage(data, stageLogger); err != nil {
+		logging.Debugf("Running Stage %q..", name)
+		if err := stage(data); err != nil {
 			return fmt.Errorf("generating %s: %+v", name, err)
 		}
 	}
