@@ -5,13 +5,13 @@ package generator
 
 import (
 	"fmt"
-	"log"
 	"os"
 	"os/exec"
 	"path/filepath"
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/generator-go-sdk/internal/logging"
 )
 
 type ServiceGenerator struct {
@@ -58,7 +58,7 @@ func (s *ServiceGenerator) Generate(input ServiceGeneratorInput) error {
 		"version":    s.version,
 	}
 	for name, stage := range stages {
-		log.Printf("[DEBUG] Running Stage %q..", name)
+		logging.Debugf("Running Stage %q..", name)
 		if err := stage(data); err != nil {
 			return fmt.Errorf("generating %s: %+v", name, err)
 		}
@@ -88,7 +88,7 @@ func (s *ServiceGenerator) GenerateForVersion(input VersionInput) error {
 		"metaClient": s.metaClient,
 	}
 	for name, stage := range stages {
-		log.Printf("[DEBUG] Running Stage %q..", name)
+		logging.Debugf("Running Stage %q..", name)
 		if err := stage(input, versionDirectory); err != nil {
 			return fmt.Errorf("generating %s: %+v", name, err)
 		}

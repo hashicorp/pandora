@@ -7,6 +7,8 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+
+	"github.com/hashicorp/pandora/tools/generator-go-sdk/internal/logging"
 )
 
 type templaterForResource interface {
@@ -33,6 +35,7 @@ func (s *ServiceGenerator) writeToPathForResource(directory, filePath string, te
 		return fmt.Errorf("opening %q: %+v", fullFilePath, err)
 	}
 
+	logging.Tracef(fmt.Sprintf("writing to %q", fullFilePath))
 	_, _ = file.WriteString(*fileContents)
 	return nil
 }
@@ -53,6 +56,7 @@ func (s *ServiceGenerator) writeToPathForVersion(directory, filePath string, tem
 		return fmt.Errorf("opening %q: %+v", fullFilePath, err)
 	}
 
+	logging.Tracef(fmt.Sprintf("writing to %q", fullFilePath))
 	_, _ = file.WriteString(*fileContents)
 	return nil
 }

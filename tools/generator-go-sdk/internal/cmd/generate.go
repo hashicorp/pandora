@@ -17,6 +17,7 @@ import (
 	v1 "github.com/hashicorp/pandora/tools/data-api-sdk/v1"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/generator-go-sdk/internal/generator"
+	"github.com/hashicorp/pandora/tools/generator-go-sdk/internal/logging"
 	"github.com/mitchellh/cli"
 )
 
@@ -127,20 +128,20 @@ func (g GenerateCommand) run(ctx context.Context, input GeneratorInput) error {
 
 	generatorService := generator.NewServiceGenerator(input.settings)
 	for serviceName, service := range data.Services {
-		log.Printf("[DEBUG] Service %q..", serviceName)
+		logging.Debugf("Service %q", serviceName)
 		if !service.Generate {
-			log.Printf("[DEBUG] .. is opted out of generation, skipping..")
+			logging.Debugf(".. is opted out of generation, skipping..")
 			continue
 		}
 
 		wg.Add(1)
 		go func(serviceName string, service models.Service, input GeneratorInput) {
 			defer wg.Done()
-			log.Printf("[DEBUG] Service %q", serviceName)
+			logging.Debugf("Service %q", serviceName)
 			for versionNumber, versionDetails := range service.APIVersions {
-				log.Printf("[DEBUG]   Version %q", versionNumber)
+				logging.Debugf("   Version %q", versionNumber)
 				for resourceName, resourceDetails := range versionDetails.Resources {
-					log.Printf("[DEBUG]      Resource %q..", resourceName)
+					logging.Debugf("      Resource %q", resourceName)
 					generatorData := generator.ServiceGeneratorInput{
 						ServiceName:     serviceName,
 						ServiceDetails:  service,
@@ -151,12 +152,12 @@ func (g GenerateCommand) run(ctx context.Context, input GeneratorInput) error {
 						OutputDirectory: input.outputDirectory,
 						Source:          versionDetails.Source,
 					}
-					log.Printf("[DEBUG] Generating Service %q / Version %q / Resource %q..", serviceName, versionNumber, resourceName)
+					logging.Debugf("Generating Service %q / Version %q / Resource %q", serviceName, versionNumber, resourceName)
 					if err := generatorService.Generate(generatorData); err != nil {
 						addErr(fmt.Errorf("generating Service %q / Version %q / Resource %q: %+v", serviceName, versionNumber, resourceName, err))
 						return
 					}
-					log.Printf("[DEBUG] Generated Service %q / Version %q / Resource %q..", serviceName, versionNumber, resourceName)
+					logging.Debugf("Generated Service %q / Version %q / Resource %q", serviceName, versionNumber, resourceName)
 				}
 
 				// then output the Meta Client
@@ -171,12 +172,12 @@ func (g GenerateCommand) run(ctx context.Context, input GeneratorInput) error {
 				if input.settings.ShouldUseNewBaseLayer(serviceName, versionNumber) {
 					generatorData.UseNewBaseLayer = true
 				}
-				log.Printf("[DEBUG] Generating Service %q / Version %q..", serviceName, versionNumber)
+				logging.Debugf("Generating Service %q / Version %q", serviceName, versionNumber)
 				if err := generatorService.GenerateForVersion(generatorData); err != nil {
 					addErr(fmt.Errorf("generating Service %q / Version %q: %+v", serviceName, versionNumber, err))
 					return
 				}
-				log.Printf("[DEBUG] Generated Service %q / Version %q..", serviceName, versionNumber)
+				logging.Debugf("Generated Service %q / Version %q", serviceName, versionNumber)
 			}
 		}(serviceName, service, input)
 	}

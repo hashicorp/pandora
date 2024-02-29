@@ -3,7 +3,9 @@
 
 package generator
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func (s *ServiceGenerator) clients(data ServiceGeneratorData) error {
 	if data.useNewBaseLayer {
