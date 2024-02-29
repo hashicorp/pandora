@@ -13,6 +13,7 @@ import (
 	"sync"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	"github.com/hashicorp/pandora/tools/data-api/internal/logging"
 	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
 )
 
@@ -75,6 +76,8 @@ func NewServicesRepository(directory string, serviceType ServiceType, serviceNam
 		return nil, fmt.Errorf("internal-error: unimplemented data source %q", string(serviceType))
 	}
 
+	logging.Debugf("Initialising new Service Respository for %q", serviceType)
+
 	repo := &ServicesRepositoryImpl{
 		expectedDataSource: dataSource,
 		rootDirectory:      directory,
@@ -125,6 +128,7 @@ func (s *ServicesRepositoryImpl) GetAll(serviceType ServiceType) (*[]ServiceDeta
 		for _, serviceToLoad := range servicesToLoadSorted {
 			serviceInCache, ok := (*s.services)[serviceToLoad]
 			if !ok {
+				logging.Debugf("Loading service %q", serviceToLoad)
 				serviceDetail, err := s.GetByName(serviceToLoad, s.serviceType)
 				if err != nil {
 					return nil, fmt.Errorf("retrieving service details for %s: %+v", serviceToLoad, err)
@@ -132,6 +136,7 @@ func (s *ServicesRepositoryImpl) GetAll(serviceType ServiceType) (*[]ServiceDeta
 				// add it to the cache
 				(*s.services)[serviceToLoad] = *serviceDetail
 				serviceDetails = append(serviceDetails, *serviceDetail)
+				logging.Debugf("Loaded service %q", serviceToLoad)
 			} else {
 				serviceDetails = append(serviceDetails, serviceInCache)
 			}
@@ -144,12 +149,14 @@ func (s *ServicesRepositoryImpl) GetAll(serviceType ServiceType) (*[]ServiceDeta
 		s.Lock()
 		servicesMap := make(map[string]ServiceDetails)
 		for _, service := range servicesToLoadSorted {
+			logging.Debugf("Loading service %q", service)
 			serviceDetail, err := s.GetByName(service, s.serviceType)
 			if err != nil {
 				return nil, fmt.Errorf("retrieving service details for %s: %+v", service, err)
 			}
 			serviceDetails = append(serviceDetails, *serviceDetail)
 			servicesMap[serviceDetail.Name] = *serviceDetail
+			logging.Debugf("Loaded service %q", service)
 		}
 		s.services = &servicesMap
 		s.Unlock()
@@ -202,6 +209,7 @@ func (s *ServicesRepositoryImpl) ProcessServiceDefinitions(serviceName string) (
 
 	if versions != nil {
 		for _, version := range *versions {
+			logging.Debugf("Processing version %q for service %q", version, serviceName)
 			// The Terraform directory can be skipped as it only has a subdirectory for tests
 			if version == "Terraform" {
 				continue
@@ -215,6 +223,7 @@ func (s *ServicesRepositoryImpl) ProcessServiceDefinitions(serviceName string) (
 				return nil, fmt.Errorf("processing version definitions for %s: %+v", version, err)
 			}
 			versionDefinitions[version] = versionDetails
+			logging.Debugf("Processed version %q for service %q", version, serviceName)
 		}
 	}
 
@@ -275,12 +284,14 @@ func (s *ServicesRepositoryImpl) ProcessVersionDefinitions(serviceName string, v
 	resourceDefinitions := make(map[string]*ServiceApiVersionResourceDetails, 0)
 
 	for _, resource := range resources {
+		logging.Debugf("Processing resource %q in version %q for service %q", resource, version, serviceName)
 		resourceDetail, err := s.ProcessResourceDefinitions(serviceName, version, resource)
 		if err != nil {
 			return nil, fmt.Errorf("processing resource definition for %s: %+v", resource, err)
 		}
 
 		resourceDefinitions[resource] = resourceDetail
+		logging.Debugf("Processed resource %q in version %q for service %q", resource, version, serviceName)
 	}
 
 	versionDefinition.Resources = resourceDefinitions
@@ -571,6 +582,7 @@ func (s *ServicesRepositoryImpl) ProcessTerraformDefinitions(serviceName string)
 		}
 
 		definitionName, definitionType, err := getTerraformDefinitionInfo(file.Name())
+		logging.Debugf("Processing Terraform Definitions for %q", definitionName)
 		if err != nil {
 			return nil, err
 		}
@@ -627,6 +639,7 @@ func (s *ServicesRepositoryImpl) ProcessTerraformDefinitions(serviceName string)
 
 		// todo the `_` is defintionType (ie. Resource, Datasource?), we'll probably do something with that later but for now we'll ignore
 		definitionName, _, testType, err := getTerraformTestInfo(file.Name())
+		logging.Debugf("Processing Terraform Tests for %q", definitionName)
 		if err != nil {
 			return nil, err
 		}

@@ -5,6 +5,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/data-api/internal/logging"
 	"log"
 	"os"
 
@@ -14,10 +15,13 @@ import (
 )
 
 func main() {
-	logger := hclog.New(hclog.DefaultOptions)
-	logger.SetLevel(hclog.Trace)
+	loggingOpts := hclog.DefaultOptions
+	if v := os.Getenv("LOG_LEVEL"); v != "" {
+		loggingOpts.Level = hclog.LevelFromString(v)
+	}
+	logging.Log = hclog.New(loggingOpts)
 
-	logger.Info("Data API launched")
+	logging.Log.Info("Data API launched")
 
 	c := cli.NewCLI("data-api", "1.0.0")
 	c.Args = os.Args[1:]
