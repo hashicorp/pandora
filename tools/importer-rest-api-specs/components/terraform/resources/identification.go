@@ -229,20 +229,19 @@ func modelContainsDiscriminatedTypes(model models.SDKModel, apiResource models.A
 			return true
 		}
 
-		// TODO: fix/re-enable this
-		//topLevelObjectDefinition := topLevelObjectDefinition(field.ObjectDefinition)
-		//if topLevelObjectDefinition.Type != resourcemanager.ReferenceApiObjectDefinitionType {
-		//	continue
-		//}
-		//nestedModel, isNestedModel := apiResource.Schema.Models[*topLevelObjectDefinition.ReferenceName]
-		//if !isNestedModel {
-		//	// assume it's a constant
-		//	continue
-		//}
-		//nestedModelIsDiscriminator := modelContainsDiscriminatedTypes(nestedModel, apiResource)
-		//if nestedModelIsDiscriminator {
-		//	return true
-		//}
+		topLevelObjectDefinition := helpers.InnerMostSDKObjectDefinition(field.ObjectDefinition)
+		if topLevelObjectDefinition.Type != models.ReferenceSDKObjectDefinitionType {
+			continue
+		}
+		nestedModel, isNestedModel := apiResource.Models[*topLevelObjectDefinition.ReferenceName]
+		if !isNestedModel {
+			// assume it's a constant
+			continue
+		}
+		nestedModelIsDiscriminator := modelContainsDiscriminatedTypes(nestedModel, apiResource)
+		if nestedModelIsDiscriminator {
+			return true
+		}
 	}
 
 	return false
