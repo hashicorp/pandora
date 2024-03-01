@@ -64,7 +64,7 @@ service "azurestackhci" {
 }
 service "batch" {
   name      = "Batch"
-  available = ["2023-05-01", "2023-11-01"]
+  available = ["2023-05-01", "2023-11-01", "2024-02-01"]
 }
 service "billing" {
   name      = "Billing"
