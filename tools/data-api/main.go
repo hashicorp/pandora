@@ -21,7 +21,7 @@ func main() {
 	}
 	logging.Log = hclog.New(loggingOpts)
 
-	logging.Log.Info("Data API launched")
+	logging.Infof("Data API launched")
 
 	c := cli.NewCLI("data-api", "1.0.0")
 	c.Args = os.Args[1:]
