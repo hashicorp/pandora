@@ -97,7 +97,7 @@ func (systemDataMatcher) IsMatch(field models.SDKField, known internal.ParseResu
 
 			// Sometimes this field is a string.
 			// https://github.com/Azure/azure-rest-api-specs/blob/main/specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/stable/2021-05-01/managedcluster.json#L1322-L1325
-			if fieldVal.ObjectDefinition.Type == models.StringSDKConstantType {
+			if fieldVal.ObjectDefinition.Type == models.StringSDKObjectDefinitionType {
 				hasLastModifiedbyType = true
 			} else if fieldVal.ObjectDefinition.Type == models.ReferenceSDKObjectDefinitionType {
 				// Sometimes it's not ...

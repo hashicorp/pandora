@@ -59,7 +59,7 @@ func GolangFieldTypeFromObjectFieldDefinition(input models.TerraformSchemaObject
 		return &output, nil
 	}
 
-	if input.Type == models.ReferenceSDKObjectDefinitionType {
+	if input.Type == models.ReferenceTerraformSchemaObjectDefinitionType {
 		if input.ReferenceName == nil {
 			return nil, fmt.Errorf("reference type had no reference")
 		}

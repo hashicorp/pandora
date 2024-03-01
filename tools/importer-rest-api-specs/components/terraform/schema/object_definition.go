@@ -51,7 +51,7 @@ func (b Builder) convertToFieldObjectDefinition(modelPrefix string, input models
 			switch constant.Type {
 			case models.StringSDKConstantType:
 				out.Type = models.StringTerraformSchemaObjectDefinitionType
-			case models.IntegerSDKObjectDefinitionType:
+			case models.IntegerSDKConstantType:
 				out.Type = models.IntegerTerraformSchemaObjectDefinitionType
 			case models.FloatSDKConstantType:
 				out.Type = models.FloatTerraformSchemaObjectDefinitionType

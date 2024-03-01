@@ -142,14 +142,14 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_SharedModels(t *testing.T) {
 					"Example": {
 						HCLName: "example",
 						ObjectDefinition: models.TerraformSchemaObjectDefinition{
-							Type: models.StringSDKObjectDefinitionType,
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
 					},
 					"SomeField": {
 						HCLName: "some_sdk_field",
 						ObjectDefinition: models.TerraformSchemaObjectDefinition{
-							Type: models.StringSDKObjectDefinitionType,
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
 					},
@@ -340,14 +340,14 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_UniqueModels(t *testing.T) {
 					"Example": {
 						HCLName: "example",
 						ObjectDefinition: models.TerraformSchemaObjectDefinition{
-							Type: models.StringSDKObjectDefinitionType,
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
 					},
 					"SomeField": {
 						HCLName: "some_sdk_field",
 						ObjectDefinition: models.TerraformSchemaObjectDefinition{
-							Type: models.StringSDKObjectDefinitionType,
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
 					},
@@ -495,14 +495,14 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_SharedModels(t *test
 					"Example": {
 						HCLName: "example",
 						ObjectDefinition: models.TerraformSchemaObjectDefinition{
-							Type: models.StringSDKObjectDefinitionType,
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
 					},
 					"SomeField": {
 						HCLName: "some_sdk_field",
 						ObjectDefinition: models.TerraformSchemaObjectDefinition{
-							Type: models.StringSDKObjectDefinitionType,
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
 					},
@@ -693,14 +693,14 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_UniqueModels(t *test
 					"Example": {
 						HCLName: "example",
 						ObjectDefinition: models.TerraformSchemaObjectDefinition{
-							Type: models.StringSDKObjectDefinitionType,
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
 					},
 					"SomeField": {
 						HCLName: "some_sdk_field",
 						ObjectDefinition: models.TerraformSchemaObjectDefinition{
-							Type: models.StringSDKObjectDefinitionType,
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
 					},

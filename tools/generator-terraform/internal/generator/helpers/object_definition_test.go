@@ -162,7 +162,7 @@ func TestObjectDefinitionToGolangFieldType_Lists(t *testing.T) {
 			input: models.TerraformSchemaObjectDefinition{
 				Type: models.ListTerraformSchemaObjectDefinitionType,
 				NestedObject: &models.TerraformSchemaObjectDefinition{
-					Type: models.DateTimeSDKObjectDefinitionType,
+					Type: models.DateTimeTerraformSchemaObjectDefinitionType,
 				},
 			},
 			// whilst DateTime could be output as *time.Time the Go SDK outputs

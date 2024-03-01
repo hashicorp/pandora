@@ -152,7 +152,7 @@ func TestCodeForNonTopLevelModels_Enabled(t *testing.T) {
 					"Field1": {
 						HCLName: "field1",
 						ObjectDefinition: models.TerraformSchemaObjectDefinition{
-							Type: models.StringSDKObjectDefinitionType,
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
 					},
