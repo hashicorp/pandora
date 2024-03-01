@@ -81,20 +81,20 @@ func TestIdentifyWithCreateAndReadAndUpdateAndDelete(t *testing.T) {
 	if !ok {
 		t.Fatalf("expected there to be a resource named `VirtualNetwork` but there wasn't")
 	}
-	if virtualNetworkResource.CreateMethod.MethodName != "Create" {
-		t.Fatalf("expected the Create MethodName to be `Create` but got %q", virtualNetworkResource.CreateMethod.MethodName)
+	if virtualNetworkResource.CreateMethod.SDKOperationName != "Create" {
+		t.Fatalf("expected the Create SDKOperationName to be `Create` but got %q", virtualNetworkResource.CreateMethod.SDKOperationName)
 	}
 	if virtualNetworkResource.UpdateMethod == nil {
 		t.Fatalf("expected the Update Method to exist but was nil")
 	}
-	if virtualNetworkResource.UpdateMethod.MethodName != "Update" {
-		t.Fatalf("expected the Update MethodName to be `Update` but got %q", virtualNetworkResource.UpdateMethod.MethodName)
+	if virtualNetworkResource.UpdateMethod.SDKOperationName != "Update" {
+		t.Fatalf("expected the Update SDKOperationName to be `Update` but got %q", virtualNetworkResource.UpdateMethod.SDKOperationName)
 	}
-	if virtualNetworkResource.ReadMethod.MethodName != "Get" {
-		t.Fatalf("expected the Read MethodName to be `Get` but got %q", virtualNetworkResource.ReadMethod.MethodName)
+	if virtualNetworkResource.ReadMethod.SDKOperationName != "Get" {
+		t.Fatalf("expected the Read SDKOperationName to be `Get` but got %q", virtualNetworkResource.ReadMethod.SDKOperationName)
 	}
-	if virtualNetworkResource.DeleteMethod.MethodName != "Delete" {
-		t.Fatalf("expected the Delete MethodName to be `Delete` but got %q", virtualNetworkResource.DeleteMethod.MethodName)
+	if virtualNetworkResource.DeleteMethod.SDKOperationName != "Delete" {
+		t.Fatalf("expected the Delete SDKOperationName to be `Delete` but got %q", virtualNetworkResource.DeleteMethod.SDKOperationName)
 	}
 }
 
@@ -156,20 +156,20 @@ func TestIdentifyWithCreateOrUpdateAndReadAndDelete(t *testing.T) {
 	if !ok {
 		t.Fatalf("expected there to be a resource named `VirtualNetwork` but there wasn't")
 	}
-	if virtualNetworkResource.CreateMethod.MethodName != "CreateOrUpdate" {
-		t.Fatalf("expected the Create MethodName to be `CreateOrUpdate` but got %q", virtualNetworkResource.CreateMethod.MethodName)
+	if virtualNetworkResource.CreateMethod.SDKOperationName != "CreateOrUpdate" {
+		t.Fatalf("expected the Create SDKOperationName to be `CreateOrUpdate` but got %q", virtualNetworkResource.CreateMethod.SDKOperationName)
 	}
 	if virtualNetworkResource.UpdateMethod == nil {
 		t.Fatalf("expected the Update Method to exist but was nil")
 	}
-	if virtualNetworkResource.UpdateMethod.MethodName != "CreateOrUpdate" {
-		t.Fatalf("expected the Update MethodName to be `CreateOrUpdate` but got %q", virtualNetworkResource.UpdateMethod.MethodName)
+	if virtualNetworkResource.UpdateMethod.SDKOperationName != "CreateOrUpdate" {
+		t.Fatalf("expected the Update SDKOperationName to be `CreateOrUpdate` but got %q", virtualNetworkResource.UpdateMethod.SDKOperationName)
 	}
-	if virtualNetworkResource.ReadMethod.MethodName != "Get" {
-		t.Fatalf("expected the Read MethodName to be `Get` but got %q", virtualNetworkResource.ReadMethod.MethodName)
+	if virtualNetworkResource.ReadMethod.SDKOperationName != "Get" {
+		t.Fatalf("expected the Read SDKOperationName to be `Get` but got %q", virtualNetworkResource.ReadMethod.SDKOperationName)
 	}
-	if virtualNetworkResource.DeleteMethod.MethodName != "Delete" {
-		t.Fatalf("expected the Delete MethodName to be `Delete` but got %q", virtualNetworkResource.DeleteMethod.MethodName)
+	if virtualNetworkResource.DeleteMethod.SDKOperationName != "Delete" {
+		t.Fatalf("expected the Delete SDKOperationName to be `Delete` but got %q", virtualNetworkResource.DeleteMethod.SDKOperationName)
 	}
 }
 
@@ -259,20 +259,20 @@ func TestIdentifyWithCreateOrUpdateAndUpdateAndReadAndDelete(t *testing.T) {
 	if !ok {
 		t.Fatalf("expected there to be a resource named `VirtualNetwork` but there wasn't")
 	}
-	if virtualNetworkResource.CreateMethod.MethodName != "CreateOrUpdate" {
-		t.Fatalf("expected the Create MethodName to be `CreateOrUpdate` but got %q", virtualNetworkResource.CreateMethod.MethodName)
+	if virtualNetworkResource.CreateMethod.SDKOperationName != "CreateOrUpdate" {
+		t.Fatalf("expected the Create SDKOperationName to be `CreateOrUpdate` but got %q", virtualNetworkResource.CreateMethod.SDKOperationName)
 	}
 	if virtualNetworkResource.UpdateMethod == nil {
 		t.Fatalf("expected the Update Method to exist but was nil")
 	}
-	if virtualNetworkResource.UpdateMethod.MethodName != "Update" {
-		t.Fatalf("expected the Update MethodName to be `Update` but got %q", virtualNetworkResource.UpdateMethod.MethodName)
+	if virtualNetworkResource.UpdateMethod.SDKOperationName != "Update" {
+		t.Fatalf("expected the Update SDKOperationName to be `Update` but got %q", virtualNetworkResource.UpdateMethod.SDKOperationName)
 	}
-	if virtualNetworkResource.ReadMethod.MethodName != "Get" {
-		t.Fatalf("expected the Read MethodName to be `Get` but got %q", virtualNetworkResource.ReadMethod.MethodName)
+	if virtualNetworkResource.ReadMethod.SDKOperationName != "Get" {
+		t.Fatalf("expected the Read SDKOperationName to be `Get` but got %q", virtualNetworkResource.ReadMethod.SDKOperationName)
 	}
-	if virtualNetworkResource.DeleteMethod.MethodName != "Delete" {
-		t.Fatalf("expected the Delete MethodName to be `Delete` but got %q", virtualNetworkResource.DeleteMethod.MethodName)
+	if virtualNetworkResource.DeleteMethod.SDKOperationName != "Delete" {
+		t.Fatalf("expected the Delete SDKOperationName to be `Delete` but got %q", virtualNetworkResource.DeleteMethod.SDKOperationName)
 	}
 }
 
@@ -344,20 +344,20 @@ func TestIdentifyWithCreateOrUpdateAndUpdateAndReadAndDelete_NoProperties(t *tes
 	if !ok {
 		t.Fatalf("expected there to be a resource named `VirtualNetwork` but there wasn't")
 	}
-	if virtualNetworkResource.CreateMethod.MethodName != "CreateOrUpdate" {
-		t.Fatalf("expected the Create MethodName to be `CreateOrUpdate` but got %q", virtualNetworkResource.CreateMethod.MethodName)
+	if virtualNetworkResource.CreateMethod.SDKOperationName != "CreateOrUpdate" {
+		t.Fatalf("expected the Create SDKOperationName to be `CreateOrUpdate` but got %q", virtualNetworkResource.CreateMethod.SDKOperationName)
 	}
 	if virtualNetworkResource.UpdateMethod == nil {
 		t.Fatalf("expected the Update Method to exist but was nil")
 	}
-	if virtualNetworkResource.UpdateMethod.MethodName != "CreateOrUpdate" {
-		t.Fatalf("expected the Update MethodName to be `CreateOrUpdate` but got %q", virtualNetworkResource.UpdateMethod.MethodName)
+	if virtualNetworkResource.UpdateMethod.SDKOperationName != "CreateOrUpdate" {
+		t.Fatalf("expected the Update SDKOperationName to be `CreateOrUpdate` but got %q", virtualNetworkResource.UpdateMethod.SDKOperationName)
 	}
-	if virtualNetworkResource.ReadMethod.MethodName != "Get" {
-		t.Fatalf("expected the Read MethodName to be `Get` but got %q", virtualNetworkResource.ReadMethod.MethodName)
+	if virtualNetworkResource.ReadMethod.SDKOperationName != "Get" {
+		t.Fatalf("expected the Read SDKOperationName to be `Get` but got %q", virtualNetworkResource.ReadMethod.SDKOperationName)
 	}
-	if virtualNetworkResource.DeleteMethod.MethodName != "Delete" {
-		t.Fatalf("expected the Delete MethodName to be `Delete` but got %q", virtualNetworkResource.DeleteMethod.MethodName)
+	if virtualNetworkResource.DeleteMethod.SDKOperationName != "Delete" {
+		t.Fatalf("expected the Delete SDKOperationName to be `Delete` but got %q", virtualNetworkResource.DeleteMethod.SDKOperationName)
 	}
 }
 
@@ -427,19 +427,19 @@ func TestIdentityWithCreateReadDeleteAndUpdateTags(t *testing.T) {
 	if !ok {
 		t.Fatalf("expected there to be a resource named `VirtualNetwork` but there wasn't")
 	}
-	if virtualNetworkResource.CreateMethod.MethodName != "CreateOrUpdate" {
-		t.Fatalf("expected the Create MethodName to be `CreateOrUpdate` but got %q", virtualNetworkResource.CreateMethod.MethodName)
+	if virtualNetworkResource.CreateMethod.SDKOperationName != "CreateOrUpdate" {
+		t.Fatalf("expected the Create SDKOperationName to be `CreateOrUpdate` but got %q", virtualNetworkResource.CreateMethod.SDKOperationName)
 	}
 	if virtualNetworkResource.UpdateMethod == nil {
 		t.Fatalf("expected the Update Method to exist but was nil")
 	}
-	if virtualNetworkResource.UpdateMethod.MethodName != "CreateOrUpdate" {
-		t.Fatalf("expected the Update MethodName to be `CreateOrUpdate` but got %q", virtualNetworkResource.UpdateMethod.MethodName)
+	if virtualNetworkResource.UpdateMethod.SDKOperationName != "CreateOrUpdate" {
+		t.Fatalf("expected the Update SDKOperationName to be `CreateOrUpdate` but got %q", virtualNetworkResource.UpdateMethod.SDKOperationName)
 	}
-	if virtualNetworkResource.ReadMethod.MethodName != "Get" {
-		t.Fatalf("expected the Read MethodName to be `Get` but got %q", virtualNetworkResource.ReadMethod.MethodName)
+	if virtualNetworkResource.ReadMethod.SDKOperationName != "Get" {
+		t.Fatalf("expected the Read SDKOperationName to be `Get` but got %q", virtualNetworkResource.ReadMethod.SDKOperationName)
 	}
-	if virtualNetworkResource.DeleteMethod.MethodName != "Delete" {
-		t.Fatalf("expected the Delete MethodName to be `Delete` but got %q", virtualNetworkResource.DeleteMethod.MethodName)
+	if virtualNetworkResource.DeleteMethod.SDKOperationName != "Delete" {
+		t.Fatalf("expected the Delete SDKOperationName to be `Delete` but got %q", virtualNetworkResource.DeleteMethod.SDKOperationName)
 	}
 }

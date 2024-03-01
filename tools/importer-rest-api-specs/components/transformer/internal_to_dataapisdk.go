@@ -84,9 +84,6 @@ func mapInternalAPIVersionTypeToDataAPISDKType(input importerModels.AzureApiDefi
 }
 
 func mapTerraformResourceDefinitionToSDKType(input resourcemanager.TerraformResourceDetails) (*models.TerraformResourceDefinition, error) {
-	createMethod := mapTerraformMethodDefinitionToSDKType(input.CreateMethod)
-	deleteMethod := mapTerraformMethodDefinitionToSDKType(input.DeleteMethod)
-	readMethod := mapTerraformMethodDefinitionToSDKType(input.ReadMethod)
 	tests := mapTerraformResourceTestsToSDKType(input.Tests)
 
 	mappings, err := mapTerraformMappingsToSDKType(input.Mappings)
@@ -99,11 +96,11 @@ func mapTerraformResourceDefinitionToSDKType(input resourcemanager.TerraformReso
 		return nil, fmt.Errorf("mapping Terraform Schema Models: %+v", err)
 	}
 
-	output := models.TerraformResourceDefinition{
+	return &models.TerraformResourceDefinition{
 		APIResource:          input.Resource,
 		APIVersion:           input.ApiVersion,
-		CreateMethod:         createMethod,
-		DeleteMethod:         deleteMethod,
+		CreateMethod:         input.CreateMethod,
+		DeleteMethod:         input.DeleteMethod,
 		Documentation:        input.Documentation,
 		DisplayName:          input.DisplayName,
 		Generate:             input.Generate,
@@ -111,21 +108,14 @@ func mapTerraformResourceDefinitionToSDKType(input resourcemanager.TerraformReso
 		GenerateIDValidation: input.GenerateIdValidation,
 		GenerateSchema:       input.GenerateSchema,
 		Mappings:             *mappings,
-		ReadMethod:           readMethod,
+		ReadMethod:           input.ReadMethod,
 		ResourceIDName:       input.ResourceIdName,
 		ResourceName:         input.ResourceName,
 		SchemaModelName:      input.SchemaModelName,
 		SchemaModels:         *schemaModels,
 		Tests:                tests,
-		UpdateMethod:         nil,
-	}
-
-	if input.UpdateMethod != nil {
-		updateMethod := mapTerraformMethodDefinitionToSDKType(*input.UpdateMethod)
-		output.UpdateMethod = pointer.To(updateMethod)
-	}
-
-	return &output, nil
+		UpdateMethod:         input.UpdateMethod,
+	}, nil
 }
 
 func mapTerraformSchemaModelsToSDKType(input map[string]resourcemanager.TerraformSchemaModelDefinition) (*map[string]models.TerraformSchemaModel, error) {
@@ -312,14 +302,6 @@ func mapTerraformResourceIDMappingsToSDKType(input []resourcemanager.ResourceIdM
 	}
 
 	return &output, nil
-}
-
-func mapTerraformMethodDefinitionToSDKType(input resourcemanager.MethodDefinition) models.TerraformMethodDefinition {
-	return models.TerraformMethodDefinition{
-		Generate:         input.Generate,
-		SDKOperationName: input.MethodName,
-		TimeoutInMinutes: input.TimeoutInMinutes,
-	}
 }
 
 var terraformObjectDefinitionToSDKType = map[resourcemanager.TerraformSchemaFieldType]models.TerraformSchemaFieldType{

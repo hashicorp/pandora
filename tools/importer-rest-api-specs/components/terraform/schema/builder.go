@@ -365,7 +365,7 @@ func (b Builder) findCreateUpdateReadPayloads(input resourcemanager.TerraformRes
 	out := operationPayloads{}
 
 	// Create has to exist
-	createOperation, ok := b.apiResource.Operations[input.CreateMethod.MethodName]
+	createOperation, ok := b.apiResource.Operations[input.CreateMethod.SDKOperationName]
 	if !ok {
 		return nil, nil
 	}
@@ -386,7 +386,7 @@ func (b Builder) findCreateUpdateReadPayloads(input resourcemanager.TerraformRes
 	}
 
 	// Read has to exist
-	readOperation, ok := b.apiResource.Operations[input.ReadMethod.MethodName]
+	readOperation, ok := b.apiResource.Operations[input.ReadMethod.SDKOperationName]
 	if !ok {
 		return nil, nil
 	}
@@ -409,7 +409,7 @@ func (b Builder) findCreateUpdateReadPayloads(input resourcemanager.TerraformRes
 
 	// Update doesn't have to exist
 	if updateMethod := input.UpdateMethod; updateMethod != nil {
-		updateOperation, ok := b.apiResource.Operations[updateMethod.MethodName]
+		updateOperation, ok := b.apiResource.Operations[updateMethod.SDKOperationName]
 		if !ok {
 			return nil, nil
 		}

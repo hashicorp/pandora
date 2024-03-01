@@ -6,10 +6,9 @@ package schema
 import (
 	"testing"
 
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
@@ -276,20 +275,20 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 	builder := NewBuilder(apiResource)
 	input := resourcemanager.TerraformResourceDetails{
 		ApiVersion: "2022-07-01",
-		CreateMethod: resourcemanager.MethodDefinition{
+		CreateMethod: models.TerraformMethodDefinition{
 			Generate:         true,
-			MethodName:       "Create",
+			SDKOperationName: "Create",
 			TimeoutInMinutes: 30,
 		},
-		DeleteMethod: resourcemanager.MethodDefinition{
+		DeleteMethod: models.TerraformMethodDefinition{
 			Generate:         true,
-			MethodName:       "Delete",
+			SDKOperationName: "Delete",
 			TimeoutInMinutes: 30,
 		},
 		DisplayName: "Chaos Experiment",
-		ReadMethod: resourcemanager.MethodDefinition{
+		ReadMethod: models.TerraformMethodDefinition{
 			Generate:         true,
-			MethodName:       "Get",
+			SDKOperationName: "Get",
 			TimeoutInMinutes: 5,
 		},
 		Resource:        "Experiment",

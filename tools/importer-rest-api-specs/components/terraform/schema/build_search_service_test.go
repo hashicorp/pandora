@@ -475,25 +475,25 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 
 	input := resourcemanager.TerraformResourceDetails{
 		ApiVersion: "2020-08-01",
-		CreateMethod: resourcemanager.MethodDefinition{
+		CreateMethod: models.TerraformMethodDefinition{
 			Generate:         true,
-			MethodName:       "Create",
+			SDKOperationName: "Create",
 			TimeoutInMinutes: 30,
 		},
-		DeleteMethod: resourcemanager.MethodDefinition{},
+		DeleteMethod: models.TerraformMethodDefinition{},
 		DisplayName:  "Search Service",
-		ReadMethod: resourcemanager.MethodDefinition{
+		ReadMethod: models.TerraformMethodDefinition{
 			Generate:         true,
-			MethodName:       "Get",
+			SDKOperationName: "Get",
 			TimeoutInMinutes: 5,
 		},
 		Resource:        "SearchService",
 		ResourceIdName:  "SearchServiceId",
 		ResourceName:    "SearchService",
 		SchemaModelName: "SearchService",
-		UpdateMethod: &resourcemanager.MethodDefinition{
+		UpdateMethod: &models.TerraformMethodDefinition{
 			Generate:         true,
-			MethodName:       "Update",
+			SDKOperationName: "Update",
 			TimeoutInMinutes: 30,
 		},
 	}

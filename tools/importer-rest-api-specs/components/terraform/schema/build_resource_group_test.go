@@ -117,25 +117,25 @@ func TestBuildForResourceGroupHappyPathAllModelsTheSame(t *testing.T) {
 
 	input := resourcemanager.TerraformResourceDetails{
 		ApiVersion: "2020-01-01",
-		CreateMethod: resourcemanager.MethodDefinition{
+		CreateMethod: models.TerraformMethodDefinition{
 			Generate:         true,
-			MethodName:       "Create",
+			SDKOperationName: "Create",
 			TimeoutInMinutes: 30,
 		},
-		DeleteMethod: resourcemanager.MethodDefinition{},
+		DeleteMethod: models.TerraformMethodDefinition{},
 		DisplayName:  "Resource Groups",
-		ReadMethod: resourcemanager.MethodDefinition{
+		ReadMethod: models.TerraformMethodDefinition{
 			Generate:         true,
-			MethodName:       "Get",
+			SDKOperationName: "Get",
 			TimeoutInMinutes: 5,
 		},
 		Resource:        "ResourceGroups",
 		ResourceIdName:  "ResourceGroupId",
 		ResourceName:    "ResourceGroup",
 		SchemaModelName: "ResourceGroupResource",
-		UpdateMethod: &resourcemanager.MethodDefinition{
+		UpdateMethod: &models.TerraformMethodDefinition{
 			Generate:         true,
-			MethodName:       "Update",
+			SDKOperationName: "Update",
 			TimeoutInMinutes: 30,
 		},
 	}
@@ -307,25 +307,25 @@ func TestBuildForResourceGroupUsingRealData(t *testing.T) {
 
 	input := resourcemanager.TerraformResourceDetails{
 		ApiVersion: "2020-01-01",
-		CreateMethod: resourcemanager.MethodDefinition{
+		CreateMethod: models.TerraformMethodDefinition{
 			Generate:         true,
-			MethodName:       "Create",
+			SDKOperationName: "Create",
 			TimeoutInMinutes: 30,
 		},
-		DeleteMethod: resourcemanager.MethodDefinition{},
+		DeleteMethod: models.TerraformMethodDefinition{},
 		DisplayName:  "Resource Groups",
-		ReadMethod: resourcemanager.MethodDefinition{
+		ReadMethod: models.TerraformMethodDefinition{
 			Generate:         true,
-			MethodName:       "Get",
+			SDKOperationName: "Get",
 			TimeoutInMinutes: 5,
 		},
 		Resource:        "ResourceGroups",
 		ResourceIdName:  "ResourceGroupId",
 		ResourceName:    "ResourceGroup",
 		SchemaModelName: "ResourceGroup",
-		UpdateMethod: &resourcemanager.MethodDefinition{
+		UpdateMethod: &models.TerraformMethodDefinition{
 			Generate:         true,
-			MethodName:       "Update",
+			SDKOperationName: "Update",
 			TimeoutInMinutes: 30,
 		},
 	}

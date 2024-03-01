@@ -194,25 +194,25 @@ func TestBuildForServiceBusNamespaceHappyPath(t *testing.T) {
 
 	input := resourcemanager.TerraformResourceDetails{
 		ApiVersion: "2020-01-01",
-		CreateMethod: resourcemanager.MethodDefinition{
+		CreateMethod: models.TerraformMethodDefinition{
 			Generate:         true,
-			MethodName:       "Create",
+			SDKOperationName: "Create",
 			TimeoutInMinutes: 30,
 		},
-		DeleteMethod: resourcemanager.MethodDefinition{},
+		DeleteMethod: models.TerraformMethodDefinition{},
 		DisplayName:  "ServiceBus Namespace",
-		ReadMethod: resourcemanager.MethodDefinition{
+		ReadMethod: models.TerraformMethodDefinition{
 			Generate:         true,
-			MethodName:       "Get",
+			SDKOperationName: "Get",
 			TimeoutInMinutes: 5,
 		},
 		Resource:        "Namespaces",
 		ResourceIdName:  "NamespaceId",
 		ResourceName:    "Namespace",
 		SchemaModelName: "Namespace",
-		UpdateMethod: &resourcemanager.MethodDefinition{
+		UpdateMethod: &models.TerraformMethodDefinition{
 			Generate:         true,
-			MethodName:       "Update",
+			SDKOperationName: "Update",
 			TimeoutInMinutes: 30,
 		},
 	}
@@ -873,25 +873,25 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 
 	input := resourcemanager.TerraformResourceDetails{
 		ApiVersion: "2020-01-01",
-		CreateMethod: resourcemanager.MethodDefinition{
+		CreateMethod: models.TerraformMethodDefinition{
 			Generate:         true,
-			MethodName:       "Create",
+			SDKOperationName: "Create",
 			TimeoutInMinutes: 30,
 		},
-		DeleteMethod: resourcemanager.MethodDefinition{},
+		DeleteMethod: models.TerraformMethodDefinition{},
 		DisplayName:  "ServiceBus Namespace",
-		ReadMethod: resourcemanager.MethodDefinition{
+		ReadMethod: models.TerraformMethodDefinition{
 			Generate:         true,
-			MethodName:       "Get",
+			SDKOperationName: "Get",
 			TimeoutInMinutes: 5,
 		},
 		Resource:        "Namespaces",
 		ResourceIdName:  "NamespaceId",
 		ResourceName:    "Namespace",
 		SchemaModelName: "Namespace",
-		UpdateMethod: &resourcemanager.MethodDefinition{
+		UpdateMethod: &models.TerraformMethodDefinition{
 			Generate:         true,
-			MethodName:       "Update",
+			SDKOperationName: "Update",
 			TimeoutInMinutes: 30,
 		},
 	}

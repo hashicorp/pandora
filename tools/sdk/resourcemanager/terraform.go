@@ -183,11 +183,11 @@ type TerraformResourceDetails struct {
 
 	// CreateMethod describes the method within the SDK Package that should
 	// be used to create this resource in Terraform.
-	CreateMethod MethodDefinition `json:"createMethod"`
+	CreateMethod models.TerraformMethodDefinition `json:"createMethod"`
 
 	// DeleteMethod describes the method within the SDK Package that should
 	// be used to delete this resource in Terraform.
-	DeleteMethod MethodDefinition `json:"deleteMethod"`
+	DeleteMethod models.TerraformMethodDefinition `json:"deleteMethod"`
 
 	// Documentation specifies metadata used to generate the Documentation
 	// for this Resource.
@@ -217,7 +217,7 @@ type TerraformResourceDetails struct {
 
 	// ReadMethod describes the method within the SDK Package that should
 	// be used to retrieve information about this resource in Terraform.
-	ReadMethod MethodDefinition `json:"readMethod"`
+	ReadMethod models.TerraformMethodDefinition `json:"readMethod"`
 
 	// Resource specifies the Resource within this API Version within the Service where
 	// the details for this Resource can be found.
@@ -241,18 +241,7 @@ type TerraformResourceDetails struct {
 
 	// UpdateMethod optionally describes the method within the SDK Package that should
 	// be used to update this resource in Terraform.
-	UpdateMethod *MethodDefinition `json:"updateMethod,omitempty"`
-}
-
-type MethodDefinition struct {
-	// Generate specifies whether this function should be generated for this Resource.
-	Generate bool `json:"generate"`
-
-	// MethodName specifies the name of the SDK method whicn should be used.
-	MethodName string `json:"methodName"`
-
-	// TimeoutInMinutes specifies the Terraform Timeout for this Resource (in minutes)
-	TimeoutInMinutes int `json:"timeoutInMinutes"`
+	UpdateMethod *models.TerraformMethodDefinition `json:"updateMethod,omitempty"`
 }
 
 type TerraformSchemaFieldDefinition struct {
