@@ -8,6 +8,7 @@ import (
 	"strings"
 
 	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -55,7 +56,7 @@ func (b Builder) schemaFromTopLevelFields(schemaModelName string, input operatio
 				Optional:         field.Optional,
 				ForceNew:         !hasUpdate,
 				HclName:          "identity",
-				Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+				Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 					Markdown: fmt.Sprintf("Specifies the Managed Identity which should be assigned to this %s.", resourceDisplayName),
 				},
 			}
@@ -72,7 +73,7 @@ func (b Builder) schemaFromTopLevelFields(schemaModelName string, input operatio
 				},
 				Required: true,
 				ForceNew: true,
-				Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+				Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 					Markdown: fmt.Sprintf("The Azure Region where the %s should exist.", resourceDisplayName),
 				},
 			}
@@ -96,7 +97,7 @@ func (b Builder) schemaFromTopLevelFields(schemaModelName string, input operatio
 				},
 				Optional: true,
 				ForceNew: !canBeUpdated,
-				Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+				Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 					Markdown: fmt.Sprintf("A mapping of tags which should be assigned to the %s.", resourceDisplayName),
 				},
 			}
@@ -122,7 +123,7 @@ func (b Builder) schemaFromTopLevelFields(schemaModelName string, input operatio
 				Optional:         field.Optional,
 				ForceNew:         !hasUpdate,
 				HclName:          "sku",
-				Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+				Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 					Markdown: field.Description,
 				},
 			}
@@ -145,7 +146,7 @@ func (b Builder) schemaFromTopLevelFields(schemaModelName string, input operatio
 				Optional: field.Optional,
 				ForceNew: !hasUpdate,
 				HclName:  "zone",
-				Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+				Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 					Markdown: field.Description,
 				},
 			}
@@ -168,7 +169,7 @@ func (b Builder) schemaFromTopLevelFields(schemaModelName string, input operatio
 				Optional: field.Optional,
 				ForceNew: !hasUpdate,
 				HclName:  "zones",
-				Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+				Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 					Markdown: field.Description,
 				},
 			}

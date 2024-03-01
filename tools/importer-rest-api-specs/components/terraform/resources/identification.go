@@ -125,7 +125,7 @@ func FindCandidates(apiResource models.APIResource, resourceDefinitions map[stri
 				ResourceIdName:       resourceIdName,
 				ResourceName:         strings.ReplaceAll(resourceMetaData.Name, " ", ""), // TODO: maybe more later
 				UpdateMethod:         updateMethod,
-				Documentation: resourcemanager.ResourceDocumentationDefinition{
+				Documentation: models.TerraformDocumentationDefinition{
 					Category:    resourceMetaData.WebsiteSubcategory,
 					Description: resourceMetaData.Description,
 				},

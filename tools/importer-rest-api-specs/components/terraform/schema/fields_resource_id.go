@@ -55,7 +55,7 @@ func (b Builder) identifyTopLevelFieldsWithinResourceID(input models.ResourceID,
 			Required: true,
 			ForceNew: true,
 			HclName:  "name",
-			Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+			Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 				Markdown: descriptionForResourceIDSegment("Name", displayName, overrides),
 			},
 		}
@@ -79,7 +79,7 @@ func (b Builder) identifyTopLevelFieldsWithinResourceID(input models.ResourceID,
 			Required: true,
 			ForceNew: true,
 			HclName:  terraformHelpers.ConvertToSnakeCase(parentResourceIdName),
-			Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+			Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 				Markdown: descriptionForResourceIDSegment(parentResourceIdName, displayName, overrides),
 			},
 		}
@@ -136,7 +136,7 @@ func (b Builder) identifyTopLevelFieldsWithinResourceID(input models.ResourceID,
 				Required: true,
 				ForceNew: true,
 				HclName:  hclName,
-				Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+				Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 					Markdown: descriptionForResourceIDSegment(fieldName, displayName, overrides),
 				},
 			}

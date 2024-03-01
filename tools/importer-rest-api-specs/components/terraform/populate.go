@@ -118,7 +118,7 @@ func generateTerraformExampleUsage(data *importerModels.AzureApiDefinition) (*im
 				if err != nil {
 					return nil, fmt.Errorf("building Example Usage from the Tests for Resource %q: %+v", resourceKey, err)
 				}
-				resourceValue.Documentation.ExampleUsageHcl = *example
+				resourceValue.Documentation.ExampleUsageHCL = *example
 				tfResources[resourceKey] = resourceValue
 			}
 			v.Terraform.Resources = tfResources

@@ -100,15 +100,11 @@ func mapTerraformResourceDefinitionToSDKType(input resourcemanager.TerraformReso
 	}
 
 	output := models.TerraformResourceDefinition{
-		APIResource:  input.Resource,
-		APIVersion:   input.ApiVersion,
-		CreateMethod: createMethod,
-		DeleteMethod: deleteMethod,
-		Documentation: models.TerraformDocumentationDefinition{
-			Category:        input.Documentation.Category,
-			Description:     input.Documentation.Description,
-			ExampleUsageHCL: input.Documentation.ExampleUsageHcl,
-		},
+		APIResource:          input.Resource,
+		APIVersion:           input.ApiVersion,
+		CreateMethod:         createMethod,
+		DeleteMethod:         deleteMethod,
+		Documentation:        input.Documentation,
 		DisplayName:          input.DisplayName,
 		Generate:             input.Generate,
 		GenerateModel:        input.GenerateModel,
