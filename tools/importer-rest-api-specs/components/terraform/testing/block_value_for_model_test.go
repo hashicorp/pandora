@@ -8,6 +8,7 @@ import (
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/hcl/v2/hclwrite"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
 )
@@ -20,15 +21,15 @@ func TestBlockValueForModel_RequiredOnly_OnlyTopLevelProperties(t *testing.T) {
 					"SomeRequiredField": {
 						HclName:  "some_required_field",
 						Required: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 					},
 					"SomeOptionalField": {
 						HclName:  "some_optional_field",
 						Optional: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 					},
 				},
@@ -68,15 +69,15 @@ func TestBlockValueForModel_RequiredAndOptional_OnlyTopLevelProperties(t *testin
 					"SomeRequiredField": {
 						HclName:  "some_required_field",
 						Required: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 					},
 					"SomeOptionalField": {
 						HclName:  "some_optional_field",
 						Optional: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 					},
 				},
@@ -117,30 +118,30 @@ func TestBlockValueForModel_RequiredOnly_MapsANestedItem(t *testing.T) {
 					"SomeRequiredField": {
 						HclName:  "some_required_field",
 						Required: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 					},
 					"SomeOptionalField": {
 						HclName:  "some_optional_field",
 						Optional: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 					},
 					"SomeNestedBlock": {
 						HclName:  "some_nested_block",
 						Required: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 							ReferenceName: pointer.To("NestedModel"),
 						},
 					},
 					"AnotherNestedBlock": {
 						HclName:  "another_nested_block",
 						Optional: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 							ReferenceName: pointer.To("NestedModel"),
 						},
 					},
@@ -151,15 +152,15 @@ func TestBlockValueForModel_RequiredOnly_MapsANestedItem(t *testing.T) {
 					"SomeRequiredNestedField": {
 						HclName:  "some_required_nested_field",
 						Required: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 					},
 					"SomeOptionalNestedField": {
 						HclName:  "some_optional_nested_field",
 						Optional: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 					},
 				},
@@ -203,30 +204,30 @@ func TestBlockValueForModel_RequiredAndOptional_MapsANestedItem(t *testing.T) {
 					"SomeRequiredField": {
 						HclName:  "some_required_field",
 						Required: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 					},
 					"SomeOptionalField": {
 						HclName:  "some_optional_field",
 						Optional: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 					},
 					"SomeNestedBlock": {
 						HclName:  "some_nested_block",
 						Required: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 							ReferenceName: pointer.To("NestedModel"),
 						},
 					},
 					"AnotherNestedBlock": {
 						HclName:  "another_nested_block",
 						Optional: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 							ReferenceName: pointer.To("NestedModel"),
 						},
 					},
@@ -237,15 +238,15 @@ func TestBlockValueForModel_RequiredAndOptional_MapsANestedItem(t *testing.T) {
 					"SomeRequiredNestedField": {
 						HclName:  "some_required_nested_field",
 						Required: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 					},
 					"SomeOptionalNestedField": {
 						HclName:  "some_optional_nested_field",
 						Optional: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 					},
 				},

@@ -6,6 +6,7 @@ package testing
 import (
 	"testing"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
 )
@@ -14,8 +15,8 @@ func TestAttributeValueForField_EdgeZone(t *testing.T) {
 	field := resourcemanager.TerraformSchemaFieldDefinition{
 		HclName:  "edge_zone",
 		Required: true,
-		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-			Type: resourcemanager.TerraformSchemaFieldTypeEdgeZone,
+		ObjectDefinition: models.TerraformSchemaObjectDefinition{
+			Type: models.EdgeZoneTerraformSchemaObjectDefinitionType,
 		},
 	}
 	details := resourcemanager.TerraformResourceDetails{
@@ -55,8 +56,8 @@ func TestAttributeValueForField_Location(t *testing.T) {
 	field := resourcemanager.TerraformSchemaFieldDefinition{
 		HclName:  "location",
 		Required: true,
-		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-			Type: resourcemanager.TerraformSchemaFieldTypeLocation,
+		ObjectDefinition: models.TerraformSchemaObjectDefinition{
+			Type: models.LocationTerraformSchemaObjectDefinitionType,
 		},
 	}
 	details := resourcemanager.TerraformResourceDetails{
@@ -99,8 +100,8 @@ func TestAttributeValueForField_LocationWithinTheResourceGroupResource(t *testin
 	field := resourcemanager.TerraformSchemaFieldDefinition{
 		HclName:  "location",
 		Required: true,
-		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-			Type: resourcemanager.TerraformSchemaFieldTypeLocation,
+		ObjectDefinition: models.TerraformSchemaObjectDefinition{
+			Type: models.LocationTerraformSchemaObjectDefinitionType,
 		},
 	}
 	details := resourcemanager.TerraformResourceDetails{
@@ -140,8 +141,8 @@ func TestAttributeValueForField_ResourceGroup(t *testing.T) {
 	field := resourcemanager.TerraformSchemaFieldDefinition{
 		HclName:  "resource_group_name",
 		Required: true,
-		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-			Type: resourcemanager.TerraformSchemaFieldTypeResourceGroup,
+		ObjectDefinition: models.TerraformSchemaObjectDefinition{
+			Type: models.ResourceGroupTerraformSchemaObjectDefinitionType,
 		},
 	}
 	details := resourcemanager.TerraformResourceDetails{
@@ -184,8 +185,8 @@ func TestAttributeValueForField_ResourceGroupWithinTheResourceGroupResource(t *t
 	field := resourcemanager.TerraformSchemaFieldDefinition{
 		HclName:  "resource_group_name",
 		Required: true,
-		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-			Type: resourcemanager.TerraformSchemaFieldTypeResourceGroup,
+		ObjectDefinition: models.TerraformSchemaObjectDefinition{
+			Type: models.ResourceGroupTerraformSchemaObjectDefinitionType,
 		},
 	}
 	details := resourcemanager.TerraformResourceDetails{
@@ -221,51 +222,12 @@ func TestAttributeValueForField_ResourceGroupWithinTheResourceGroupResource(t *t
 	assertDependenciesMatch(t, expectedDependencies, actualDependencies)
 }
 
-func TestAttributeValueForField_Sku(t *testing.T) {
-	field := resourcemanager.TerraformSchemaFieldDefinition{
-		HclName:  "sku_name",
-		Required: true,
-		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-			Type: resourcemanager.TerraformSchemaFieldTypeSku,
-		},
-	}
-	details := resourcemanager.TerraformResourceDetails{
-		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
-			"TopLevelModel": {
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
-					"SkuName": field,
-				},
-			},
-		},
-		SchemaModelName: "TopLevelModel",
-	}
-	variables := resourcemanager.TerraformTestDataVariables{}
-	actualDependencies := testDependencies{}
-	builder := NewTestBuilder("example", "resource", details)
-	expected := `"Standard"`
-	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
-	if err != nil {
-		t.Fatalf(err.Error())
-	}
-	testhelpers.AssertTemplatedCodeMatches(t, expected, string(actual.Bytes()))
-	expectedDependencies := testDependencies{
-		variables:                 testVariables{},
-		needsEdgeZone:             false,
-		needsPublicIP:             false,
-		needsResourceGroup:        false,
-		needsSubnet:               false,
-		needsUserAssignedIdentity: false,
-		needsVirtualNetwork:       false,
-	}
-	assertDependenciesMatch(t, expectedDependencies, actualDependencies)
-}
-
 func TestAttributeValueForField_Tags(t *testing.T) {
 	field := resourcemanager.TerraformSchemaFieldDefinition{
 		HclName:  "tags",
 		Optional: true,
-		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-			Type: resourcemanager.TerraformSchemaFieldTypeTags,
+		ObjectDefinition: models.TerraformSchemaObjectDefinition{
+			Type: models.TagsTerraformSchemaObjectDefinitionType,
 		},
 	}
 	details := resourcemanager.TerraformResourceDetails{
@@ -311,8 +273,8 @@ func TestAttributeValueForField_Zone(t *testing.T) {
 	field := resourcemanager.TerraformSchemaFieldDefinition{
 		HclName:  "zone",
 		Required: true,
-		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-			Type: resourcemanager.TerraformSchemaFieldTypeZone,
+		ObjectDefinition: models.TerraformSchemaObjectDefinition{
+			Type: models.ZoneTerraformSchemaObjectDefinitionType,
 		},
 	}
 	details := resourcemanager.TerraformResourceDetails{
@@ -350,8 +312,8 @@ func TestAttributeValueForField_Zones(t *testing.T) {
 	field := resourcemanager.TerraformSchemaFieldDefinition{
 		HclName:  "zones",
 		Required: true,
-		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-			Type: resourcemanager.TerraformSchemaFieldTypeZones,
+		ObjectDefinition: models.TerraformSchemaObjectDefinition{
+			Type: models.ZonesTerraformSchemaObjectDefinitionType,
 		},
 	}
 	details := resourcemanager.TerraformResourceDetails{

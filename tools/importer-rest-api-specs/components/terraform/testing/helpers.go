@@ -8,9 +8,9 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
-
 	"github.com/hashicorp/hcl/v2/hclwrite"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 func blockForResource(f *hclwrite.File, providerPrefix, resourceLabel, resourceLabelType string) *hclwrite.Body {
@@ -84,24 +84,24 @@ func getOptionalFieldsForSchemaModel(input resourcemanager.TerraformSchemaModelD
 	return out
 }
 
-func needsBlock(input resourcemanager.TerraformSchemaFieldType, nestedObject *resourcemanager.TerraformSchemaFieldObjectDefinition) bool {
-	typesNeedingBlocks := map[resourcemanager.TerraformSchemaFieldType]struct{}{
-		resourcemanager.TerraformSchemaFieldTypeList:      {},
-		resourcemanager.TerraformSchemaFieldTypeReference: {},
-		resourcemanager.TerraformSchemaFieldTypeSet:       {},
+func needsBlock(input models.TerraformSchemaObjectDefinitionType, nestedObject *models.TerraformSchemaObjectDefinition) bool {
+	typesNeedingBlocks := map[models.TerraformSchemaObjectDefinitionType]struct{}{
+		models.ListTerraformSchemaObjectDefinitionType:      {},
+		models.ReferenceTerraformSchemaObjectDefinitionType: {},
+		models.SetTerraformSchemaObjectDefinitionType:       {},
 
 		// NOTE: the following CommonSchema types are exposed as Blocks and not Attributes (valid under `terraform-plugin-sdk@v2` / protocol v5)
 		// however this'll change in the future under `terraform-plugin-framework` / protocol v6
-		resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned:        {},
-		resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned: {},
-		resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned:  {},
-		resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned:          {},
+		models.SystemAssignedIdentityTerraformSchemaObjectDefinitionType:        {},
+		models.SystemAndUserAssignedIdentityTerraformSchemaObjectDefinitionType: {},
+		models.SystemOrUserAssignedIdentityTerraformSchemaObjectDefinitionType:  {},
+		models.UserAssignedIdentityTerraformSchemaObjectDefinitionType:          {},
 	}
 
 	if _, ok := typesNeedingBlocks[input]; ok {
 		// TODO add support for list of ints
 		// lists of basic types should be treated as attributes rather than blocks
-		if nestedObject != nil && nestedObject.Type == resourcemanager.TerraformSchemaFieldTypeString {
+		if nestedObject != nil && nestedObject.Type == models.StringTerraformSchemaObjectDefinitionType {
 			return false
 		}
 		return true

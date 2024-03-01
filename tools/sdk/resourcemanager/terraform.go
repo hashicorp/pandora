@@ -246,7 +246,7 @@ type TerraformResourceDetails struct {
 
 type TerraformSchemaFieldDefinition struct {
 	// ObjectDefinition specifies what this field is, for example a String or a List of a Model.
-	ObjectDefinition TerraformSchemaFieldObjectDefinition `json:"objectDefinition"`
+	ObjectDefinition models.TerraformSchemaObjectDefinition `json:"objectDefinition"`
 
 	// Computed specifies whether this field is Computed, meaning that the API defines a
 	// value for this field.
@@ -271,34 +271,6 @@ type TerraformSchemaFieldDefinition struct {
 	// Validation specifies the validation criteria for this field, for example a set of fixed values
 	Validation *TerraformSchemaValidationDefinition `json:"validation,omitempty"`
 }
-
-type TerraformSchemaFieldType string
-
-const (
-	TerraformSchemaFieldTypeBoolean    TerraformSchemaFieldType = "Boolean"
-	TerraformSchemaFieldTypeDateTime   TerraformSchemaFieldType = "DateTime"
-	TerraformSchemaFieldTypeDictionary TerraformSchemaFieldType = "Dictionary"
-	TerraformSchemaFieldTypeFloat      TerraformSchemaFieldType = "Float"
-	TerraformSchemaFieldTypeInteger    TerraformSchemaFieldType = "Integer"
-	TerraformSchemaFieldTypeList       TerraformSchemaFieldType = "List"
-	TerraformSchemaFieldTypeReference  TerraformSchemaFieldType = "Reference"
-	TerraformSchemaFieldTypeSet        TerraformSchemaFieldType = "Set"
-	TerraformSchemaFieldTypeString     TerraformSchemaFieldType = "String"
-	// NOTE: we intentionally only have Terraform Schema fields (and specific CustomSchema types) here - meaning
-	// that we don't have RawObject/RawFile since we have no means of expressing them today.
-
-	TerraformSchemaFieldTypeEdgeZone                      TerraformSchemaFieldType = "EdgeZone"
-	TerraformSchemaFieldTypeIdentitySystemAssigned        TerraformSchemaFieldType = "IdentitySystemAssigned"
-	TerraformSchemaFieldTypeIdentitySystemAndUserAssigned TerraformSchemaFieldType = "IdentitySystemAndUserAssigned"
-	TerraformSchemaFieldTypeIdentitySystemOrUserAssigned  TerraformSchemaFieldType = "IdentitySystemOrUserAssigned"
-	TerraformSchemaFieldTypeIdentityUserAssigned          TerraformSchemaFieldType = "IdentityUserAssigned"
-	TerraformSchemaFieldTypeLocation                      TerraformSchemaFieldType = "Location"
-	TerraformSchemaFieldTypeResourceGroup                 TerraformSchemaFieldType = "ResourceGroup"
-	TerraformSchemaFieldTypeTags                          TerraformSchemaFieldType = "Tags"
-	TerraformSchemaFieldTypeSku                           TerraformSchemaFieldType = "Sku"
-	TerraformSchemaFieldTypeZone                          TerraformSchemaFieldType = "Zone"
-	TerraformSchemaFieldTypeZones                         TerraformSchemaFieldType = "Zones"
-)
 
 type TerraformSchemaModelDefinition struct {
 	// Fields is a Map of Field Name -> TerraformSchemaFieldDefinition defining the fields
@@ -340,30 +312,6 @@ const (
 
 	// TODO: implement other types e.g. NoEmptyValues/Ranges
 )
-
-type TerraformSchemaFieldObjectDefinition struct {
-	NestedObject *TerraformSchemaFieldObjectDefinition `json:"nestedObject,omitempty"`
-
-	// ReferenceName is the name of the Reference associated with this ObjectDefinition.
-	ReferenceName *string `json:"referenceName"`
-
-	// Type specifies the Type of field that this is, for example a String or a Location.
-	Type TerraformSchemaFieldType `json:"type"`
-}
-
-func (od TerraformSchemaFieldObjectDefinition) String() string {
-	components := []string{
-		string(od.Type),
-	}
-	if od.ReferenceName != nil {
-		components = append(components, fmt.Sprintf("ReferenceName %q", *od.ReferenceName))
-	}
-	if od.NestedObject != nil {
-		components = append(components, fmt.Sprintf("Nested Object (%s)", od.NestedObject.String()))
-	}
-
-	return strings.Join(components, " / ")
-}
 
 type TerraformResourceTestsDefinition struct {
 	// BasicConfiguration is the most basic Terraform Configuration for this Resource

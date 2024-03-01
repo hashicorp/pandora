@@ -7,6 +7,7 @@ import (
 	"fmt"
 
 	"github.com/hashicorp/hcl/v2/hclwrite"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -52,7 +53,7 @@ func (tb TestBuilder) generateCompleteTest(dependencies *testDependencies) (*str
 func hasOptionalField(input map[string]resourcemanager.TerraformSchemaFieldDefinition, schemaModels map[string]resourcemanager.TerraformSchemaModelDefinition) bool {
 	for _, details := range input {
 		if details.ObjectDefinition.NestedObject != nil {
-			if details.ObjectDefinition.NestedObject.Type == resourcemanager.TerraformSchemaFieldTypeReference {
+			if details.ObjectDefinition.NestedObject.Type == models.ReferenceTerraformSchemaObjectDefinitionType {
 				nestedModel := schemaModels[*details.ObjectDefinition.NestedObject.ReferenceName]
 				if hasOptionalField(nestedModel.Fields, schemaModels) {
 					return true

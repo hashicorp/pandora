@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -14,16 +15,16 @@ var _ ModelProcessor = modelFlattenSkuName{}
 
 type modelFlattenSkuName struct{}
 
-func (modelFlattenSkuName) ProcessModel(modelName string, model resourcemanager.TerraformSchemaModelDefinition, models map[string]resourcemanager.TerraformSchemaModelDefinition, mappings resourcemanager.MappingDefinition) (*map[string]resourcemanager.TerraformSchemaModelDefinition, *resourcemanager.MappingDefinition, error) {
+func (modelFlattenSkuName) ProcessModel(modelName string, model resourcemanager.TerraformSchemaModelDefinition, schemaModels map[string]resourcemanager.TerraformSchemaModelDefinition, mappings resourcemanager.MappingDefinition) (*map[string]resourcemanager.TerraformSchemaModelDefinition, *resourcemanager.MappingDefinition, error) {
 	fields := make(map[string]resourcemanager.TerraformSchemaFieldDefinition)
 	for fieldName, fieldValue := range model.Fields {
 		fields[fieldName] = fieldValue
 
-		if strings.EqualFold(fieldName, "Sku") && fieldValue.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeReference {
+		if strings.EqualFold(fieldName, "Sku") && fieldValue.ObjectDefinition.Type == models.ReferenceTerraformSchemaObjectDefinitionType {
 			if fieldValue.ObjectDefinition.ReferenceName == nil {
 				return nil, nil, fmt.Errorf("processing model %q: had no reference for field %q", modelName, fieldName)
 			}
-			nested, ok := models[*fieldValue.ObjectDefinition.ReferenceName]
+			nested, ok := schemaModels[*fieldValue.ObjectDefinition.ReferenceName]
 			if !ok {
 				return nil, nil, fmt.Errorf("processing model %q: no nested model was not found with name %q", modelName, *fieldValue.ObjectDefinition.ReferenceName)
 			}
@@ -47,6 +48,6 @@ func (modelFlattenSkuName) ProcessModel(modelName string, model resourcemanager.
 		}
 	}
 	model.Fields = fields
-	models[modelName] = model
-	return &models, &mappings, nil
+	schemaModels[modelName] = model
+	return &schemaModels, &mappings, nil
 }

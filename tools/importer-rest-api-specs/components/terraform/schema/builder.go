@@ -99,8 +99,8 @@ func (b Builder) Build(input resourcemanager.TerraformResourceDetails, resourceB
 		for fieldName, field := range schemaModels[modelName].Fields {
 			field.HclName = terraformHelpers.ConvertToSnakeCase(fieldName)
 			fieldsWithHclNames[fieldName] = field
-			objectDefinition := topLevelFieldObjectDefinition(field.ObjectDefinition)
-			if objectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeReference {
+			objectDefinition := helpers.InnerMostTerraformSchemaObjectDefinition(field.ObjectDefinition)
+			if objectDefinition.Type == models.ReferenceTerraformSchemaObjectDefinitionType {
 				if objectDefinition.ReferenceName == nil {
 					return nil, nil, fmt.Errorf("the Field %q within Model %q was a Reference with no ReferenceName", fieldName, modelName)
 				}
@@ -126,17 +126,17 @@ func (b Builder) Build(input resourcemanager.TerraformResourceDetails, resourceB
 	return outputSchemaModels, outputMappings, nil
 }
 
-func (b Builder) removeUnusedModelsAndMappings(input resourcemanager.TerraformResourceDetails, models map[string]resourcemanager.TerraformSchemaModelDefinition, mappings resourcemanager.MappingDefinition, logger hclog.Logger) (*map[string]resourcemanager.TerraformSchemaModelDefinition, *resourcemanager.MappingDefinition, error) {
+func (b Builder) removeUnusedModelsAndMappings(input resourcemanager.TerraformResourceDetails, schemaModels map[string]resourcemanager.TerraformSchemaModelDefinition, mappings resourcemanager.MappingDefinition, logger hclog.Logger) (*map[string]resourcemanager.TerraformSchemaModelDefinition, *resourcemanager.MappingDefinition, error) {
 	unusedModels := make(map[string]struct{}, 0)
 	// first assume everything is unused
-	for modelName := range models {
+	for modelName := range schemaModels {
 		unusedModels[modelName] = struct{}{}
 	}
 
-	for _, model := range models {
+	for _, model := range schemaModels {
 		for _, field := range model.Fields {
 			objectDefinition := topLevelFieldObjectDefinition(field.ObjectDefinition)
-			if objectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeReference {
+			if objectDefinition.Type == models.ReferenceTerraformSchemaObjectDefinitionType {
 				// TODO: we should check if this is a const too
 				delete(unusedModels, *objectDefinition.ReferenceName)
 			}
@@ -147,7 +147,7 @@ func (b Builder) removeUnusedModelsAndMappings(input resourcemanager.TerraformRe
 
 	// remove any unreferenced models
 	for modelName := range unusedModels {
-		delete(models, modelName)
+		delete(schemaModels, modelName)
 
 		updatedMappings, err := removeUnusedMappingsFromSchemaModelNamed(modelName, mappings.Fields)
 		if err != nil {
@@ -164,7 +164,7 @@ func (b Builder) removeUnusedModelsAndMappings(input resourcemanager.TerraformRe
 	}
 	mappings = *outputMappings
 
-	return &models, &mappings, nil
+	return &schemaModels, &mappings, nil
 }
 
 func (b Builder) removeUnusedModelToModelMappings(input resourcemanager.MappingDefinition, logger hclog.Logger) (*resourcemanager.MappingDefinition, error) {
@@ -547,7 +547,7 @@ func objectDefinitionShouldBeSkipped(input models.SDKObjectDefinitionType) bool 
 	return ok
 }
 
-func topLevelFieldObjectDefinition(input resourcemanager.TerraformSchemaFieldObjectDefinition) resourcemanager.TerraformSchemaFieldObjectDefinition {
+func topLevelFieldObjectDefinition(input models.TerraformSchemaObjectDefinition) models.TerraformSchemaObjectDefinition {
 	// TODO: this should be moved into the data-api-sdk/v1/helpers package
 	if input.NestedObject != nil {
 		return topLevelFieldObjectDefinition(*input.NestedObject)

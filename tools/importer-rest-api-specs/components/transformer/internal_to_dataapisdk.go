@@ -139,11 +139,6 @@ func mapTerraformSchemaFieldsToSDKType(input map[string]resourcemanager.Terrafor
 	output := make(map[string]models.TerraformSchemaField)
 
 	for key, value := range input {
-		objectDefinition, err := mapTerraformSchemaObjectDefinitionToSDKType(value.ObjectDefinition)
-		if err != nil {
-			return nil, fmt.Errorf("mapping ObjectDefinition for Field %q: %+v", key, err)
-		}
-
 		field := models.TerraformSchemaField{
 			Computed: value.Computed,
 			Documentation: models.TerraformSchemaFieldDocumentationDefinition{
@@ -151,7 +146,7 @@ func mapTerraformSchemaFieldsToSDKType(input map[string]resourcemanager.Terrafor
 			},
 			ForceNew:         value.ForceNew,
 			HCLName:          value.HclName,
-			ObjectDefinition: *objectDefinition,
+			ObjectDefinition: value.ObjectDefinition,
 			Optional:         value.Optional,
 			Required:         value.Required,
 			Validation:       nil,
@@ -166,30 +161,6 @@ func mapTerraformSchemaFieldsToSDKType(input map[string]resourcemanager.Terrafor
 		}
 
 		output[key] = field
-	}
-
-	return &output, nil
-}
-
-func mapTerraformSchemaObjectDefinitionToSDKType(input resourcemanager.TerraformSchemaFieldObjectDefinition) (*models.TerraformSchemaObjectDefinition, error) {
-	val, ok := terraformObjectDefinitionToSDKType[input.Type]
-	if !ok {
-		return nil, fmt.Errorf("internal-error: missing mapping for Terraform Schema Object Definition Type %q", string(input.Type))
-	}
-
-	output := models.TerraformSchemaObjectDefinition{
-		NestedObject:  nil,
-		ReferenceName: input.ReferenceName,
-		Type:          val,
-	}
-
-	if input.NestedObject != nil {
-		nested, err := mapTerraformSchemaObjectDefinitionToSDKType(*input.NestedObject)
-		if err != nil {
-			return nil, fmt.Errorf("mapping NestedObject: %+v", err)
-		}
-
-		output.NestedObject = nested
 	}
 
 	return &output, nil
@@ -302,30 +273,6 @@ func mapTerraformResourceIDMappingsToSDKType(input []resourcemanager.ResourceIdM
 	}
 
 	return &output, nil
-}
-
-var terraformObjectDefinitionToSDKType = map[resourcemanager.TerraformSchemaFieldType]models.TerraformSchemaFieldType{
-	resourcemanager.TerraformSchemaFieldTypeBoolean:    models.BooleanTerraformSchemaObjectDefinitionType,
-	resourcemanager.TerraformSchemaFieldTypeDateTime:   models.DateTimeTerraformSchemaObjectDefinitionType,
-	resourcemanager.TerraformSchemaFieldTypeDictionary: models.DictionaryTerraformSchemaObjectDefinitionType,
-	resourcemanager.TerraformSchemaFieldTypeFloat:      models.FloatTerraformSchemaObjectDefinitionType,
-	resourcemanager.TerraformSchemaFieldTypeInteger:    models.IntegerTerraformSchemaObjectDefinitionType,
-	resourcemanager.TerraformSchemaFieldTypeList:       models.ListTerraformSchemaObjectDefinitionType,
-	resourcemanager.TerraformSchemaFieldTypeReference:  models.ReferenceTerraformSchemaObjectDefinitionType,
-	resourcemanager.TerraformSchemaFieldTypeSet:        models.SetTerraformSchemaObjectDefinitionType,
-	resourcemanager.TerraformSchemaFieldTypeString:     models.StringTerraformSchemaObjectDefinitionType,
-
-	resourcemanager.TerraformSchemaFieldTypeEdgeZone:                      models.EdgeZoneTerraformSchemaObjectDefinitionType,
-	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned:        models.SystemAssignedIdentityTerraformSchemaObjectDefinitionType,
-	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned: models.SystemAndUserAssignedIdentityTerraformSchemaObjectDefinitionType,
-	resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned:  models.SystemOrUserAssignedIdentityTerraformSchemaObjectDefinitionType,
-	resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned:          models.UserAssignedIdentityTerraformSchemaObjectDefinitionType,
-	resourcemanager.TerraformSchemaFieldTypeLocation:                      models.LocationTerraformSchemaObjectDefinitionType,
-	resourcemanager.TerraformSchemaFieldTypeResourceGroup:                 models.ResourceGroupTerraformSchemaObjectDefinitionType,
-	resourcemanager.TerraformSchemaFieldTypeTags:                          models.TagsTerraformSchemaObjectDefinitionType,
-	resourcemanager.TerraformSchemaFieldTypeZone:                          models.ZoneTerraformSchemaObjectDefinitionType,
-	resourcemanager.TerraformSchemaFieldTypeZones:                         models.ZonesTerraformSchemaObjectDefinitionType,
-	// NOTE: sku is intentionally not mapped
 }
 
 var terraformSchemaValidationPossibleValuesTypeToSDKType = map[resourcemanager.TerraformSchemaValidationPossibleValueType]models.TerraformSchemaFieldValidationPossibleValuesType{

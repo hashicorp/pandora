@@ -68,8 +68,8 @@ func (b Builder) schemaFromTopLevelFields(schemaModelName string, input operatio
 		if strings.EqualFold(fieldName, "Location") {
 			schemaFields["Location"] = resourcemanager.TerraformSchemaFieldDefinition{
 				HclName: "location",
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeLocation,
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.LocationTerraformSchemaObjectDefinitionType,
 				},
 				Required: true,
 				ForceNew: true,
@@ -92,8 +92,8 @@ func (b Builder) schemaFromTopLevelFields(schemaModelName string, input operatio
 
 			schemaFields["Tags"] = resourcemanager.TerraformSchemaFieldDefinition{
 				HclName: "tags",
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeTags,
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.TagsTerraformSchemaObjectDefinitionType,
 				},
 				Optional: true,
 				ForceNew: !canBeUpdated,
@@ -139,8 +139,8 @@ func (b Builder) schemaFromTopLevelFields(schemaModelName string, input operatio
 			}
 
 			schemaFields["Zone"] = resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeZone,
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.ZoneTerraformSchemaObjectDefinitionType,
 				},
 				Required: field.Required,
 				Optional: field.Optional,
@@ -162,8 +162,8 @@ func (b Builder) schemaFromTopLevelFields(schemaModelName string, input operatio
 			}
 
 			schemaFields["Zones"] = resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeZones,
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.ZonesTerraformSchemaObjectDefinitionType,
 				},
 				Required: field.Required,
 				Optional: field.Optional,

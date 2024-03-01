@@ -6,6 +6,7 @@ package testing
 import (
 	"testing"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
 )
@@ -14,8 +15,8 @@ func TestAttributeValueForField_PossibleValuesInteger(t *testing.T) {
 	field := resourcemanager.TerraformSchemaFieldDefinition{
 		HclName:  "some_field",
 		Required: true,
-		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-			Type: resourcemanager.TerraformSchemaFieldTypeString,
+		ObjectDefinition: models.TerraformSchemaObjectDefinition{
+			Type: models.StringTerraformSchemaObjectDefinitionType,
 		},
 		Validation: &resourcemanager.TerraformSchemaValidationDefinition{
 			Type: resourcemanager.TerraformSchemaValidationTypePossibleValues,
@@ -64,8 +65,8 @@ func TestAttributeValueForField_PossibleValuesFloat(t *testing.T) {
 	field := resourcemanager.TerraformSchemaFieldDefinition{
 		HclName:  "some_field",
 		Required: true,
-		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-			Type: resourcemanager.TerraformSchemaFieldTypeFloat,
+		ObjectDefinition: models.TerraformSchemaObjectDefinition{
+			Type: models.FloatTerraformSchemaObjectDefinitionType,
 		},
 		Validation: &resourcemanager.TerraformSchemaValidationDefinition{
 			Type: resourcemanager.TerraformSchemaValidationTypePossibleValues,
@@ -114,8 +115,8 @@ func TestAttributeValueForField_PossibleValuesString(t *testing.T) {
 	field := resourcemanager.TerraformSchemaFieldDefinition{
 		HclName:  "some_field",
 		Required: true,
-		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-			Type: resourcemanager.TerraformSchemaFieldTypeString,
+		ObjectDefinition: models.TerraformSchemaObjectDefinition{
+			Type: models.StringTerraformSchemaObjectDefinitionType,
 		},
 		Validation: &resourcemanager.TerraformSchemaValidationDefinition{
 			Type: resourcemanager.TerraformSchemaValidationTypePossibleValues,

@@ -6,6 +6,7 @@ package schema
 import (
 	"testing"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -16,10 +17,10 @@ type expected struct {
 	Required            bool
 	Computed            bool
 	ForceNew            bool
-	FieldType           resourcemanager.TerraformSchemaFieldType
+	FieldType           models.TerraformSchemaObjectDefinitionType
 	ReferenceName       *string
 	NestedReferenceName *string
-	NestedReferenceType resourcemanager.TerraformSchemaFieldType
+	NestedReferenceType models.TerraformSchemaObjectDefinitionType
 	Validation          *expectedValidation
 }
 
@@ -47,7 +48,7 @@ type FieldConfig struct {
 
 type IdentityConfig struct {
 	*FieldConfig
-	IdentityType resourcemanager.TerraformSchemaFieldType
+	IdentityType models.TerraformSchemaObjectDefinitionType
 }
 
 // checkFieldName is a convenience specific check for the Name field in a Top Level mode where
@@ -69,11 +70,11 @@ func (r resourceUnderTest) checkFieldName(t *testing.T, input resourcemanager.Te
 		}
 		if r.Name == "Resource Group" {
 			// the `name` field for a Resource Group is special-cased
-			if name.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeResourceGroup {
+			if name.ObjectDefinition.Type != models.ResourceGroupTerraformSchemaObjectDefinitionType {
 				t.Errorf("(%s) expected the field 'Name' to have the type `ResourceGroup` but got %q", r.Name, string(name.ObjectDefinition.Type))
 			}
 		} else {
-			if name.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeString {
+			if name.ObjectDefinition.Type != models.StringTerraformSchemaObjectDefinitionType {
 				t.Errorf("(%s) expected the field 'Name' to have the type `string` but got %q", r.Name, string(name.ObjectDefinition.Type))
 			}
 		}
@@ -115,7 +116,7 @@ func (r resourceUnderTest) checkFieldLocation(t *testing.T, input resourcemanage
 		if location.HclName != "location" {
 			t.Errorf("(%s) expected the HclName for field 'Location' to be 'location' but got %q", r.Name, location.HclName)
 		}
-		if location.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeLocation {
+		if location.ObjectDefinition.Type != models.LocationTerraformSchemaObjectDefinitionType {
 			t.Errorf("(%s) expected the field 'Location' to have the type `location` but got %q", r.Name, string(location.ObjectDefinition.Type))
 		}
 		// note: this differs from the model above, since this is implicitly required as a top level field
@@ -159,7 +160,7 @@ func (r resourceUnderTest) checkFieldTags(t *testing.T, input resourcemanager.Te
 		if tags.HclName != "tags" {
 			t.Errorf("(%s) expected the HclName for field 'Tags' to be 'tags' but got %q", r.Name, tags.HclName)
 		}
-		if tags.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeTags {
+		if tags.ObjectDefinition.Type != models.TagsTerraformSchemaObjectDefinitionType {
 			t.Errorf("(%s) expected the field 'Tags' to have the type `tags` but got %q", r.Name, string(tags.ObjectDefinition.Type))
 		}
 		if tags.Computed != r.TagsConfig.Computed {

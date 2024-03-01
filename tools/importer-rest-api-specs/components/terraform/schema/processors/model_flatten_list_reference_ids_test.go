@@ -6,6 +6,7 @@ package processors
 import (
 	"testing"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -23,10 +24,10 @@ func TestProcessModel_FlattenListReferenceIds_Valid(t *testing.T) {
 				"Panda": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Friend": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeList,
-								NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-									Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.ListTerraformSchemaObjectDefinitionType,
+								NestedObject: &models.TerraformSchemaObjectDefinition{
+									Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 									ReferenceName: stringPointer("SubResource"),
 								},
 							},
@@ -36,8 +37,8 @@ func TestProcessModel_FlattenListReferenceIds_Valid(t *testing.T) {
 				"SubResource": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Ids": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 					},
@@ -60,8 +61,8 @@ func TestProcessModel_FlattenListReferenceIds_Valid(t *testing.T) {
 				"Panda": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"FriendIds": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 					},
@@ -69,8 +70,8 @@ func TestProcessModel_FlattenListReferenceIds_Valid(t *testing.T) {
 				"SubResource": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Ids": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 					},
@@ -123,14 +124,14 @@ func TestProcessModel_FlattenListReferenceIds_Invalid(t *testing.T) {
 				"Leopard": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Id": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 								ReferenceName: stringPointer("SubResource"),
 							},
 						},
 						"Weight": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeInteger,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.IntegerTerraformSchemaObjectDefinitionType,
 							},
 						},
 					},
@@ -138,8 +139,8 @@ func TestProcessModel_FlattenListReferenceIds_Invalid(t *testing.T) {
 				"SubResource": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Id": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 					},
@@ -163,14 +164,14 @@ func TestProcessModel_FlattenListReferenceIds_Invalid(t *testing.T) {
 				"Leopard": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Id": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 								ReferenceName: stringPointer("SubResource"),
 							},
 						},
 						"Weight": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeInteger,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.IntegerTerraformSchemaObjectDefinitionType,
 							},
 						},
 					},
@@ -178,8 +179,8 @@ func TestProcessModel_FlattenListReferenceIds_Invalid(t *testing.T) {
 				"SubResource": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Id": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 					},
@@ -205,8 +206,8 @@ func TestProcessModel_FlattenListReferenceIds_Invalid(t *testing.T) {
 				"Meerkat": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Id": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 								ReferenceName: stringPointer("SubResource"),
 							},
 						},
@@ -215,13 +216,13 @@ func TestProcessModel_FlattenListReferenceIds_Invalid(t *testing.T) {
 				"SubResource": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Id": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 						"Weight": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeInteger,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.IntegerTerraformSchemaObjectDefinitionType,
 							},
 						},
 					},
@@ -245,8 +246,8 @@ func TestProcessModel_FlattenListReferenceIds_Invalid(t *testing.T) {
 				"Meerkat": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Id": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 								ReferenceName: stringPointer("SubResource"),
 							},
 						},
@@ -255,13 +256,13 @@ func TestProcessModel_FlattenListReferenceIds_Invalid(t *testing.T) {
 				"SubResource": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Id": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 						"Weight": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeInteger,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.IntegerTerraformSchemaObjectDefinitionType,
 							},
 						},
 					},

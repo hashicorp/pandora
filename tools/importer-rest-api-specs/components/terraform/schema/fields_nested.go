@@ -143,7 +143,7 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(schemaModelName string, inp
 		}
 		definition.ObjectDefinition = *objectDefinition
 
-		if objectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeReference {
+		if objectDefinition.Type == models.ReferenceTerraformSchemaObjectDefinitionType {
 			nestedModelName := *objectDefinition.ReferenceName
 			if fieldExists(input.createPropertiesPayload, k) {
 				mappings.Fields = append(mappings.Fields, modelToModelMappingBetween(nestedModelName, input.createPropertiesModelName, k))

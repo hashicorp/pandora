@@ -73,7 +73,7 @@ func TestTopLevelFieldsWithinResourceId_ResourceGroup(t *testing.T) {
 	if !name.ForceNew {
 		t.Fatalf("expected the field Name to be ForceNew but it wasn't")
 	}
-	if name.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeResourceGroup {
+	if name.ObjectDefinition.Type != models.ResourceGroupTerraformSchemaObjectDefinitionType {
 		t.Fatalf("expected Name to be a Resource Group Field but got %q", string(name.ObjectDefinition.Type))
 	}
 	if name.Documentation.Markdown != "Specifies the name of this Resource Group." {
@@ -133,7 +133,7 @@ func TestTopLevelFieldsWithinResourceId_VirtualMachine(t *testing.T) {
 	if !resourceGroupName.ForceNew {
 		t.Fatalf("expected the field ResourceGroupName to be ForceNew but it wasn't")
 	}
-	if resourceGroupName.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeResourceGroup {
+	if resourceGroupName.ObjectDefinition.Type != models.ResourceGroupTerraformSchemaObjectDefinitionType {
 		t.Fatalf("expected ResourceGroupName to be a Resource Group Field but got %q", string(resourceGroupName.ObjectDefinition.Type))
 	}
 	if resourceGroupName.Documentation.Markdown != "Specifies the name of the Resource Group within which this Virtual Machine should exist." {
@@ -150,7 +150,7 @@ func TestTopLevelFieldsWithinResourceId_VirtualMachine(t *testing.T) {
 	if !name.ForceNew {
 		t.Fatalf("expected the field Name to be ForceNew but it wasn't")
 	}
-	if name.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeString {
+	if name.ObjectDefinition.Type != models.StringTerraformSchemaObjectDefinitionType {
 		t.Fatalf("expected Name to be a String Field but got %q", string(name.ObjectDefinition.Type))
 	}
 	if name.Documentation.Markdown != "Specifies the name of this Virtual Machine." {
@@ -236,7 +236,7 @@ func TestTopLevelFieldsWithinResourceId_VirtualMachineExtension(t *testing.T) {
 	if !virtualMachineId.ForceNew {
 		t.Fatalf("expected the field ResourceGroupName to be ForceNew but it wasn't")
 	}
-	if virtualMachineId.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeString {
+	if virtualMachineId.ObjectDefinition.Type != models.StringTerraformSchemaObjectDefinitionType {
 		t.Fatalf("expected VirtualMachineName to be a String Field but got %q", string(virtualMachineId.ObjectDefinition.Type))
 	}
 	if virtualMachineId.Documentation.Markdown != "Specifies the Virtual Machine Id within which this Virtual Machine Extension should exist." {
@@ -253,7 +253,7 @@ func TestTopLevelFieldsWithinResourceId_VirtualMachineExtension(t *testing.T) {
 	if !name.ForceNew {
 		t.Fatalf("expected the field Name to be ForceNew but it wasn't")
 	}
-	if name.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeString {
+	if name.ObjectDefinition.Type != models.StringTerraformSchemaObjectDefinitionType {
 		t.Fatalf("expected Name to be a String Field but got %q", string(name.ObjectDefinition.Type))
 	}
 	if name.Documentation.Markdown != "Specifies the name of this Virtual Machine Extension." {
@@ -339,7 +339,7 @@ func TestTopLevelFieldsWithinResourceId_KubernetesTrustedAccessRoleBinding(t *te
 	if !kubernetesClusterId.ForceNew {
 		t.Fatalf("expected the field ResourceGroupName to be ForceNew but it wasn't")
 	}
-	if kubernetesClusterId.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeString {
+	if kubernetesClusterId.ObjectDefinition.Type != models.StringTerraformSchemaObjectDefinitionType {
 		t.Fatalf("expected KubernetesClusterId to be a String Field but got %q", string(kubernetesClusterId.ObjectDefinition.Type))
 	}
 	if kubernetesClusterId.Documentation.Markdown != "Specifies the Kubernetes Cluster Id within which this Kubernetes Cluster Trusted Access Role Binding should exist." {
@@ -356,7 +356,7 @@ func TestTopLevelFieldsWithinResourceId_KubernetesTrustedAccessRoleBinding(t *te
 	if !name.ForceNew {
 		t.Fatalf("expected the field Name to be ForceNew but it wasn't")
 	}
-	if name.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeString {
+	if name.ObjectDefinition.Type != models.StringTerraformSchemaObjectDefinitionType {
 		t.Fatalf("expected Name to be a String Field but got %q", string(name.ObjectDefinition.Type))
 	}
 	if name.Documentation.Markdown != "Specifies the name of this Kubernetes Cluster Trusted Access Role Binding." {
@@ -451,7 +451,7 @@ func TestTopLevelFieldsWithinResourceId_ParentIdSchemaOverride(t *testing.T) {
 	if !kubernetesClusterId.ForceNew {
 		t.Fatalf("expected the field ResourceGroupName to be ForceNew but it wasn't")
 	}
-	if kubernetesClusterId.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeString {
+	if kubernetesClusterId.ObjectDefinition.Type != models.StringTerraformSchemaObjectDefinitionType {
 		t.Fatalf("expected KubernetesClusterId to be a String Field but got %q", string(kubernetesClusterId.ObjectDefinition.Type))
 	}
 	if kubernetesClusterId.Documentation.Markdown != "Specifies the Renamed Cluster Id within which this Kubernetes Cluster Trusted Access Role Binding should exist." {
@@ -468,7 +468,7 @@ func TestTopLevelFieldsWithinResourceId_ParentIdSchemaOverride(t *testing.T) {
 	if !name.ForceNew {
 		t.Fatalf("expected the field Name to be ForceNew but it wasn't")
 	}
-	if name.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeString {
+	if name.ObjectDefinition.Type != models.StringTerraformSchemaObjectDefinitionType {
 		t.Fatalf("expected Name to be a String Field but got %q", string(name.ObjectDefinition.Type))
 	}
 	if name.Documentation.Markdown != "Specifies the name of this Kubernetes Cluster Trusted Access Role Binding." {
@@ -542,7 +542,7 @@ func TestTopLevelFieldsWithinResourceId_SchemaOverride(t *testing.T) {
 	if !resourceGroupName.ForceNew {
 		t.Fatalf("expected the field ResourceGroupName to be ForceNew but it wasn't")
 	}
-	if resourceGroupName.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeResourceGroup {
+	if resourceGroupName.ObjectDefinition.Type != models.ResourceGroupTerraformSchemaObjectDefinitionType {
 		t.Fatalf("expected ResourceGroupName to be a Resource Group Field but got %q", string(resourceGroupName.ObjectDefinition.Type))
 	}
 	if resourceGroupName.Documentation.Markdown != "Specifies the name of the Resource Group within which this Chaos Studio Target should exist." {
@@ -559,7 +559,7 @@ func TestTopLevelFieldsWithinResourceId_SchemaOverride(t *testing.T) {
 	if !targetType.ForceNew {
 		t.Fatalf("expected the field TargetType to be ForceNew but it wasn't")
 	}
-	if targetType.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeString {
+	if targetType.ObjectDefinition.Type != models.StringTerraformSchemaObjectDefinitionType {
 		t.Fatalf("expected TargetType to be a String Field but got %q", string(targetType.ObjectDefinition.Type))
 	}
 	if targetType.Documentation.Markdown != "Specifies the Target Type of this Chaos Studio Target." {
@@ -633,7 +633,7 @@ func TestTopLevelFieldsWithinResourceId_DocumentationOverride(t *testing.T) {
 	if !resourceGroupName.ForceNew {
 		t.Fatalf("expected the field ResourceGroupName to be ForceNew but it wasn't")
 	}
-	if resourceGroupName.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeResourceGroup {
+	if resourceGroupName.ObjectDefinition.Type != models.ResourceGroupTerraformSchemaObjectDefinitionType {
 		t.Fatalf("expected ResourceGroupName to be a Resource Group Field but got %q", string(resourceGroupName.ObjectDefinition.Type))
 	}
 	if resourceGroupName.Documentation.Markdown != "Specifies the name of the Resource Group within which this Chaos Studio Target should exist." {
@@ -650,7 +650,7 @@ func TestTopLevelFieldsWithinResourceId_DocumentationOverride(t *testing.T) {
 	if !targetType.ForceNew {
 		t.Fatalf("expected the field TargetType to be ForceNew but it wasn't")
 	}
-	if targetType.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeString {
+	if targetType.ObjectDefinition.Type != models.StringTerraformSchemaObjectDefinitionType {
 		t.Fatalf("expected TargetType to be a String Field but got %q", string(targetType.ObjectDefinition.Type))
 	}
 	if targetType.Documentation.Markdown != "Specifies the Target Type of a Chaos Studio Target. Plus some additional useful information here." {

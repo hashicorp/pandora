@@ -6,6 +6,7 @@ package testing
 import (
 	"testing"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
 )
@@ -18,8 +19,8 @@ func TestBlockValueForField_CommonSchemaIdentitySystemAssigned(t *testing.T) {
 	field := resourcemanager.TerraformSchemaFieldDefinition{
 		HclName:  "identity",
 		Optional: false,
-		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-			Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned,
+		ObjectDefinition: models.TerraformSchemaObjectDefinition{
+			Type: models.SystemAssignedIdentityTerraformSchemaObjectDefinitionType,
 		},
 	}
 	details := resourcemanager.TerraformResourceDetails{
@@ -62,8 +63,8 @@ func TestBlockValueForField_CommonSchemaIdentitySystemAndUserAssigned(t *testing
 	field := resourcemanager.TerraformSchemaFieldDefinition{
 		HclName:  "identity",
 		Optional: false,
-		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-			Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
+		ObjectDefinition: models.TerraformSchemaObjectDefinition{
+			Type: models.SystemAndUserAssignedIdentityTerraformSchemaObjectDefinitionType,
 		},
 	}
 	details := resourcemanager.TerraformResourceDetails{
@@ -110,8 +111,8 @@ func TestBlockValueForField_CommonSchemaIdentitySystemOrUserAssigned(t *testing.
 	field := resourcemanager.TerraformSchemaFieldDefinition{
 		HclName:  "identity",
 		Optional: false,
-		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-			Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned,
+		ObjectDefinition: models.TerraformSchemaObjectDefinition{
+			Type: models.SystemOrUserAssignedIdentityTerraformSchemaObjectDefinitionType,
 		},
 	}
 	details := resourcemanager.TerraformResourceDetails{
@@ -157,8 +158,8 @@ func TestBlockValueForField_CommonSchemaIdentityUserAssigned(t *testing.T) {
 	field := resourcemanager.TerraformSchemaFieldDefinition{
 		HclName:  "identity",
 		Optional: false,
-		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-			Type: resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned,
+		ObjectDefinition: models.TerraformSchemaObjectDefinition{
+			Type: models.UserAssignedIdentityTerraformSchemaObjectDefinitionType,
 		},
 	}
 	details := resourcemanager.TerraformResourceDetails{

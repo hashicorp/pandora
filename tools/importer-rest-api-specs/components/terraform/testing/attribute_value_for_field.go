@@ -10,6 +10,7 @@ import (
 	"github.com/hashicorp/hcl/v2"
 	"github.com/hashicorp/hcl/v2/hclsyntax"
 	"github.com/hashicorp/hcl/v2/hclwrite"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 	"github.com/zclconf/go-cty/cty"
 )
@@ -45,7 +46,7 @@ func (tb TestBuilder) getAttributeValueForField(field resourcemanager.TerraformS
 		return out, nil
 	}
 
-	return nil, fmt.Errorf("internal-error: support for ObjectDefinition Type %q as an Attribute is not implemented", field.ObjectDefinition)
+	return nil, fmt.Errorf("internal-error: support for ObjectDefinition Type %q as an Attribute is not implemented", string(field.ObjectDefinition.Type))
 }
 
 func (tb TestBuilder) getAttributeValueForPossibleValuesField(field resourcemanager.TerraformSchemaFieldDefinition) (*hclwrite.Tokens, error) {
@@ -94,20 +95,20 @@ func (tb TestBuilder) getAttributeValueForPossibleValuesField(field resourcemana
 
 type attributeValueFunction func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix, resourceDisplayName string, testData resourcemanager.TerraformTestDataVariables) (*hclwrite.Tokens, error)
 
-var attributeValuesForBasicTypes = map[resourcemanager.TerraformSchemaFieldType]attributeValueFunction{
-	resourcemanager.TerraformSchemaFieldTypeBoolean: func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix, resourceDisplayName string, testData resourcemanager.TerraformTestDataVariables) (*hclwrite.Tokens, error) {
+var attributeValuesForBasicTypes = map[models.TerraformSchemaObjectDefinitionType]attributeValueFunction{
+	models.BooleanTerraformSchemaObjectDefinitionType: func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix, resourceDisplayName string, testData resourcemanager.TerraformTestDataVariables) (*hclwrite.Tokens, error) {
 		val := hclwrite.TokensForValue(cty.BoolVal(false))
 		return &val, nil
 	},
-	resourcemanager.TerraformSchemaFieldTypeFloat: func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix, resourceDisplayName string, testData resourcemanager.TerraformTestDataVariables) (*hclwrite.Tokens, error) {
+	models.FloatTerraformSchemaObjectDefinitionType: func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix, resourceDisplayName string, testData resourcemanager.TerraformTestDataVariables) (*hclwrite.Tokens, error) {
 		val := hclwrite.TokensForValue(cty.NumberFloatVal(21.42))
 		return &val, nil
 	},
-	resourcemanager.TerraformSchemaFieldTypeInteger: func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix, resourceDisplayName string, testData resourcemanager.TerraformTestDataVariables) (*hclwrite.Tokens, error) {
+	models.IntegerTerraformSchemaObjectDefinitionType: func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix, resourceDisplayName string, testData resourcemanager.TerraformTestDataVariables) (*hclwrite.Tokens, error) {
 		val := hclwrite.TokensForValue(cty.NumberIntVal(int64(21)))
 		return &val, nil
 	},
-	resourcemanager.TerraformSchemaFieldTypeString: func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix, resourceDisplayName string, testData resourcemanager.TerraformTestDataVariables) (*hclwrite.Tokens, error) {
+	models.StringTerraformSchemaObjectDefinitionType: func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix, resourceDisplayName string, testData resourcemanager.TerraformTestDataVariables) (*hclwrite.Tokens, error) {
 		// when `field.hclName` is `name`, we should be able to do `acctest{letters}-{var.random_string}` using the first letter of each bit of the resource label
 		if strings.EqualFold(field.HclName, "name") {
 			dependencies.variables.needsRandomString = true
@@ -173,9 +174,9 @@ var attributeValuesForBasicTypes = map[resourcemanager.TerraformSchemaFieldType]
 	},
 }
 
-var attributeValuesForListsOfBasicTypes = map[resourcemanager.TerraformSchemaFieldType]attributeValueFunction{
-	resourcemanager.TerraformSchemaFieldTypeList: func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix, resourceDisplayName string, testData resourcemanager.TerraformTestDataVariables) (*hclwrite.Tokens, error) {
-		if field.ObjectDefinition.NestedObject != nil && field.ObjectDefinition.NestedObject.Type != resourcemanager.TerraformSchemaFieldTypeString {
+var attributeValuesForListsOfBasicTypes = map[models.TerraformSchemaObjectDefinitionType]attributeValueFunction{
+	models.ListTerraformSchemaObjectDefinitionType: func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix, resourceDisplayName string, testData resourcemanager.TerraformTestDataVariables) (*hclwrite.Tokens, error) {
+		if field.ObjectDefinition.NestedObject != nil && field.ObjectDefinition.NestedObject.Type != models.StringTerraformSchemaObjectDefinitionType {
 			return nil, fmt.Errorf("not a list or set of basic types")
 		}
 
@@ -208,14 +209,14 @@ var attributeValuesForListsOfBasicTypes = map[resourcemanager.TerraformSchemaFie
 		return &val, nil
 	},
 
-	resourcemanager.TerraformSchemaFieldTypeSet: func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix, resourceDisplayName string, testData resourcemanager.TerraformTestDataVariables) (*hclwrite.Tokens, error) {
+	models.SetTerraformSchemaObjectDefinitionType: func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix, resourceDisplayName string, testData resourcemanager.TerraformTestDataVariables) (*hclwrite.Tokens, error) {
 		return nil, fmt.Errorf("not implemented yet")
 	},
 }
 
-var commonSchemaAttributeValueFunctions = map[resourcemanager.TerraformSchemaFieldType]attributeValueFunction{
+var commonSchemaAttributeValueFunctions = map[models.TerraformSchemaObjectDefinitionType]attributeValueFunction{
 	// NOTE: there's a handful of top-level resources which have specific overrides (e.g. the Resource Group Name etc.)
-	resourcemanager.TerraformSchemaFieldTypeEdgeZone: func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix, resourceDisplayName string, testData resourcemanager.TerraformTestDataVariables) (*hclwrite.Tokens, error) {
+	models.EdgeZoneTerraformSchemaObjectDefinitionType: func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix, resourceDisplayName string, testData resourcemanager.TerraformTestDataVariables) (*hclwrite.Tokens, error) {
 		dependencies.setNeedsEdgeZones()
 		val := hclwrite.TokensForTraversal(hcl.Traversal{
 			hcl.TraverseRoot{
@@ -224,7 +225,7 @@ var commonSchemaAttributeValueFunctions = map[resourcemanager.TerraformSchemaFie
 		})
 		return &val, nil
 	},
-	resourcemanager.TerraformSchemaFieldTypeLocation: func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix, resourceDisplayName string, testData resourcemanager.TerraformTestDataVariables) (*hclwrite.Tokens, error) {
+	models.LocationTerraformSchemaObjectDefinitionType: func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix, resourceDisplayName string, testData resourcemanager.TerraformTestDataVariables) (*hclwrite.Tokens, error) {
 		if strings.EqualFold(resourceLabel, "resource_group") {
 			dependencies.variables.needsPrimaryLocation = true
 			val := hclwrite.Tokens{
@@ -243,7 +244,7 @@ var commonSchemaAttributeValueFunctions = map[resourcemanager.TerraformSchemaFie
 		})
 		return &val, nil
 	},
-	resourcemanager.TerraformSchemaFieldTypeResourceGroup: func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix, resourceDisplayName string, testData resourcemanager.TerraformTestDataVariables) (*hclwrite.Tokens, error) {
+	models.ResourceGroupTerraformSchemaObjectDefinitionType: func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix, resourceDisplayName string, testData resourcemanager.TerraformTestDataVariables) (*hclwrite.Tokens, error) {
 		if strings.EqualFold(resourceLabel, "resource_group") {
 			dependencies.variables.needsRandomInteger = true
 			val := hclwrite.Tokens{
@@ -262,22 +263,18 @@ var commonSchemaAttributeValueFunctions = map[resourcemanager.TerraformSchemaFie
 		})
 		return &val, nil
 	},
-	resourcemanager.TerraformSchemaFieldTypeTags: func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix, resourceDisplayName string, testData resourcemanager.TerraformTestDataVariables) (*hclwrite.Tokens, error) {
+	models.TagsTerraformSchemaObjectDefinitionType: func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix, resourceDisplayName string, testData resourcemanager.TerraformTestDataVariables) (*hclwrite.Tokens, error) {
 		val := hclwrite.TokensForValue(cty.ObjectVal(map[string]cty.Value{
 			"environment": cty.StringVal("terraform-acctests"),
 			"some_key":    cty.StringVal("some-value"),
 		}))
 		return &val, nil
 	},
-	resourcemanager.TerraformSchemaFieldTypeSku: func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix, resourceDisplayName string, testData resourcemanager.TerraformTestDataVariables) (*hclwrite.Tokens, error) {
-		val := hclwrite.TokensForValue(cty.StringVal("Standard"))
-		return &val, nil
-	},
-	resourcemanager.TerraformSchemaFieldTypeZone: func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix, resourceDisplayName string, testData resourcemanager.TerraformTestDataVariables) (*hclwrite.Tokens, error) {
+	models.ZoneTerraformSchemaObjectDefinitionType: func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix, resourceDisplayName string, testData resourcemanager.TerraformTestDataVariables) (*hclwrite.Tokens, error) {
 		val := hclwrite.TokensForValue(cty.StringVal("1"))
 		return &val, nil
 	},
-	resourcemanager.TerraformSchemaFieldTypeZones: func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix, resourceDisplayName string, testData resourcemanager.TerraformTestDataVariables) (*hclwrite.Tokens, error) {
+	models.ZonesTerraformSchemaObjectDefinitionType: func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix, resourceDisplayName string, testData resourcemanager.TerraformTestDataVariables) (*hclwrite.Tokens, error) {
 		val := hclwrite.TokensForValue(cty.ListVal([]cty.Value{
 			cty.StringVal("1"),
 			cty.StringVal("2"),
