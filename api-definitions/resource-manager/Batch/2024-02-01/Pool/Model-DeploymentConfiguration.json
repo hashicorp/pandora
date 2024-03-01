@@ -1,0 +1,31 @@
+{
+  "name": "DeploymentConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "cloudServiceConfiguration",
+      "name": "CloudServiceConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CloudServiceConfiguration"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "virtualMachineConfiguration",
+      "name": "VirtualMachineConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "VirtualMachineConfiguration"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}
