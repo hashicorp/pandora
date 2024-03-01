@@ -9,70 +9,10 @@ import (
 )
 
 type TerraformDetails struct {
-	// DataSources is a key (Resource Label) value (TerraformDataSourceDetails) pair of
-	// metadata about the Terraform Data Sources which should be generated, including
-	// any nested schemas.
-	DataSources map[string]TerraformDataSourceDetails `json:"dataSources"`
-
 	// Resources is a key (Resource Label) value (TerraformResourceDetails) pair of
 	// metadata about the Terraform Resources which should be generated, including
 	// any nested schemas.
 	Resources map[string]TerraformResourceDetails `json:"resources"`
-}
-
-type TerraformDataSourceDetails struct {
-	// ApiVersion specifies the version of the Api which should be used for
-	// this Data Source.
-	ApiVersion string `json:"apiVersion"`
-
-	// Generate specifies if this Data Source should be generated.
-	Generate bool `json:"generate"`
-
-	// PluralDetails specifies the metadata for the Plural version of this Data Source
-	// A Singular Data Source returns information about exactly 1 existing Resource, whereas
-	// a Plural Data Source returns information about 1 or more existing Resources.
-	PluralDetails *TerraformDataSourceTypeDetails `json:"plural"`
-
-	// SingularDetails specifies the metadata for the Singular version of this Data Source
-	// A Singular Data Source returns information about exactly 1 existing Resource, whereas
-	// a Plural Data Source returns information about 1 or more existing Resources.
-	SingularDetails *TerraformDataSourceTypeDetails `json:"singular"`
-
-	// TODO: populate this
-}
-
-type TerraformDataSourceTypeDetails struct {
-	// Description is a human-friendly description for this Data Source Type.
-	Description string `json:"description"`
-
-	// ExampleUsageHcl is the HCL which should be output as the Example Usage for this Data Source Type.
-	ExampleUsageHcl string `json:"exampleUsageHcl"`
-
-	// Generate specifies whether this Data Source Type should be generated this allows just the
-	// Singular Data Source or the Plural Data Source to be generated as required.
-	Generate bool `json:"generate"`
-
-	// GenerateSchema specifies whether the Typed Model should be generated for this Data Source Type.
-	GenerateModel bool `json:"generateModel"`
-
-	// GenerateSchema specifies whether the Schema should be generated for this Data Source Type.
-	GenerateSchema bool `json:"generateSchema"`
-
-	// MethodDefinition specifies the SDK Method which should be used for this Data Source Type.
-	MethodDefinition MethodDefinition `json:"methodDefinition"`
-
-	// ResourceLabel is the label for this Data Source Type without the Provider Prefix
-	// (e.g. `resource_group` rather than `azurerm_resource_group`).
-	ResourceLabel string `json:"resourceLabel"`
-}
-
-type FieldManualMappingDefinition struct {
-	// MethodName specifies the name of the Manual mapping method used to map between the Schema and SDK Types
-	MethodName string `json:"methodName"`
-}
-
-func (d FieldManualMappingDefinition) String() string {
-	return fmt.Sprintf("MethodName: %q", d.MethodName)
 }
 
 type FieldMappingDefinition struct {
@@ -84,9 +24,6 @@ type FieldMappingDefinition struct {
 
 	// ModelToModel specifies the mapping information when Type is set to ModelToModel.
 	ModelToModel *FieldMappingModelToModelDefinition `json:"modelToModel,omitempty"`
-
-	// Manual contains additional metadata when Type is set to Manual.
-	Manual *FieldManualMappingDefinition `json:"manual,omitempty"`
 }
 
 func (d FieldMappingDefinition) SchemaModelName() string {
@@ -139,9 +76,6 @@ func (d FieldMappingDefinition) String() string {
 	if d.DirectAssignment != nil {
 		output = append(output, fmt.Sprintf("DirectAssignment: %s", d.DirectAssignment.String()))
 	}
-	if d.Manual != nil {
-		output = append(output, fmt.Sprintf("Manual: %q", d.Manual.String()))
-	}
 	if d.ModelToModel != nil {
 		output = append(output, fmt.Sprintf("ModelToModel: %s", d.ModelToModel.String()))
 	}
@@ -153,7 +87,6 @@ type MappingDefinitionType string
 
 const (
 	DirectAssignmentMappingDefinitionType MappingDefinitionType = "DirectAssignment"
-	ManualMappingDefinitionType           MappingDefinitionType = "Manual"
 	ModelToModelMappingDefinitionType     MappingDefinitionType = "ModelToModel"
 	// TODO: BooleanEquals, BooleanInvert
 )

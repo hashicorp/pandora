@@ -19,13 +19,10 @@ import (
 // within the specified Service
 func FindCandidates(apiResource models.APIResource, resourceDefinitions map[string]definitions.ResourceDefinition, apiResourceName string, logger hclog.Logger) (*resourcemanager.TerraformDetails, error) {
 	out := resourcemanager.TerraformDetails{
-		DataSources: map[string]resourcemanager.TerraformDataSourceDetails{},
-		Resources:   map[string]resourcemanager.TerraformResourceDetails{},
+		Resources: map[string]resourcemanager.TerraformResourceDetails{},
 	}
 
 	for resourceIdName, resourceId := range apiResource.ResourceIDs {
-		hasList := false
-
 		var createMethod *resourcemanager.MethodDefinition
 		var updateMethod *resourcemanager.MethodDefinition
 		var deleteMethod *resourcemanager.MethodDefinition
@@ -87,10 +84,6 @@ func FindCandidates(apiResource models.APIResource, resourceDefinitions map[stri
 						TimeoutInMinutes: 5,
 					}
 				}
-
-				if operation.FieldContainingPaginationDetails != nil {
-					hasList = true
-				}
 			}
 			if strings.EqualFold(operation.Method, "DELETE") && operation.URISuffix == nil {
 				deleteMethod = &resourcemanager.MethodDefinition{
@@ -117,13 +110,6 @@ func FindCandidates(apiResource models.APIResource, resourceDefinitions map[stri
 			}
 		}
 
-		var dataSourceDefinition *resourcemanager.TerraformDataSourceDetails
-		if getMethod != nil || hasList {
-			dataSourceDefinition = &resourcemanager.TerraformDataSourceDetails{
-				// TODO: output Singular, Plural and the other stuff..
-			}
-		}
-
 		var resourceDefinition *resourcemanager.TerraformResourceDetails
 		if createMethod != nil && getMethod != nil && deleteMethod != nil {
 			resourceDefinition = &resourcemanager.TerraformResourceDetails{
@@ -144,6 +130,7 @@ func FindCandidates(apiResource models.APIResource, resourceDefinitions map[stri
 					Description: resourceMetaData.Description,
 				},
 				Tests: resourcemanager.TerraformResourceTestsDefinition{
+					Generate: true,
 					TestData: &resourcemanager.TerraformResourceTestDataDefinition{
 						BasicVariables: resourcemanager.TerraformTestDataVariables{
 							Bools:    resourceMetaData.TestData.BasicVariables.Bools,
@@ -161,7 +148,6 @@ func FindCandidates(apiResource models.APIResource, resourceDefinitions map[stri
 				},
 			}
 		}
-		// TODO: make use of Data Sources
 		hasDiscriminatedType, err := containsDiscriminatedTypes(resourceDefinition, apiResource)
 		if err != nil {
 			return nil, fmt.Errorf("determining if the Resource Definition for %q contains Discriminated Types: %+v", resourceIDDisplayValue, err)
@@ -171,9 +157,6 @@ func FindCandidates(apiResource models.APIResource, resourceDefinitions map[stri
 			continue
 		}
 
-		if dataSourceDefinition != nil {
-			out.DataSources[*resourceLabel] = *dataSourceDefinition
-		}
 		if resourceDefinition != nil {
 			out.Resources[*resourceLabel] = *resourceDefinition
 		}
