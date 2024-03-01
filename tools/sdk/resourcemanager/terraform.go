@@ -6,6 +6,8 @@ package resourcemanager
 import (
 	"fmt"
 	"strings"
+
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 type TerraformDetails struct {
@@ -189,7 +191,7 @@ type TerraformResourceDetails struct {
 
 	// Documentation specifies metadata used to generate the Documentation
 	// for this Resource.
-	Documentation ResourceDocumentationDefinition `json:"documentation"`
+	Documentation models.TerraformDocumentationDefinition `json:"documentation"`
 
 	// DisplayName is the human-readable/marketing name for this Resource,
 	// for example `Resource Group` or `Virtual Machine`.
@@ -275,25 +277,10 @@ type TerraformSchemaFieldDefinition struct {
 	Required bool `json:"required"`
 
 	// Documentation specifies the Documentation available for this field
-	Documentation TerraformSchemaDocumentationDefinition `json:"documentation"`
+	Documentation models.TerraformSchemaFieldDocumentationDefinition `json:"documentation"`
 
 	// Validation specifies the validation criteria for this field, for example a set of fixed values
 	Validation *TerraformSchemaValidationDefinition `json:"validation,omitempty"`
-}
-
-type ResourceDocumentationDefinition struct {
-	// Category is the category for this Terraform Resource which is used to
-	// group this resource within the Terraform Registry.
-	Category string `json:"category"`
-
-	// Description is a description for this Terraform Resource which should
-	// be output on the documentation page for this Resource.
-	Description string `json:"description"`
-
-	// ExampleUsageHcl is the HCL which should be output as an Example Usage
-	// for this Resource. This should include all Required properties, and
-	// ideally shows a basic fully functional example for this Resource.
-	ExampleUsageHcl string `json:"exampleUsageHcl"`
 }
 
 type TerraformSchemaFieldType string
@@ -328,11 +315,6 @@ type TerraformSchemaModelDefinition struct {
 	// Fields is a Map of Field Name -> TerraformSchemaFieldDefinition defining the fields
 	// for this Terraform Schema Model.
 	Fields map[string]TerraformSchemaFieldDefinition `json:"fields"`
-}
-
-type TerraformSchemaDocumentationDefinition struct {
-	// Markdown is the Documentation for this field in the Markdown format.
-	Markdown string `json:"markdown"`
 }
 
 type TerraformSchemaValidationDefinition struct {
