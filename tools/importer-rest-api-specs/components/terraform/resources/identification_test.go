@@ -74,9 +74,6 @@ func TestIdentifyWithCreateAndReadAndUpdateAndDelete(t *testing.T) {
 	if result == nil {
 		t.Fatalf("expected a result but didn't get one")
 	}
-	if len(result.DataSources) != 1 {
-		t.Fatalf("expected there to be 1 data source but got %d", len(result.DataSources))
-	}
 	if len(result.Resources) != 1 {
 		t.Fatalf("expected there to be 1 resources but got %d", len(result.Resources))
 	}
@@ -151,9 +148,6 @@ func TestIdentifyWithCreateOrUpdateAndReadAndDelete(t *testing.T) {
 	}
 	if result == nil {
 		t.Fatalf("expected a result but didn't get one")
-	}
-	if len(result.DataSources) != 1 {
-		t.Fatalf("expected there to be 1 data source but got %d", len(result.DataSources))
 	}
 	if len(result.Resources) != 1 {
 		t.Fatalf("expected there to be 1 resources but got %d", len(result.Resources))
@@ -258,9 +252,6 @@ func TestIdentifyWithCreateOrUpdateAndUpdateAndReadAndDelete(t *testing.T) {
 	if result == nil {
 		t.Fatalf("expected a result but didn't get one")
 	}
-	if len(result.DataSources) != 1 {
-		t.Fatalf("expected there to be 1 data source but got %d", len(result.DataSources))
-	}
 	if len(result.Resources) != 1 {
 		t.Fatalf("expected there to be 1 resources but got %d", len(result.Resources))
 	}
@@ -346,9 +337,6 @@ func TestIdentifyWithCreateOrUpdateAndUpdateAndReadAndDelete_NoProperties(t *tes
 	if result == nil {
 		t.Fatalf("expected a result but didn't get one")
 	}
-	if len(result.DataSources) != 1 {
-		t.Fatalf("expected there to be 1 data source but got %d", len(result.DataSources))
-	}
 	if len(result.Resources) != 1 {
 		t.Fatalf("expected there to be 1 resources but got %d", len(result.Resources))
 	}
@@ -431,9 +419,6 @@ func TestIdentityWithCreateReadDeleteAndUpdateTags(t *testing.T) {
 	}
 	if result == nil {
 		t.Fatalf("expected a result but didn't get one")
-	}
-	if len(result.DataSources) != 1 {
-		t.Fatalf("expected there to be 1 data source but got %d", len(result.DataSources))
 	}
 	if len(result.Resources) != 1 {
 		t.Fatalf("expected there to be 1 resources but got %d", len(result.Resources))

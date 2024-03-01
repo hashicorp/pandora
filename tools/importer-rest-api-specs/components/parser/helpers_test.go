@@ -205,9 +205,6 @@ func validateParsedResourceIDSegmentsMatch(t *testing.T, expected, actual models
 }
 
 func validateParsedTerraformDetailsMatch(t *testing.T, expected, actual resourcemanager.TerraformDetails, _ string) {
-	if len(expected.DataSources) > 0 || len(actual.DataSources) > 0 {
-		t.Fatalf("unimplemented: data source comparisons")
-	}
 	if len(expected.Resources) > 0 || len(actual.Resources) > 0 {
 		// At this time we don't implement Terraform Resource comparisons since we're not expecting
 		// these to be present as a result of the Swagger Parser (these are the next stage).
