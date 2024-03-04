@@ -1,7 +1,7 @@
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
 
-package dataapigeneratorjson
+package stages
 
 import (
 	"fmt"
@@ -13,35 +13,35 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )
 
-var _ generatorStage = generateConstantStage{}
+var _ Stage = ConstantStage{}
 
-type generateConstantStage struct {
-	// serviceName specifies the name of the Service within which the Constants exist.
-	serviceName string
+type ConstantStage struct {
+	// APIVersion specifies the APIVersion within the Service where the Constants exist.
+	APIVersion string
 
-	// apiVersion specifies the APIVersion within the Service where the Constants exist.
-	apiVersion string
+	// APIResource specifies the APIResource within the APIVersion where the Constants exist.
+	APIResource string
 
-	// apiResource specifies the APIResource within the APIVersion where the Constants exist.
-	apiResource string
-
-	// constants specifies the map of Constant Name (key) to SDKConstant (value) which should be
+	// Constants specifies the map of Constant Name (key) to SDKConstant (value) which should be
 	// persisted.
-	constants map[string]models.SDKConstant
+	Constants map[string]models.SDKConstant
 
-	// resourceIDs specifies a map of Resource ID Name (key) to ResourceID (value) that should
+	// ResourceIDs specifies a map of Resource ID Name (key) to ResourceID (value) that should
 	// be persisted.
-	resourceIDs map[string]models.ResourceID
+	ResourceIDs map[string]models.ResourceID
+
+	// ServiceName specifies the name of the Service within which the Constants exist.
+	ServiceName string
 }
 
-func (g generateConstantStage) name() string {
+func (g ConstantStage) Name() string {
 	return "Constants"
 }
 
-func (g generateConstantStage) generate(input *helpers.FileSystem) error {
+func (g ConstantStage) Generate(input *helpers.FileSystem) error {
 	logging.Log.Debug("Generating Constants")
 
-	for constantName, constantVal := range g.constants {
+	for constantName, constantVal := range g.Constants {
 		logging.Log.Trace(fmt.Sprintf("Processing Constant %q", constantName))
 
 		mapped, err := transforms.MapSDKConstantToRepository(constantName, constantVal)
@@ -50,7 +50,7 @@ func (g generateConstantStage) generate(input *helpers.FileSystem) error {
 		}
 
 		// {workingDirectory}/Service/APIVersion/APIResource/Constant-{Name}.json
-		path := filepath.Join(g.serviceName, g.apiVersion, g.apiResource, fmt.Sprintf("Constant-%s.json", constantName))
+		path := filepath.Join(g.ServiceName, g.APIVersion, g.APIResource, fmt.Sprintf("Constant-%s.json", constantName))
 		logging.Log.Trace(fmt.Sprintf("Staging to %s", path))
 		if err := input.Stage(path, *mapped); err != nil {
 			return fmt.Errorf("staging Constant %q: %+v", constantName, err)
@@ -58,7 +58,7 @@ func (g generateConstantStage) generate(input *helpers.FileSystem) error {
 	}
 
 	// ResourceIDs also contain Constants - so we need to pull those out and persist them too
-	for resourceIdName, resourceId := range g.resourceIDs {
+	for resourceIdName, resourceId := range g.ResourceIDs {
 		logging.Log.Trace(fmt.Sprintf("Processing Constants within the Resource ID %q", resourceIdName))
 
 		for constantName, constantVal := range resourceId.Constants {
@@ -70,7 +70,7 @@ func (g generateConstantStage) generate(input *helpers.FileSystem) error {
 			}
 
 			// {workingDirectory}/Service/APIVersion/APIResource/Constant-{Name}.json
-			path := filepath.Join(g.serviceName, g.apiVersion, g.apiResource, fmt.Sprintf("Constant-%s.json", constantName))
+			path := filepath.Join(g.ServiceName, g.APIVersion, g.APIResource, fmt.Sprintf("Constant-%s.json", constantName))
 			logging.Log.Trace(fmt.Sprintf("Staging to %s", path))
 			if err := input.Stage(path, *mapped); err != nil {
 				return fmt.Errorf("staging Constant %q: %+v", constantName, err)

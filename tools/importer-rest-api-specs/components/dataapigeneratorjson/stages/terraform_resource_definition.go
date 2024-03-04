@@ -1,7 +1,7 @@
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
 
-package dataapigeneratorjson
+package stages
 
 import (
 	"fmt"
@@ -13,28 +13,28 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )
 
-var _ generatorStage = generateTerraformResourceDefinitionStage{}
+var _ Stage = TerraformResourceDefinitionStage{}
 
-type generateTerraformResourceDefinitionStage struct {
-	// serviceName specifies the name of the Service.
-	serviceName string
+type TerraformResourceDefinitionStage struct {
+	// ResourceDetails specifies the Terraform Resource Definition.
+	ResourceDetails models.TerraformResourceDefinition
 
-	// resourceDetails specifies the Terraform Resource Definition.
-	resourceDetails models.TerraformResourceDefinition
-
-	// resourceLabel specifies the Label for this Terraform Resource without the Provider Prefix.
+	// ResourceLabel specifies the Label for this Terraform Resource without the Provider Prefix.
 	// Example: `container_service` rather than `azurerm_container_service`.
-	resourceLabel string
+	ResourceLabel string
+
+	// ServiceName specifies the name of the Service.
+	ServiceName string
 }
 
-func (g generateTerraformResourceDefinitionStage) generate(input *helpers.FileSystem) error {
+func (g TerraformResourceDefinitionStage) Generate(input *helpers.FileSystem) error {
 	logging.Log.Trace("Mapping Terraform Resource Definition..")
-	mapped, err := transforms.MapTerraformResourceDefinitionToRepository(g.resourceLabel, g.resourceDetails)
+	mapped, err := transforms.MapTerraformResourceDefinitionToRepository(g.ResourceLabel, g.ResourceDetails)
 	if err != nil {
 		return fmt.Errorf("building Terraform Resource Definition: %+v", err)
 	}
 
-	path := filepath.Join(g.serviceName, "Terraform", fmt.Sprintf("%s-Resource.json", g.resourceDetails.ResourceName))
+	path := filepath.Join(g.ServiceName, "Terraform", fmt.Sprintf("%s-Resource.json", g.ResourceDetails.ResourceName))
 	logging.Log.Trace(fmt.Sprintf("Staging Terraform Resource Definition at %q", path))
 	if err := input.Stage(path, mapped); err != nil {
 		return fmt.Errorf("staging Terraform Resource Definition at %q: %+v", path, err)
@@ -43,6 +43,6 @@ func (g generateTerraformResourceDefinitionStage) generate(input *helpers.FileSy
 	return nil
 }
 
-func (g generateTerraformResourceDefinitionStage) name() string {
+func (g TerraformResourceDefinitionStage) Name() string {
 	return "Terraform Resource Definition"
 }

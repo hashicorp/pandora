@@ -1,7 +1,7 @@
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
 
-package dataapigeneratorjson
+package stages
 
 import (
 	"fmt"
@@ -13,49 +13,49 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )
 
-var _ generatorStage = generateModelsStage{}
+var _ Stage = ModelsStage{}
 
-type generateModelsStage struct {
-	// serviceName specifies the name of the Service within which the Models exist.
-	serviceName string
+type ModelsStage struct {
+	// APIVersion specifies the APIVersion within the Service where the Models exist.
+	APIVersion string
 
-	// apiVersion specifies the APIVersion within the Service where the Models exist.
-	apiVersion string
+	// APIResource specifies the APIResource within the APIVersion where the Models exist.
+	APIResource string
 
-	// apiResource specifies the APIResource within the APIVersion where the Models exist.
-	apiResource string
-
-	// constants specifies the map of Constant Name (key) to SDKConstant (value) which should be
+	// Constants specifies the map of Constant Name (key) to SDKConstant (value) which should be
 	// persisted.
-	constants map[string]models.SDKConstant
+	Constants map[string]models.SDKConstant
 
-	// models specifies the map of Model Name (key) to SDKModel (value) which should be
+	// Models specifies the map of Model Name (key) to SDKModel (value) which should be
 	// persisted.
-	models map[string]models.SDKModel
+	Models map[string]models.SDKModel
+
+	// ServiceName specifies the name of the Service within which the Models exist.
+	ServiceName string
 }
 
-func (g generateModelsStage) generate(input *helpers.FileSystem) error {
+func (g ModelsStage) Generate(input *helpers.FileSystem) error {
 	logging.Log.Debug("Generating Models")
-	for modelName := range g.models {
+	for modelName := range g.Models {
 		logging.Log.Trace(fmt.Sprintf("Generating Model %q..", modelName))
-		modelValue := g.models[modelName]
+		modelValue := g.Models[modelName]
 
 		var parent *models.SDKModel
 		if modelValue.ParentTypeName != nil {
 			logging.Log.Trace("Finding parent model %q..", *modelValue.ParentTypeName)
-			p, ok := g.models[*modelValue.ParentTypeName]
+			p, ok := g.Models[*modelValue.ParentTypeName]
 			if ok {
 				parent = &p
 			}
 		}
 
-		mapped, err := transforms.MapSDKModelToRepository(modelName, modelValue, parent, g.constants, g.models)
+		mapped, err := transforms.MapSDKModelToRepository(modelName, modelValue, parent, g.Constants, g.Models)
 		if err != nil {
 			return fmt.Errorf("mapping model %q: %+v", modelName, err)
 		}
 
 		// {workingDirectory}/Service/APIVersion/APIResource/Model-{Name}.json
-		path := filepath.Join(g.serviceName, g.apiVersion, g.apiResource, fmt.Sprintf("Model-%s.json", modelName))
+		path := filepath.Join(g.ServiceName, g.APIVersion, g.APIResource, fmt.Sprintf("Model-%s.json", modelName))
 		logging.Log.Trace(fmt.Sprintf("Staging to %s", path))
 		if err := input.Stage(path, *mapped); err != nil {
 			return fmt.Errorf("staging Model %q: %+v", modelName, err)
@@ -65,6 +65,6 @@ func (g generateModelsStage) generate(input *helpers.FileSystem) error {
 	return nil
 }
 
-func (g generateModelsStage) name() string {
+func (g ModelsStage) Name() string {
 	return "Models"
 }

@@ -1,7 +1,7 @@
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
 
-package dataapigeneratorjson
+package stages
 
 import (
 	"fmt"
@@ -12,22 +12,22 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )
 
-var _ generatorStage = generateMetaDataStage{}
+var _ Stage = MetaDataStage{}
 
-type generateMetaDataStage struct {
-	// gitRevision optionally specifies the Git Revision (the full SHA) that the API Definitions have been
+type MetaDataStage struct {
+	// GitRevision optionally specifies the Git Revision (the full SHA) that the API Definitions have been
 	// parsed from. This can be nil when the APIDefinitions are handwritten.
-	gitRevision *string
+	GitRevision *string
 
-	// sourceDataOrigin specifies the Origin of this Source Data.
-	sourceDataOrigin models.SourceDataOrigin
+	// SourceDataOrigin specifies the Origin of this Source Data.
+	SourceDataOrigin models.SourceDataOrigin
 
-	// sourceDataType specifies the Type of Source Data that this set of API Definitions is related to.
-	sourceDataType models.SourceDataType
+	// SourceDataType specifies the Type of Source Data that this set of API Definitions is related to.
+	SourceDataType models.SourceDataType
 }
 
-func (g generateMetaDataStage) generate(input *helpers.FileSystem) error {
-	metaData, err := transforms.MapMetaDataToRepository(g.gitRevision, g.sourceDataType, g.sourceDataOrigin)
+func (g MetaDataStage) Generate(input *helpers.FileSystem) error {
+	metaData, err := transforms.MapMetaDataToRepository(g.GitRevision, g.SourceDataType, g.SourceDataOrigin)
 	if err != nil {
 		return fmt.Errorf("mapping metadata: %+v", err)
 	}
@@ -41,6 +41,6 @@ func (g generateMetaDataStage) generate(input *helpers.FileSystem) error {
 	return nil
 }
 
-func (g generateMetaDataStage) name() string {
+func (g MetaDataStage) Name() string {
 	return "MetaData"
 }
