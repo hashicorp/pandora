@@ -162,7 +162,7 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 	for _, apiVersion := range dataForApiVersions {
 		dataForApiVersion, err := terraform.PopulateForResources(apiVersion, resourceBuildInfo, input.ProviderPrefix, logging.Log)
 		if err != nil {
-			return fmt.Errorf("populating Terraform Details for Service %q / Version %q: %+v", serviceName, apiVersion, err)
+			return fmt.Errorf("populating Terraform Details for Service %q / Version %q: %+v", serviceName, apiVersion.ApiVersion, err)
 		}
 		dataForApiVersionsWithTerraformDetails = append(dataForApiVersionsWithTerraformDetails, *dataForApiVersion)
 	}
