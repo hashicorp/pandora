@@ -8,6 +8,7 @@ import (
 	"path/filepath"
 
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/helpers"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/transforms"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )
@@ -29,7 +30,7 @@ type generateResourceIDsStage struct {
 	resourceIDs map[string]models.ResourceID
 }
 
-func (g generateResourceIDsStage) generate(input *fileSystem) error {
+func (g generateResourceIDsStage) generate(input *helpers.FileSystem) error {
 	logging.Log.Debug("Generating Resource IDs")
 	for resourceIDName, resourceIDValue := range g.resourceIDs {
 		logging.Log.Trace(fmt.Sprintf("Generating Resource ID %q", resourceIDName))
@@ -41,7 +42,7 @@ func (g generateResourceIDsStage) generate(input *fileSystem) error {
 		// {workingDirectory}/Service/APIVersion/APIResource/ResourceId-{Name}.json
 		path := filepath.Join(g.serviceName, g.apiVersion, g.apiResource, fmt.Sprintf("ResourceId-%s.json", resourceIDName))
 		logging.Log.Trace(fmt.Sprintf("Staging to %s", path))
-		if err := input.stage(path, *mapped); err != nil {
+		if err := input.Stage(path, *mapped); err != nil {
 			return fmt.Errorf("staging Resource ID %q: %+v", resourceIDName, err)
 		}
 	}

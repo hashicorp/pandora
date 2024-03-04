@@ -8,6 +8,7 @@ import (
 	"path/filepath"
 
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/helpers"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/transforms"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )
@@ -33,7 +34,7 @@ type generateModelsStage struct {
 	models map[string]models.SDKModel
 }
 
-func (g generateModelsStage) generate(input *fileSystem) error {
+func (g generateModelsStage) generate(input *helpers.FileSystem) error {
 	logging.Log.Debug("Generating Models")
 	for modelName := range g.models {
 		logging.Log.Trace(fmt.Sprintf("Generating Model %q..", modelName))
@@ -56,7 +57,7 @@ func (g generateModelsStage) generate(input *fileSystem) error {
 		// {workingDirectory}/Service/APIVersion/APIResource/Model-{Name}.json
 		path := filepath.Join(g.serviceName, g.apiVersion, g.apiResource, fmt.Sprintf("Model-%s.json", modelName))
 		logging.Log.Trace(fmt.Sprintf("Staging to %s", path))
-		if err := input.stage(path, *mapped); err != nil {
+		if err := input.Stage(path, *mapped); err != nil {
 			return fmt.Errorf("staging Model %q: %+v", modelName, err)
 		}
 	}

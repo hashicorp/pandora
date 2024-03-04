@@ -8,6 +8,7 @@ import (
 	"path/filepath"
 
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/helpers"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/transforms"
 )
 
@@ -28,14 +29,14 @@ type generateServiceDefinitionStage struct {
 	terraformDefinition *models.TerraformDefinition
 }
 
-func (g generateServiceDefinitionStage) generate(input *fileSystem) error {
+func (g generateServiceDefinitionStage) generate(input *helpers.FileSystem) error {
 	serviceDefinition, err := transforms.MapServiceDefinitionToRepository(g.serviceName, g.resourceProvider, g.terraformDefinition)
 	if err != nil {
 		return fmt.Errorf("mapping Service Definition for %q: %+v", g.serviceName, err)
 	}
 
 	path := filepath.Join(g.serviceName, "ServiceDefinition.json")
-	if err := input.stage(path, *serviceDefinition); err != nil {
+	if err := input.Stage(path, *serviceDefinition); err != nil {
 		return fmt.Errorf("staging ServiceDefinition to %q: %+v", path, err)
 	}
 

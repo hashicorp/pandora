@@ -8,6 +8,7 @@ import (
 	"path/filepath"
 
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/helpers"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/transforms"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )
@@ -35,7 +36,7 @@ type generateAPIVersionStage struct {
 	shouldGenerate bool
 }
 
-func (g generateAPIVersionStage) generate(input *fileSystem) error {
+func (g generateAPIVersionStage) generate(input *helpers.FileSystem) error {
 	logging.Log.Debug("Generating API Version Definition")
 	mapped, err := transforms.MapAPIVersionToRepository(g.apiVersion, g.isPreviewVersion, g.resources, g.sourceDataOrigin, g.shouldGenerate)
 	if err != nil {
@@ -44,7 +45,7 @@ func (g generateAPIVersionStage) generate(input *fileSystem) error {
 
 	path := filepath.Join(g.serviceName, g.apiVersion, "ApiVersionDefinition.json")
 	logging.Log.Trace(fmt.Sprintf("Staging API Version Definition to %q", path))
-	if err := input.stage(path, *mapped); err != nil {
+	if err := input.Stage(path, *mapped); err != nil {
 		return fmt.Errorf("staging API Version Definition to %q: %+v", path, err)
 	}
 

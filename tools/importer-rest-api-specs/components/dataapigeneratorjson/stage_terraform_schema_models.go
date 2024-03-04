@@ -9,6 +9,7 @@ import (
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/helpers"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/transforms"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )
@@ -23,7 +24,7 @@ type generateTerraformSchemaModelsStage struct {
 	resourceDetails models.TerraformResourceDefinition
 }
 
-func (g generateTerraformSchemaModelsStage) generate(input *fileSystem) error {
+func (g generateTerraformSchemaModelsStage) generate(input *helpers.FileSystem) error {
 	logging.Log.Debug("Processing Terraform Schema Models..")
 	for schemaModelName, schemaModel := range g.resourceDetails.SchemaModels {
 		logging.Log.Trace(fmt.Sprintf("Processing Terraform Schema Model %q", schemaModelName))
@@ -38,7 +39,7 @@ func (g generateTerraformSchemaModelsStage) generate(input *fileSystem) error {
 			fileName = fmt.Sprintf("%s-Resource-Schema.json", g.resourceDetails.ResourceName)
 		}
 		path := filepath.Join(g.serviceName, "Terraform", fileName)
-		if err := input.stage(path, *mapped); err != nil {
+		if err := input.Stage(path, *mapped); err != nil {
 			return fmt.Errorf("staging Terraform Schema Model %q at %q: %+v", schemaModelName, path, err)
 		}
 		logging.Log.Trace("Processed Schema Model %q.", schemaModelName)

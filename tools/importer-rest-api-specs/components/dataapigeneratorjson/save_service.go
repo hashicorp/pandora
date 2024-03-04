@@ -7,6 +7,7 @@ import (
 	"fmt"
 
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/helpers"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )
 
@@ -127,18 +128,18 @@ func SaveService(opts SaveServiceOptions) error {
 		}
 	}
 
-	fs := newFileSystem()
+	fs := helpers.NewFileSystem()
 
 	logging.Log.Debug("Running stages..")
 	for _, stage := range stages {
 		logging.Log.Trace(fmt.Sprintf("Processing Stage %q", stage.name()))
 		if err := stage.generate(fs); err != nil {
-			return fmt.Errorf("running stage %q: %+v", stage.name(), err)
+			return fmt.Errorf("running Stage %q: %+v", stage.name(), err)
 		}
 	}
 
 	logging.Log.Debug("Persisting files to disk..")
-	if err := persistFileSystem(opts.OutputDirectory, opts.SourceDataType, opts.ServiceName, fs); err != nil {
+	if err := helpers.PersistFileSystem(opts.OutputDirectory, opts.SourceDataType, opts.ServiceName, fs); err != nil {
 		return fmt.Errorf("persisting files: %+v", err)
 	}
 

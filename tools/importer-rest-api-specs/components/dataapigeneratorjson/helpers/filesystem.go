@@ -1,7 +1,7 @@
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
 
-package dataapigeneratorjson
+package helpers
 
 import (
 	"encoding/json"
@@ -17,30 +17,30 @@ import (
 
 var directoryPermissions = os.FileMode(0755)
 
-// filePath is a typealias to make it clearer what's being returned from this generationStage.
+// FilePath is a typealias to make it clearer what's being returned from this generationStage.
 // This represents the path to a file on disk
-type filePath = string
+type FilePath = string
 
-// fileBody is a typealias to make it clearer what's being returned from this generationStage.
-type fileBody = []byte
+// FileBody is a typealias to make it clearer what's being returned from this generationStage.
+type FileBody = []byte
 
-// fileSystem is an abstraction around a set of files within a working directory.
+// FileSystem is an abstraction around a set of files within a working directory.
 // It's intended to allow a representation around the API Definitions working directory
 // containing a reference to both the files that _would_ be written (during saving/testing)
 // and that exist (when loading the API Definitions from disk).
-type fileSystem struct {
-	f map[filePath]fileBody
+type FileSystem struct {
+	f map[FilePath]FileBody
 }
 
-func newFileSystem() *fileSystem {
-	return &fileSystem{
-		f: map[filePath]fileBody{},
+func NewFileSystem() *FileSystem {
+	return &FileSystem{
+		f: map[FilePath]FileBody{},
 	}
 }
 
-// stage stages the specified body at the specified path, ensuring that it's unique.
-// This doesn't persist the file to disk, which is handled in persistFileSystem.
-func (f *fileSystem) stage(path filePath, body any) error {
+// Stage stages the specified body at the specified path, ensuring that it's unique.
+// This doesn't persist the file to disk, which is handled in PersistFileSystem.
+func (f *FileSystem) Stage(path FilePath, body any) error {
 	if _, existing := f.f[path]; existing {
 		return fmt.Errorf("a duplicate file exists at the path %q", path)
 	}
@@ -69,7 +69,7 @@ func (f *fileSystem) stage(path filePath, body any) error {
 	return fmt.Errorf("internal-error: unexpected file extension %q for %q", fileExtension, path)
 }
 
-func persistFileSystem(workingDirectory string, dataType models.SourceDataType, serviceName string, input *fileSystem) error {
+func PersistFileSystem(workingDirectory string, dataType models.SourceDataType, serviceName string, input *FileSystem) error {
 	rootDir := filepath.Join(workingDirectory, string(dataType))
 	logging.Log.Trace(fmt.Sprintf("Persisting files into %q", rootDir))
 
@@ -107,7 +107,7 @@ func persistFileSystem(workingDirectory string, dataType models.SourceDataType, 
 	return nil
 }
 
-func uniqueDirectories(input map[filePath]fileBody) []string {
+func uniqueDirectories(input map[FilePath]FileBody) []string {
 	directories := make(map[string]struct{})
 	for path := range input {
 		dir := filepath.Dir(path)

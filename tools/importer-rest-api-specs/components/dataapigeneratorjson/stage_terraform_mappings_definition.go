@@ -8,6 +8,7 @@ import (
 	"path/filepath"
 
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/helpers"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/transforms"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )
@@ -22,7 +23,7 @@ type generateTerraformMappingsDefinitionStage struct {
 	resourceDetails models.TerraformResourceDefinition
 }
 
-func (g generateTerraformMappingsDefinitionStage) generate(input *fileSystem) error {
+func (g generateTerraformMappingsDefinitionStage) generate(input *helpers.FileSystem) error {
 	mapped, err := transforms.MapTerraformSchemaMappingsToRepository(g.resourceDetails.Mappings)
 	if err != nil {
 		return fmt.Errorf("building Mappings for the Terraform Resource %q: %+v", g.resourceDetails.ResourceName, err)
@@ -30,7 +31,7 @@ func (g generateTerraformMappingsDefinitionStage) generate(input *fileSystem) er
 
 	path := filepath.Join(g.serviceName, "Terraform", fmt.Sprintf("%s-Resource-Mappings.json", g.resourceDetails.ResourceName))
 	logging.Log.Trace(fmt.Sprintf("Staging Terraform Mappings to %q", path))
-	if err := input.stage(path, *mapped); err != nil {
+	if err := input.Stage(path, *mapped); err != nil {
 		return fmt.Errorf("staging Terraform Mappings to %q: %+v", path, err)
 	}
 

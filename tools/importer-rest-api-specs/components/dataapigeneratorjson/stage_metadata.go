@@ -7,6 +7,7 @@ import (
 	"fmt"
 
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/helpers"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/transforms"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )
@@ -25,7 +26,7 @@ type generateMetaDataStage struct {
 	sourceDataType models.SourceDataType
 }
 
-func (g generateMetaDataStage) generate(input *fileSystem) error {
+func (g generateMetaDataStage) generate(input *helpers.FileSystem) error {
 	metaData, err := transforms.MapMetaDataToRepository(g.gitRevision, g.sourceDataType, g.sourceDataOrigin)
 	if err != nil {
 		return fmt.Errorf("mapping metadata: %+v", err)
@@ -33,7 +34,7 @@ func (g generateMetaDataStage) generate(input *fileSystem) error {
 	path := "metadata.json"
 
 	logging.Log.Trace(fmt.Sprintf("Staging MetaData at %s", path))
-	if err := input.stage(path, *metaData); err != nil {
+	if err := input.Stage(path, *metaData); err != nil {
 		return fmt.Errorf("staging metadata: %+v", err)
 	}
 

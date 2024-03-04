@@ -8,6 +8,7 @@ import (
 	"path/filepath"
 
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/helpers"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/transforms"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )
@@ -37,7 +38,7 @@ func (g generateConstantStage) name() string {
 	return "Constants"
 }
 
-func (g generateConstantStage) generate(input *fileSystem) error {
+func (g generateConstantStage) generate(input *helpers.FileSystem) error {
 	logging.Log.Debug("Generating Constants")
 
 	for constantName, constantVal := range g.constants {
@@ -51,7 +52,7 @@ func (g generateConstantStage) generate(input *fileSystem) error {
 		// {workingDirectory}/Service/APIVersion/APIResource/Constant-{Name}.json
 		path := filepath.Join(g.serviceName, g.apiVersion, g.apiResource, fmt.Sprintf("Constant-%s.json", constantName))
 		logging.Log.Trace(fmt.Sprintf("Staging to %s", path))
-		if err := input.stage(path, *mapped); err != nil {
+		if err := input.Stage(path, *mapped); err != nil {
 			return fmt.Errorf("staging Constant %q: %+v", constantName, err)
 		}
 	}
@@ -71,7 +72,7 @@ func (g generateConstantStage) generate(input *fileSystem) error {
 			// {workingDirectory}/Service/APIVersion/APIResource/Constant-{Name}.json
 			path := filepath.Join(g.serviceName, g.apiVersion, g.apiResource, fmt.Sprintf("Constant-%s.json", constantName))
 			logging.Log.Trace(fmt.Sprintf("Staging to %s", path))
-			if err := input.stage(path, *mapped); err != nil {
+			if err := input.Stage(path, *mapped); err != nil {
 				return fmt.Errorf("staging Constant %q: %+v", constantName, err)
 			}
 		}

@@ -3,10 +3,12 @@
 
 package dataapigeneratorjson
 
-type generatorStage interface {
-	// generate runs this generation stage which returns a map of files to be output or an error
-	generate(input *fileSystem) error
+import "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/helpers"
 
-	// name returns the name of this generator stage, for logging purposes.
+type generatorStage interface {
+	// generate runs this generation Stage which returns a map of files to be output or an error
+	generate(input *helpers.FileSystem) error
+
+	// name returns the name of this generator Stage, for logging purposes.
 	name() string
 }
