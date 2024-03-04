@@ -91,15 +91,16 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 	resourceBuildInfo := make(map[string]terraformModels.ResourceBuildInfo)
 	for _, apiData := range consolidatedApiVersions {
 		for _, data := range apiData {
+			if resourceProvider == nil && data.ResourceProvider != nil {
+				rpName := *data.ResourceProvider
+				resourceProvider = &rpName
+			}
+
 			if data.TerraformServiceDefinition == nil {
 				continue
 			}
 
 			// populate the service information based on this api version
-			if resourceProvider == nil && data.ResourceProvider != nil {
-				rpName := *data.ResourceProvider
-				resourceProvider = &rpName
-			}
 			if terraformPackageName == nil && data.TerraformServiceDefinition != nil {
 				packageName := data.TerraformServiceDefinition.TerraformPackageName
 				terraformPackageName = &packageName
