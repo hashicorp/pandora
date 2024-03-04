@@ -70,6 +70,8 @@ func (f *FileSystem) Stage(path FilePath, body any) error {
 }
 
 func PersistFileSystem(workingDirectory string, dataType models.SourceDataType, serviceName string, input *FileSystem) error {
+	// TODO: note this is going to need to take SourceDataOrigin into account too
+
 	rootDir := filepath.Join(workingDirectory, string(dataType))
 	logging.Log.Trace(fmt.Sprintf("Persisting files into %q", rootDir))
 

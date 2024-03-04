@@ -5,11 +5,9 @@ package pipeline
 
 import (
 	"fmt"
-	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"os"
-	"path"
 	"sort"
 
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson"
@@ -17,12 +15,14 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform"
 	terraformModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/transformer"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 func runImporter(input RunInput, generationData []discovery.ServiceInput, swaggerGitSha string) error {
 	sourceDataType := models.ResourceManagerSourceDataType
 	sourceDataOrigin := models.AzureRestAPISpecsSourceDataOrigin
+	repo := dataapigeneratorjson.NewRepository(input.OutputDirectory)
 
 	// group the API Versions by Service
 	dataByServices := make(map[string][]discovery.ServiceInput)
@@ -49,15 +49,19 @@ func runImporter(input RunInput, generationData []discovery.ServiceInput, swagge
 	// then parse/process the data for each of the API Versions for each service
 	for _, serviceName := range serviceNames {
 		serviceDetails := dataByServices[serviceName]
-		logger := input.Logger.Named(fmt.Sprintf("Importer for Service %q", serviceName))
 
-		serviceDirectory := path.Join(input.OutputDirectory, string(sourceDataType), serviceName)
-		logger.Debug("recreating the working directory at %q for Service %q", serviceDirectory, serviceName)
-		if err := recreateDirectory(serviceDirectory, logger); err != nil {
-			return fmt.Errorf("recreating directory %q for service %q", serviceDirectory, serviceName)
+		logging.Log.Debug(fmt.Sprintf("Removing any existing API Definitions for the Service %q", serviceName))
+		removeServiceOpts := dataapigeneratorjson.RemoveServiceOptions{
+			ServiceName:      serviceName,
+			SourceDataOrigin: sourceDataOrigin,
+			SourceDataType:   sourceDataType,
+		}
+		if err := repo.RemoveService(removeServiceOpts); err != nil {
+			return fmt.Errorf("removing existing API Definitions for Service %q: %+v", serviceName, err)
 		}
 
-		if err := runImportForService(input, serviceName, serviceDetails, sourceDataType, sourceDataOrigin, logger, swaggerGitSha); err != nil {
+		logger := input.Logger.Named(fmt.Sprintf("Importer for Service %q", serviceName))
+		if err := runImportForService(input, serviceName, serviceDetails, sourceDataType, sourceDataOrigin, logger, swaggerGitSha, repo); err != nil {
 			return fmt.Errorf("parsing data for Service %q: %+v", serviceName, err)
 		}
 	}
@@ -65,7 +69,7 @@ func runImporter(input RunInput, generationData []discovery.ServiceInput, swagge
 	return nil
 }
 
-func runImportForService(input RunInput, serviceName string, apiVersionsForService []discovery.ServiceInput, sourceDataType models.SourceDataType, sourceDataOrigin models.SourceDataOrigin, logger hclog.Logger, swaggerGitSha string) error {
+func runImportForService(input RunInput, serviceName string, apiVersionsForService []discovery.ServiceInput, sourceDataType models.SourceDataType, sourceDataOrigin models.SourceDataOrigin, logger hclog.Logger, swaggerGitSha string, repo dataapigeneratorjson.Repository) error {
 	task := pipelineTask{}
 	apiVersions := make([]importerModels.AzureApiDefinition, 0)
 	var resourceProvider *string
@@ -157,7 +161,6 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 	// Now that we have the populated data, let's go ahead and output that..
 	logger.Info(fmt.Sprintf("Persisting API Definitions for Service %s..", serviceName))
 
-	repo := dataapigeneratorjson.NewRepository(input.OutputDirectory)
 	opts := dataapigeneratorjson.SaveServiceOptions{
 		AzureRestAPISpecsGitSHA: pointer.To(swaggerGitSha),
 		ResourceProvider:        resourceProvider,
@@ -170,18 +173,5 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 		return fmt.Errorf("persisting Data API Definitions for Service %q: %+v", serviceName, err)
 	}
 
-	return nil
-}
-
-func recreateDirectory(directory string, logger hclog.Logger) error {
-	logger.Trace(fmt.Sprintf("Deleting any existing directory at %q..", directory))
-	if err := os.RemoveAll(directory); err != nil {
-		return fmt.Errorf("removing any existing directory at %q: %+v", directory, err)
-	}
-	logger.Trace(fmt.Sprintf("(Re)Creating the directory at %q..", directory))
-	if err := os.MkdirAll(directory, os.FileMode(0755)); err != nil {
-		return fmt.Errorf("creating directory %q: %+v", directory, err)
-	}
-	logger.Trace(fmt.Sprintf("Created Directory at %q", directory))
 	return nil
 }

@@ -135,6 +135,8 @@ func (r repositoryImpl) SaveService(opts SaveServiceOptions) error {
 		}
 	}
 
+	// TODO: ensure that any existing directory for this service is removed
+
 	logging.Log.Debug("Persisting files to disk..")
 	if err := helpers.PersistFileSystem(r.workingDirectory, opts.SourceDataType, opts.ServiceName, fs); err != nil {
 		return fmt.Errorf("persisting files: %+v", err)
