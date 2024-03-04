@@ -1,0 +1,70 @@
+{
+  "name": "VirtualMachineInstancePropertiesOsProfile",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "adminPassword",
+      "name": "AdminPassword",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "adminUsername",
+      "name": "AdminUsername",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "computerName",
+      "name": "ComputerName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "linuxConfiguration",
+      "name": "LinuxConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "VirtualMachineInstancePropertiesOsProfileLinuxConfiguration"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "windowsConfiguration",
+      "name": "WindowsConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "VirtualMachineInstancePropertiesOsProfileWindowsConfiguration"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}
