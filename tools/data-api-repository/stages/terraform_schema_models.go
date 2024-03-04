@@ -8,10 +8,10 @@ import (
 	"path/filepath"
 	"strings"
 
+	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/pandora/tools/data-api-repository/helpers"
+	"github.com/hashicorp/pandora/tools/data-api-repository/transforms"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/helpers"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/transforms"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )
 
 var _ Stage = TerraformSchemaModelsStage{}
@@ -24,10 +24,10 @@ type TerraformSchemaModelsStage struct {
 	ResourceDetails models.TerraformResourceDefinition
 }
 
-func (g TerraformSchemaModelsStage) Generate(input *helpers.FileSystem) error {
-	logging.Log.Debug("Processing Terraform Schema Models..")
+func (g TerraformSchemaModelsStage) Generate(input *helpers.FileSystem, logger hclog.Logger) error {
+	logger.Debug("Processing Terraform Schema Models..")
 	for schemaModelName, schemaModel := range g.ResourceDetails.SchemaModels {
-		logging.Log.Trace(fmt.Sprintf("Processing Terraform Schema Model %q", schemaModelName))
+		logger.Trace(fmt.Sprintf("Processing Terraform Schema Model %q", schemaModelName))
 		mapped, err := transforms.MapTerraformSchemaModelToRepository(schemaModelName, schemaModel)
 		if err != nil {
 			return fmt.Errorf("mapping Terraform Schema Model %q: %+v", schemaModelName, err)
@@ -42,7 +42,7 @@ func (g TerraformSchemaModelsStage) Generate(input *helpers.FileSystem) error {
 		if err := input.Stage(path, *mapped); err != nil {
 			return fmt.Errorf("staging Terraform Schema Model %q at %q: %+v", schemaModelName, path, err)
 		}
-		logging.Log.Trace("Processed Schema Model %q.", schemaModelName)
+		logger.Trace("Processed Schema Model %q.", schemaModelName)
 	}
 
 	return nil

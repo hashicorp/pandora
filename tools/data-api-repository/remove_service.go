@@ -1,13 +1,14 @@
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
 
-package dataapigeneratorjson
+package dataapirepository
 
 import (
 	"fmt"
 	"os"
 	"path"
 
+	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
@@ -23,10 +24,11 @@ type RemoveServiceOptions struct {
 }
 
 // RemoveService removes any existing API Definitions for the Service specified in opts.
-func (r repositoryImpl) RemoveService(opts RemoveServiceOptions) error {
+func (r repositoryImpl) RemoveService(opts RemoveServiceOptions, logger hclog.Logger) error {
 	// TODO: note this is going to need to take SourceDataOrigin into account too
 
 	serviceDirectory := path.Join(r.workingDirectory, string(opts.SourceDataType), opts.ServiceName)
+	logger.Trace(fmt.Sprintf("Removing Service Directory %q", serviceDirectory))
 	if err := os.RemoveAll(serviceDirectory); err != nil && os.IsNotExist(err) {
 		return fmt.Errorf("removing any existing directory at %q: %+v", serviceDirectory, err)
 	}

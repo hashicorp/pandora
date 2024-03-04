@@ -1,15 +1,15 @@
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
 
-package dataapigeneratorjson
+package dataapirepository
 
 import (
 	"fmt"
 
+	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/pandora/tools/data-api-repository/helpers"
+	"github.com/hashicorp/pandora/tools/data-api-repository/stages"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/helpers"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/stages"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )
 
 type SaveServiceOptions struct {
@@ -34,8 +34,8 @@ type SaveServiceOptions struct {
 }
 
 // SaveService persists the API Definitions for the Service specified in opts.
-func (r repositoryImpl) SaveService(opts SaveServiceOptions) error {
-	logging.Log.Info(fmt.Sprintf("Processing Service %q", opts.ServiceName))
+func (r repositoryImpl) SaveService(opts SaveServiceOptions, logger hclog.Logger) error {
+	logger.Info(fmt.Sprintf("Processing Service %q", opts.ServiceName))
 
 	items := []stages.Stage{
 		stages.MetaDataStage{
@@ -52,7 +52,7 @@ func (r repositoryImpl) SaveService(opts SaveServiceOptions) error {
 	}
 
 	for apiVersion, apiVersionDetails := range opts.Service.APIVersions {
-		logging.Log.Info(fmt.Sprintf("Processing Service %q / API Version %q..", opts.ServiceName, apiVersion))
+		logger.Info(fmt.Sprintf("Processing Service %q / API Version %q..", opts.ServiceName, apiVersion))
 		items = append(items, stages.APIVersionStage{
 			APIResources:     apiVersionDetails.Resources,
 			APIVersion:       apiVersion,
@@ -127,18 +127,18 @@ func (r repositoryImpl) SaveService(opts SaveServiceOptions) error {
 
 	fs := helpers.NewFileSystem()
 
-	logging.Log.Debug("Running stages..")
+	logger.Debug("Running stages..")
 	for _, stage := range items {
-		logging.Log.Trace(fmt.Sprintf("Processing Stage %q", stage.Name()))
-		if err := stage.Generate(fs); err != nil {
+		logger.Trace(fmt.Sprintf("Processing Stage %q", stage.Name()))
+		if err := stage.Generate(fs, logger); err != nil {
 			return fmt.Errorf("running Stage %q: %+v", stage.Name(), err)
 		}
 	}
 
 	// TODO: ensure that any existing directory for this service is removed
 
-	logging.Log.Debug("Persisting files to disk..")
-	if err := helpers.PersistFileSystem(r.workingDirectory, opts.SourceDataType, opts.ServiceName, fs); err != nil {
+	logger.Debug("Persisting files to disk..")
+	if err := helpers.PersistFileSystem(r.workingDirectory, opts.SourceDataType, opts.ServiceName, fs, logger); err != nil {
 		return fmt.Errorf("persisting files: %+v", err)
 	}
 
