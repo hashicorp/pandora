@@ -10,59 +10,53 @@ import (
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
-	"github.com/hashicorp/pandora/tools/sdk/services"
 )
 
 func TestIdentifyWithCreateAndReadAndUpdateAndDelete(t *testing.T) {
-	services := services.Resource{
-		Operations: resourcemanager.ApiOperationDetails{
-			Operations: map[string]models.SDKOperation{
-				"Create": {
-					Method: "PUT",
-					RequestObject: &models.SDKObjectDefinition{
-						Type:          models.ReferenceSDKObjectDefinitionType,
-						ReferenceName: pointer.To("SomeModel"),
-					},
-					ResourceIDName: pointer.To("VirtualNetwork"),
+	apiResource := models.APIResource{
+		Operations: map[string]models.SDKOperation{
+			"Create": {
+				Method: "PUT",
+				RequestObject: &models.SDKObjectDefinition{
+					Type:          models.ReferenceSDKObjectDefinitionType,
+					ReferenceName: pointer.To("SomeModel"),
 				},
-				"Update": {
-					Method: "PATCH",
-					RequestObject: &models.SDKObjectDefinition{
-						Type:          models.ReferenceSDKObjectDefinitionType,
-						ReferenceName: pointer.To("SomeModel"),
-					},
-					ResourceIDName: pointer.To("VirtualNetwork"),
+				ResourceIDName: pointer.To("VirtualNetwork"),
+			},
+			"Update": {
+				Method: "PATCH",
+				RequestObject: &models.SDKObjectDefinition{
+					Type:          models.ReferenceSDKObjectDefinitionType,
+					ReferenceName: pointer.To("SomeModel"),
 				},
-				"Get": {
-					Method: "GET",
-					ResponseObject: &models.SDKObjectDefinition{
-						Type:          models.ReferenceSDKObjectDefinitionType,
-						ReferenceName: pointer.To("SomeModel"),
-					},
-					ResourceIDName: pointer.To("VirtualNetwork"),
+				ResourceIDName: pointer.To("VirtualNetwork"),
+			},
+			"Get": {
+				Method: "GET",
+				ResponseObject: &models.SDKObjectDefinition{
+					Type:          models.ReferenceSDKObjectDefinitionType,
+					ReferenceName: pointer.To("SomeModel"),
 				},
-				"Delete": {
-					Method:         "DELETE",
-					ResourceIDName: pointer.To("VirtualNetwork"),
+				ResourceIDName: pointer.To("VirtualNetwork"),
+			},
+			"Delete": {
+				Method:         "DELETE",
+				ResourceIDName: pointer.To("VirtualNetwork"),
+			},
+		},
+		Models: map[string]models.SDKModel{
+			"SomeModel": {
+				Fields: map[string]models.SDKField{
+					"Properties": {},
 				},
 			},
 		},
-		Schema: resourcemanager.ApiSchemaDetails{
-			Models: map[string]models.SDKModel{
-				"SomeModel": {
-					Fields: map[string]models.SDKField{
-						"Properties": {},
-					},
-				},
-			},
-			ResourceIds: map[string]models.ResourceID{
-				"VirtualNetwork": {
-					ExampleValue: "/virtualNetworks/{virtualNetworkName}",
-					Segments: []models.ResourceIDSegment{
-						models.NewStaticValueResourceIDSegment("staticVirtualNetworks", "virtualNetworks"),
-						models.NewUserSpecifiedResourceIDSegment("virtualNetworkName", "virtualNetworkName"),
-					},
+		ResourceIDs: map[string]models.ResourceID{
+			"VirtualNetwork": {
+				ExampleValue: "/virtualNetworks/{virtualNetworkName}",
+				Segments: []models.ResourceIDSegment{
+					models.NewStaticValueResourceIDSegment("staticVirtualNetworks", "virtualNetworks"),
+					models.NewUserSpecifiedResourceIDSegment("virtualNetworkName", "virtualNetworkName"),
 				},
 			},
 		},
@@ -73,7 +67,7 @@ func TestIdentifyWithCreateAndReadAndUpdateAndDelete(t *testing.T) {
 			Name: "virtual_network",
 		},
 	}
-	result, err := FindCandidates(services, resources, "Network", hclog.New(hclog.DefaultOptions))
+	result, err := FindCandidates(apiResource, resources, "Network", hclog.New(hclog.DefaultOptions))
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 	}
@@ -109,42 +103,38 @@ func TestIdentifyWithCreateAndReadAndUpdateAndDelete(t *testing.T) {
 
 func TestIdentifyWithCreateOrUpdateAndReadAndDelete(t *testing.T) {
 	// shared CreateOrUpdate method
-	services := services.Resource{
-		Operations: resourcemanager.ApiOperationDetails{
-			Operations: map[string]models.SDKOperation{
-				"CreateOrUpdate": {
-					Method: "PUT",
-					RequestObject: &models.SDKObjectDefinition{
-						Type:          models.ReferenceSDKObjectDefinitionType,
-						ReferenceName: pointer.To("SomeModel"),
-					},
-					ResourceIDName: pointer.To("VirtualNetwork"),
+	apiResource := models.APIResource{
+		Operations: map[string]models.SDKOperation{
+			"CreateOrUpdate": {
+				Method: "PUT",
+				RequestObject: &models.SDKObjectDefinition{
+					Type:          models.ReferenceSDKObjectDefinitionType,
+					ReferenceName: pointer.To("SomeModel"),
 				},
-				"Get": {
-					Method: "GET",
-					ResponseObject: &models.SDKObjectDefinition{
-						Type:          models.ReferenceSDKObjectDefinitionType,
-						ReferenceName: pointer.To("SomeModel"),
-					},
-					ResourceIDName: pointer.To("VirtualNetwork"),
+				ResourceIDName: pointer.To("VirtualNetwork"),
+			},
+			"Get": {
+				Method: "GET",
+				ResponseObject: &models.SDKObjectDefinition{
+					Type:          models.ReferenceSDKObjectDefinitionType,
+					ReferenceName: pointer.To("SomeModel"),
 				},
-				"Delete": {
-					Method:         "DELETE",
-					ResourceIDName: pointer.To("VirtualNetwork"),
-				},
+				ResourceIDName: pointer.To("VirtualNetwork"),
+			},
+			"Delete": {
+				Method:         "DELETE",
+				ResourceIDName: pointer.To("VirtualNetwork"),
 			},
 		},
-		Schema: resourcemanager.ApiSchemaDetails{
-			Models: map[string]models.SDKModel{
-				"SomeModel": {},
-			},
-			ResourceIds: map[string]models.ResourceID{
-				"VirtualNetwork": {
-					ExampleValue: "/virtualNetworks/{virtualNetworkName}",
-					Segments: []models.ResourceIDSegment{
-						models.NewStaticValueResourceIDSegment("staticVirtualNetworks", "virtualNetworks"),
-						models.NewUserSpecifiedResourceIDSegment("virtualNetworkName", "virtualNetworkName"),
-					},
+		Models: map[string]models.SDKModel{
+			"SomeModel": {},
+		},
+		ResourceIDs: map[string]models.ResourceID{
+			"VirtualNetwork": {
+				ExampleValue: "/virtualNetworks/{virtualNetworkName}",
+				Segments: []models.ResourceIDSegment{
+					models.NewStaticValueResourceIDSegment("staticVirtualNetworks", "virtualNetworks"),
+					models.NewUserSpecifiedResourceIDSegment("virtualNetworkName", "virtualNetworkName"),
 				},
 			},
 		},
@@ -155,7 +145,7 @@ func TestIdentifyWithCreateOrUpdateAndReadAndDelete(t *testing.T) {
 			Name: "virtual_network",
 		},
 	}
-	result, err := FindCandidates(services, resources, "Network", hclog.New(hclog.DefaultOptions))
+	result, err := FindCandidates(apiResource, resources, "Network", hclog.New(hclog.DefaultOptions))
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 	}
@@ -191,70 +181,66 @@ func TestIdentifyWithCreateOrUpdateAndReadAndDelete(t *testing.T) {
 
 func TestIdentifyWithCreateOrUpdateAndUpdateAndReadAndDelete(t *testing.T) {
 	// shared CreateOrUpdate method but we should use the specific Update method
-	services := services.Resource{
-		Operations: resourcemanager.ApiOperationDetails{
-			Operations: map[string]models.SDKOperation{
-				"CreateOrUpdate": {
-					Method: "PUT",
-					RequestObject: &models.SDKObjectDefinition{
-						Type:          models.ReferenceSDKObjectDefinitionType,
-						ReferenceName: pointer.To("SomeModel"),
-					},
-					ResourceIDName: pointer.To("VirtualNetwork"),
+	apiResource := models.APIResource{
+		Operations: map[string]models.SDKOperation{
+			"CreateOrUpdate": {
+				Method: "PUT",
+				RequestObject: &models.SDKObjectDefinition{
+					Type:          models.ReferenceSDKObjectDefinitionType,
+					ReferenceName: pointer.To("SomeModel"),
 				},
-				"Update": {
-					Method: "PATCH",
-					RequestObject: &models.SDKObjectDefinition{
-						Type:          models.ReferenceSDKObjectDefinitionType,
-						ReferenceName: pointer.To("SomeModelPatch"),
-					},
-					ResourceIDName: pointer.To("VirtualNetwork"),
+				ResourceIDName: pointer.To("VirtualNetwork"),
+			},
+			"Update": {
+				Method: "PATCH",
+				RequestObject: &models.SDKObjectDefinition{
+					Type:          models.ReferenceSDKObjectDefinitionType,
+					ReferenceName: pointer.To("SomeModelPatch"),
 				},
-				"Get": {
-					Method: "GET",
-					ResponseObject: &models.SDKObjectDefinition{
-						Type:          models.ReferenceSDKObjectDefinitionType,
-						ReferenceName: pointer.To("SomeModel"),
-					},
-					ResourceIDName: pointer.To("VirtualNetwork"),
+				ResourceIDName: pointer.To("VirtualNetwork"),
+			},
+			"Get": {
+				Method: "GET",
+				ResponseObject: &models.SDKObjectDefinition{
+					Type:          models.ReferenceSDKObjectDefinitionType,
+					ReferenceName: pointer.To("SomeModel"),
 				},
-				"Delete": {
-					Method:         "DELETE",
-					ResourceIDName: pointer.To("VirtualNetwork"),
-				},
+				ResourceIDName: pointer.To("VirtualNetwork"),
+			},
+			"Delete": {
+				Method:         "DELETE",
+				ResourceIDName: pointer.To("VirtualNetwork"),
 			},
 		},
-		Schema: resourcemanager.ApiSchemaDetails{
-			Models: map[string]models.SDKModel{
-				"SomeModel": {
-					Fields: map[string]models.SDKField{
-						"Properties": {
-							ObjectDefinition: models.SDKObjectDefinition{
-								Type:          models.ReferenceSDKObjectDefinitionType,
-								ReferenceName: pointer.To("SomeModelProperties"),
-							},
+		Models: map[string]models.SDKModel{
+			"SomeModel": {
+				Fields: map[string]models.SDKField{
+					"Properties": {
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
+							ReferenceName: pointer.To("SomeModelProperties"),
 						},
 					},
 				},
-				"SomeModelPatch": {
-					Fields: map[string]models.SDKField{
-						"Properties": {
-							ObjectDefinition: models.SDKObjectDefinition{
-								Type:          models.ReferenceSDKObjectDefinitionType,
-								ReferenceName: pointer.To("SomeModelProperties"),
-							},
-						},
-					},
-				},
-				"SomeModelProperties": {},
 			},
-			ResourceIds: map[string]models.ResourceID{
-				"VirtualNetwork": {
-					ExampleValue: "/virtualNetworks/{virtualNetworkName}",
-					Segments: []models.ResourceIDSegment{
-						models.NewStaticValueResourceIDSegment("staticVirtualNetworks", "virtualNetworks"),
-						models.NewUserSpecifiedResourceIDSegment("virtualNetworkName", "virtualNetworkName"),
+			"SomeModelPatch": {
+				Fields: map[string]models.SDKField{
+					"Properties": {
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
+							ReferenceName: pointer.To("SomeModelProperties"),
+						},
 					},
+				},
+			},
+			"SomeModelProperties": {},
+		},
+		ResourceIDs: map[string]models.ResourceID{
+			"VirtualNetwork": {
+				ExampleValue: "/virtualNetworks/{virtualNetworkName}",
+				Segments: []models.ResourceIDSegment{
+					models.NewStaticValueResourceIDSegment("staticVirtualNetworks", "virtualNetworks"),
+					models.NewUserSpecifiedResourceIDSegment("virtualNetworkName", "virtualNetworkName"),
 				},
 			},
 		},
@@ -265,7 +251,7 @@ func TestIdentifyWithCreateOrUpdateAndUpdateAndReadAndDelete(t *testing.T) {
 			Name: "virtual_network",
 		},
 	}
-	result, err := FindCandidates(services, resources, "Network", hclog.New(hclog.DefaultOptions))
+	result, err := FindCandidates(apiResource, resources, "Network", hclog.New(hclog.DefaultOptions))
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 	}
@@ -302,51 +288,47 @@ func TestIdentifyWithCreateOrUpdateAndUpdateAndReadAndDelete(t *testing.T) {
 func TestIdentifyWithCreateOrUpdateAndUpdateAndReadAndDelete_NoProperties(t *testing.T) {
 	// whilst there's both a shared CreateOrUpdate method and a specific Update method, since
 	// the Update model doesn't contain a `properties` model we should use CreateOrUpdate here
-	services := services.Resource{
-		Operations: resourcemanager.ApiOperationDetails{
-			Operations: map[string]models.SDKOperation{
-				"CreateOrUpdate": {
-					Method: "PUT",
-					RequestObject: &models.SDKObjectDefinition{
-						Type:          models.ReferenceSDKObjectDefinitionType,
-						ReferenceName: pointer.To("SomeModel"),
-					},
-					ResourceIDName: pointer.To("VirtualNetwork"),
+	apiResource := models.APIResource{
+		Operations: map[string]models.SDKOperation{
+			"CreateOrUpdate": {
+				Method: "PUT",
+				RequestObject: &models.SDKObjectDefinition{
+					Type:          models.ReferenceSDKObjectDefinitionType,
+					ReferenceName: pointer.To("SomeModel"),
 				},
-				"Update": {
-					Method: "PATCH",
-					RequestObject: &models.SDKObjectDefinition{
-						Type:          models.ReferenceSDKObjectDefinitionType,
-						ReferenceName: pointer.To("SomeModelPatch"),
-					},
-					ResourceIDName: pointer.To("VirtualNetwork"),
+				ResourceIDName: pointer.To("VirtualNetwork"),
+			},
+			"Update": {
+				Method: "PATCH",
+				RequestObject: &models.SDKObjectDefinition{
+					Type:          models.ReferenceSDKObjectDefinitionType,
+					ReferenceName: pointer.To("SomeModelPatch"),
 				},
-				"Get": {
-					Method: "GET",
-					ResponseObject: &models.SDKObjectDefinition{
-						Type:          models.ReferenceSDKObjectDefinitionType,
-						ReferenceName: pointer.To("SomeModel"),
-					},
-					ResourceIDName: pointer.To("VirtualNetwork"),
+				ResourceIDName: pointer.To("VirtualNetwork"),
+			},
+			"Get": {
+				Method: "GET",
+				ResponseObject: &models.SDKObjectDefinition{
+					Type:          models.ReferenceSDKObjectDefinitionType,
+					ReferenceName: pointer.To("SomeModel"),
 				},
-				"Delete": {
-					Method:         "DELETE",
-					ResourceIDName: pointer.To("VirtualNetwork"),
-				},
+				ResourceIDName: pointer.To("VirtualNetwork"),
+			},
+			"Delete": {
+				Method:         "DELETE",
+				ResourceIDName: pointer.To("VirtualNetwork"),
 			},
 		},
-		Schema: resourcemanager.ApiSchemaDetails{
-			Models: map[string]models.SDKModel{
-				"SomeModel":      {},
-				"SomeModelPatch": {},
-			},
-			ResourceIds: map[string]models.ResourceID{
-				"VirtualNetwork": {
-					ExampleValue: "/virtualNetworks/{virtualNetworkName}",
-					Segments: []models.ResourceIDSegment{
-						models.NewStaticValueResourceIDSegment("staticVirtualNetworks", "virtualNetworks"),
-						models.NewUserSpecifiedResourceIDSegment("virtualNetworkName", "virtualNetworkName"),
-					},
+		Models: map[string]models.SDKModel{
+			"SomeModel":      {},
+			"SomeModelPatch": {},
+		},
+		ResourceIDs: map[string]models.ResourceID{
+			"VirtualNetwork": {
+				ExampleValue: "/virtualNetworks/{virtualNetworkName}",
+				Segments: []models.ResourceIDSegment{
+					models.NewStaticValueResourceIDSegment("staticVirtualNetworks", "virtualNetworks"),
+					models.NewUserSpecifiedResourceIDSegment("virtualNetworkName", "virtualNetworkName"),
 				},
 			},
 		},
@@ -357,7 +339,7 @@ func TestIdentifyWithCreateOrUpdateAndUpdateAndReadAndDelete_NoProperties(t *tes
 			Name: "virtual_network",
 		},
 	}
-	result, err := FindCandidates(services, resources, "Network", hclog.New(hclog.DefaultOptions))
+	result, err := FindCandidates(apiResource, resources, "Network", hclog.New(hclog.DefaultOptions))
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 	}
@@ -392,51 +374,47 @@ func TestIdentifyWithCreateOrUpdateAndUpdateAndReadAndDelete_NoProperties(t *tes
 }
 
 func TestIdentityWithCreateReadDeleteAndUpdateTags(t *testing.T) {
-	services := services.Resource{
-		Operations: resourcemanager.ApiOperationDetails{
-			Operations: map[string]models.SDKOperation{
-				"CreateOrUpdate": {
-					Method: "PUT",
-					RequestObject: &models.SDKObjectDefinition{
-						Type:          models.ReferenceSDKObjectDefinitionType,
-						ReferenceName: pointer.To("SomeModel"),
-					},
-					ResourceIDName: pointer.To("VirtualNetwork"),
+	apiResource := models.APIResource{
+		Operations: map[string]models.SDKOperation{
+			"CreateOrUpdate": {
+				Method: "PUT",
+				RequestObject: &models.SDKObjectDefinition{
+					Type:          models.ReferenceSDKObjectDefinitionType,
+					ReferenceName: pointer.To("SomeModel"),
 				},
-				"UpdateTags": {
-					Method: "PATCH",
-					RequestObject: &models.SDKObjectDefinition{
-						Type:          models.ReferenceSDKObjectDefinitionType,
-						ReferenceName: pointer.To("Tags"),
-					},
-					ResourceIDName: pointer.To("VirtualNetwork"),
+				ResourceIDName: pointer.To("VirtualNetwork"),
+			},
+			"UpdateTags": {
+				Method: "PATCH",
+				RequestObject: &models.SDKObjectDefinition{
+					Type:          models.ReferenceSDKObjectDefinitionType,
+					ReferenceName: pointer.To("Tags"),
 				},
-				"Get": {
-					Method: "GET",
-					ResponseObject: &models.SDKObjectDefinition{
-						Type:          models.ReferenceSDKObjectDefinitionType,
-						ReferenceName: pointer.To("SomeModel"),
-					},
-					ResourceIDName: pointer.To("VirtualNetwork"),
+				ResourceIDName: pointer.To("VirtualNetwork"),
+			},
+			"Get": {
+				Method: "GET",
+				ResponseObject: &models.SDKObjectDefinition{
+					Type:          models.ReferenceSDKObjectDefinitionType,
+					ReferenceName: pointer.To("SomeModel"),
 				},
-				"Delete": {
-					Method:         "DELETE",
-					ResourceIDName: pointer.To("VirtualNetwork"),
-				},
+				ResourceIDName: pointer.To("VirtualNetwork"),
+			},
+			"Delete": {
+				Method:         "DELETE",
+				ResourceIDName: pointer.To("VirtualNetwork"),
 			},
 		},
-		Schema: resourcemanager.ApiSchemaDetails{
-			Models: map[string]models.SDKModel{
-				"SomeModel": {},
-				"Tags":      {},
-			},
-			ResourceIds: map[string]models.ResourceID{
-				"VirtualNetwork": {
-					ExampleValue: "/virtualNetworks/{virtualNetworkName}",
-					Segments: []models.ResourceIDSegment{
-						models.NewStaticValueResourceIDSegment("staticVirtualNetworks", "virtualNetworks"),
-						models.NewUserSpecifiedResourceIDSegment("virtualNetworkName", "virtualNetworkName"),
-					},
+		Models: map[string]models.SDKModel{
+			"SomeModel": {},
+			"Tags":      {},
+		},
+		ResourceIDs: map[string]models.ResourceID{
+			"VirtualNetwork": {
+				ExampleValue: "/virtualNetworks/{virtualNetworkName}",
+				Segments: []models.ResourceIDSegment{
+					models.NewStaticValueResourceIDSegment("staticVirtualNetworks", "virtualNetworks"),
+					models.NewUserSpecifiedResourceIDSegment("virtualNetworkName", "virtualNetworkName"),
 				},
 			},
 		},
@@ -447,7 +425,7 @@ func TestIdentityWithCreateReadDeleteAndUpdateTags(t *testing.T) {
 			Name: "virtual_network",
 		},
 	}
-	result, err := FindCandidates(services, resources, "Network", hclog.New(hclog.DefaultOptions))
+	result, err := FindCandidates(apiResource, resources, "Network", hclog.New(hclog.DefaultOptions))
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 	}

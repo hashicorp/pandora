@@ -13,18 +13,17 @@ import (
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
-	"github.com/hashicorp/pandora/tools/sdk/services"
 )
 
 // FindCandidates returns a list of candidate Data Sources and Resources
 // within the specified Service
-func FindCandidates(input services.Resource, resourceDefinitions map[string]definitions.ResourceDefinition, apiResourceName string, logger hclog.Logger) (*resourcemanager.TerraformDetails, error) {
+func FindCandidates(apiResource models.APIResource, resourceDefinitions map[string]definitions.ResourceDefinition, apiResourceName string, logger hclog.Logger) (*resourcemanager.TerraformDetails, error) {
 	out := resourcemanager.TerraformDetails{
 		DataSources: map[string]resourcemanager.TerraformDataSourceDetails{},
 		Resources:   map[string]resourcemanager.TerraformResourceDetails{},
 	}
 
-	for resourceIdName, resourceId := range input.Schema.ResourceIds {
+	for resourceIdName, resourceId := range apiResource.ResourceIDs {
 		hasList := false
 
 		var createMethod *resourcemanager.MethodDefinition
@@ -39,7 +38,7 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 			continue
 		}
 
-		for operationName, operation := range input.Operations.Operations {
+		for operationName, operation := range apiResource.Operations {
 			// if it's an operation on just a suffix we're not interested
 			if operation.ResourceIDName == nil {
 				continue
@@ -65,7 +64,7 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 				if objectDefinition.Type != models.ReferenceSDKObjectDefinitionType {
 					continue
 				}
-				model, ok := input.Schema.Models[*objectDefinition.ReferenceName]
+				model, ok := apiResource.Models[*objectDefinition.ReferenceName]
 				if !ok {
 					return nil, fmt.Errorf("the request model %q for operation %q was not found", *objectDefinition.ReferenceName, operationName)
 				}
@@ -163,7 +162,7 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 			}
 		}
 		// TODO: make use of Data Sources
-		hasDiscriminatedType, err := containsDiscriminatedTypes(resourceDefinition, input)
+		hasDiscriminatedType, err := containsDiscriminatedTypes(resourceDefinition, apiResource)
 		if err != nil {
 			return nil, fmt.Errorf("determining if the Resource Definition for %q contains Discriminated Types: %+v", resourceIDDisplayValue, err)
 		}
@@ -183,20 +182,20 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 	return &out, nil
 }
 
-func containsDiscriminatedTypes(resource *resourcemanager.TerraformResourceDetails, data services.Resource) (*bool, error) {
+func containsDiscriminatedTypes(terraformResource *resourcemanager.TerraformResourceDetails, apiResource models.APIResource) (*bool, error) {
 	operationNames := make([]string, 0)
-	if resource != nil {
+	if terraformResource != nil {
 		operationNames = append(operationNames, []string{
-			resource.CreateMethod.MethodName,
-			resource.DeleteMethod.MethodName,
-			resource.ReadMethod.MethodName,
+			terraformResource.CreateMethod.MethodName,
+			terraformResource.DeleteMethod.MethodName,
+			terraformResource.ReadMethod.MethodName,
 		}...)
-		if resource.UpdateMethod != nil {
-			operationNames = append(operationNames, resource.UpdateMethod.MethodName)
+		if terraformResource.UpdateMethod != nil {
+			operationNames = append(operationNames, terraformResource.UpdateMethod.MethodName)
 		}
 	}
 	for _, operationName := range operationNames {
-		operation, ok := data.Operations.Operations[operationName]
+		operation, ok := apiResource.Operations[operationName]
 		if !ok {
 			return nil, fmt.Errorf("the operation named %q was not found", operationName)
 		}
@@ -206,11 +205,11 @@ func containsDiscriminatedTypes(resource *resourcemanager.TerraformResourceDetai
 				return nil, fmt.Errorf("request objects must use a reference but got %q", string(operation.RequestObject.Type))
 			}
 			modelName := *operation.RequestObject.ReferenceName
-			model, ok := data.Schema.Models[modelName]
+			model, ok := apiResource.Models[modelName]
 			if !ok {
 				return nil, fmt.Errorf("the Model %q used for the %q operation Request Object was not found", modelName, operationName)
 			}
-			containsDiscriminatedTypes := modelContainsDiscriminatedTypes(model, data)
+			containsDiscriminatedTypes := modelContainsDiscriminatedTypes(model, apiResource)
 			if containsDiscriminatedTypes {
 				return pointer.FromBool(true), nil
 			}
@@ -220,7 +219,7 @@ func containsDiscriminatedTypes(resource *resourcemanager.TerraformResourceDetai
 	return pointer.FromBool(false), nil
 }
 
-func modelContainsDiscriminatedTypes(model models.SDKModel, data services.Resource) bool {
+func modelContainsDiscriminatedTypes(model models.SDKModel, apiResource models.APIResource) bool {
 	if model.ParentTypeName != nil || model.FieldNameContainingDiscriminatedValue != nil || model.DiscriminatedValue != nil {
 		return true
 	}
@@ -230,20 +229,19 @@ func modelContainsDiscriminatedTypes(model models.SDKModel, data services.Resour
 			return true
 		}
 
-		// TODO: fix/re-enable this
-		//topLevelObjectDefinition := topLevelObjectDefinition(field.ObjectDefinition)
-		//if topLevelObjectDefinition.Type != resourcemanager.ReferenceApiObjectDefinitionType {
-		//	continue
-		//}
-		//nestedModel, isNestedModel := data.Schema.Models[*topLevelObjectDefinition.ReferenceName]
-		//if !isNestedModel {
-		//	// assume it's a constant
-		//	continue
-		//}
-		//nestedModelIsDiscriminator := modelContainsDiscriminatedTypes(nestedModel, data)
-		//if nestedModelIsDiscriminator {
-		//	return true
-		//}
+		topLevelObjectDefinition := helpers.InnerMostSDKObjectDefinition(field.ObjectDefinition)
+		if topLevelObjectDefinition.Type != models.ReferenceSDKObjectDefinitionType {
+			continue
+		}
+		nestedModel, isNestedModel := apiResource.Models[*topLevelObjectDefinition.ReferenceName]
+		if !isNestedModel {
+			// assume it's a constant
+			continue
+		}
+		nestedModelIsDiscriminator := modelContainsDiscriminatedTypes(nestedModel, apiResource)
+		if nestedModelIsDiscriminator {
+			return true
+		}
 	}
 
 	return false

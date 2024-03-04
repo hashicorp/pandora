@@ -52,7 +52,7 @@ func generateTerraformDetails(data *importerModels.AzureApiDefinition, resourceB
 			return nil, err
 		}
 
-		b := schema.NewBuilder(resource.Constants, r.Schema.Models, r.Operations.Operations, r.Schema.ResourceIds)
+		b := schema.NewBuilder(*r)
 
 		terraformResources := make(map[string]resourcemanager.TerraformResourceDetails)
 		for resourceLabel, resourceDetails := range resource.Terraform.Resources {

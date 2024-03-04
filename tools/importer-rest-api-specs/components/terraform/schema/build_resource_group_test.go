@@ -14,9 +14,9 @@ import (
 )
 
 func TestBuildForResourceGroupHappyPathAllModelsTheSame(t *testing.T) {
-	builder := Builder{
-		constants: map[string]models.SDKConstant{},
-		models: map[string]models.SDKModel{
+	apiResource := models.APIResource{
+		Constants: map[string]models.SDKConstant{},
+		Models: map[string]models.SDKModel{
 			"ResourceGroup": {
 				Fields: map[string]models.SDKField{
 					"Name": {
@@ -64,7 +64,7 @@ func TestBuildForResourceGroupHappyPathAllModelsTheSame(t *testing.T) {
 				},
 			},
 		},
-		operations: map[string]models.SDKOperation{
+		Operations: map[string]models.SDKOperation{
 			"Create": {
 				LongRunning: false,
 				Method:      "PUT",
@@ -98,7 +98,7 @@ func TestBuildForResourceGroupHappyPathAllModelsTheSame(t *testing.T) {
 				ResourceIDName: pointer.To("ResourceGroupId"),
 			},
 		},
-		resourceIds: map[string]models.ResourceID{
+		ResourceIDs: map[string]models.ResourceID{
 			"ResourceGroupId": {
 				CommonIDAlias: pointer.To("ResourceGroup"),
 				ConstantNames: nil,
@@ -112,6 +112,8 @@ func TestBuildForResourceGroupHappyPathAllModelsTheSame(t *testing.T) {
 			},
 		},
 	}
+
+	builder := NewBuilder(apiResource)
 
 	input := resourcemanager.TerraformResourceDetails{
 		ApiVersion: "2020-01-01",
@@ -151,9 +153,9 @@ func TestBuildForResourceGroupHappyPathAllModelsTheSame(t *testing.T) {
 func TestBuildForResourceGroupUsingRealData(t *testing.T) {
 	t.Skipf("TODO: update schema gen & re-enable this test")
 
-	builder := Builder{
-		constants: map[string]models.SDKConstant{},
-		models: map[string]models.SDKModel{
+	apiResource := models.APIResource{
+		Constants: map[string]models.SDKConstant{},
+		Models: map[string]models.SDKModel{
 			"ResourceGroup": {
 				Fields: map[string]models.SDKField{
 					"Id": {
@@ -253,7 +255,7 @@ func TestBuildForResourceGroupUsingRealData(t *testing.T) {
 				},
 			},
 		},
-		operations: map[string]models.SDKOperation{
+		Operations: map[string]models.SDKOperation{
 			"Create": {
 				LongRunning: false,
 				Method:      "PUT",
@@ -287,7 +289,7 @@ func TestBuildForResourceGroupUsingRealData(t *testing.T) {
 				ResourceIDName: pointer.To("ResourceGroupId"),
 			},
 		},
-		resourceIds: map[string]models.ResourceID{
+		ResourceIDs: map[string]models.ResourceID{
 			"ResourceGroupId": {
 				CommonIDAlias: pointer.To("ResourceGroup"),
 				ConstantNames: nil,
@@ -301,6 +303,7 @@ func TestBuildForResourceGroupUsingRealData(t *testing.T) {
 			},
 		},
 	}
+	builder := NewBuilder(apiResource)
 
 	input := resourcemanager.TerraformResourceDetails{
 		ApiVersion: "2020-01-01",

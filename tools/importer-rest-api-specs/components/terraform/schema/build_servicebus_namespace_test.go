@@ -16,8 +16,9 @@ import (
 func TestBuildForServiceBusNamespaceHappyPath(t *testing.T) {
 	t.Skipf("TODO: update schema gen & re-enable this test")
 	r := resourceUnderTest{Name: "service_bus_namespace"}
-	builder := Builder{
-		constants: map[string]models.SDKConstant{
+
+	apiResource := models.APIResource{
+		Constants: map[string]models.SDKConstant{
 			"SkuName": {
 				Type: models.StringSDKConstantType,
 				Values: map[string]string{
@@ -27,7 +28,7 @@ func TestBuildForServiceBusNamespaceHappyPath(t *testing.T) {
 				},
 			},
 		},
-		models: map[string]models.SDKModel{
+		Models: map[string]models.SDKModel{
 			"Namespace": {
 				Fields: map[string]models.SDKField{
 					"Identity": {
@@ -137,7 +138,7 @@ func TestBuildForServiceBusNamespaceHappyPath(t *testing.T) {
 				},
 			},
 		},
-		operations: map[string]models.SDKOperation{
+		Operations: map[string]models.SDKOperation{
 			"Create": {
 				LongRunning: false,
 				Method:      "PUT",
@@ -171,7 +172,7 @@ func TestBuildForServiceBusNamespaceHappyPath(t *testing.T) {
 				ResourceIDName: pointer.To("NamespaceId"),
 			},
 		},
-		resourceIds: map[string]models.ResourceID{
+		ResourceIDs: map[string]models.ResourceID{
 			"NamespaceId": {
 				CommonIDAlias: nil,
 				ConstantNames: nil,
@@ -189,6 +190,7 @@ func TestBuildForServiceBusNamespaceHappyPath(t *testing.T) {
 			},
 		},
 	}
+	builder := NewBuilder(apiResource)
 
 	input := resourcemanager.TerraformResourceDetails{
 		ApiVersion: "2020-01-01",
@@ -267,8 +269,8 @@ func TestBuildForServiceBusNamespaceHappyPath(t *testing.T) {
 func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 	t.Skipf("TODO: update schema gen & re-enable this test")
 	r := resourceUnderTest{Name: "service_bus_namespace"}
-	builder := Builder{
-		constants: map[string]models.SDKConstant{
+	apiResource := models.APIResource{
+		Constants: map[string]models.SDKConstant{
 			"EndPointProvisioningState": {
 				Type: models.StringSDKConstantType,
 				Values: map[string]string{
@@ -328,7 +330,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 				},
 			},
 		},
-		models: map[string]models.SDKModel{
+		Models: map[string]models.SDKModel{
 			"ConnectionState": {
 				Fields: map[string]models.SDKField{
 					"Description": {
@@ -815,7 +817,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 				},
 			},
 		},
-		operations: map[string]models.SDKOperation{
+		Operations: map[string]models.SDKOperation{
 			"Create": {
 				LongRunning: false,
 				Method:      "PUT",
@@ -849,7 +851,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 				ResourceIDName: pointer.To("NamespaceId"),
 			},
 		},
-		resourceIds: map[string]models.ResourceID{
+		ResourceIDs: map[string]models.ResourceID{
 			"NamespaceId": {
 				CommonIDAlias: nil,
 				ConstantNames: nil,
@@ -867,6 +869,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 			},
 		},
 	}
+	builder := NewBuilder(apiResource)
 
 	input := resourcemanager.TerraformResourceDetails{
 		ApiVersion: "2020-01-01",

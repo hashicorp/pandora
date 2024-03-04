@@ -20,7 +20,7 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(schemaModelName string, inp
 	propertiesPayloads := input.createReadUpdatePayloadsProperties()
 	for _, model := range propertiesPayloads {
 		for k, v := range model.Fields {
-			if fieldShouldBeIgnored(k, v, b.constants) {
+			if fieldShouldBeIgnored(k, v, b.apiResource.Constants) {
 				continue
 			}
 
@@ -77,7 +77,7 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(schemaModelName string, inp
 		var validation *resourcemanager.TerraformSchemaValidationDefinition
 		var err error
 		if hasCreate {
-			validation, err = getFieldValidation(*createField, b.constants)
+			validation, err = getFieldValidation(*createField, b.apiResource.Constants)
 			if err != nil {
 				return nil, nil, fmt.Errorf("retrieving validation for field %q: %+v", k, err)
 			}
@@ -85,11 +85,11 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(schemaModelName string, inp
 
 		fieldNameForTypedModel := ""
 		if hasRead {
-			fieldNameForTypedModel, err = updateFieldName(k, &input.readPropertiesPayload, resource, b.constants, resourceBuildInfo)
+			fieldNameForTypedModel, err = updateFieldName(k, &input.readPropertiesPayload, resource, b.apiResource.Constants, resourceBuildInfo)
 		} else if hasCreate {
-			fieldNameForTypedModel, err = updateFieldName(k, &input.createPropertiesPayload, resource, b.constants, resourceBuildInfo)
+			fieldNameForTypedModel, err = updateFieldName(k, &input.createPropertiesPayload, resource, b.apiResource.Constants, resourceBuildInfo)
 		} else if hasUpdate {
-			fieldNameForTypedModel, err = updateFieldName(k, input.updatePropertiesPayload, resource, b.constants, resourceBuildInfo)
+			fieldNameForTypedModel, err = updateFieldName(k, input.updatePropertiesPayload, resource, b.apiResource.Constants, resourceBuildInfo)
 		}
 
 		if err != nil {

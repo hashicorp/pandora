@@ -18,8 +18,8 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 	r := resourceUnderTest{
 		Name: "search_service",
 	}
-	builder := Builder{
-		constants: map[string]models.SDKConstant{
+	apiResource := models.APIResource{
+		Constants: map[string]models.SDKConstant{
 			"AdminKeyKind": {
 				Type: models.StringSDKConstantType,
 				Values: map[string]string{
@@ -91,7 +91,7 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 				},
 			},
 		},
-		models: map[string]models.SDKModel{
+		Models: map[string]models.SDKModel{
 			"SearchService": {
 				Fields: map[string]models.SDKField{
 					"Name": {
@@ -419,7 +419,7 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 				},
 			},
 		},
-		operations: map[string]models.SDKOperation{
+		Operations: map[string]models.SDKOperation{
 			"Create": {
 				LongRunning: false,
 				Method:      "PUT",
@@ -453,7 +453,7 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 				ResourceIDName: pointer.To("SearchServiceId"),
 			},
 		},
-		resourceIds: map[string]models.ResourceID{
+		ResourceIDs: map[string]models.ResourceID{
 			"SearchServiceId": {
 				CommonIDAlias: pointer.To("ResourceGroup"),
 				ConstantNames: nil,
@@ -471,6 +471,7 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 			},
 		},
 	}
+	builder := NewBuilder(apiResource)
 
 	input := resourcemanager.TerraformResourceDetails{
 		ApiVersion: "2020-08-01",

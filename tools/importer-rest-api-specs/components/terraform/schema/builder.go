@@ -25,18 +25,13 @@ Things to do here:
 */
 
 type Builder struct {
-	constants   map[string]models.SDKConstant
-	models      map[string]models.SDKModel
-	operations  map[string]models.SDKOperation
-	resourceIds map[string]models.ResourceID
+	// apiResource is the APIResource where information about the Terraform Resources can be identified from.
+	apiResource models.APIResource
 }
 
-func NewBuilder(constants map[string]models.SDKConstant, models map[string]models.SDKModel, operations map[string]models.SDKOperation, resourceIds map[string]models.ResourceID) Builder {
+func NewBuilder(apiResource models.APIResource) Builder {
 	return Builder{
-		constants:   constants,
-		models:      models,
-		operations:  operations,
-		resourceIds: resourceIds,
+		apiResource: apiResource,
 	}
 }
 
@@ -182,7 +177,7 @@ func (b Builder) removeUnusedModelToModelMappings(input resourcemanager.MappingD
 			continue
 		}
 
-		sdkModel, ok := b.models[mapping.ModelToModel.SdkModelName]
+		sdkModel, ok := b.apiResource.Models[mapping.ModelToModel.SdkModelName]
 		if !ok {
 			return nil, fmt.Errorf("the SDK Model %q was not found", mapping.ModelToModel.SdkModelName)
 		}
@@ -271,7 +266,7 @@ func (b Builder) schemaFromTopLevelModel(input resourcemanager.TerraformResource
 
 	schemaFields := *fields
 
-	resourceId, ok := b.resourceIds[input.ResourceIdName]
+	resourceId, ok := b.apiResource.ResourceIDs[input.ResourceIdName]
 	if !ok {
 		return nil, fmt.Errorf("couldn't find Resource ID named %q", input.ResourceIdName)
 	}
@@ -322,13 +317,13 @@ func (b Builder) schemaFromTopLevelModel(input resourcemanager.TerraformResource
 }
 
 func (b Builder) identifyModelsWithinPropertiesBlock(payloads operationPayloads, mappings *resourcemanager.MappingDefinition, logger hclog.Logger) (*map[string]models.SDKModel, *resourcemanager.MappingDefinition, error) {
-	allFields := make(map[string]models.SDKField, 0)
+	allFields := make(map[string]models.SDKField)
 	for fieldName, field := range payloads.readPayload.Fields {
 		if _, ok := allFields[fieldName]; ok {
 			continue
 		}
 
-		if fieldShouldBeIgnored(fieldName, field, b.constants) {
+		if fieldShouldBeIgnored(fieldName, field, b.apiResource.Constants) {
 			continue
 		}
 
@@ -370,7 +365,7 @@ func (b Builder) findCreateUpdateReadPayloads(input resourcemanager.TerraformRes
 	out := operationPayloads{}
 
 	// Create has to exist
-	createOperation, ok := b.operations[input.CreateMethod.MethodName]
+	createOperation, ok := b.apiResource.Operations[input.CreateMethod.MethodName]
 	if !ok {
 		return nil, nil
 	}
@@ -378,20 +373,20 @@ func (b Builder) findCreateUpdateReadPayloads(input resourcemanager.TerraformRes
 		// we don't generate resources for operations returning lists etc, debatable if we should
 		return nil, nil
 	}
-	createModel, ok := b.models[*createOperation.RequestObject.ReferenceName]
+	createModel, ok := b.apiResource.Models[*createOperation.RequestObject.ReferenceName]
 	if !ok {
 		return nil, nil
 	}
 	out.createModelName = *createOperation.RequestObject.ReferenceName
 	out.createPayload = createModel
-	createPropsModelName, createPropsModel := out.getPropertiesModelWithinModel(out.createPayload, b.models)
+	createPropsModelName, createPropsModel := out.getPropertiesModelWithinModel(out.createPayload, b.apiResource.Models)
 	if createPropsModelName != nil || createPropsModel != nil {
 		out.createPropertiesPayload = *createPropsModel
 		out.createPropertiesModelName = *createPropsModelName
 	}
 
 	// Read has to exist
-	readOperation, ok := b.operations[input.ReadMethod.MethodName]
+	readOperation, ok := b.apiResource.Operations[input.ReadMethod.MethodName]
 	if !ok {
 		return nil, nil
 	}
@@ -399,14 +394,14 @@ func (b Builder) findCreateUpdateReadPayloads(input resourcemanager.TerraformRes
 		// we don't generate resources for operations returning lists etc, debatable if we should
 		return nil, nil
 	}
-	readModel, ok := b.models[*readOperation.ResponseObject.ReferenceName]
+	readModel, ok := b.apiResource.Models[*readOperation.ResponseObject.ReferenceName]
 	if !ok {
 		return nil, nil
 	}
 	out.readModelName = *readOperation.ResponseObject.ReferenceName
 	out.readPayload = readModel
 	// then find the `Properties` model within this
-	readPropsModelName, readPropsModel := out.getPropertiesModelWithinModel(out.readPayload, b.models)
+	readPropsModelName, readPropsModel := out.getPropertiesModelWithinModel(out.readPayload, b.apiResource.Models)
 	if readPropsModelName != nil || readPropsModel != nil {
 		out.readPropertiesModelName = *readPropsModelName
 		out.readPropertiesPayload = *readPropsModel
@@ -414,7 +409,7 @@ func (b Builder) findCreateUpdateReadPayloads(input resourcemanager.TerraformRes
 
 	// Update doesn't have to exist
 	if updateMethod := input.UpdateMethod; updateMethod != nil {
-		updateOperation, ok := b.operations[updateMethod.MethodName]
+		updateOperation, ok := b.apiResource.Operations[updateMethod.MethodName]
 		if !ok {
 			return nil, nil
 		}
@@ -422,7 +417,7 @@ func (b Builder) findCreateUpdateReadPayloads(input resourcemanager.TerraformRes
 			// we don't generate resources for operations returning lists etc, debatable if we should
 			return nil, nil
 		}
-		updateModel, ok := b.models[*updateOperation.RequestObject.ReferenceName]
+		updateModel, ok := b.apiResource.Models[*updateOperation.RequestObject.ReferenceName]
 		if !ok {
 			return nil, nil
 		}
@@ -430,7 +425,7 @@ func (b Builder) findCreateUpdateReadPayloads(input resourcemanager.TerraformRes
 		out.updatePayload = &updateModel
 
 		// then find the `Properties` model within this
-		updatePropsModelName, updatePropsModel := out.getPropertiesModelWithinModel(*out.updatePayload, b.models)
+		updatePropsModelName, updatePropsModel := out.getPropertiesModelWithinModel(*out.updatePayload, b.apiResource.Models)
 		if updatePropsModelName != nil || updatePropsModel != nil {
 			out.updatePropertiesModelName = updatePropsModelName
 			out.updatePropertiesPayload = updatePropsModel
@@ -469,12 +464,12 @@ func (b Builder) buildNestedModelDefinition(schemaModelName, topLevelModelName, 
 			return nil, nil, fmt.Errorf("converting ObjectDefinition for field to a TerraformFieldObjectDefinition: %+v", err)
 		}
 		definition.ObjectDefinition = *fieldObjectDefinition
-		schemaFieldName, err := updateFieldName(sdkFieldName, &model, &details, b.constants, resourceBuildInfo)
+		schemaFieldName, err := updateFieldName(sdkFieldName, &model, &details, b.apiResource.Constants, resourceBuildInfo)
 		if err != nil {
 			return nil, nil, err
 		}
 
-		validation, err := getFieldValidation(sdkField, b.constants)
+		validation, err := getFieldValidation(sdkField, b.apiResource.Constants)
 		if err != nil {
 			return nil, nil, err
 		}
@@ -500,8 +495,8 @@ func (b Builder) identifyModelsWithinField(field models.SDKField, knownModels ma
 			allModels[k] = v
 		}
 
-		_, isConstant := b.constants[*objectDefinition.ReferenceName]
-		model, isModel := b.models[*objectDefinition.ReferenceName]
+		_, isConstant := b.apiResource.Constants[*objectDefinition.ReferenceName]
+		model, isModel := b.apiResource.Models[*objectDefinition.ReferenceName]
 		if !isConstant && !isModel {
 			return nil, fmt.Errorf("reference %q was neither a constant or a model", *objectDefinition.ReferenceName)
 		}

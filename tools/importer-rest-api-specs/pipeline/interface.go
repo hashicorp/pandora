@@ -14,7 +14,6 @@ import (
 
 type RunInput struct {
 	ConfigFilePath           string
-	JustOutputSegments       bool
 	JustParseData            bool
 	Logger                   hclog.Logger
 	OutputDirectory          string
@@ -55,10 +54,6 @@ func Run(input RunInput) error {
 	swaggerGitSha, err := determineGitSha(input.SwaggerDirectory, input.Logger)
 	if err != nil {
 		return fmt.Errorf("determining Git SHA at %q: %+v", input.SwaggerDirectory, err)
-	}
-
-	if input.JustOutputSegments {
-		return parseAndOutputSegments(input, *generationData)
 	}
 
 	if input.JustParseData {

@@ -7,7 +7,9 @@ import (
 	"log"
 	"os"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cmd"
+	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/cmd"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 	"github.com/mitchellh/cli"
 )
 
@@ -22,12 +24,22 @@ func main() {
 	// works around the OAIGen bug
 	os.Setenv("OAIGEN_DEDUPE", "false")
 
+	if err := run(); err != nil {
+		log.Fatalf(err.Error())
+	}
+}
+
+func run() error {
+	loggingOpts := hclog.DefaultOptions
+	if v := os.Getenv("LOG_LEVEL"); v != "" {
+		loggingOpts.Level = hclog.LevelFromString(v)
+	}
+	logging.Log = hclog.New(loggingOpts)
+
 	c := cli.NewCLI("importer-rest-api-specs", "1.0.0")
 	c.Args = os.Args[1:]
 	c.Commands = map[string]cli.CommandFactory{
 		"import":   cmd.NewImportCommand(swaggerDirectory, resourceManagerConfig, terraformDefinitionsPath, outputDirectoryJson),
-		"schema":   cmd.NewSchemaCommand(),
-		"segments": cmd.NewSegmentsCommand(swaggerDirectory, resourceManagerConfig, terraformDefinitionsPath),
 		"validate": cmd.NewValidateCommand(swaggerDirectory, resourceManagerConfig, terraformDefinitionsPath),
 	}
 
@@ -37,4 +49,5 @@ func main() {
 	}
 
 	os.Exit(exitStatus)
+	return nil
 }
