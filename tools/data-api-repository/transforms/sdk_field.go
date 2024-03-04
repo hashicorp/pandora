@@ -6,18 +6,18 @@ package transforms
 import (
 	"fmt"
 
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	repositoryModels "github.com/hashicorp/pandora/tools/sdk/dataapimodels"
 )
 
-func mapSDKFieldToRepository(fieldName string, fieldDetails models.SDKField, isTypeHint bool, constants map[string]models.SDKConstant, knownModels map[string]models.SDKModel) (*dataapimodels.ModelField, error) {
+func mapSDKFieldToRepository(fieldName string, fieldDetails sdkModels.SDKField, isTypeHint bool, constants map[string]sdkModels.SDKConstant, knownModels map[string]sdkModels.SDKModel) (*repositoryModels.ModelField, error) {
 	// TODO: thread through logging
 	objectDefinition, err := mapSDKObjectDefinitionToRepository(fieldDetails.ObjectDefinition, constants, knownModels)
 	if err != nil {
 		return nil, fmt.Errorf("mapping the ObjectDefinition for field %q: %+v", fieldName, err)
 	}
 
-	return &dataapimodels.ModelField{
+	return &repositoryModels.ModelField{
 		ContainsDiscriminatedTypeValue: isTypeHint,
 		DateFormat:                     nil,
 		Description:                    nil,

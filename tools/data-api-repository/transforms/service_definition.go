@@ -7,12 +7,12 @@ import (
 	"sort"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	repositoryModels "github.com/hashicorp/pandora/tools/sdk/dataapimodels"
 )
 
-func MapServiceDefinitionToRepository(serviceName string, resourceProvider *string, terraformDefinition *models.TerraformDefinition) (*dataapimodels.ServiceDefinition, error) {
-	output := dataapimodels.ServiceDefinition{
+func MapServiceDefinitionToRepository(serviceName string, resourceProvider *string, terraformDefinition *sdkModels.TerraformDefinition) (*repositoryModels.ServiceDefinition, error) {
+	output := repositoryModels.ServiceDefinition{
 		Name:             serviceName,
 		ResourceProvider: resourceProvider,
 		Generate:         true,
@@ -28,7 +28,7 @@ func MapServiceDefinitionToRepository(serviceName string, resourceProvider *stri
 
 		//TODO: remove this field once the repository package is consolidated
 		output.TerraformPackageName = pointer.To(terraformDefinition.TerraformPackageName)
-		output.Terraform = &dataapimodels.TerraformServiceDefinition{
+		output.Terraform = &repositoryModels.TerraformServiceDefinition{
 			ServicePackageName: terraformDefinition.TerraformPackageName,
 			Resources:          terraformResourceNames,
 		}

@@ -7,17 +7,17 @@ import (
 	"fmt"
 	"sort"
 
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	repositoryModels "github.com/hashicorp/pandora/tools/sdk/dataapimodels"
 )
 
-func MapAPIVersionToRepository(apiVersion string, isPreview bool, resources map[string]models.APIResource, sourceDataOrigin models.SourceDataOrigin, shouldGenerate bool) (*dataapimodels.ApiVersionDefinition, error) {
+func MapAPIVersionToRepository(apiVersion string, isPreview bool, resources map[string]sdkModels.APIResource, sourceDataOrigin sdkModels.SourceDataOrigin, shouldGenerate bool) (*repositoryModels.ApiVersionDefinition, error) {
 	dataOrigin, ok := sourceDataOriginsToRepository[sourceDataOrigin]
 	if !ok {
 		return nil, fmt.Errorf("internal-error: missing mapping for Source Data Origin %q", string(sourceDataOrigin))
 	}
 
-	versionDefinition := dataapimodels.ApiVersionDefinition{
+	versionDefinition := repositoryModels.ApiVersionDefinition{
 		ApiVersion: apiVersion,
 		IsPreview:  isPreview,
 		Generate:   shouldGenerate,
@@ -39,8 +39,8 @@ func MapAPIVersionToRepository(apiVersion string, isPreview bool, resources map[
 	return &versionDefinition, nil
 }
 
-var sourceDataOriginsToRepository = map[models.SourceDataOrigin]dataapimodels.ApiDefinitionsSource{
-	models.AzureRestAPISpecsSourceDataOrigin:      dataapimodels.AzureRestApiSpecsRepositoryApiDefinitionsSource,
-	models.MicrosoftGraphMetaDataSourceDataOrigin: dataapimodels.MicrosoftGraphMetaDataRepositoryApiDefinitionsSource,
-	models.HandWrittenSourceDataOrigin:            dataapimodels.HandWrittenApiDefinitionsSource,
+var sourceDataOriginsToRepository = map[sdkModels.SourceDataOrigin]repositoryModels.ApiDefinitionsSource{
+	sdkModels.AzureRestAPISpecsSourceDataOrigin:      repositoryModels.AzureRestApiSpecsRepositoryApiDefinitionsSource,
+	sdkModels.MicrosoftGraphMetaDataSourceDataOrigin: repositoryModels.MicrosoftGraphMetaDataRepositoryApiDefinitionsSource,
+	sdkModels.HandWrittenSourceDataOrigin:            repositoryModels.HandWrittenApiDefinitionsSource,
 }

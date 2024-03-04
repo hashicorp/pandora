@@ -8,16 +8,16 @@ import (
 	"sort"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	repositoryModels "github.com/hashicorp/pandora/tools/sdk/dataapimodels"
 )
 
-func MapSDKConstantToRepository(constantName string, details models.SDKConstant) (*dataapimodels.Constant, error) {
+func MapSDKConstantToRepository(constantName string, details sdkModels.SDKConstant) (*repositoryModels.Constant, error) {
 	keys := make([]string, 0)
-	keysToValues := make(map[string]dataapimodels.ConstantValue)
+	keysToValues := make(map[string]repositoryModels.ConstantValue)
 	for k, v := range details.Values {
 		keys = append(keys, k)
-		keysToValues[k] = dataapimodels.ConstantValue{
+		keysToValues[k] = repositoryModels.ConstantValue{
 			Key:   k,
 			Value: v,
 			// TODO: expose Description in the future when this is surfaced from the Parser
@@ -25,7 +25,7 @@ func MapSDKConstantToRepository(constantName string, details models.SDKConstant)
 	}
 	sort.Strings(keys)
 
-	values := make([]dataapimodels.ConstantValue, 0)
+	values := make([]repositoryModels.ConstantValue, 0)
 	for _, key := range keys {
 		value := keysToValues[key]
 		values = append(values, value)
@@ -36,18 +36,18 @@ func MapSDKConstantToRepository(constantName string, details models.SDKConstant)
 		return nil, fmt.Errorf("mapping constant field type %q: %+v", string(details.Type), err)
 	}
 
-	return &dataapimodels.Constant{
+	return &repositoryModels.Constant{
 		Name:   constantName,
 		Type:   pointer.From(constantType),
 		Values: values,
 	}, nil
 }
 
-func mapConstantTypeToRepository(input models.SDKConstantType) (*dataapimodels.ConstantType, error) {
-	mappings := map[models.SDKConstantType]dataapimodels.ConstantType{
-		models.FloatSDKConstantType:   dataapimodels.FloatConstant,
-		models.IntegerSDKConstantType: dataapimodels.IntegerConstant,
-		models.StringSDKConstantType:  dataapimodels.StringConstant,
+func mapConstantTypeToRepository(input sdkModels.SDKConstantType) (*repositoryModels.ConstantType, error) {
+	mappings := map[sdkModels.SDKConstantType]repositoryModels.ConstantType{
+		sdkModels.FloatSDKConstantType:   repositoryModels.FloatConstant,
+		sdkModels.IntegerSDKConstantType: repositoryModels.IntegerConstant,
+		sdkModels.StringSDKConstantType:  repositoryModels.StringConstant,
 	}
 	if v, ok := mappings[input]; ok {
 		return &v, nil

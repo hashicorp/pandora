@@ -6,69 +6,69 @@ package transforms
 import (
 	"fmt"
 
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	repositoryModels "github.com/hashicorp/pandora/tools/sdk/dataapimodels"
 )
 
-func mapResourceIdSegmentToRepository(input models.ResourceIDSegment) (*dataapimodels.ResourceIdSegment, error) {
-	if input.Type == models.ConstantResourceIDSegmentType {
+func mapResourceIdSegmentToRepository(input sdkModels.ResourceIDSegment) (*repositoryModels.ResourceIdSegment, error) {
+	if input.Type == sdkModels.ConstantResourceIDSegmentType {
 		if input.ConstantReference == nil {
 			return nil, fmt.Errorf("constant segment type with missing constant reference: %+v", input)
 		}
-		return &dataapimodels.ResourceIdSegment{
+		return &repositoryModels.ResourceIdSegment{
 			Name:         input.Name,
-			Type:         dataapimodels.ConstantResourceIdSegmentType,
+			Type:         repositoryModels.ConstantResourceIdSegmentType,
 			ConstantName: input.ConstantReference,
 		}, nil
 	}
 
-	if input.Type == models.ResourceGroupResourceIDSegmentType {
-		return &dataapimodels.ResourceIdSegment{
+	if input.Type == sdkModels.ResourceGroupResourceIDSegmentType {
+		return &repositoryModels.ResourceIdSegment{
 			Name: input.Name,
-			Type: dataapimodels.ResourceGroupResourceIdSegmentType,
+			Type: repositoryModels.ResourceGroupResourceIdSegmentType,
 		}, nil
 	}
 
-	if input.Type == models.ResourceProviderResourceIDSegmentType {
+	if input.Type == sdkModels.ResourceProviderResourceIDSegmentType {
 		if input.FixedValue == nil {
 			return nil, fmt.Errorf("resource provider segment type with missing fixed value: %+v", input)
 		}
 
-		return &dataapimodels.ResourceIdSegment{
+		return &repositoryModels.ResourceIdSegment{
 			Name:  input.Name,
-			Type:  dataapimodels.ResourceProviderResourceIdSegmentType,
+			Type:  repositoryModels.ResourceProviderResourceIdSegmentType,
 			Value: input.FixedValue,
 		}, nil
 	}
 
-	if input.Type == models.ScopeResourceIDSegmentType {
-		return &dataapimodels.ResourceIdSegment{
+	if input.Type == sdkModels.ScopeResourceIDSegmentType {
+		return &repositoryModels.ResourceIdSegment{
 			Name: input.Name,
-			Type: dataapimodels.ScopeResourceIdSegmentType,
+			Type: repositoryModels.ScopeResourceIdSegmentType,
 		}, nil
 	}
 
-	if input.Type == models.StaticResourceIDSegmentType {
+	if input.Type == sdkModels.StaticResourceIDSegmentType {
 		if input.FixedValue == nil {
 			return nil, fmt.Errorf("static segment type with missing fixed value: %+v", input)
 		}
-		return &dataapimodels.ResourceIdSegment{
-			Type:  dataapimodels.StaticResourceIdSegmentType,
+		return &repositoryModels.ResourceIdSegment{
+			Type:  repositoryModels.StaticResourceIdSegmentType,
 			Name:  input.Name,
 			Value: input.FixedValue,
 		}, nil
 	}
 
-	if input.Type == models.SubscriptionIDResourceIDSegmentType {
-		return &dataapimodels.ResourceIdSegment{
-			Type: dataapimodels.SubscriptionIdResourceIdSegmentType,
+	if input.Type == sdkModels.SubscriptionIDResourceIDSegmentType {
+		return &repositoryModels.ResourceIdSegment{
+			Type: repositoryModels.SubscriptionIdResourceIdSegmentType,
 			Name: input.Name,
 		}, nil
 	}
 
-	if input.Type == models.UserSpecifiedResourceIDSegmentType {
-		return &dataapimodels.ResourceIdSegment{
-			Type: dataapimodels.UserSpecifiedResourceIdSegmentType,
+	if input.Type == sdkModels.UserSpecifiedResourceIDSegmentType {
+		return &repositoryModels.ResourceIdSegment{
+			Type: repositoryModels.UserSpecifiedResourceIdSegmentType,
 			Name: input.Name,
 		}, nil
 	}

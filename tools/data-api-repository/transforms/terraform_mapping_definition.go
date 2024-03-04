@@ -7,21 +7,21 @@ import (
 	"fmt"
 	"sort"
 
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	repositoryModels "github.com/hashicorp/pandora/tools/sdk/dataapimodels"
 )
 
-func MapTerraformSchemaMappingsToRepository(input models.TerraformMappingDefinition) (*dataapimodels.TerraformMappingDefinition, error) {
-	output := dataapimodels.TerraformMappingDefinition{}
+func MapTerraformSchemaMappingsToRepository(input sdkModels.TerraformMappingDefinition) (*repositoryModels.TerraformMappingDefinition, error) {
+	output := repositoryModels.TerraformMappingDefinition{}
 
-	fieldMappings := make([]dataapimodels.TerraformFieldMappingDefinition, 0)
-	modelToModelMappings := make([]dataapimodels.TerraformModelToModelMappingDefinition, 0)
+	fieldMappings := make([]repositoryModels.TerraformFieldMappingDefinition, 0)
+	modelToModelMappings := make([]repositoryModels.TerraformModelToModelMappingDefinition, 0)
 	for _, item := range input.Fields {
-		if v, ok := item.(models.TerraformDirectAssignmentFieldMappingDefinition); ok {
+		if v, ok := item.(sdkModels.TerraformDirectAssignmentFieldMappingDefinition); ok {
 			// DirectAssignment Mappings come solely from the Mapping themselves
-			fieldMappings = append(fieldMappings, dataapimodels.TerraformFieldMappingDefinition{
-				Type: dataapimodels.DirectAssignmentTerraformFieldMappingDefinitionType,
-				DirectAssignment: &dataapimodels.TerraformFieldMappingDirectAssignmentDefinition{
+			fieldMappings = append(fieldMappings, repositoryModels.TerraformFieldMappingDefinition{
+				Type: repositoryModels.DirectAssignmentTerraformFieldMappingDefinitionType,
+				DirectAssignment: &repositoryModels.TerraformFieldMappingDirectAssignmentDefinition{
 					// todo remove Schema when https://github.com/hashicorp/pandora/issues/3346 is addressed
 					SchemaModelName: fmt.Sprintf("%sSchema", v.DirectAssignment.TerraformSchemaModelName),
 					SchemaFieldPath: v.DirectAssignment.TerraformSchemaFieldName,
@@ -30,7 +30,7 @@ func MapTerraformSchemaMappingsToRepository(input models.TerraformMappingDefinit
 				},
 			})
 			// NOTE: any duplications get removed below - so this is safe for now
-			modelToModelMappings = append(modelToModelMappings, dataapimodels.TerraformModelToModelMappingDefinition{
+			modelToModelMappings = append(modelToModelMappings, repositoryModels.TerraformModelToModelMappingDefinition{
 				// todo remove Schema when https://github.com/hashicorp/pandora/issues/3346 is addressed
 				SchemaModelName: fmt.Sprintf("%sSchema", v.DirectAssignment.TerraformSchemaModelName),
 				SdkModelName:    v.DirectAssignment.SDKModelName,
@@ -38,7 +38,7 @@ func MapTerraformSchemaMappingsToRepository(input models.TerraformMappingDefinit
 			continue
 		}
 
-		if v, ok := item.(models.TerraformModelToModelFieldMappingDefinition); ok {
+		if v, ok := item.(sdkModels.TerraformModelToModelFieldMappingDefinition); ok {
 			// ModelToModel mappings need to be output both for Fields and for the Models themselves
 			// this is because a ModelToModel mapping must exist from the Schema Model to the SDK Model
 			// but also from a given Schema Field to a given SDK Model.
@@ -46,9 +46,9 @@ func MapTerraformSchemaMappingsToRepository(input models.TerraformMappingDefinit
 			// This allows both the mapping function between two models to be generated (the `ModelToModelMappings`)
 			// and the mapping between a given Schema Field and an SDK Model (so that we know to call the
 			// mapping function defined in the `ModelToModelMappings`).
-			fieldMappings = append(fieldMappings, dataapimodels.TerraformFieldMappingDefinition{
-				Type: dataapimodels.ModelToModelTerraformFieldMappingDefinitionType,
-				ModelToModel: &dataapimodels.TerraformFieldMappingModelToModelDefinition{
+			fieldMappings = append(fieldMappings, repositoryModels.TerraformFieldMappingDefinition{
+				Type: repositoryModels.ModelToModelTerraformFieldMappingDefinitionType,
+				ModelToModel: &repositoryModels.TerraformFieldMappingModelToModelDefinition{
 					// todo remove Schema when https://github.com/hashicorp/pandora/issues/3346 is addressed
 					SchemaModelName: fmt.Sprintf("%sSchema", v.ModelToModel.TerraformSchemaModelName),
 					SdkModelName:    v.ModelToModel.SDKModelName,
@@ -56,7 +56,7 @@ func MapTerraformSchemaMappingsToRepository(input models.TerraformMappingDefinit
 				},
 			})
 			// NOTE: any duplications get removed below - so this is safe for now
-			modelToModelMappings = append(modelToModelMappings, dataapimodels.TerraformModelToModelMappingDefinition{
+			modelToModelMappings = append(modelToModelMappings, repositoryModels.TerraformModelToModelMappingDefinition{
 				// todo remove Schema when https://github.com/hashicorp/pandora/issues/3346 is addressed
 				SchemaModelName: fmt.Sprintf("%sSchema", v.ModelToModel.TerraformSchemaModelName),
 				SdkModelName:    v.ModelToModel.SDKModelName,
@@ -69,7 +69,7 @@ func MapTerraformSchemaMappingsToRepository(input models.TerraformMappingDefinit
 
 	for _, item := range input.ModelToModels {
 		// NOTE: any duplications get removed below
-		modelToModelMappings = append(modelToModelMappings, dataapimodels.TerraformModelToModelMappingDefinition{
+		modelToModelMappings = append(modelToModelMappings, repositoryModels.TerraformModelToModelMappingDefinition{
 			// todo remove Schema when https://github.com/hashicorp/pandora/issues/3346 is addressed
 			SchemaModelName: fmt.Sprintf("%sSchema", item.TerraformSchemaModelName),
 			SdkModelName:    item.SDKModelName,
@@ -100,20 +100,20 @@ func MapTerraformSchemaMappingsToRepository(input models.TerraformMappingDefinit
 	return &output, nil
 }
 
-func mapTerraformSchemaResourceIdMappingsToRepository(input []models.TerraformResourceIDMappingDefinition) []dataapimodels.TerraformResourceIdMappingDefinition {
+func mapTerraformSchemaResourceIdMappingsToRepository(input []sdkModels.TerraformResourceIDMappingDefinition) []repositoryModels.TerraformResourceIdMappingDefinition {
 	// we need the ordering to be consistent else to avoid noisy regenerations, so let's order this on one of the keys
 	segmentNames := make([]string, 0)
-	segmentNamesToResourceIdMappings := make(map[string]models.TerraformResourceIDMappingDefinition)
+	segmentNamesToResourceIdMappings := make(map[string]sdkModels.TerraformResourceIDMappingDefinition)
 	for _, item := range input {
 		segmentNames = append(segmentNames, item.SegmentName)
 		segmentNamesToResourceIdMappings[item.SegmentName] = item
 	}
 	sort.Strings(segmentNames)
 
-	output := make([]dataapimodels.TerraformResourceIdMappingDefinition, 0)
+	output := make([]repositoryModels.TerraformResourceIdMappingDefinition, 0)
 	for _, schemaFieldName := range segmentNames {
 		resourceIdMapping := segmentNamesToResourceIdMappings[schemaFieldName]
-		output = append(output, dataapimodels.TerraformResourceIdMappingDefinition{
+		output = append(output, repositoryModels.TerraformResourceIdMappingDefinition{
 			SchemaFieldName:    resourceIdMapping.TerraformSchemaFieldName,
 			SegmentName:        resourceIdMapping.SegmentName,
 			ParsedFromParentId: resourceIdMapping.ParsedFromParentID,
@@ -122,23 +122,23 @@ func mapTerraformSchemaResourceIdMappingsToRepository(input []models.TerraformRe
 	return output
 }
 
-func orderFieldMappings(input []dataapimodels.TerraformFieldMappingDefinition) (*[]dataapimodels.TerraformFieldMappingDefinition, error) {
+func orderFieldMappings(input []repositoryModels.TerraformFieldMappingDefinition) (*[]repositoryModels.TerraformFieldMappingDefinition, error) {
 	keys := make([]string, 0)
-	keysToValues := make(map[string]dataapimodels.TerraformFieldMappingDefinition)
+	keysToValues := make(map[string]repositoryModels.TerraformFieldMappingDefinition)
 	for _, item := range input {
 		key := ""
 		switch item.Type {
-		case dataapimodels.DirectAssignmentTerraformFieldMappingDefinitionType:
+		case repositoryModels.DirectAssignmentTerraformFieldMappingDefinitionType:
 			{
 				key = fmt.Sprintf("%s-%s-%s-%s-%s", string(item.Type), item.DirectAssignment.SchemaModelName, item.DirectAssignment.SchemaFieldPath, item.DirectAssignment.SdkModelName, item.DirectAssignment.SdkFieldPath)
 			}
 
-		case dataapimodels.ModelToModelTerraformFieldMappingDefinitionType:
+		case repositoryModels.ModelToModelTerraformFieldMappingDefinitionType:
 			{
 				key = fmt.Sprintf("%s-%s-%s-%s", string(item.Type), item.ModelToModel.SchemaModelName, item.ModelToModel.SdkModelName, item.ModelToModel.SdkFieldName)
 			}
 
-		case dataapimodels.ManualTerraformFieldMappingDefinitionType:
+		case repositoryModels.ManualTerraformFieldMappingDefinitionType:
 			{
 				key = fmt.Sprintf("%s-%s", string(item.Type), item.Manual.MethodName)
 			}
@@ -158,7 +158,7 @@ func orderFieldMappings(input []dataapimodels.TerraformFieldMappingDefinition) (
 	}
 	sort.Strings(keys)
 
-	output := make([]dataapimodels.TerraformFieldMappingDefinition, 0)
+	output := make([]repositoryModels.TerraformFieldMappingDefinition, 0)
 	for _, key := range keys {
 		value := keysToValues[key]
 		output = append(output, value)
@@ -166,8 +166,8 @@ func orderFieldMappings(input []dataapimodels.TerraformFieldMappingDefinition) (
 	return &output, nil
 }
 
-func uniqueAndSortModelToModelMappings(input []dataapimodels.TerraformModelToModelMappingDefinition) []dataapimodels.TerraformModelToModelMappingDefinition {
-	keysToValues := make(map[string]dataapimodels.TerraformModelToModelMappingDefinition)
+func uniqueAndSortModelToModelMappings(input []repositoryModels.TerraformModelToModelMappingDefinition) []repositoryModels.TerraformModelToModelMappingDefinition {
+	keysToValues := make(map[string]repositoryModels.TerraformModelToModelMappingDefinition)
 	for _, item := range input {
 		// using this key format means we'll also de-dupe this slice at the same time
 		key := fmt.Sprintf("%s-%s", item.SchemaModelName, item.SdkModelName)
@@ -180,7 +180,7 @@ func uniqueAndSortModelToModelMappings(input []dataapimodels.TerraformModelToMod
 	}
 	sort.Strings(keys)
 
-	output := make([]dataapimodels.TerraformModelToModelMappingDefinition, 0)
+	output := make([]repositoryModels.TerraformModelToModelMappingDefinition, 0)
 	for _, key := range keys {
 		output = append(output, keysToValues[key])
 	}

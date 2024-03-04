@@ -7,17 +7,17 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	repositoryModels "github.com/hashicorp/pandora/tools/sdk/dataapimodels"
 )
 
-func MapTerraformSchemaObjectDefinitionToRepository(input models.TerraformSchemaObjectDefinition) (*dataapimodels.TerraformSchemaObjectDefinition, error) {
+func MapTerraformSchemaObjectDefinitionToRepository(input sdkModels.TerraformSchemaObjectDefinition) (*repositoryModels.TerraformSchemaObjectDefinition, error) {
 	mapped, ok := terraformSchemaObjectDefinitionTypesToRepository[input.Type]
 	if !ok {
 		return nil, fmt.Errorf("internal-error: missing mapping for the Terraform Schema Field Object Definition %q", string(input.Type))
 	}
 
-	objectDefinition := dataapimodels.TerraformSchemaObjectDefinition{
+	objectDefinition := repositoryModels.TerraformSchemaObjectDefinition{
 		ReferenceName: input.ReferenceName,
 		Type:          mapped,
 	}
@@ -39,29 +39,29 @@ func MapTerraformSchemaObjectDefinitionToRepository(input models.TerraformSchema
 	return &objectDefinition, nil
 }
 
-var terraformSchemaObjectDefinitionTypesToRepository = map[models.TerraformSchemaObjectDefinitionType]dataapimodels.TerraformSchemaObjectDefinitionType{
+var terraformSchemaObjectDefinitionTypesToRepository = map[sdkModels.TerraformSchemaObjectDefinitionType]repositoryModels.TerraformSchemaObjectDefinitionType{
 	// Simple Types
-	models.BooleanTerraformSchemaObjectDefinitionType:  dataapimodels.BooleanTerraformSchemaObjectDefinitionType,
-	models.DateTimeTerraformSchemaObjectDefinitionType: dataapimodels.DateTimeTerraformSchemaObjectDefinitionType,
-	models.FloatTerraformSchemaObjectDefinitionType:    dataapimodels.FloatTerraformSchemaObjectDefinitionType,
-	models.IntegerTerraformSchemaObjectDefinitionType:  dataapimodels.IntegerTerraformSchemaObjectDefinitionType,
-	models.StringTerraformSchemaObjectDefinitionType:   dataapimodels.StringTerraformSchemaObjectDefinitionType,
+	sdkModels.BooleanTerraformSchemaObjectDefinitionType:  repositoryModels.BooleanTerraformSchemaObjectDefinitionType,
+	sdkModels.DateTimeTerraformSchemaObjectDefinitionType: repositoryModels.DateTimeTerraformSchemaObjectDefinitionType,
+	sdkModels.FloatTerraformSchemaObjectDefinitionType:    repositoryModels.FloatTerraformSchemaObjectDefinitionType,
+	sdkModels.IntegerTerraformSchemaObjectDefinitionType:  repositoryModels.IntegerTerraformSchemaObjectDefinitionType,
+	sdkModels.StringTerraformSchemaObjectDefinitionType:   repositoryModels.StringTerraformSchemaObjectDefinitionType,
 
 	// Complex Types
-	models.DictionaryTerraformSchemaObjectDefinitionType: dataapimodels.DictionaryTerraformSchemaObjectDefinitionType,
-	models.ListTerraformSchemaObjectDefinitionType:       dataapimodels.ListTerraformSchemaObjectDefinitionType,
-	models.ReferenceTerraformSchemaObjectDefinitionType:  dataapimodels.ReferenceTerraformSchemaObjectDefinitionType,
-	models.SetTerraformSchemaObjectDefinitionType:        dataapimodels.SetTerraformSchemaObjectDefinitionType,
+	sdkModels.DictionaryTerraformSchemaObjectDefinitionType: repositoryModels.DictionaryTerraformSchemaObjectDefinitionType,
+	sdkModels.ListTerraformSchemaObjectDefinitionType:       repositoryModels.ListTerraformSchemaObjectDefinitionType,
+	sdkModels.ReferenceTerraformSchemaObjectDefinitionType:  repositoryModels.ReferenceTerraformSchemaObjectDefinitionType,
+	sdkModels.SetTerraformSchemaObjectDefinitionType:        repositoryModels.SetTerraformSchemaObjectDefinitionType,
 
 	// Common Schema Types
-	models.EdgeZoneTerraformSchemaObjectDefinitionType:                      dataapimodels.EdgeZoneTerraformSchemaObjectDefinitionType,
-	models.LocationTerraformSchemaObjectDefinitionType:                      dataapimodels.LocationTerraformSchemaObjectDefinitionType,
-	models.ResourceGroupTerraformSchemaObjectDefinitionType:                 dataapimodels.ResourceGroupTerraformSchemaObjectDefinitionType,
-	models.SystemAssignedIdentityTerraformSchemaObjectDefinitionType:        dataapimodels.SystemAssignedIdentityTerraformSchemaObjectDefinitionType,
-	models.SystemAndUserAssignedIdentityTerraformSchemaObjectDefinitionType: dataapimodels.SystemAndUserAssignedIdentityTerraformSchemaObjectDefinitionType,
-	models.SystemOrUserAssignedIdentityTerraformSchemaObjectDefinitionType:  dataapimodels.SystemOrUserAssignedIdentityTerraformSchemaObjectDefinitionType,
-	models.TagsTerraformSchemaObjectDefinitionType:                          dataapimodels.TagsTerraformSchemaObjectDefinitionType,
-	models.UserAssignedIdentityTerraformSchemaObjectDefinitionType:          dataapimodels.UserAssignedIdentityTerraformSchemaObjectDefinitionType,
-	models.ZoneTerraformSchemaObjectDefinitionType:                          dataapimodels.ZoneTerraformSchemaObjectDefinitionType,
-	models.ZonesTerraformSchemaObjectDefinitionType:                         dataapimodels.ZonesTerraformSchemaObjectDefinitionType,
+	sdkModels.EdgeZoneTerraformSchemaObjectDefinitionType:                      repositoryModels.EdgeZoneTerraformSchemaObjectDefinitionType,
+	sdkModels.LocationTerraformSchemaObjectDefinitionType:                      repositoryModels.LocationTerraformSchemaObjectDefinitionType,
+	sdkModels.ResourceGroupTerraformSchemaObjectDefinitionType:                 repositoryModels.ResourceGroupTerraformSchemaObjectDefinitionType,
+	sdkModels.SystemAssignedIdentityTerraformSchemaObjectDefinitionType:        repositoryModels.SystemAssignedIdentityTerraformSchemaObjectDefinitionType,
+	sdkModels.SystemAndUserAssignedIdentityTerraformSchemaObjectDefinitionType: repositoryModels.SystemAndUserAssignedIdentityTerraformSchemaObjectDefinitionType,
+	sdkModels.SystemOrUserAssignedIdentityTerraformSchemaObjectDefinitionType:  repositoryModels.SystemOrUserAssignedIdentityTerraformSchemaObjectDefinitionType,
+	sdkModels.TagsTerraformSchemaObjectDefinitionType:                          repositoryModels.TagsTerraformSchemaObjectDefinitionType,
+	sdkModels.UserAssignedIdentityTerraformSchemaObjectDefinitionType:          repositoryModels.UserAssignedIdentityTerraformSchemaObjectDefinitionType,
+	sdkModels.ZoneTerraformSchemaObjectDefinitionType:                          repositoryModels.ZoneTerraformSchemaObjectDefinitionType,
+	sdkModels.ZonesTerraformSchemaObjectDefinitionType:                         repositoryModels.ZonesTerraformSchemaObjectDefinitionType,
 }

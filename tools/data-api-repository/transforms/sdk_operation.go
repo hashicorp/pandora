@@ -9,17 +9,17 @@ import (
 	"strings"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	repositoryModels "github.com/hashicorp/pandora/tools/sdk/dataapimodels"
 )
 
-func MapSDKOperationToRepository(operationName string, input models.SDKOperation, knownConstants map[string]models.SDKConstant, knownModels map[string]models.SDKModel) (*dataapimodels.Operation, error) {
+func MapSDKOperationToRepository(operationName string, input sdkModels.SDKOperation, knownConstants map[string]sdkModels.SDKConstant, knownModels map[string]sdkModels.SDKModel) (*repositoryModels.Operation, error) {
 	contentType := input.ContentType
 	if strings.Contains(strings.ToLower(contentType), "application/json") {
 		contentType = fmt.Sprintf("%s; charset=utf-8", contentType)
 	}
 
-	output := dataapimodels.Operation{
+	output := repositoryModels.Operation{
 		Name:                             operationName,
 		ContentType:                      contentType,
 		ExpectedStatusCodes:              input.ExpectedStatusCodes,
@@ -47,7 +47,7 @@ func MapSDKOperationToRepository(operationName string, input models.SDKOperation
 	}
 
 	if len(input.Options) > 0 {
-		options := make([]dataapimodels.Option, 0)
+		options := make([]repositoryModels.Option, 0)
 		sortedOptionsKeys := make([]string, 0)
 		for k := range input.Options {
 			sortedOptionsKeys = append(sortedOptionsKeys, k)
@@ -62,7 +62,7 @@ func MapSDKOperationToRepository(operationName string, input models.SDKOperation
 				return nil, fmt.Errorf("mapping the object definition: %+v", err)
 			}
 
-			option := dataapimodels.Option{
+			option := repositoryModels.Option{
 				HeaderName:       optionDetails.HeaderName,
 				QueryString:      optionDetails.QueryStringName,
 				Field:            optionName,
