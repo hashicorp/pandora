@@ -7,9 +7,9 @@ import (
 	"fmt"
 	"path/filepath"
 
-	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/transforms"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )
 
 var _ generatorStage = generateResourceIDsStage{}
@@ -29,10 +29,10 @@ type generateResourceIDsStage struct {
 	resourceIDs map[string]models.ResourceID
 }
 
-func (g generateResourceIDsStage) generate(input *fileSystem, logger hclog.Logger) error {
-	logger.Debug("Generating Resource IDs")
+func (g generateResourceIDsStage) generate(input *fileSystem) error {
+	logging.Log.Debug("Generating Resource IDs")
 	for resourceIDName, resourceIDValue := range g.resourceIDs {
-		logger.Trace(fmt.Sprintf("Generating Resource ID %q", resourceIDName))
+		logging.Log.Trace(fmt.Sprintf("Generating Resource ID %q", resourceIDName))
 		mapped, err := transforms.MapResourceIDToRepository(resourceIDName, resourceIDValue)
 		if err != nil {
 			return fmt.Errorf("mapping Resource ID %q: %+v", resourceIDName, err)
@@ -40,7 +40,7 @@ func (g generateResourceIDsStage) generate(input *fileSystem, logger hclog.Logge
 
 		// {workingDirectory}/Service/APIVersion/APIResource/ResourceId-{Name}.json
 		path := filepath.Join(g.serviceName, g.apiVersion, g.apiResource, fmt.Sprintf("ResourceId-%s.json", resourceIDName))
-		logger.Trace(fmt.Sprintf("Staging to %s", path))
+		logging.Log.Trace(fmt.Sprintf("Staging to %s", path))
 		if err := input.stage(path, *mapped); err != nil {
 			return fmt.Errorf("staging Resource ID %q: %+v", resourceIDName, err)
 		}

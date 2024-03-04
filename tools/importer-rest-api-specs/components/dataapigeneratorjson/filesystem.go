@@ -11,8 +11,8 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )
 
 var directoryPermissions = os.FileMode(0755)
@@ -69,13 +69,13 @@ func (f *fileSystem) stage(path filePath, body any) error {
 	return fmt.Errorf("internal-error: unexpected file extension %q for %q", fileExtension, path)
 }
 
-func persistFileSystem(workingDirectory string, dataType models.SourceDataType, serviceName string, input *fileSystem, logger hclog.Logger) error {
+func persistFileSystem(workingDirectory string, dataType models.SourceDataType, serviceName string, input *fileSystem) error {
 	rootDir := filepath.Join(workingDirectory, string(dataType))
-	logger.Trace(fmt.Sprintf("Persisting files into %q", rootDir))
+	logging.Log.Trace(fmt.Sprintf("Persisting files into %q", rootDir))
 
 	// Delete any existing directory with this service name
 	serviceDir := filepath.Join(rootDir, serviceName)
-	logger.Debug(fmt.Sprintf("Removing any existing Directory for Service %q", serviceName))
+	logging.Log.Debug(fmt.Sprintf("Removing any existing Directory for Service %q", serviceName))
 	_ = os.RemoveAll(serviceDir)
 	if err := os.MkdirAll(serviceDir, directoryPermissions); err != nil {
 		return fmt.Errorf("recreating directory %q: %+v", serviceDir, err)
@@ -83,7 +83,7 @@ func persistFileSystem(workingDirectory string, dataType models.SourceDataType, 
 
 	// pull out a list of directories
 	directories := uniqueDirectories(input.f)
-	logger.Debug(fmt.Sprintf("Creating directories for Service %q", serviceName))
+	logging.Log.Debug(fmt.Sprintf("Creating directories for Service %q", serviceName))
 	for _, dir := range directories {
 		dirPath := filepath.Join(rootDir, dir)
 		if err := os.MkdirAll(dirPath, directoryPermissions); err != nil {
@@ -94,7 +94,7 @@ func persistFileSystem(workingDirectory string, dataType models.SourceDataType, 
 	// write the files
 	for path, body := range input.f {
 		fileFullPath := filepath.Join(rootDir, path)
-		logger.Trace(fmt.Sprintf("Writing file %q", fileFullPath))
+		logging.Log.Trace(fmt.Sprintf("Writing file %q", fileFullPath))
 		file, err := os.Create(fileFullPath)
 		if err != nil {
 			return fmt.Errorf("opening %q: %+v", fileFullPath, err)

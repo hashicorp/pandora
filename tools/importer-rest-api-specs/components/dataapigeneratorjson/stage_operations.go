@@ -7,9 +7,9 @@ import (
 	"fmt"
 	"path/filepath"
 
-	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/transforms"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )
 
 var _ generatorStage = generateOperationsStage{}
@@ -37,10 +37,10 @@ type generateOperationsStage struct {
 	operations map[string]models.SDKOperation
 }
 
-func (g generateOperationsStage) generate(input *fileSystem, logger hclog.Logger) error {
-	logger.Debug("Generating Operations..")
+func (g generateOperationsStage) generate(input *fileSystem) error {
+	logging.Log.Debug("Generating Operations..")
 	for operationName := range g.operations {
-		logger.Trace(fmt.Sprintf("Generating Operation %q..", operationName))
+		logging.Log.Trace(fmt.Sprintf("Generating Operation %q..", operationName))
 
 		operationDetails := g.operations[operationName]
 		mapped, err := transforms.MapSDKOperationToRepository(operationName, operationDetails, g.constants, g.models)
@@ -50,7 +50,7 @@ func (g generateOperationsStage) generate(input *fileSystem, logger hclog.Logger
 
 		// {workingDirectory}/Service/APIVersion/APIResource/Operation-{Name}.json
 		path := filepath.Join(g.serviceName, g.apiVersion, g.apiResource, fmt.Sprintf("Operation-%s.json", operationName))
-		logger.Trace(fmt.Sprintf("Staging to %s", path))
+		logging.Log.Trace(fmt.Sprintf("Staging to %s", path))
 		if err := input.stage(path, *mapped); err != nil {
 			return fmt.Errorf("staging Operation %q: %+v", operationName, err)
 		}

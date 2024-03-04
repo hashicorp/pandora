@@ -7,9 +7,9 @@ import (
 	"fmt"
 	"path/filepath"
 
-	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/transforms"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )
 
 var _ generatorStage = generateModelsStage{}
@@ -33,15 +33,15 @@ type generateModelsStage struct {
 	models map[string]models.SDKModel
 }
 
-func (g generateModelsStage) generate(input *fileSystem, logger hclog.Logger) error {
-	logger.Debug("Generating Models")
+func (g generateModelsStage) generate(input *fileSystem) error {
+	logging.Log.Debug("Generating Models")
 	for modelName := range g.models {
-		logger.Trace(fmt.Sprintf("Generating Model %q..", modelName))
+		logging.Log.Trace(fmt.Sprintf("Generating Model %q..", modelName))
 		modelValue := g.models[modelName]
 
 		var parent *models.SDKModel
 		if modelValue.ParentTypeName != nil {
-			logger.Trace("Finding parent model %q..", *modelValue.ParentTypeName)
+			logging.Log.Trace("Finding parent model %q..", *modelValue.ParentTypeName)
 			p, ok := g.models[*modelValue.ParentTypeName]
 			if ok {
 				parent = &p
@@ -55,7 +55,7 @@ func (g generateModelsStage) generate(input *fileSystem, logger hclog.Logger) er
 
 		// {workingDirectory}/Service/APIVersion/APIResource/Model-{Name}.json
 		path := filepath.Join(g.serviceName, g.apiVersion, g.apiResource, fmt.Sprintf("Model-%s.json", modelName))
-		logger.Trace(fmt.Sprintf("Staging to %s", path))
+		logging.Log.Trace(fmt.Sprintf("Staging to %s", path))
 		if err := input.stage(path, *mapped); err != nil {
 			return fmt.Errorf("staging Model %q: %+v", modelName, err)
 		}

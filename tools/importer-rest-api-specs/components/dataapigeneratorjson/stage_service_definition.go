@@ -7,7 +7,6 @@ import (
 	"fmt"
 	"path/filepath"
 
-	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/transforms"
 )
@@ -29,7 +28,7 @@ type generateServiceDefinitionStage struct {
 	terraformDefinition *models.TerraformDefinition
 }
 
-func (g generateServiceDefinitionStage) generate(input *fileSystem, logger hclog.Logger) error {
+func (g generateServiceDefinitionStage) generate(input *fileSystem) error {
 	serviceDefinition, err := transforms.MapServiceDefinitionToRepository(g.serviceName, g.resourceProvider, g.terraformDefinition)
 	if err != nil {
 		return fmt.Errorf("mapping Service Definition for %q: %+v", g.serviceName, err)

@@ -7,9 +7,9 @@ import (
 	"fmt"
 	"path/filepath"
 
-	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/transforms"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )
 
 var _ generatorStage = generateTerraformMappingsDefinitionStage{}
@@ -22,14 +22,14 @@ type generateTerraformMappingsDefinitionStage struct {
 	resourceDetails models.TerraformResourceDefinition
 }
 
-func (g generateTerraformMappingsDefinitionStage) generate(input *fileSystem, logger hclog.Logger) error {
+func (g generateTerraformMappingsDefinitionStage) generate(input *fileSystem) error {
 	mapped, err := transforms.MapTerraformSchemaMappingsToRepository(g.resourceDetails.Mappings)
 	if err != nil {
 		return fmt.Errorf("building Mappings for the Terraform Resource %q: %+v", g.resourceDetails.ResourceName, err)
 	}
 
 	path := filepath.Join(g.serviceName, "Terraform", fmt.Sprintf("%s-Resource-Mappings.json", g.resourceDetails.ResourceName))
-	logger.Trace(fmt.Sprintf("Staging Terraform Mappings to %q", path))
+	logging.Log.Trace(fmt.Sprintf("Staging Terraform Mappings to %q", path))
 	if err := input.stage(path, *mapped); err != nil {
 		return fmt.Errorf("staging Terraform Mappings to %q: %+v", path, err)
 	}
