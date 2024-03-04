@@ -9,8 +9,8 @@ import (
 	"strings"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	repositoryModels "github.com/hashicorp/pandora/tools/data-api-repository/models"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	repositoryModels "github.com/hashicorp/pandora/tools/sdk/dataapimodels"
 )
 
 func MapSDKOperationToRepository(operationName string, input sdkModels.SDKOperation, knownConstants map[string]sdkModels.SDKConstant, knownModels map[string]sdkModels.SDKModel) (*repositoryModels.Operation, error) {

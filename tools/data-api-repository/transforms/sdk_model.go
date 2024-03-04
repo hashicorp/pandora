@@ -8,8 +8,8 @@ import (
 	"sort"
 	"strings"
 
+	repositoryModels "github.com/hashicorp/pandora/tools/data-api-repository/models"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	repositoryModels "github.com/hashicorp/pandora/tools/sdk/dataapimodels"
 )
 
 func MapSDKModelToRepository(modelName string, model sdkModels.SDKModel, parentModel *sdkModels.SDKModel, knownConstants map[string]sdkModels.SDKConstant, knownModels map[string]sdkModels.SDKModel) (*repositoryModels.Model, error) {

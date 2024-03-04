@@ -7,8 +7,8 @@ import (
 	"fmt"
 	"strings"
 
+	repositoryModels "github.com/hashicorp/pandora/tools/data-api-repository/models"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	repositoryModels "github.com/hashicorp/pandora/tools/sdk/dataapimodels"
 )
 
 func MapTerraformSchemaObjectDefinitionToRepository(input sdkModels.TerraformSchemaObjectDefinition) (*repositoryModels.TerraformSchemaObjectDefinition, error) {
