@@ -6,7 +6,7 @@ package processors
 import (
 	"testing"
 
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 func TestProcessField_RenameBoolean(t *testing.T) {
@@ -18,11 +18,11 @@ func TestProcessField_RenameBoolean(t *testing.T) {
 		{
 			fieldInput: "enablePandas",
 			metadataInput: FieldMetadata{
-				Model: resourcemanager.ModelDetails{
-					Fields: map[string]resourcemanager.FieldDetails{
+				Model: models.SDKModel{
+					Fields: map[string]models.SDKField{
 						"enablePandas": {
-							ObjectDefinition: resourcemanager.ApiObjectDefinition{
-								Type: resourcemanager.BooleanApiObjectDefinitionType,
+							ObjectDefinition: models.SDKObjectDefinition{
+								Type: models.BooleanSDKObjectDefinitionType,
 							},
 						},
 					},
@@ -33,11 +33,11 @@ func TestProcessField_RenameBoolean(t *testing.T) {
 		{
 			fieldInput: "disablePlanets",
 			metadataInput: FieldMetadata{
-				Model: resourcemanager.ModelDetails{
-					Fields: map[string]resourcemanager.FieldDetails{
+				Model: models.SDKModel{
+					Fields: map[string]models.SDKField{
 						"disablePlanets": {
-							ObjectDefinition: resourcemanager.ApiObjectDefinition{
-								Type: resourcemanager.BooleanApiObjectDefinitionType,
+							ObjectDefinition: models.SDKObjectDefinition{
+								Type: models.BooleanSDKObjectDefinitionType,
 							},
 						},
 					},
@@ -48,11 +48,11 @@ func TestProcessField_RenameBoolean(t *testing.T) {
 		{
 			fieldInput: "AllowedPublicAccess",
 			metadataInput: FieldMetadata{
-				Model: resourcemanager.ModelDetails{
-					Fields: map[string]resourcemanager.FieldDetails{
+				Model: models.SDKModel{
+					Fields: map[string]models.SDKField{
 						"AllowedPublicAccess": {
-							ObjectDefinition: resourcemanager.ApiObjectDefinition{
-								Type: resourcemanager.BooleanApiObjectDefinitionType,
+							ObjectDefinition: models.SDKObjectDefinition{
+								Type: models.BooleanSDKObjectDefinitionType,
 							},
 						},
 					},
@@ -63,11 +63,11 @@ func TestProcessField_RenameBoolean(t *testing.T) {
 		{
 			fieldInput: "AllowTethering",
 			metadataInput: FieldMetadata{
-				Model: resourcemanager.ModelDetails{
-					Fields: map[string]resourcemanager.FieldDetails{
+				Model: models.SDKModel{
+					Fields: map[string]models.SDKField{
 						"AllowTethering": {
-							ObjectDefinition: resourcemanager.ApiObjectDefinition{
-								Type: resourcemanager.BooleanApiObjectDefinitionType,
+							ObjectDefinition: models.SDKObjectDefinition{
+								Type: models.BooleanSDKObjectDefinitionType,
 							},
 						},
 					},
@@ -78,11 +78,11 @@ func TestProcessField_RenameBoolean(t *testing.T) {
 		{
 			fieldInput: "TastesLikePancakes",
 			metadataInput: FieldMetadata{
-				Model: resourcemanager.ModelDetails{
-					Fields: map[string]resourcemanager.FieldDetails{
+				Model: models.SDKModel{
+					Fields: map[string]models.SDKField{
 						"TastesLikePancakes": {
-							ObjectDefinition: resourcemanager.ApiObjectDefinition{
-								Type: resourcemanager.BooleanApiObjectDefinitionType,
+							ObjectDefinition: models.SDKObjectDefinition{
+								Type: models.BooleanSDKObjectDefinitionType,
 							},
 						},
 					},
@@ -93,11 +93,11 @@ func TestProcessField_RenameBoolean(t *testing.T) {
 		{
 			fieldInput: "ThreeCoffeesADay",
 			metadataInput: FieldMetadata{
-				Model: resourcemanager.ModelDetails{
-					Fields: map[string]resourcemanager.FieldDetails{
+				Model: models.SDKModel{
+					Fields: map[string]models.SDKField{
 						"ThreeCoffeesADay": {
-							ObjectDefinition: resourcemanager.ApiObjectDefinition{
-								Type: resourcemanager.StringApiObjectDefinitionType,
+							ObjectDefinition: models.SDKObjectDefinition{
+								Type: models.BooleanSDKObjectDefinitionType,
 							},
 						},
 					},
@@ -108,11 +108,11 @@ func TestProcessField_RenameBoolean(t *testing.T) {
 		{
 			fieldInput: "Enabled",
 			metadataInput: FieldMetadata{
-				Model: resourcemanager.ModelDetails{
-					Fields: map[string]resourcemanager.FieldDetails{
+				Model: models.SDKModel{
+					Fields: map[string]models.SDKField{
 						"Enabled": {
-							ObjectDefinition: resourcemanager.ApiObjectDefinition{
-								Type: resourcemanager.BooleanApiObjectDefinitionType,
+							ObjectDefinition: models.SDKObjectDefinition{
+								Type: models.BooleanSDKObjectDefinitionType,
 							},
 						},
 					},

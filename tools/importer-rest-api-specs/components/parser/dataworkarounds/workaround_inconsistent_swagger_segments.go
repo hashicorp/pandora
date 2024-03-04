@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
@@ -51,6 +52,7 @@ func (workaroundInconsistentlyDefinedSegments) Process(apiDefinition importerMod
 				segments = append(segments, val)
 			}
 			id.Segments = segments
+			id.ExampleValue = helpers.DisplayValueForResourceID(id)
 			ids[key] = id
 		}
 		resource.ResourceIds = ids

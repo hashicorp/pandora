@@ -11,6 +11,7 @@ import (
 )
 
 var workarounds = []workaround{
+	// These workarounds are related to issues with the upstream API Definitions
 	workaroundAuthorization25080{},
 	workaroundDigitalTwins25120{},
 	workaroundAutomation25108{},
@@ -19,23 +20,22 @@ var workarounds = []workaround{
 	workaroundBotService27351{},
 	workaroundContainerService21394{},
 	workaroundDataFactory23013{},
-	workaroundDevCenter26189{},
 	workaroundHDInsight26838{},
 	workaroundLoadTest20961{},
 	workaroundRedis22407{},
 	workaroundMachineLearning25142{},
+	workaroundOperationalinsights26678{},
+	workaroundOperationalinsights27524{},
 	workaroundRecoveryServicesSiteRecovery26680{},
 	workaroundStreamAnalytics27577{},
 
-	// @tombuildsstuff: this is an odd place for this however this allows working around inconsistencies in the Swagger
-	// we should look at moving this into the `resourceids` package when time allows.
+	// These workarounds relate to Terraform specific overrides we want to apply (for example for Resource Generation)
+	workaroundDevCenterIdToRequired{},
+	workaroundTempReadOnlyFields{},
+
+	// These workarounds relate to data inconsistencies
 	workaroundInconsistentlyDefinedSegments{},
-
-	// @tombuildsstuff: we also have to account for package names which aren't valid in Go:
 	workaroundInvalidGoPackageNames{},
-
-	workaroundOperationalinsights26678{},
-	workaroundOperationalinsights27524{},
 }
 
 func ApplyWorkarounds(input []importerModels.AzureApiDefinition, logger hclog.Logger) (*[]importerModels.AzureApiDefinition, error) {

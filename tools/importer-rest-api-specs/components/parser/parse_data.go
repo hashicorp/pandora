@@ -83,8 +83,8 @@ func combineConstants(first, second map[string]models.SDKConstant) (*map[string]
 	return &constants, nil
 }
 
-func combineModels(first map[string]importerModels.ModelDetails, second map[string]importerModels.ModelDetails) (*map[string]importerModels.ModelDetails, error) {
-	output := make(map[string]importerModels.ModelDetails)
+func combineModels(first map[string]models.SDKModel, second map[string]models.SDKModel) (*map[string]models.SDKModel, error) {
+	output := make(map[string]models.SDKModel)
 
 	for k, v := range first {
 		output[k] = v
@@ -102,7 +102,7 @@ func combineModels(first map[string]importerModels.ModelDetails, second map[stri
 	// orphaned discriminated models to their parent
 	for k, v := range output {
 		// this model is an implementation, so we need to find/update the parent
-		if v.ParentTypeName != nil && v.TypeHintIn != nil && v.TypeHintValue != nil {
+		if v.ParentTypeName != nil && v.FieldNameContainingDiscriminatedValue != nil && v.DiscriminatedValue != nil {
 			parent, ok := output[*v.ParentTypeName]
 			if !ok {
 				return nil, fmt.Errorf("no parent definition %q found for implementation %q", *v.ParentTypeName, k)
@@ -110,8 +110,8 @@ func combineModels(first map[string]importerModels.ModelDetails, second map[stri
 			// discriminated models that are defined in a separate file with no reference to a path/tag/resource ID
 			// will not be found when we parse the parent, as a result the parent's TypeHintIn is set to nil,
 			// here we set the information back into the parent after we've found the implementation
-			if parent.TypeHintIn == nil {
-				parent.TypeHintIn = v.TypeHintIn
+			if parent.FieldNameContainingDiscriminatedValue == nil {
+				parent.FieldNameContainingDiscriminatedValue = v.FieldNameContainingDiscriminatedValue
 			}
 			output[*v.ParentTypeName] = parent
 		}
@@ -120,8 +120,8 @@ func combineModels(first map[string]importerModels.ModelDetails, second map[stri
 	return &output, nil
 }
 
-func combineOperations(first map[string]importerModels.OperationDetails, second map[string]importerModels.OperationDetails) (*map[string]importerModels.OperationDetails, error) {
-	output := make(map[string]importerModels.OperationDetails, 0)
+func combineOperations(first map[string]models.SDKOperation, second map[string]models.SDKOperation) (*map[string]models.SDKOperation, error) {
+	output := make(map[string]models.SDKOperation, 0)
 
 	for k, v := range first {
 		output[k] = v

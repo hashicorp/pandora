@@ -24,67 +24,68 @@ func TestParseModelTopLevel(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Model": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Age": {
 								JsonName: "age",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionInteger,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.IntegerSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Enabled": {
 								JsonName: "enabled",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Height": {
 								JsonName: "height",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionFloat,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.FloatSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"Tags": {
-								CustomFieldType: pointer.To(importerModels.CustomFieldTypeTags),
-								JsonName:        "tags",
-								Required:        false,
+								JsonName: "tags",
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.TagsSDKObjectDefinitionType,
+								},
+								Required: false,
 							},
 							"Value": {
 								JsonName: "value",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionRawObject,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.RawObjectSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "Example_Test",
-						RequestObject: &importerModels.ObjectDefinition{
+						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -104,19 +105,18 @@ func TestParseModelTopLevelWithRawFile(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "Example_Test",
-						RequestObject: &importerModels.ObjectDefinition{
-							Type: importerModels.ObjectDefinitionRawFile,
+						RequestObject: &models.SDKObjectDefinition{
+							Type: models.RawFileSDKObjectDefinitionType,
 						},
-						ResponseObject: &importerModels.ObjectDefinition{
-							Type: importerModels.ObjectDefinitionRawFile,
+						ResponseObject: &models.SDKObjectDefinition{
+							Type: models.RawFileSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -136,86 +136,87 @@ func TestParseModelTopLevelWithInlinedModel(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Model": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"Properties": {
 								JsonName: "properties",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("ModelProperties"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 					"ModelProperties": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Age": {
 								JsonName: "age",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionInteger,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.IntegerSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Enabled": {
 								JsonName: "enabled",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Height": {
 								JsonName: "height",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionFloat,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.FloatSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Nickname": {
 								JsonName: "nickname",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Tags": {
-								CustomFieldType: pointer.To(importerModels.CustomFieldTypeTags),
-								JsonName:        "tags",
-								Required:        false,
+								JsonName: "tags",
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.TagsSDKObjectDefinitionType,
+								},
+								Required: false,
 							},
 							"Value": {
 								JsonName: "value",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionRawObject,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.RawObjectSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "Example_Test",
-						RequestObject: &importerModels.ObjectDefinition{
+						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -235,34 +236,33 @@ func TestParseModelWithDateTimeNoType(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Model": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"SomeDateValue": {
 								JsonName: "someDateValue",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionDateTime,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.DateTimeSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "Example_Test",
-						RequestObject: &importerModels.ObjectDefinition{
+						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -282,65 +282,65 @@ func TestParseModelWithInlinedObject(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Model": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"ThingProps": {
 								JsonName: "thingProps",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									NestedItem: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
+									NestedItem: &models.SDKObjectDefinition{
 										ReferenceName: pointer.To("ThingProperties"),
-										Type:          importerModels.ObjectDefinitionReference,
+										Type:          models.ReferenceSDKObjectDefinitionType,
 									},
-									Type: importerModels.ObjectDefinitionList,
+									Type: models.ListSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 					"ThingProperties": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"KeyName": {
 								JsonName: "keyName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"UserAssignedIdentities": {
 								JsonName: "userAssignedIdentities",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									NestedItem: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
+									NestedItem: &models.SDKObjectDefinition{
 										ReferenceName: pointer.To("UserAssignedIdentitiesProperties"),
-										Type:          importerModels.ObjectDefinitionReference,
+										Type:          models.ReferenceSDKObjectDefinitionType,
 									},
-									Type: importerModels.ObjectDefinitionDictionary,
+									Type: models.DictionarySDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 					"UserAssignedIdentitiesProperties": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"ClientId": {
 								JsonName: "clientId",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								ReadOnly: true,
 								Required: false,
 							},
 							"PrincipalId": {
 								JsonName: "principalId",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								ReadOnly: true,
 								Required: false,
@@ -348,17 +348,16 @@ func TestParseModelWithInlinedObject(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -378,37 +377,36 @@ func TestParseModelWithNumberPrefixedField(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Model": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Five0PercentDone": {
 								JsonName: "50PercentDone",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -428,71 +426,70 @@ func TestParseModelWithReference(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Model": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"ThingProps": {
 								JsonName: "thingProps",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									NestedItem: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
+									NestedItem: &models.SDKObjectDefinition{
 										ReferenceName: pointer.To("ThingProperties"),
-										Type:          importerModels.ObjectDefinitionReference,
+										Type:          models.ReferenceSDKObjectDefinitionType,
 									},
-									Type: importerModels.ObjectDefinitionList,
+									Type: models.ListSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 					"ThingProperties": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"KeyName": {
 								JsonName: "keyName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Identity": {
 								JsonName: "identity",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("UserAssignedIdentityProperties"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 					"UserAssignedIdentityProperties": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"UserAssignedIdentity": {
 								JsonName: "userAssignedIdentity",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -512,57 +509,56 @@ func TestParseModelWithReferenceToArray(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Model": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Pets": {
 								JsonName: "pets",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									NestedItem: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
+									NestedItem: &models.SDKObjectDefinition{
 										ReferenceName: pointer.To("Pet"),
-										Type:          importerModels.ObjectDefinitionReference,
+										Type:          models.ReferenceSDKObjectDefinitionType,
 
-										// note: these change substantially in the sdk swap
-										Minimum:     pointer.To(1),
-										Maximum:     pointer.To(2),
-										UniqueItems: pointer.To(true),
+										// TODO: re-enable min/max/unique
+										// Minimum:     pointer.To(1),
+										// Maximum:     pointer.To(2),
+										// UniqueItems: pointer.To(true),
 									},
-									Type: importerModels.ObjectDefinitionList,
+									Type: models.ListSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 					"Pet": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -591,60 +587,59 @@ func TestParseModelWithReferenceToConstant(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Model": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"ThingProps": {
 								JsonName: "thingProps",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									NestedItem: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
+									NestedItem: &models.SDKObjectDefinition{
 										ReferenceName: pointer.To("ThingProperties"),
-										Type:          importerModels.ObjectDefinitionReference,
+										Type:          models.ReferenceSDKObjectDefinitionType,
 									},
-									Type: importerModels.ObjectDefinitionList,
+									Type: models.ListSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 					"ThingProperties": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Animal": {
 								JsonName: "animal",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("AnimalType"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"KeyName": {
 								JsonName: "keyName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -664,59 +659,58 @@ func TestParseModelWithReferenceToString(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Model": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"ThingProps": {
 								JsonName: "thingProps",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									NestedItem: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
+									NestedItem: &models.SDKObjectDefinition{
 										ReferenceName: pointer.To("ThingProperties"),
-										Type:          importerModels.ObjectDefinitionReference,
+										Type:          models.ReferenceSDKObjectDefinitionType,
 									},
-									Type: importerModels.ObjectDefinitionList,
+									Type: models.ListSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 					"ThingProperties": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"FullyQualifiedDomainName": {
 								JsonName: "fullyQualifiedDomainName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"KeyName": {
 								JsonName: "keyName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -736,90 +730,89 @@ func TestParseModelWithCircularReferences(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Animal": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"FavouriteHouse": {
 								JsonName: "favouriteHouse",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("House"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"FavouriteHuman": {
 								JsonName: "favouriteHuman",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("Human"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 					"House": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Address": {
 								JsonName: "address",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Residents": {
 								JsonName: "residents",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									NestedItem: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
+									NestedItem: &models.SDKObjectDefinition{
 										ReferenceName: pointer.To("Human"),
-										Type:          importerModels.ObjectDefinitionReference,
+										Type:          models.ReferenceSDKObjectDefinitionType,
 									},
-									Type: importerModels.ObjectDefinitionList,
+									Type: models.ListSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 					"Human": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Pets": {
 								JsonName: "pets",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									NestedItem: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
+									NestedItem: &models.SDKObjectDefinition{
 										ReferenceName: pointer.To("Animal"),
-										Type:          importerModels.ObjectDefinitionReference,
+										Type:          models.ReferenceSDKObjectDefinitionType,
 									},
-									Type: importerModels.ObjectDefinitionList,
+									Type: models.ListSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("House"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -839,32 +832,31 @@ func TestParseModelInheritingFromObjectWithNoExtraFields(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"FirstObject": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							// whilst the response model references SecondObject, it's only inheriting from FirstObject
 							// and doesn't contain any new fields, so it should be switched out
 							ReferenceName: pointer.To("FirstObject"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -884,49 +876,48 @@ func TestParseModelInheritingFromObjectWithNoExtraFieldsInlined(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"FirstObject": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Endpoints": {
 								JsonName: "endpoints",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("SecondObject"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 					"SecondObject": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("FirstObject"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -946,32 +937,31 @@ func TestParseModelInheritingFromObjectWithOnlyDescription(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"FirstObject": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							// whilst the response model references SecondObject, it's only inheriting from FirstObject
 							// and doesn't contain any new fields, so it should be switched out
 							ReferenceName: pointer.To("FirstObject"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -996,33 +986,32 @@ func TestParseModelInheritingFromObjectWithPropertiesWithinAllOf(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"SecondObject": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							// SecondObject is referenced as the Response Object, but because it inherits from one Model
 							// (FirstObject) and uses another (ThirdObject) it shouldn't be flattened into the parent type(s)
 							// and should instead remain `SecondObject`.
 							ReferenceName: pointer.To("SecondObject"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -1042,41 +1031,40 @@ func TestParseModelContainingAllOfToTypeObject(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Model": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"Country": {
 								JsonName: "country",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "Example_Test",
-						RequestObject: &importerModels.ObjectDefinition{
+						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -1096,41 +1084,40 @@ func TestParseModelContainingAllOfToTypeObjectWithProperties(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Model": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Country": {
 								JsonName: "country",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "Example_Test",
-						RequestObject: &importerModels.ObjectDefinition{
+						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -1150,67 +1137,66 @@ func TestParseModelContainingAllOfWithinProperties(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Model": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Country": {
 								JsonName: "country",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"Properties": {
 								JsonName: "properties",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("ModelProperties"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 					"ModelProperties": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"MoreNested": {
 								JsonName: "moreNested",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"Nested": {
 								JsonName: "nested",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "Example_Test",
-						RequestObject: &importerModels.ObjectDefinition{
+						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -1230,79 +1216,78 @@ func TestParseModelContainingMultipleAllOfWithinProperties(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Model": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Options": {
 								JsonName: "options",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("ResourceWithLocation"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Resource": {
 								JsonName: "resource",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("ModelResource"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 					"ModelResource": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Country": {
 								JsonName: "country",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"MoreNested": {
 								JsonName: "moreNested",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Nested": {
 								JsonName: "nested",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 					"ResourceWithLocation": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Country": {
 								JsonName: "country",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "Example_Test",
-						RequestObject: &importerModels.ObjectDefinition{
+						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -1322,74 +1307,73 @@ func TestParseModelContainingLists(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Model": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Animals": {
 								JsonName: "animals",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									NestedItem: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
+									NestedItem: &models.SDKObjectDefinition{
 										ReferenceName: pointer.To("Animal"),
-										Type:          importerModels.ObjectDefinitionReference,
+										Type:          models.ReferenceSDKObjectDefinitionType,
 									},
-									Type: importerModels.ObjectDefinitionList,
+									Type: models.ListSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"Plants": {
 								JsonName: "plants",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									NestedItem: &importerModels.ObjectDefinition{
-										Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									NestedItem: &models.SDKObjectDefinition{
+										Type: models.StringSDKObjectDefinitionType,
 
-										// NOTE: these change substantially in the new SDK
-										Maximum:     pointer.To(10),
-										Minimum:     pointer.To(1),
-										UniqueItems: pointer.To(true),
+										// TODO: re-enable min/max/unique
+										// Maximum:     pointer.To(10),
+										// Minimum:     pointer.To(1),
+										// UniqueItems: pointer.To(true),
 									},
-									Type: importerModels.ObjectDefinitionList,
+									Type: models.ListSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 					"Animal": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Age": {
 								JsonName: "age",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionInteger,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.IntegerSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -1409,45 +1393,44 @@ func TestParseModelInlinedWithNoName(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Container": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Planets": {
 								JsonName: "planets",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									NestedItem: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
+									NestedItem: &models.SDKObjectDefinition{
 										ReferenceName: pointer.To("ContainerPlanetsInlined"),
-										Type:          importerModels.ObjectDefinitionReference,
+										Type:          models.ReferenceSDKObjectDefinitionType,
 									},
-									Type: importerModels.ObjectDefinitionList,
+									Type: models.ListSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 					"ContainerPlanetsInlined": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"ExampleField": {
 								JsonName: "exampleField",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Container"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -1467,60 +1450,61 @@ func TestParseModelInheritingFromParent(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Model": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Age": {
 								JsonName: "age",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionInteger,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.IntegerSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Enabled": {
 								JsonName: "enabled",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"Height": {
 								JsonName: "height",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionFloat,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.FloatSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"Tags": {
-								JsonName:        "tags",
-								CustomFieldType: pointer.To(importerModels.CustomFieldTypeTags),
-								Required:        true,
+								JsonName: "tags",
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.TagsSDKObjectDefinitionType,
+								},
+								Required: true,
 							},
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "Example_Test",
-						RequestObject: &importerModels.ObjectDefinition{
+						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -1540,94 +1524,96 @@ func TestParseModelMultipleTopLevelModelsAndOperations(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"GetExample": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Age": {
 								JsonName: "age",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionInteger,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.IntegerSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Enabled": {
 								JsonName: "enabled",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"Tags": {
-								JsonName:        "tags",
-								CustomFieldType: pointer.To(importerModels.CustomFieldTypeTags),
-								Required:        false,
+								JsonName: "tags",
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.TagsSDKObjectDefinitionType,
+								},
+								Required: false,
 							},
 						},
 					},
 					"PutExample": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Age": {
 								JsonName: "age",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionInteger,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.IntegerSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Enabled": {
 								JsonName: "enabled",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"Tags": {
-								JsonName:        "tags",
-								CustomFieldType: pointer.To(importerModels.CustomFieldTypeTags),
-								Required:        false,
+								JsonName: "tags",
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.TagsSDKObjectDefinitionType,
+								},
+								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Get": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Get",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("GetExample"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 					"Put": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "Example_Put",
-						RequestObject: &importerModels.ObjectDefinition{
+						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("PutExample"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("PutExample"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -1647,21 +1633,21 @@ func TestParseModelBug2675DuplicateModel(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Example": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"EnvironmentRole": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Description": {
 								JsonName: "description",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								ReadOnly: true,
 								Required: false,
 							},
 							"RoleName": {
 								JsonName: "roleName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								ReadOnly: true,
 								Required: false,
@@ -1669,180 +1655,179 @@ func TestParseModelBug2675DuplicateModel(t *testing.T) {
 						},
 					},
 					"ExampleEnvironment": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Location": {
-								JsonName:        "location",
-								CustomFieldType: pointer.To(importerModels.CustomFieldTypeLocation),
-								Required:        false,
+								JsonName: "location",
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.LocationSDKObjectDefinitionType,
+								},
+								Required: false,
 							},
 							"Properties": {
 								JsonName: "properties",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("ExampleEnvironmentProperties"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 					"ExampleEnvironmentProperties": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"CreatorRoleAssignment": {
 								JsonName: "creatorRoleAssignment",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("ExampleEnvironmentUpdatePropertiesCreatorRoleAssignment"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"DeploymentTargetId": {
 								JsonName: "deploymentTargetId",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"ProvisioningState": {
 								JsonName: "provisioningState",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								ReadOnly: true,
 								Required: false,
 							},
 							"UserRoleAssignments": {
 								JsonName: "userRoleAssignments",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									NestedItem: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
+									NestedItem: &models.SDKObjectDefinition{
 										ReferenceName: pointer.To("UserRoleAssignment"),
-										Type:          importerModels.ObjectDefinitionReference,
+										Type:          models.ReferenceSDKObjectDefinitionType,
 									},
-									Type: importerModels.ObjectDefinitionDictionary,
+									Type: models.DictionarySDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 					"ExampleEnvironmentUpdate": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Example": {
 								JsonName: "example",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Properties": {
 								JsonName: "properties",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("ExampleEnvironmentUpdateProperties"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 					"ExampleEnvironmentUpdateProperties": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"CreatorRoleAssignment": {
 								JsonName: "creatorRoleAssignment",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("ExampleEnvironmentUpdatePropertiesCreatorRoleAssignment"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"DeploymentTargetId": {
 								JsonName: "deploymentTargetId",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"UserRoleAssignments": {
 								JsonName: "userRoleAssignments",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									NestedItem: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
+									NestedItem: &models.SDKObjectDefinition{
 										ReferenceName: pointer.To("UserRoleAssignment"),
-										Type:          importerModels.ObjectDefinitionReference,
+										Type:          models.ReferenceSDKObjectDefinitionType,
 									},
-									Type: importerModels.ObjectDefinitionDictionary,
+									Type: models.DictionarySDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 					"ExampleEnvironmentUpdatePropertiesCreatorRoleAssignment": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Roles": {
 								JsonName: "roles",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									NestedItem: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
+									NestedItem: &models.SDKObjectDefinition{
 										ReferenceName: pointer.To("EnvironmentRole"),
-										Type:          importerModels.ObjectDefinitionReference,
+										Type:          models.ReferenceSDKObjectDefinitionType,
 									},
-									Type: importerModels.ObjectDefinitionDictionary,
+									Type: models.DictionarySDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 					"UserRoleAssignment": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Roles": {
 								JsonName: "roles",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									NestedItem: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
+									NestedItem: &models.SDKObjectDefinition{
 										ReferenceName: pointer.To("EnvironmentRole"),
-										Type:          importerModels.ObjectDefinitionReference,
+										Type:          models.ReferenceSDKObjectDefinitionType,
 									},
-									Type: importerModels.ObjectDefinitionDictionary,
+									Type: models.DictionarySDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"CreateOrUpdate": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "Example_CreateOrUpdate",
-						RequestObject: &importerModels.ObjectDefinition{
+						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleEnvironment"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						ResourceIdName: pointer.To("EnvironmentId"),
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResourceIDName: pointer.To("EnvironmentId"),
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleEnvironment"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 					},
 					"Get": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Get",
-						ResourceIdName:      pointer.To("EnvironmentId"),
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResourceIDName:      pointer.To("EnvironmentId"),
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleEnvironment"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 					},
 					"Update": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PATCH",
-						OperationId:         "Example_Update",
-						RequestObject: &importerModels.ObjectDefinition{
+						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleEnvironmentUpdate"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						ResourceIdName: pointer.To("EnvironmentId"),
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResourceIDName: pointer.To("EnvironmentId"),
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleEnvironment"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 					},
 				},

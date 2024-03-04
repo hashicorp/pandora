@@ -7,7 +7,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 func TestProcessField_PluralToSingular(t *testing.T) {
@@ -19,13 +19,13 @@ func TestProcessField_PluralToSingular(t *testing.T) {
 		{
 			fieldInput: "Pandas",
 			metadataInput: FieldMetadata{
-				Model: resourcemanager.ModelDetails{
-					Fields: map[string]resourcemanager.FieldDetails{
+				Model: models.SDKModel{
+					Fields: map[string]models.SDKField{
 						"Pandas": {
-							ObjectDefinition: resourcemanager.ApiObjectDefinition{
-								Type: resourcemanager.ListApiObjectDefinitionType,
-								NestedItem: pointer.To(resourcemanager.ApiObjectDefinition{
-									Type: resourcemanager.StringApiObjectDefinitionType,
+							ObjectDefinition: models.SDKObjectDefinition{
+								Type: models.ListSDKObjectDefinitionType,
+								NestedItem: pointer.To(models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								}),
 							},
 						},
@@ -37,13 +37,13 @@ func TestProcessField_PluralToSingular(t *testing.T) {
 		{
 			fieldInput: "Statuses",
 			metadataInput: FieldMetadata{
-				Model: resourcemanager.ModelDetails{
-					Fields: map[string]resourcemanager.FieldDetails{
+				Model: models.SDKModel{
+					Fields: map[string]models.SDKField{
 						"Statuses": {
-							ObjectDefinition: resourcemanager.ApiObjectDefinition{
-								Type: resourcemanager.ListApiObjectDefinitionType,
-								NestedItem: pointer.To(resourcemanager.ApiObjectDefinition{
-									Type: resourcemanager.ReferenceApiObjectDefinitionType,
+							ObjectDefinition: models.SDKObjectDefinition{
+								Type: models.ListSDKObjectDefinitionType,
+								NestedItem: pointer.To(models.SDKObjectDefinition{
+									Type: models.ReferenceSDKObjectDefinitionType,
 								}),
 							},
 						},
@@ -55,13 +55,13 @@ func TestProcessField_PluralToSingular(t *testing.T) {
 		{
 			fieldInput: "Metadata",
 			metadataInput: FieldMetadata{
-				Model: resourcemanager.ModelDetails{
-					Fields: map[string]resourcemanager.FieldDetails{
+				Model: models.SDKModel{
+					Fields: map[string]models.SDKField{
 						"Metadata": {
-							ObjectDefinition: resourcemanager.ApiObjectDefinition{
-								Type: resourcemanager.ListApiObjectDefinitionType,
-								NestedItem: pointer.To(resourcemanager.ApiObjectDefinition{
-									Type: resourcemanager.ReferenceApiObjectDefinitionType,
+							ObjectDefinition: models.SDKObjectDefinition{
+								Type: models.ListSDKObjectDefinitionType,
+								NestedItem: pointer.To(models.SDKObjectDefinition{
+									Type: models.ReferenceSDKObjectDefinitionType,
 								}),
 							},
 						},
@@ -73,11 +73,11 @@ func TestProcessField_PluralToSingular(t *testing.T) {
 		{
 			fieldInput: "Planets",
 			metadataInput: FieldMetadata{
-				Model: resourcemanager.ModelDetails{
-					Fields: map[string]resourcemanager.FieldDetails{
+				Model: models.SDKModel{
+					Fields: map[string]models.SDKField{
 						"Planets": {
-							ObjectDefinition: resourcemanager.ApiObjectDefinition{
-								Type: resourcemanager.StringApiObjectDefinitionType,
+							ObjectDefinition: models.SDKObjectDefinition{
+								Type: models.StringSDKObjectDefinitionType,
 							},
 						},
 					},
@@ -88,11 +88,11 @@ func TestProcessField_PluralToSingular(t *testing.T) {
 		{
 			fieldInput: "Bass",
 			metadataInput: FieldMetadata{
-				Model: resourcemanager.ModelDetails{
-					Fields: map[string]resourcemanager.FieldDetails{
+				Model: models.SDKModel{
+					Fields: map[string]models.SDKField{
 						"Bass": {
-							ObjectDefinition: resourcemanager.ApiObjectDefinition{
-								Type: resourcemanager.StringApiObjectDefinitionType,
+							ObjectDefinition: models.SDKObjectDefinition{
+								Type: models.StringSDKObjectDefinitionType,
 							},
 						},
 					},

@@ -4,6 +4,7 @@
 package dataworkarounds
 
 import (
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
@@ -25,14 +26,14 @@ func (w workaroundRedis22407) Process(apiDefinition importerModels.AzureApiDefin
 		if model, ok := resource.Models["RedisCommonPropertiesRedisConfiguration"]; ok {
 
 			if _, ok := model.Fields["NotifyKeyspaceEvents"]; !ok {
-				model.Fields["NotifyKeyspaceEvents"] = importerModels.FieldDetails{
+				model.Fields["NotifyKeyspaceEvents"] = models.SDKField{
 					Required:    false,
 					ReadOnly:    false,
 					Sensitive:   false,
 					JsonName:    "notify-keyspace-events",
 					Description: "The KeySpace Events which should be monitored.",
-					ObjectDefinition: &importerModels.ObjectDefinition{
-						Type: importerModels.ObjectDefinitionString,
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type: models.StringSDKObjectDefinitionType,
 					},
 				}
 			}

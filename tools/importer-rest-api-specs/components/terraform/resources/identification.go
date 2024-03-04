@@ -5,11 +5,12 @@ package resources
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
 	"strings"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 	"github.com/hashicorp/pandora/tools/sdk/services"
@@ -40,28 +41,28 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 
 		for operationName, operation := range input.Operations.Operations {
 			// if it's an operation on just a suffix we're not interested
-			if operation.ResourceIdName == nil {
+			if operation.ResourceIDName == nil {
 				continue
 			}
-			if *operation.ResourceIdName != resourceIdName {
+			if *operation.ResourceIDName != resourceIdName {
 				continue
 			}
 
-			if (strings.EqualFold(operation.Method, "POST") || strings.EqualFold(operation.Method, "PUT")) && operation.UriSuffix == nil && operation.RequestObject != nil {
+			if (strings.EqualFold(operation.Method, "POST") || strings.EqualFold(operation.Method, "PUT")) && operation.URISuffix == nil && operation.RequestObject != nil {
 				createMethod = &resourcemanager.MethodDefinition{
 					Generate:         resourceMetaData.GenerateCreate,
 					MethodName:       operationName,
 					TimeoutInMinutes: 30,
 				}
 			}
-			if strings.EqualFold(operation.Method, "PATCH") && operation.UriSuffix == nil && operation.RequestObject != nil {
+			if strings.EqualFold(operation.Method, "PATCH") && operation.URISuffix == nil && operation.RequestObject != nil {
 				v := strings.ToLower(operationName)
 				// if this is UpdateTags etc, ignore it since the model will be totally unrelated
 				if v != "update" && strings.HasPrefix(v, "update") {
 					continue
 				}
-				objectDefinition := topLevelObjectDefinition(*operation.RequestObject)
-				if objectDefinition.Type != resourcemanager.ReferenceApiObjectDefinitionType {
+				objectDefinition := helpers.InnerMostSDKObjectDefinition(*operation.RequestObject)
+				if objectDefinition.Type != models.ReferenceSDKObjectDefinitionType {
 					continue
 				}
 				model, ok := input.Schema.Models[*objectDefinition.ReferenceName]
@@ -79,8 +80,8 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 					TimeoutInMinutes: 30,
 				}
 			}
-			if strings.EqualFold(operation.Method, "GET") && operation.UriSuffix == nil && operation.ResponseObject != nil {
-				if operation.UriSuffix == nil {
+			if strings.EqualFold(operation.Method, "GET") && operation.URISuffix == nil && operation.ResponseObject != nil {
+				if operation.URISuffix == nil {
 					getMethod = &resourcemanager.MethodDefinition{
 						Generate:         resourceMetaData.GenerateRead,
 						MethodName:       operationName,
@@ -92,7 +93,7 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 					hasList = true
 				}
 			}
-			if strings.EqualFold(operation.Method, "DELETE") && operation.UriSuffix == nil {
+			if strings.EqualFold(operation.Method, "DELETE") && operation.URISuffix == nil {
 				deleteMethod = &resourcemanager.MethodDefinition{
 					Generate:         resourceMetaData.GenerateDelete,
 					MethodName:       operationName,
@@ -100,7 +101,7 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 				}
 			}
 			// TODO: determine if we're concerned with these in the future (e.g. ListKeys etc)
-			//if operation.UriSuffix != nil && !strings.EqualFold(operation.Method, "GET") {
+			//if operation.URISuffix != nil && !strings.EqualFold(operation.Method, "GET") {
 			//	hasSuffixedMethods = true
 			//}
 		}
@@ -201,7 +202,7 @@ func containsDiscriminatedTypes(resource *resourcemanager.TerraformResourceDetai
 		}
 
 		if operation.RequestObject != nil {
-			if operation.RequestObject.Type != resourcemanager.ReferenceApiObjectDefinitionType {
+			if operation.RequestObject.Type != models.ReferenceSDKObjectDefinitionType {
 				return nil, fmt.Errorf("request objects must use a reference but got %q", string(operation.RequestObject.Type))
 			}
 			modelName := *operation.RequestObject.ReferenceName
@@ -219,13 +220,13 @@ func containsDiscriminatedTypes(resource *resourcemanager.TerraformResourceDetai
 	return pointer.FromBool(false), nil
 }
 
-func modelContainsDiscriminatedTypes(model resourcemanager.ModelDetails, data services.Resource) bool {
-	if model.ParentTypeName != nil || model.TypeHintIn != nil || model.TypeHintValue != nil {
+func modelContainsDiscriminatedTypes(model models.SDKModel, data services.Resource) bool {
+	if model.ParentTypeName != nil || model.FieldNameContainingDiscriminatedValue != nil || model.DiscriminatedValue != nil {
 		return true
 	}
 
 	for _, field := range model.Fields {
-		if field.IsTypeHint {
+		if field.ContainsDiscriminatedValue {
 			return true
 		}
 
@@ -246,14 +247,6 @@ func modelContainsDiscriminatedTypes(model resourcemanager.ModelDetails, data se
 	}
 
 	return false
-}
-
-func topLevelObjectDefinition(input resourcemanager.ApiObjectDefinition) resourcemanager.ApiObjectDefinition {
-	if input.NestedItem != nil {
-		return topLevelObjectDefinition(*input.NestedItem)
-	}
-
-	return input
 }
 
 func findResourceName(definitions map[string]definitions.ResourceDefinition, resourceId string) (*string, *definitions.ResourceDefinition) {

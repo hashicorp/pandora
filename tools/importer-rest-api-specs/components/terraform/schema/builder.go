@@ -26,12 +26,12 @@ Things to do here:
 
 type Builder struct {
 	constants   map[string]models.SDKConstant
-	models      map[string]resourcemanager.ModelDetails
-	operations  map[string]resourcemanager.ApiOperation
+	models      map[string]models.SDKModel
+	operations  map[string]models.SDKOperation
 	resourceIds map[string]models.ResourceID
 }
 
-func NewBuilder(constants map[string]models.SDKConstant, models map[string]resourcemanager.ModelDetails, operations map[string]resourcemanager.ApiOperation, resourceIds map[string]models.ResourceID) Builder {
+func NewBuilder(constants map[string]models.SDKConstant, models map[string]models.SDKModel, operations map[string]models.SDKOperation, resourceIds map[string]models.ResourceID) Builder {
 	return Builder{
 		constants:   constants,
 		models:      models,
@@ -190,8 +190,8 @@ func (b Builder) removeUnusedModelToModelMappings(input resourcemanager.MappingD
 		if !ok {
 			return nil, fmt.Errorf("field %q was not found in SDK Model %q", mapping.ModelToModel.SdkFieldName, mapping.ModelToModel.SdkModelName)
 		}
-		objectDefinition := topLevelObjectDefinition(sdkField.ObjectDefinition)
-		if objectDefinition.Type != resourcemanager.ReferenceApiObjectDefinitionType {
+		objectDefinition := helpers.InnerMostSDKObjectDefinition(sdkField.ObjectDefinition)
+		if objectDefinition.Type != models.ReferenceSDKObjectDefinitionType {
 			// nothing to do here, move along now.
 			output.Fields = append(output.Fields, mapping)
 			continue
@@ -250,7 +250,7 @@ func removeUnusedMappingsFromSchemaModelNamed(modelName string, inputMappings []
 type modelParseResult struct {
 	mappings     resourcemanager.MappingDefinition
 	model        resourcemanager.TerraformSchemaModelDefinition
-	nestedModels map[string]resourcemanager.ModelDetails
+	nestedModels map[string]models.SDKModel
 }
 
 func (b Builder) schemaFromTopLevelModel(input resourcemanager.TerraformResourceDetails, mappings *resourcemanager.MappingDefinition, resourceBuildInfo *importerModels.ResourceBuildInfo, logger hclog.Logger) (*modelParseResult, error) {
@@ -321,8 +321,8 @@ func (b Builder) schemaFromTopLevelModel(input resourcemanager.TerraformResource
 	}, nil
 }
 
-func (b Builder) identifyModelsWithinPropertiesBlock(payloads operationPayloads, mappings *resourcemanager.MappingDefinition, logger hclog.Logger) (*map[string]resourcemanager.ModelDetails, *resourcemanager.MappingDefinition, error) {
-	allFields := make(map[string]resourcemanager.FieldDetails, 0)
+func (b Builder) identifyModelsWithinPropertiesBlock(payloads operationPayloads, mappings *resourcemanager.MappingDefinition, logger hclog.Logger) (*map[string]models.SDKModel, *resourcemanager.MappingDefinition, error) {
+	allFields := make(map[string]models.SDKField, 0)
 	for fieldName, field := range payloads.readPayload.Fields {
 		if _, ok := allFields[fieldName]; ok {
 			continue
@@ -335,7 +335,7 @@ func (b Builder) identifyModelsWithinPropertiesBlock(payloads operationPayloads,
 		allFields[fieldName] = field
 	}
 
-	allModels := make(map[string]resourcemanager.ModelDetails, 0)
+	allModels := make(map[string]models.SDKModel, 0)
 	for fieldName, field := range allFields {
 		// find models within field
 		modelsWithinField, err := b.identifyModelsWithinField(field, allModels, logger)
@@ -361,7 +361,7 @@ func (b Builder) identifyModelsWithinPropertiesBlock(payloads operationPayloads,
 	return &allModels, mappings, nil
 }
 
-func modelsMatch(first resourcemanager.ModelDetails, second resourcemanager.ModelDetails) bool {
+func modelsMatch(first models.SDKModel, second models.SDKModel) bool {
 	// TODO: implement me
 	return len(first.Fields) == len(second.Fields)
 }
@@ -374,7 +374,7 @@ func (b Builder) findCreateUpdateReadPayloads(input resourcemanager.TerraformRes
 	if !ok {
 		return nil, nil
 	}
-	if createOperation.RequestObject == nil || createOperation.RequestObject.Type != resourcemanager.ReferenceApiObjectDefinitionType || createOperation.RequestObject.ReferenceName == nil {
+	if createOperation.RequestObject == nil || createOperation.RequestObject.Type != models.ReferenceSDKObjectDefinitionType || createOperation.RequestObject.ReferenceName == nil {
 		// we don't generate resources for operations returning lists etc, debatable if we should
 		return nil, nil
 	}
@@ -395,7 +395,7 @@ func (b Builder) findCreateUpdateReadPayloads(input resourcemanager.TerraformRes
 	if !ok {
 		return nil, nil
 	}
-	if readOperation.ResponseObject == nil || readOperation.ResponseObject.Type != resourcemanager.ReferenceApiObjectDefinitionType || readOperation.ResponseObject.ReferenceName == nil {
+	if readOperation.ResponseObject == nil || readOperation.ResponseObject.Type != models.ReferenceSDKObjectDefinitionType || readOperation.ResponseObject.ReferenceName == nil {
 		// we don't generate resources for operations returning lists etc, debatable if we should
 		return nil, nil
 	}
@@ -418,7 +418,7 @@ func (b Builder) findCreateUpdateReadPayloads(input resourcemanager.TerraformRes
 		if !ok {
 			return nil, nil
 		}
-		if updateOperation.RequestObject == nil || updateOperation.RequestObject.Type != resourcemanager.ReferenceApiObjectDefinitionType || updateOperation.RequestObject.ReferenceName == nil {
+		if updateOperation.RequestObject == nil || updateOperation.RequestObject.Type != models.ReferenceSDKObjectDefinitionType || updateOperation.RequestObject.ReferenceName == nil {
 			// we don't generate resources for operations returning lists etc, debatable if we should
 			return nil, nil
 		}
@@ -441,7 +441,7 @@ func (b Builder) findCreateUpdateReadPayloads(input resourcemanager.TerraformRes
 	return &out, nil
 }
 
-func (b Builder) buildNestedModelDefinition(schemaModelName, topLevelModelName, sdkModelName string, model resourcemanager.ModelDetails, details resourcemanager.TerraformResourceDetails, mappings resourcemanager.MappingDefinition, resourceBuildInfo *importerModels.ResourceBuildInfo, logger hclog.Logger) (*resourcemanager.TerraformSchemaModelDefinition, *resourcemanager.MappingDefinition, error) {
+func (b Builder) buildNestedModelDefinition(schemaModelName, topLevelModelName, sdkModelName string, model models.SDKModel, details resourcemanager.TerraformResourceDetails, mappings resourcemanager.MappingDefinition, resourceBuildInfo *importerModels.ResourceBuildInfo, logger hclog.Logger) (*resourcemanager.TerraformSchemaModelDefinition, *resourcemanager.MappingDefinition, error) {
 	out := make(map[string]resourcemanager.TerraformSchemaFieldDefinition, 0)
 
 	for sdkFieldName, sdkField := range model.Fields {
@@ -452,7 +452,7 @@ func (b Builder) buildNestedModelDefinition(schemaModelName, topLevelModelName, 
 		}
 
 		isComputed := !sdkField.Required && !sdkField.Optional
-		isForceNew := sdkField.ForceNew
+		isForceNew := false // TODO: implement ForceNew, which can be determined from the
 		isRequired := sdkField.Required
 		isOptional := sdkField.Optional
 
@@ -474,7 +474,7 @@ func (b Builder) buildNestedModelDefinition(schemaModelName, topLevelModelName, 
 			return nil, nil, err
 		}
 
-		validation, err := getFieldValidation(sdkField.Validation, schemaFieldName)
+		validation, err := getFieldValidation(sdkField, b.constants)
 		if err != nil {
 			return nil, nil, err
 		}
@@ -489,13 +489,13 @@ func (b Builder) buildNestedModelDefinition(schemaModelName, topLevelModelName, 
 	}, &mappings, nil
 }
 
-func (b Builder) identifyModelsWithinField(field resourcemanager.FieldDetails, knownModels map[string]resourcemanager.ModelDetails, logger hclog.Logger) (*map[string]resourcemanager.ModelDetails, error) {
-	out := make(map[string]resourcemanager.ModelDetails, 0)
+func (b Builder) identifyModelsWithinField(field models.SDKField, knownModels map[string]models.SDKModel, logger hclog.Logger) (*map[string]models.SDKModel, error) {
+	out := make(map[string]models.SDKModel, 0)
 
-	objectDefinition := topLevelObjectDefinition(field.ObjectDefinition)
+	objectDefinition := helpers.InnerMostSDKObjectDefinition(field.ObjectDefinition)
 	if objectDefinition.ReferenceName != nil {
 		// we need to identify both this model and any models nested within it
-		allModels := make(map[string]resourcemanager.ModelDetails)
+		allModels := make(map[string]models.SDKModel)
 		for k, v := range knownModels {
 			allModels[k] = v
 		}
@@ -511,7 +511,7 @@ func (b Builder) identifyModelsWithinField(field resourcemanager.FieldDetails, k
 				return nil, fmt.Errorf("reference %q was both a constant and a model", *objectDefinition.ReferenceName)
 			}
 
-			if model.TypeHintIn != nil || model.TypeHintValue != nil || model.ParentTypeName != nil {
+			if model.FieldNameContainingDiscriminatedValue != nil || model.DiscriminatedValue != nil || model.ParentTypeName != nil {
 				logger.Trace("model %q was a discriminated type - skipping", *objectDefinition.ReferenceName)
 				return nil, nil
 			}
@@ -542,25 +542,18 @@ func (b Builder) identifyModelsWithinField(field resourcemanager.FieldDetails, k
 	return &out, nil
 }
 
-func objectDefinitionShouldBeSkipped(input resourcemanager.ApiObjectDefinitionType) bool {
-	toSkip := map[resourcemanager.ApiObjectDefinitionType]struct{}{
-		resourcemanager.RawFileApiObjectDefinitionType:   {},
-		resourcemanager.RawObjectApiObjectDefinitionType: {},
-		resourcemanager.SystemData:                       {},
+func objectDefinitionShouldBeSkipped(input models.SDKObjectDefinitionType) bool {
+	toSkip := map[models.SDKObjectDefinitionType]struct{}{
+		models.RawFileSDKObjectDefinitionType:    {},
+		models.RawObjectSDKObjectDefinitionType:  {},
+		models.SystemDataSDKObjectDefinitionType: {},
 	}
 	_, ok := toSkip[input]
 	return ok
 }
 
-func topLevelObjectDefinition(input resourcemanager.ApiObjectDefinition) resourcemanager.ApiObjectDefinition {
-	if input.NestedItem != nil {
-		return topLevelObjectDefinition(*input.NestedItem)
-	}
-
-	return input
-}
-
 func topLevelFieldObjectDefinition(input resourcemanager.TerraformSchemaFieldObjectDefinition) resourcemanager.TerraformSchemaFieldObjectDefinition {
+	// TODO: this should be moved into the data-api-sdk/v1/helpers package
 	if input.NestedObject != nil {
 		return topLevelFieldObjectDefinition(*input.NestedObject)
 	}

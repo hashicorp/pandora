@@ -10,8 +10,9 @@
         "referenceName": "DefaultAction"
       },
       "optional": true,
+      "readOnly": false,
       "required": false,
-      "description": ""
+      "sensitive": false
     },
     {
       "containsDiscriminatedTypeValue": false,
@@ -26,8 +27,9 @@
         }
       },
       "optional": true,
+      "readOnly": false,
       "required": false,
-      "description": ""
+      "sensitive": false
     },
     {
       "containsDiscriminatedTypeValue": false,
@@ -38,8 +40,22 @@
         "referenceName": "PublicNetworkAccess"
       },
       "optional": true,
+      "readOnly": false,
       "required": false,
-      "description": ""
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "trustedServiceAccessEnabled",
+      "name": "TrustedServiceAccessEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
     }
   ]
 }

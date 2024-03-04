@@ -9,24 +9,25 @@ import (
 
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
-	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 var _ customFieldMatcher = systemAssignedIdentityMatcher{}
 
 type systemAssignedIdentityMatcher struct{}
 
-func (systemAssignedIdentityMatcher) CustomFieldType() importerModels.CustomFieldType {
-	return importerModels.CustomFieldTypeSystemAssignedIdentity
+func (systemAssignedIdentityMatcher) ReplacementObjectDefinition() models.SDKObjectDefinition {
+	return models.SDKObjectDefinition{
+		Type: models.SystemAssignedIdentitySDKObjectDefinitionType,
+	}
 }
 
-func (systemAssignedIdentityMatcher) IsMatch(_ importerModels.FieldDetails, definition importerModels.ObjectDefinition, known internal.ParseResult) bool {
-	if definition.Type != importerModels.ObjectDefinitionReference {
+func (systemAssignedIdentityMatcher) IsMatch(field models.SDKField, known internal.ParseResult) bool {
+	if field.ObjectDefinition.Type != models.ReferenceSDKObjectDefinitionType {
 		return false
 	}
 
 	// retrieve the model from the reference
-	model, ok := known.Models[*definition.ReferenceName]
+	model, ok := known.Models[*field.ObjectDefinition.ReferenceName]
 	if !ok {
 		return false
 	}
@@ -47,7 +48,7 @@ func (systemAssignedIdentityMatcher) IsMatch(_ importerModels.FieldDetails, defi
 		}
 
 		if strings.EqualFold(fieldName, "Type") {
-			if fieldVal.ObjectDefinition == nil || fieldVal.ObjectDefinition.Type != importerModels.ObjectDefinitionReference {
+			if fieldVal.ObjectDefinition.Type != models.ReferenceSDKObjectDefinitionType {
 				continue
 			}
 			constant, ok := known.Constants[*fieldVal.ObjectDefinition.ReferenceName]

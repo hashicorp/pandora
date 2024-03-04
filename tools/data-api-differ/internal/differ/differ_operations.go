@@ -555,7 +555,7 @@ func (d differ) uriForOperation(input models.SDKOperation, resourceIds map[strin
 		components = append(components, *input.URISuffix)
 	}
 
-	// We could use a strings.Join(components, "/") here but since we need to check if both the Resource ID and UriSuffix
+	// We could use a strings.Join(components, "/") here but since we need to check if both the Resource ID and URISuffix
 	// value have start with a "/" we might as well do this here?
 	out := ""
 	for _, val := range components {

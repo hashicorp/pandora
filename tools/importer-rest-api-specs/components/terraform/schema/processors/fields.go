@@ -14,7 +14,7 @@ type FieldNameProcessor interface {
 
 type FieldMetadata struct {
 	TerraformDetails resourcemanager.TerraformResourceDetails
-	Model            resourcemanager.ModelDetails
+	Model            models.SDKModel
 	Constants        map[string]models.SDKConstant
 }
 

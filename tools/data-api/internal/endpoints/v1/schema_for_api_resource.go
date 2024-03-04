@@ -32,7 +32,7 @@ func (api Api) schemaForApiResource(w http.ResponseWriter, r *http.Request) {
 		internalServerError(w, fmt.Errorf("mapping Models: %+v", err))
 		return
 	}
-	resourceIds, err := transforms.MapResourceIDs(resource.Schema.ResourceIds)
+	resourceIds, err := transforms.MapResourceIDs(resource.Schema.ResourceIds, *mappedConstants)
 	if err != nil {
 		internalServerError(w, fmt.Errorf("mapping ResourceIDs: %+v", err))
 		return

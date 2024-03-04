@@ -55,7 +55,6 @@ func (d *SwaggerDefinition) parse(serviceName, apiVersion string, resourceProvid
 
 			if mergeResources, ok := resources[normalizedTag]; ok {
 				resources[normalizedTag] = importerModels.MergeResourcesForTag(mergeResources, *resource)
-
 			} else {
 				resources[normalizedTag] = *resource
 			}
@@ -126,7 +125,7 @@ func (d *SwaggerDefinition) simplifyOperationNamesForResource(resource importerM
 		return resource
 	}
 
-	output := make(map[string]importerModels.OperationDetails)
+	output := make(map[string]models.SDKOperation)
 	for key, value := range resource.Operations {
 		updatedKey := key[len(resourceNameLower):]
 		// Trim off any spurious `s` at the start. This happens when the Swagger Tag and the Operation ID

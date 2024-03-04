@@ -5,18 +5,17 @@ package parser
 
 import (
 	"fmt"
-	"github.com/go-openapi/spec"
 	"net/http"
 	"sort"
 	"strings"
 
+	"github.com/go-openapi/spec"
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/constants"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/resourceids"
-	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 type operationsParser struct {
@@ -25,12 +24,12 @@ type operationsParser struct {
 	swaggerDefinition              *SwaggerDefinition
 }
 
-func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, operationIdsToParsedOperations map[string]resourceids.ParsedOperation, resourceProvider *string, found internal.ParseResult) (*map[string]importerModels.OperationDetails, *internal.ParseResult, error) {
+func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, operationIdsToParsedOperations map[string]resourceids.ParsedOperation, resourceProvider *string, found internal.ParseResult) (*map[string]models.SDKOperation, *internal.ParseResult, error) {
 	logger := d.logger.Named("Operations Parser")
-	operations := make(map[string]importerModels.OperationDetails, 0)
+	operations := make(map[string]models.SDKOperation, 0)
 	result := internal.ParseResult{
 		Constants: map[string]models.SDKConstant{},
-		Models:    map[string]importerModels.ModelDetails{},
+		Models:    map[string]models.SDKModel{},
 	}
 	result.Append(found)
 
@@ -60,7 +59,7 @@ func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, operationIdsTo
 		}
 
 		if existing, hasExisting := operations[operation.name]; hasExisting {
-			return nil, nil, fmt.Errorf("conflicting operations with the Name %q - first %q %q - second %q %q", operation.name, existing.Method, existing.OperationId, parsedOperation.Method, parsedOperation.OperationId)
+			return nil, nil, fmt.Errorf("conflicting operations with the Name %q - first %q - second %q", operation.name, existing.Method, parsedOperation.Method)
 		}
 
 		if parsedOperation == nil {
@@ -73,10 +72,10 @@ func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, operationIdsTo
 	return &operations, &result, nil
 }
 
-func (p operationsParser) parseOperation(operation parsedOperation, resourceProvider *string, logger hclog.Logger) (*importerModels.OperationDetails, *internal.ParseResult, error) {
+func (p operationsParser) parseOperation(operation parsedOperation, resourceProvider *string, logger hclog.Logger) (*models.SDKOperation, *internal.ParseResult, error) {
 	result := internal.ParseResult{
 		Constants: map[string]models.SDKConstant{},
-		Models:    map[string]importerModels.ModelDetails{},
+		Models:    map[string]models.SDKModel{},
 	}
 
 	contentType := p.determineContentType(operation)
@@ -91,7 +90,6 @@ func (p operationsParser) parseOperation(operation parsedOperation, resourceProv
 			return nil, nil, fmt.Errorf("appending nestedResult: %+v", err)
 		}
 	}
-	isAListOperation := p.isListOperation(operation)
 	responseResult, nestedResult, err := p.responseObjectForOperation(operation, result)
 	if err != nil {
 		return nil, nil, fmt.Errorf("determining response operation for %q (method %q / ID %q): %+v", operation.name, operation.httpMethod, operation.operation.ID, err)
@@ -125,19 +123,17 @@ func (p operationsParser) parseOperation(operation parsedOperation, resourceProv
 		return nil, nil, nil
 	}
 
-	operationData := importerModels.OperationDetails{
+	operationData := models.SDKOperation{
 		ContentType:                      contentType,
 		ExpectedStatusCodes:              expectedStatusCodes,
 		FieldContainingPaginationDetails: paginationField,
-		IsListOperation:                  isAListOperation,
 		LongRunning:                      longRunning,
 		Method:                           strings.ToUpper(operation.httpMethod),
-		OperationId:                      operation.operation.ID,
 		Options:                          *options,
 		RequestObject:                    requestObject,
-		ResourceIdName:                   resourceId.ResourceIdName,
+		ResourceIDName:                   resourceId.ResourceIdName,
 		ResponseObject:                   responseResult.objectDefinition,
-		UriSuffix:                        resourceId.UriSuffix,
+		URISuffix:                        resourceId.UriSuffix,
 	}
 
 	if p.operationShouldBeIgnored(operationData) {
@@ -405,7 +401,7 @@ func (p operationsParser) optionsForOperation(input parsedOperation, logger hclo
 	return &output, &result, nil
 }
 
-func (p operationsParser) operationShouldBeIgnored(input importerModels.OperationDetails) bool {
+func (p operationsParser) operationShouldBeIgnored(input models.SDKOperation) bool {
 	// Some HTTP Operations don't make sense for us to expose at this time, for example
 	// a GET request which returns no content. They may at some point in the future but
 	// for now there's not much point
@@ -421,7 +417,7 @@ func (p operationsParser) operationShouldBeIgnored(input importerModels.Operatio
 	return false
 }
 
-func (p operationsParser) requestObjectForOperation(input parsedOperation, known internal.ParseResult) (*importerModels.ObjectDefinition, *internal.ParseResult, error) {
+func (p operationsParser) requestObjectForOperation(input parsedOperation, known internal.ParseResult) (*models.SDKObjectDefinition, *internal.ParseResult, error) {
 	// all we should parse out is the top level object - nothing more.
 
 	// find the same operation in the unexpanded swagger spec since we need the reference name
@@ -447,7 +443,7 @@ func (p operationsParser) requestObjectForOperation(input parsedOperation, known
 }
 
 type operationResponseObjectResult struct {
-	objectDefinition    *importerModels.ObjectDefinition
+	objectDefinition    *models.SDKObjectDefinition
 	paginationFieldName *string
 }
 
@@ -467,7 +463,7 @@ func (p operationsParser) responseObjectForOperation(input parsedOperation, know
 	output := operationResponseObjectResult{}
 	result := internal.ParseResult{
 		Constants: map[string]models.SDKConstant{},
-		Models:    map[string]importerModels.ModelDetails{},
+		Models:    map[string]models.SDKModel{},
 	}
 	result.Append(known)
 
@@ -479,7 +475,7 @@ func (p operationsParser) responseObjectForOperation(input parsedOperation, know
 
 	// since it's possible for operations to have multiple status codes, parse out all the objects and then find the most applicable
 	statusCodes := make([]int, 0)
-	objectDefinitionsByStatusCode := map[int]importerModels.ObjectDefinition{}
+	objectDefinitionsByStatusCode := map[int]models.SDKObjectDefinition{}
 	for statusCode, details := range unexpandedOperation.Responses.StatusCodeResponses {
 		if !p.operationIsASuccess(statusCode, details) {
 			continue

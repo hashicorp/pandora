@@ -16,46 +16,46 @@ import (
 func TestBuildForResourceGroupHappyPathAllModelsTheSame(t *testing.T) {
 	builder := Builder{
 		constants: map[string]models.SDKConstant{},
-		models: map[string]resourcemanager.ModelDetails{
+		models: map[string]models.SDKModel{
 			"ResourceGroup": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Name": {
 						JsonName: "name",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"Location": {
 						JsonName: "location",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.LocationApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.LocationSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"Properties": {
 						JsonName: "properties",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("ResourceGroupProperties"),
 						},
 						Optional: true,
 					},
 					"Tags": {
 						JsonName: "tags",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.TagsApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.TagsSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 				},
 			},
 			"ResourceGroupProperties": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"ProvisioningState": {
 						JsonName: "provisioningState",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						// Computed
 						Optional: false,
@@ -64,38 +64,38 @@ func TestBuildForResourceGroupHappyPathAllModelsTheSame(t *testing.T) {
 				},
 			},
 		},
-		operations: map[string]resourcemanager.ApiOperation{
+		operations: map[string]models.SDKOperation{
 			"Create": {
 				LongRunning: false,
 				Method:      "PUT",
-				RequestObject: &resourcemanager.ApiObjectDefinition{
+				RequestObject: &models.SDKObjectDefinition{
 					ReferenceName: pointer.To("ResourceGroup"),
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					Type:          models.ReferenceSDKObjectDefinitionType,
 				},
-				ResourceIdName: pointer.To("ResourceGroupId"),
+				ResourceIDName: pointer.To("ResourceGroupId"),
 			},
 			"Delete": {
 				LongRunning:    true,
 				Method:         "DELETE",
-				ResourceIdName: pointer.To("ResourceGroupId"),
+				ResourceIDName: pointer.To("ResourceGroupId"),
 			},
 			"Get": {
 				LongRunning: false,
 				Method:      "GET",
-				ResponseObject: &resourcemanager.ApiObjectDefinition{
+				ResponseObject: &models.SDKObjectDefinition{
 					ReferenceName: pointer.To("ResourceGroup"),
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					Type:          models.ReferenceSDKObjectDefinitionType,
 				},
-				ResourceIdName: pointer.To("ResourceGroupId"),
+				ResourceIDName: pointer.To("ResourceGroupId"),
 			},
 			"Update": {
 				LongRunning: false,
 				Method:      "PUT",
-				RequestObject: &resourcemanager.ApiObjectDefinition{
+				RequestObject: &models.SDKObjectDefinition{
 					ReferenceName: pointer.To("ResourceGroup"),
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					Type:          models.ReferenceSDKObjectDefinitionType,
 				},
-				ResourceIdName: pointer.To("ResourceGroupId"),
+				ResourceIDName: pointer.To("ResourceGroupId"),
 			},
 		},
 		resourceIds: map[string]models.ResourceID{
@@ -153,138 +153,138 @@ func TestBuildForResourceGroupUsingRealData(t *testing.T) {
 
 	builder := Builder{
 		constants: map[string]models.SDKConstant{},
-		models: map[string]resourcemanager.ModelDetails{
+		models: map[string]models.SDKModel{
 			"ResourceGroup": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Id": {
 						JsonName: "id",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"Location": {
 						JsonName: "location",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.LocationApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.LocationSDKObjectDefinitionType,
 						},
 						Required: true,
 					},
 					"ManagedBy": {
 						JsonName: "managedBy",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"Name": {
 						JsonName: "name",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"Properties": {
 						JsonName: "properties",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("ResourceGroupProperties"),
 						},
 						Optional: true,
 					},
 					"Tags": {
 						JsonName: "tags",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.TagsApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.TagsSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"Type": {
 						JsonName: "type",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 				},
 			},
 			"ResourceGroupPatchable": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"ManagedBy": {
 						JsonName: "managedBy",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"Name": {
 						JsonName: "name",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"Properties": {
 						JsonName: "properties",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("ResourceGroupProperties"),
 						},
 						Optional: true,
 					},
 					"Tags": {
 						JsonName: "tags",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.TagsApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.TagsSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 				},
 			},
 			"ResourceGroupProperties": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"ProvisioningState": {
 						JsonName: "provisioningState",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 				},
 			},
 		},
-		operations: map[string]resourcemanager.ApiOperation{
+		operations: map[string]models.SDKOperation{
 			"Create": {
 				LongRunning: false,
 				Method:      "PUT",
-				RequestObject: &resourcemanager.ApiObjectDefinition{
+				RequestObject: &models.SDKObjectDefinition{
 					ReferenceName: pointer.To("ResourceGroup"),
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					Type:          models.ReferenceSDKObjectDefinitionType,
 				},
-				ResourceIdName: pointer.To("ResourceGroupId"),
+				ResourceIDName: pointer.To("ResourceGroupId"),
 			},
 			"Delete": {
 				LongRunning:    true,
 				Method:         "DELETE",
-				ResourceIdName: pointer.To("ResourceGroupId"),
+				ResourceIDName: pointer.To("ResourceGroupId"),
 			},
 			"Get": {
 				LongRunning: false,
 				Method:      "GET",
-				ResponseObject: &resourcemanager.ApiObjectDefinition{
+				ResponseObject: &models.SDKObjectDefinition{
 					ReferenceName: pointer.To("ResourceGroup"),
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					Type:          models.ReferenceSDKObjectDefinitionType,
 				},
-				ResourceIdName: pointer.To("ResourceGroupId"),
+				ResourceIDName: pointer.To("ResourceGroupId"),
 			},
 			"Update": {
 				LongRunning: false,
 				Method:      "PUT",
-				RequestObject: &resourcemanager.ApiObjectDefinition{
+				RequestObject: &models.SDKObjectDefinition{
 					ReferenceName: pointer.To("ResourceGroupPatchable"),
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					Type:          models.ReferenceSDKObjectDefinitionType,
 				},
-				ResourceIdName: pointer.To("ResourceGroupId"),
+				ResourceIDName: pointer.To("ResourceGroupId"),
 			},
 		},
 		resourceIds: map[string]models.ResourceID{

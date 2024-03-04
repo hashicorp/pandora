@@ -152,6 +152,8 @@ type FieldDetails struct {
 	Required         bool
 	Validation       *FieldValidationDetails
 	Description      string
+	Sensitive        bool `json:"sensitive"`
+	ReadOnly         bool `json:"readOnly"`
 }
 
 type ModelDetails struct {

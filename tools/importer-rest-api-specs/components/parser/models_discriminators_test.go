@@ -7,6 +7,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
@@ -21,85 +22,84 @@ func TestParseDiscriminatorsTopLevel(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Discriminator": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Nested": {
 								JsonName: "nested",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("Animal"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 						},
 					},
 					"Animal": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 						},
-						TypeHintIn: pointer.To("AnimalType"),
+						FieldNameContainingDiscriminatedValue: pointer.To("AnimalType"),
 					},
 					"Cat": {
-						ParentTypeName: pointer.To("Animal"),
-						TypeHintIn:     pointer.To("AnimalType"),
-						TypeHintValue:  pointer.To("cat"),
-						Fields: map[string]importerModels.FieldDetails{
+						ParentTypeName:                        pointer.To("Animal"),
+						FieldNameContainingDiscriminatedValue: pointer.To("AnimalType"),
+						DiscriminatedValue:                    pointer.To("cat"),
+						Fields: map[string]models.SDKField{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"IsFluffy": {
 								JsonName: "isFluffy",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 						},
 					},
 					"Dog": {
-						ParentTypeName: pointer.To("Animal"),
-						TypeHintIn:     pointer.To("AnimalType"),
-						TypeHintValue:  pointer.To("dog"),
-						Fields: map[string]importerModels.FieldDetails{
+						ParentTypeName:                        pointer.To("Animal"),
+						FieldNameContainingDiscriminatedValue: pointer.To("AnimalType"),
+						DiscriminatedValue:                    pointer.To("dog"),
+						Fields: map[string]models.SDKField{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"Barks": {
 								JsonName: "barks",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Discriminator_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -119,95 +119,94 @@ func TestParseDiscriminatorsWithinArray(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Discriminator": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"BiologicalEntities": {
 								JsonName: "biologicalEntities",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									NestedItem: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
+									NestedItem: &models.SDKObjectDefinition{
 										ReferenceName: pointer.To("BiologicalEntity"),
-										Type:          importerModels.ObjectDefinitionReference,
+										Type:          models.ReferenceSDKObjectDefinitionType,
 									},
-									Type: importerModels.ObjectDefinitionList,
+									Type: models.ListSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 						},
 					},
 					"BiologicalEntity": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"TypeName": {
 								JsonName: "typeName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 						},
-						TypeHintIn: pointer.To("TypeName"),
+						FieldNameContainingDiscriminatedValue: pointer.To("TypeName"),
 					},
 					"Cat": {
-						ParentTypeName: pointer.To("BiologicalEntity"),
-						TypeHintIn:     pointer.To("TypeName"),
-						TypeHintValue:  pointer.To("cat"),
-						Fields: map[string]importerModels.FieldDetails{
+						ParentTypeName:                        pointer.To("BiologicalEntity"),
+						FieldNameContainingDiscriminatedValue: pointer.To("TypeName"),
+						DiscriminatedValue:                    pointer.To("cat"),
+						Fields: map[string]models.SDKField{
 							"IsFluffy": {
 								JsonName: "isFluffy",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"TypeName": {
 								JsonName: "typeName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 						},
 					},
 					"Human": {
-						ParentTypeName: pointer.To("BiologicalEntity"),
-						TypeHintIn:     pointer.To("TypeName"),
-						TypeHintValue:  pointer.To("human"),
-						Fields: map[string]importerModels.FieldDetails{
+						ParentTypeName:                        pointer.To("BiologicalEntity"),
+						FieldNameContainingDiscriminatedValue: pointer.To("TypeName"),
+						DiscriminatedValue:                    pointer.To("human"),
+						Fields: map[string]models.SDKField{
 							"FirstName": {
 								JsonName: "firstName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"LastName": {
 								JsonName: "lastName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"TypeName": {
 								JsonName: "typeName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Discriminator_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -227,170 +226,169 @@ func TestParseDiscriminatorsWithinDiscriminators(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Discriminator": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Animal": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"FavouriteToy": {
 								JsonName: "favouriteToy",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("Toy"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
-						TypeHintIn: pointer.To("AnimalType"),
+						FieldNameContainingDiscriminatedValue: pointer.To("AnimalType"),
 					},
 					"Bone": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Length": {
 								JsonName: "length",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionFloat,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.FloatSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"ToyType": {
 								JsonName: "toyType",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 						},
-						ParentTypeName: pointer.To("Toy"),
-						TypeHintIn:     pointer.To("ToyType"),
-						TypeHintValue:  pointer.To("bone"),
+						ParentTypeName:                        pointer.To("Toy"),
+						FieldNameContainingDiscriminatedValue: pointer.To("ToyType"),
+						DiscriminatedValue:                    pointer.To("bone"),
 					},
 					"Cat": {
-						ParentTypeName: pointer.To("Animal"),
-						TypeHintIn:     pointer.To("AnimalType"),
-						TypeHintValue:  pointer.To("cat"),
-						Fields: map[string]importerModels.FieldDetails{
+						ParentTypeName:                        pointer.To("Animal"),
+						FieldNameContainingDiscriminatedValue: pointer.To("AnimalType"),
+						DiscriminatedValue:                    pointer.To("cat"),
+						Fields: map[string]models.SDKField{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"FavouriteToy": {
 								JsonName: "favouriteToy",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("Toy"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"IsFluffy": {
 								JsonName: "isFluffy",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 						},
 					},
 					"Dog": {
-						ParentTypeName: pointer.To("Animal"),
-						TypeHintIn:     pointer.To("AnimalType"),
-						TypeHintValue:  pointer.To("dog"),
-						Fields: map[string]importerModels.FieldDetails{
+						ParentTypeName:                        pointer.To("Animal"),
+						FieldNameContainingDiscriminatedValue: pointer.To("AnimalType"),
+						DiscriminatedValue:                    pointer.To("dog"),
+						Fields: map[string]models.SDKField{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"FavouriteToy": {
 								JsonName: "favouriteToy",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("Toy"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Barks": {
 								JsonName: "barks",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 						},
 					},
 					"ExampleWrapper": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Nested": {
 								JsonName: "nested",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("Animal"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 						},
 					},
 					"LaserBeam": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Colour": {
 								JsonName: "colour",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"Intensity": {
 								JsonName: "intensity",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionInteger,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.IntegerSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"ToyType": {
 								JsonName: "toyType",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 						},
-						ParentTypeName: pointer.To("Toy"),
-						TypeHintIn:     pointer.To("ToyType"),
-						TypeHintValue:  pointer.To("laser-beam"),
+						ParentTypeName:                        pointer.To("Toy"),
+						FieldNameContainingDiscriminatedValue: pointer.To("ToyType"),
+						DiscriminatedValue:                    pointer.To("laser-beam"),
 					},
 					"Toy": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"ToyType": {
 								JsonName: "toyType",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 						},
-						TypeHintIn: pointer.To("ToyType"),
+						FieldNameContainingDiscriminatedValue: pointer.To("ToyType"),
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Discriminator_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -413,30 +411,29 @@ func TestParseDiscriminatedParentTypeThatShouldntBe(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Discriminator": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Animal": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Type": {
 								JsonName: "type",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Discriminator_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Animal"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -459,30 +456,29 @@ func TestParseDiscriminatedChildTypeThatShouldntBe(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Discriminator": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Dog": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Barks": {
 								JsonName: "barks",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Discriminator_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Dog"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -505,85 +501,84 @@ func TestParseDiscriminatedChildTypeWhereParentShouldNotBeUsed(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Discriminator": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Animal": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 						},
-						TypeHintIn: pointer.To("AnimalType"),
+						FieldNameContainingDiscriminatedValue: pointer.To("AnimalType"),
 					},
 					"Cat": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"IsFluffy": {
 								JsonName: "isFluffy",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 						},
-						ParentTypeName: pointer.To("Animal"),
-						TypeHintIn:     pointer.To("AnimalType"),
-						TypeHintValue:  pointer.To("cat"),
+						ParentTypeName:                        pointer.To("Animal"),
+						FieldNameContainingDiscriminatedValue: pointer.To("AnimalType"),
+						DiscriminatedValue:                    pointer.To("cat"),
 					},
 					"Dog": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"Barks": {
 								JsonName: "barks",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 						},
-						ParentTypeName: pointer.To("Animal"),
-						TypeHintIn:     pointer.To("AnimalType"),
-						TypeHintValue:  pointer.To("dog"),
+						ParentTypeName:                        pointer.To("Animal"),
+						FieldNameContainingDiscriminatedValue: pointer.To("AnimalType"),
+						DiscriminatedValue:                    pointer.To("dog"),
 					},
 					"ExampleWrapper": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Nested": {
 								JsonName: "nested",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("Dog"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Discriminator_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -603,92 +598,91 @@ func TestParseDiscriminatorsInheritingFromOtherDiscriminators(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Discriminator": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Animal": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 						},
-						TypeHintIn: pointer.To("AnimalType"),
+						FieldNameContainingDiscriminatedValue: pointer.To("AnimalType"),
 					},
 					"Cat": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"IsFluffy": {
 								JsonName: "isFluffy",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 						},
-						ParentTypeName: pointer.To("Animal"),
-						TypeHintIn:     pointer.To("AnimalType"),
-						TypeHintValue:  pointer.To("cat"),
+						ParentTypeName:                        pointer.To("Animal"),
+						FieldNameContainingDiscriminatedValue: pointer.To("AnimalType"),
+						DiscriminatedValue:                    pointer.To("cat"),
 					},
 					"Dog": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"Barks": {
 								JsonName: "barks",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"IsFluffy": {
 								JsonName: "isFluffy",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 						},
-						ParentTypeName: pointer.To("Animal"),
-						TypeHintIn:     pointer.To("AnimalType"),
-						TypeHintValue:  pointer.To("dog"),
+						ParentTypeName:                        pointer.To("Animal"),
+						FieldNameContainingDiscriminatedValue: pointer.To("AnimalType"),
+						DiscriminatedValue:                    pointer.To("dog"),
 					},
 					"ExampleWrapper": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Nested": {
 								JsonName: "nested",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("Animal"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Discriminator_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -708,169 +702,168 @@ func TestParseDiscriminatorsDeepInheritance(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Discriminator": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Animal": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"TypeName": {
 								JsonName: "typeName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"IsPlantEater": {
 								JsonName: "isPlantEater",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 						},
-						ParentTypeName: pointer.To("BiologicalEntity"),
-						TypeHintIn:     pointer.To("TypeName"),
-						TypeHintValue:  pointer.To("animal"),
+						ParentTypeName:                        pointer.To("BiologicalEntity"),
+						FieldNameContainingDiscriminatedValue: pointer.To("TypeName"),
+						DiscriminatedValue:                    pointer.To("animal"),
 					},
 					"BiologicalEntity": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"TypeName": {
 								JsonName: "typeName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 						},
-						TypeHintIn: pointer.To("TypeName"),
+						FieldNameContainingDiscriminatedValue: pointer.To("TypeName"),
 					},
 					"Carnivore": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"IsPlantEater": {
 								JsonName: "isPlantEater",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"IsPredator": {
 								JsonName: "isPredator",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"TypeName": {
 								JsonName: "typeName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 						},
-						ParentTypeName: pointer.To("BiologicalEntity"),
-						TypeHintIn:     pointer.To("TypeName"),
-						TypeHintValue:  pointer.To("carnivore"),
+						ParentTypeName:                        pointer.To("BiologicalEntity"),
+						FieldNameContainingDiscriminatedValue: pointer.To("TypeName"),
+						DiscriminatedValue:                    pointer.To("carnivore"),
 					},
 					"Cat": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"IsFluffy": {
 								JsonName: "isFluffy",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"IsPlantEater": {
 								JsonName: "isPlantEater",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"IsPredator": {
 								JsonName: "isPredator",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"TypeName": {
 								JsonName: "typeName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 						},
-						ParentTypeName: pointer.To("BiologicalEntity"),
-						TypeHintIn:     pointer.To("TypeName"),
-						TypeHintValue:  pointer.To("cat"),
+						ParentTypeName:                        pointer.To("BiologicalEntity"),
+						FieldNameContainingDiscriminatedValue: pointer.To("TypeName"),
+						DiscriminatedValue:                    pointer.To("cat"),
 					},
 					"ExampleWrapper": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"BiologicalEntity": {
 								JsonName: "biologicalEntity",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("BiologicalEntity"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 						},
 					},
 					"PersianCat": {
-						ParentTypeName: pointer.To("BiologicalEntity"),
-						TypeHintIn:     pointer.To("TypeName"),
-						TypeHintValue:  pointer.To("persian-cat"),
-						Fields: map[string]importerModels.FieldDetails{
+						ParentTypeName:                        pointer.To("BiologicalEntity"),
+						FieldNameContainingDiscriminatedValue: pointer.To("TypeName"),
+						DiscriminatedValue:                    pointer.To("persian-cat"),
+						Fields: map[string]models.SDKField{
 							"IsFluffy": {
 								JsonName: "isFluffy",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"IsFriendly": {
 								JsonName: "isFriendly",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"IsPlantEater": {
 								JsonName: "isPlantEater",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"IsPredator": {
 								JsonName: "isPredator",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"TypeName": {
 								JsonName: "typeName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Discriminator_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -892,137 +885,136 @@ func TestParseDiscriminatorsWithMultipleParents(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Discriminator": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"BiologicalEntity": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"SomeField": {
 								JsonName: "someField",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"TypeName": {
 								JsonName: "typeName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 						},
-						TypeHintIn: pointer.To("TypeName"),
+						FieldNameContainingDiscriminatedValue: pointer.To("TypeName"),
 					},
 					"Cat": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"FirstName": {
 								JsonName: "firstName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"IsFluffy": {
 								JsonName: "isFluffy",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"LastName": {
 								JsonName: "lastName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"SomeField": {
 								JsonName: "someField",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"TypeName": {
 								JsonName: "typeName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 						},
-						ParentTypeName: pointer.To("BiologicalEntity"),
-						TypeHintIn:     pointer.To("TypeName"),
-						TypeHintValue:  pointer.To("cat"),
+						ParentTypeName:                        pointer.To("BiologicalEntity"),
+						FieldNameContainingDiscriminatedValue: pointer.To("TypeName"),
+						DiscriminatedValue:                    pointer.To("cat"),
 					},
 					"ExampleWrapper": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Item": {
 								JsonName: "item",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("BiologicalEntity"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 						},
 					},
 					"Human": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Age": {
 								JsonName: "age",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionInteger,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.IntegerSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"FirstName": {
 								JsonName: "firstName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"LastName": {
 								JsonName: "lastName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"SomeField": {
 								JsonName: "someField",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"TypeName": {
 								JsonName: "typeName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 						},
-						ParentTypeName: pointer.To("BiologicalEntity"),
-						TypeHintIn:     pointer.To("TypeName"),
-						TypeHintValue:  pointer.To("human"),
+						ParentTypeName:                        pointer.To("BiologicalEntity"),
+						FieldNameContainingDiscriminatedValue: pointer.To("TypeName"),
+						DiscriminatedValue:                    pointer.To("human"),
 					},
 					// NOTE: Whilst NamedEntity is present in the Swagger it shouldn't be in the result since
 					// it's just an abstract type (defining the shared fields for Car and Human), rather than
 					// being directly used.
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Discriminator_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -1044,140 +1036,139 @@ func TestParseDiscriminatorsWithMultipleParentsWithinArray(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Discriminator": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"BiologicalEntity": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"SomeField": {
 								JsonName: "someField",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"TypeName": {
 								JsonName: "typeName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 						},
-						TypeHintIn: pointer.To("TypeName"),
+						FieldNameContainingDiscriminatedValue: pointer.To("TypeName"),
 					},
 					"Cat": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"FirstName": {
 								JsonName: "firstName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"IsFluffy": {
 								JsonName: "isFluffy",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"LastName": {
 								JsonName: "lastName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"SomeField": {
 								JsonName: "someField",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"TypeName": {
 								JsonName: "typeName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 						},
-						ParentTypeName: pointer.To("BiologicalEntity"),
-						TypeHintIn:     pointer.To("TypeName"),
-						TypeHintValue:  pointer.To("cat"),
+						ParentTypeName:                        pointer.To("BiologicalEntity"),
+						FieldNameContainingDiscriminatedValue: pointer.To("TypeName"),
+						DiscriminatedValue:                    pointer.To("cat"),
 					},
 					"ExampleWrapper": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Items": {
 								JsonName: "items",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									NestedItem: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
+									NestedItem: &models.SDKObjectDefinition{
 										ReferenceName: pointer.To("BiologicalEntity"),
-										Type:          importerModels.ObjectDefinitionReference,
+										Type:          models.ReferenceSDKObjectDefinitionType,
 									},
-									Type: importerModels.ObjectDefinitionList,
+									Type: models.ListSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 						},
 					},
 					"Human": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Age": {
 								JsonName: "age",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionInteger,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.IntegerSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"FirstName": {
 								JsonName: "firstName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"LastName": {
 								JsonName: "lastName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"SomeField": {
 								JsonName: "someField",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"TypeName": {
 								JsonName: "typeName",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 						},
-						ParentTypeName: pointer.To("BiologicalEntity"),
-						TypeHintIn:     pointer.To("TypeName"),
-						TypeHintValue:  pointer.To("human"),
+						ParentTypeName:                        pointer.To("BiologicalEntity"),
+						FieldNameContainingDiscriminatedValue: pointer.To("TypeName"),
+						DiscriminatedValue:                    pointer.To("human"),
 					},
 					// NOTE: Whilst NamedEntity is present in the Swagger it shouldn't be in the result since
 					// it's just an abstract type (defining the shared fields for Car and Human), rather than
 					// being directly used.
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Discriminator_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -1200,60 +1191,60 @@ func TestParseDiscriminatorsOrphanedChild(t *testing.T) {
 			// File Name. Whilst in a normal scenario this would make sense - for testing purposes it leads to
 			// some unexpectedly named data, but this is fine providing the APIResource we're expecting exists.
 			"ModelDiscriminatorsOrphanedChildren": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Animal": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 						},
-						TypeHintIn: pointer.To("AnimalType"),
+						FieldNameContainingDiscriminatedValue: pointer.To("AnimalType"),
 					},
 					"Cat": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"IsFluffy": {
 								JsonName: "isFluffy",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 						},
-						ParentTypeName: pointer.To("Animal"),
-						TypeHintIn:     pointer.To("AnimalType"),
-						TypeHintValue:  pointer.To("cat"),
+						ParentTypeName:                        pointer.To("Animal"),
+						FieldNameContainingDiscriminatedValue: pointer.To("AnimalType"),
+						DiscriminatedValue:                    pointer.To("cat"),
 					},
 					"Dog": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"Barks": {
 								JsonName: "barks",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 						},
-						ParentTypeName: pointer.To("Animal"),
-						TypeHintIn:     pointer.To("AnimalType"),
-						TypeHintValue:  pointer.To("dog"),
+						ParentTypeName:                        pointer.To("Animal"),
+						FieldNameContainingDiscriminatedValue: pointer.To("AnimalType"),
+						DiscriminatedValue:                    pointer.To("dog"),
 					},
 					// ExampleWrapper is present in the Swagger but unused
 				},
@@ -1277,86 +1268,86 @@ func TestParseDiscriminatorsOrphanedChildWithNestedModel(t *testing.T) {
 			// File Name. Whilst in a normal scenario this would make sense - for testing purposes it leads to
 			// some unexpectedly named data, but this is fine providing the APIResource we're expecting exists.
 			"ModelDiscriminatorsOrphanedChildWithNestedModels": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Animal": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 						},
-						TypeHintIn: pointer.To("AnimalType"),
+						FieldNameContainingDiscriminatedValue: pointer.To("AnimalType"),
 					},
 					"Cat": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"IsFluffy": {
 								JsonName: "isFluffy",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 						},
-						ParentTypeName: pointer.To("Animal"),
-						TypeHintIn:     pointer.To("AnimalType"),
-						TypeHintValue:  pointer.To("cat"),
+						ParentTypeName:                        pointer.To("Animal"),
+						FieldNameContainingDiscriminatedValue: pointer.To("AnimalType"),
+						DiscriminatedValue:                    pointer.To("cat"),
 					},
 					"Dog": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"AnimalType": {
 								JsonName: "animalType",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"Barks": {
 								JsonName: "barks",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionBoolean,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.BooleanSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"Parameters": {
 								JsonName: "parameters",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									NestedItem: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
+									NestedItem: &models.SDKObjectDefinition{
 										ReferenceName: pointer.To("KeyValuePair"),
-										Type:          importerModels.ObjectDefinitionReference,
+										Type:          models.ReferenceSDKObjectDefinitionType,
 									},
-									Type: importerModels.ObjectDefinitionList,
+									Type: models.ListSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
-						ParentTypeName: pointer.To("Animal"),
-						TypeHintIn:     pointer.To("AnimalType"),
-						TypeHintValue:  pointer.To("dog"),
+						ParentTypeName:                        pointer.To("Animal"),
+						FieldNameContainingDiscriminatedValue: pointer.To("AnimalType"),
+						DiscriminatedValue:                    pointer.To("dog"),
 					},
 					// ExampleWrapper is present in the Swagger but unused
 					"KeyValuePair": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Key": {
 								JsonName: "key",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"Value": {
 								JsonName: "value",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: true,
 							},

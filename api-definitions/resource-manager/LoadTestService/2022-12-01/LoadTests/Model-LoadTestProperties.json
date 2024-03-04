@@ -9,9 +9,10 @@
         "type": "String",
         "referenceName": null
       },
-      "optional": true,
+      "optional": false,
+      "readOnly": true,
       "required": false,
-      "description": ""
+      "sensitive": false
     },
     {
       "containsDiscriminatedTypeValue": false,
@@ -22,20 +23,9 @@
         "referenceName": null
       },
       "optional": true,
+      "readOnly": false,
       "required": false,
-      "description": ""
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "encryption",
-      "name": "Encryption",
-      "objectDefinition": {
-        "type": "Reference",
-        "referenceName": "EncryptionProperties"
-      },
-      "optional": true,
-      "required": false,
-      "description": ""
+      "sensitive": false
     },
     {
       "containsDiscriminatedTypeValue": false,
@@ -46,8 +36,9 @@
         "referenceName": "ResourceState"
       },
       "optional": true,
+      "readOnly": false,
       "required": false,
-      "description": ""
+      "sensitive": false
     }
   ]
 }

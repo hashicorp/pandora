@@ -6,7 +6,7 @@ package processors
 import (
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 var _ FieldNameProcessor = fieldNameRenameMislabelledResourceID{}
@@ -28,11 +28,11 @@ func (f fieldNameRenameMislabelledResourceID) ProcessField(fieldName string, met
 
 	typeMatches := false
 	// either it's a String value
-	if typeField.ObjectDefinition.Type == resourcemanager.StringApiObjectDefinitionType {
+	if typeField.ObjectDefinition.Type == models.StringSDKObjectDefinitionType {
 		typeMatches = true
 	}
 	// or it's a Constant which contains the value `UserAssigned`
-	if typeField.ObjectDefinition.Type == resourcemanager.ReferenceApiObjectDefinitionType {
+	if typeField.ObjectDefinition.Type == models.ReferenceSDKObjectDefinitionType {
 		constant, exists := metadata.Constants[*typeField.ObjectDefinition.ReferenceName]
 		if exists {
 			for _, val := range constant.Values {

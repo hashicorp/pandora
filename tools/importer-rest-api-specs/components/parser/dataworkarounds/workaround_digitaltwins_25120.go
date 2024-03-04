@@ -6,6 +6,7 @@ package dataworkarounds
 import (
 	"fmt"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
@@ -40,8 +41,8 @@ func (workaroundDigitalTwins25120) Process(apiDefinition importerModels.AzureApi
 	if !ok {
 		return nil, fmt.Errorf("expected a Field named `RecordPropertyAndItemRemovals`")
 	}
-	field.ObjectDefinition = &importerModels.ObjectDefinition{
-		Type: importerModels.ObjectDefinitionBoolean,
+	field.ObjectDefinition = models.SDKObjectDefinition{
+		Type: models.BooleanSDKObjectDefinitionType,
 	}
 	model.Fields["RecordPropertyAndItemRemovals"] = field
 	resource.Models["AzureDataExplorerConnectionProperties"] = model

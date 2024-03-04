@@ -10,36 +10,35 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-var apiObjectDefinitionTypesToFieldObjectDefinitionTypes = map[resourcemanager.ApiObjectDefinitionType]resourcemanager.TerraformSchemaFieldType{
-	resourcemanager.BooleanApiObjectDefinitionType: resourcemanager.TerraformSchemaFieldTypeBoolean,
-	//resourcemanager.CsvApiObjectDefinitionType:  resourcemanager.TerraformSchemaFieldTypeCsv, // TODO: implement
-	resourcemanager.DateTimeApiObjectDefinitionType:   resourcemanager.TerraformSchemaFieldTypeDateTime,
-	resourcemanager.DictionaryApiObjectDefinitionType: resourcemanager.TerraformSchemaFieldTypeDictionary,
-	resourcemanager.IntegerApiObjectDefinitionType:    resourcemanager.TerraformSchemaFieldTypeInteger,
-	resourcemanager.FloatApiObjectDefinitionType:      resourcemanager.TerraformSchemaFieldTypeFloat,
-	resourcemanager.ListApiObjectDefinitionType:       resourcemanager.TerraformSchemaFieldTypeList,
-	resourcemanager.ReferenceApiObjectDefinitionType:  resourcemanager.TerraformSchemaFieldTypeReference,
-	resourcemanager.StringApiObjectDefinitionType:     resourcemanager.TerraformSchemaFieldTypeString,
+var sdkObjectDefinitionTypesToFieldObjectDefinitionTypes = map[models.SDKObjectDefinitionType]resourcemanager.TerraformSchemaFieldType{
+	models.BooleanSDKObjectDefinitionType:    resourcemanager.TerraformSchemaFieldTypeBoolean,
+	models.DateTimeSDKObjectDefinitionType:   resourcemanager.TerraformSchemaFieldTypeDateTime,
+	models.DictionarySDKObjectDefinitionType: resourcemanager.TerraformSchemaFieldTypeDictionary,
+	models.IntegerSDKObjectDefinitionType:    resourcemanager.TerraformSchemaFieldTypeInteger,
+	models.FloatSDKObjectDefinitionType:      resourcemanager.TerraformSchemaFieldTypeFloat,
+	models.ListSDKObjectDefinitionType:       resourcemanager.TerraformSchemaFieldTypeList,
+	models.ReferenceSDKObjectDefinitionType:  resourcemanager.TerraformSchemaFieldTypeReference,
+	models.StringSDKObjectDefinitionType:     resourcemanager.TerraformSchemaFieldTypeString,
 
 	// Custom Types
-	resourcemanager.EdgeZoneApiObjectDefinitionType:                                resourcemanager.TerraformSchemaFieldTypeEdgeZone,
-	resourcemanager.LocationApiObjectDefinitionType:                                resourcemanager.TerraformSchemaFieldTypeLocation,
-	resourcemanager.SystemAssignedIdentityApiObjectDefinitionType:                  resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned,
-	resourcemanager.SystemAndUserAssignedIdentityListApiObjectDefinitionType:       resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
-	resourcemanager.SystemAndUserAssignedIdentityMapApiObjectDefinitionType:        resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
-	resourcemanager.LegacySystemAndUserAssignedIdentityListApiObjectDefinitionType: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
-	resourcemanager.LegacySystemAndUserAssignedIdentityMapApiObjectDefinitionType:  resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
-	resourcemanager.SystemOrUserAssignedIdentityListApiObjectDefinitionType:        resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned,
-	resourcemanager.SystemOrUserAssignedIdentityMapApiObjectDefinitionType:         resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned,
-	resourcemanager.UserAssignedIdentityListApiObjectDefinitionType:                resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned,
-	resourcemanager.UserAssignedIdentityMapApiObjectDefinitionType:                 resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned,
-	resourcemanager.TagsApiObjectDefinitionType:                                    resourcemanager.TerraformSchemaFieldTypeTags,
-	resourcemanager.ZoneApiObjectDefinitionType:                                    resourcemanager.TerraformSchemaFieldTypeZone,
-	resourcemanager.ZonesApiObjectDefinitionType:                                   resourcemanager.TerraformSchemaFieldTypeZones,
+	models.EdgeZoneSDKObjectDefinitionType:                                resourcemanager.TerraformSchemaFieldTypeEdgeZone,
+	models.LocationSDKObjectDefinitionType:                                resourcemanager.TerraformSchemaFieldTypeLocation,
+	models.SystemAssignedIdentitySDKObjectDefinitionType:                  resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned,
+	models.SystemAndUserAssignedIdentityListSDKObjectDefinitionType:       resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
+	models.SystemAndUserAssignedIdentityMapSDKObjectDefinitionType:        resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
+	models.LegacySystemAndUserAssignedIdentityListSDKObjectDefinitionType: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
+	models.LegacySystemAndUserAssignedIdentityMapSDKObjectDefinitionType:  resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
+	models.SystemOrUserAssignedIdentityListSDKObjectDefinitionType:        resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned,
+	models.SystemOrUserAssignedIdentityMapSDKObjectDefinitionType:         resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned,
+	models.UserAssignedIdentityListSDKObjectDefinitionType:                resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned,
+	models.UserAssignedIdentityMapSDKObjectDefinitionType:                 resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned,
+	models.TagsSDKObjectDefinitionType:                                    resourcemanager.TerraformSchemaFieldTypeTags,
+	models.ZoneSDKObjectDefinitionType:                                    resourcemanager.TerraformSchemaFieldTypeZone,
+	models.ZonesSDKObjectDefinitionType:                                   resourcemanager.TerraformSchemaFieldTypeZones,
 	// NOTE: we intentionally don't implement SystemData since it's not exposed at this time
 }
 
-func (b Builder) convertToFieldObjectDefinition(modelPrefix string, input resourcemanager.ApiObjectDefinition) (*resourcemanager.TerraformSchemaFieldObjectDefinition, error) {
+func (b Builder) convertToFieldObjectDefinition(modelPrefix string, input models.SDKObjectDefinition) (*resourcemanager.TerraformSchemaFieldObjectDefinition, error) {
 	out := resourcemanager.TerraformSchemaFieldObjectDefinition{}
 
 	var isConstant bool
@@ -73,7 +72,7 @@ func (b Builder) convertToFieldObjectDefinition(modelPrefix string, input resour
 	}
 
 	if !isConstant {
-		v, ok := apiObjectDefinitionTypesToFieldObjectDefinitionTypes[input.Type]
+		v, ok := sdkObjectDefinitionTypesToFieldObjectDefinitionTypes[input.Type]
 		if !ok {
 			return nil, fmt.Errorf("internal-error: missing object definition mapping for type %q", string(input.Type))
 		}

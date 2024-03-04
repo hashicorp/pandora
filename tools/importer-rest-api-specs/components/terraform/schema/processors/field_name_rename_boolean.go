@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 var _ FieldNameProcessor = fieldNameRenameBoolean{}
@@ -15,7 +15,7 @@ var _ FieldNameProcessor = fieldNameRenameBoolean{}
 type fieldNameRenameBoolean struct{}
 
 func (fieldNameRenameBoolean) ProcessField(fieldName string, metadata FieldMetadata) (*string, error) {
-	if metadata.Model.Fields[fieldName].ObjectDefinition.Type == resourcemanager.BooleanApiObjectDefinitionType {
+	if metadata.Model.Fields[fieldName].ObjectDefinition.Type == models.BooleanSDKObjectDefinitionType {
 		// change the Prefix -> Suffix
 		// NOTE: ordering matters due to `enabled` getting trimmed to `ed` if `enable` is trimmed before `enabled`
 		if strings.HasPrefix(strings.ToLower(fieldName), "enabled") {

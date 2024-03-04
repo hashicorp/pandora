@@ -6,8 +6,8 @@ package commonschema
 import (
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
-	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 var _ customFieldMatcher = zonesFieldMatcher{}
@@ -15,12 +15,14 @@ var _ customFieldMatcher = zonesFieldMatcher{}
 type zonesFieldMatcher struct {
 }
 
-func (e zonesFieldMatcher) CustomFieldType() importerModels.CustomFieldType {
-	return importerModels.CustomFieldTypeZones
+func (zonesFieldMatcher) ReplacementObjectDefinition() models.SDKObjectDefinition {
+	return models.SDKObjectDefinition{
+		Type: models.ZonesTerraformSchemaObjectDefinitionType,
+	}
 }
 
-func (e zonesFieldMatcher) IsMatch(field importerModels.FieldDetails, definition importerModels.ObjectDefinition, _ internal.ParseResult) bool {
+func (zonesFieldMatcher) IsMatch(field models.SDKField, _ internal.ParseResult) bool {
 	nameMatches := strings.EqualFold(field.JsonName, "availabilityZones") || strings.EqualFold(field.JsonName, "zones")
-	typesMatch := definition.Type == importerModels.ObjectDefinitionList && definition.NestedItem != nil && definition.NestedItem.Type == importerModels.ObjectDefinitionString
+	typesMatch := field.ObjectDefinition.Type == models.ListSDKObjectDefinitionType && field.ObjectDefinition.NestedItem != nil && field.ObjectDefinition.NestedItem.Type == models.StringSDKObjectDefinitionType
 	return nameMatches && typesMatch
 }

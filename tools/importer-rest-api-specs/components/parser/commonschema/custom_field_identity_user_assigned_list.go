@@ -6,25 +6,27 @@ package commonschema
 import (
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
-	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 var _ customFieldMatcher = userAssignedIdentityListMatcher{}
 
 type userAssignedIdentityListMatcher struct{}
 
-func (userAssignedIdentityListMatcher) CustomFieldType() importerModels.CustomFieldType {
-	return importerModels.CustomFieldTypeUserAssignedIdentityList
+func (userAssignedIdentityListMatcher) ReplacementObjectDefinition() models.SDKObjectDefinition {
+	return models.SDKObjectDefinition{
+		Type: models.UserAssignedIdentityListSDKObjectDefinitionType,
+	}
 }
 
-func (userAssignedIdentityListMatcher) IsMatch(_ importerModels.FieldDetails, definition importerModels.ObjectDefinition, known internal.ParseResult) bool {
-	if definition.Type != importerModels.ObjectDefinitionReference {
+func (userAssignedIdentityListMatcher) IsMatch(field models.SDKField, known internal.ParseResult) bool {
+	if field.ObjectDefinition.Type != models.ReferenceSDKObjectDefinitionType {
 		return false
 	}
 
 	// retrieve the model from the reference
-	model, ok := known.Models[*definition.ReferenceName]
+	model, ok := known.Models[*field.ObjectDefinition.ReferenceName]
 	if !ok {
 		return false
 	}
@@ -34,10 +36,10 @@ func (userAssignedIdentityListMatcher) IsMatch(_ importerModels.FieldDetails, de
 	for fieldName, fieldVal := range model.Fields {
 		if strings.EqualFold(fieldName, "UserAssignedIdentities") {
 			// this should be a List of Strings
-			if fieldVal.ObjectDefinition == nil || fieldVal.ObjectDefinition.Type != importerModels.ObjectDefinitionList {
+			if fieldVal.ObjectDefinition.Type != models.ListSDKObjectDefinitionType {
 				continue
 			}
-			if fieldVal.ObjectDefinition.NestedItem == nil || fieldVal.ObjectDefinition.NestedItem.Type != importerModels.ObjectDefinitionString {
+			if fieldVal.ObjectDefinition.NestedItem == nil || fieldVal.ObjectDefinition.NestedItem.Type != models.StringSDKObjectDefinitionType {
 				continue
 			}
 
@@ -49,7 +51,7 @@ func (userAssignedIdentityListMatcher) IsMatch(_ importerModels.FieldDetails, de
 		// https://github.com/Azure/azure-rest-api-specs/blob/c803720c6bcfcb0fcf4c97f3463ec33a18f9e55c/specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabricManagedClusters/stable/2021-05-01/nodetype.json#L763
 		// as such we're only concerned if it's defined and doesn't match
 		if strings.EqualFold(fieldName, "Type") {
-			if fieldVal.ObjectDefinition == nil || fieldVal.ObjectDefinition.Type != importerModels.ObjectDefinitionReference {
+			if fieldVal.ObjectDefinition.Type != models.ReferenceSDKObjectDefinitionType {
 				continue
 			}
 			constant, ok := known.Constants[*fieldVal.ObjectDefinition.ReferenceName]

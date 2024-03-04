@@ -6,10 +6,11 @@ package repositories
 import (
 	"fmt"
 	"io"
-	"log"
 	"os"
 	"strconv"
 	"strings"
+
+	"github.com/hashicorp/pandora/tools/data-api/internal/logging"
 )
 
 func listSubDirectories(path string) (*[]string, error) {
@@ -88,7 +89,7 @@ func getTerraformDefinitionInfo(fileName string) (string, string, error) {
 	// Resource-Schema Files can have multiple files with the model type appended to it (ie. KubernetesFleetManager-Resource-Schema-FleetHubProfile
 	// that final piece of the final name is not used and can be safely ignored
 	if strings.Contains(strings.ToLower(definitionType), "resource-schema") && len(strings.Split(definitionType, "-")) >= 3 {
-		log.Printf("FileName: %s", fileName)
+		logging.Tracef("FileName: %s", fileName)
 		definitionType = "Resource-Schema"
 	}
 

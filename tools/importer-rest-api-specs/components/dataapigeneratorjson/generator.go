@@ -48,6 +48,7 @@ func Run(serviceName string, service models.Service, sourceDataOrigin models.Sou
 				apiVersion:  apiVersion,
 				apiResource: apiResourceName,
 				constants:   apiResourceDetails.Constants,
+				resourceIDs: apiResourceDetails.ResourceIDs,
 			})
 
 			stages = append(stages, generateModelsStage{

@@ -6,18 +6,22 @@ package commonschema
 import (
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
-	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 var _ customFieldMatcher = tagsMatcher{}
 
 type tagsMatcher struct{}
 
-func (tagsMatcher) IsMatch(field importerModels.FieldDetails, definition importerModels.ObjectDefinition, known internal.ParseResult) bool {
-	return strings.EqualFold(field.JsonName, "tags") && definition.Type == importerModels.ObjectDefinitionDictionary && definition.NestedItem.Type == importerModels.ObjectDefinitionString
+func (tagsMatcher) ReplacementObjectDefinition() models.SDKObjectDefinition {
+	return models.SDKObjectDefinition{
+		Type: models.TagsSDKObjectDefinitionType,
+	}
 }
 
-func (tagsMatcher) CustomFieldType() importerModels.CustomFieldType {
-	return importerModels.CustomFieldTypeTags
+func (tagsMatcher) IsMatch(field models.SDKField, _ internal.ParseResult) bool {
+	nameMatches := strings.EqualFold(field.JsonName, "tags")
+	typeMatches := field.ObjectDefinition.Type == models.DictionarySDKObjectDefinitionType && field.ObjectDefinition.NestedItem.Type == models.StringSDKObjectDefinitionType
+	return nameMatches && typeMatches
 }

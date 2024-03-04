@@ -20,17 +20,13 @@ func normalizeAzureApiResource(input importerModels.AzureApiResource) importerMo
 		normalizedConstants[name] = v
 	}
 
-	normalizedModels := make(map[string]importerModels.ModelDetails)
+	normalizedModels := make(map[string]models.SDKModel)
 	for k, v := range input.Models {
 		modelName := cleanup.NormalizeName(k)
-		fields := make(map[string]importerModels.FieldDetails)
+		fields := make(map[string]models.SDKField)
 		for fieldName, fieldVal := range v.Fields {
 			normalizedFieldName := cleanup.NormalizeName(fieldName)
-
-			if fieldVal.ObjectDefinition != nil {
-				fieldVal.ObjectDefinition = normalizeObjectDefinition(*fieldVal.ObjectDefinition)
-			}
-
+			fieldVal.ObjectDefinition = normalizeSDKObjectDefinition(fieldVal.ObjectDefinition)
 			fields[normalizedFieldName] = fieldVal
 		}
 		v.Fields = fields
@@ -41,27 +37,29 @@ func normalizeAzureApiResource(input importerModels.AzureApiResource) importerMo
 		}
 
 		// Discriminators can be `@type` which get normalized to `Type` so we need to normalize the field name here
-		if v.TypeHintIn != nil {
-			val := cleanup.NormalizeName(*v.TypeHintIn)
-			v.TypeHintIn = &val
+		if v.FieldNameContainingDiscriminatedValue != nil {
+			val := cleanup.NormalizeName(*v.FieldNameContainingDiscriminatedValue)
+			v.FieldNameContainingDiscriminatedValue = &val
 		}
 
 		normalizedModels[modelName] = v
 	}
 
-	normalizedOperations := make(map[string]importerModels.OperationDetails)
+	normalizedOperations := make(map[string]models.SDKOperation)
 	for k, v := range input.Operations {
-		if v.ResourceIdName != nil {
-			normalized := cleanup.NormalizeName(*v.ResourceIdName)
-			v.ResourceIdName = &normalized
+		if v.ResourceIDName != nil {
+			normalized := cleanup.NormalizeName(*v.ResourceIDName)
+			v.ResourceIDName = &normalized
 		}
 
 		if v.RequestObject != nil {
-			v.RequestObject = normalizeObjectDefinition(*v.RequestObject)
+			request := normalizeSDKObjectDefinition(*v.RequestObject)
+			v.RequestObject = pointer.To(request)
 		}
 
 		if v.ResponseObject != nil {
-			v.ResponseObject = normalizeObjectDefinition(*v.ResponseObject)
+			response := normalizeSDKObjectDefinition(*v.ResponseObject)
+			v.ResponseObject = pointer.To(response)
 		}
 
 		normalizedOptions := make(map[string]models.SDKOperationOption, 0)
@@ -112,17 +110,18 @@ func normalizeAzureApiResource(input importerModels.AzureApiResource) importerMo
 	}
 }
 
-func normalizeObjectDefinition(input importerModels.ObjectDefinition) *importerModels.ObjectDefinition {
+func normalizeSDKObjectDefinition(input models.SDKObjectDefinition) models.SDKObjectDefinition {
 	if input.ReferenceName != nil {
 		normalized := cleanup.NormalizeName(*input.ReferenceName)
 		input.ReferenceName = &normalized
 	}
 
 	if input.NestedItem != nil {
-		input.NestedItem = normalizeObjectDefinition(*input.NestedItem)
+		nested := normalizeSDKObjectDefinition(*input.NestedItem)
+		input.NestedItem = pointer.To(nested)
 	}
 
-	return &input
+	return input
 }
 
 func normalizeOptionsObjectDefinition(input models.SDKOperationOptionObjectDefinition) models.SDKOperationOptionObjectDefinition {

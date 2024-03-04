@@ -101,7 +101,8 @@ func (p predicateTemplater) templateForModel(predicateStructName string, name st
 			}
 			structLines = append(structLines, fmt.Sprintf("\t %[1]s *%[2]s", fieldName, *typeInfo))
 
-			if fieldVal.Optional {
+			// TODO: support for ReadOnly fields
+			if fieldVal.Optional || fieldVal.ReadOnly {
 				matchLines = append(matchLines, fmt.Sprintf(`
 	if p.%[1]s != nil && (input.%[1]s == nil || *p.%[1]s != *input.%[1]s) {
 	 	return false

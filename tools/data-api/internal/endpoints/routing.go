@@ -4,11 +4,10 @@
 package endpoints
 
 import (
-	"log"
-
 	"github.com/go-chi/chi/v5"
 	"github.com/hashicorp/pandora/tools/data-api/internal/endpoints/infrastructure"
 	"github.com/hashicorp/pandora/tools/data-api/internal/endpoints/v1"
+	"github.com/hashicorp/pandora/tools/data-api/internal/logging"
 	"github.com/hashicorp/pandora/tools/data-api/internal/repositories"
 )
 
@@ -23,8 +22,7 @@ func Router(directory string, serviceNames *[]string) func(chi.Router) {
 			}
 			serviceRepo, err := repositories.NewServicesRepository(directory, opts.ServiceType, serviceNames)
 			if err != nil {
-				// TODO logging
-				log.Fatalf("Error: %+v", err)
+				logging.Fatalf("Error: %+v", err)
 			}
 			v1.Router(r, opts, serviceRepo)
 		})
@@ -36,8 +34,7 @@ func Router(directory string, serviceNames *[]string) func(chi.Router) {
 			}
 			serviceRepo, err := repositories.NewServicesRepository(directory, opts.ServiceType, serviceNames)
 			if err != nil {
-				// TODO logging
-				log.Fatalf("Error: %+v", err)
+				logging.Fatalf("Error: %+v", err)
 			}
 			v1.Router(r, opts, serviceRepo)
 		})

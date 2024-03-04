@@ -20,10 +20,10 @@ var resourceIdSegmentType = map[repositories.ResourceIdSegmentType]models.Resour
 	repositories.UserSpecifiedResourceIdSegmentType:    models.UserSpecifiedResourceIDSegmentType,
 }
 
-func MapResourceIDs(input map[string]repositories.ResourceIdDefinition) (*map[string]models.ResourceID, error) {
+func MapResourceIDs(input map[string]repositories.ResourceIdDefinition, availableConstants map[string]models.SDKConstant) (*map[string]models.ResourceID, error) {
 	output := make(map[string]models.ResourceID)
 	for key, value := range input {
-		mapped, err := mapResourceID(value)
+		mapped, err := mapResourceID(value, availableConstants)
 		if err != nil {
 			return nil, fmt.Errorf("mapping ResourceID %q: %+v", key, err)
 		}
@@ -32,15 +32,29 @@ func MapResourceIDs(input map[string]repositories.ResourceIdDefinition) (*map[st
 	return &output, nil
 }
 
-func mapResourceID(input repositories.ResourceIdDefinition) (*models.ResourceID, error) {
+func mapResourceID(input repositories.ResourceIdDefinition, availableConstants map[string]models.SDKConstant) (*models.ResourceID, error) {
 	segments, err := mapResourceIDSegments(input.Segments)
 	if err != nil {
 		return nil, fmt.Errorf("mapping Segments: %+v", err)
 	}
 
+	constants := make(map[string]models.SDKConstant)
+	for _, segment := range *segments {
+		if segment.ConstantReference == nil {
+			continue
+		}
+
+		val, ok := availableConstants[*segment.ConstantReference]
+		if !ok {
+			return nil, fmt.Errorf("the Constant %q was referenced but not found", *segment.ConstantReference)
+		}
+		constants[*segment.ConstantReference] = val
+	}
+
 	return &models.ResourceID{
 		CommonIDAlias: input.CommonAlias,
-		ConstantNames: input.ConstantNames,
+		ConstantNames: input.ConstantNames, // TODO: remove this once everything is switched over
+		Constants:     constants,
 		ExampleValue:  input.Id,
 		Segments:      *segments,
 	}, nil

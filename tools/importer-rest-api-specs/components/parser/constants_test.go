@@ -34,31 +34,30 @@ func TestParseConstantsIntegersTopLevelAsInts(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("TableNumber"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -90,31 +89,30 @@ func TestParseConstantsIntegersTopLevelAsIntsWithDisplayName(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("TableNumber"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -145,31 +143,30 @@ func TestParseConstantsIntegersTopLevelAsStrings(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("TableNumber"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -200,31 +197,30 @@ func TestParseConstantsIntegersInlinedAsInts(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("TableNumber"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -256,31 +252,30 @@ func TestParseConstantsIntegersInlinedAsIntsWithDisplayName(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("TableNumber"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -311,31 +306,30 @@ func TestParseConstantsIntegersInlinedAsStrings(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("TableNumber"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -366,31 +360,30 @@ func TestParseConstantsFloatsTopLevelAsFloats(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("TableNumber"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -421,31 +414,30 @@ func TestParseConstantsFloatsTopLevelAsStrings(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("TableNumber"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -476,31 +468,30 @@ func TestParseConstantsFloatsInlinedAsFloats(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("TableNumber"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -531,31 +522,30 @@ func TestParseConstantsFloatsInlinedAsStrings(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("TableNumber"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -586,31 +576,30 @@ func TestParseConstantsStringsTopLevel(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Type": {
 								JsonName: "type",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("AnimalType"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -643,31 +632,30 @@ func TestParseConstantsStringsTopLevelAsNonStrings(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Type": {
 								JsonName: "type",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("AnimalType"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -697,31 +685,30 @@ func TestParseConstantsStringsInlined(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Type": {
 								JsonName: "type",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("AnimalType"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -751,31 +738,30 @@ func TestParseConstantsStringsInlinedAsNonStrings(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Type": {
 								JsonName: "type",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("AnimalType"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -806,31 +792,30 @@ func TestParseConstantsStringsTopLevelContainingFloats(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("TableNumber"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},
@@ -861,31 +846,30 @@ func TestParseConstantsStringsInlinedContainingFloats(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
-								ObjectDefinition: &importerModels.ObjectDefinition{
+								ObjectDefinition: models.SDKObjectDefinition{
 									ReferenceName: pointer.To("TableNumber"),
-									Type:          importerModels.ObjectDefinitionReference,
+									Type:          models.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						OperationId:         "Example_Test",
-						ResponseObject: &importerModels.ObjectDefinition{
+						ResponseObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/example"),
+						URISuffix: pointer.To("/example"),
 					},
 				},
 			},

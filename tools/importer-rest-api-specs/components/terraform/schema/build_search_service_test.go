@@ -91,221 +91,221 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 				},
 			},
 		},
-		models: map[string]resourcemanager.ModelDetails{
+		models: map[string]models.SDKModel{
 			"SearchService": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Name": {
 						JsonName: "name",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"Identity": {
 						JsonName: "identity",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.SystemAssignedIdentityApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.SystemAssignedIdentitySDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"Location": {
 						JsonName: "location",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.LocationApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.LocationSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"Properties": {
 						JsonName: "properties",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("SearchServiceProperties"),
 						},
 						Optional: true,
 					},
 					"Sku": {
 						JsonName: "sku",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("Sku"),
 						},
 						Optional: true,
 					},
 					"Tags": {
 						JsonName: "tags",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.TagsApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.TagsSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 				},
 			},
 			"IPRule": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Value": {
 						JsonName: "value",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 					},
 				},
 			},
 			"NetworkRuleSet": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"IPRules": {
 						JsonName: "ipRules",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+						ObjectDefinition: models.SDKObjectDefinition{
 							// Note: This is a collapsed tree to a list of strings, rather than a list of models.
-							Type:          resourcemanager.ListApiObjectDefinitionType,
+							Type:          models.ListSDKObjectDefinitionType,
 							ReferenceName: pointer.To("IPRule"),
 						},
 					},
 				},
 			},
 			"SearchServiceProperties": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"HostingMode": {
 						JsonName: "hostingMode",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("HostingMode"),
 						},
 						Optional: true,
 					},
 					"NetworkRuleSet": {
 						JsonName: "networkRuleSet",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("NetworkRuleSet"),
 						},
 						Optional: true,
 					},
 					"PartitionCount": {
 						JsonName: "partitionCount",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.IntegerApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.IntegerSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"PrivateEndpointConnections": {
 						JsonName: "privateEndpointConnections",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.ListApiObjectDefinitionType,
-							NestedItem: &resourcemanager.ApiObjectDefinition{
-								Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.ListSDKObjectDefinitionType,
+							NestedItem: &models.SDKObjectDefinition{
+								Type:          models.ReferenceSDKObjectDefinitionType,
 								ReferenceName: pointer.To("PrivateEndpointConnection"),
 							},
 						},
 					},
 					"ProvisioningState": {
 						JsonName: "provisioningState",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("ProvisioningState"),
 						},
 					},
 					"PublicNetworkAccess": {
 						JsonName: "publicNetworkAccess",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("PublicNetworkAccess"),
 						},
 						Optional: true,
 					},
 					"ReplicaCount": {
 						JsonName: "replicaCount",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.IntegerApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.IntegerSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"SharedPrivateLinkResources": {
 						JsonName: "sharedPrivateLinkResources",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.ListApiObjectDefinitionType,
-							NestedItem: &resourcemanager.ApiObjectDefinition{
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.ListSDKObjectDefinitionType,
+							NestedItem: &models.SDKObjectDefinition{
 								ReferenceName: pointer.To("SharedPrivateLinkResource"),
-								Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+								Type:          models.ReferenceSDKObjectDefinitionType,
 							},
 						},
 					},
 					"Status": {
 						JsonName: "status",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("SearchServiceStatus"),
 						},
 					},
 					"StatusDetails": {
 						JsonName: "statusDetails",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 				},
 			},
 			"PrivateEndpoint": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Properties": {
 						JsonName: "properties",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("PrivateEndpointProperties"),
 						},
 					},
 				},
 			},
 			"PrivateEndpointProperties": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Id": {
 						JsonName: "id",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 					},
 				},
 			},
 			"PrivateEndpointConnection": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Properties": {
 						JsonName: "properties",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+						ObjectDefinition: models.SDKObjectDefinition{
 							ReferenceName: pointer.To("PrivateEndpointConnectionProperties"),
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 					},
 				},
 			},
 			"PrivateEndpointConnectionProperties": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Properties": {
 						JsonName: "properties",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+						ObjectDefinition: models.SDKObjectDefinition{
 							ReferenceName: pointer.To("PrivateEndpointConnectionPropertiesProperties"),
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 					},
 				},
 			},
 			"PrivateEndpointConnectionPropertiesProperties": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"PrivateEndpoint": {
 						JsonName: "privateEndpoint",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.ListApiObjectDefinitionType,
-							NestedItem: &resourcemanager.ApiObjectDefinition{
-								Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.ListSDKObjectDefinitionType,
+							NestedItem: &models.SDKObjectDefinition{
+								Type:          models.ReferenceSDKObjectDefinitionType,
 								ReferenceName: pointer.To("PrivateEndpoint"),
 							},
 						},
 					},
 					"PrivateLinkServiceConnectionState": {
 						JsonName: "privateLinkServiceConnectionState",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.ListApiObjectDefinitionType,
-							NestedItem: &resourcemanager.ApiObjectDefinition{
-								Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.ListSDKObjectDefinitionType,
+							NestedItem: &models.SDKObjectDefinition{
+								Type:          models.ReferenceSDKObjectDefinitionType,
 								ReferenceName: pointer.To("PrivateLinkServiceConnectionState"),
 							},
 						},
@@ -313,13 +313,13 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 				},
 			},
 			"PrivateLinkServiceConnectionState": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Properties": {
 						JsonName: "properties",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.ListApiObjectDefinitionType,
-							NestedItem: &resourcemanager.ApiObjectDefinition{
-								Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.ListSDKObjectDefinitionType,
+							NestedItem: &models.SDKObjectDefinition{
+								Type:          models.ReferenceSDKObjectDefinitionType,
 								ReferenceName: pointer.To("PrivateLinkServiceConnectionStateProperties"),
 							},
 						},
@@ -327,91 +327,91 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 				},
 			},
 			"PrivateLinkServiceConnectionStateProperties": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Status": {
 						JsonName: "status",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("PrivateLinkServiceConnectionStatus"),
 						},
 					},
 					"Description": {
 						JsonName: "description",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 					},
 					"ActionsRequired": {
 						JsonName: "actions_required",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 					},
 				},
 			},
 			"SharedPrivateLinkResource": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Properties": {
 						JsonName: "properties",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+						ObjectDefinition: models.SDKObjectDefinition{
 							ReferenceName: pointer.To("SharedPrivateLinkResourceProperties"),
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 					},
 				},
 			},
 			"SharedPrivateLinkResourceProperties": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Properties": {
 						JsonName: "properties",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+						ObjectDefinition: models.SDKObjectDefinition{
 							ReferenceName: pointer.To("SharedPrivateLinkResourcePropertiesProperties"),
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 					},
 				},
 			},
 			"SharedPrivateLinkResourcePropertiesProperties": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"PrivateLinkResourceId": {
 						JsonName: "privateLinkResourceId",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 					},
 					"GroupId": {
 						JsonName: "groupId",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 					},
 					"RequestMessage": {
 						JsonName: "requestMessage",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 					},
 					"ResourceRegion": {
 						JsonName: "resourceRegion",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 					},
 					"Status": {
 						JsonName: "status",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("SharedPrivateLinkResourceStatus"),
 						},
 					},
 				},
 			},
 			"Sku": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Name": {
 						JsonName: "name",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("SkuName"),
 						},
 						Required: true,
@@ -419,38 +419,38 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 				},
 			},
 		},
-		operations: map[string]resourcemanager.ApiOperation{
+		operations: map[string]models.SDKOperation{
 			"Create": {
 				LongRunning: false,
 				Method:      "PUT",
-				RequestObject: &resourcemanager.ApiObjectDefinition{
+				RequestObject: &models.SDKObjectDefinition{
 					ReferenceName: pointer.To("SearchService"),
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					Type:          models.ReferenceSDKObjectDefinitionType,
 				},
-				ResourceIdName: pointer.To("SearchServiceId"),
+				ResourceIDName: pointer.To("SearchServiceId"),
 			},
 			"Delete": {
 				LongRunning:    true,
 				Method:         "DELETE",
-				ResourceIdName: pointer.To("SearchServiceId"),
+				ResourceIDName: pointer.To("SearchServiceId"),
 			},
 			"Get": {
 				LongRunning: false,
 				Method:      "GET",
-				ResponseObject: &resourcemanager.ApiObjectDefinition{
+				ResponseObject: &models.SDKObjectDefinition{
 					ReferenceName: pointer.To("SearchService"),
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					Type:          models.ReferenceSDKObjectDefinitionType,
 				},
-				ResourceIdName: pointer.To("SearchServiceId"),
+				ResourceIDName: pointer.To("SearchServiceId"),
 			},
 			"Update": {
 				LongRunning: false,
 				Method:      "PUT",
-				RequestObject: &resourcemanager.ApiObjectDefinition{
+				RequestObject: &models.SDKObjectDefinition{
 					ReferenceName: pointer.To("SearchService"),
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					Type:          models.ReferenceSDKObjectDefinitionType,
 				},
-				ResourceIdName: pointer.To("SearchServiceId"),
+				ResourceIDName: pointer.To("SearchServiceId"),
 			},
 		},
 		resourceIds: map[string]models.ResourceID{

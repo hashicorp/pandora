@@ -9,6 +9,7 @@ import (
 	"strings"
 
 	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/helpers"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
@@ -29,12 +30,12 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(schemaModelName string, inp
 
 	out := make(map[string]resourcemanager.TerraformSchemaFieldDefinition, 0)
 	for k := range allFields {
-		// TODO: pull the right resourcemanager.ModelDetails for naming below
+		// TODO: pull the right models.SDKModel for naming below
 
 		readField, hasRead := getField(input.readPropertiesPayload, k)
 		createField, hasCreate := getField(input.createPropertiesPayload, k)
 
-		var updateField *resourcemanager.FieldDetails
+		var updateField *models.SDKField
 		hasUpdate := false
 		if input.updatePropertiesPayload != nil {
 			// we can assume ID fields are not updatable even if they're in the CreateUpdate payload
@@ -45,34 +46,38 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(schemaModelName string, inp
 		}
 
 		// based on this information
-		isComputed := false
+		isReadOnlyField := (hasCreate && createField.ReadOnly) || (hasRead && readField.ReadOnly)
 		isForceNew := false
 		isRequired := false
 		isOptional := false
-		//isWriteOnly := false // TODO: re-enable that
 
 		if !hasCreate && !hasUpdate && hasRead {
-			isComputed = true
+			isReadOnlyField = true
 		}
 		if hasCreate || hasUpdate {
-			if !hasRead {
-				//isWriteOnly = true
-				isForceNew = hasUpdate && !updateField.ForceNew
-			} else if hasCreate {
+			if hasCreate {
 				isRequired = createField.Required
 				isOptional = createField.Optional
 				isForceNew = !hasUpdate
 			} else if hasUpdate {
 				isRequired = updateField.Required
 				isOptional = updateField.Optional
-				isForceNew = updateField.ForceNew
 			}
+		}
+		if isReadOnlyField {
+			isRequired = false
+			isOptional = false
+			isForceNew = false
+		}
+
+		if isRequired && isOptional {
+			return nil, nil, fmt.Errorf("internal-error: the Field %q was both Required and Optional", k)
 		}
 
 		var validation *resourcemanager.TerraformSchemaValidationDefinition
 		var err error
 		if hasCreate {
-			validation, err = getFieldValidation(createField.Validation, k)
+			validation, err = getFieldValidation(*createField, b.constants)
 			if err != nil {
 				return nil, nil, fmt.Errorf("retrieving validation for field %q: %+v", k, err)
 			}
@@ -91,7 +96,7 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(schemaModelName string, inp
 			return nil, nil, err
 		}
 
-		var inputObjectDefinition resourcemanager.ApiObjectDefinition
+		var inputObjectDefinition models.SDKObjectDefinition
 		if hasRead {
 			inputObjectDefinition = readField.ObjectDefinition
 		} else if hasCreate {
@@ -104,7 +109,7 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(schemaModelName string, inp
 		log.Printf("[DEBUG] Properties Field %q would be output as %q / %q", k, fieldNameForTypedModel, schemaFieldName)
 
 		if !isOptional && !isRequired {
-			isComputed = true
+			isReadOnlyField = true
 			isForceNew = false
 		}
 
@@ -114,7 +119,7 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(schemaModelName string, inp
 			Required: isRequired,
 			ForceNew: isForceNew,
 			Optional: isOptional,
-			Computed: isComputed,
+			Computed: isReadOnlyField,
 			// this is only used when outputting the mappings
 			// 4 types of mappings: Create/Read/Update/Resource ID - all nullable
 			// If a Create and Update Mapping are present but a Read isn't it's implicitly WriteOnly
@@ -177,7 +182,7 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(schemaModelName string, inp
 	return &out, mappings, nil
 }
 
-func fieldExists(payload resourcemanager.ModelDetails, fieldName string) bool {
+func fieldExists(payload models.SDKModel, fieldName string) bool {
 	_, ok := payload.Fields[fieldName]
 	return ok
 }

@@ -3,7 +3,9 @@
 
 package generator
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func (s *ServiceGenerator) version(data ServiceGeneratorData) error {
 	if err := s.writeToPathForResource(data.resourceOutputPath, "version.go", versionTemplater{}, data); err != nil {

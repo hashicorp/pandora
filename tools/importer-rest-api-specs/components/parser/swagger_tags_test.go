@@ -7,6 +7,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
@@ -21,66 +22,62 @@ func TestParsingOperationsUsingTheSameSwaggerTagInDifferentCasings(t *testing.T)
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Example": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 
 					"First": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "Hello_First",
-						RequestObject: &importerModels.ObjectDefinition{
+						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						// https://github.com/hashicorp/pandora/issues/3807
-						UriSuffix: pointer.To("/someotheruri"),
+						URISuffix: pointer.To("/someotheruri"),
 					},
 					"PutBar": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "Hello_PutBar",
-						RequestObject: &importerModels.ObjectDefinition{
+						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/bar"),
+						URISuffix: pointer.To("/bar"),
 					},
 					"PutFoo": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "hello_PutFoo",
-						RequestObject: &importerModels.ObjectDefinition{
+						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/foo"),
+						URISuffix: pointer.To("/foo"),
 					},
 					"Second": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PATCH",
-						OperationId:         "hello_Second",
-						RequestObject: &importerModels.ObjectDefinition{
+						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						// https://github.com/hashicorp/pandora/issues/3807
-						UriSuffix: pointer.To("/someotheruri"),
+						URISuffix: pointer.To("/someotheruri"),
 					},
 				},
 			},
@@ -100,82 +97,78 @@ func TestParsingOperationsOnResources(t *testing.T) {
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Example": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"First": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "Hello_First",
-						RequestObject: &importerModels.ObjectDefinition{
+						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						// https://github.com/hashicorp/pandora/issues/3807
-						UriSuffix: pointer.To("/someotheruri"),
+						URISuffix: pointer.To("/someotheruri"),
 					},
 					"PutBar": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						OperationId:         "Hello_PutBar",
-						RequestObject: &importerModels.ObjectDefinition{
+						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/bar"),
+						URISuffix: pointer.To("/bar"),
 					},
 					"Second": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PATCH",
-						OperationId:         "hello_Second",
-						RequestObject: &importerModels.ObjectDefinition{
+						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						// https://github.com/hashicorp/pandora/issues/3807
-						UriSuffix: pointer.To("/someotheruri"),
+						URISuffix: pointer.To("/someotheruri"),
 					},
 				},
 			},
 			"HelloOperations": {
-				Models: map[string]importerModels.ModelDetails{
+				Models: map[string]models.SDKModel{
 					"Example": {
-						Fields: map[string]importerModels.FieldDetails{
+						Fields: map[string]models.SDKField{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &importerModels.ObjectDefinition{
-									Type: importerModels.ObjectDefinitionString,
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]importerModels.OperationDetails{
+				Operations: map[string]models.SDKOperation{
 					"HelloRestart": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "POST",
-						OperationId:         "Hello_Restart",
-						RequestObject: &importerModels.ObjectDefinition{
+						RequestObject: &models.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          importerModels.ObjectDefinitionReference,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
-						UriSuffix: pointer.To("/foo"),
+						URISuffix: pointer.To("/foo"),
 					},
 				},
 			},

@@ -4,6 +4,7 @@
   "expectedStatusCodes": [
     200
   ],
+  "fieldContainingPaginationDetails": "nextLink",
   "longRunning": false,
   "httpMethod": "POST",
   "resourceIdName": "IntegrationRuntimeId",
@@ -13,7 +14,7 @@
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SsisObjectMetadataListResponse"
+    "referenceName": "SsisObjectMetadata"
   },
   "uriSuffix": "/getObjectMetadata"
 }

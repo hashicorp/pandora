@@ -34,239 +34,224 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 				},
 			},
 		},
-		models: map[string]resourcemanager.ModelDetails{
+		models: map[string]models.SDKModel{
 			"Experiment": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Identity": {
 						JsonName: "identity",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.SystemAndUserAssignedIdentityMapApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.SystemAndUserAssignedIdentityMapSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"Name": {
 						JsonName: "name",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 					},
 					"Location": {
 						JsonName: "location",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.LocationApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.LocationSDKObjectDefinitionType,
 						},
 						Required: true,
 					},
 					"Properties": {
 						JsonName: "properties",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("ExperimentProperties"),
 						},
 						Required: true,
 					},
 					"Tags": {
 						JsonName: "tags",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.TagsApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.TagsSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 				},
 			},
 			"ExperimentProperties": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Selector": {
 						JsonName: "selectors",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							NestedItem: &resourcemanager.ApiObjectDefinition{
+						ObjectDefinition: models.SDKObjectDefinition{
+							NestedItem: &models.SDKObjectDefinition{
 								ReferenceName: pointer.To("Selector"),
-								Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+								Type:          models.ReferenceSDKObjectDefinitionType,
 							},
-							Type: resourcemanager.ListApiObjectDefinitionType,
+							Type: models.ListSDKObjectDefinitionType,
 						},
 						Required: true,
 					},
 					"StartOnCreation": {
 						JsonName: "startOnCreation",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.BooleanApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.BooleanSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"Step": {
 						JsonName: "steps",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							NestedItem: &resourcemanager.ApiObjectDefinition{
+						ObjectDefinition: models.SDKObjectDefinition{
+							NestedItem: &models.SDKObjectDefinition{
 								ReferenceName: pointer.To("Step"),
-								Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+								Type:          models.ReferenceSDKObjectDefinitionType,
 							},
-							Type: resourcemanager.ListApiObjectDefinitionType,
+							Type: models.ListSDKObjectDefinitionType,
 						},
 						Required: true,
 					},
 				},
 			},
 			"Selector": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Id": {
 						JsonName: "id",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 					},
 					"Target": {
 						JsonName: "targets",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							NestedItem: &resourcemanager.ApiObjectDefinition{
+						ObjectDefinition: models.SDKObjectDefinition{
+							NestedItem: &models.SDKObjectDefinition{
 								ReferenceName: pointer.To("Target"),
-								Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+								Type:          models.ReferenceSDKObjectDefinitionType,
 							},
-							Type: resourcemanager.ListApiObjectDefinitionType,
+							Type: models.ListSDKObjectDefinitionType,
 						},
 						Required: true,
 					},
 					"Type": {
 						JsonName: "type",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+						ObjectDefinition: models.SDKObjectDefinition{
 							ReferenceName: pointer.To("SelectorType"),
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						Required: true,
-						Validation: &resourcemanager.FieldValidationDetails{
-							Type: resourcemanager.RangeValidation,
-							Values: &[]interface{}{
-								"List",
-								"Percent",
-								"Random",
-								"Tag",
-							},
-						},
 					},
 				},
 			},
 			"Step": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Branch": {
 						JsonName: "branches",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							NestedItem: &resourcemanager.ApiObjectDefinition{
+						ObjectDefinition: models.SDKObjectDefinition{
+							NestedItem: &models.SDKObjectDefinition{
 								ReferenceName: pointer.To("Branch"),
-								Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+								Type:          models.ReferenceSDKObjectDefinitionType,
 							},
-							Type: resourcemanager.ListApiObjectDefinitionType,
+							Type: models.ListSDKObjectDefinitionType,
 						},
 						Required: true,
 					},
 					"Name": {
 						JsonName: "name",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 					},
 				},
 			},
 			"Target": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Id": {
 						JsonName: "id",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 					},
 					"Type": {
 						JsonName: "type",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+						ObjectDefinition: models.SDKObjectDefinition{
 							ReferenceName: pointer.To("TargetReferenceType"),
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+							Type:          models.ReferenceSDKObjectDefinitionType,
 						},
 						Required: true,
-						Validation: &resourcemanager.FieldValidationDetails{
-							Type: resourcemanager.RangeValidation,
-							Values: &[]interface{}{
-								"ChaosTarget",
-							},
-						},
 					},
 				},
 			},
 			"Branch": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Action": {
 						JsonName: "actions",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							NestedItem: &resourcemanager.ApiObjectDefinition{
+						ObjectDefinition: models.SDKObjectDefinition{
+							NestedItem: &models.SDKObjectDefinition{
 								ReferenceName: pointer.To("Action"),
-								Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+								Type:          models.ReferenceSDKObjectDefinitionType,
 							},
-							Type: resourcemanager.ListApiObjectDefinitionType,
+							Type: models.ListSDKObjectDefinitionType,
 						},
 						Required: true,
 					},
 					"Name": {
 						JsonName: "name",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 					},
 				},
 			},
 			"Action": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Name": {
 						JsonName: "name",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: false,
 					},
 					"Type": {
 						JsonName: "type",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: false,
 					},
 				},
 			},
 		},
-		operations: map[string]resourcemanager.ApiOperation{
+		operations: map[string]models.SDKOperation{
 			"Create": {
 				LongRunning: false,
 				Method:      "PUT",
-				RequestObject: &resourcemanager.ApiObjectDefinition{
+				RequestObject: &models.SDKObjectDefinition{
 					ReferenceName: pointer.To("Experiment"),
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					Type:          models.ReferenceSDKObjectDefinitionType,
 				},
-				ResourceIdName: pointer.To("ExperimentId"),
+				ResourceIDName: pointer.To("ExperimentId"),
 			},
 			"Delete": {
 				LongRunning:    true,
 				Method:         "DELETE",
-				ResourceIdName: pointer.To("ExperimentId"),
+				ResourceIDName: pointer.To("ExperimentId"),
 			},
 			"Get": {
 				LongRunning: false,
 				Method:      "GET",
-				ResponseObject: &resourcemanager.ApiObjectDefinition{
+				ResponseObject: &models.SDKObjectDefinition{
 					ReferenceName: pointer.To("Experiment"),
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					Type:          models.ReferenceSDKObjectDefinitionType,
 				},
-				ResourceIdName: pointer.To("ExperimentId"),
+				ResourceIDName: pointer.To("ExperimentId"),
 			},
 			"Update": {
 				LongRunning: false,
 				Method:      "PUT",
-				RequestObject: &resourcemanager.ApiObjectDefinition{
+				RequestObject: &models.SDKObjectDefinition{
 					ReferenceName: pointer.To("Experiment"),
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					Type:          models.ReferenceSDKObjectDefinitionType,
 				},
-				ResourceIdName: pointer.To("ExperimentId"),
+				ResourceIDName: pointer.To("ExperimentId"),
 			},
 		},
 		resourceIds: map[string]models.ResourceID{
