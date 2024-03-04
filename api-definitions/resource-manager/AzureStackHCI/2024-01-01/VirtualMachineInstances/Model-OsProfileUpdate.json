@@ -1,0 +1,44 @@
+{
+  "name": "OsProfileUpdate",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "computerName",
+      "name": "ComputerName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "linuxConfiguration",
+      "name": "LinuxConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "OsProfileUpdateLinuxConfiguration"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "windowsConfiguration",
+      "name": "WindowsConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "OsProfileUpdateWindowsConfiguration"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

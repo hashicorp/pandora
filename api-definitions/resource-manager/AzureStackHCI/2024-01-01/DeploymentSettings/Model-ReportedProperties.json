@@ -1,0 +1,31 @@
+{
+  "name": "ReportedProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "deploymentStatus",
+      "name": "DeploymentStatus",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DeploymentStatus"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "validationStatus",
+      "name": "ValidationStatus",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ValidationStatus"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

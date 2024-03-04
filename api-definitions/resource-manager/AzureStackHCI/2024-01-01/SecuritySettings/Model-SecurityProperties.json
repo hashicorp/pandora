@@ -1,0 +1,44 @@
+{
+  "name": "SecurityProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "provisioningState",
+      "name": "ProvisioningState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ProvisioningState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "securedCoreComplianceAssignment",
+      "name": "SecuredCoreComplianceAssignment",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ComplianceAssignmentType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "securityComplianceStatus",
+      "name": "SecurityComplianceStatus",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SecurityComplianceStatus"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}
