@@ -16,10 +16,6 @@ type SaveServiceOptions struct {
 	// AzureRestAPISpecsGitSHA specifies the Git Commit SHA that these API Definitions were imported from.
 	AzureRestAPISpecsGitSHA *string
 
-	// OutputDirectory specifies the directory where the API Definitions should be written to.
-	// This is the path to the `./api-definitions` directory.
-	OutputDirectory string
-
 	// ResourceProvider optionally specifies the Azure Resource Provider associated with this Service.
 	// This is only present when SourceDataType is ResourceManagerSourceDataType.
 	ResourceProvider *string
@@ -38,7 +34,7 @@ type SaveServiceOptions struct {
 }
 
 // SaveService persists the API Definitions for the Service specified in opts.
-func SaveService(opts SaveServiceOptions) error {
+func (r repositoryImpl) SaveService(opts SaveServiceOptions) error {
 	logging.Log.Info(fmt.Sprintf("Processing Service %q", opts.ServiceName))
 
 	items := []stages.Stage{
@@ -140,7 +136,7 @@ func SaveService(opts SaveServiceOptions) error {
 	}
 
 	logging.Log.Debug("Persisting files to disk..")
-	if err := helpers.PersistFileSystem(opts.OutputDirectory, opts.SourceDataType, opts.ServiceName, fs); err != nil {
+	if err := helpers.PersistFileSystem(r.workingDirectory, opts.SourceDataType, opts.ServiceName, fs); err != nil {
 		return fmt.Errorf("persisting files: %+v", err)
 	}
 
