@@ -11,13 +11,13 @@ import (
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	terraformHelpers "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/helpers"
-	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	terraformModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func (b Builder) identifyTopLevelFieldsWithinResourceID(input models.ResourceID, mappings *resourcemanager.MappingDefinition, displayName string, resourceBuildInfo *importerModels.ResourceBuildInfo, logger hclog.Logger) (*map[string]resourcemanager.TerraformSchemaFieldDefinition, *resourcemanager.MappingDefinition, error) {
+func (b Builder) identifyTopLevelFieldsWithinResourceID(input models.ResourceID, mappings *resourcemanager.MappingDefinition, displayName string, resourceBuildInfo *terraformModels.ResourceBuildInfo, logger hclog.Logger) (*map[string]resourcemanager.TerraformSchemaFieldDefinition, *resourcemanager.MappingDefinition, error) {
 	out := make(map[string]resourcemanager.TerraformSchemaFieldDefinition)
-	overrides := make([]importerModels.Override, 0)
+	overrides := make([]terraformModels.Override, 0)
 
 	if resourceBuildInfo != nil && resourceBuildInfo.Overrides != nil {
 		overrides = resourceBuildInfo.Overrides
@@ -159,7 +159,7 @@ func (b Builder) identifyTopLevelFieldsWithinResourceID(input models.ResourceID,
 	return &out, mappings, nil
 }
 
-func descriptionForResourceIDSegment(input, resourceDisplayName string, overrides []importerModels.Override) string {
+func descriptionForResourceIDSegment(input, resourceDisplayName string, overrides []terraformModels.Override) string {
 	if overrides != nil && len(overrides) > 0 {
 		for _, o := range overrides {
 			if o.UpdatedName != nil && strings.EqualFold(input, terraformHelpers.ConvertFromSnakeToTitleCase(*o.UpdatedName)) {

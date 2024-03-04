@@ -14,6 +14,7 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/discovery"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform"
+	terraformModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/transformer"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
@@ -112,22 +113,22 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 			}
 		}
 
-		resourceBuildInfo := make(map[string]importerModels.ResourceBuildInfo)
+		resourceBuildInfo := make(map[string]terraformModels.ResourceBuildInfo)
 
 		if api[0].TerraformServiceDefinition != nil {
 			for _, versionDetails := range api[0].TerraformServiceDefinition.ApiVersions {
 				for _, pkgDetails := range versionDetails.Packages {
 					for resource, resourceDetails := range pkgDetails.Definitions {
 						if resourceDetails.Overrides != nil {
-							overrides := make([]importerModels.Override, 0)
+							overrides := make([]terraformModels.Override, 0)
 							for _, o := range *resourceDetails.Overrides {
-								overrides = append(overrides, importerModels.Override{
+								overrides = append(overrides, terraformModels.Override{
 									Name:        o.Name,
 									UpdatedName: o.UpdatedName,
 									Description: o.Description,
 								})
 							}
-							resourceBuildInfo[resource] = importerModels.ResourceBuildInfo{
+							resourceBuildInfo[resource] = terraformModels.ResourceBuildInfo{
 								Overrides: overrides,
 							}
 						}

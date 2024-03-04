@@ -8,6 +8,7 @@ import (
 
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/examples"
+	terraformModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/schema"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/testing"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/transformer"
@@ -17,7 +18,7 @@ import (
 
 // NOTE: this file wants further refactoring and is just a minimal viable grouping for now
 
-func PopulateForResources(data *importerModels.AzureApiDefinition, resourceBuildInfo map[string]importerModels.ResourceBuildInfo, providerPrefix string, logger hclog.Logger) (*importerModels.AzureApiDefinition, error) {
+func PopulateForResources(data *importerModels.AzureApiDefinition, resourceBuildInfo map[string]terraformModels.ResourceBuildInfo, providerPrefix string, logger hclog.Logger) (*importerModels.AzureApiDefinition, error) {
 	logger.Trace("generating Terraform Details")
 	var err error
 	data, err = generateTerraformDetails(data, resourceBuildInfo, logger.Named("TerraformDetails"))
@@ -40,7 +41,7 @@ func PopulateForResources(data *importerModels.AzureApiDefinition, resourceBuild
 	return data, nil
 }
 
-func generateTerraformDetails(data *importerModels.AzureApiDefinition, resourceBuildInfo map[string]importerModels.ResourceBuildInfo, logger hclog.Logger) (*importerModels.AzureApiDefinition, error) {
+func generateTerraformDetails(data *importerModels.AzureApiDefinition, resourceBuildInfo map[string]terraformModels.ResourceBuildInfo, logger hclog.Logger) (*importerModels.AzureApiDefinition, error) {
 	for key, resource := range data.Resources {
 		if resource.Terraform == nil {
 			continue
@@ -62,7 +63,7 @@ func generateTerraformDetails(data *importerModels.AzureApiDefinition, resourceB
 			// use the ResourceName to build up the name for this Schema Model
 			resourceDetails.SchemaModelName = fmt.Sprintf("%sResource", resourceDetails.ResourceName)
 
-			var buildInfo *importerModels.ResourceBuildInfo
+			var buildInfo *terraformModels.ResourceBuildInfo
 			if resourceBuildInfo != nil {
 				if b, ok := resourceBuildInfo[resourceLabel]; ok {
 					buildInfo = &b

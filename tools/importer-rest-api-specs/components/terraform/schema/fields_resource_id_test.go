@@ -10,7 +10,7 @@ import (
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	terraformModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -25,7 +25,7 @@ func TestTopLevelFieldsWithinResourceId_NoSegmentsShouldError(t *testing.T) {
 		ResourceId: []resourcemanager.ResourceIdMappingDefinition{},
 	}
 
-	actualFields, actualMappings, err := Builder{}.identifyTopLevelFieldsWithinResourceID(input, &inputMappings, "Nothing", &importerModels.ResourceBuildInfo{}, hclog.New(hclog.DefaultOptions))
+	actualFields, actualMappings, err := Builder{}.identifyTopLevelFieldsWithinResourceID(input, &inputMappings, "Nothing", &terraformModels.ResourceBuildInfo{}, hclog.New(hclog.DefaultOptions))
 	if err == nil {
 		t.Fatalf("expected an error but didn't get one")
 	}
@@ -51,7 +51,7 @@ func TestTopLevelFieldsWithinResourceId_ResourceGroup(t *testing.T) {
 		ResourceId: []resourcemanager.ResourceIdMappingDefinition{},
 	}
 
-	actualFields, actualMappings, err := Builder{}.identifyTopLevelFieldsWithinResourceID(input, &inputMappings, "Resource Group", &importerModels.ResourceBuildInfo{}, hclog.New(hclog.DefaultOptions))
+	actualFields, actualMappings, err := Builder{}.identifyTopLevelFieldsWithinResourceID(input, &inputMappings, "Resource Group", &terraformModels.ResourceBuildInfo{}, hclog.New(hclog.DefaultOptions))
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 	}
@@ -111,7 +111,7 @@ func TestTopLevelFieldsWithinResourceId_VirtualMachine(t *testing.T) {
 		ResourceId: []resourcemanager.ResourceIdMappingDefinition{},
 	}
 
-	actualFields, actualMappings, err := Builder{}.identifyTopLevelFieldsWithinResourceID(input, &inputMappings, "Virtual Machine", &importerModels.ResourceBuildInfo{}, hclog.New(hclog.DefaultOptions))
+	actualFields, actualMappings, err := Builder{}.identifyTopLevelFieldsWithinResourceID(input, &inputMappings, "Virtual Machine", &terraformModels.ResourceBuildInfo{}, hclog.New(hclog.DefaultOptions))
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 	}
@@ -208,7 +208,7 @@ func TestTopLevelFieldsWithinResourceId_VirtualMachineExtension(t *testing.T) {
 		},
 	}
 	builder := NewBuilder(apiResource)
-	actualFields, actualMappings, err := builder.identifyTopLevelFieldsWithinResourceID(input, &inputMappings, "Virtual Machine Extension", &importerModels.ResourceBuildInfo{}, hclog.New(hclog.DefaultOptions))
+	actualFields, actualMappings, err := builder.identifyTopLevelFieldsWithinResourceID(input, &inputMappings, "Virtual Machine Extension", &terraformModels.ResourceBuildInfo{}, hclog.New(hclog.DefaultOptions))
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 	}
@@ -313,7 +313,7 @@ func TestTopLevelFieldsWithinResourceId_KubernetesTrustedAccessRoleBinding(t *te
 		},
 	}
 	builder := NewBuilder(apiResource)
-	actualFields, actualMappings, err := builder.identifyTopLevelFieldsWithinResourceID(input, &inputMappings, "Kubernetes Cluster Trusted Access Role Binding", &importerModels.ResourceBuildInfo{}, hclog.New(hclog.DefaultOptions))
+	actualFields, actualMappings, err := builder.identifyTopLevelFieldsWithinResourceID(input, &inputMappings, "Kubernetes Cluster Trusted Access Role Binding", &terraformModels.ResourceBuildInfo{}, hclog.New(hclog.DefaultOptions))
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 	}
@@ -397,8 +397,8 @@ func TestTopLevelFieldsWithinResourceId_ParentIdSchemaOverride(t *testing.T) {
 		Fields:     []resourcemanager.FieldMappingDefinition{},
 		ResourceId: []resourcemanager.ResourceIdMappingDefinition{},
 	}
-	inputResourceBuildInfo := importerModels.ResourceBuildInfo{
-		Overrides: []importerModels.Override{
+	inputResourceBuildInfo := terraformModels.ResourceBuildInfo{
+		Overrides: []terraformModels.Override{
 			{
 				Name:        "kubernetes_cluster_id",
 				UpdatedName: pointer.To("renamed_cluster_id"),
@@ -507,8 +507,8 @@ func TestTopLevelFieldsWithinResourceId_SchemaOverride(t *testing.T) {
 		Fields:     []resourcemanager.FieldMappingDefinition{},
 		ResourceId: []resourcemanager.ResourceIdMappingDefinition{},
 	}
-	inputResourceBuildInfo := importerModels.ResourceBuildInfo{
-		Overrides: []importerModels.Override{
+	inputResourceBuildInfo := terraformModels.ResourceBuildInfo{
+		Overrides: []terraformModels.Override{
 			{
 				Name:        "name",
 				UpdatedName: pointer.To("target_type"),
@@ -597,8 +597,8 @@ func TestTopLevelFieldsWithinResourceId_DocumentationOverride(t *testing.T) {
 		Fields:     []resourcemanager.FieldMappingDefinition{},
 		ResourceId: []resourcemanager.ResourceIdMappingDefinition{},
 	}
-	inputResourceBuildInfo := importerModels.ResourceBuildInfo{
-		Overrides: []importerModels.Override{
+	inputResourceBuildInfo := terraformModels.ResourceBuildInfo{
+		Overrides: []terraformModels.Override{
 			{
 				Name:        "name",
 				UpdatedName: pointer.To("target_type"),

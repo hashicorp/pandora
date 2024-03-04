@@ -11,11 +11,11 @@ import (
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/helpers"
-	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	terraformModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func (b Builder) identifyFieldsWithinPropertiesBlock(schemaModelName string, input operationPayloads, resource *resourcemanager.TerraformResourceDetails, mappings *resourcemanager.MappingDefinition, resourceBuildInfo *importerModels.ResourceBuildInfo, named hclog.Logger) (*map[string]resourcemanager.TerraformSchemaFieldDefinition, *resourcemanager.MappingDefinition, error) {
+func (b Builder) identifyFieldsWithinPropertiesBlock(schemaModelName string, input operationPayloads, resource *resourcemanager.TerraformResourceDetails, mappings *resourcemanager.MappingDefinition, resourceBuildInfo *terraformModels.ResourceBuildInfo, named hclog.Logger) (*map[string]resourcemanager.TerraformSchemaFieldDefinition, *resourcemanager.MappingDefinition, error) {
 	allFields := make(map[string]struct{}, 0)
 	propertiesPayloads := input.createReadUpdatePayloadsProperties()
 	for _, model := range propertiesPayloads {

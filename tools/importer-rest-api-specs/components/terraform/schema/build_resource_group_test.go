@@ -9,7 +9,7 @@ import (
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	terraformModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -140,7 +140,7 @@ func TestBuildForResourceGroupHappyPathAllModelsTheSame(t *testing.T) {
 		},
 	}
 
-	var inputResourceBuildInfo *importerModels.ResourceBuildInfo
+	var inputResourceBuildInfo *terraformModels.ResourceBuildInfo
 
 	actualModels, actualMappings, err := builder.Build(input, inputResourceBuildInfo, hclog.New(hclog.DefaultOptions))
 	if err != nil {
@@ -330,7 +330,7 @@ func TestBuildForResourceGroupUsingRealData(t *testing.T) {
 		},
 	}
 
-	var inputResourceBuildInfo *importerModels.ResourceBuildInfo
+	var inputResourceBuildInfo *terraformModels.ResourceBuildInfo
 
 	actualModels, actualMappings, err := builder.Build(input, inputResourceBuildInfo, hclog.New(hclog.DefaultOptions))
 	if err != nil {
