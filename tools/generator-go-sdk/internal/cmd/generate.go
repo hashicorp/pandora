@@ -60,7 +60,6 @@ func (g GenerateCommand) Run(args []string) int {
 		// with services already used in `terraform-provider-azurerm`. These services will be gradually removed
 		// from this list to ensure they're migrated across to using `hashicorp/go-azure-sdk`s base layer.
 
-		"ContainerInstance",
 		"FrontDoor",
 		"RecoveryServicesBackup", // error: generating Service "RecoveryServicesBackup" / Version "2023-04-01" / Resource "Operation": generating methods: templating methods (using hashicorp/go-azure-sdk): templating: building methods: building response struct template: existing model "ValidateOperationResponse" conflicts with the operation response model for "Validate"
 		"Subscription",
