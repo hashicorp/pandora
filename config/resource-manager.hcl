@@ -534,7 +534,7 @@ service "sqlvirtualmachine" {
 }
 service "storage" {
   name      = "Storage"
-  available = ["2023-01-01"]
+  available = ["2023-01-01", "2023-04-01"]
 }
 service "storagecache" {
   name      = "StorageCache"
