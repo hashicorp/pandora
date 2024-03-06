@@ -353,9 +353,6 @@ resource "example_kubernetes_fleet_manager" "test" {
   name                = "acctestkfm${var.random_string}"
   location            = example_resource_group.test.location
   resource_group_name = example_resource_group.test.name
-  hub_profile {
-    dns_prefix = "val-${var.random_string}"
-  }
 }
 `
 	actual := builder.generateTemplateConfigForDependencies(dependencies)

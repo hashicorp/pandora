@@ -172,9 +172,6 @@ resource "%[1]s_kubernetes_fleet_manager" "test" {
   name                = "acctestkfm${var.random_string}"
   location            = %[1]s_resource_group.test.location
   resource_group_name = %[1]s_resource_group.test.name
-  hub_profile {
-    dns_prefix = "val-${var.random_string}"
-  }
 }
 `, tb.providerPrefix))
 	}
