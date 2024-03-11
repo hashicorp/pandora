@@ -1,0 +1,37 @@
+{
+  "name": "ListAtSubscriptionScope",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "metricnamespace",
+      "required": false,
+      "field": "Metricnamespace",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": false,
+      "queryString": "region",
+      "required": true,
+      "field": "Region",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "SubscriptionId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "SubscriptionScopeMetricDefinitionCollection"
+  },
+  "uriSuffix": "/providers/Microsoft.Insights/metricDefinitions"
+}
