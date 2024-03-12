@@ -1,7 +1,7 @@
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
 
-package dataapigeneratorjson
+package helpers
 
 import (
 	"encoding/json"
@@ -11,36 +11,36 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )
 
 var directoryPermissions = os.FileMode(0755)
 
-// filePath is a typealias to make it clearer what's being returned from this generationStage.
+// FilePath is a typealias to make it clearer what's being returned from this generationStage.
 // This represents the path to a file on disk
-type filePath = string
+type FilePath = string
 
-// fileBody is a typealias to make it clearer what's being returned from this generationStage.
-type fileBody = []byte
+// FileBody is a typealias to make it clearer what's being returned from this generationStage.
+type FileBody = []byte
 
-// fileSystem is an abstraction around a set of files within a working directory.
+// FileSystem is an abstraction around a set of files within a working directory.
 // It's intended to allow a representation around the API Definitions working directory
 // containing a reference to both the files that _would_ be written (during saving/testing)
 // and that exist (when loading the API Definitions from disk).
-type fileSystem struct {
-	f map[filePath]fileBody
+type FileSystem struct {
+	f map[FilePath]FileBody
 }
 
-func newFileSystem() *fileSystem {
-	return &fileSystem{
-		f: map[filePath]fileBody{},
+func NewFileSystem() *FileSystem {
+	return &FileSystem{
+		f: map[FilePath]FileBody{},
 	}
 }
 
-// stage stages the specified body at the specified path, ensuring that it's unique.
-// This doesn't persist the file to disk, which is handled in persistFileSystem.
-func (f *fileSystem) stage(path filePath, body any) error {
+// Stage stages the specified body at the specified path, ensuring that it's unique.
+// This doesn't persist the file to disk, which is handled in PersistFileSystem.
+func (f *FileSystem) Stage(path FilePath, body any) error {
 	if _, existing := f.f[path]; existing {
 		return fmt.Errorf("a duplicate file exists at the path %q", path)
 	}
@@ -69,13 +69,15 @@ func (f *fileSystem) stage(path filePath, body any) error {
 	return fmt.Errorf("internal-error: unexpected file extension %q for %q", fileExtension, path)
 }
 
-func persistFileSystem(workingDirectory string, dataType models.SourceDataType, serviceName string, input *fileSystem, logger hclog.Logger) error {
+func PersistFileSystem(workingDirectory string, dataType models.SourceDataType, serviceName string, input *FileSystem) error {
+	// TODO: note this is going to need to take SourceDataOrigin into account too
+
 	rootDir := filepath.Join(workingDirectory, string(dataType))
-	logger.Trace(fmt.Sprintf("Persisting files into %q", rootDir))
+	logging.Log.Trace(fmt.Sprintf("Persisting files into %q", rootDir))
 
 	// Delete any existing directory with this service name
 	serviceDir := filepath.Join(rootDir, serviceName)
-	logger.Debug(fmt.Sprintf("Removing any existing Directory for Service %q", serviceName))
+	logging.Log.Debug(fmt.Sprintf("Removing any existing Directory for Service %q", serviceName))
 	_ = os.RemoveAll(serviceDir)
 	if err := os.MkdirAll(serviceDir, directoryPermissions); err != nil {
 		return fmt.Errorf("recreating directory %q: %+v", serviceDir, err)
@@ -83,7 +85,7 @@ func persistFileSystem(workingDirectory string, dataType models.SourceDataType, 
 
 	// pull out a list of directories
 	directories := uniqueDirectories(input.f)
-	logger.Debug(fmt.Sprintf("Creating directories for Service %q", serviceName))
+	logging.Log.Debug(fmt.Sprintf("Creating directories for Service %q", serviceName))
 	for _, dir := range directories {
 		dirPath := filepath.Join(rootDir, dir)
 		if err := os.MkdirAll(dirPath, directoryPermissions); err != nil {
@@ -94,7 +96,7 @@ func persistFileSystem(workingDirectory string, dataType models.SourceDataType, 
 	// write the files
 	for path, body := range input.f {
 		fileFullPath := filepath.Join(rootDir, path)
-		logger.Trace(fmt.Sprintf("Writing file %q", fileFullPath))
+		logging.Log.Trace(fmt.Sprintf("Writing file %q", fileFullPath))
 		file, err := os.Create(fileFullPath)
 		if err != nil {
 			return fmt.Errorf("opening %q: %+v", fileFullPath, err)
@@ -107,7 +109,7 @@ func persistFileSystem(workingDirectory string, dataType models.SourceDataType, 
 	return nil
 }
 
-func uniqueDirectories(input map[filePath]fileBody) []string {
+func uniqueDirectories(input map[FilePath]FileBody) []string {
 	directories := make(map[string]struct{})
 	for path := range input {
 		dir := filepath.Dir(path)

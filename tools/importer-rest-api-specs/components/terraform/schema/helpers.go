@@ -11,8 +11,8 @@ import (
 
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/helpers"
+	terraformModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/schema/processors"
-	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -58,7 +58,7 @@ func getField(model models.SDKModel, fieldName string) (*models.SDKField, bool) 
 	return nil, false
 }
 
-func updateFieldName(fieldName string, model *models.SDKModel, resource *resourcemanager.TerraformResourceDetails, constants map[string]models.SDKConstant, resourceBuildInfo *importerModels.ResourceBuildInfo) (string, error) {
+func updateFieldName(fieldName string, model *models.SDKModel, resource *resourcemanager.TerraformResourceDetails, constants map[string]models.SDKConstant, resourceBuildInfo *terraformModels.ResourceBuildInfo) (string, error) {
 	metadata := processors.FieldMetadata{
 		TerraformDetails: *resource,
 		Model:            *model,
@@ -91,7 +91,7 @@ func updateFieldName(fieldName string, model *models.SDKModel, resource *resourc
 	return fieldName, nil
 }
 
-func applySchemaOverrides(fieldName string, overrides []importerModels.Override) (*string, error) {
+func applySchemaOverrides(fieldName string, overrides []terraformModels.Override) (*string, error) {
 	for _, override := range overrides {
 		if strings.EqualFold(fieldName, strings.ReplaceAll(override.Name, "_", "")) {
 			if override.UpdatedName != nil {

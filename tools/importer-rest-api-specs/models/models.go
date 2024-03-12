@@ -40,16 +40,6 @@ type AzureApiResource struct {
 	Terraform   *resourcemanager.TerraformDetails
 }
 
-type ResourceBuildInfo struct {
-	Overrides []Override
-}
-
-type Override struct {
-	Name        string
-	UpdatedName *string
-	Description *string
-}
-
 func MergeResourcesForTag(base AzureApiResource, merge AzureApiResource) AzureApiResource {
 	for k, v := range merge.Constants {
 		if _, ok := base.Constants[k]; !ok {

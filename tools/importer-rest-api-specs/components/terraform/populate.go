@@ -8,6 +8,7 @@ import (
 
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/examples"
+	terraformModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/schema"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/testing"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/transformer"
@@ -17,30 +18,29 @@ import (
 
 // NOTE: this file wants further refactoring and is just a minimal viable grouping for now
 
-func PopulateForResources(data *importerModels.AzureApiDefinition, resourceBuildInfo map[string]importerModels.ResourceBuildInfo, providerPrefix string, logger hclog.Logger) (*importerModels.AzureApiDefinition, error) {
+func PopulateForResources(input importerModels.AzureApiDefinition, resourceBuildInfo map[string]terraformModels.ResourceBuildInfo, providerPrefix string, logger hclog.Logger) (*importerModels.AzureApiDefinition, error) {
 	logger.Trace("generating Terraform Details")
-	var err error
-	data, err = generateTerraformDetails(data, resourceBuildInfo, logger.Named("TerraformDetails"))
+	output, err := generateTerraformDetails(input, resourceBuildInfo, logger.Named("TerraformDetails"))
 	if err != nil {
 		return nil, fmt.Errorf("generating Terraform Details: %+v", err)
 	}
 
 	logger.Trace("generating Terraform Tests")
-	data, err = generateTerraformTests(data, providerPrefix, logger.Named("TerraformTests"))
+	output, err = generateTerraformTests(output, providerPrefix, logger.Named("TerraformTests"))
 	if err != nil {
 		return nil, fmt.Errorf("generating Terraform Tests: %+v", err)
 	}
 
 	logger.Trace("Generating Example Usage from the Terraform Tests")
-	data, err = generateTerraformExampleUsage(data)
+	output, err = generateTerraformExampleUsage(output)
 	if err != nil {
 		return nil, fmt.Errorf("generating Terraform Example Usage: %+v", err)
 	}
 
-	return data, nil
+	return output, nil
 }
 
-func generateTerraformDetails(data *importerModels.AzureApiDefinition, resourceBuildInfo map[string]importerModels.ResourceBuildInfo, logger hclog.Logger) (*importerModels.AzureApiDefinition, error) {
+func generateTerraformDetails(data importerModels.AzureApiDefinition, resourceBuildInfo map[string]terraformModels.ResourceBuildInfo, logger hclog.Logger) (*importerModels.AzureApiDefinition, error) {
 	for key, resource := range data.Resources {
 		if resource.Terraform == nil {
 			continue
@@ -62,7 +62,7 @@ func generateTerraformDetails(data *importerModels.AzureApiDefinition, resourceB
 			// use the ResourceName to build up the name for this Schema Model
 			resourceDetails.SchemaModelName = fmt.Sprintf("%sResource", resourceDetails.ResourceName)
 
-			var buildInfo *importerModels.ResourceBuildInfo
+			var buildInfo *terraformModels.ResourceBuildInfo
 			if resourceBuildInfo != nil {
 				if b, ok := resourceBuildInfo[resourceLabel]; ok {
 					buildInfo = &b
@@ -103,7 +103,7 @@ func generateTerraformDetails(data *importerModels.AzureApiDefinition, resourceB
 		data.Resources[key] = resource
 	}
 
-	return data, nil
+	return &data, nil
 }
 
 func generateTerraformExampleUsage(data *importerModels.AzureApiDefinition) (*importerModels.AzureApiDefinition, error) {
