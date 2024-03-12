@@ -263,7 +263,7 @@ service "healthbot" {
 }
 service "healthcareapis" {
   name      = "HealthcareApis"
-  available = ["2022-12-01", "2023-02-28", "2023-09-06", "2023-11-01", "2023-12-01", "2024-03-01"]
+  available = ["2022-12-01", "2023-02-28", "2023-09-06", "2023-11-01", "2023-12-01", "2024-03-01", "2024-03-31"]
 }
 service "hybridaks" {
   name      = "HybridAzureKubernetesService"
