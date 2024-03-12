@@ -8,6 +8,7 @@ import (
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/hcl/v2"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 	"github.com/zclconf/go-cty/cty"
 )
@@ -20,8 +21,8 @@ func TestGenerateCompleteTest_NameOnlyRequired(t *testing.T) {
 					"Name": {
 						HclName:  "name",
 						Required: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 					},
 				},
@@ -54,8 +55,8 @@ func TestGenerateCompleteTest_NameOnlyOptional(t *testing.T) {
 					"Name": {
 						HclName:  "name",
 						Optional: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 					},
 				},
@@ -112,8 +113,8 @@ func TestGenerateCompleteTest_NameOnlyComputedShouldBeIgnored(t *testing.T) {
 					"Name": {
 						HclName:  "name",
 						Computed: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 					},
 				},
@@ -167,8 +168,8 @@ func TestGenerateCompleteTest_SystemAssignedIdentityOnly(t *testing.T) {
 					"Identity": {
 						HclName:  "identity",
 						Optional: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.SystemAssignedIdentityTerraformSchemaObjectDefinitionType,
 						},
 					},
 				},
@@ -223,22 +224,22 @@ func TestGenerateCompleteTest_CoreProperties(t *testing.T) {
 					"Name": {
 						HclName:  "name",
 						Optional: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 					},
 					"Location": {
 						HclName:  "location",
 						Optional: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeLocation,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.LocationTerraformSchemaObjectDefinitionType,
 						},
 					},
 					"ResourceGroupName": {
 						HclName:  "resource_group_name",
 						Optional: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeResourceGroup,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.ResourceGroupTerraformSchemaObjectDefinitionType,
 						},
 					},
 				},
@@ -305,15 +306,15 @@ func TestGenerateCompleteTest_BothRequiredAndOptionalPropertiesShouldBeOutput(t 
 					"Name": {
 						HclName:  "name",
 						Required: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 					},
 					"SomeOptionalField": {
 						HclName:  "some_optional_field",
 						Optional: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 					},
 				},
@@ -374,15 +375,15 @@ func TestGenerateCompleteTest_NestedObject(t *testing.T) {
 					"Name": {
 						HclName:  "name",
 						Required: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 					},
 					"NestedBlock": {
 						HclName:  "nested_block",
 						Optional: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 							ReferenceName: pointer.To("NestedModel"),
 						},
 					},
@@ -393,8 +394,8 @@ func TestGenerateCompleteTest_NestedObject(t *testing.T) {
 					"Name": {
 						HclName:  "name",
 						Optional: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 					},
 				},
@@ -455,17 +456,17 @@ func TestGenerateCompleteTest_ListOfANestedObject(t *testing.T) {
 					"Name": {
 						HclName:  "name",
 						Required: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 					},
 					"NestedBlock": {
 						HclName:  "nested_block",
 						Optional: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeList,
-							NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.ListTerraformSchemaObjectDefinitionType,
+							NestedObject: &models.TerraformSchemaObjectDefinition{
+								Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 								ReferenceName: pointer.To("NestedModel"),
 							},
 						},
@@ -477,8 +478,8 @@ func TestGenerateCompleteTest_ListOfANestedObject(t *testing.T) {
 					"Name": {
 						HclName:  "name",
 						Optional: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 					},
 				},
@@ -539,17 +540,17 @@ func TestGenerateCompleteTest_SetOfAnOptionalNestedObject(t *testing.T) {
 					"Name": {
 						HclName:  "name",
 						Required: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 					},
 					"NestedBlock": {
 						HclName:  "nested_block",
 						Optional: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeSet,
-							NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.SetTerraformSchemaObjectDefinitionType,
+							NestedObject: &models.TerraformSchemaObjectDefinition{
+								Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 								ReferenceName: pointer.To("NestedModel"),
 							},
 						},
@@ -561,8 +562,8 @@ func TestGenerateCompleteTest_SetOfAnOptionalNestedObject(t *testing.T) {
 					"Name": {
 						HclName:  "name",
 						Required: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 					},
 				},
@@ -626,17 +627,17 @@ func TestGenerateCompleteTest_SetOfANestedObjectWithOptionalField(t *testing.T) 
 					"Name": {
 						HclName:  "name",
 						Required: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 					},
 					"NestedBlock": {
 						HclName:  "nested_block",
 						Required: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeSet,
-							NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.SetTerraformSchemaObjectDefinitionType,
+							NestedObject: &models.TerraformSchemaObjectDefinition{
+								Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 								ReferenceName: pointer.To("NestedModel"),
 							},
 						},
@@ -648,8 +649,8 @@ func TestGenerateCompleteTest_SetOfANestedObjectWithOptionalField(t *testing.T) 
 					"Name": {
 						HclName:  "name",
 						Optional: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 					},
 				},

@@ -125,7 +125,7 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(schemaModelName string, inp
 			// If a Create and Update Mapping are present but a Read isn't it's implicitly WriteOnly
 			//WriteOnly: isWriteOnly,
 			Validation: validation,
-			Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+			Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 				Markdown: "TODO",
 			},
 		}
@@ -143,7 +143,7 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(schemaModelName string, inp
 		}
 		definition.ObjectDefinition = *objectDefinition
 
-		if objectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeReference {
+		if objectDefinition.Type == models.ReferenceTerraformSchemaObjectDefinitionType {
 			nestedModelName := *objectDefinition.ReferenceName
 			if fieldExists(input.createPropertiesPayload, k) {
 				mappings.Fields = append(mappings.Fields, modelToModelMappingBetween(nestedModelName, input.createPropertiesModelName, k))

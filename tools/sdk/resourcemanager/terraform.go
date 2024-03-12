@@ -6,73 +6,15 @@ package resourcemanager
 import (
 	"fmt"
 	"strings"
+
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 type TerraformDetails struct {
-	// DataSources is a key (Resource Label) value (TerraformDataSourceDetails) pair of
-	// metadata about the Terraform Data Sources which should be generated, including
-	// any nested schemas.
-	DataSources map[string]TerraformDataSourceDetails `json:"dataSources"`
-
 	// Resources is a key (Resource Label) value (TerraformResourceDetails) pair of
 	// metadata about the Terraform Resources which should be generated, including
 	// any nested schemas.
 	Resources map[string]TerraformResourceDetails `json:"resources"`
-}
-
-type TerraformDataSourceDetails struct {
-	// ApiVersion specifies the version of the Api which should be used for
-	// this Data Source.
-	ApiVersion string `json:"apiVersion"`
-
-	// Generate specifies if this Data Source should be generated.
-	Generate bool `json:"generate"`
-
-	// PluralDetails specifies the metadata for the Plural version of this Data Source
-	// A Singular Data Source returns information about exactly 1 existing Resource, whereas
-	// a Plural Data Source returns information about 1 or more existing Resources.
-	PluralDetails *TerraformDataSourceTypeDetails `json:"plural"`
-
-	// SingularDetails specifies the metadata for the Singular version of this Data Source
-	// A Singular Data Source returns information about exactly 1 existing Resource, whereas
-	// a Plural Data Source returns information about 1 or more existing Resources.
-	SingularDetails *TerraformDataSourceTypeDetails `json:"singular"`
-
-	// TODO: populate this
-}
-
-type TerraformDataSourceTypeDetails struct {
-	// Description is a human-friendly description for this Data Source Type.
-	Description string `json:"description"`
-
-	// ExampleUsageHcl is the HCL which should be output as the Example Usage for this Data Source Type.
-	ExampleUsageHcl string `json:"exampleUsageHcl"`
-
-	// Generate specifies whether this Data Source Type should be generated this allows just the
-	// Singular Data Source or the Plural Data Source to be generated as required.
-	Generate bool `json:"generate"`
-
-	// GenerateSchema specifies whether the Typed Model should be generated for this Data Source Type.
-	GenerateModel bool `json:"generateModel"`
-
-	// GenerateSchema specifies whether the Schema should be generated for this Data Source Type.
-	GenerateSchema bool `json:"generateSchema"`
-
-	// MethodDefinition specifies the SDK Method which should be used for this Data Source Type.
-	MethodDefinition MethodDefinition `json:"methodDefinition"`
-
-	// ResourceLabel is the label for this Data Source Type without the Provider Prefix
-	// (e.g. `resource_group` rather than `azurerm_resource_group`).
-	ResourceLabel string `json:"resourceLabel"`
-}
-
-type FieldManualMappingDefinition struct {
-	// MethodName specifies the name of the Manual mapping method used to map between the Schema and SDK Types
-	MethodName string `json:"methodName"`
-}
-
-func (d FieldManualMappingDefinition) String() string {
-	return fmt.Sprintf("MethodName: %q", d.MethodName)
 }
 
 type FieldMappingDefinition struct {
@@ -84,9 +26,6 @@ type FieldMappingDefinition struct {
 
 	// ModelToModel specifies the mapping information when Type is set to ModelToModel.
 	ModelToModel *FieldMappingModelToModelDefinition `json:"modelToModel,omitempty"`
-
-	// Manual contains additional metadata when Type is set to Manual.
-	Manual *FieldManualMappingDefinition `json:"manual,omitempty"`
 }
 
 func (d FieldMappingDefinition) SchemaModelName() string {
@@ -139,9 +78,6 @@ func (d FieldMappingDefinition) String() string {
 	if d.DirectAssignment != nil {
 		output = append(output, fmt.Sprintf("DirectAssignment: %s", d.DirectAssignment.String()))
 	}
-	if d.Manual != nil {
-		output = append(output, fmt.Sprintf("Manual: %q", d.Manual.String()))
-	}
 	if d.ModelToModel != nil {
 		output = append(output, fmt.Sprintf("ModelToModel: %s", d.ModelToModel.String()))
 	}
@@ -153,7 +89,6 @@ type MappingDefinitionType string
 
 const (
 	DirectAssignmentMappingDefinitionType MappingDefinitionType = "DirectAssignment"
-	ManualMappingDefinitionType           MappingDefinitionType = "Manual"
 	ModelToModelMappingDefinitionType     MappingDefinitionType = "ModelToModel"
 	// TODO: BooleanEquals, BooleanInvert
 )
@@ -248,15 +183,15 @@ type TerraformResourceDetails struct {
 
 	// CreateMethod describes the method within the SDK Package that should
 	// be used to create this resource in Terraform.
-	CreateMethod MethodDefinition `json:"createMethod"`
+	CreateMethod models.TerraformMethodDefinition `json:"createMethod"`
 
 	// DeleteMethod describes the method within the SDK Package that should
 	// be used to delete this resource in Terraform.
-	DeleteMethod MethodDefinition `json:"deleteMethod"`
+	DeleteMethod models.TerraformMethodDefinition `json:"deleteMethod"`
 
 	// Documentation specifies metadata used to generate the Documentation
 	// for this Resource.
-	Documentation ResourceDocumentationDefinition `json:"documentation"`
+	Documentation models.TerraformDocumentationDefinition `json:"documentation"`
 
 	// DisplayName is the human-readable/marketing name for this Resource,
 	// for example `Resource Group` or `Virtual Machine`.
@@ -282,7 +217,7 @@ type TerraformResourceDetails struct {
 
 	// ReadMethod describes the method within the SDK Package that should
 	// be used to retrieve information about this resource in Terraform.
-	ReadMethod MethodDefinition `json:"readMethod"`
+	ReadMethod models.TerraformMethodDefinition `json:"readMethod"`
 
 	// Resource specifies the Resource within this API Version within the Service where
 	// the details for this Resource can be found.
@@ -306,23 +241,12 @@ type TerraformResourceDetails struct {
 
 	// UpdateMethod optionally describes the method within the SDK Package that should
 	// be used to update this resource in Terraform.
-	UpdateMethod *MethodDefinition `json:"updateMethod,omitempty"`
-}
-
-type MethodDefinition struct {
-	// Generate specifies whether this function should be generated for this Resource.
-	Generate bool `json:"generate"`
-
-	// MethodName specifies the name of the SDK method whicn should be used.
-	MethodName string `json:"methodName"`
-
-	// TimeoutInMinutes specifies the Terraform Timeout for this Resource (in minutes)
-	TimeoutInMinutes int `json:"timeoutInMinutes"`
+	UpdateMethod *models.TerraformMethodDefinition `json:"updateMethod,omitempty"`
 }
 
 type TerraformSchemaFieldDefinition struct {
 	// ObjectDefinition specifies what this field is, for example a String or a List of a Model.
-	ObjectDefinition TerraformSchemaFieldObjectDefinition `json:"objectDefinition"`
+	ObjectDefinition models.TerraformSchemaObjectDefinition `json:"objectDefinition"`
 
 	// Computed specifies whether this field is Computed, meaning that the API defines a
 	// value for this field.
@@ -342,64 +266,16 @@ type TerraformSchemaFieldDefinition struct {
 	Required bool `json:"required"`
 
 	// Documentation specifies the Documentation available for this field
-	Documentation TerraformSchemaDocumentationDefinition `json:"documentation"`
+	Documentation models.TerraformSchemaFieldDocumentationDefinition `json:"documentation"`
 
 	// Validation specifies the validation criteria for this field, for example a set of fixed values
 	Validation *TerraformSchemaValidationDefinition `json:"validation,omitempty"`
 }
 
-type ResourceDocumentationDefinition struct {
-	// Category is the category for this Terraform Resource which is used to
-	// group this resource within the Terraform Registry.
-	Category string `json:"category"`
-
-	// Description is a description for this Terraform Resource which should
-	// be output on the documentation page for this Resource.
-	Description string `json:"description"`
-
-	// ExampleUsageHcl is the HCL which should be output as an Example Usage
-	// for this Resource. This should include all Required properties, and
-	// ideally shows a basic fully functional example for this Resource.
-	ExampleUsageHcl string `json:"exampleUsageHcl"`
-}
-
-type TerraformSchemaFieldType string
-
-const (
-	TerraformSchemaFieldTypeBoolean    TerraformSchemaFieldType = "Boolean"
-	TerraformSchemaFieldTypeDateTime   TerraformSchemaFieldType = "DateTime"
-	TerraformSchemaFieldTypeDictionary TerraformSchemaFieldType = "Dictionary"
-	TerraformSchemaFieldTypeFloat      TerraformSchemaFieldType = "Float"
-	TerraformSchemaFieldTypeInteger    TerraformSchemaFieldType = "Integer"
-	TerraformSchemaFieldTypeList       TerraformSchemaFieldType = "List"
-	TerraformSchemaFieldTypeReference  TerraformSchemaFieldType = "Reference"
-	TerraformSchemaFieldTypeSet        TerraformSchemaFieldType = "Set"
-	TerraformSchemaFieldTypeString     TerraformSchemaFieldType = "String"
-	// NOTE: we intentionally only have Terraform Schema fields (and specific CustomSchema types) here - meaning
-	// that we don't have RawObject/RawFile since we have no means of expressing them today.
-
-	TerraformSchemaFieldTypeEdgeZone                      TerraformSchemaFieldType = "EdgeZone"
-	TerraformSchemaFieldTypeIdentitySystemAssigned        TerraformSchemaFieldType = "IdentitySystemAssigned"
-	TerraformSchemaFieldTypeIdentitySystemAndUserAssigned TerraformSchemaFieldType = "IdentitySystemAndUserAssigned"
-	TerraformSchemaFieldTypeIdentitySystemOrUserAssigned  TerraformSchemaFieldType = "IdentitySystemOrUserAssigned"
-	TerraformSchemaFieldTypeIdentityUserAssigned          TerraformSchemaFieldType = "IdentityUserAssigned"
-	TerraformSchemaFieldTypeLocation                      TerraformSchemaFieldType = "Location"
-	TerraformSchemaFieldTypeResourceGroup                 TerraformSchemaFieldType = "ResourceGroup"
-	TerraformSchemaFieldTypeTags                          TerraformSchemaFieldType = "Tags"
-	TerraformSchemaFieldTypeSku                           TerraformSchemaFieldType = "Sku"
-	TerraformSchemaFieldTypeZone                          TerraformSchemaFieldType = "Zone"
-	TerraformSchemaFieldTypeZones                         TerraformSchemaFieldType = "Zones"
-)
-
 type TerraformSchemaModelDefinition struct {
 	// Fields is a Map of Field Name -> TerraformSchemaFieldDefinition defining the fields
 	// for this Terraform Schema Model.
 	Fields map[string]TerraformSchemaFieldDefinition `json:"fields"`
-}
-
-type TerraformSchemaDocumentationDefinition struct {
-	// Markdown is the Documentation for this field in the Markdown format.
-	Markdown string `json:"markdown"`
 }
 
 type TerraformSchemaValidationDefinition struct {
@@ -436,30 +312,6 @@ const (
 
 	// TODO: implement other types e.g. NoEmptyValues/Ranges
 )
-
-type TerraformSchemaFieldObjectDefinition struct {
-	NestedObject *TerraformSchemaFieldObjectDefinition `json:"nestedObject,omitempty"`
-
-	// ReferenceName is the name of the Reference associated with this ObjectDefinition.
-	ReferenceName *string `json:"referenceName"`
-
-	// Type specifies the Type of field that this is, for example a String or a Location.
-	Type TerraformSchemaFieldType `json:"type"`
-}
-
-func (od TerraformSchemaFieldObjectDefinition) String() string {
-	components := []string{
-		string(od.Type),
-	}
-	if od.ReferenceName != nil {
-		components = append(components, fmt.Sprintf("ReferenceName %q", *od.ReferenceName))
-	}
-	if od.NestedObject != nil {
-		components = append(components, fmt.Sprintf("Nested Object (%s)", od.NestedObject.String()))
-	}
-
-	return strings.Join(components, " / ")
-}
 
 type TerraformResourceTestsDefinition struct {
 	// BasicConfiguration is the most basic Terraform Configuration for this Resource

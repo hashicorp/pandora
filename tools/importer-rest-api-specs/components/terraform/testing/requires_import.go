@@ -8,6 +8,7 @@ import (
 
 	"github.com/hashicorp/hcl/v2"
 	"github.com/hashicorp/hcl/v2/hclwrite"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -39,7 +40,7 @@ func (tb TestBuilder) populateFieldsForResourceImport(block *hclwrite.Body, mode
 	for _, field := range requiredFields {
 		// TODO: if it's a List or Set
 
-		if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeReference {
+		if field.ObjectDefinition.Type == models.ReferenceTerraformSchemaObjectDefinitionType {
 			nestedModel, ok := tb.details.SchemaModels[*field.ObjectDefinition.ReferenceName]
 			if !ok {
 				return fmt.Errorf("the nested schema model %q was not found for field %q", *field.ObjectDefinition.ReferenceName, field.HclName)

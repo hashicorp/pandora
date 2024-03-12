@@ -8,6 +8,7 @@ import (
 
 	"github.com/hashicorp/hcl/v2"
 	"github.com/hashicorp/hcl/v2/hclwrite"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 	"github.com/zclconf/go-cty/cty"
 )
@@ -20,11 +21,11 @@ func (tb TestBuilder) getBlockValueForField(field resourcemanager.TerraformSchem
 		}, nil
 	}
 
-	if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeList || field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeSet {
+	if field.ObjectDefinition.Type == models.ListTerraformSchemaObjectDefinitionType || field.ObjectDefinition.Type == models.SetTerraformSchemaObjectDefinitionType {
 		var nestedBlock *hclwrite.Block
 		var err error
 
-		if field.ObjectDefinition.NestedObject.Type == resourcemanager.TerraformSchemaFieldTypeReference {
+		if field.ObjectDefinition.NestedObject.Type == models.ReferenceTerraformSchemaObjectDefinitionType {
 			nestedModelName := *field.ObjectDefinition.NestedObject.ReferenceName
 			nestedModel, ok := tb.details.SchemaModels[nestedModelName]
 			if !ok {
@@ -48,7 +49,7 @@ func (tb TestBuilder) getBlockValueForField(field resourcemanager.TerraformSchem
 	}
 
 	// if it's a Reference it's exposed as a List with `MaxItems: 1`
-	if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeReference {
+	if field.ObjectDefinition.Type == models.ReferenceTerraformSchemaObjectDefinitionType {
 		nestedModelName := *field.ObjectDefinition.ReferenceName
 		nestedModel, ok := tb.details.SchemaModels[nestedModelName]
 		if !ok {
@@ -69,13 +70,13 @@ func (tb TestBuilder) getBlockValueForField(field resourcemanager.TerraformSchem
 
 type blockValueFunction func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix string) *hclwrite.Block
 
-var blocksToCommonSchemaFunctions = map[resourcemanager.TerraformSchemaFieldType]blockValueFunction{
-	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned: func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix string) *hclwrite.Block {
+var blocksToCommonSchemaFunctions = map[models.TerraformSchemaFieldType]blockValueFunction{
+	models.SystemAssignedIdentityTerraformSchemaObjectDefinitionType: func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix string) *hclwrite.Block {
 		block := hclwrite.NewBlock(field.HclName, []string{})
 		block.Body().SetAttributeValue("type", cty.StringVal("SystemAssigned"))
 		return block
 	},
-	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned: func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix string) *hclwrite.Block {
+	models.SystemAndUserAssignedIdentityTerraformSchemaObjectDefinitionType: func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix string) *hclwrite.Block {
 		dependencies.setNeedsUserAssignedIdentity()
 
 		block := hclwrite.NewBlock(field.HclName, []string{})
@@ -89,13 +90,13 @@ var blocksToCommonSchemaFunctions = map[resourcemanager.TerraformSchemaFieldType
 		}))
 		return block
 	},
-	resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned: func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix string) *hclwrite.Block {
+	models.SystemOrUserAssignedIdentityTerraformSchemaObjectDefinitionType: func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix string) *hclwrite.Block {
 		block := hclwrite.NewBlock(field.HclName, []string{})
 		block.Body().SetAttributeValue("type", cty.StringVal("SystemAssigned"))
 		block.Body().SetAttributeValue("identity_ids", cty.ListValEmpty(cty.String))
 		return block
 	},
-	resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned: func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix string) *hclwrite.Block {
+	models.UserAssignedIdentityTerraformSchemaObjectDefinitionType: func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix string) *hclwrite.Block {
 		dependencies.setNeedsUserAssignedIdentity()
 
 		block := hclwrite.NewBlock(field.HclName, []string{})

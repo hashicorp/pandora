@@ -6,7 +6,7 @@ package models
 // TerraformSchemaObjectDefinitionType defines the Type of Object Definition used in an TerraformSchemaObjectDefinition.
 // Possible values include Simple types (boolean/integer/float/string), References (to a Constant or Model) and a
 // List of the previous values.
-type TerraformSchemaObjectDefinitionType = string
+type TerraformSchemaObjectDefinitionType string
 
 // NOTE: we intentionally only have Terraform Schema fields (and specific CustomSchema types) here - meaning
 // that we don't have RawObject/RawFile since we have no means of expressing them today.

@@ -49,13 +49,13 @@ func (b Builder) identifyTopLevelFieldsWithinResourceID(input models.ResourceID,
 	if parentResourceIdName != "" {
 		// add field definition for the resource name
 		out["Name"] = resourcemanager.TerraformSchemaFieldDefinition{
-			ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type: resourcemanager.TerraformSchemaFieldTypeString,
+			ObjectDefinition: models.TerraformSchemaObjectDefinition{
+				Type: models.StringTerraformSchemaObjectDefinitionType,
 			},
 			Required: true,
 			ForceNew: true,
 			HclName:  "name",
-			Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+			Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 				Markdown: descriptionForResourceIDSegment("Name", displayName, overrides),
 			},
 		}
@@ -72,14 +72,14 @@ func (b Builder) identifyTopLevelFieldsWithinResourceID(input models.ResourceID,
 		}
 
 		out[parentResourceIdName] = resourcemanager.TerraformSchemaFieldDefinition{
-			ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type: resourcemanager.TerraformSchemaFieldTypeString,
+			ObjectDefinition: models.TerraformSchemaObjectDefinition{
+				Type: models.StringTerraformSchemaObjectDefinitionType,
 			},
 			// since this is included in the Resource ID it's implicitly Required/ForceNew
 			Required: true,
 			ForceNew: true,
 			HclName:  terraformHelpers.ConvertToSnakeCase(parentResourceIdName),
-			Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+			Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 				Markdown: descriptionForResourceIDSegment(parentResourceIdName, displayName, overrides),
 			},
 		}
@@ -129,19 +129,19 @@ func (b Builder) identifyTopLevelFieldsWithinResourceID(input models.ResourceID,
 			hclName := terraformHelpers.ConvertToSnakeCase(fieldName)
 
 			field := resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeString,
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.StringTerraformSchemaObjectDefinitionType,
 				},
 				// since this is included in the Resource ID it's implicitly Required/ForceNew
 				Required: true,
 				ForceNew: true,
 				HclName:  hclName,
-				Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+				Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 					Markdown: descriptionForResourceIDSegment(fieldName, displayName, overrides),
 				},
 			}
 			if v.Type == models.ResourceGroupResourceIDSegmentType {
-				field.ObjectDefinition.Type = resourcemanager.TerraformSchemaFieldTypeResourceGroup
+				field.ObjectDefinition.Type = models.ResourceGroupTerraformSchemaObjectDefinitionType
 			}
 			out[fieldName] = field
 

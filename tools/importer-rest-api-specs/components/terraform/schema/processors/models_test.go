@@ -9,6 +9,7 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -146,7 +147,7 @@ func fieldDefinitionsMatch(t *testing.T, modelName string, first map[string]reso
 	return true
 }
 
-func objectDefinitionsMatch(t *testing.T, first *resourcemanager.TerraformSchemaFieldObjectDefinition, second *resourcemanager.TerraformSchemaFieldObjectDefinition) bool {
+func objectDefinitionsMatch(t *testing.T, first *models.TerraformSchemaObjectDefinition, second *models.TerraformSchemaObjectDefinition) bool {
 	if first == nil && second == nil {
 		return true
 	}

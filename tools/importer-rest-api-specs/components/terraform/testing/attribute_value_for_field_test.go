@@ -6,6 +6,7 @@ package testing
 import (
 	"testing"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
 )
@@ -14,8 +15,8 @@ func TestAttributeValueForField_BasicTypeBoolean(t *testing.T) {
 	field := resourcemanager.TerraformSchemaFieldDefinition{
 		HclName:  "some_field",
 		Required: true,
-		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-			Type: resourcemanager.TerraformSchemaFieldTypeBoolean,
+		ObjectDefinition: models.TerraformSchemaObjectDefinition{
+			Type: models.BooleanTerraformSchemaObjectDefinitionType,
 		},
 	}
 	details := resourcemanager.TerraformResourceDetails{
@@ -53,8 +54,8 @@ func TestAttributeValueForField_BasicTypeInteger(t *testing.T) {
 	field := resourcemanager.TerraformSchemaFieldDefinition{
 		HclName:  "some_field",
 		Required: true,
-		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-			Type: resourcemanager.TerraformSchemaFieldTypeInteger,
+		ObjectDefinition: models.TerraformSchemaObjectDefinition{
+			Type: models.IntegerTerraformSchemaObjectDefinitionType,
 		},
 	}
 	details := resourcemanager.TerraformResourceDetails{
@@ -92,8 +93,8 @@ func TestAttributeValueForField_BasicTypeFloat(t *testing.T) {
 	field := resourcemanager.TerraformSchemaFieldDefinition{
 		HclName:  "some_field",
 		Required: true,
-		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-			Type: resourcemanager.TerraformSchemaFieldTypeFloat,
+		ObjectDefinition: models.TerraformSchemaObjectDefinition{
+			Type: models.FloatTerraformSchemaObjectDefinitionType,
 		},
 	}
 	details := resourcemanager.TerraformResourceDetails{
@@ -131,8 +132,8 @@ func TestAttributeValueForField_BasicTypeString(t *testing.T) {
 	field := resourcemanager.TerraformSchemaFieldDefinition{
 		HclName:  "some_field",
 		Required: true,
-		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-			Type: resourcemanager.TerraformSchemaFieldTypeString,
+		ObjectDefinition: models.TerraformSchemaObjectDefinition{
+			Type: models.StringTerraformSchemaObjectDefinitionType,
 		},
 	}
 	details := resourcemanager.TerraformResourceDetails{
@@ -172,8 +173,8 @@ func TestAttributeValueForField_BasicTypeStringDescription(t *testing.T) {
 	field := resourcemanager.TerraformSchemaFieldDefinition{
 		HclName:  "description",
 		Required: true,
-		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-			Type: resourcemanager.TerraformSchemaFieldTypeString,
+		ObjectDefinition: models.TerraformSchemaObjectDefinition{
+			Type: models.StringTerraformSchemaObjectDefinitionType,
 		},
 	}
 	details := resourcemanager.TerraformResourceDetails{
@@ -216,8 +217,8 @@ func TestAttributeValueForField_BasicTypeStringName(t *testing.T) {
 		field := resourcemanager.TerraformSchemaFieldDefinition{
 			HclName:  "name",
 			Required: true,
-			ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type: resourcemanager.TerraformSchemaFieldTypeString,
+			ObjectDefinition: models.TerraformSchemaObjectDefinition{
+				Type: models.StringTerraformSchemaObjectDefinitionType,
 			},
 		}
 		details := resourcemanager.TerraformResourceDetails{
@@ -259,8 +260,8 @@ func TestAttributeValueForField_BasicTypeStringKeyVaultID(t *testing.T) {
 	field := resourcemanager.TerraformSchemaFieldDefinition{
 		HclName:  "key_vault_id",
 		Required: true,
-		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-			Type: resourcemanager.TerraformSchemaFieldTypeString,
+		ObjectDefinition: models.TerraformSchemaObjectDefinition{
+			Type: models.StringTerraformSchemaObjectDefinitionType,
 		},
 	}
 	details := resourcemanager.TerraformResourceDetails{
@@ -300,8 +301,8 @@ func TestAttributeValueForField_BasicTypeStringKeyVaultKeyID(t *testing.T) {
 	field := resourcemanager.TerraformSchemaFieldDefinition{
 		HclName:  "key_vault_key_id",
 		Required: true,
-		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-			Type: resourcemanager.TerraformSchemaFieldTypeString,
+		ObjectDefinition: models.TerraformSchemaObjectDefinition{
+			Type: models.StringTerraformSchemaObjectDefinitionType,
 		},
 	}
 	details := resourcemanager.TerraformResourceDetails{
@@ -343,8 +344,8 @@ func TestAttributeValueForField_BasicTypeStringKubernetesClusterID(t *testing.T)
 	field := resourcemanager.TerraformSchemaFieldDefinition{
 		HclName:  "kubernetes_cluster_id",
 		Required: true,
-		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-			Type: resourcemanager.TerraformSchemaFieldTypeString,
+		ObjectDefinition: models.TerraformSchemaObjectDefinition{
+			Type: models.StringTerraformSchemaObjectDefinitionType,
 		},
 	}
 	details := resourcemanager.TerraformResourceDetails{
@@ -384,8 +385,8 @@ func TestAttributeValueForField_BasicTypeStringNetworkInterfaceID(t *testing.T) 
 	field := resourcemanager.TerraformSchemaFieldDefinition{
 		HclName:  "network_interface_id",
 		Required: true,
-		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-			Type: resourcemanager.TerraformSchemaFieldTypeString,
+		ObjectDefinition: models.TerraformSchemaObjectDefinition{
+			Type: models.StringTerraformSchemaObjectDefinitionType,
 		},
 	}
 	details := resourcemanager.TerraformResourceDetails{
@@ -426,8 +427,8 @@ func TestAttributeValueForField_BasicTypeStringSubnetID(t *testing.T) {
 	field := resourcemanager.TerraformSchemaFieldDefinition{
 		HclName:  "subnet_id",
 		Required: true,
-		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-			Type: resourcemanager.TerraformSchemaFieldTypeString,
+		ObjectDefinition: models.TerraformSchemaObjectDefinition{
+			Type: models.StringTerraformSchemaObjectDefinitionType,
 		},
 	}
 	details := resourcemanager.TerraformResourceDetails{
@@ -467,8 +468,8 @@ func TestAttributeValueForField_BasicTypeStringSubscriptionID(t *testing.T) {
 	field := resourcemanager.TerraformSchemaFieldDefinition{
 		HclName:  "subscription_id",
 		Required: true,
-		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-			Type: resourcemanager.TerraformSchemaFieldTypeString,
+		ObjectDefinition: models.TerraformSchemaObjectDefinition{
+			Type: models.StringTerraformSchemaObjectDefinitionType,
 		},
 	}
 	details := resourcemanager.TerraformResourceDetails{
@@ -502,8 +503,8 @@ func TestAttributeValueForField_BasicTypeStringTenantID(t *testing.T) {
 	field := resourcemanager.TerraformSchemaFieldDefinition{
 		HclName:  "tenant_id",
 		Required: true,
-		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-			Type: resourcemanager.TerraformSchemaFieldTypeString,
+		ObjectDefinition: models.TerraformSchemaObjectDefinition{
+			Type: models.StringTerraformSchemaObjectDefinitionType,
 		},
 	}
 	details := resourcemanager.TerraformResourceDetails{
@@ -537,8 +538,8 @@ func TestAttributeValueForField_BasicTypeStringUserAssignedIdentityID(t *testing
 	field := resourcemanager.TerraformSchemaFieldDefinition{
 		HclName:  "user_assigned_identity_id",
 		Required: true,
-		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-			Type: resourcemanager.TerraformSchemaFieldTypeString,
+		ObjectDefinition: models.TerraformSchemaObjectDefinition{
+			Type: models.StringTerraformSchemaObjectDefinitionType,
 		},
 	}
 	details := resourcemanager.TerraformResourceDetails{
@@ -577,8 +578,8 @@ func TestAttributeValueForField_BasicTypeStringVirtualNetworkID(t *testing.T) {
 	field := resourcemanager.TerraformSchemaFieldDefinition{
 		HclName:  "virtual_network_id",
 		Required: true,
-		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-			Type: resourcemanager.TerraformSchemaFieldTypeString,
+		ObjectDefinition: models.TerraformSchemaObjectDefinition{
+			Type: models.StringTerraformSchemaObjectDefinitionType,
 		},
 	}
 	details := resourcemanager.TerraformResourceDetails{

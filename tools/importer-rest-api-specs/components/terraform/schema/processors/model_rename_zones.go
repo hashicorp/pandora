@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -14,13 +15,13 @@ var _ ModelProcessor = modelRenameZones{}
 
 type modelRenameZones struct{}
 
-func (modelRenameZones) ProcessModel(modelName string, model resourcemanager.TerraformSchemaModelDefinition, models map[string]resourcemanager.TerraformSchemaModelDefinition, mappings resourcemanager.MappingDefinition) (*map[string]resourcemanager.TerraformSchemaModelDefinition, *resourcemanager.MappingDefinition, error) {
+func (modelRenameZones) ProcessModel(modelName string, model resourcemanager.TerraformSchemaModelDefinition, schemaModels map[string]resourcemanager.TerraformSchemaModelDefinition, mappings resourcemanager.MappingDefinition) (*map[string]resourcemanager.TerraformSchemaModelDefinition, *resourcemanager.MappingDefinition, error) {
 	fields := make(map[string]resourcemanager.TerraformSchemaFieldDefinition)
 	for fieldName, fieldValue := range model.Fields {
 		fields[fieldName] = fieldValue
 
-		if strings.EqualFold(fieldName, "AvailabilityZones") && fieldValue.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeList {
-			if fieldValue.ObjectDefinition.NestedObject.Type == resourcemanager.TerraformSchemaFieldTypeString {
+		if strings.EqualFold(fieldName, "AvailabilityZones") && fieldValue.ObjectDefinition.Type == models.ListTerraformSchemaObjectDefinitionType {
+			if fieldValue.ObjectDefinition.NestedObject.Type == models.StringTerraformSchemaObjectDefinitionType {
 				oldName := fieldName
 				delete(fields, oldName)
 
@@ -32,7 +33,7 @@ func (modelRenameZones) ProcessModel(modelName string, model resourcemanager.Ter
 			}
 		}
 
-		if strings.EqualFold(fieldName, "AvailabilityZone") && fieldValue.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeString {
+		if strings.EqualFold(fieldName, "AvailabilityZone") && fieldValue.ObjectDefinition.Type == models.StringTerraformSchemaObjectDefinitionType {
 			oldName := fieldName
 			delete(fields, oldName)
 
@@ -47,23 +48,23 @@ func (modelRenameZones) ProcessModel(modelName string, model resourcemanager.Ter
 		// as such we now look at the updated field name and type and switch out the ObjectDefinition
 		// to use the Zone/s custom type as needed.
 		if strings.EqualFold(fieldName, "Zone") {
-			if fieldValue.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeString {
-				fieldValue.ObjectDefinition = resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeZone,
+			if fieldValue.ObjectDefinition.Type == models.StringTerraformSchemaObjectDefinitionType {
+				fieldValue.ObjectDefinition = models.TerraformSchemaObjectDefinition{
+					Type: models.ZoneTerraformSchemaObjectDefinitionType,
 				}
 				fields[fieldName] = fieldValue
 			}
 		}
 		if strings.EqualFold(fieldName, "Zones") {
-			if fieldValue.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeList && fieldValue.ObjectDefinition.NestedObject.Type == resourcemanager.TerraformSchemaFieldTypeString {
-				fieldValue.ObjectDefinition = resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeZones,
+			if fieldValue.ObjectDefinition.Type == models.ListTerraformSchemaObjectDefinitionType && fieldValue.ObjectDefinition.NestedObject.Type == models.StringTerraformSchemaObjectDefinitionType {
+				fieldValue.ObjectDefinition = models.TerraformSchemaObjectDefinition{
+					Type: models.ZonesTerraformSchemaObjectDefinitionType,
 				}
 				fields[fieldName] = fieldValue
 			}
 		}
 	}
 	model.Fields = fields
-	models[modelName] = model
-	return &models, &mappings, nil
+	schemaModels[modelName] = model
+	return &schemaModels, &mappings, nil
 }

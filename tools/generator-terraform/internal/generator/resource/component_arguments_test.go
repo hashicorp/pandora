@@ -22,7 +22,7 @@ func TestComponentArguments(t *testing.T) {
 					"OptionalNestedItem": {
 						HCLName: "optional_nested_item",
 						ObjectDefinition: models.TerraformSchemaObjectDefinition{
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 							ReferenceName: pointer.To("NestedSchema"),
 						},
 						Optional: true,

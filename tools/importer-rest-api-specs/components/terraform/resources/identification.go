@@ -19,17 +19,14 @@ import (
 // within the specified Service
 func FindCandidates(apiResource models.APIResource, resourceDefinitions map[string]definitions.ResourceDefinition, apiResourceName string, logger hclog.Logger) (*resourcemanager.TerraformDetails, error) {
 	out := resourcemanager.TerraformDetails{
-		DataSources: map[string]resourcemanager.TerraformDataSourceDetails{},
-		Resources:   map[string]resourcemanager.TerraformResourceDetails{},
+		Resources: map[string]resourcemanager.TerraformResourceDetails{},
 	}
 
 	for resourceIdName, resourceId := range apiResource.ResourceIDs {
-		hasList := false
-
-		var createMethod *resourcemanager.MethodDefinition
-		var updateMethod *resourcemanager.MethodDefinition
-		var deleteMethod *resourcemanager.MethodDefinition
-		var getMethod *resourcemanager.MethodDefinition
+		var createMethod *models.TerraformMethodDefinition
+		var updateMethod *models.TerraformMethodDefinition
+		var deleteMethod *models.TerraformMethodDefinition
+		var getMethod *models.TerraformMethodDefinition
 
 		resourceIDDisplayValue := helpers.DisplayValueForResourceID(resourceId)
 		resourceLabel, resourceMetaData := findResourceName(resourceDefinitions, resourceIDDisplayValue)
@@ -48,9 +45,9 @@ func FindCandidates(apiResource models.APIResource, resourceDefinitions map[stri
 			}
 
 			if (strings.EqualFold(operation.Method, "POST") || strings.EqualFold(operation.Method, "PUT")) && operation.URISuffix == nil && operation.RequestObject != nil {
-				createMethod = &resourcemanager.MethodDefinition{
+				createMethod = &models.TerraformMethodDefinition{
 					Generate:         resourceMetaData.GenerateCreate,
-					MethodName:       operationName,
+					SDKOperationName: operationName,
 					TimeoutInMinutes: 30,
 				}
 			}
@@ -73,29 +70,25 @@ func FindCandidates(apiResource models.APIResource, resourceDefinitions map[stri
 					continue
 				}
 
-				updateMethod = &resourcemanager.MethodDefinition{
+				updateMethod = &models.TerraformMethodDefinition{
 					Generate:         resourceMetaData.GenerateUpdate,
-					MethodName:       operationName,
+					SDKOperationName: operationName,
 					TimeoutInMinutes: 30,
 				}
 			}
 			if strings.EqualFold(operation.Method, "GET") && operation.URISuffix == nil && operation.ResponseObject != nil {
 				if operation.URISuffix == nil {
-					getMethod = &resourcemanager.MethodDefinition{
+					getMethod = &models.TerraformMethodDefinition{
 						Generate:         resourceMetaData.GenerateRead,
-						MethodName:       operationName,
+						SDKOperationName: operationName,
 						TimeoutInMinutes: 5,
 					}
 				}
-
-				if operation.FieldContainingPaginationDetails != nil {
-					hasList = true
-				}
 			}
 			if strings.EqualFold(operation.Method, "DELETE") && operation.URISuffix == nil {
-				deleteMethod = &resourcemanager.MethodDefinition{
+				deleteMethod = &models.TerraformMethodDefinition{
 					Generate:         resourceMetaData.GenerateDelete,
-					MethodName:       operationName,
+					SDKOperationName: operationName,
 					TimeoutInMinutes: 30,
 				}
 			}
@@ -108,19 +101,12 @@ func FindCandidates(apiResource models.APIResource, resourceDefinitions map[stri
 		// once we've been over all the methods, check if the Create method is actually CreateOrUpdate
 		if updateMethod == nil && createMethod != nil {
 			// handle CreateOrUpdate, but only when there's no Update method
-			if strings.Contains(strings.ToLower(createMethod.MethodName), "update") {
-				updateMethod = &resourcemanager.MethodDefinition{
+			if strings.Contains(strings.ToLower(createMethod.SDKOperationName), "update") {
+				updateMethod = &models.TerraformMethodDefinition{
 					Generate:         resourceMetaData.GenerateUpdate,
-					MethodName:       createMethod.MethodName,
+					SDKOperationName: createMethod.SDKOperationName,
 					TimeoutInMinutes: 30,
 				}
-			}
-		}
-
-		var dataSourceDefinition *resourcemanager.TerraformDataSourceDetails
-		if getMethod != nil || hasList {
-			dataSourceDefinition = &resourcemanager.TerraformDataSourceDetails{
-				// TODO: output Singular, Plural and the other stuff..
 			}
 		}
 
@@ -139,11 +125,12 @@ func FindCandidates(apiResource models.APIResource, resourceDefinitions map[stri
 				ResourceIdName:       resourceIdName,
 				ResourceName:         strings.ReplaceAll(resourceMetaData.Name, " ", ""), // TODO: maybe more later
 				UpdateMethod:         updateMethod,
-				Documentation: resourcemanager.ResourceDocumentationDefinition{
+				Documentation: models.TerraformDocumentationDefinition{
 					Category:    resourceMetaData.WebsiteSubcategory,
 					Description: resourceMetaData.Description,
 				},
 				Tests: resourcemanager.TerraformResourceTestsDefinition{
+					Generate: true,
 					TestData: &resourcemanager.TerraformResourceTestDataDefinition{
 						BasicVariables: resourcemanager.TerraformTestDataVariables{
 							Bools:    resourceMetaData.TestData.BasicVariables.Bools,
@@ -161,7 +148,6 @@ func FindCandidates(apiResource models.APIResource, resourceDefinitions map[stri
 				},
 			}
 		}
-		// TODO: make use of Data Sources
 		hasDiscriminatedType, err := containsDiscriminatedTypes(resourceDefinition, apiResource)
 		if err != nil {
 			return nil, fmt.Errorf("determining if the Resource Definition for %q contains Discriminated Types: %+v", resourceIDDisplayValue, err)
@@ -171,9 +157,6 @@ func FindCandidates(apiResource models.APIResource, resourceDefinitions map[stri
 			continue
 		}
 
-		if dataSourceDefinition != nil {
-			out.DataSources[*resourceLabel] = *dataSourceDefinition
-		}
 		if resourceDefinition != nil {
 			out.Resources[*resourceLabel] = *resourceDefinition
 		}
@@ -186,12 +169,12 @@ func containsDiscriminatedTypes(terraformResource *resourcemanager.TerraformReso
 	operationNames := make([]string, 0)
 	if terraformResource != nil {
 		operationNames = append(operationNames, []string{
-			terraformResource.CreateMethod.MethodName,
-			terraformResource.DeleteMethod.MethodName,
-			terraformResource.ReadMethod.MethodName,
+			terraformResource.CreateMethod.SDKOperationName,
+			terraformResource.DeleteMethod.SDKOperationName,
+			terraformResource.ReadMethod.SDKOperationName,
 		}...)
 		if terraformResource.UpdateMethod != nil {
-			operationNames = append(operationNames, terraformResource.UpdateMethod.MethodName)
+			operationNames = append(operationNames, terraformResource.UpdateMethod.SDKOperationName)
 		}
 	}
 	for _, operationName := range operationNames {

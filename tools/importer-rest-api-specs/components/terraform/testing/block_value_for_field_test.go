@@ -7,6 +7,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
 )
@@ -15,8 +16,8 @@ func TestBlockValueForField_Reference(t *testing.T) {
 	field := resourcemanager.TerraformSchemaFieldDefinition{
 		HclName:  "some_nested_item",
 		Required: true,
-		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-			Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+		ObjectDefinition: models.TerraformSchemaObjectDefinition{
+			Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 			ReferenceName: pointer.To("NestedModel"),
 		},
 	}
@@ -32,8 +33,8 @@ func TestBlockValueForField_Reference(t *testing.T) {
 					"SomeKey": {
 						HclName:  "some_key",
 						Required: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 					},
 				},
@@ -77,8 +78,8 @@ func TestBlockValueForField_ReferenceContainingAReference(t *testing.T) {
 	field := resourcemanager.TerraformSchemaFieldDefinition{
 		HclName:  "some_nested_item",
 		Required: true,
-		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-			Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+		ObjectDefinition: models.TerraformSchemaObjectDefinition{
+			Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 			ReferenceName: pointer.To("NestedModel"),
 		},
 	}
@@ -94,15 +95,15 @@ func TestBlockValueForField_ReferenceContainingAReference(t *testing.T) {
 					"SomeKey": {
 						HclName:  "some_key",
 						Required: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 					},
 					"SecondNestedItem": {
 						HclName:  "second_nested_item",
 						Required: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 							ReferenceName: pointer.To("SecondNestedModel"),
 						},
 					},
@@ -113,8 +114,8 @@ func TestBlockValueForField_ReferenceContainingAReference(t *testing.T) {
 					"SomeField": {
 						HclName:  "some_field",
 						Required: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 					},
 				},
@@ -162,8 +163,8 @@ func TestBlockValueForField_ReferenceContainingAReferenceThatContainsAReference(
 	field := resourcemanager.TerraformSchemaFieldDefinition{
 		HclName:  "some_nested_item",
 		Required: true,
-		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-			Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+		ObjectDefinition: models.TerraformSchemaObjectDefinition{
+			Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 			ReferenceName: pointer.To("NestedModel"),
 		},
 	}
@@ -179,15 +180,15 @@ func TestBlockValueForField_ReferenceContainingAReferenceThatContainsAReference(
 					"SomeKey": {
 						HclName:  "some_key",
 						Required: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 					},
 					"SecondNestedItem": {
 						HclName:  "second_nested_item",
 						Required: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 							ReferenceName: pointer.To("SecondNestedModel"),
 						},
 					},
@@ -198,15 +199,15 @@ func TestBlockValueForField_ReferenceContainingAReferenceThatContainsAReference(
 					"SomeField": {
 						HclName:  "some_field",
 						Required: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 					},
 					"ThirdNestedItem": {
 						HclName:  "third_nested_item",
 						Required: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 							ReferenceName: pointer.To("ThirdNestedModel"),
 						},
 					},
@@ -217,8 +218,8 @@ func TestBlockValueForField_ReferenceContainingAReferenceThatContainsAReference(
 					"YetAnotherField": {
 						HclName:  "yet_another_field",
 						Required: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeInteger,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.IntegerTerraformSchemaObjectDefinitionType,
 						},
 					},
 				},
@@ -270,10 +271,10 @@ func TestBlockValueForField_List(t *testing.T) {
 	field := resourcemanager.TerraformSchemaFieldDefinition{
 		HclName:  "some_nested_item",
 		Required: true,
-		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-			Type: resourcemanager.TerraformSchemaFieldTypeList,
-			NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+		ObjectDefinition: models.TerraformSchemaObjectDefinition{
+			Type: models.ListTerraformSchemaObjectDefinitionType,
+			NestedObject: &models.TerraformSchemaObjectDefinition{
+				Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 				ReferenceName: pointer.To("NestedModel"),
 			},
 		},
@@ -290,8 +291,8 @@ func TestBlockValueForField_List(t *testing.T) {
 					"SomeKey": {
 						HclName:  "some_key",
 						Required: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 					},
 				},
@@ -335,10 +336,10 @@ func TestBlockValueForField_Set(t *testing.T) {
 	field := resourcemanager.TerraformSchemaFieldDefinition{
 		HclName:  "some_nested_item",
 		Required: true,
-		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-			Type: resourcemanager.TerraformSchemaFieldTypeSet,
-			NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+		ObjectDefinition: models.TerraformSchemaObjectDefinition{
+			Type: models.SetTerraformSchemaObjectDefinitionType,
+			NestedObject: &models.TerraformSchemaObjectDefinition{
+				Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 				ReferenceName: pointer.To("NestedModel"),
 			},
 		},
@@ -355,8 +356,8 @@ func TestBlockValueForField_Set(t *testing.T) {
 					"SomeKey": {
 						HclName:  "some_key",
 						Required: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 					},
 				},

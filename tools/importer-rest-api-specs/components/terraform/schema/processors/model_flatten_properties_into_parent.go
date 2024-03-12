@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -14,7 +15,7 @@ var _ ModelProcessor = modelFlattenPropertiesIntoParent{}
 
 type modelFlattenPropertiesIntoParent struct{}
 
-func (modelFlattenPropertiesIntoParent) ProcessModel(modelName string, model resourcemanager.TerraformSchemaModelDefinition, models map[string]resourcemanager.TerraformSchemaModelDefinition, mappings resourcemanager.MappingDefinition) (*map[string]resourcemanager.TerraformSchemaModelDefinition, *resourcemanager.MappingDefinition, error) {
+func (modelFlattenPropertiesIntoParent) ProcessModel(modelName string, model resourcemanager.TerraformSchemaModelDefinition, schemaModels map[string]resourcemanager.TerraformSchemaModelDefinition, mappings resourcemanager.MappingDefinition) (*map[string]resourcemanager.TerraformSchemaModelDefinition, *resourcemanager.MappingDefinition, error) {
 	fields := make(map[string]resourcemanager.TerraformSchemaFieldDefinition)
 	fieldKeys := make(map[string]struct{})
 	// first ensure we have a canonical list of all fields within the model to be able to use for a unique check
@@ -30,7 +31,7 @@ func (modelFlattenPropertiesIntoParent) ProcessModel(modelName string, model res
 			continue
 		}
 
-		if fieldValue.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeReference {
+		if fieldValue.ObjectDefinition.Type != models.ReferenceTerraformSchemaObjectDefinitionType {
 			continue
 		}
 
@@ -42,12 +43,12 @@ func (modelFlattenPropertiesIntoParent) ProcessModel(modelName string, model res
 			continue
 		}
 
-		nestedPropsModel := models[*fieldValue.ObjectDefinition.ReferenceName]
+		nestedPropsModel := schemaModels[*fieldValue.ObjectDefinition.ReferenceName]
 		for nestedFieldName, nestedFieldValue := range nestedPropsModel.Fields {
 			if _, hasExisting := fieldKeys[strings.ToLower(nestedFieldName)]; hasExisting {
 				// if the top level model contains a field with the same name then we shouldn't be flattening
 				// the nested model into it, otherwise we'll have naming conflicts
-				return &models, &mappings, nil
+				return &schemaModels, &mappings, nil
 			}
 
 			fields[nestedFieldName] = nestedFieldValue
@@ -55,6 +56,6 @@ func (modelFlattenPropertiesIntoParent) ProcessModel(modelName string, model res
 		delete(fields, fieldName)
 	}
 	model.Fields = fields
-	models[modelName] = model
-	return &models, &mappings, nil
+	schemaModels[modelName] = model
+	return &schemaModels, &mappings, nil
 }

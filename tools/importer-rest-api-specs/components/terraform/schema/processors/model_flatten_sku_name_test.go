@@ -6,6 +6,7 @@ package processors
 import (
 	"testing"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -23,8 +24,8 @@ func TestProcessModel_FlattenSkuName_Valid(t *testing.T) {
 				"Disco": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Sku": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 								ReferenceName: stringPointer("Sku"),
 							},
 						},
@@ -33,8 +34,8 @@ func TestProcessModel_FlattenSkuName_Valid(t *testing.T) {
 				"Sku": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Name": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 					},
@@ -42,13 +43,13 @@ func TestProcessModel_FlattenSkuName_Valid(t *testing.T) {
 				"Status": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Code": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeInteger,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.IntegerTerraformSchemaObjectDefinitionType,
 							},
 						},
 						"Message": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 					},
@@ -71,8 +72,8 @@ func TestProcessModel_FlattenSkuName_Valid(t *testing.T) {
 				"Disco": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"SkuName": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 					},
@@ -80,8 +81,8 @@ func TestProcessModel_FlattenSkuName_Valid(t *testing.T) {
 				"Sku": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Name": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 					},
@@ -89,13 +90,13 @@ func TestProcessModel_FlattenSkuName_Valid(t *testing.T) {
 				"Status": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Code": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeInteger,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.IntegerTerraformSchemaObjectDefinitionType,
 							},
 						},
 						"Message": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 					},
@@ -148,14 +149,14 @@ func TestProcessModel_FlattenSkuName_Invalid(t *testing.T) {
 				"Leopard": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Id": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 								ReferenceName: stringPointer("SubResource"),
 							},
 						},
 						"Weight": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeInteger,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.IntegerTerraformSchemaObjectDefinitionType,
 							},
 						},
 					},
@@ -163,8 +164,8 @@ func TestProcessModel_FlattenSkuName_Invalid(t *testing.T) {
 				"SubResource": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Id": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 					},
@@ -188,14 +189,14 @@ func TestProcessModel_FlattenSkuName_Invalid(t *testing.T) {
 				"Leopard": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Id": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 								ReferenceName: stringPointer("SubResource"),
 							},
 						},
 						"Weight": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeInteger,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.IntegerTerraformSchemaObjectDefinitionType,
 							},
 						},
 					},
@@ -203,8 +204,8 @@ func TestProcessModel_FlattenSkuName_Invalid(t *testing.T) {
 				"SubResource": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Id": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 					},
@@ -230,8 +231,8 @@ func TestProcessModel_FlattenSkuName_Invalid(t *testing.T) {
 				"Meerkat": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Id": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 								ReferenceName: stringPointer("SubResource"),
 							},
 						},
@@ -240,13 +241,13 @@ func TestProcessModel_FlattenSkuName_Invalid(t *testing.T) {
 				"SubResource": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Id": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 						"Weight": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeInteger,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.IntegerTerraformSchemaObjectDefinitionType,
 							},
 						},
 					},
@@ -270,8 +271,8 @@ func TestProcessModel_FlattenSkuName_Invalid(t *testing.T) {
 				"Meerkat": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Id": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 								ReferenceName: stringPointer("SubResource"),
 							},
 						},
@@ -280,13 +281,13 @@ func TestProcessModel_FlattenSkuName_Invalid(t *testing.T) {
 				"SubResource": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Id": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 						"Weight": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeInteger,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.IntegerTerraformSchemaObjectDefinitionType,
 							},
 						},
 					},

@@ -6,6 +6,7 @@ package processors
 import (
 	"fmt"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -13,9 +14,9 @@ var _ ModelProcessor = modelFlattenListReferenceIds{}
 
 type modelFlattenListReferenceIds struct{}
 
-func (modelFlattenListReferenceIds) ProcessModel(modelName string, model resourcemanager.TerraformSchemaModelDefinition, models map[string]resourcemanager.TerraformSchemaModelDefinition, mappings resourcemanager.MappingDefinition) (*map[string]resourcemanager.TerraformSchemaModelDefinition, *resourcemanager.MappingDefinition, error) {
+func (modelFlattenListReferenceIds) ProcessModel(modelName string, model resourcemanager.TerraformSchemaModelDefinition, schemaModels map[string]resourcemanager.TerraformSchemaModelDefinition, mappings resourcemanager.MappingDefinition) (*map[string]resourcemanager.TerraformSchemaModelDefinition, *resourcemanager.MappingDefinition, error) {
 	if len(model.Fields) != 1 {
-		return &models, &mappings, nil
+		return &schemaModels, &mappings, nil
 	}
 
 	fields := make(map[string]resourcemanager.TerraformSchemaFieldDefinition)
@@ -25,16 +26,16 @@ func (modelFlattenListReferenceIds) ProcessModel(modelName string, model resourc
 		// the ObjectDefinition for a List to a Reference will be:
 		// ObjectDefinition Type: List (no reference name) with a NestedObject
 		// of ObjectDefinition Type: Reference (and a reference name)
-		if fieldValue.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeList {
+		if fieldValue.ObjectDefinition.Type != models.ListTerraformSchemaObjectDefinitionType {
 			continue
 		}
 
 		referenceName := ""
 		if nested := fieldValue.ObjectDefinition.NestedObject; nested != nil {
-			if nested.Type != resourcemanager.TerraformSchemaFieldTypeReference {
+			if nested.Type != models.ReferenceTerraformSchemaObjectDefinitionType {
 				continue
 			}
-			if nested.Type == resourcemanager.TerraformSchemaFieldTypeReference && nested.ReferenceName != nil {
+			if nested.Type == models.ReferenceTerraformSchemaObjectDefinitionType && nested.ReferenceName != nil {
 				referenceName = *nested.ReferenceName
 			}
 		}
@@ -43,7 +44,7 @@ func (modelFlattenListReferenceIds) ProcessModel(modelName string, model resourc
 		}
 
 		// NOTE: at this point Constants will have been transformed to a String so this *will* be a Model
-		nestedModel, ok := models[referenceName]
+		nestedModel, ok := schemaModels[referenceName]
 		if !ok {
 			return nil, nil, fmt.Errorf("processing %q: nested model with reference name %q was not found for field %q", modelName, referenceName, fieldName)
 		}
@@ -66,6 +67,6 @@ func (modelFlattenListReferenceIds) ProcessModel(modelName string, model resourc
 		mappings = applyFieldRenameToMappings(mappings, modelName, fieldName, updatedName)
 	}
 	model.Fields = fields
-	models[modelName] = model
-	return &models, &mappings, nil
+	schemaModels[modelName] = model
+	return &schemaModels, &mappings, nil
 }

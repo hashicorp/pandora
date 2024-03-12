@@ -6,6 +6,7 @@ package processors
 import (
 	"testing"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -23,13 +24,13 @@ func TestProcessModel_FlattenPropertiesIntoParent_Valid(t *testing.T) {
 				"Panda": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Name": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 						"Properties": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 								ReferenceName: stringPointer("PandaProperties"),
 							},
 						},
@@ -38,18 +39,18 @@ func TestProcessModel_FlattenPropertiesIntoParent_Valid(t *testing.T) {
 				"PandaProperties": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Age": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeInteger,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.IntegerTerraformSchemaObjectDefinitionType,
 							},
 						},
 						"Weight": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeInteger,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.IntegerTerraformSchemaObjectDefinitionType,
 							},
 						},
 						"CutenessProperties": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 								ReferenceName: stringPointer("CutenessProperties"),
 							},
 						},
@@ -58,13 +59,13 @@ func TestProcessModel_FlattenPropertiesIntoParent_Valid(t *testing.T) {
 				"CutenessProperties": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Cuddliness": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 						"AwwwFactor": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 					},
@@ -77,13 +78,13 @@ func TestProcessModel_FlattenPropertiesIntoParent_Valid(t *testing.T) {
 				"Panda": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Name": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 						"Properties": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 								ReferenceName: stringPointer("PandaProperties"),
 							},
 						},
@@ -92,23 +93,23 @@ func TestProcessModel_FlattenPropertiesIntoParent_Valid(t *testing.T) {
 				"PandaProperties": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Age": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeInteger,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.IntegerTerraformSchemaObjectDefinitionType,
 							},
 						},
 						"Weight": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeInteger,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.IntegerTerraformSchemaObjectDefinitionType,
 							},
 						},
 						"Cuddliness": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 						"AwwwFactor": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 					},
@@ -116,13 +117,13 @@ func TestProcessModel_FlattenPropertiesIntoParent_Valid(t *testing.T) {
 				"CutenessProperties": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Cuddliness": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 						"AwwwFactor": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 					},
@@ -165,13 +166,13 @@ func TestProcessModel_FlattenPropertiesIntoParent_Invalid(t *testing.T) {
 				"Panda": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Name": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 						"Properties": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 								ReferenceName: stringPointer("PandaProperties"),
 							},
 						},
@@ -180,18 +181,18 @@ func TestProcessModel_FlattenPropertiesIntoParent_Invalid(t *testing.T) {
 				"PandaProperties": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Age": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeInteger,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.IntegerTerraformSchemaObjectDefinitionType,
 							},
 						},
 						"Weight": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeInteger,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.IntegerTerraformSchemaObjectDefinitionType,
 							},
 						},
 						"CutenessProperties": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 								ReferenceName: stringPointer("CutenessProperties"),
 							},
 						},
@@ -200,13 +201,13 @@ func TestProcessModel_FlattenPropertiesIntoParent_Invalid(t *testing.T) {
 				"CutenessProperties": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Cuddliness": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 						"AwwwFactor": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 					},
@@ -220,13 +221,13 @@ func TestProcessModel_FlattenPropertiesIntoParent_Invalid(t *testing.T) {
 				"Panda": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Name": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 						"Properties": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 								ReferenceName: stringPointer("PandaProperties"),
 							},
 						},
@@ -235,18 +236,18 @@ func TestProcessModel_FlattenPropertiesIntoParent_Invalid(t *testing.T) {
 				"PandaProperties": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Age": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeInteger,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.IntegerTerraformSchemaObjectDefinitionType,
 							},
 						},
 						"Weight": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeInteger,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.IntegerTerraformSchemaObjectDefinitionType,
 							},
 						},
 						"CutenessProperties": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 								ReferenceName: stringPointer("CutenessProperties"),
 							},
 						},
@@ -255,13 +256,13 @@ func TestProcessModel_FlattenPropertiesIntoParent_Invalid(t *testing.T) {
 				"CutenessProperties": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Cuddliness": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 						"AwwwFactor": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 					},
@@ -281,13 +282,13 @@ func TestProcessModel_FlattenPropertiesIntoParent_Invalid(t *testing.T) {
 				"Panda": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Name": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 						"Properties": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 								ReferenceName: stringPointer("PandaProperties"),
 							},
 						},
@@ -296,18 +297,18 @@ func TestProcessModel_FlattenPropertiesIntoParent_Invalid(t *testing.T) {
 				"PandaProperties": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Age": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeInteger,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.IntegerTerraformSchemaObjectDefinitionType,
 							},
 						},
 						"Weight": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeInteger,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.IntegerTerraformSchemaObjectDefinitionType,
 							},
 						},
 						"CutenessProperties": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 								ReferenceName: stringPointer("CutenessProperties"),
 							},
 						},
@@ -316,18 +317,18 @@ func TestProcessModel_FlattenPropertiesIntoParent_Invalid(t *testing.T) {
 				"CutenessProperties": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Age": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeInteger,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.IntegerTerraformSchemaObjectDefinitionType,
 							},
 						},
 						"Cuddliness": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 						"AwwwFactor": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 					},
@@ -340,13 +341,13 @@ func TestProcessModel_FlattenPropertiesIntoParent_Invalid(t *testing.T) {
 				"Panda": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Name": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 						"Properties": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 								ReferenceName: stringPointer("PandaProperties"),
 							},
 						},
@@ -355,18 +356,18 @@ func TestProcessModel_FlattenPropertiesIntoParent_Invalid(t *testing.T) {
 				"PandaProperties": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Age": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeInteger,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.IntegerTerraformSchemaObjectDefinitionType,
 							},
 						},
 						"Weight": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeInteger,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.IntegerTerraformSchemaObjectDefinitionType,
 							},
 						},
 						"CutenessProperties": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 								ReferenceName: stringPointer("CutenessProperties"),
 							},
 						},
@@ -375,18 +376,18 @@ func TestProcessModel_FlattenPropertiesIntoParent_Invalid(t *testing.T) {
 				"CutenessProperties": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Age": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeInteger,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.IntegerTerraformSchemaObjectDefinitionType,
 							},
 						},
 						"Cuddliness": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 						"AwwwFactor": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 					},

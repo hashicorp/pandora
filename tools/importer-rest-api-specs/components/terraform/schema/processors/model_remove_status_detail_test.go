@@ -6,6 +6,7 @@ package processors
 import (
 	"testing"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -23,25 +24,25 @@ func TestProcessModel_RemoveStatusAndDetail_Valid(t *testing.T) {
 				"Panda": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Age": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeInteger,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.IntegerTerraformSchemaObjectDefinitionType,
 							},
 						},
 						"Status": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 								ReferenceName: stringPointer("Status"),
 							},
 						},
 						"ConfigurationStatus": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 								ReferenceName: stringPointer("Status"),
 							},
 						},
 						"Detail": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 								ReferenceName: stringPointer("Detail"),
 							},
 						},
@@ -50,13 +51,13 @@ func TestProcessModel_RemoveStatusAndDetail_Valid(t *testing.T) {
 				"Status": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Code": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeInteger,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.IntegerTerraformSchemaObjectDefinitionType,
 							},
 						},
 						"Message": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 					},
@@ -64,8 +65,8 @@ func TestProcessModel_RemoveStatusAndDetail_Valid(t *testing.T) {
 				"Detail": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Message": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 					},
@@ -78,8 +79,8 @@ func TestProcessModel_RemoveStatusAndDetail_Valid(t *testing.T) {
 				"Panda": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Age": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeInteger,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.IntegerTerraformSchemaObjectDefinitionType,
 							},
 						},
 					},
@@ -87,13 +88,13 @@ func TestProcessModel_RemoveStatusAndDetail_Valid(t *testing.T) {
 				"Status": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Code": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeInteger,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.IntegerTerraformSchemaObjectDefinitionType,
 							},
 						},
 						"Message": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 					},
@@ -101,8 +102,8 @@ func TestProcessModel_RemoveStatusAndDetail_Valid(t *testing.T) {
 				"Detail": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Message": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 					},
@@ -145,14 +146,14 @@ func TestProcessModel_RemoveStatusAndDetail_Invalid(t *testing.T) {
 				"Leopard": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Id": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 								ReferenceName: stringPointer("SubResource"),
 							},
 						},
 						"Weight": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeInteger,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.IntegerTerraformSchemaObjectDefinitionType,
 							},
 						},
 					},
@@ -160,8 +161,8 @@ func TestProcessModel_RemoveStatusAndDetail_Invalid(t *testing.T) {
 				"SubResource": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Id": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 					},
@@ -175,14 +176,14 @@ func TestProcessModel_RemoveStatusAndDetail_Invalid(t *testing.T) {
 				"Leopard": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Id": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 								ReferenceName: stringPointer("SubResource"),
 							},
 						},
 						"Weight": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeInteger,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.IntegerTerraformSchemaObjectDefinitionType,
 							},
 						},
 					},
@@ -190,8 +191,8 @@ func TestProcessModel_RemoveStatusAndDetail_Invalid(t *testing.T) {
 				"SubResource": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Id": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 					},
@@ -207,8 +208,8 @@ func TestProcessModel_RemoveStatusAndDetail_Invalid(t *testing.T) {
 				"Meerkat": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Id": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 								ReferenceName: stringPointer("SubResource"),
 							},
 						},
@@ -217,13 +218,13 @@ func TestProcessModel_RemoveStatusAndDetail_Invalid(t *testing.T) {
 				"SubResource": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Id": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 						"Weight": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeInteger,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.IntegerTerraformSchemaObjectDefinitionType,
 							},
 						},
 					},
@@ -237,8 +238,8 @@ func TestProcessModel_RemoveStatusAndDetail_Invalid(t *testing.T) {
 				"Meerkat": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Id": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 								ReferenceName: stringPointer("SubResource"),
 							},
 						},
@@ -247,13 +248,13 @@ func TestProcessModel_RemoveStatusAndDetail_Invalid(t *testing.T) {
 				"SubResource": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Id": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 						"Weight": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeInteger,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.IntegerTerraformSchemaObjectDefinitionType,
 							},
 						},
 					},

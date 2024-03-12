@@ -17,7 +17,7 @@ type zoneFieldMatcher struct {
 
 func (zoneFieldMatcher) ReplacementObjectDefinition() models.SDKObjectDefinition {
 	return models.SDKObjectDefinition{
-		Type: models.ZoneTerraformSchemaObjectDefinitionType,
+		Type: models.ZoneSDKObjectDefinitionType,
 	}
 }
 

@@ -8,7 +8,7 @@ package models
 // Constant or Model), a Common Schema type (e.g. SystemAssignedIdentity) and a List or
 // Dictionary of the previous values.
 // Note that Lists (and Dictionaries) can be repeatedly nested (e.g. `List<List<List<string>>>`).
-type SDKObjectDefinitionType = string
+type SDKObjectDefinitionType string
 
 // Simple Types
 const (

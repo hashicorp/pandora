@@ -8,6 +8,7 @@ import (
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/hcl/v2"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 	"github.com/zclconf/go-cty/cty"
 )
@@ -31,8 +32,8 @@ func TestGenerateRequiresImport(t *testing.T) {
 						"Name": {
 							HclName:  "name",
 							Required: true,
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 					},
@@ -61,22 +62,22 @@ resource "example_resource" "import" {
 						"Name": {
 							HclName:  "name",
 							Required: true,
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 						"Location": {
 							HclName:  "location",
 							Required: true,
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeLocation,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.LocationTerraformSchemaObjectDefinitionType,
 							},
 						},
 						"ResourceGroupName": {
 							HclName:  "resource_group_name",
 							Required: true,
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 					},
@@ -109,8 +110,8 @@ resource "example_resource" "import" {
 						"Name": {
 							HclName:  "name",
 							Optional: true,
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 					},
@@ -132,29 +133,29 @@ resource "example_resource" "import" {
 						"Name": {
 							HclName:  "name",
 							Required: true,
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 						"Location": {
 							HclName:  "location",
 							Required: true,
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeLocation,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.LocationTerraformSchemaObjectDefinitionType,
 							},
 						},
 						"ResourceGroupName": {
 							HclName:  "resource_group_name",
 							Required: true,
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 						"SomeItem": {
 							HclName:  "some_item",
 							Required: true,
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 								ReferenceName: pointer.To("SomeNestedItem"),
 							},
 						},
@@ -165,8 +166,8 @@ resource "example_resource" "import" {
 						"Name": {
 							HclName:  "name",
 							Required: true,
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 						},
 					},

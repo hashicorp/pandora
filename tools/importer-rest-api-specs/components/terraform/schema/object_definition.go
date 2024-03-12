@@ -7,39 +7,38 @@ import (
 	"fmt"
 
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-var sdkObjectDefinitionTypesToFieldObjectDefinitionTypes = map[models.SDKObjectDefinitionType]resourcemanager.TerraformSchemaFieldType{
-	models.BooleanSDKObjectDefinitionType:    resourcemanager.TerraformSchemaFieldTypeBoolean,
-	models.DateTimeSDKObjectDefinitionType:   resourcemanager.TerraformSchemaFieldTypeDateTime,
-	models.DictionarySDKObjectDefinitionType: resourcemanager.TerraformSchemaFieldTypeDictionary,
-	models.IntegerSDKObjectDefinitionType:    resourcemanager.TerraformSchemaFieldTypeInteger,
-	models.FloatSDKObjectDefinitionType:      resourcemanager.TerraformSchemaFieldTypeFloat,
-	models.ListSDKObjectDefinitionType:       resourcemanager.TerraformSchemaFieldTypeList,
-	models.ReferenceSDKObjectDefinitionType:  resourcemanager.TerraformSchemaFieldTypeReference,
-	models.StringSDKObjectDefinitionType:     resourcemanager.TerraformSchemaFieldTypeString,
+var sdkObjectDefinitionTypesToFieldObjectDefinitionTypes = map[models.SDKObjectDefinitionType]models.TerraformSchemaObjectDefinitionType{
+	models.BooleanSDKObjectDefinitionType:    models.BooleanTerraformSchemaObjectDefinitionType,
+	models.DateTimeSDKObjectDefinitionType:   models.DateTimeTerraformSchemaObjectDefinitionType,
+	models.DictionarySDKObjectDefinitionType: models.DictionaryTerraformSchemaObjectDefinitionType,
+	models.IntegerSDKObjectDefinitionType:    models.IntegerTerraformSchemaObjectDefinitionType,
+	models.FloatSDKObjectDefinitionType:      models.FloatTerraformSchemaObjectDefinitionType,
+	models.ListSDKObjectDefinitionType:       models.ListTerraformSchemaObjectDefinitionType,
+	models.ReferenceSDKObjectDefinitionType:  models.ReferenceTerraformSchemaObjectDefinitionType,
+	models.StringSDKObjectDefinitionType:     models.StringTerraformSchemaObjectDefinitionType,
 
 	// Custom Types
-	models.EdgeZoneSDKObjectDefinitionType:                                resourcemanager.TerraformSchemaFieldTypeEdgeZone,
-	models.LocationSDKObjectDefinitionType:                                resourcemanager.TerraformSchemaFieldTypeLocation,
-	models.SystemAssignedIdentitySDKObjectDefinitionType:                  resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned,
-	models.SystemAndUserAssignedIdentityListSDKObjectDefinitionType:       resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
-	models.SystemAndUserAssignedIdentityMapSDKObjectDefinitionType:        resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
-	models.LegacySystemAndUserAssignedIdentityListSDKObjectDefinitionType: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
-	models.LegacySystemAndUserAssignedIdentityMapSDKObjectDefinitionType:  resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
-	models.SystemOrUserAssignedIdentityListSDKObjectDefinitionType:        resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned,
-	models.SystemOrUserAssignedIdentityMapSDKObjectDefinitionType:         resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned,
-	models.UserAssignedIdentityListSDKObjectDefinitionType:                resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned,
-	models.UserAssignedIdentityMapSDKObjectDefinitionType:                 resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned,
-	models.TagsSDKObjectDefinitionType:                                    resourcemanager.TerraformSchemaFieldTypeTags,
-	models.ZoneSDKObjectDefinitionType:                                    resourcemanager.TerraformSchemaFieldTypeZone,
-	models.ZonesSDKObjectDefinitionType:                                   resourcemanager.TerraformSchemaFieldTypeZones,
+	models.EdgeZoneSDKObjectDefinitionType:                                models.EdgeZoneTerraformSchemaObjectDefinitionType,
+	models.LocationSDKObjectDefinitionType:                                models.LocationTerraformSchemaObjectDefinitionType,
+	models.SystemAssignedIdentitySDKObjectDefinitionType:                  models.SystemAssignedIdentityTerraformSchemaObjectDefinitionType,
+	models.SystemAndUserAssignedIdentityListSDKObjectDefinitionType:       models.SystemAndUserAssignedIdentityTerraformSchemaObjectDefinitionType,
+	models.SystemAndUserAssignedIdentityMapSDKObjectDefinitionType:        models.SystemAndUserAssignedIdentityTerraformSchemaObjectDefinitionType,
+	models.LegacySystemAndUserAssignedIdentityListSDKObjectDefinitionType: models.SystemAndUserAssignedIdentityTerraformSchemaObjectDefinitionType,
+	models.LegacySystemAndUserAssignedIdentityMapSDKObjectDefinitionType:  models.SystemAndUserAssignedIdentityTerraformSchemaObjectDefinitionType,
+	models.SystemOrUserAssignedIdentityListSDKObjectDefinitionType:        models.SystemOrUserAssignedIdentityTerraformSchemaObjectDefinitionType,
+	models.SystemOrUserAssignedIdentityMapSDKObjectDefinitionType:         models.SystemOrUserAssignedIdentityTerraformSchemaObjectDefinitionType,
+	models.UserAssignedIdentityListSDKObjectDefinitionType:                models.UserAssignedIdentityTerraformSchemaObjectDefinitionType,
+	models.UserAssignedIdentityMapSDKObjectDefinitionType:                 models.UserAssignedIdentityTerraformSchemaObjectDefinitionType,
+	models.TagsSDKObjectDefinitionType:                                    models.TagsTerraformSchemaObjectDefinitionType,
+	models.ZoneSDKObjectDefinitionType:                                    models.ZoneTerraformSchemaObjectDefinitionType,
+	models.ZonesSDKObjectDefinitionType:                                   models.ZonesTerraformSchemaObjectDefinitionType,
 	// NOTE: we intentionally don't implement SystemData since it's not exposed at this time
 }
 
-func (b Builder) convertToFieldObjectDefinition(modelPrefix string, input models.SDKObjectDefinition) (*resourcemanager.TerraformSchemaFieldObjectDefinition, error) {
-	out := resourcemanager.TerraformSchemaFieldObjectDefinition{}
+func (b Builder) convertToFieldObjectDefinition(modelPrefix string, input models.SDKObjectDefinition) (*models.TerraformSchemaObjectDefinition, error) {
+	out := models.TerraformSchemaObjectDefinition{}
 
 	var isConstant bool
 	var constant models.SDKConstant
@@ -51,11 +50,11 @@ func (b Builder) convertToFieldObjectDefinition(modelPrefix string, input models
 		} else {
 			switch constant.Type {
 			case models.StringSDKConstantType:
-				out.Type = resourcemanager.TerraformSchemaFieldTypeString
-			case models.IntegerSDKObjectDefinitionType:
-				out.Type = resourcemanager.TerraformSchemaFieldTypeInteger
+				out.Type = models.StringTerraformSchemaObjectDefinitionType
+			case models.IntegerSDKConstantType:
+				out.Type = models.IntegerTerraformSchemaObjectDefinitionType
 			case models.FloatSDKConstantType:
-				out.Type = resourcemanager.TerraformSchemaFieldTypeFloat
+				out.Type = models.FloatTerraformSchemaObjectDefinitionType
 			default:
 				return nil, fmt.Errorf("constant has unknown or unsupported type: %+v", constant.Type)
 			}
