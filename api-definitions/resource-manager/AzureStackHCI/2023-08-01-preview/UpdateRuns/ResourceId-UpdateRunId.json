@@ -1,0 +1,61 @@
+{
+  "name": "UpdateRunId",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/clusters/{clusterName}/updates/{updateName}/updateRuns/{updateRunName}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticResourceGroups",
+      "type": "Static",
+      "value": "resourceGroups"
+    },
+    {
+      "name": "resourceGroupName",
+      "type": "ResourceGroup"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftAzureStackHCI",
+      "type": "ResourceProvider",
+      "value": "Microsoft.AzureStackHCI"
+    },
+    {
+      "name": "staticClusters",
+      "type": "Static",
+      "value": "clusters"
+    },
+    {
+      "name": "clusterName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticUpdates",
+      "type": "Static",
+      "value": "updates"
+    },
+    {
+      "name": "updateName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticUpdateRuns",
+      "type": "Static",
+      "value": "updateRuns"
+    },
+    {
+      "name": "updateRunName",
+      "type": "UserSpecified"
+    }
+  ]
+}
