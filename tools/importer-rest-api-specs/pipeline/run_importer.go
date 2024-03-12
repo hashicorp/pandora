@@ -59,7 +59,6 @@ func runImporter(input RunInput, generationData []discovery.ServiceInput, swagge
 			return fmt.Errorf("removing existing API Definitions for Service %q: %+v", serviceName, err)
 		}
 
-		logger := input.Logger.Named(fmt.Sprintf("Importer for Service %q", serviceName))
 		if err := runImportForService(input, serviceName, serviceDetails, sourceDataType, sourceDataOrigin, swaggerGitSha, repo); err != nil {
 			return fmt.Errorf("parsing data for Service %q: %+v", serviceName, err)
 		}
@@ -130,7 +129,7 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 	// Populate all of the data for this API Version..
 	dataForApiVersions := make([]importerModels.AzureApiDefinition, 0)
 	for apiVersion, api := range consolidatedApiVersions {
-		versionLogger := logger.Named(fmt.Sprintf("Importer for API Version %q", apiVersion))
+		versionLogger := logging.Log.Named(fmt.Sprintf("Importer for API Version %q", apiVersion))
 
 		versionLogger.Trace("Task: Parsing Data..")
 		dataForApiVersion := &importerModels.AzureApiDefinition{
@@ -167,14 +166,14 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 	}
 
 	// temporary glue to enable refactoring this tool piece-by-piece
-	logger.Info("Transforming to the Data API SDK types..")
-	service, err := transformer.MapInternalTypesToDataAPISDKTypes(dataForApiVersionsWithTerraformDetails, resourceProvider, terraformPackageName, logger)
+	logging.Log.Info("Transforming to the Data API SDK types..")
+	service, err := transformer.MapInternalTypesToDataAPISDKTypes(dataForApiVersionsWithTerraformDetails, resourceProvider, terraformPackageName)
 	if err != nil {
 		return fmt.Errorf("transforming the internal types to the Data API SDK types: %+v", err)
 	}
 
 	// Now that we have the populated data, let's go ahead and output that..
-	logger.Info(fmt.Sprintf("Persisting API Definitions for Service %s..", serviceName))
+	logging.Log.Info(fmt.Sprintf("Persisting API Definitions for Service %s..", serviceName))
 
 	opts := dataapirepository.SaveServiceOptions{
 		AzureRestAPISpecsGitSHA: pointer.To(swaggerGitSha),

@@ -7,20 +7,20 @@ import (
 	"fmt"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 // NOTE: this file contains temporary glue code to enable refactoring this tool gradually, component-by-component.
 
-func MapInternalTypesToDataAPISDKTypes(inputApiVersions []importerModels.AzureApiDefinition, resourceProvider, terraformPackageName *string, logger hclog.Logger) (*models.Service, error) {
+func MapInternalTypesToDataAPISDKTypes(inputApiVersions []importerModels.AzureApiDefinition, resourceProvider, terraformPackageName *string) (*models.Service, error) {
 	apiVersions := make(map[string]models.APIVersion)
 
-	logger.Debug("Mapping API Versions..")
+	logging.Log.Debug("Mapping API Versions..")
 	for _, item := range inputApiVersions {
-		logger.Trace(fmt.Sprintf("Mapping Service %q / API Version %q", item.ServiceName, item.ApiVersion))
+		logging.Log.Trace(fmt.Sprintf("Mapping Service %q / API Version %q", item.ServiceName, item.ApiVersion))
 		mapped, err := mapInternalAPIVersionTypeToDataAPISDKType(item)
 		if err != nil {
 			return nil, fmt.Errorf("mapping API Version %q: %+v", item.ApiVersion, err)
@@ -36,7 +36,7 @@ func MapInternalTypesToDataAPISDKTypes(inputApiVersions []importerModels.AzureAp
 	}
 
 	if terraformPackageName != nil {
-		logger.Debug("Mapping Terraform Definition..")
+		logging.Log.Debug("Mapping Terraform Definition..")
 		resources := make(map[string]models.TerraformResourceDefinition, 0)
 		for _, apiVersion := range inputApiVersions {
 			for _, apiResource := range apiVersion.Resources {
