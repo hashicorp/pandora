@@ -1,0 +1,20 @@
+{
+  "name": "CreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "IotConnectorId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "IotConnector"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "IotConnector"
+  }
+}

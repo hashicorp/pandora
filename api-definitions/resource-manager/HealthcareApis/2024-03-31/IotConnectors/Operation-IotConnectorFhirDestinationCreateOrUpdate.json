@@ -1,0 +1,20 @@
+{
+  "name": "IotConnectorFhirDestinationCreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "FhirDestinationId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "IotFhirDestination"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "IotFhirDestination"
+  }
+}
