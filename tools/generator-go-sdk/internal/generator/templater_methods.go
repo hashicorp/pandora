@@ -273,6 +273,7 @@ func (c methodsPandoraTemplater) listOperationTemplate(data ServiceGeneratorData
 	if err != nil {
 		return nil, fmt.Errorf("building arguments for list operation: %+v", err)
 	}
+	customPagerStruct := c.requestOptionStruct()
 	requestOptions, err := c.requestOptions()
 	if err != nil {
 		return nil, fmt.Errorf("building request config: %+v", err)
@@ -298,6 +299,7 @@ func (c methodsPandoraTemplater) listOperationTemplate(data ServiceGeneratorData
 	templated := fmt.Sprintf(`
 %[6]s
 %[7]s
+%[8]s
 
 // %[2]s ...
 func (c %[1]s) %[2]s(ctx context.Context %[3]s) (result %[2]sOperationResponse, err error) {
@@ -322,7 +324,7 @@ func (c %[1]s) %[2]s(ctx context.Context %[3]s) (result %[2]sOperationResponse, 
 
 	return
 }
-`, data.serviceClientName, c.operationName, *methodArguments, *requestOptions, *unmarshalerCode, *responseStruct, *optionsStruct)
+`, data.serviceClientName, c.operationName, *methodArguments, *requestOptions, *unmarshalerCode, *responseStruct, *optionsStruct, customPagerStruct)
 
 	// Only output predicate functions for models and not for base types like string, int etc.
 	if c.operation.ResponseObject.Type == models.ReferenceSDKObjectDefinitionType || c.operation.ResponseObject.Type == models.ListSDKObjectDefinitionType {
@@ -474,6 +476,31 @@ func (c methodsPandoraTemplater) argumentsTemplateForMethod(data ServiceGenerato
 	return &out, nil
 }
 
+// define struct used in requestOptions
+func (c methodsPandoraTemplater) requestOptionStruct() string {
+	var output string
+
+	if c.operation.FieldContainingPaginationDetails != nil {
+		jsonTag := fmt.Sprintf("`json:%q`", *c.operation.FieldContainingPaginationDetails)
+
+		output = fmt.Sprintf(`
+type %[2]sCustomPager struct {
+	NextLink *odata.Link %[1]s
+}
+
+func (p %[2]sCustomPager) NextPageLink() *odata.Link {
+	defer func() {
+		p.NextLink = nil
+	}()
+
+	return p.NextLink
+}
+`, jsonTag, c.operationName)
+	}
+
+	return output
+}
+
 func (c methodsPandoraTemplater) requestOptions() (*string, error) {
 	method := capitalizeFirstLetter(c.operation.Method)
 	expectedStatusCodes := make([]string, 0)
@@ -500,6 +527,11 @@ func (c methodsPandoraTemplater) requestOptions() (*string, error) {
 		options = "OptionsObject: options,"
 	}
 
+	customPagerOption := ""
+	if c.operation.FieldContainingPaginationDetails != nil {
+		customPagerOption = fmt.Sprintf("Pager: %sCustomPager,", c.operationName)
+	}
+
 	contentType := c.operation.ContentType
 
 	out := fmt.Sprintf(`client.RequestOptions{
@@ -508,10 +540,11 @@ func (c methodsPandoraTemplater) requestOptions() (*string, error) {
 			%[2]s,
 		},
 		HttpMethod: http.Method%[3]s,
+		%[6]s
 		Path: %[4]s,
 		%[5]s
 	}
-`, contentType, strings.Join(expectedStatusCodes, ",\n\t\t\t"), method, path, options)
+`, contentType, strings.Join(expectedStatusCodes, ",\n\t\t\t"), method, path, options, customPagerOption)
 	return &out, nil
 }
 

@@ -37,7 +37,6 @@ func TestTemplateMethodsGet(t *testing.T) {
 		},
 		operationName: "Get",
 	}.immediateOperationTemplate(input)
-
 	if err != nil {
 		t.Fatalf("err %+v", err)
 	}
@@ -111,7 +110,6 @@ func TestTemplateMethodsGetAsTextPowerShell(t *testing.T) {
 		},
 		operationName: "Get",
 	}.immediateOperationTemplate(input)
-
 	if err != nil {
 		t.Fatalf("err %+v", err)
 	}
@@ -221,7 +219,6 @@ func TestTemplateMethodsListWithDiscriminatedType(t *testing.T) {
 		},
 		operationName: "List",
 	}.listOperationTemplate(input)
-
 	if err != nil {
 		t.Fatalf("err %+v", err)
 	}
@@ -238,6 +235,18 @@ type ListCompleteResult struct {
 	Items []Bottle
 }
 
+type ListCustomPager struct {
+	NextLink *odata.Link %[2]s
+}
+
+func (p ListCustomPager) NextPageLink() *odata.Link {
+	defer func() {
+		p.NextLink = nil
+	}()
+
+	return p.NextLink
+}
+
 // List ...
 func (c pandaClient) List(ctx context.Context , id PandaPop) (result ListOperationResponse, err error) {
 	opts := client.RequestOptions{
@@ -246,6 +255,7 @@ func (c pandaClient) List(ctx context.Context , id PandaPop) (result ListOperati
 			http.StatusOK,
 		},
 		HttpMethod: http.MethodGet,
+		Pager: ListCustomPager,
 		Path: fmt.Sprintf("%%s/pandas", id.ID()),
 	}
 
@@ -316,13 +326,12 @@ func (c pandaClient) ListCompleteMatchingPredicate(ctx context.Context, id Panda
 	}
 	return
 }
-`, "`json:\"value\"`")
+`, "`json:\"value\"`", "`json:\"nextLink\"`")
 
 	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestTemplateMethodsListWithSimpleType(t *testing.T) {
-
 	input := ServiceGeneratorData{
 		packageName:       "chubbyPandas",
 		serviceClientName: "pandaClient",
@@ -348,7 +357,6 @@ func TestTemplateMethodsListWithSimpleType(t *testing.T) {
 		},
 		operationName: "List",
 	}.listOperationTemplate(input)
-
 	if err != nil {
 		t.Fatalf("err %+v", err)
 	}
@@ -365,6 +373,18 @@ type ListCompleteResult struct {
 	Items []string
 }
 
+type ListCustomPager struct {
+	NextLink *odata.Link %[2]s
+}
+
+func (p ListCustomPager) NextPageLink() *odata.Link {
+	defer func() {
+		p.NextLink = nil
+	}()
+
+	return p.NextLink
+}
+
 // List ...
 func (c pandaClient) List(ctx context.Context , id PandaPop) (result ListOperationResponse, err error) {
 	opts := client.RequestOptions{
@@ -373,6 +393,7 @@ func (c pandaClient) List(ctx context.Context , id PandaPop) (result ListOperati
 			http.StatusOK,
 		},
 		HttpMethod: http.MethodGet,
+		Pager: ListCustomPager,
 		Path: fmt.Sprintf("%%s/pandas", id.ID()),
 	}
 
@@ -425,7 +446,7 @@ func (c pandaClient) ListComplete(ctx context.Context, id PandaPop) (result List
 	}
 	return
 }
-`, "`json:\"value\"`")
+`, "`json:\"value\"`", "`json:\"nextLink\"`")
 
 	assertTemplatedCodeMatches(t, expected, *actual)
 }
@@ -457,7 +478,6 @@ func TestTemplateMethodsListWithObject(t *testing.T) {
 		},
 		operationName: "List",
 	}.listOperationTemplate(input)
-
 	if err != nil {
 		t.Fatalf("err %+v", err)
 	}
@@ -474,6 +494,18 @@ type ListCompleteResult struct {
 	Items []LingLing
 }
 
+type ListCustomPager struct {
+	NextLink *odata.Link %[2]s
+}
+
+func (p ListCustomPager) NextPageLink() *odata.Link {
+	defer func() {
+		p.NextLink = nil
+	}()
+
+	return p.NextLink
+}
+
 // List ...
 func (c pandaClient) List(ctx context.Context , id PandaPop) (result ListOperationResponse, err error) {
 	opts := client.RequestOptions{
@@ -482,6 +514,7 @@ func (c pandaClient) List(ctx context.Context , id PandaPop) (result ListOperati
 			http.StatusOK,
 		},
 		HttpMethod: http.MethodGet,
+		Pager: ListCustomPager,
 		Path: fmt.Sprintf("%%s/pandas", id.ID()),
 	}
 
@@ -541,7 +574,7 @@ func (c pandaClient) ListCompleteMatchingPredicate(ctx context.Context, id Panda
 	}
 	return
 }
-`, "`json:\"value\"`")
+`, "`json:\"value\"`", "`json:\"nextLink\"`")
 
 	assertTemplatedCodeMatches(t, expected, *actual)
 }
