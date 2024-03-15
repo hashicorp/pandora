@@ -1,0 +1,47 @@
+{
+  "name": "DefenderFoDatabasesAwsOffering",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "arcAutoProvisioning",
+      "name": "ArcAutoProvisioning",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DefenderFoDatabasesAwsOfferingArcAutoProvisioning"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "databasesDspm",
+      "name": "DatabasesDspm",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DefenderFoDatabasesAwsOfferingDatabasesDspm"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rds",
+      "name": "Rds",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DefenderFoDatabasesAwsOfferingRds"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "CloudOffering",
+  "discriminatedTypeValue": "DefenderForDatabasesAws",
+  "typeHintIn": "OfferingType"
+}

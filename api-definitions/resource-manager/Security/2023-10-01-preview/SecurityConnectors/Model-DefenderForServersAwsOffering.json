@@ -1,0 +1,86 @@
+{
+  "name": "DefenderForServersAwsOffering",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "arcAutoProvisioning",
+      "name": "ArcAutoProvisioning",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DefenderForServersAwsOfferingArcAutoProvisioning"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "defenderForServers",
+      "name": "DefenderForServers",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DefenderForServersAwsOfferingDefenderForServers"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "mdeAutoProvisioning",
+      "name": "MdeAutoProvisioning",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DefenderForServersAwsOfferingMdeAutoProvisioning"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "subPlan",
+      "name": "SubPlan",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DefenderForServersAwsOfferingSubPlan"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "vmScanners",
+      "name": "VMScanners",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DefenderForServersAwsOfferingVMScanners"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "vaAutoProvisioning",
+      "name": "VaAutoProvisioning",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DefenderForServersAwsOfferingVaAutoProvisioning"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "CloudOffering",
+  "discriminatedTypeValue": "DefenderForServersAws",
+  "typeHintIn": "OfferingType"
+}
