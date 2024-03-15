@@ -1,0 +1,38 @@
+{
+  "name": "AwsOrganizationalDataMaster",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "excludedAccountIds",
+      "name": "ExcludedAccountIds",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "stacksetName",
+      "name": "StacksetName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "AwsOrganizationalData",
+  "discriminatedTypeValue": "Organization",
+  "typeHintIn": "OrganizationMembershipType"
+}

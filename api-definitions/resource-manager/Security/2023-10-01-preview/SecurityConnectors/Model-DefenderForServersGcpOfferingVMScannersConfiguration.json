@@ -1,0 +1,35 @@
+{
+  "name": "DefenderForServersGcpOfferingVMScannersConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "exclusionTags",
+      "name": "ExclusionTags",
+      "objectDefinition": {
+        "type": "Dictionary",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "scanningMode",
+      "name": "ScanningMode",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ScanningMode"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

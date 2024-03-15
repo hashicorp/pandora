@@ -1,0 +1,44 @@
+{
+  "name": "DefenderFoDatabasesAwsOfferingArcAutoProvisioning",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "cloudRoleArn",
+      "name": "CloudRoleArn",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "configuration",
+      "name": "Configuration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DefenderFoDatabasesAwsOfferingArcAutoProvisioningConfiguration"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "enabled",
+      "name": "Enabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

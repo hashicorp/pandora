@@ -1,0 +1,86 @@
+{
+  "name": "DefenderCspmAwsOffering",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "ciem",
+      "name": "Ciem",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DefenderCspmAwsOfferingCiem"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "dataSensitivityDiscovery",
+      "name": "DataSensitivityDiscovery",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DefenderCspmAwsOfferingDataSensitivityDiscovery"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "databasesDspm",
+      "name": "DatabasesDspm",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DefenderCspmAwsOfferingDatabasesDspm"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "mdcContainersAgentlessDiscoveryK8s",
+      "name": "MdcContainersAgentlessDiscoveryK8s",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DefenderCspmAwsOfferingMdcContainersAgentlessDiscoveryK8s"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "mdcContainersImageAssessment",
+      "name": "MdcContainersImageAssessment",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DefenderCspmAwsOfferingMdcContainersImageAssessment"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "vmScanners",
+      "name": "VMScanners",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DefenderCspmAwsOfferingVMScanners"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "CloudOffering",
+  "discriminatedTypeValue": "DefenderCspmAws",
+  "typeHintIn": "OfferingType"
+}

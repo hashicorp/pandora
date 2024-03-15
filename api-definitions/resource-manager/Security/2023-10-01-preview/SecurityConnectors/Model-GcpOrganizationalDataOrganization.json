@@ -1,0 +1,64 @@
+{
+  "name": "GcpOrganizationalDataOrganization",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "excludedProjectNumbers",
+      "name": "ExcludedProjectNumbers",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "organizationName",
+      "name": "OrganizationName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "serviceAccountEmailAddress",
+      "name": "ServiceAccountEmailAddress",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "workloadIdentityProviderId",
+      "name": "WorkloadIdentityProviderId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "GcpOrganizationalData",
+  "discriminatedTypeValue": "Organization",
+  "typeHintIn": "OrganizationMembershipType"
+}
