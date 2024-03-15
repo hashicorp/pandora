@@ -239,7 +239,7 @@ type ListCustomPager struct {
 	NextLink *odata.Link %[2]s
 }
 
-func (p ListCustomPager) NextPageLink() *odata.Link {
+func (p *ListCustomPager) NextPageLink() *odata.Link {
 	defer func() {
 		p.NextLink = nil
 	}()
@@ -255,7 +255,7 @@ func (c pandaClient) List(ctx context.Context , id PandaPop) (result ListOperati
 			http.StatusOK,
 		},
 		HttpMethod: http.MethodGet,
-		Pager: ListCustomPager,
+		Pager: &ListCustomPager{},
 		Path: fmt.Sprintf("%%s/pandas", id.ID()),
 	}
 
@@ -377,7 +377,7 @@ type ListCustomPager struct {
 	NextLink *odata.Link %[2]s
 }
 
-func (p ListCustomPager) NextPageLink() *odata.Link {
+func (p *ListCustomPager) NextPageLink() *odata.Link {
 	defer func() {
 		p.NextLink = nil
 	}()
@@ -393,7 +393,7 @@ func (c pandaClient) List(ctx context.Context , id PandaPop) (result ListOperati
 			http.StatusOK,
 		},
 		HttpMethod: http.MethodGet,
-		Pager: ListCustomPager,
+		Pager: &ListCustomPager{},
 		Path: fmt.Sprintf("%%s/pandas", id.ID()),
 	}
 
@@ -498,7 +498,7 @@ type ListCustomPager struct {
 	NextLink *odata.Link %[2]s
 }
 
-func (p ListCustomPager) NextPageLink() *odata.Link {
+func (p *ListCustomPager) NextPageLink() *odata.Link {
 	defer func() {
 		p.NextLink = nil
 	}()
@@ -514,7 +514,7 @@ func (c pandaClient) List(ctx context.Context , id PandaPop) (result ListOperati
 			http.StatusOK,
 		},
 		HttpMethod: http.MethodGet,
-		Pager: ListCustomPager,
+		Pager: &ListCustomPager{},
 		Path: fmt.Sprintf("%%s/pandas", id.ID()),
 	}
 

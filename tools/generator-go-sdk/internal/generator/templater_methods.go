@@ -488,7 +488,7 @@ type %[2]sCustomPager struct {
 	NextLink *odata.Link %[1]s
 }
 
-func (p %[2]sCustomPager) NextPageLink() *odata.Link {
+func (p *%[2]sCustomPager) NextPageLink() *odata.Link {
 	defer func() {
 		p.NextLink = nil
 	}()
@@ -529,7 +529,7 @@ func (c methodsPandoraTemplater) requestOptions() (*string, error) {
 
 	customPagerOption := ""
 	if c.operation.FieldContainingPaginationDetails != nil {
-		customPagerOption = fmt.Sprintf("Pager: %sCustomPager,", c.operationName)
+		customPagerOption = fmt.Sprintf("Pager: &%sCustomPager{},", c.operationName)
 	}
 
 	contentType := c.operation.ContentType

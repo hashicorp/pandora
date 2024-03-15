@@ -300,7 +300,7 @@ type ListCustomPager struct {
 	NextLink *odata.Link %[2]s
 }
 
-func (p ListCustomPager) NextPageLink() *odata.Link {
+func (p *ListCustomPager) NextPageLink() *odata.Link {
 	defer func() {
 		p.NextLink = nil
 	}()
@@ -316,7 +316,7 @@ func (c pandaClient) List(ctx context.Context ) (result ListOperationResponse, e
 			http.StatusOK,
 		},
 		HttpMethod: http.MethodGet,
-		Pager: ListCustomPager,
+		Pager: &ListCustomPager{},
 		Path: "/thing",
 	}
 
@@ -454,7 +454,7 @@ type ListCustomPager struct {
 	NextLink *odata.Link %[2]s
 }
 
-func (p ListCustomPager) NextPageLink() *odata.Link {
+func (p *ListCustomPager) NextPageLink() *odata.Link {
 	defer func() {
 		p.NextLink = nil
 	}()
@@ -470,7 +470,7 @@ func (c pandaClient) List(ctx context.Context ) (result ListOperationResponse, e
 			http.StatusOK,
 		},
 		HttpMethod: http.MethodGet,
-		Pager: ListCustomPager,
+		Pager: &ListCustomPager{},
 		Path: "/thing",
 	}
 
