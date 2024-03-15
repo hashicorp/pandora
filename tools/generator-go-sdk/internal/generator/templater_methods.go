@@ -273,7 +273,7 @@ func (c methodsPandoraTemplater) listOperationTemplate(data ServiceGeneratorData
 	if err != nil {
 		return nil, fmt.Errorf("building arguments for list operation: %+v", err)
 	}
-	customPagerStruct := c.requestOptionStruct()
+	requestOptionStruct := c.requestOptionStruct()
 	requestOptions, err := c.requestOptions()
 	if err != nil {
 		return nil, fmt.Errorf("building request config: %+v", err)
@@ -324,7 +324,7 @@ func (c %[1]s) %[2]s(ctx context.Context %[3]s) (result %[2]sOperationResponse, 
 
 	return
 }
-`, data.serviceClientName, c.operationName, *methodArguments, *requestOptions, *unmarshalerCode, *responseStruct, *optionsStruct, customPagerStruct)
+`, data.serviceClientName, c.operationName, *methodArguments, *requestOptions, *unmarshalerCode, *responseStruct, *optionsStruct, requestOptionStruct)
 
 	// Only output predicate functions for models and not for base types like string, int etc.
 	if c.operation.ResponseObject.Type == models.ReferenceSDKObjectDefinitionType || c.operation.ResponseObject.Type == models.ListSDKObjectDefinitionType {
