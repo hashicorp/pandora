@@ -384,7 +384,7 @@ service "networkfunction" {
 }
 service "newrelic" {
   name      = "NewRelic"
-  available = ["2022-07-01"]
+  available = ["2022-07-01", "2024-03-01"]
   ignore    = ["2024-01-01"]
 }
 service "nginx" {
@@ -449,7 +449,7 @@ service "recoveryservicesbackup" {
 }
 service "recoveryservicessiterecovery" {
   name      = "RecoveryServicesSiteRecovery"
-  available = ["2022-10-01", "2023-01-01", "2023-02-01", "2023-04-01", "2023-06-01", "2023-08-01"]
+  available = ["2022-10-01", "2023-01-01", "2023-02-01", "2023-04-01", "2023-06-01", "2023-08-01", "2024-01-01"]
 }
 service "redhatopenshift" {
   name      = "RedHatOpenShift"
@@ -579,7 +579,7 @@ service "videoanalyzer" {
 }
 service "vmware" {
   name      = "VMware"
-  available = ["2022-05-01", "2023-03-01"]
+  available = ["2022-05-01", "2023-03-01", "2023-09-01"]
 }
 service "voiceservices" {
   name      = "VoiceServices"
