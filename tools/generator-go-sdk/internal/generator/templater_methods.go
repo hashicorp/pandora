@@ -134,6 +134,7 @@ func (c methodsPandoraTemplater) immediateOperationTemplate(data ServiceGenerato
 	if err != nil {
 		return nil, fmt.Errorf("building arguments for immediate operation: %+v", err)
 	}
+	requestOptionStruct := c.requestOptionStruct()
 	requestOptions, err := c.requestOptions()
 	if err != nil {
 		return nil, fmt.Errorf("building request config: %+v", err)
@@ -158,6 +159,7 @@ func (c methodsPandoraTemplater) immediateOperationTemplate(data ServiceGenerato
 	templated := fmt.Sprintf(`
 %[7]s
 %[8]s
+%[9]s
 
 // %[2]s ...
 func (c %[1]s) %[2]s(ctx context.Context %[3]s) (result %[2]sOperationResponse, err error) {
@@ -185,7 +187,7 @@ func (c %[1]s) %[2]s(ctx context.Context %[3]s) (result %[2]sOperationResponse, 
 	return
 }
 
-`, data.serviceClientName, c.operationName, *methodArguments, *requestOptions, *marshalerCode, *unmarshalerCode, *responseStruct, *optionsStruct)
+`, data.serviceClientName, c.operationName, *methodArguments, *requestOptions, *marshalerCode, *unmarshalerCode, *responseStruct, *optionsStruct, requestOptionStruct)
 	return &templated, nil
 }
 
@@ -194,6 +196,7 @@ func (c methodsPandoraTemplater) longRunningOperationTemplate(data ServiceGenera
 	if err != nil {
 		return nil, fmt.Errorf("building arguments for long running template: %+v", err)
 	}
+	requestOptionStruct := c.requestOptionStruct()
 	requestOptions, err := c.requestOptions()
 	if err != nil {
 		return nil, fmt.Errorf("building request config: %+v", err)
@@ -219,6 +222,7 @@ func (c methodsPandoraTemplater) longRunningOperationTemplate(data ServiceGenera
 	templated := fmt.Sprintf(`
 %[8]s
 %[9]s
+%[10]s
 
 // %[2]s ...
 func (c %[1]s) %[2]s(ctx context.Context %[3]s) (result %[2]sOperationResponse, err error) {
@@ -264,7 +268,7 @@ func (c %[1]s) %[2]sThenPoll(ctx context.Context %[3]s) error {
 
 	return nil
 }
-`, data.serviceClientName, c.operationName, *methodArguments, *requestOptions, *marshalerCode, *unmarshalerCode, argumentsCode, *responseStruct, *optionsStruct)
+`, data.serviceClientName, c.operationName, *methodArguments, *requestOptions, *marshalerCode, *unmarshalerCode, argumentsCode, *responseStruct, *optionsStruct, requestOptionStruct)
 	return &templated, nil
 }
 
