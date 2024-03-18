@@ -1,0 +1,19 @@
+{
+  "name": "WorkloadNetworksCreateDnsZone",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "DnsZoneId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "WorkloadNetworkDnsZone"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "WorkloadNetworkDnsZone"
+  }
+}
