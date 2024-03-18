@@ -1,0 +1,57 @@
+{
+  "name": "NewRelicSingleSignOnProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "enterpriseAppId",
+      "name": "EnterpriseAppId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "provisioningState",
+      "name": "ProvisioningState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ProvisioningState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "singleSignOnState",
+      "name": "SingleSignOnState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SingleSignOnStates"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "singleSignOnUrl",
+      "name": "SingleSignOnUrl",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

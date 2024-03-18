@@ -1,0 +1,35 @@
+{
+  "name": "HostsGetRequest",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "userEmail",
+      "name": "UserEmail",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "vmIds",
+      "name": "VMIds",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

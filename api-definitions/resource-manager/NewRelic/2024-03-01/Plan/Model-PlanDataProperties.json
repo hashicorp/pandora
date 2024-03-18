@@ -1,0 +1,44 @@
+{
+  "name": "PlanDataProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "accountCreationSource",
+      "name": "AccountCreationSource",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AccountCreationSource"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "orgCreationSource",
+      "name": "OrgCreationSource",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "OrgCreationSource"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "planData",
+      "name": "PlanData",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PlanData"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

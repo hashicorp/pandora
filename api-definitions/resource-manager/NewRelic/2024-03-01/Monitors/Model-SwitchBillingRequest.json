@@ -1,0 +1,57 @@
+{
+  "name": "SwitchBillingRequest",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "azureResourceId",
+      "name": "AzureResourceId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "organizationId",
+      "name": "OrganizationId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "planData",
+      "name": "PlanData",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PlanData"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "userEmail",
+      "name": "UserEmail",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ]
+}

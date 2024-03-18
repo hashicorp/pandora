@@ -1,0 +1,31 @@
+{
+  "name": "TagRuleUpdateProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "logRules",
+      "name": "LogRules",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "LogRules"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "metricRules",
+      "name": "MetricRules",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MetricRules"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "ScriptSecureStringExecutionParameter",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "secureValue",
+      "name": "SecureValue",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "ScriptExecutionParameter",
+  "discriminatedTypeValue": "SecureValue",
+  "typeHintIn": "Type"
+}

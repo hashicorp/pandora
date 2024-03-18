@@ -1,0 +1,113 @@
+{
+  "name": "WorkloadNetworkDnsServiceProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "defaultDnsZone",
+      "name": "DefaultDnsZone",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "displayName",
+      "name": "DisplayName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "dnsServiceIp",
+      "name": "DnsServiceIP",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "fqdnZones",
+      "name": "FqdnZones",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "logLevel",
+      "name": "LogLevel",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DnsServiceLogLevelEnum"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "provisioningState",
+      "name": "ProvisioningState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "WorkloadNetworkDnsServiceProvisioningState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "revision",
+      "name": "Revision",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "status",
+      "name": "Status",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DnsServiceStatusEnum"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}
