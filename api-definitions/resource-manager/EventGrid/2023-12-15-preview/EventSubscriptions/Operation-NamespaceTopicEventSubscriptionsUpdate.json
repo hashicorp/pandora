@@ -1,0 +1,19 @@
+{
+  "name": "NamespaceTopicEventSubscriptionsUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "NamespaceTopicEventSubscriptionId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "SubscriptionUpdateParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "Subscription"
+  }
+}

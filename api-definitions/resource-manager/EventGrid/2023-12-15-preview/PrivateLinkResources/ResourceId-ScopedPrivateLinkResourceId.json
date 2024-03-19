@@ -1,0 +1,19 @@
+{
+  "name": "ScopedPrivateLinkResourceId",
+  "id": "/{scope}/privateLinkResources/{privateLinkResourceName}",
+  "segments": [
+    {
+      "name": "scope",
+      "type": "Scope"
+    },
+    {
+      "name": "staticPrivateLinkResources",
+      "type": "Static",
+      "value": "privateLinkResources"
+    },
+    {
+      "name": "privateLinkResourceName",
+      "type": "UserSpecified"
+    }
+  ]
+}

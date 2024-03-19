@@ -1,0 +1,21 @@
+{
+  "name": "AzureFunctionEventSubscriptionDestination",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AzureFunctionEventSubscriptionDestinationProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "EventSubscriptionDestination",
+  "discriminatedTypeValue": "AzureFunction",
+  "typeHintIn": "EndpointType"
+}

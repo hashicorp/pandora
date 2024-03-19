@@ -1,0 +1,74 @@
+{
+  "name": "NetworkSecurityPerimeterConfigurationProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "networkSecurityPerimeter",
+      "name": "NetworkSecurityPerimeter",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "NetworkSecurityPerimeterInfo"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "profile",
+      "name": "Profile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "NetworkSecurityPerimeterConfigurationProfile"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "provisioningIssues",
+      "name": "ProvisioningIssues",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "NetworkSecurityPerimeterConfigurationIssues"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "provisioningState",
+      "name": "ProvisioningState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "NetworkSecurityPerimeterConfigProvisioningState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "resourceAssociation",
+      "name": "ResourceAssociation",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ResourceAssociation"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

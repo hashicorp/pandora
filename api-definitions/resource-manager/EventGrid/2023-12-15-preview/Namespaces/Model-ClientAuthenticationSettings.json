@@ -1,0 +1,22 @@
+{
+  "name": "ClientAuthenticationSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "alternativeAuthenticationNameSources",
+      "name": "AlternativeAuthenticationNameSources",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "AlternativeAuthenticationNameSource"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

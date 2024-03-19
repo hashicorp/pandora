@@ -1,0 +1,21 @@
+{
+  "name": "StorageBlobDeadLetterDestination",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "StorageBlobDeadLetterDestinationProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "DeadLetterDestination",
+  "discriminatedTypeValue": "StorageBlob",
+  "typeHintIn": "EndpointType"
+}

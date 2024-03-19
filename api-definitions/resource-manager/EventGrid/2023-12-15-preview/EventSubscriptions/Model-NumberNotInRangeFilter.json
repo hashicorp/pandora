@@ -1,0 +1,29 @@
+{
+  "name": "NumberNotInRangeFilter",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "values",
+      "name": "Values",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "List",
+          "referenceName": null,
+          "nestedItem": {
+            "type": "Float",
+            "referenceName": null
+          }
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "Filter",
+  "discriminatedTypeValue": "NumberNotInRange",
+  "typeHintIn": "OperatorType"
+}
