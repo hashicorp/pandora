@@ -37,13 +37,7 @@ func MapConstant(typeVal spec.StringOrArray, fieldName string, modelName *string
 		return nil, fmt.Errorf("Enum in %q has no values", fieldName)
 	}
 
-	//if modelName != nil && strings.EqualFold(*modelName, "IntegrationRuntimeReference") {
-	//	log.Printf("DEBUG")
-	//}
 	constantName := fieldName
-
-	//api-definitions/resource-manager/ManagementGroups/2020-05-01/ManagementGroups/Constant-ManagementGroupChildTypetype.json
-	//api-definitions/resource-manager/Security/2020-01-01/ApplicationWhitelistings/Constant-RecommendationTypetype.json
 
 	// the name needs to come from the `x-ms-enum` extension
 	constExtension, err := parseConstantExtensionFromExtension(extensions)
