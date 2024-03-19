@@ -32,18 +32,33 @@ type ParsedConstant struct {
 	Details models.SDKConstant
 }
 
-func MapConstant(typeVal spec.StringOrArray, fieldName string, values []interface{}, extensions spec.Extensions, logger hclog.Logger) (*ParsedConstant, error) {
+func MapConstant(typeVal spec.StringOrArray, fieldName string, modelName *string, values []interface{}, extensions spec.Extensions, logger hclog.Logger) (*ParsedConstant, error) {
 	if len(values) == 0 {
 		return nil, fmt.Errorf("Enum in %q has no values", fieldName)
 	}
 
+	//if modelName != nil && strings.EqualFold(*modelName, "IntegrationRuntimeReference") {
+	//	log.Printf("DEBUG")
+	//}
 	constantName := fieldName
+
+	//api-definitions/resource-manager/ManagementGroups/2020-05-01/ManagementGroups/Constant-ManagementGroupChildTypetype.json
+	//api-definitions/resource-manager/Security/2020-01-01/ApplicationWhitelistings/Constant-RecommendationTypetype.json
 
 	// the name needs to come from the `x-ms-enum` extension
 	constExtension, err := parseConstantExtensionFromExtension(extensions)
 	if err != nil {
 		if featureflags.AllowConstantsWithoutXMSEnum {
 			logger.Debug(fmt.Sprintf("Field %q had an invalid `x-ms-enum`: %+v", fieldName, err))
+			// this attempts to construct a unique name for a constant out of the model name and field name
+			// to prevent duplicate definitions of constants, specifically constants called `type`
+			// of which there are several in data factory (#3725)
+			if strings.EqualFold(fieldName, "type") && modelName != nil {
+				constantPrefix := strings.TrimSuffix(*modelName, "Type")
+				constantName = constantPrefix + strings.Title(fieldName)
+				logger.Debug(fmt.Sprintf("Field %q renamed to %q", fieldName, constantName))
+			}
+
 		} else {
 			return nil, fmt.Errorf("parsing x-ms-enum: %+v", err)
 		}
