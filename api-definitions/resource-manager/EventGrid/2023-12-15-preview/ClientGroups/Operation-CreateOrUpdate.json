@@ -1,0 +1,19 @@
+{
+  "name": "CreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "ClientGroupId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ClientGroup"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ClientGroup"
+  }
+}

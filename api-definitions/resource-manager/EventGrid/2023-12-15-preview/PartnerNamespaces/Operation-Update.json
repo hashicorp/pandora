@@ -1,0 +1,19 @@
+{
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "PartnerNamespaceId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "PartnerNamespaceUpdateParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "PartnerNamespace"
+  }
+}

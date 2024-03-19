@@ -1,0 +1,44 @@
+{
+  "name": "DeliveryConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "deliveryMode",
+      "name": "DeliveryMode",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DeliveryMode"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "push",
+      "name": "Push",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PushInfo"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "queue",
+      "name": "Queue",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "QueueInfo"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

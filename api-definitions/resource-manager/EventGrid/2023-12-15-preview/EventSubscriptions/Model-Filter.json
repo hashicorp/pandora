@@ -1,0 +1,32 @@
+{
+  "name": "Filter",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "key",
+      "name": "Key",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": true,
+      "jsonName": "operatorType",
+      "name": "OperatorType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "FilterOperatorType"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "typeHintIn": "OperatorType"
+}
