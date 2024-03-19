@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package dataapigeneratorjson
 
 // Repository is an interface defining how to load and save API Definitions from disk.
