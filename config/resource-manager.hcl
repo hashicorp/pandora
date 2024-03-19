@@ -223,7 +223,7 @@ service "elasticsan" {
 }
 service "eventgrid" {
   name      = "EventGrid"
-  available = ["2022-06-15"]
+  available = ["2022-06-15", "2023-12-15-preview"]
 }
 service "eventhub" {
   name      = "EventHub"
