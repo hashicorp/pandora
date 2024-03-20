@@ -1,0 +1,31 @@
+{
+  "name": "TriggerReference",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "referenceName",
+      "name": "ReferenceName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "type",
+      "name": "Type",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "TriggerReferenceType"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ]
+}

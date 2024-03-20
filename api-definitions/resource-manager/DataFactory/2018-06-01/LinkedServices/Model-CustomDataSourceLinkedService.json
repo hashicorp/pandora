@@ -1,0 +1,21 @@
+{
+  "name": "CustomDataSourceLinkedService",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "typeProperties",
+      "name": "TypeProperties",
+      "objectDefinition": {
+        "type": "RawObject",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "LinkedService",
+  "discriminatedTypeValue": "CustomDataSource",
+  "typeHintIn": "Type"
+}

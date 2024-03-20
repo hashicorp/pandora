@@ -1,0 +1,21 @@
+{
+  "name": "SalesforceServiceCloudV2LinkedService",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "typeProperties",
+      "name": "TypeProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SalesforceServiceCloudV2LinkedServiceTypeProperties"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "LinkedService",
+  "discriminatedTypeValue": "SalesforceServiceCloudV2",
+  "typeHintIn": "Type"
+}
