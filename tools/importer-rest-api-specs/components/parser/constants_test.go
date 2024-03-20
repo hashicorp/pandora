@@ -294,7 +294,7 @@ func TestParseConstantsMultipleTypeEnums(t *testing.T) {
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
 		Resources: map[string]importerModels.AzureApiResource{
-			"Animal": {
+			"Example": {
 				Constants: map[string]models.SDKConstant{
 					"AnimalType": {
 						Type: models.StringSDKConstantType,
@@ -302,6 +302,13 @@ func TestParseConstantsMultipleTypeEnums(t *testing.T) {
 							"Cat":   "cat",
 							"Dog":   "dog",
 							"Panda": "panda",
+						},
+					},
+					"PlanetType": {
+						Type: models.StringSDKConstantType,
+						Values: map[string]string{
+							"Mercury": "mercury",
+							"Saturn":  "saturn",
 						},
 					},
 				},
@@ -318,31 +325,6 @@ func TestParseConstantsMultipleTypeEnums(t *testing.T) {
 							},
 						},
 					},
-				},
-				Operations: map[string]models.SDKOperation{
-					"Test": {
-						ContentType:         "application/json",
-						ExpectedStatusCodes: []int{200},
-						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
-							ReferenceName: pointer.To("Animal"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
-						},
-						URISuffix: pointer.To("/animal"),
-					},
-				},
-			},
-			"Planet": {
-				Constants: map[string]models.SDKConstant{
-					"PlanetType": {
-						Type: models.StringSDKConstantType,
-						Values: map[string]string{
-							"Mercury": "mercury",
-							"Saturn":  "saturn",
-						},
-					},
-				},
-				Models: map[string]models.SDKModel{
 					"Planet": {
 						Fields: map[string]models.SDKField{
 							"Type": {
@@ -357,7 +339,17 @@ func TestParseConstantsMultipleTypeEnums(t *testing.T) {
 					},
 				},
 				Operations: map[string]models.SDKOperation{
-					"Test": {
+					"Animal": {
+						ContentType:         "application/json",
+						ExpectedStatusCodes: []int{200},
+						Method:              "GET",
+						ResponseObject: &models.SDKObjectDefinition{
+							ReferenceName: pointer.To("Animal"),
+							Type:          models.ReferenceSDKObjectDefinitionType,
+						},
+						URISuffix: pointer.To("/animal"),
+					},
+					"Planet": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
