@@ -1,14 +1,15 @@
 {
-  "name": "ProductTemplateGet",
+  "name": "List",
   "contentType": "application/json; charset=utf-8",
   "expectedStatusCodes": [
     200
   ],
   "longRunning": false,
   "httpMethod": "GET",
-  "resourceIdName": "ContentProductTemplateId",
+  "resourceIdName": "WorkspaceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ProductTemplateModel"
-  }
+    "referenceName": "SentinelOnboardingStatesList"
+  },
+  "uriSuffix": "/providers/Microsoft.SecurityInsights/onboardingStates"
 }

@@ -1,14 +1,15 @@
 {
-  "name": "ProductTemplateGet",
+  "name": "IncidentsListAlerts",
   "contentType": "application/json; charset=utf-8",
   "expectedStatusCodes": [
     200
   ],
   "longRunning": false,
-  "httpMethod": "GET",
-  "resourceIdName": "ContentProductTemplateId",
+  "httpMethod": "POST",
+  "resourceIdName": "IncidentId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ProductTemplateModel"
-  }
+    "referenceName": "IncidentAlertList"
+  },
+  "uriSuffix": "/alerts"
 }

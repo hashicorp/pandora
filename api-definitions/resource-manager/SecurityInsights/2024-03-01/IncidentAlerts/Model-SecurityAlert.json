@@ -1,0 +1,21 @@
+{
+  "name": "SecurityAlert",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SecurityAlertProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "SecurityAlert",
+  "typeHintIn": "Kind"
+}
