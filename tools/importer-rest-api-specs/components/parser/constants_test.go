@@ -284,6 +284,88 @@ func TestParseConstantsIntegersInlinedAsIntsWithDisplayName(t *testing.T) {
 	validateParsedSwaggerResultMatches(t, expected, actual)
 }
 
+func TestParseConstantsMultipleTypeEnums(t *testing.T) {
+	actual, err := ParseSwaggerFileForTesting(t, "constants_multiple_type_enums.json")
+	if err != nil {
+		t.Fatalf("parsing: %+v", err)
+	}
+
+	expected := importerModels.AzureApiDefinition{
+		ServiceName: "Example",
+		ApiVersion:  "2020-01-01",
+		Resources: map[string]importerModels.AzureApiResource{
+			"Example": {
+				Constants: map[string]models.SDKConstant{
+					"AnimalType": {
+						Type: models.StringSDKConstantType,
+						Values: map[string]string{
+							"Cat":   "cat",
+							"Dog":   "dog",
+							"Panda": "panda",
+						},
+					},
+					"PlanetType": {
+						Type: models.StringSDKConstantType,
+						Values: map[string]string{
+							"Mercury": "mercury",
+							"Saturn":  "saturn",
+						},
+					},
+				},
+				Models: map[string]models.SDKModel{
+					"Animal": {
+						Fields: map[string]models.SDKField{
+							"Type": {
+								JsonName: "type",
+								ObjectDefinition: models.SDKObjectDefinition{
+									ReferenceName: pointer.To("AnimalType"),
+									Type:          models.ReferenceSDKObjectDefinitionType,
+								},
+								Required: false,
+							},
+						},
+					},
+					"Planet": {
+						Fields: map[string]models.SDKField{
+							"Type": {
+								JsonName: "type",
+								ObjectDefinition: models.SDKObjectDefinition{
+									ReferenceName: pointer.To("PlanetType"),
+									Type:          models.ReferenceSDKObjectDefinitionType,
+								},
+								Required: false,
+							},
+						},
+					},
+				},
+				Operations: map[string]models.SDKOperation{
+					"Animal": {
+						ContentType:         "application/json",
+						ExpectedStatusCodes: []int{200},
+						Method:              "GET",
+						ResponseObject: &models.SDKObjectDefinition{
+							ReferenceName: pointer.To("Animal"),
+							Type:          models.ReferenceSDKObjectDefinitionType,
+						},
+						URISuffix: pointer.To("/animal"),
+					},
+					"Planet": {
+						ContentType:         "application/json",
+						ExpectedStatusCodes: []int{200},
+						Method:              "GET",
+						ResponseObject: &models.SDKObjectDefinition{
+							ReferenceName: pointer.To("Planet"),
+							Type:          models.ReferenceSDKObjectDefinitionType,
+						},
+						URISuffix: pointer.To("/planet"),
+					},
+				},
+			},
+		},
+	}
+	validateParsedSwaggerResultMatches(t, expected, actual)
+}
+
 func TestParseConstantsIntegersInlinedAsStrings(t *testing.T) {
 	// Tests an Integer Constant defined Inline with modelAsString, which is bad data / should be ignored
 	actual, err := ParseSwaggerFileForTesting(t, "constants_integers_as_strings_inlined.json")

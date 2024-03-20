@@ -382,7 +382,7 @@ func (p operationsParser) optionsForOperation(input parsedOperation, logger hclo
 				types := []string{
 					param.Type,
 				}
-				constant, err := constants.MapConstant(types, param.Name, param.Enum, param.Extensions, logger.Named("Constant Parser"))
+				constant, err := constants.MapConstant(types, param.Name, nil, param.Enum, param.Extensions, logger.Named("Constant Parser"))
 				if err != nil {
 					return nil, nil, fmt.Errorf("mapping %q: %+v", param.Name, err)
 				}
