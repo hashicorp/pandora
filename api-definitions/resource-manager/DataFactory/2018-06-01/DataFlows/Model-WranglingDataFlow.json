@@ -1,0 +1,21 @@
+{
+  "name": "WranglingDataFlow",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "typeProperties",
+      "name": "TypeProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PowerQueryTypeProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "DataFlow",
+  "discriminatedTypeValue": "WranglingDataFlow",
+  "typeHintIn": "Type"
+}
