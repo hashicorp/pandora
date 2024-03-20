@@ -1,0 +1,31 @@
+{
+  "name": "AutomationRulePropertyArrayChangedValuesCondition",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "arrayType",
+      "name": "ArrayType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AutomationRulePropertyArrayChangedConditionSupportedArrayType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "changeType",
+      "name": "ChangeType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AutomationRulePropertyArrayChangedConditionSupportedChangeType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}
