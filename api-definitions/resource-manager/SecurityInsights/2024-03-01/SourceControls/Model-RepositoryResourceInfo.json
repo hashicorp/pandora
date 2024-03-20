@@ -1,0 +1,44 @@
+{
+  "name": "RepositoryResourceInfo",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "azureDevOpsResourceInfo",
+      "name": "AzureDevOpsResourceInfo",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AzureDevOpsResourceInfo"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "gitHubResourceInfo",
+      "name": "GitHubResourceInfo",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "GitHubResourceInfo"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "webhook",
+      "name": "Webhook",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Webhook"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

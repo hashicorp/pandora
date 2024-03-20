@@ -1,0 +1,48 @@
+{
+  "name": "AutomationRulePropertyArrayValuesCondition",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "arrayConditionType",
+      "name": "ArrayConditionType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AutomationRulePropertyArrayConditionSupportedArrayConditionType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "arrayType",
+      "name": "ArrayType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AutomationRulePropertyArrayConditionSupportedArrayType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "itemConditions",
+      "name": "ItemConditions",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "AutomationRuleCondition"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}
