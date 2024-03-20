@@ -112,6 +112,7 @@ func NormalizeSegment(input string, camelCase bool) string {
 		"connectionstrings":                 "connectionStrings",
 		"configreferences":                  "configReferences",
 		"consumergroups":                    "consumerGroups",
+		"contentproducttemplates":           "contentProductTemplates",
 		"continuouswebjobs":                 "continuousWebJobs",
 		"customimages":                      "customImages",
 		"customipprefixes":                  "customIPPrefixes",
