@@ -16,19 +16,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "disableMetricsCollection",
-      "name": "DisableMetricsCollection",
-      "objectDefinition": {
-        "type": "RawObject",
-        "referenceName": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
       "jsonName": "enablePartitionDiscovery",
       "name": "EnablePartitionDiscovery",
       "objectDefinition": {
@@ -44,19 +31,6 @@
       "containsDiscriminatedTypeValue": false,
       "jsonName": "fileListPath",
       "name": "FileListPath",
-      "objectDefinition": {
-        "type": "RawObject",
-        "referenceName": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "maxConcurrentConnections",
-      "name": "MaxConcurrentConnections",
       "objectDefinition": {
         "type": "RawObject",
         "referenceName": null
@@ -120,19 +94,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "type",
-      "name": "Type",
-      "objectDefinition": {
-        "type": "String",
-        "referenceName": null
-      },
-      "optional": false,
-      "readOnly": false,
-      "required": true,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
       "jsonName": "wildcardFileName",
       "name": "WildcardFileName",
       "objectDefinition": {
@@ -157,5 +118,7 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "discriminatedParentModelName": "StoreReadSettings",
+  "typeHintIn": "Type"
 }

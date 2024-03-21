@@ -55,19 +55,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "type",
-      "name": "Type",
-      "objectDefinition": {
-        "type": "String",
-        "referenceName": null
-      },
-      "optional": false,
-      "readOnly": false,
-      "required": true,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
       "jsonName": "validationMode",
       "name": "ValidationMode",
       "objectDefinition": {
@@ -79,5 +66,7 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "discriminatedParentModelName": "FormatReadSettings",
+  "typeHintIn": "Type"
 }
