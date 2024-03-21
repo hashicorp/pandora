@@ -39,9 +39,15 @@ import (
     "strings"
 
     "github.com/hashicorp/go-azure-helpers/resourcemanager/resourceids"
+	"github.com/hashicorp/go-azure-helpers/resourcemanager/resourceids/recaser"
 )
 
 // acctests licence placeholder
+
+// Adds Basic Test to a register of known ids
+func init() {
+    recaser.RegisterResourceId(&BasicTestId{})
+}
 
 var _ resourceids.ResourceId = &BasicTestId{}
 
@@ -183,9 +189,15 @@ import (
 	"strings"
 
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/resourceids"
+    "github.com/hashicorp/go-azure-helpers/resourcemanager/resourceids/recaser"
 )
 
 // acctests licence placeholder
+
+// Adds Constant Only to a register of known ids
+func init() {
+    recaser.RegisterResourceId(&ConstantOnlyId{})
+}
 
 var _ resourceids.ResourceId = &ConstantOnlyId{}
 
