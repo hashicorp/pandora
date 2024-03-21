@@ -40,6 +40,10 @@ func (workaroundDataFactory28122) Process(apiDefinition importerModels.AzureApiD
 	managedIdentityCredential.FieldNameContainingDiscriminatedValue = pointer.To("Type")
 	managedIdentityCredential.ParentTypeName = pointer.To("Credential")
 
+	if _, ok := resource.Models["ManagedIdentityTypeProperties"]; !ok {
+		return nil, fmt.Errorf("couldn't find model ManagedIdentityTypeProperties")
+	}
+
 	managedIdentityCredential.Fields["TypeProperties"] = models.SDKField{
 		ContainsDiscriminatedValue: false,
 		JsonName:                   "typeProperties",
@@ -55,9 +59,7 @@ func (workaroundDataFactory28122) Process(apiDefinition importerModels.AzureApiD
 	// remove the following models
 	modelNames := []string{
 		"UserAssignedManagedIdentityCredential",
-		//"UserAssignedManagedIdentityTypeProperties",
 		"SystemAssignedManagedIdentityCredential",
-		//"SystemAssignedManagedIdentityTypeProperties",
 	}
 	for _, modelName := range modelNames {
 		if _, ok := resource.Models[modelName]; !ok {
