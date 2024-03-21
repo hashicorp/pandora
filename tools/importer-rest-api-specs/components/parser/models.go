@@ -459,6 +459,28 @@ func (d *SwaggerDefinition) findOrphanedDiscriminatedModels() (*internal.ParseRe
 				return nil, fmt.Errorf("appending model %q: %+v", modelName, err)
 			}
 		}
+
+		// this catches orphaned discriminated models where the discriminator information is housed in the parent
+		if _, ok := definition.Extensions.GetString("x-ms-discriminator-value"); !ok && len(definition.AllOf) > 0 {
+			parentType, discriminator, err := d.findAncestorType(definition)
+			if err != nil {
+				return nil, fmt.Errorf("determining ancestor type for model %q: %+v", modelName, err)
+			}
+
+			details, err := d.parseModel(modelName, definition)
+			if err != nil {
+				return nil, fmt.Errorf("parsing model details for model %q: %+v", modelName, err)
+			}
+			if parentType != nil && discriminator != nil {
+				model := details.Models[modelName]
+				model.ParentTypeName = parentType
+				model.FieldNameContainingDiscriminatedValue = discriminator
+				details.Models[modelName] = model
+			}
+			if err := result.Append(*details); err != nil {
+				return nil, fmt.Errorf("appending model %q: %+v", modelName, err)
+			}
+		}
 	}
 
 	// this will also pull out the parent model in the file which will already have been parsed, but that's ok
