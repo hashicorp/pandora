@@ -1,56 +1,56 @@
 {
-  "name": "SystemAssignedManagedIdentityCredential",
+  "name": "MigrateSqlServerSqlDbSyncTaskInput",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "annotations",
-      "name": "Annotations",
+      "jsonName": "selectedDatabases",
+      "name": "SelectedDatabases",
       "objectDefinition": {
         "type": "List",
         "referenceName": null,
         "nestedItem": {
-          "type": "RawObject",
-          "referenceName": null
+          "type": "Reference",
+          "referenceName": "MigrateSqlServerSqlDbSyncDatabaseInput"
         }
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "description",
-      "name": "Description",
-      "objectDefinition": {
-        "type": "String",
-        "referenceName": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "type",
-      "name": "Type",
-      "objectDefinition": {
-        "type": "String",
-        "referenceName": null
       },
       "optional": false,
       "readOnly": false,
-      "required": false,
+      "required": true,
       "sensitive": false
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "typeProperties",
-      "name": "TypeProperties",
+      "jsonName": "sourceConnectionInfo",
+      "name": "SourceConnectionInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedIdentityTypeProperties"
+        "referenceName": "SqlConnectionInfo"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "targetConnectionInfo",
+      "name": "TargetConnectionInfo",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SqlConnectionInfo"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "validationOptions",
+      "name": "ValidationOptions",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MigrationValidationOptions"
       },
       "optional": true,
       "readOnly": false,

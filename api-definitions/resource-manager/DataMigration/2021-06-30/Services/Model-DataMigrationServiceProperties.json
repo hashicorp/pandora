@@ -1,56 +1,52 @@
 {
-  "name": "UserAssignedManagedIdentityCredential",
+  "name": "DataMigrationServiceProperties",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "annotations",
-      "name": "Annotations",
-      "objectDefinition": {
-        "type": "List",
-        "referenceName": null,
-        "nestedItem": {
-          "type": "RawObject",
-          "referenceName": null
-        }
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "description",
-      "name": "Description",
-      "objectDefinition": {
-        "type": "String",
-        "referenceName": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "type",
-      "name": "Type",
-      "objectDefinition": {
-        "type": "String",
-        "referenceName": null
-      },
-      "optional": false,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "typeProperties",
-      "name": "TypeProperties",
+      "jsonName": "provisioningState",
+      "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedIdentityTypeProperties"
+        "referenceName": "ServiceProvisioningState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "publicKey",
+      "name": "PublicKey",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "virtualNicId",
+      "name": "VirtualNicId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "virtualSubnetId",
+      "name": "VirtualSubnetId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
       },
       "optional": false,
       "readOnly": false,
