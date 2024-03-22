@@ -1,0 +1,44 @@
+{
+  "name": "SoftDeleteSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "enhancedSecurityState",
+      "name": "EnhancedSecurityState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EnhancedSecurityState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "softDeleteRetentionPeriodInDays",
+      "name": "SoftDeleteRetentionPeriodInDays",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "softDeleteState",
+      "name": "SoftDeleteState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SoftDeleteState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}
