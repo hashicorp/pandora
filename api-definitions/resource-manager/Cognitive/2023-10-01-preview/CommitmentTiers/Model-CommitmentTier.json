@@ -1,0 +1,109 @@
+{
+  "name": "CommitmentTier",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "cost",
+      "name": "Cost",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CommitmentCost"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "hostingModel",
+      "name": "HostingModel",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "HostingModel"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "kind",
+      "name": "Kind",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "maxCount",
+      "name": "MaxCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "planType",
+      "name": "PlanType",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "quota",
+      "name": "Quota",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CommitmentQuota"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "skuName",
+      "name": "SkuName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "tier",
+      "name": "Tier",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

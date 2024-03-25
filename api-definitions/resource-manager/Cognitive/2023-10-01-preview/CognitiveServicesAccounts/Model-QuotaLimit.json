@@ -1,0 +1,48 @@
+{
+  "name": "QuotaLimit",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "count",
+      "name": "Count",
+      "objectDefinition": {
+        "type": "Float",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "renewalPeriod",
+      "name": "RenewalPeriod",
+      "objectDefinition": {
+        "type": "Float",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rules",
+      "name": "Rules",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "ThrottlingRule"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

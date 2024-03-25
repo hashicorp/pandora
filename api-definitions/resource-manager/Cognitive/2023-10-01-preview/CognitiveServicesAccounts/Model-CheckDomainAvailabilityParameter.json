@@ -1,0 +1,44 @@
+{
+  "name": "CheckDomainAvailabilityParameter",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "kind",
+      "name": "Kind",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "subdomainName",
+      "name": "SubdomainName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "type",
+      "name": "Type",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ]
+}
