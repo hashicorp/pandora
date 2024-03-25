@@ -1,10 +1,13 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package commonschema
 
 import (
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 var _ customFieldMatcher = zonesFieldMatcher{}
@@ -12,12 +15,14 @@ var _ customFieldMatcher = zonesFieldMatcher{}
 type zonesFieldMatcher struct {
 }
 
-func (e zonesFieldMatcher) CustomFieldType() models.CustomFieldType {
-	return models.CustomFieldTypeZones
+func (zonesFieldMatcher) ReplacementObjectDefinition() models.SDKObjectDefinition {
+	return models.SDKObjectDefinition{
+		Type: models.ZonesSDKObjectDefinitionType,
+	}
 }
 
-func (e zonesFieldMatcher) IsMatch(field models.FieldDetails, definition models.ObjectDefinition, _ internal.ParseResult) bool {
+func (zonesFieldMatcher) IsMatch(field models.SDKField, _ internal.ParseResult) bool {
 	nameMatches := strings.EqualFold(field.JsonName, "availabilityZones") || strings.EqualFold(field.JsonName, "zones")
-	typesMatch := definition.Type == models.ObjectDefinitionList && definition.NestedItem != nil && definition.NestedItem.Type == models.ObjectDefinitionString
+	typesMatch := field.ObjectDefinition.Type == models.ListSDKObjectDefinitionType && field.ObjectDefinition.NestedItem != nil && field.ObjectDefinition.NestedItem.Type == models.StringSDKObjectDefinitionType
 	return nameMatches && typesMatch
 }

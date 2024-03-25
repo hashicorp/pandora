@@ -1,29 +1,31 @@
 {
- "name": "LtrBackupRequest",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "backupSettings",
-   "name": "BackupSettings",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "BackupSettings"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "targetDetails",
-   "name": "TargetDetails",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "BackupStoreDetails"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  "name": "LtrBackupRequest",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "backupSettings",
+      "name": "BackupSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "BackupSettings"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "targetDetails",
+      "name": "TargetDetails",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "BackupStoreDetails"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ]
 }

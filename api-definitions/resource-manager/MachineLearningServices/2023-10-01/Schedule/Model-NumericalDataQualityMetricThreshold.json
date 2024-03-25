@@ -1,20 +1,21 @@
 {
- "name": "NumericalDataQualityMetricThreshold",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "metric",
-   "name": "Metric",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "NumericalDataQualityMetric"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "DataQualityMetricThresholdBase",
- "discriminatedTypeValue": "Numerical",
- "typeHintIn": "DataType"
+  "name": "NumericalDataQualityMetricThreshold",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "metric",
+      "name": "Metric",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "NumericalDataQualityMetric"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "DataQualityMetricThresholdBase",
+  "discriminatedTypeValue": "Numerical",
+  "typeHintIn": "DataType"
 }

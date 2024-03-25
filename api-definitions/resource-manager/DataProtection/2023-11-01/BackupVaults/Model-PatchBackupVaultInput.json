@@ -1,41 +1,44 @@
 {
- "name": "PatchBackupVaultInput",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "featureSettings",
-   "name": "FeatureSettings",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "FeatureSettings"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "monitoringSettings",
-   "name": "MonitoringSettings",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "MonitoringSettings"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "securitySettings",
-   "name": "SecuritySettings",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SecuritySettings"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "PatchBackupVaultInput",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "featureSettings",
+      "name": "FeatureSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "FeatureSettings"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "monitoringSettings",
+      "name": "MonitoringSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MonitoringSettings"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "securitySettings",
+      "name": "SecuritySettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SecuritySettings"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

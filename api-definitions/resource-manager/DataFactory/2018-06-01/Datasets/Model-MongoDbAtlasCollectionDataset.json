@@ -1,0 +1,21 @@
+{
+  "name": "MongoDbAtlasCollectionDataset",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "typeProperties",
+      "name": "TypeProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MongoDbAtlasCollectionDatasetTypeProperties"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "Dataset",
+  "discriminatedTypeValue": "MongoDbAtlasCollection",
+  "typeHintIn": "Type"
+}

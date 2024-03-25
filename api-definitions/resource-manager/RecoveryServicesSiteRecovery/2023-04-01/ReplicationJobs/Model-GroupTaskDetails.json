@@ -1,34 +1,36 @@
 {
- "name": "GroupTaskDetails",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "childTasks",
-   "name": "ChildTasks",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "ASRTask"
+  "name": "GroupTaskDetails",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "childTasks",
+      "name": "ChildTasks",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "ASRTask"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": true,
+      "jsonName": "instanceType",
+      "name": "InstanceType",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": true,
-   "jsonName": "instanceType",
-   "name": "InstanceType",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ],
- "typeHintIn": "InstanceType"
+  ],
+  "typeHintIn": "InstanceType"
 }

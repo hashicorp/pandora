@@ -1,0 +1,31 @@
+{
+  "name": "ConfigurationServiceSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "gitProperty",
+      "name": "GitProperty",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ConfigurationServiceGitProperty"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "refreshIntervalInSeconds",
+      "name": "RefreshIntervalInSeconds",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

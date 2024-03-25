@@ -1,33 +1,35 @@
 {
- "name": "DnsForwardingRulesetPatch",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "dnsResolverOutboundEndpoints",
-   "name": "DnsResolverOutboundEndpoints",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "SubResource"
+  "name": "DnsForwardingRulesetPatch",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "dnsResolverOutboundEndpoints",
+      "name": "DnsResolverOutboundEndpoints",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "SubResource"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "tags",
+      "name": "Tags",
+      "objectDefinition": {
+        "type": "Tags",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "tags",
-   "name": "Tags",
-   "objectDefinition": {
-    "type": "Tags",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

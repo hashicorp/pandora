@@ -1,0 +1,70 @@
+{
+  "name": "DatastoreProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "diskPoolVolume",
+      "name": "DiskPoolVolume",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DiskPoolVolume"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "elasticSanVolume",
+      "name": "ElasticSanVolume",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ElasticSanVolume"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "netAppVolume",
+      "name": "NetAppVolume",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "NetAppVolume"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "provisioningState",
+      "name": "ProvisioningState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DatastoreProvisioningState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "status",
+      "name": "Status",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DatastoreStatus"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

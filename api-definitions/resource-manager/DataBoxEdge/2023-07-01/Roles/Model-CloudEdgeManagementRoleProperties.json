@@ -1,41 +1,44 @@
 {
- "name": "CloudEdgeManagementRoleProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "edgeProfile",
-   "name": "EdgeProfile",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "EdgeProfile"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "localManagementStatus",
-   "name": "LocalManagementStatus",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "RoleStatus"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "roleStatus",
-   "name": "RoleStatus",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "RoleStatus"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  "name": "CloudEdgeManagementRoleProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "edgeProfile",
+      "name": "EdgeProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EdgeProfile"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "localManagementStatus",
+      "name": "LocalManagementStatus",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RoleStatus"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "roleStatus",
+      "name": "RoleStatus",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RoleStatus"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ]
 }

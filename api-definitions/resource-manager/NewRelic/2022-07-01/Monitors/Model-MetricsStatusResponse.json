@@ -1,21 +1,22 @@
 {
- "name": "MetricsStatusResponse",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "azureResourceIds",
-   "name": "AzureResourceIds",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "String",
-     "referenceName": null
+  "name": "MetricsStatusResponse",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "azureResourceIds",
+      "name": "AzureResourceIds",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

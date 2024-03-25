@@ -1,0 +1,27 @@
+{
+  "name": "SqlPoolMaintenanceWindowOptionsGet",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "optional": false,
+      "queryString": "maintenanceWindowOptionsName",
+      "required": true,
+      "field": "MaintenanceWindowOptionsName",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "SqlPoolId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "MaintenanceWindowOptions"
+  },
+  "uriSuffix": "/maintenanceWindowOptions/current"
+}

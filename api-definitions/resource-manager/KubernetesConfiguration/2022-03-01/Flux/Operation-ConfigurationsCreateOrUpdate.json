@@ -1,15 +1,19 @@
 {
- "name": "ConfigurationsCreateOrUpdate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201
- ],
- "longRunning": true,
- "httpMethod": "PUT",
- "resourceIdName": "ScopedFluxConfigurationId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "FluxConfiguration"
- }
+  "name": "ConfigurationsCreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "ScopedFluxConfigurationId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "FluxConfiguration"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "FluxConfiguration"
+  }
 }

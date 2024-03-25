@@ -1,13 +1,17 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package endpoints
 
 import (
 	"fmt"
-	"github.com/go-chi/chi/v5"
 	"html/template"
-	"log"
 	"net/http"
 	"sort"
 	"strings"
+
+	"github.com/go-chi/chi/v5"
+	"github.com/hashicorp/pandora/tools/data-api/internal/logging"
 )
 
 const homePageTemplate = `
@@ -44,7 +48,7 @@ func HomePage(router chi.Router) func(w http.ResponseWriter, r *http.Request) {
 
 		templ, err := template.New("home-page").Parse(homePageTemplate)
 		if err != nil {
-			log.Printf("[ERROR] Serving Home Page: %+v", err)
+			logging.Errorf("Serving Home Page: %+v", err)
 			w.WriteHeader(http.StatusInternalServerError)
 		}
 		templ.Execute(w, links)

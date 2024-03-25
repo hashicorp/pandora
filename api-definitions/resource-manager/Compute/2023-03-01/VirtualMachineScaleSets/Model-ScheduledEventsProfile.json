@@ -1,29 +1,31 @@
 {
- "name": "ScheduledEventsProfile",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "osImageNotificationProfile",
-   "name": "OsImageNotificationProfile",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "OSImageNotificationProfile"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "terminateNotificationProfile",
-   "name": "TerminateNotificationProfile",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "TerminateNotificationProfile"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "ScheduledEventsProfile",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "osImageNotificationProfile",
+      "name": "OsImageNotificationProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "OSImageNotificationProfile"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "terminateNotificationProfile",
+      "name": "TerminateNotificationProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "TerminateNotificationProfile"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

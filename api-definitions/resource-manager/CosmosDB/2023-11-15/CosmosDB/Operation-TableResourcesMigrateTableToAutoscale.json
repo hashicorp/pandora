@@ -1,12 +1,16 @@
 {
- "name": "TableResourcesMigrateTableToAutoscale",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "POST",
- "resourceIdName": "TableId",
- "uriSuffix": "/throughputSettings/default/migrateToAutoscale"
+  "name": "TableResourcesMigrateTableToAutoscale",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "TableId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ThroughputSettingsGetResults"
+  },
+  "uriSuffix": "/throughputSettings/default/migrateToAutoscale"
 }

@@ -1,30 +1,33 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package commonschema
 
 import (
 	"reflect"
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
-
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 var _ customFieldMatcher = systemDataMatcher{}
 
 type systemDataMatcher struct{}
 
-func (systemDataMatcher) CustomFieldType() models.CustomFieldType {
-	return models.CustomFieldTypeSystemData
+func (systemDataMatcher) ReplacementObjectDefinition() models.SDKObjectDefinition {
+	return models.SDKObjectDefinition{
+		Type: models.SystemDataSDKObjectDefinitionType,
+	}
 }
 
-func (systemDataMatcher) IsMatch(_ models.FieldDetails, definition models.ObjectDefinition, known internal.ParseResult) bool {
-	if definition.Type != models.ObjectDefinitionReference {
+func (systemDataMatcher) IsMatch(field models.SDKField, known internal.ParseResult) bool {
+	if field.ObjectDefinition.Type != models.ReferenceSDKObjectDefinitionType {
 		return false
 	}
 
 	// retrieve the model from the reference
-	model, ok := known.Models[*definition.ReferenceName]
+	model, ok := known.Models[*field.ObjectDefinition.ReferenceName]
 	if !ok {
 		return false
 	}
@@ -59,16 +62,16 @@ func (systemDataMatcher) IsMatch(_ models.FieldDetails, definition models.Object
 		}
 
 		if strings.EqualFold(fieldName, "CreatedByType") {
-			if fieldVal.ObjectDefinition == nil || fieldVal.ObjectDefinition.Type != models.ObjectDefinitionReference {
+			if fieldVal.ObjectDefinition.Type != models.ReferenceSDKObjectDefinitionType {
 				continue
 			}
 
-			if fieldVal.ObjectDefinition.Type == models.ObjectDefinitionString {
+			if fieldVal.ObjectDefinition.Type == models.StringSDKObjectDefinitionType {
 				// Sometimes this field is a string.
 				// https://github.com/Azure/azure-rest-api-specs/blob/main/specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/stable/2021-05-01/managedcluster.json#L1322-L1325
 				hasCreatedByType = true
 				continue
-			} else if fieldVal.ObjectDefinition.Type == models.ObjectDefinitionReference {
+			} else if fieldVal.ObjectDefinition.Type == models.ReferenceSDKObjectDefinitionType {
 				// Sometimes it's not ...
 				// https://github.com/Azure/azure-rest-api-specs/blob/main/specification/azurearcdata/resource-manager/Microsoft.AzureArcData/stable/2021-08-01/azurearcdata.json#L1294-L1297
 				expected := map[string]string{
@@ -88,15 +91,15 @@ func (systemDataMatcher) IsMatch(_ models.FieldDetails, definition models.Object
 		}
 
 		if strings.EqualFold(fieldName, "LastModifiedByType") {
-			if fieldVal.ObjectDefinition == nil || fieldVal.ObjectDefinition.Type != models.ObjectDefinitionReference {
+			if fieldVal.ObjectDefinition.Type != models.ReferenceSDKObjectDefinitionType {
 				continue
 			}
 
 			// Sometimes this field is a string.
 			// https://github.com/Azure/azure-rest-api-specs/blob/main/specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/stable/2021-05-01/managedcluster.json#L1322-L1325
-			if fieldVal.ObjectDefinition.Type == models.ObjectDefinitionString {
+			if fieldVal.ObjectDefinition.Type == models.StringSDKObjectDefinitionType {
 				hasLastModifiedbyType = true
-			} else if fieldVal.ObjectDefinition.Type == models.ObjectDefinitionReference {
+			} else if fieldVal.ObjectDefinition.Type == models.ReferenceSDKObjectDefinitionType {
 				// Sometimes it's not ...
 				// https://github.com/Azure/azure-rest-api-specs/blob/main/specification/azurearcdata/resource-manager/Microsoft.AzureArcData/stable/2021-08-01/azurearcdata.json#L1294-L1297
 				expected := map[string]string{
@@ -121,14 +124,14 @@ func (systemDataMatcher) IsMatch(_ models.FieldDetails, definition models.Object
 	return hasCreatedByType && hasCreatedBy && hasLastModifiedbyType && hasLastModifiedAt && hasLastModifiedBy && hasCreatedAt
 }
 
-func validateSystemDataConstantValues(input resourcemanager.ConstantDetails, expected map[string]string) bool {
-	if input.Type != resourcemanager.StringConstant {
+func validateSystemDataConstantValues(input models.SDKConstant, expected map[string]string) bool {
+	if input.Type != models.StringSDKConstantType {
 		return false
 	}
 
 	// we can't guarantee the casing on these, so we should parse this insensitively since it'll be swapped
 	// out anyway
-	actual := make(map[string]string, 0)
+	actual := make(map[string]string)
 	for k, v := range input.Values {
 		actual[strings.ToLower(k)] = strings.ToLower(v)
 	}

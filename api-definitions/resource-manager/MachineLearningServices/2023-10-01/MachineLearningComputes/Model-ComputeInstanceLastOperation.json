@@ -1,54 +1,58 @@
 {
- "name": "ComputeInstanceLastOperation",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "operationName",
-   "name": "OperationName",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "OperationName"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "operationStatus",
-   "name": "OperationStatus",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "OperationStatus"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "operationTime",
-   "name": "OperationTime",
-   "objectDefinition": {
-    "type": "DateTime",
-    "referenceName": null,
-    "dateFormat": "RFC3339"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "operationTrigger",
-   "name": "OperationTrigger",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "OperationTrigger"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "ComputeInstanceLastOperation",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "operationName",
+      "name": "OperationName",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "OperationName"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "operationStatus",
+      "name": "OperationStatus",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "OperationStatus"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "operationTime",
+      "name": "OperationTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "referenceName": null,
+        "dateFormat": "RFC3339"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "operationTrigger",
+      "name": "OperationTrigger",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "OperationTrigger"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

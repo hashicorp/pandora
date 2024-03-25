@@ -1,41 +1,44 @@
 {
- "name": "AutoscaleSettingsResource",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "autoUpgradePolicy",
-   "name": "AutoUpgradePolicy",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "AutoUpgradePolicyResource"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "maxThroughput",
-   "name": "MaxThroughput",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "targetMaxThroughput",
-   "name": "TargetMaxThroughput",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "AutoscaleSettingsResource",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "autoUpgradePolicy",
+      "name": "AutoUpgradePolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AutoUpgradePolicyResource"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "maxThroughput",
+      "name": "MaxThroughput",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "targetMaxThroughput",
+      "name": "TargetMaxThroughput",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

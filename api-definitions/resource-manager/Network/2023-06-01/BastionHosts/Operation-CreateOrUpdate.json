@@ -1,15 +1,19 @@
 {
- "name": "CreateOrUpdate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201
- ],
- "longRunning": true,
- "httpMethod": "PUT",
- "resourceIdName": "BastionHostId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "BastionHost"
- }
+  "name": "CreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "BastionHostId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "BastionHost"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "BastionHost"
+  }
 }

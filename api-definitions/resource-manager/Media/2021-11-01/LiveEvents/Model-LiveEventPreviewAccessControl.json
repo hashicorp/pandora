@@ -1,17 +1,18 @@
 {
- "name": "LiveEventPreviewAccessControl",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "ip",
-   "name": "IP",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "IPAccessControl"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "LiveEventPreviewAccessControl",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "ip",
+      "name": "IP",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "IPAccessControl"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

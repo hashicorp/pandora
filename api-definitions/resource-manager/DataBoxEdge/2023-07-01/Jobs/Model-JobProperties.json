@@ -1,101 +1,109 @@
 {
- "name": "JobProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "currentStage",
-   "name": "CurrentStage",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "UpdateOperationStage"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "downloadProgress",
-   "name": "DownloadProgress",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "UpdateDownloadProgress"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "errorManifestFile",
-   "name": "ErrorManifestFile",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "folder",
-   "name": "Folder",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "installProgress",
-   "name": "InstallProgress",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "UpdateInstallProgress"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "jobType",
-   "name": "JobType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "JobType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "refreshedEntityId",
-   "name": "RefreshedEntityId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "totalRefreshErrors",
-   "name": "TotalRefreshErrors",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "JobProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "currentStage",
+      "name": "CurrentStage",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "UpdateOperationStage"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "downloadProgress",
+      "name": "DownloadProgress",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "UpdateDownloadProgress"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "errorManifestFile",
+      "name": "ErrorManifestFile",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "folder",
+      "name": "Folder",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "installProgress",
+      "name": "InstallProgress",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "UpdateInstallProgress"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "jobType",
+      "name": "JobType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "JobType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "refreshedEntityId",
+      "name": "RefreshedEntityId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "totalRefreshErrors",
+      "name": "TotalRefreshErrors",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

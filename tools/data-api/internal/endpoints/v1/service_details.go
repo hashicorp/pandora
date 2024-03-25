@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package v1
 
 import (
@@ -5,8 +8,8 @@ import (
 	"net/http"
 
 	"github.com/go-chi/render"
+	v1 "github.com/hashicorp/pandora/tools/data-api-sdk/v1"
 	"github.com/hashicorp/pandora/tools/data-api/internal/repositories"
-	"github.com/hashicorp/pandora/tools/data-api/models"
 )
 
 func (api Api) serviceDetails(w http.ResponseWriter, r *http.Request) {
@@ -24,16 +27,16 @@ func (api Api) serviceDetails(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	payload := models.ServiceDetails{
+	payload := v1.ServiceDetailsResponse{
 		ResourceProvider:     service.ResourceProvider,
 		TerraformPackageName: service.TerraformPackageName,
-		TerraformUri:         fmt.Sprintf("%s/services/%s/terraform", opts.UriPrefix, service.Name),
-		Versions:             make(map[string]models.ServiceVersion, 0),
+		TerraformURI:         fmt.Sprintf("%s/services/%s/terraform", opts.UriPrefix, service.Name),
+		Versions:             make(map[string]v1.ServiceAPIVersionSummary),
 	}
 	for _, version := range service.ApiVersions {
-		payload.Versions[version.Name] = models.ServiceVersion{
+		payload.Versions[version.Name] = v1.ServiceAPIVersionSummary{
 			Generate: version.Generate,
-			Uri:      fmt.Sprintf("%s/services/%s/%s", opts.UriPrefix, service.Name, version.Name),
+			URI:      fmt.Sprintf("%s/services/%s/%s", opts.UriPrefix, service.Name, version.Name),
 		}
 	}
 	render.JSON(w, r, payload)

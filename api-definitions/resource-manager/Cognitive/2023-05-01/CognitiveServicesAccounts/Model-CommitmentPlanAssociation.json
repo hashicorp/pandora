@@ -1,29 +1,31 @@
 {
- "name": "CommitmentPlanAssociation",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "commitmentPlanId",
-   "name": "CommitmentPlanId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "commitmentPlanLocation",
-   "name": "CommitmentPlanLocation",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "CommitmentPlanAssociation",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "commitmentPlanId",
+      "name": "CommitmentPlanId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "commitmentPlanLocation",
+      "name": "CommitmentPlanLocation",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

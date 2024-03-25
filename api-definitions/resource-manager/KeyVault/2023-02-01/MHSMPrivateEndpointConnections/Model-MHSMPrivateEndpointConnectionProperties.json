@@ -1,41 +1,44 @@
 {
- "name": "MHSMPrivateEndpointConnectionProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "privateEndpoint",
-   "name": "PrivateEndpoint",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "MHSMPrivateEndpoint"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "privateLinkServiceConnectionState",
-   "name": "PrivateLinkServiceConnectionState",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "MHSMPrivateLinkServiceConnectionState"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "provisioningState",
-   "name": "ProvisioningState",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "PrivateEndpointConnectionProvisioningState"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "MHSMPrivateEndpointConnectionProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "privateEndpoint",
+      "name": "PrivateEndpoint",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MHSMPrivateEndpoint"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "privateLinkServiceConnectionState",
+      "name": "PrivateLinkServiceConnectionState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MHSMPrivateLinkServiceConnectionState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "provisioningState",
+      "name": "ProvisioningState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PrivateEndpointConnectionProvisioningState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

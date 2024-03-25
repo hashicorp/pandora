@@ -1,16 +1,20 @@
 {
- "name": "UnplannedFailover",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "POST",
- "resourceIdName": "ReplicationProtectedItemId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "UnplannedFailoverInput"
- },
- "uriSuffix": "/unplannedFailover"
+  "name": "UnplannedFailover",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "ReplicationProtectedItemId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "UnplannedFailoverInput"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ReplicationProtectedItem"
+  },
+  "uriSuffix": "/unplannedFailover"
 }

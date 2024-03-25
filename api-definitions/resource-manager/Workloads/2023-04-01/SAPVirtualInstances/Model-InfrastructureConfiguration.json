@@ -1,30 +1,32 @@
 {
- "name": "InfrastructureConfiguration",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "appResourceGroup",
-   "name": "AppResourceGroup",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": true,
-   "jsonName": "deploymentType",
-   "name": "DeploymentType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SAPDeploymentType"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ],
- "typeHintIn": "DeploymentType"
+  "name": "InfrastructureConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "appResourceGroup",
+      "name": "AppResourceGroup",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": true,
+      "jsonName": "deploymentType",
+      "name": "DeploymentType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SAPDeploymentType"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "typeHintIn": "DeploymentType"
 }

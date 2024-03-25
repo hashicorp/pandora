@@ -1,21 +1,22 @@
 {
- "name": "BastionHostPropertiesFormatNetworkAcls",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "ipRules",
-   "name": "IPRules",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "IPRule"
+  "name": "BastionHostPropertiesFormatNetworkAcls",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "ipRules",
+      "name": "IPRules",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "IPRule"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

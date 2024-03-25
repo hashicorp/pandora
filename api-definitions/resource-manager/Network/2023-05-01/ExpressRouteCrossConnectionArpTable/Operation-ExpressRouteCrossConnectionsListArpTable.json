@@ -1,11 +1,16 @@
 {
- "name": "ExpressRouteCrossConnectionsListArpTable",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "POST",
- "resourceIdName": "PeeringArpTableId"
+  "name": "ExpressRouteCrossConnectionsListArpTable",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "PeeringArpTableId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ExpressRouteCircuitArpTable"
+  }
 }

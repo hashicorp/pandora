@@ -1,0 +1,71 @@
+{
+  "name": "SecurityComplianceStatus",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "dataAtRestEncrypted",
+      "name": "DataAtRestEncrypted",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ComplianceStatus"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "dataInTransitProtected",
+      "name": "DataInTransitProtected",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ComplianceStatus"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "lastUpdated",
+      "name": "LastUpdated",
+      "objectDefinition": {
+        "type": "DateTime",
+        "referenceName": null,
+        "dateFormat": "RFC3339"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "securedCoreCompliance",
+      "name": "SecuredCoreCompliance",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ComplianceStatus"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "wdacCompliance",
+      "name": "WdacCompliance",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ComplianceStatus"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

@@ -1,48 +1,51 @@
 {
- "name": "FileTaskStep",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "taskFilePath",
-   "name": "TaskFilePath",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "values",
-   "name": "Values",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "SetValue"
+  "name": "FileTaskStep",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "taskFilePath",
+      "name": "TaskFilePath",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "values",
+      "name": "Values",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "SetValue"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "valuesFilePath",
+      "name": "ValuesFilePath",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "valuesFilePath",
-   "name": "ValuesFilePath",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "TaskStepProperties",
- "discriminatedTypeValue": "FileTask",
- "typeHintIn": "Type"
+  ],
+  "discriminatedParentModelName": "TaskStepProperties",
+  "discriminatedTypeValue": "FileTask",
+  "typeHintIn": "Type"
 }

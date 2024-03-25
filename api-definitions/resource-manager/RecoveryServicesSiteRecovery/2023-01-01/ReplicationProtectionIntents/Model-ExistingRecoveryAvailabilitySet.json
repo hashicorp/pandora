@@ -1,20 +1,21 @@
 {
- "name": "ExistingRecoveryAvailabilitySet",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "recoveryAvailabilitySetId",
-   "name": "RecoveryAvailabilitySetId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "RecoveryAvailabilitySetCustomDetails",
- "discriminatedTypeValue": "Existing",
- "typeHintIn": "ResourceType"
+  "name": "ExistingRecoveryAvailabilitySet",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "recoveryAvailabilitySetId",
+      "name": "RecoveryAvailabilitySetId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "RecoveryAvailabilitySetCustomDetails",
+  "discriminatedTypeValue": "Existing",
+  "typeHintIn": "ResourceType"
 }

@@ -1,14 +1,18 @@
 {
- "name": "CreateOrUpdate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  202
- ],
- "longRunning": true,
- "httpMethod": "PUT",
- "resourceIdName": "ApplicationId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "ApplicationResource"
- }
+  "name": "CreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "ApplicationId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ApplicationResource"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ApplicationResource"
+  }
 }

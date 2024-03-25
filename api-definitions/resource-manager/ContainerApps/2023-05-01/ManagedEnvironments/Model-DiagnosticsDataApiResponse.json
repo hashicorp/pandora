@@ -1,29 +1,31 @@
 {
- "name": "DiagnosticsDataApiResponse",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "renderingProperties",
-   "name": "RenderingProperties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "DiagnosticRendering"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "table",
-   "name": "Table",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "DiagnosticDataTableResponseObject"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "DiagnosticsDataApiResponse",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "renderingProperties",
+      "name": "RenderingProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DiagnosticRendering"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "table",
+      "name": "Table",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DiagnosticDataTableResponseObject"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

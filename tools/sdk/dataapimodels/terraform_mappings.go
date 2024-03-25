@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package dataapimodels
 
 // TerraformMappingDefinition defines a Mappings between a Terraform Resource and

@@ -1,45 +1,48 @@
 {
- "name": "WebPubSubNetworkACLs",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "defaultAction",
-   "name": "DefaultAction",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ACLAction"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "privateEndpoints",
-   "name": "PrivateEndpoints",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "PrivateEndpointACL"
+  "name": "WebPubSubNetworkACLs",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "defaultAction",
+      "name": "DefaultAction",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ACLAction"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "privateEndpoints",
+      "name": "PrivateEndpoints",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "PrivateEndpointACL"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "publicNetwork",
+      "name": "PublicNetwork",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "NetworkACL"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "publicNetwork",
-   "name": "PublicNetwork",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "NetworkACL"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

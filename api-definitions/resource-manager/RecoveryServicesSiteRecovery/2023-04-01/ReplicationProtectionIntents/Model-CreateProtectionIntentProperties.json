@@ -1,17 +1,18 @@
 {
- "name": "CreateProtectionIntentProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "providerSpecificDetails",
-   "name": "ProviderSpecificDetails",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "CreateProtectionIntentProviderSpecificDetails"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "CreateProtectionIntentProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "providerSpecificDetails",
+      "name": "ProviderSpecificDetails",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CreateProtectionIntentProviderSpecificDetails"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

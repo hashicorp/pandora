@@ -1,20 +1,21 @@
 {
- "name": "BlobFolderDataSetMapping",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "properties",
-   "name": "Properties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "BlobFolderMappingProperties"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "DataSetMapping",
- "discriminatedTypeValue": "BlobFolder",
- "typeHintIn": "Kind"
+  "name": "BlobFolderDataSetMapping",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "BlobFolderMappingProperties"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "DataSetMapping",
+  "discriminatedTypeValue": "BlobFolder",
+  "typeHintIn": "Kind"
 }

@@ -1,20 +1,21 @@
 {
- "name": "AzureFabricCreationInput",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "location",
-   "name": "Location",
-   "objectDefinition": {
-    "type": "Location",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "FabricSpecificCreationInput",
- "discriminatedTypeValue": "Azure",
- "typeHintIn": "InstanceType"
+  "name": "AzureFabricCreationInput",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "location",
+      "name": "Location",
+      "objectDefinition": {
+        "type": "Location",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "FabricSpecificCreationInput",
+  "discriminatedTypeValue": "Azure",
+  "typeHintIn": "InstanceType"
 }

@@ -1,0 +1,164 @@
+{
+  "name": "DefenderForContainersAwsOffering",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "autoProvisioning",
+      "name": "AutoProvisioning",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "cloudWatchToKinesis",
+      "name": "CloudWatchToKinesis",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DefenderForContainersAwsOfferingCloudWatchToKinesis"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "containerVulnerabilityAssessment",
+      "name": "ContainerVulnerabilityAssessment",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DefenderForContainersAwsOfferingContainerVulnerabilityAssessment"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "containerVulnerabilityAssessmentTask",
+      "name": "ContainerVulnerabilityAssessmentTask",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DefenderForContainersAwsOfferingContainerVulnerabilityAssessmentTask"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "enableContainerVulnerabilityAssessment",
+      "name": "EnableContainerVulnerabilityAssessment",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "kinesisToS3",
+      "name": "KinesisToS3",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DefenderForContainersAwsOfferingKinesisToS3"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "kubeAuditRetentionTime",
+      "name": "KubeAuditRetentionTime",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "kubernetesScubaReader",
+      "name": "KubernetesScubaReader",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DefenderForContainersAwsOfferingKubernetesScubaReader"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "kubernetesService",
+      "name": "KubernetesService",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DefenderForContainersAwsOfferingKubernetesService"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "mdcContainersAgentlessDiscoveryK8s",
+      "name": "MdcContainersAgentlessDiscoveryK8s",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DefenderForContainersAwsOfferingMdcContainersAgentlessDiscoveryK8s"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "mdcContainersImageAssessment",
+      "name": "MdcContainersImageAssessment",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DefenderForContainersAwsOfferingMdcContainersImageAssessment"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "scubaExternalId",
+      "name": "ScubaExternalId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "CloudOffering",
+  "discriminatedTypeValue": "DefenderForContainersAws",
+  "typeHintIn": "OfferingType"
+}

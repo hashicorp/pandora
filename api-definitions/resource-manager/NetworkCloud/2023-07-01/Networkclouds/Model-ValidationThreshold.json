@@ -1,41 +1,44 @@
 {
- "name": "ValidationThreshold",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "grouping",
-   "name": "Grouping",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ValidationThresholdGrouping"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "type",
-   "name": "Type",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ValidationThresholdType"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "value",
-   "name": "Value",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  "name": "ValidationThreshold",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "grouping",
+      "name": "Grouping",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ValidationThresholdGrouping"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "type",
+      "name": "Type",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ValidationThresholdType"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "value",
+      "name": "Value",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ]
 }

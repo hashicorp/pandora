@@ -1,16 +1,20 @@
 {
- "name": "CreateOrUpdate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201,
-  202
- ],
- "longRunning": true,
- "httpMethod": "PUT",
- "resourceIdName": "SharedImageGalleryId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "Gallery"
- }
+  "name": "CreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "SharedImageGalleryId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "Gallery"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "Gallery"
+  }
 }

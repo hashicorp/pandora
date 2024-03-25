@@ -1,41 +1,44 @@
 {
- "name": "SAPAvailabilityZoneDetailsRequest",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "appLocation",
-   "name": "AppLocation",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "databaseType",
-   "name": "DatabaseType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SAPDatabaseType"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "sapProduct",
-   "name": "SapProduct",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SAPProductType"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  "name": "SAPAvailabilityZoneDetailsRequest",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "appLocation",
+      "name": "AppLocation",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "databaseType",
+      "name": "DatabaseType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SAPDatabaseType"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sapProduct",
+      "name": "SapProduct",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SAPProductType"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ]
 }

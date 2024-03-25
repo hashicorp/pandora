@@ -1,53 +1,57 @@
 {
- "name": "External",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "container",
-   "name": "Container",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "path",
-   "name": "Path",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "refreshConfiguration",
-   "name": "RefreshConfiguration",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "RefreshConfiguration"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "storageAccount",
-   "name": "StorageAccount",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "StorageAccount"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "External",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "container",
+      "name": "Container",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "path",
+      "name": "Path",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "refreshConfiguration",
+      "name": "RefreshConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RefreshConfiguration"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "storageAccount",
+      "name": "StorageAccount",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "StorageAccount"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

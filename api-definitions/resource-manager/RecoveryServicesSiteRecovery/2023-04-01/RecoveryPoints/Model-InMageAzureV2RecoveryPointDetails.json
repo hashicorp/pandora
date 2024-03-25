@@ -1,20 +1,21 @@
 {
- "name": "InMageAzureV2RecoveryPointDetails",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "isMultiVmSyncPoint",
-   "name": "IsMultiVMSyncPoint",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "ProviderSpecificRecoveryPointDetails",
- "discriminatedTypeValue": "InMageAzureV2",
- "typeHintIn": "InstanceType"
+  "name": "InMageAzureV2RecoveryPointDetails",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "isMultiVmSyncPoint",
+      "name": "IsMultiVMSyncPoint",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "ProviderSpecificRecoveryPointDetails",
+  "discriminatedTypeValue": "InMageAzureV2",
+  "typeHintIn": "InstanceType"
 }

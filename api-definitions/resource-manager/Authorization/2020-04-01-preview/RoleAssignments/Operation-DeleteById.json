@@ -1,0 +1,27 @@
+{
+  "name": "DeleteById",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "DELETE",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "tenantId",
+      "required": false,
+      "field": "TenantId",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "RoleIdId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "RoleAssignment"
+  }
+}

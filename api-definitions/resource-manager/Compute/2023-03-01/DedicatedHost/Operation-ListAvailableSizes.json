@@ -1,15 +1,15 @@
 {
- "name": "ListAvailableSizes",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "GET",
- "resourceIdName": "HostId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "DedicatedHostSizeListResult"
- },
- "uriSuffix": "/hostSizes"
+  "name": "ListAvailableSizes",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "DedicatedHostId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "DedicatedHostSizeListResult"
+  },
+  "uriSuffix": "/hostSizes"
 }

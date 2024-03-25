@@ -1,12 +1,16 @@
 {
- "name": "SubscribeToEvents",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "POST",
- "resourceIdName": "TriggerId",
- "uriSuffix": "/subscribeToEvents"
+  "name": "SubscribeToEvents",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "TriggerId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "TriggerSubscriptionOperationStatus"
+  },
+  "uriSuffix": "/subscribeToEvents"
 }

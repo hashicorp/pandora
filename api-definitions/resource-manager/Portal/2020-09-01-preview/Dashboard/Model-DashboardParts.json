@@ -1,0 +1,31 @@
+{
+  "name": "DashboardParts",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "metadata",
+      "name": "Metadata",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DashboardPartMetadata"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "position",
+      "name": "Position",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DashboardPartsPosition"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ]
+}

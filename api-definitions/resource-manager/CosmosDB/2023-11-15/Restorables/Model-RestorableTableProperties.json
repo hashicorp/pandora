@@ -1,17 +1,18 @@
 {
- "name": "RestorableTableProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "resource",
-   "name": "Resource",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "RestorableTablePropertiesResource"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "RestorableTableProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "resource",
+      "name": "Resource",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RestorableTablePropertiesResource"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

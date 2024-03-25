@@ -1,17 +1,18 @@
 {
- "name": "LogFileTextSettings",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "recordStartTimestampFormat",
-   "name": "RecordStartTimestampFormat",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "KnownLogFileTextSettingsRecordStartTimestampFormat"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  "name": "LogFileTextSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "recordStartTimestampFormat",
+      "name": "RecordStartTimestampFormat",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "KnownLogFileTextSettingsRecordStartTimestampFormat"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ]
 }

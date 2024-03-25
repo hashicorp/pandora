@@ -1,15 +1,19 @@
 {
- "name": "Update",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "PATCH",
- "resourceIdName": "ScopeId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "GenericResource"
- }
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "ScopeId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "GenericResource"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "GenericResource"
+  }
 }

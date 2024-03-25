@@ -1,9 +1,12 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package dataworkarounds
 
 import (
 	"fmt"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 var _ workaround = workaroundAutomation25435{}
@@ -13,7 +16,7 @@ var _ workaround = workaroundAutomation25435{}
 type workaroundAutomation25435 struct {
 }
 
-func (workaroundAutomation25435) IsApplicable(apiDefinition *models.AzureApiDefinition) bool {
+func (workaroundAutomation25435) IsApplicable(apiDefinition *importerModels.AzureApiDefinition) bool {
 	serviceMatches := apiDefinition.ServiceName == "Automation"
 	apiVersionMatches := apiDefinition.ApiVersion == "2022-08-08" || apiDefinition.ApiVersion == "2023-11-01"
 	return serviceMatches && apiVersionMatches
@@ -23,7 +26,7 @@ func (workaroundAutomation25435) Name() string {
 	return "Automation / 25434"
 }
 
-func (workaroundAutomation25435) Process(apiDefinition models.AzureApiDefinition) (*models.AzureApiDefinition, error) {
+func (workaroundAutomation25435) Process(apiDefinition importerModels.AzureApiDefinition) (*importerModels.AzureApiDefinition, error) {
 	resource, ok := apiDefinition.Resources["Python3Package"]
 	if !ok {
 		return nil, fmt.Errorf("expected a Resource named `Python3Package`")

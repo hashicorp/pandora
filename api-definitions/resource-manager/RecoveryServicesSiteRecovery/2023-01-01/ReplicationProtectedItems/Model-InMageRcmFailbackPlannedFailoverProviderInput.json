@@ -1,20 +1,21 @@
 {
- "name": "InMageRcmFailbackPlannedFailoverProviderInput",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "recoveryPointType",
-   "name": "RecoveryPointType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "InMageRcmFailbackRecoveryPointType"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "PlannedFailoverProviderSpecificFailoverInput",
- "discriminatedTypeValue": "InMageRcmFailback",
- "typeHintIn": "InstanceType"
+  "name": "InMageRcmFailbackPlannedFailoverProviderInput",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "recoveryPointType",
+      "name": "RecoveryPointType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "InMageRcmFailbackRecoveryPointType"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "PlannedFailoverProviderSpecificFailoverInput",
+  "discriminatedTypeValue": "InMageRcmFailback",
+  "typeHintIn": "InstanceType"
 }

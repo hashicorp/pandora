@@ -1,42 +1,45 @@
 {
- "name": "EarlyTerminationPolicy",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "delayEvaluation",
-   "name": "DelayEvaluation",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "evaluationInterval",
-   "name": "EvaluationInterval",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": true,
-   "jsonName": "policyType",
-   "name": "PolicyType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "EarlyTerminationPolicyType"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ],
- "typeHintIn": "PolicyType"
+  "name": "EarlyTerminationPolicy",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "delayEvaluation",
+      "name": "DelayEvaluation",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "evaluationInterval",
+      "name": "EvaluationInterval",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": true,
+      "jsonName": "policyType",
+      "name": "PolicyType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EarlyTerminationPolicyType"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "typeHintIn": "PolicyType"
 }

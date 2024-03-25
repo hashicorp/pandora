@@ -1,65 +1,70 @@
 {
- "name": "FirewallStatusProperty",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "healthReason",
-   "name": "HealthReason",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "healthStatus",
-   "name": "HealthStatus",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "HealthStatus"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "isPanoramaManaged",
-   "name": "IsPanoramaManaged",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "BooleanEnum"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "panoramaStatus",
-   "name": "PanoramaStatus",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "PanoramaStatus"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "provisioningState",
-   "name": "ProvisioningState",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ReadOnlyProvisioningState"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "FirewallStatusProperty",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "healthReason",
+      "name": "HealthReason",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "healthStatus",
+      "name": "HealthStatus",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "HealthStatus"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "isPanoramaManaged",
+      "name": "IsPanoramaManaged",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "BooleanEnum"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "panoramaStatus",
+      "name": "PanoramaStatus",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PanoramaStatus"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "provisioningState",
+      "name": "ProvisioningState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ReadOnlyProvisioningState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

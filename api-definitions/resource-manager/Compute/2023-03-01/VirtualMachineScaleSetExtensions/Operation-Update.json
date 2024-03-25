@@ -1,15 +1,19 @@
 {
- "name": "Update",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201
- ],
- "longRunning": true,
- "httpMethod": "PATCH",
- "resourceIdName": "VirtualMachineScaleSetExtensionId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "VirtualMachineScaleSetExtensionUpdate"
- }
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "VirtualMachineScaleSetExtensionId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "VirtualMachineScaleSetExtensionUpdate"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "VirtualMachineScaleSetExtension"
+  }
 }

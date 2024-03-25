@@ -1,29 +1,31 @@
 {
- "name": "WeeklySchedule",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "dayOfWeek",
-   "name": "DayOfWeek",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "WeekDay"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "intervalWeeks",
-   "name": "IntervalWeeks",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  "name": "WeeklySchedule",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "dayOfWeek",
+      "name": "DayOfWeek",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "WeekDay"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "intervalWeeks",
+      "name": "IntervalWeeks",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ]
 }

@@ -1,40 +1,42 @@
 {
- "name": "A2AAddDisksInput",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "vmDisks",
-   "name": "VMDisks",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "A2AVMDiskInputDetails"
+  "name": "A2AAddDisksInput",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "vmDisks",
+      "name": "VMDisks",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "A2AVMDiskInputDetails"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "vmManagedDisks",
+      "name": "VMManagedDisks",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "A2AVMManagedDiskInputDetails"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "vmManagedDisks",
-   "name": "VMManagedDisks",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "A2AVMManagedDiskInputDetails"
-    }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "AddDisksProviderSpecificInput",
- "discriminatedTypeValue": "A2A",
- "typeHintIn": "InstanceType"
+  ],
+  "discriminatedParentModelName": "AddDisksProviderSpecificInput",
+  "discriminatedTypeValue": "A2A",
+  "typeHintIn": "InstanceType"
 }

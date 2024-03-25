@@ -1,125 +1,135 @@
 {
- "name": "RestorePointSourceMetadata",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "diagnosticsProfile",
-   "name": "DiagnosticsProfile",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "DiagnosticsProfile"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "hardwareProfile",
-   "name": "HardwareProfile",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "HardwareProfile"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "hyperVGeneration",
-   "name": "HyperVGeneration",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "HyperVGenerationTypes"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "licenseType",
-   "name": "LicenseType",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "location",
-   "name": "Location",
-   "objectDefinition": {
-    "type": "Location",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "osProfile",
-   "name": "OsProfile",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "OSProfile"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "securityProfile",
-   "name": "SecurityProfile",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SecurityProfile"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "storageProfile",
-   "name": "StorageProfile",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "RestorePointSourceVMStorageProfile"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "userData",
-   "name": "UserData",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "vmId",
-   "name": "VMId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "RestorePointSourceMetadata",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "diagnosticsProfile",
+      "name": "DiagnosticsProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DiagnosticsProfile"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "hardwareProfile",
+      "name": "HardwareProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "HardwareProfile"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "hyperVGeneration",
+      "name": "HyperVGeneration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "HyperVGenerationTypes"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "licenseType",
+      "name": "LicenseType",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "location",
+      "name": "Location",
+      "objectDefinition": {
+        "type": "Location",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "osProfile",
+      "name": "OsProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "OSProfile"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "securityProfile",
+      "name": "SecurityProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SecurityProfile"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "storageProfile",
+      "name": "StorageProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RestorePointSourceVMStorageProfile"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "userData",
+      "name": "UserData",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "vmId",
+      "name": "VMId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

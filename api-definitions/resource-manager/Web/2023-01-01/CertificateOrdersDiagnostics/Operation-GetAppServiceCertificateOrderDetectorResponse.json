@@ -1,46 +1,46 @@
 {
- "name": "GetAppServiceCertificateOrderDetectorResponse",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "GET",
- "options": [
-  {
-   "optional": true,
-   "queryString": "endTime",
-   "required": false,
-   "field": "EndTime",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  },
-  {
-   "optional": true,
-   "queryString": "startTime",
-   "required": false,
-   "field": "StartTime",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  },
-  {
-   "optional": true,
-   "queryString": "timeGrain",
-   "required": false,
-   "field": "TimeGrain",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
+  "name": "GetAppServiceCertificateOrderDetectorResponse",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "endTime",
+      "required": false,
+      "field": "EndTime",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "startTime",
+      "required": false,
+      "field": "StartTime",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "timeGrain",
+      "required": false,
+      "field": "TimeGrain",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "DetectorId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "DetectorResponse"
   }
- ],
- "resourceIdName": "DetectorId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "DetectorResponse"
- }
 }

@@ -1,17 +1,18 @@
 {
- "name": "IntegrationServiceEnvironmentManagedApiDeploymentParameters",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "contentLinkDefinition",
-   "name": "ContentLinkDefinition",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ContentLink"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "IntegrationServiceEnvironmentManagedApiDeploymentParameters",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "contentLinkDefinition",
+      "name": "ContentLinkDefinition",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ContentLink"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

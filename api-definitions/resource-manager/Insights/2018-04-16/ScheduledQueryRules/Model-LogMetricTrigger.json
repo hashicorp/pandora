@@ -1,53 +1,57 @@
 {
- "name": "LogMetricTrigger",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "metricColumn",
-   "name": "MetricColumn",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "metricTriggerType",
-   "name": "MetricTriggerType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "MetricTriggerType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "threshold",
-   "name": "Threshold",
-   "objectDefinition": {
-    "type": "Float",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "thresholdOperator",
-   "name": "ThresholdOperator",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ConditionalOperator"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "LogMetricTrigger",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "metricColumn",
+      "name": "MetricColumn",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "metricTriggerType",
+      "name": "MetricTriggerType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MetricTriggerType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "threshold",
+      "name": "Threshold",
+      "objectDefinition": {
+        "type": "Float",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "thresholdOperator",
+      "name": "ThresholdOperator",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ConditionalOperator"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

@@ -1,8 +1,7 @@
-package repositories
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
 
-const (
-	StringTerraformSchemaFieldType TerraformSchemaFieldType = "String"
-)
+package repositories
 
 type TerraformDetails struct {
 	DataSources map[string]TerraformDataSourceDetails
@@ -208,6 +207,12 @@ type TerraformSchemaDocumentationDefinition struct {
 }
 
 type TerraformSchemaValidationPossibleValueType string
+
+const (
+	TerraformSchemaValidationPossibleValueTypeFloat  TerraformSchemaValidationPossibleValueType = "Float"
+	TerraformSchemaValidationPossibleValueTypeInt    TerraformSchemaValidationPossibleValueType = "Int"
+	TerraformSchemaValidationPossibleValueTypeString TerraformSchemaValidationPossibleValueType = "String"
+)
 
 type TerraformSchemaValidationPossibleValuesDefinition struct {
 	Type   TerraformSchemaValidationPossibleValueType

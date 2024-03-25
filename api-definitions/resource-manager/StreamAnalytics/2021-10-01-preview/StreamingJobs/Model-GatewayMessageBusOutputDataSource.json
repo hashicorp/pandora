@@ -1,20 +1,21 @@
 {
- "name": "GatewayMessageBusOutputDataSource",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "properties",
-   "name": "Properties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "GatewayMessageBusSourceProperties"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "OutputDataSource",
- "discriminatedTypeValue": "GatewayMessageBus",
- "typeHintIn": "Type"
+  "name": "GatewayMessageBusOutputDataSource",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "GatewayMessageBusSourceProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "OutputDataSource",
+  "discriminatedTypeValue": "GatewayMessageBus",
+  "typeHintIn": "Type"
 }

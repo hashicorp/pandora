@@ -1,15 +1,16 @@
 {
- "name": "GetPrivateEndpointConnections",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "GET",
- "resourceIdName": "MasterSiteId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "PrivateEndpointConnectionCollection"
- },
- "uriSuffix": "/privateEndpointConnections"
+  "name": "GetPrivateEndpointConnections",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "MasterSiteId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "PrivateEndpointConnection"
+  },
+  "uriSuffix": "/privateEndpointConnections"
 }

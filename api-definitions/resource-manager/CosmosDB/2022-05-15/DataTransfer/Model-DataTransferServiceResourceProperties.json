@@ -1,24 +1,25 @@
 {
- "name": "DataTransferServiceResourceProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "locations",
-   "name": "Locations",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "RegionalServiceResource"
+  "name": "DataTransferServiceResourceProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "locations",
+      "name": "Locations",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "RegionalServiceResource"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "ServiceResourceProperties",
- "discriminatedTypeValue": "DataTransfer",
- "typeHintIn": "ServiceType"
+  ],
+  "discriminatedParentModelName": "ServiceResourceProperties",
+  "discriminatedTypeValue": "DataTransfer",
+  "typeHintIn": "ServiceType"
 }

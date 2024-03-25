@@ -1,29 +1,31 @@
 {
- "name": "CostDetailsTimePeriod",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "end",
-   "name": "End",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "start",
-   "name": "Start",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  "name": "CostDetailsTimePeriod",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "end",
+      "name": "End",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "start",
+      "name": "Start",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ]
 }

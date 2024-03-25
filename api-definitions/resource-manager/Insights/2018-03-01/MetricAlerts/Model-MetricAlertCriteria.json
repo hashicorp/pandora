@@ -1,18 +1,19 @@
 {
- "name": "MetricAlertCriteria",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": true,
-   "jsonName": "odata.type",
-   "name": "OdataType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "Odatatype"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ],
- "typeHintIn": "OdataType"
+  "name": "MetricAlertCriteria",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": true,
+      "jsonName": "odata.type",
+      "name": "OdataType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Odatatype"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "typeHintIn": "OdataType"
 }

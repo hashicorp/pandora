@@ -1,15 +1,19 @@
 {
- "name": "CreateOrUpdate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201
- ],
- "longRunning": true,
- "httpMethod": "PUT",
- "resourceIdName": "CertificateId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "CertificateObjectGlobalRulestackResource"
- }
+  "name": "CreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "CertificateId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "CertificateObjectGlobalRulestackResource"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "CertificateObjectGlobalRulestackResource"
+  }
 }

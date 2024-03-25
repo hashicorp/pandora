@@ -1,15 +1,16 @@
 {
- "name": "ActionGroupsListByResourceGroup",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "GET",
- "resourceIdName": "ResourceGroupId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "ActionGroupList"
- },
- "uriSuffix": "/providers/Microsoft.Insights/actionGroups"
+  "name": "ActionGroupsListByResourceGroup",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "ResourceGroupId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ActionGroupResource"
+  },
+  "uriSuffix": "/providers/Microsoft.Insights/actionGroups"
 }

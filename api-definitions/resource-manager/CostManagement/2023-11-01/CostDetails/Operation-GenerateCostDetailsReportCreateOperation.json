@@ -1,17 +1,21 @@
 {
- "name": "GenerateCostDetailsReportCreateOperation",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202,
-  204
- ],
- "longRunning": true,
- "httpMethod": "POST",
- "resourceIdName": "ScopeId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "GenerateCostDetailsReportRequestDefinition"
- },
- "uriSuffix": "/providers/Microsoft.CostManagement/generateCostDetailsReport"
+  "name": "GenerateCostDetailsReportCreateOperation",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202,
+    204
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "ScopeId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "GenerateCostDetailsReportRequestDefinition"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "CostDetailsOperationResults"
+  },
+  "uriSuffix": "/providers/Microsoft.CostManagement/generateCostDetailsReport"
 }

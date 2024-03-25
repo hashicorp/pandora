@@ -1,29 +1,31 @@
 {
- "name": "MatchVariable",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "selector",
-   "name": "Selector",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "variableName",
-   "name": "VariableName",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "WebApplicationFirewallMatchVariable"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  "name": "MatchVariable",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "selector",
+      "name": "Selector",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "variableName",
+      "name": "VariableName",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "WebApplicationFirewallMatchVariable"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ]
 }

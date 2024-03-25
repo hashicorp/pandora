@@ -1,15 +1,19 @@
 {
- "name": "Update",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "PUT",
- "resourceIdName": "VirtualMachineScaleSetVirtualMachineId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "VirtualMachineScaleSetVM"
- }
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "VirtualMachineScaleSetVirtualMachineId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "VirtualMachineScaleSetVM"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "VirtualMachineScaleSetVM"
+  }
 }

@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package repositories
 
 type ApiDefinitionSourceType string
@@ -10,9 +13,8 @@ type ResourceIdSegmentType string
 type ServiceType string
 
 const (
-	MicrosoftGraphV1BetaServiceType   ServiceType = "microsoft-graph-beta"
-	MicrosoftGraphV1StableServiceType ServiceType = "microsoft-graph-v1-stable"
-	ResourceManagerServiceType        ServiceType = "resource-manager"
+	MicrosoftGraphServiceType  ServiceType = "microsoft-graph"
+	ResourceManagerServiceType ServiceType = "resource-manager"
 
 	HandWrittenApiDefinitionsSource                 ApiDefinitionSourceType = "HandWritten"
 	MicrosoftGraphMetadataApiDefinitionsSource      ApiDefinitionSourceType = "MicrosoftGraphMetadata"
@@ -150,6 +152,8 @@ type FieldDetails struct {
 	Required         bool
 	Validation       *FieldValidationDetails
 	Description      string
+	Sensitive        bool `json:"sensitive"`
+	ReadOnly         bool `json:"readOnly"`
 }
 
 type ModelDetails struct {

@@ -1,17 +1,18 @@
 {
- "name": "OSDisk",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "ephemeralOSDiskSettings",
-   "name": "EphemeralOSDiskSettings",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "DiffDiskSettings"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "OSDisk",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "ephemeralOSDiskSettings",
+      "name": "EphemeralOSDiskSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DiffDiskSettings"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

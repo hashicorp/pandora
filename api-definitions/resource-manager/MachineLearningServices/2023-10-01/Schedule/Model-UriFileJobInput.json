@@ -1,32 +1,34 @@
 {
- "name": "UriFileJobInput",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "mode",
-   "name": "Mode",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "InputDeliveryMode"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "uri",
-   "name": "Uri",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "JobInput",
- "discriminatedTypeValue": "uri_file",
- "typeHintIn": "JobInputType"
+  "name": "UriFileJobInput",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "mode",
+      "name": "Mode",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "InputDeliveryMode"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "uri",
+      "name": "Uri",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "JobInput",
+  "discriminatedTypeValue": "uri_file",
+  "typeHintIn": "JobInputType"
 }

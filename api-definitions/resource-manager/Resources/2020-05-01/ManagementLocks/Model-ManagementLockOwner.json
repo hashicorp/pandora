@@ -1,17 +1,18 @@
 {
- "name": "ManagementLockOwner",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "applicationId",
-   "name": "ApplicationId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "ManagementLockOwner",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "applicationId",
+      "name": "ApplicationId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

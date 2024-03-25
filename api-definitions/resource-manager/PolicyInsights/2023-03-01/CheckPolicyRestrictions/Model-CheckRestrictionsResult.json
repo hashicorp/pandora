@@ -1,33 +1,35 @@
 {
- "name": "CheckRestrictionsResult",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "contentEvaluationResult",
-   "name": "ContentEvaluationResult",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "CheckRestrictionsResultContentEvaluationResult"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "fieldRestrictions",
-   "name": "FieldRestrictions",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "FieldRestrictions"
+  "name": "CheckRestrictionsResult",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "contentEvaluationResult",
+      "name": "ContentEvaluationResult",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CheckRestrictionsResultContentEvaluationResult"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "fieldRestrictions",
+      "name": "FieldRestrictions",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "FieldRestrictions"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

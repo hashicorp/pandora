@@ -1,17 +1,18 @@
 {
- "name": "ImageUpdateProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "enabledState",
-   "name": "EnabledState",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "EnableState"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "ImageUpdateProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "enabledState",
+      "name": "EnabledState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EnableState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

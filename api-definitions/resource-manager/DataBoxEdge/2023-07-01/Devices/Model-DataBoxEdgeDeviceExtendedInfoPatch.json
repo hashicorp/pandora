@@ -1,65 +1,70 @@
 {
- "name": "DataBoxEdgeDeviceExtendedInfoPatch",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "channelIntegrityKeyName",
-   "name": "ChannelIntegrityKeyName",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "channelIntegrityKeyVersion",
-   "name": "ChannelIntegrityKeyVersion",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "clientSecretStoreId",
-   "name": "ClientSecretStoreId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "clientSecretStoreUrl",
-   "name": "ClientSecretStoreUrl",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "syncStatus",
-   "name": "SyncStatus",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "KeyVaultSyncStatus"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "DataBoxEdgeDeviceExtendedInfoPatch",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "channelIntegrityKeyName",
+      "name": "ChannelIntegrityKeyName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "channelIntegrityKeyVersion",
+      "name": "ChannelIntegrityKeyVersion",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "clientSecretStoreId",
+      "name": "ClientSecretStoreId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "clientSecretStoreUrl",
+      "name": "ClientSecretStoreUrl",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "syncStatus",
+      "name": "SyncStatus",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "KeyVaultSyncStatus"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

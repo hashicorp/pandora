@@ -1,0 +1,19 @@
+{
+  "name": "Create",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "SqlPoolId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "SqlPool"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "SqlPool"
+  }
+}

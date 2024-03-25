@@ -1,89 +1,96 @@
 {
- "name": "AnalysisServicesServerMutableProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "asAdministrators",
-   "name": "AsAdministrators",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ServerAdministrators"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "backupBlobContainerUri",
-   "name": "BackupBlobContainerUri",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "gatewayDetails",
-   "name": "GatewayDetails",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "GatewayDetails"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "ipV4FirewallSettings",
-   "name": "IPV4FirewallSettings",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "IPv4FirewallSettings"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "managedMode",
-   "name": "ManagedMode",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ManagedMode"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "querypoolConnectionMode",
-   "name": "QuerypoolConnectionMode",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ConnectionMode"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "serverMonitorMode",
-   "name": "ServerMonitorMode",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ServerMonitorMode"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "AnalysisServicesServerMutableProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "asAdministrators",
+      "name": "AsAdministrators",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ServerAdministrators"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "backupBlobContainerUri",
+      "name": "BackupBlobContainerUri",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "gatewayDetails",
+      "name": "GatewayDetails",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "GatewayDetails"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "ipV4FirewallSettings",
+      "name": "IPV4FirewallSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "IPv4FirewallSettings"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "managedMode",
+      "name": "ManagedMode",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ManagedMode"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "querypoolConnectionMode",
+      "name": "QuerypoolConnectionMode",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ConnectionMode"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "serverMonitorMode",
+      "name": "ServerMonitorMode",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ServerMonitorMode"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

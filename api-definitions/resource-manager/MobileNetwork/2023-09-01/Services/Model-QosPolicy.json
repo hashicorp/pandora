@@ -1,65 +1,70 @@
 {
- "name": "QosPolicy",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "allocationAndRetentionPriorityLevel",
-   "name": "AllocationAndRetentionPriorityLevel",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "5qi",
-   "name": "Fiveqi",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "maximumBitRate",
-   "name": "MaximumBitRate",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "Ambr"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "preemptionCapability",
-   "name": "PreemptionCapability",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "PreemptionCapability"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "preemptionVulnerability",
-   "name": "PreemptionVulnerability",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "PreemptionVulnerability"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "QosPolicy",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "allocationAndRetentionPriorityLevel",
+      "name": "AllocationAndRetentionPriorityLevel",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "5qi",
+      "name": "Fiveqi",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "maximumBitRate",
+      "name": "MaximumBitRate",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Ambr"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "preemptionCapability",
+      "name": "PreemptionCapability",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PreemptionCapability"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "preemptionVulnerability",
+      "name": "PreemptionVulnerability",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PreemptionVulnerability"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

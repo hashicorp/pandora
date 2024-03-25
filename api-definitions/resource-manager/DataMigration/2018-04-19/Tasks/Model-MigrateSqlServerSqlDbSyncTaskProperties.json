@@ -1,0 +1,38 @@
+{
+  "name": "MigrateSqlServerSqlDbSyncTaskProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "input",
+      "name": "Input",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MigrateSqlServerSqlDbSyncTaskInput"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "output",
+      "name": "Output",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "MigrateSqlServerSqlDbSyncTaskOutput"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "ProjectTaskProperties",
+  "discriminatedTypeValue": "Migrate.SqlServer.AzureSqlDb.Sync",
+  "typeHintIn": "TaskType"
+}

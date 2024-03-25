@@ -1,20 +1,21 @@
 {
- "name": "ScriptStringExecutionParameter",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "value",
-   "name": "Value",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "ScriptExecutionParameter",
- "discriminatedTypeValue": "Value",
- "typeHintIn": "Type"
+  "name": "ScriptStringExecutionParameter",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "value",
+      "name": "Value",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "ScriptExecutionParameter",
+  "discriminatedTypeValue": "Value",
+  "typeHintIn": "Type"
 }

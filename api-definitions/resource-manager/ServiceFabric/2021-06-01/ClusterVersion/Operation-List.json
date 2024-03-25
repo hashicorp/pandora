@@ -1,15 +1,16 @@
 {
- "name": "List",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "GET",
- "resourceIdName": "LocationId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "ClusterCodeVersionsListResult"
- },
- "uriSuffix": "/clusterVersions"
+  "name": "List",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "LocationId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ClusterCodeVersionsResult"
+  },
+  "uriSuffix": "/clusterVersions"
 }

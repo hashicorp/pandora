@@ -1,12 +1,16 @@
 {
- "name": "CassandraResourcesMigrateCassandraTableToAutoscale",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "POST",
- "resourceIdName": "CassandraKeyspaceTableId",
- "uriSuffix": "/throughputSettings/default/migrateToAutoscale"
+  "name": "CassandraResourcesMigrateCassandraTableToAutoscale",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "CassandraKeyspaceTableId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ThroughputSettingsGetResults"
+  },
+  "uriSuffix": "/throughputSettings/default/migrateToAutoscale"
 }

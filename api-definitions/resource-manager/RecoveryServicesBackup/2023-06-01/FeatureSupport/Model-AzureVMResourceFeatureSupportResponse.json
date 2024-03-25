@@ -1,17 +1,18 @@
 {
- "name": "AzureVMResourceFeatureSupportResponse",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "supportStatus",
-   "name": "SupportStatus",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SupportStatus"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "AzureVMResourceFeatureSupportResponse",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "supportStatus",
+      "name": "SupportStatus",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SupportStatus"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

@@ -1,29 +1,31 @@
 {
- "name": "RestartParameter",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "failoverMode",
-   "name": "FailoverMode",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "FailoverMode"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "restartWithFailover",
-   "name": "RestartWithFailover",
-   "objectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "RestartParameter",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "failoverMode",
+      "name": "FailoverMode",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "FailoverMode"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "restartWithFailover",
+      "name": "RestartWithFailover",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

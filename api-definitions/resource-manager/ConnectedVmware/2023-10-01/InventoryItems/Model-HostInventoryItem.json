@@ -1,20 +1,21 @@
 {
- "name": "HostInventoryItem",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "parent",
-   "name": "Parent",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "InventoryItemDetails"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "InventoryItemProperties",
- "discriminatedTypeValue": "Host",
- "typeHintIn": "InventoryType"
+  "name": "HostInventoryItem",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "parent",
+      "name": "Parent",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "InventoryItemDetails"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "InventoryItemProperties",
+  "discriminatedTypeValue": "Host",
+  "typeHintIn": "InventoryType"
 }

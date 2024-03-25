@@ -1,15 +1,19 @@
 {
- "name": "Create",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201
- ],
- "longRunning": true,
- "httpMethod": "PUT",
- "resourceIdName": "ContactId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "Contact"
- }
+  "name": "Create",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "ContactId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "Contact"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "Contact"
+  }
 }

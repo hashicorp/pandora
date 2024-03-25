@@ -1,15 +1,19 @@
 {
- "name": "UpdateVMGroup",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "PATCH",
- "resourceIdName": "VMGroupId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "WorkloadNetworkVMGroup"
- }
+  "name": "UpdateVMGroup",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "VMGroupId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "WorkloadNetworkVMGroup"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "WorkloadNetworkVMGroup"
+  }
 }

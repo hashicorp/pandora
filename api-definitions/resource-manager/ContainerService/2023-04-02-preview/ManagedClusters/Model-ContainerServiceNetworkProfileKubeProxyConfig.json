@@ -1,41 +1,44 @@
 {
- "name": "ContainerServiceNetworkProfileKubeProxyConfig",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "enabled",
-   "name": "Enabled",
-   "objectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "ipvsConfig",
-   "name": "IPvsConfig",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ContainerServiceNetworkProfileKubeProxyConfigIPvsConfig"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "mode",
-   "name": "Mode",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "Mode"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "ContainerServiceNetworkProfileKubeProxyConfig",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "enabled",
+      "name": "Enabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "ipvsConfig",
+      "name": "IPvsConfig",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ContainerServiceNetworkProfileKubeProxyConfigIPvsConfig"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "mode",
+      "name": "Mode",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Mode"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

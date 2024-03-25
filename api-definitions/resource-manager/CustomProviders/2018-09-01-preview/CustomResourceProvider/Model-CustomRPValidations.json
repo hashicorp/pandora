@@ -1,29 +1,31 @@
 {
- "name": "CustomRPValidations",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "specification",
-   "name": "Specification",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "validationType",
-   "name": "ValidationType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ValidationType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "CustomRPValidations",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "specification",
+      "name": "Specification",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "validationType",
+      "name": "ValidationType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ValidationType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

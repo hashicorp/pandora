@@ -1,29 +1,31 @@
 {
- "name": "KeyForDiskEncryptionSet",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "keyUrl",
-   "name": "KeyUrl",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "sourceVault",
-   "name": "SourceVault",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SourceVault"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "KeyForDiskEncryptionSet",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "keyUrl",
+      "name": "KeyUrl",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sourceVault",
+      "name": "SourceVault",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SourceVault"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

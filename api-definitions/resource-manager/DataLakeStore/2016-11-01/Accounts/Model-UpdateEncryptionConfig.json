@@ -1,17 +1,18 @@
 {
- "name": "UpdateEncryptionConfig",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "keyVaultMetaInfo",
-   "name": "KeyVaultMetaInfo",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "UpdateKeyVaultMetaInfo"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "UpdateEncryptionConfig",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "keyVaultMetaInfo",
+      "name": "KeyVaultMetaInfo",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "UpdateKeyVaultMetaInfo"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

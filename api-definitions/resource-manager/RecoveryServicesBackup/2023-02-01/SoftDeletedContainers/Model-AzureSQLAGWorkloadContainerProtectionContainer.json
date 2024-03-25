@@ -1,69 +1,74 @@
 {
- "name": "AzureSQLAGWorkloadContainerProtectionContainer",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "extendedInfo",
-   "name": "ExtendedInfo",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "AzureWorkloadContainerExtendedInfo"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "lastUpdatedTime",
-   "name": "LastUpdatedTime",
-   "objectDefinition": {
-    "type": "DateTime",
-    "referenceName": null,
-    "dateFormat": "RFC3339"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "operationType",
-   "name": "OperationType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "OperationType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "sourceResourceId",
-   "name": "SourceResourceId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "workloadType",
-   "name": "WorkloadType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "WorkloadType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "ProtectionContainer",
- "discriminatedTypeValue": "SQLAGWorkLoadContainer",
- "typeHintIn": "ContainerType"
+  "name": "AzureSQLAGWorkloadContainerProtectionContainer",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "extendedInfo",
+      "name": "ExtendedInfo",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AzureWorkloadContainerExtendedInfo"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "lastUpdatedTime",
+      "name": "LastUpdatedTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "referenceName": null,
+        "dateFormat": "RFC3339"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "operationType",
+      "name": "OperationType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "OperationType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sourceResourceId",
+      "name": "SourceResourceId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "workloadType",
+      "name": "WorkloadType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "WorkloadType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "ProtectionContainer",
+  "discriminatedTypeValue": "SQLAGWorkLoadContainer",
+  "typeHintIn": "ContainerType"
 }

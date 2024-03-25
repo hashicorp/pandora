@@ -1,0 +1,61 @@
+{
+  "name": "NodeId",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/integrationRuntimes/{integrationRuntimeName}/nodes/{nodeName}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticResourceGroups",
+      "type": "Static",
+      "value": "resourceGroups"
+    },
+    {
+      "name": "resourceGroupName",
+      "type": "ResourceGroup"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftSynapse",
+      "type": "ResourceProvider",
+      "value": "Microsoft.Synapse"
+    },
+    {
+      "name": "staticWorkspaces",
+      "type": "Static",
+      "value": "workspaces"
+    },
+    {
+      "name": "workspaceName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticIntegrationRuntimes",
+      "type": "Static",
+      "value": "integrationRuntimes"
+    },
+    {
+      "name": "integrationRuntimeName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticNodes",
+      "type": "Static",
+      "value": "nodes"
+    },
+    {
+      "name": "nodeName",
+      "type": "UserSpecified"
+    }
+  ]
+}

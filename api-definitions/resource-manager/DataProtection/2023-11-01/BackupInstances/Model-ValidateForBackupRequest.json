@@ -1,17 +1,18 @@
 {
- "name": "ValidateForBackupRequest",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "backupInstance",
-   "name": "BackupInstance",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "BackupInstance"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  "name": "ValidateForBackupRequest",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "backupInstance",
+      "name": "BackupInstance",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "BackupInstance"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ]
 }

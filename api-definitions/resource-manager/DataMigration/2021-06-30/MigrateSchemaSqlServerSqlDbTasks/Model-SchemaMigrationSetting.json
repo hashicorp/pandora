@@ -1,0 +1,31 @@
+{
+  "name": "SchemaMigrationSetting",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "fileId",
+      "name": "FileId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "schemaOption",
+      "name": "SchemaOption",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SchemaMigrationOption"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

@@ -1,16 +1,20 @@
 {
- "name": "VpnConnectionsStartPacketCapture",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "POST",
- "resourceIdName": "VPNConnectionId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "VpnConnectionPacketCaptureStartParameters"
- },
- "uriSuffix": "/startpacketcapture"
+  "name": "VpnConnectionsStartPacketCapture",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "VPNConnectionId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "VpnConnectionPacketCaptureStartParameters"
+  },
+  "responseObject": {
+    "type": "String",
+    "referenceName": null
+  },
+  "uriSuffix": "/startpacketcapture"
 }

@@ -1,101 +1,109 @@
 {
- "name": "DomainProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "dataLocation",
-   "name": "DataLocation",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "domainManagement",
-   "name": "DomainManagement",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "DomainManagement"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "fromSenderDomain",
-   "name": "FromSenderDomain",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "mailFromSenderDomain",
-   "name": "MailFromSenderDomain",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "provisioningState",
-   "name": "ProvisioningState",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "DomainsProvisioningState"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "userEngagementTracking",
-   "name": "UserEngagementTracking",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "UserEngagementTracking"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "verificationRecords",
-   "name": "VerificationRecords",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "DomainPropertiesVerificationRecords"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "verificationStates",
-   "name": "VerificationStates",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "DomainPropertiesVerificationStates"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "DomainProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "dataLocation",
+      "name": "DataLocation",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "domainManagement",
+      "name": "DomainManagement",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DomainManagement"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "fromSenderDomain",
+      "name": "FromSenderDomain",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "mailFromSenderDomain",
+      "name": "MailFromSenderDomain",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "provisioningState",
+      "name": "ProvisioningState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DomainsProvisioningState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "userEngagementTracking",
+      "name": "UserEngagementTracking",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "UserEngagementTracking"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "verificationRecords",
+      "name": "VerificationRecords",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DomainPropertiesVerificationRecords"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "verificationStates",
+      "name": "VerificationStates",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DomainPropertiesVerificationStates"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

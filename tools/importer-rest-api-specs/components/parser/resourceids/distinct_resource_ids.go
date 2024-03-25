@@ -1,25 +1,48 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package resourceids
 
-import "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+import (
+	"sort"
 
-func (p *Parser) distinctResourceIds(input map[string]processedResourceId) []models.ParsedResourceId {
-	out := make([]models.ParsedResourceId, 0)
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+)
 
+func (p *Parser) distinctResourceIds(input map[string]processedResourceId) ([]models.ResourceID, map[string]models.SDKConstant) {
+	out := make([]models.ResourceID, 0)
+
+	allConstants := make(map[string]models.SDKConstant)
 	for _, operation := range input {
 		if operation.segments == nil {
 			continue
 		}
 
-		item := models.ParsedResourceId{
-			CommonAlias: nil,
-			Constants:   operation.constants,
-			Segments:    *operation.segments,
+		uniqueConstantNames := make(map[string]struct{})
+		for k := range operation.constants {
+			v := operation.constants[k]
+			uniqueConstantNames[k] = struct{}{}
+			allConstants[k] = v
 		}
+		constantNames := make([]string, 0)
+		for k := range uniqueConstantNames {
+			constantNames = append(constantNames, k)
+		}
+		sort.Strings(constantNames)
+
+		item := models.ResourceID{
+			CommonIDAlias: nil,
+			ConstantNames: constantNames,
+			Segments:      *operation.segments,
+		}
+		item.ExampleValue = helpers.DisplayValueForResourceID(item)
 
 		matchFound := false
 		for _, existing := range out {
-			if item.Matches(existing) {
+			if ResourceIdsMatch(item, existing) {
 				matchFound = true
+				break
 			}
 		}
 		if !matchFound {
@@ -27,5 +50,5 @@ func (p *Parser) distinctResourceIds(input map[string]processedResourceId) []mod
 		}
 	}
 
-	return out
+	return out, allConstants
 }

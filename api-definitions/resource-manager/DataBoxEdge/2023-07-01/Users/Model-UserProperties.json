@@ -1,45 +1,48 @@
 {
- "name": "UserProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "encryptedPassword",
-   "name": "EncryptedPassword",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "AsymmetricEncryptedSecret"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "shareAccessRights",
-   "name": "ShareAccessRights",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "ShareAccessRight"
+  "name": "UserProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "encryptedPassword",
+      "name": "EncryptedPassword",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AsymmetricEncryptedSecret"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "shareAccessRights",
+      "name": "ShareAccessRights",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "ShareAccessRight"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "userType",
+      "name": "UserType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "UserType"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "userType",
-   "name": "UserType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "UserType"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  ]
 }

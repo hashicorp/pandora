@@ -1,0 +1,19 @@
+{
+  "name": "ProductsValidateTransfer",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "InvoiceSectionProductId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "TransferProductRequestProperties"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ValidateProductTransferEligibilityResult"
+  },
+  "uriSuffix": "/validateTransferEligibility"
+}

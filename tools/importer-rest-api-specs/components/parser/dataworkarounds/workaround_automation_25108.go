@@ -1,9 +1,12 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package dataworkarounds
 
 import (
 	"fmt"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 var _ workaround = workaroundAutomation25108{}
@@ -11,7 +14,7 @@ var _ workaround = workaroundAutomation25108{}
 type workaroundAutomation25108 struct {
 }
 
-func (workaroundAutomation25108) IsApplicable(apiDefinition *models.AzureApiDefinition) bool {
+func (workaroundAutomation25108) IsApplicable(apiDefinition *importerModels.AzureApiDefinition) bool {
 	serviceMatches := apiDefinition.ServiceName == "Automation"
 	apiVersionMatches := apiDefinition.ApiVersion == "2022-08-08" || apiDefinition.ApiVersion == "2023-11-01"
 	return serviceMatches && apiVersionMatches
@@ -21,7 +24,7 @@ func (workaroundAutomation25108) Name() string {
 	return "Automation / 25108"
 }
 
-func (workaroundAutomation25108) Process(apiDefinition models.AzureApiDefinition) (*models.AzureApiDefinition, error) {
+func (workaroundAutomation25108) Process(apiDefinition importerModels.AzureApiDefinition) (*importerModels.AzureApiDefinition, error) {
 	resource, ok := apiDefinition.Resources["ListAllHybridRunbookWorkerGroupInAutomationAccount"]
 	if !ok {
 		return nil, fmt.Errorf("expected a Resource named `ListAllHybridRunbookWorkerGroupInAutomationAccount`")

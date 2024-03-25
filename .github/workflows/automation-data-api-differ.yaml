@@ -1,0 +1,44 @@
+---
+name: Detect changes to the API Definitions (Resource Manager)
+on:
+  pull_request:
+    types: ['opened', 'synchronize']
+    paths:
+      - 'api-definitions/**' # to detect changes when the API Definitions are updated
+      - 'scripts/automation-determine-changes-to-api-definitions.sh' # to handle changes to the script
+      - 'tools/data-api/**' # to detect changes when the Data API is updated
+      - 'tools/data-api-differ/**' # to detect changes when the Data API Differ is updated
+
+jobs:
+  detect-changes-to-the-api-definitions:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-go@0c52d547c9bc32b1aa3301fd7a9cb496313a4491 # v5.0.0
+        with:
+          go-version-file: ./.go-version
+
+      - name: Detect Changes
+        run: |
+          ./scripts/automation-determine-changes-to-api-definitions.sh resource-manager outputs/
+
+      - name: Post Comment containing Breaking Changes
+        uses: thollander/actions-comment-pull-request@fabd468d3a1a0b97feee5f6b9e499eab0dd903f6 # v2.5.0
+        with:
+          filePath: outputs/resource-manager-breaking-changes.md
+
+      - name: Post Comment containing Changes
+        uses: thollander/actions-comment-pull-request@fabd468d3a1a0b97feee5f6b9e499eab0dd903f6 # v2.5.0
+        with:
+          filePath: outputs/resource-manager-changes.md
+
+      - name: Post Comment with New Static Identifiers
+        uses: thollander/actions-comment-pull-request@fabd468d3a1a0b97feee5f6b9e499eab0dd903f6 # v2.5.0
+        with:
+          filePath: outputs/resource-manager-static-identifiers.md

@@ -1,16 +1,20 @@
 {
- "name": "Update",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201,
-  202
- ],
- "longRunning": true,
- "httpMethod": "PATCH",
- "resourceIdName": "AccountId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "UpdateDataLakeAnalyticsAccountParameters"
- }
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "AccountId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "UpdateDataLakeAnalyticsAccountParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "DataLakeAnalyticsAccount"
+  }
 }

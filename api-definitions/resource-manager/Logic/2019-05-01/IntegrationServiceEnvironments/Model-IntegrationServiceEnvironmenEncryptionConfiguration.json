@@ -1,17 +1,18 @@
 {
- "name": "IntegrationServiceEnvironmenEncryptionConfiguration",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "encryptionKeyReference",
-   "name": "EncryptionKeyReference",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "IntegrationServiceEnvironmenEncryptionKeyReference"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "IntegrationServiceEnvironmenEncryptionConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "encryptionKeyReference",
+      "name": "EncryptionKeyReference",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "IntegrationServiceEnvironmenEncryptionKeyReference"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

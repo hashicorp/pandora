@@ -1,15 +1,19 @@
 {
- "name": "CreateOrUpdate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201
- ],
- "longRunning": true,
- "httpMethod": "PUT",
- "resourceIdName": "ScheduleId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "ScheduleResource"
- }
+  "name": "CreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "ScheduleId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ScheduleResource"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ScheduleResource"
+  }
 }

@@ -1,0 +1,20 @@
+{
+  "name": "CreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "MonitorId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "MonitoredSubscriptionProperties"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "MonitoredSubscriptionProperties"
+  },
+  "uriSuffix": "/monitoredSubscriptions/default"
+}

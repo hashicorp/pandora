@@ -1,0 +1,38 @@
+{
+  "name": "GetTdeCertificatesSqlTaskProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "input",
+      "name": "Input",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "GetTdeCertificatesSqlTaskInput"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "output",
+      "name": "Output",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "GetTdeCertificatesSqlTaskOutput"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "ProjectTaskProperties",
+  "discriminatedTypeValue": "GetTDECertificates.Sql",
+  "typeHintIn": "TaskType"
+}

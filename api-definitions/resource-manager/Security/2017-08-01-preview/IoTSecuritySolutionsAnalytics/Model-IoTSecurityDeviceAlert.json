@@ -1,41 +1,44 @@
 {
- "name": "IoTSecurityDeviceAlert",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "alertDisplayName",
-   "name": "AlertDisplayName",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "alertsCount",
-   "name": "AlertsCount",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "reportedSeverity",
-   "name": "ReportedSeverity",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ReportedSeverity"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "IoTSecurityDeviceAlert",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "alertDisplayName",
+      "name": "AlertDisplayName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "alertsCount",
+      "name": "AlertsCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "reportedSeverity",
+      "name": "ReportedSeverity",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ReportedSeverity"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

@@ -1,20 +1,21 @@
 {
- "name": "CsvSerialization",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "properties",
-   "name": "Properties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "CsvSerializationProperties"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "Serialization",
- "discriminatedTypeValue": "Csv",
- "typeHintIn": "Type"
+  "name": "CsvSerialization",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CsvSerializationProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "Serialization",
+  "discriminatedTypeValue": "Csv",
+  "typeHintIn": "Type"
 }

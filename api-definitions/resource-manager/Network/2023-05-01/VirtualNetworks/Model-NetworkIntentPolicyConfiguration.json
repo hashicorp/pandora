@@ -1,29 +1,31 @@
 {
- "name": "NetworkIntentPolicyConfiguration",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "networkIntentPolicyName",
-   "name": "NetworkIntentPolicyName",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "sourceNetworkIntentPolicy",
-   "name": "SourceNetworkIntentPolicy",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "NetworkIntentPolicy"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "NetworkIntentPolicyConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "networkIntentPolicyName",
+      "name": "NetworkIntentPolicyName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sourceNetworkIntentPolicy",
+      "name": "SourceNetworkIntentPolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "NetworkIntentPolicy"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

@@ -1,36 +1,38 @@
 {
- "name": "NamedPartitionSchemeDescription",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "count",
-   "name": "Count",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "names",
-   "name": "Names",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "String",
-     "referenceName": null
+  "name": "NamedPartitionSchemeDescription",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "count",
+      "name": "Count",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "names",
+      "name": "Names",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
     }
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "PartitionSchemeDescription",
- "discriminatedTypeValue": "Named",
- "typeHintIn": "PartitionScheme"
+  ],
+  "discriminatedParentModelName": "PartitionSchemeDescription",
+  "discriminatedTypeValue": "Named",
+  "typeHintIn": "PartitionScheme"
 }

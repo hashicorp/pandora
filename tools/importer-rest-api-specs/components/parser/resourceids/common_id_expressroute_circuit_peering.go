@@ -1,31 +1,32 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package resourceids
 
 import (
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 var _ commonIdMatcher = commonIdExpressRouteCircuitPeering{}
 
 type commonIdExpressRouteCircuitPeering struct{}
 
-func (c commonIdExpressRouteCircuitPeering) id() models.ParsedResourceId {
+func (c commonIdExpressRouteCircuitPeering) id() models.ResourceID {
 	name := "ExpressRouteCircuitPeering"
-	return models.ParsedResourceId{
-		CommonAlias: &name,
-		Constants:   map[string]resourcemanager.ConstantDetails{},
-		Segments: []resourcemanager.ResourceIdSegment{
-			models.StaticResourceIDSegment("subscriptions", "subscriptions"),
-			models.SubscriptionIDResourceIDSegment("subscriptionId"),
-			models.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
-			models.ResourceGroupResourceIDSegment("resourceGroupName"),
-			models.StaticResourceIDSegment("providers", "providers"),
-			models.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Network"),
-			models.StaticResourceIDSegment("expressRouteCircuits", "expressRouteCircuits"),
-			models.UserSpecifiedResourceIDSegment("circuitName"),
-			models.StaticResourceIDSegment("peerings", "peerings"),
-			models.UserSpecifiedResourceIDSegment("peeringName"),
+	return models.ResourceID{
+		CommonIDAlias: &name,
+		ConstantNames: []string{},
+		Segments: []models.ResourceIDSegment{
+			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			models.NewStaticValueResourceIDSegment("providers", "providers"),
+			models.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Network"),
+			models.NewStaticValueResourceIDSegment("expressRouteCircuits", "expressRouteCircuits"),
+			models.NewUserSpecifiedResourceIDSegment("circuitName", "circuitName"),
+			models.NewStaticValueResourceIDSegment("peerings", "peerings"),
+			models.NewUserSpecifiedResourceIDSegment("peeringName", "peeringName"),
 		},
 	}
-
 }

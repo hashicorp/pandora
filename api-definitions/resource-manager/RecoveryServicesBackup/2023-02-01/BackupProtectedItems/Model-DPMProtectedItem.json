@@ -1,56 +1,60 @@
 {
- "name": "DPMProtectedItem",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "backupEngineName",
-   "name": "BackupEngineName",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "extendedInfo",
-   "name": "ExtendedInfo",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "DPMProtectedItemExtendedInfo"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "friendlyName",
-   "name": "FriendlyName",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "protectionState",
-   "name": "ProtectionState",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ProtectedItemState"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "ProtectedItem",
- "discriminatedTypeValue": "DPMProtectedItem",
- "typeHintIn": "ProtectedItemType"
+  "name": "DPMProtectedItem",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "backupEngineName",
+      "name": "BackupEngineName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "extendedInfo",
+      "name": "ExtendedInfo",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DPMProtectedItemExtendedInfo"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "friendlyName",
+      "name": "FriendlyName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "protectionState",
+      "name": "ProtectionState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ProtectedItemState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "ProtectedItem",
+  "discriminatedTypeValue": "DPMProtectedItem",
+  "typeHintIn": "ProtectedItemType"
 }

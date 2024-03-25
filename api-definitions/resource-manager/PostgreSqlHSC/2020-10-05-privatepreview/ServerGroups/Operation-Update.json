@@ -1,15 +1,19 @@
 {
- "name": "Update",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "PATCH",
- "resourceIdName": "ServerGroupsv2Id",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "ServerGroupForUpdate"
- }
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "ServerGroupsv2Id",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ServerGroupForUpdate"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ServerGroup"
+  }
 }

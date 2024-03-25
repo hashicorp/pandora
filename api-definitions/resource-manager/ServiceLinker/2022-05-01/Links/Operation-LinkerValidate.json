@@ -1,12 +1,16 @@
 {
- "name": "LinkerValidate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "POST",
- "resourceIdName": "ScopedLinkerId",
- "uriSuffix": "/validateLinker"
+  "name": "LinkerValidate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "ScopedLinkerId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ValidateOperationResult"
+  },
+  "uriSuffix": "/validateLinker"
 }

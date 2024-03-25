@@ -1,0 +1,44 @@
+{
+  "name": "ManagedDiskId",
+  "commonAlias": "ManagedDisk",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/disks/{diskName}",
+  "segments": [
+    {
+      "name": "subscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "resourceGroups",
+      "type": "Static",
+      "value": "resourceGroups"
+    },
+    {
+      "name": "resourceGroupName",
+      "type": "ResourceGroup"
+    },
+    {
+      "name": "providers",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "resourceProvider",
+      "type": "ResourceProvider",
+      "value": "Microsoft.Compute"
+    },
+    {
+      "name": "disks",
+      "type": "Static",
+      "value": "disks"
+    },
+    {
+      "name": "diskName",
+      "type": "UserSpecified"
+    }
+  ]
+}

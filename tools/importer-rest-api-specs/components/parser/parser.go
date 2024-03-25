@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package parser
 
 import (
@@ -5,14 +8,15 @@ import (
 	"strings"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/resourceids"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func (d *SwaggerDefinition) parse(serviceName, apiVersion string, resourceProvider *string, resourceIds resourceids.ParseResult) (*models.AzureApiDefinition, error) {
-	resources := make(map[string]models.AzureApiResource, 0)
+func (d *SwaggerDefinition) parse(serviceName, apiVersion string, resourceProvider *string, resourceIds resourceids.ParseResult) (*importerModels.AzureApiDefinition, error) {
+	resources := make(map[string]importerModels.AzureApiResource, 0)
 
 	tags := d.findTags()
 	// first we assume everything has a tag
@@ -50,8 +54,7 @@ func (d *SwaggerDefinition) parse(serviceName, apiVersion string, resourceProvid
 			normalizedTag = cleanup.NormalizeResourceName(normalizedTag)
 
 			if mergeResources, ok := resources[normalizedTag]; ok {
-				resources[normalizedTag] = models.MergeResourcesForTag(mergeResources, *resource)
-
+				resources[normalizedTag] = importerModels.MergeResourcesForTag(mergeResources, *resource)
 			} else {
 				resources[normalizedTag] = *resource
 			}
@@ -59,21 +62,51 @@ func (d *SwaggerDefinition) parse(serviceName, apiVersion string, resourceProvid
 	}
 
 	// now that we have a canonical list of resources, can we simplify the Operation names at all?
-	resourcesOut := make(map[string]models.AzureApiResource)
+	resourcesOut := make(map[string]importerModels.AzureApiResource)
 	for resourceName, resource := range resources {
 		d.logger.Trace(fmt.Sprintf("Simplifying operation names for resource %q", resourceName))
 		updated := d.simplifyOperationNamesForResource(resource, resourceName)
 		resourcesOut[resourceName] = updated
 	}
 
-	return &models.AzureApiDefinition{
+	// discriminator implementations that are defined in separate files with no link to a swagger tag
+	// are not parsed. So far there are two known instances of this (Data Factory, Chaos Studio) where the
+	// files are defined in a nested directory e.g. d.Name = /Types/Capabilities
+	swaggerFileName := strings.Split(d.Name, "/")
+	if len(resources) == 0 && len(swaggerFileName) > 2 {
+		// if we're here then there is no tag in this file, so we'll use the file name
+		inferredTag := cleanup.PluraliseName(swaggerFileName[len(swaggerFileName)-1])
+		normalizedTag := cleanup.NormalizeResourceName(inferredTag)
+
+		result, err := d.findOrphanedDiscriminatedModels()
+		if err != nil {
+			return nil, fmt.Errorf("finding orphaned discriminated models in %q: %+v", d.Name, err)
+		}
+
+		// this is to avoid the creation of empty packages/directories in the api definitions
+		if len(result.Models) > 0 || len(result.Constants) > 0 {
+			resource := importerModels.AzureApiResource{
+				Constants: result.Constants,
+				Models:    result.Models,
+			}
+			resource = normalizeAzureApiResource(resource)
+
+			if mergeResources, ok := resources[normalizedTag]; ok {
+				resources[normalizedTag] = importerModels.MergeResourcesForTag(mergeResources, resource)
+			} else {
+				resourcesOut[normalizedTag] = resource
+			}
+		}
+	}
+
+	return &importerModels.AzureApiDefinition{
 		ServiceName: cleanup.NormalizeServiceName(serviceName),
 		ApiVersion:  apiVersion,
 		Resources:   resourcesOut,
 	}, nil
 }
 
-func (d *SwaggerDefinition) simplifyOperationNamesForResource(resource models.AzureApiResource, resourceName string) models.AzureApiResource {
+func (d *SwaggerDefinition) simplifyOperationNamesForResource(resource importerModels.AzureApiResource, resourceName string) importerModels.AzureApiResource {
 	allOperationsStartWithPrefix := true
 	resourceNameLower := strings.ToLower(resourceName)
 	for operationName := range resource.Operations {
@@ -89,7 +122,7 @@ func (d *SwaggerDefinition) simplifyOperationNamesForResource(resource models.Az
 		return resource
 	}
 
-	output := make(map[string]models.OperationDetails)
+	output := make(map[string]models.SDKOperation)
 	for key, value := range resource.Operations {
 		updatedKey := key[len(resourceNameLower):]
 		// Trim off any spurious `s` at the start. This happens when the Swagger Tag and the Operation ID
@@ -127,14 +160,14 @@ func (d *SwaggerDefinition) ParseResourceIds(resourceProvider *string) (*resourc
 func (d *SwaggerDefinition) filterResourceIdsToResourceProvider(input resourceids.ParseResult, resourceProvider string) (*resourceids.ParseResult, error) {
 	output := resourceids.ParseResult{
 		OperationIdsToParsedResourceIds: input.OperationIdsToParsedResourceIds,
-		NamesToResourceIDs:              map[string]models.ParsedResourceId{},
+		NamesToResourceIDs:              map[string]models.ResourceID{},
 		Constants:                       input.Constants,
 	}
 
 	for name := range input.NamesToResourceIDs {
 		value := input.NamesToResourceIDs[name]
 
-		d.logger.Trace(fmt.Sprintf("Processing ID %q (%q)", name, value.ID()))
+		d.logger.Trace(fmt.Sprintf("Processing ID %q (%q)", name, helpers.DisplayValueForResourceID(value)))
 		usesADifferentResourceProvider, err := resourceIdUsesAResourceProviderOtherThan(pointer.To(value), pointer.To(resourceProvider))
 		if err != nil {
 			return nil, err
@@ -148,18 +181,18 @@ func (d *SwaggerDefinition) filterResourceIdsToResourceProvider(input resourceid
 	return &output, nil
 }
 
-func resourceIdUsesAResourceProviderOtherThan(input *models.ParsedResourceId, resourceProvider *string) (*bool, error) {
+func resourceIdUsesAResourceProviderOtherThan(input *models.ResourceID, resourceProvider *string) (*bool, error) {
 	if input == nil || resourceProvider == nil {
 		return pointer.To(false), nil
 	}
 
 	for i, segment := range input.Segments {
-		if segment.Type != resourcemanager.ResourceProviderSegment {
+		if segment.Type != models.ResourceProviderResourceIDSegmentType {
 			continue
 		}
 
 		if segment.FixedValue == nil {
-			return nil, fmt.Errorf("the Resource ID %q Segment %d was a ResourceProviderSegment with no FixedValue", input.ID(), i)
+			return nil, fmt.Errorf("the Resource ID %q Segment %d was a ResourceProviderSegment with no FixedValue", helpers.DisplayValueForResourceID(*input), i)
 		}
 		if !strings.EqualFold(*segment.FixedValue, *resourceProvider) {
 			return pointer.To(true), nil

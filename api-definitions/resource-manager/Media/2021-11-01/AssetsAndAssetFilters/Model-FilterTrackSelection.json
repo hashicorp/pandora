@@ -1,21 +1,22 @@
 {
- "name": "FilterTrackSelection",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "trackSelections",
-   "name": "TrackSelections",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "FilterTrackPropertyCondition"
+  "name": "FilterTrackSelection",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "trackSelections",
+      "name": "TrackSelections",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "FilterTrackPropertyCondition"
+        }
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
     }
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  ]
 }

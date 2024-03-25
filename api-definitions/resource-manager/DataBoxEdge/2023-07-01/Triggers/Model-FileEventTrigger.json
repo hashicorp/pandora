@@ -1,20 +1,21 @@
 {
- "name": "FileEventTrigger",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "properties",
-   "name": "Properties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "FileTriggerProperties"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "Trigger",
- "discriminatedTypeValue": "FileEvent",
- "typeHintIn": "Kind"
+  "name": "FileEventTrigger",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "FileTriggerProperties"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "Trigger",
+  "discriminatedTypeValue": "FileEvent",
+  "typeHintIn": "Kind"
 }

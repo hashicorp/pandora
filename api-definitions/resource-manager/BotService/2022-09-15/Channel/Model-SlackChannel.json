@@ -1,0 +1,21 @@
+{
+  "name": "SlackChannel",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SlackChannelProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "Channel",
+  "discriminatedTypeValue": "SlackChannel",
+  "typeHintIn": "ChannelName"
+}

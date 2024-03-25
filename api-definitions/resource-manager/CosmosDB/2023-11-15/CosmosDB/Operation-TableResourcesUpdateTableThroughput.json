@@ -1,16 +1,20 @@
 {
- "name": "TableResourcesUpdateTableThroughput",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "PUT",
- "resourceIdName": "TableId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "ThroughputSettingsUpdateParameters"
- },
- "uriSuffix": "/throughputSettings/default"
+  "name": "TableResourcesUpdateTableThroughput",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "TableId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ThroughputSettingsUpdateParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ThroughputSettingsGetResults"
+  },
+  "uriSuffix": "/throughputSettings/default"
 }

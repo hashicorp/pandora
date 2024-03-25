@@ -1,76 +1,81 @@
 {
- "name": "JobInputClip",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "end",
-   "name": "End",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ClipTime"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "files",
-   "name": "Files",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "String",
-     "referenceName": null
+  "name": "JobInputClip",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "end",
+      "name": "End",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ClipTime"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "files",
+      "name": "Files",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "inputDefinitions",
+      "name": "InputDefinitions",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "InputDefinition"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "label",
+      "name": "Label",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "start",
+      "name": "Start",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ClipTime"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "inputDefinitions",
-   "name": "InputDefinitions",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "InputDefinition"
-    }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "label",
-   "name": "Label",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "start",
-   "name": "Start",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ClipTime"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "JobInput",
- "discriminatedTypeValue": "#Microsoft.Media.JobInputClip",
- "typeHintIn": "OdataType"
+  ],
+  "discriminatedParentModelName": "JobInput",
+  "discriminatedTypeValue": "#Microsoft.Media.JobInputClip",
+  "typeHintIn": "OdataType"
 }

@@ -1,20 +1,21 @@
 {
- "name": "AzureDataLakeStoreOutputDataSource",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "properties",
-   "name": "Properties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "AzureDataLakeStoreOutputDataSourceProperties"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "OutputDataSource",
- "discriminatedTypeValue": "Microsoft.DataLake/Accounts",
- "typeHintIn": "Type"
+  "name": "AzureDataLakeStoreOutputDataSource",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AzureDataLakeStoreOutputDataSourceProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "OutputDataSource",
+  "discriminatedTypeValue": "Microsoft.DataLake/Accounts",
+  "typeHintIn": "Type"
 }

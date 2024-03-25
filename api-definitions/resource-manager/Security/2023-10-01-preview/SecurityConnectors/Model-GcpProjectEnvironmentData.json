@@ -1,0 +1,47 @@
+{
+  "name": "GcpProjectEnvironmentData",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "organizationalData",
+      "name": "OrganizationalData",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "GcpOrganizationalData"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "projectDetails",
+      "name": "ProjectDetails",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "GcpProjectDetails"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "scanInterval",
+      "name": "ScanInterval",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "EnvironmentData",
+  "discriminatedTypeValue": "GcpProject",
+  "typeHintIn": "EnvironmentType"
+}

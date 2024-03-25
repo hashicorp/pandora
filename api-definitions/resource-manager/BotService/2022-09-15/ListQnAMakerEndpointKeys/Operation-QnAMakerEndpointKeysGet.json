@@ -1,0 +1,19 @@
+{
+  "name": "QnAMakerEndpointKeysGet",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "SubscriptionId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "QnAMakerEndpointKeysRequestBody"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "QnAMakerEndpointKeysResponse"
+  },
+  "uriSuffix": "/providers/Microsoft.BotService/listQnAMakerEndpointKeys"
+}

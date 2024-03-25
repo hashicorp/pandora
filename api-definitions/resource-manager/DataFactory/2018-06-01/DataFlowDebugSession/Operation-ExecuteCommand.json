@@ -1,16 +1,20 @@
 {
- "name": "ExecuteCommand",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "POST",
- "resourceIdName": "FactoryId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "DataFlowDebugCommandRequest"
- },
- "uriSuffix": "/executeDataFlowDebugCommand"
+  "name": "ExecuteCommand",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "FactoryId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "DataFlowDebugCommandRequest"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "DataFlowDebugCommandResponse"
+  },
+  "uriSuffix": "/executeDataFlowDebugCommand"
 }

@@ -1,17 +1,18 @@
 {
- "name": "SqlWorkloadTypeUpdateSettings",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "sqlWorkloadType",
-   "name": "SqlWorkloadType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SqlWorkloadType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "SqlWorkloadTypeUpdateSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sqlWorkloadType",
+      "name": "SqlWorkloadType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SqlWorkloadType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

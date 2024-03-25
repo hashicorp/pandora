@@ -1,11 +1,15 @@
 {
- "name": "InstallSiteExtension",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201
- ],
- "longRunning": true,
- "httpMethod": "PUT",
- "resourceIdName": "SiteExtensionId"
+  "name": "InstallSiteExtension",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "SiteExtensionId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "SiteExtensionInfo"
+  }
 }

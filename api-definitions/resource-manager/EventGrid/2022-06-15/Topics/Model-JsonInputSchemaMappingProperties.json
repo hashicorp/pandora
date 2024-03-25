@@ -1,77 +1,83 @@
 {
- "name": "JsonInputSchemaMappingProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "dataVersion",
-   "name": "DataVersion",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "JsonFieldWithDefault"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "eventTime",
-   "name": "EventTime",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "JsonField"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "eventType",
-   "name": "EventType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "JsonFieldWithDefault"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "id",
-   "name": "Id",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "JsonField"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "subject",
-   "name": "Subject",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "JsonFieldWithDefault"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "topic",
-   "name": "Topic",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "JsonField"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "JsonInputSchemaMappingProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "dataVersion",
+      "name": "DataVersion",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "JsonFieldWithDefault"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "eventTime",
+      "name": "EventTime",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "JsonField"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "eventType",
+      "name": "EventType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "JsonFieldWithDefault"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "id",
+      "name": "Id",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "JsonField"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "subject",
+      "name": "Subject",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "JsonFieldWithDefault"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "topic",
+      "name": "Topic",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "JsonField"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

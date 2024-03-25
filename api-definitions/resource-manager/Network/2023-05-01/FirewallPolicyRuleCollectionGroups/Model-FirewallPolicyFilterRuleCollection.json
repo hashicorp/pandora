@@ -1,36 +1,38 @@
 {
- "name": "FirewallPolicyFilterRuleCollection",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "action",
-   "name": "Action",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "FirewallPolicyFilterRuleCollectionAction"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "rules",
-   "name": "Rules",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "FirewallPolicyRule"
+  "name": "FirewallPolicyFilterRuleCollection",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "action",
+      "name": "Action",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "FirewallPolicyFilterRuleCollectionAction"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rules",
+      "name": "Rules",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "FirewallPolicyRule"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "FirewallPolicyRuleCollection",
- "discriminatedTypeValue": "FirewallPolicyFilterRuleCollection",
- "typeHintIn": "RuleCollectionType"
+  ],
+  "discriminatedParentModelName": "FirewallPolicyRuleCollection",
+  "discriminatedTypeValue": "FirewallPolicyFilterRuleCollection",
+  "typeHintIn": "RuleCollectionType"
 }

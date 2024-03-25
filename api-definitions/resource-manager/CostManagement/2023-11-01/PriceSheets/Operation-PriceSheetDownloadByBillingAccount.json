@@ -1,0 +1,16 @@
+{
+  "name": "PriceSheetDownloadByBillingAccount",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "BillingPeriodId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "OperationStatus"
+  },
+  "uriSuffix": "/providers/Microsoft.CostManagement/pricesheets/default/download"
+}

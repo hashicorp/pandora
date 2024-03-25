@@ -1,29 +1,31 @@
 {
- "name": "CassandraTableGetProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "options",
-   "name": "Options",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "OptionsResource"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "resource",
-   "name": "Resource",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "CassandraTableGetPropertiesResource"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "CassandraTableGetProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "options",
+      "name": "Options",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "OptionsResource"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "resource",
+      "name": "Resource",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CassandraTableGetPropertiesResource"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

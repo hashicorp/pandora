@@ -1,0 +1,34 @@
+{
+  "name": "MigrateSyncCompleteCommandProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "input",
+      "name": "Input",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MigrateSyncCompleteCommandInput"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "output",
+      "name": "Output",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MigrateSyncCompleteCommandOutput"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "CommandProperties",
+  "discriminatedTypeValue": "Migrate.Sync.Complete.Database",
+  "typeHintIn": "CommandType"
+}

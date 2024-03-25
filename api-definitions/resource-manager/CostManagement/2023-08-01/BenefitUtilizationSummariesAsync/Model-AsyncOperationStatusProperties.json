@@ -1,42 +1,45 @@
 {
- "name": "AsyncOperationStatusProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "reportUrl",
-   "name": "ReportUrl",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "BenefitUtilizationSummaryReportSchema"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "secondaryReportUrl",
-   "name": "SecondaryReportUrl",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "BenefitUtilizationSummaryReportSchema"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "validUntil",
-   "name": "ValidUntil",
-   "objectDefinition": {
-    "type": "DateTime",
-    "referenceName": null,
-    "dateFormat": "RFC3339"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "AsyncOperationStatusProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "reportUrl",
+      "name": "ReportUrl",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "BenefitUtilizationSummaryReportSchema"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "secondaryReportUrl",
+      "name": "SecondaryReportUrl",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "BenefitUtilizationSummaryReportSchema"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "validUntil",
+      "name": "ValidUntil",
+      "objectDefinition": {
+        "type": "DateTime",
+        "referenceName": null,
+        "dateFormat": "RFC3339"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

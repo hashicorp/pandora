@@ -1,20 +1,21 @@
 {
- "name": "MTPDataConnector",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "properties",
-   "name": "Properties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "MTPDataConnectorProperties"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "DataConnector",
- "discriminatedTypeValue": "MicrosoftThreatProtection",
- "typeHintIn": "Kind"
+  "name": "MTPDataConnector",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MTPDataConnectorProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "DataConnector",
+  "discriminatedTypeValue": "MicrosoftThreatProtection",
+  "typeHintIn": "Kind"
 }

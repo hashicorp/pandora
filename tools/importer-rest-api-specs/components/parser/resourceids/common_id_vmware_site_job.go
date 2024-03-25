@@ -1,8 +1,10 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package resourceids
 
 import (
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 var _ commonIdMatcher = commonIdVMwareSiteJob{}
@@ -10,22 +12,22 @@ var _ commonIdMatcher = commonIdVMwareSiteJob{}
 type commonIdVMwareSiteJob struct {
 }
 
-func (c commonIdVMwareSiteJob) id() models.ParsedResourceId {
+func (c commonIdVMwareSiteJob) id() models.ResourceID {
 	name := "VMwareSiteJob"
-	return models.ParsedResourceId{
-		CommonAlias: &name,
-		Constants:   map[string]resourcemanager.ConstantDetails{},
-		Segments: []resourcemanager.ResourceIdSegment{
-			models.StaticResourceIDSegment("subscriptions", "subscriptions"),
-			models.SubscriptionIDResourceIDSegment("subscriptionId"),
-			models.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
-			models.ResourceGroupResourceIDSegment("resourceGroupName"),
-			models.StaticResourceIDSegment("providers", "providers"),
-			models.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.OffAzure"),
-			models.StaticResourceIDSegment("vmwareSites", "vmwareSites"),
-			models.UserSpecifiedResourceIDSegment("vmwareSiteName"),
-			models.StaticResourceIDSegment("jobs", "jobs"),
-			models.UserSpecifiedResourceIDSegment("jobName"),
+	return models.ResourceID{
+		CommonIDAlias: &name,
+		ConstantNames: []string{},
+		Segments: []models.ResourceIDSegment{
+			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			models.NewStaticValueResourceIDSegment("providers", "providers"),
+			models.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.OffAzure"),
+			models.NewStaticValueResourceIDSegment("vmwareSites", "vmwareSites"),
+			models.NewUserSpecifiedResourceIDSegment("vmwareSiteName", "vmwareSiteName"),
+			models.NewStaticValueResourceIDSegment("jobs", "jobs"),
+			models.NewUserSpecifiedResourceIDSegment("jobName", "jobName"),
 		},
 	}
 }

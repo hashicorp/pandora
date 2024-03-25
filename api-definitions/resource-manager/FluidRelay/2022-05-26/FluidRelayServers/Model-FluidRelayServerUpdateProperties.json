@@ -1,17 +1,18 @@
 {
- "name": "FluidRelayServerUpdateProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "encryption",
-   "name": "Encryption",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "EncryptionProperties"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "FluidRelayServerUpdateProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "encryption",
+      "name": "Encryption",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EncryptionProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

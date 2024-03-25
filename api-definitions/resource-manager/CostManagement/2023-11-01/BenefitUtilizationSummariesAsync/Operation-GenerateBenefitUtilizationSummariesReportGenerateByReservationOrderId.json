@@ -1,16 +1,20 @@
 {
- "name": "GenerateBenefitUtilizationSummariesReportGenerateByReservationOrderId",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "POST",
- "resourceIdName": "ReservationOrderId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "BenefitUtilizationSummariesRequest"
- },
- "uriSuffix": "/providers/Microsoft.CostManagement/generateBenefitUtilizationSummariesReport"
+  "name": "GenerateBenefitUtilizationSummariesReportGenerateByReservationOrderId",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "ReservationOrderId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "BenefitUtilizationSummariesRequest"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "BenefitUtilizationSummariesOperationStatus"
+  },
+  "uriSuffix": "/providers/Microsoft.CostManagement/generateBenefitUtilizationSummariesReport"
 }

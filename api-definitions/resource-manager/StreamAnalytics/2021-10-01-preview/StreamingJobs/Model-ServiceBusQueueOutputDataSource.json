@@ -1,20 +1,21 @@
 {
- "name": "ServiceBusQueueOutputDataSource",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "properties",
-   "name": "Properties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ServiceBusQueueOutputDataSourceProperties"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "OutputDataSource",
- "discriminatedTypeValue": "Microsoft.ServiceBus/Queue",
- "typeHintIn": "Type"
+  "name": "ServiceBusQueueOutputDataSource",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ServiceBusQueueOutputDataSourceProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "OutputDataSource",
+  "discriminatedTypeValue": "Microsoft.ServiceBus/Queue",
+  "typeHintIn": "Type"
 }

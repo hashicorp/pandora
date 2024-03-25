@@ -1,29 +1,31 @@
 {
- "name": "VirtualNetworkRuleProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "subnetId",
-   "name": "SubnetId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "virtualNetworkRuleState",
-   "name": "VirtualNetworkRuleState",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "VirtualNetworkRuleState"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "VirtualNetworkRuleProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "subnetId",
+      "name": "SubnetId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "virtualNetworkRuleState",
+      "name": "VirtualNetworkRuleState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "VirtualNetworkRuleState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

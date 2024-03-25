@@ -1,15 +1,19 @@
 {
- "name": "Create",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201
- ],
- "longRunning": true,
- "httpMethod": "PUT",
- "resourceIdName": "SapVirtualInstanceId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "SAPVirtualInstance"
- }
+  "name": "Create",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "SapVirtualInstanceId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "SAPVirtualInstance"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "SAPVirtualInstance"
+  }
 }

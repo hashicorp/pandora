@@ -1,16 +1,16 @@
 {
- "name": "Detach",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "POST",
- "resourceIdName": "DiskId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "DetachDiskProperties"
- },
- "uriSuffix": "/detach"
+  "name": "Detach",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "DiskId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "DetachDiskProperties"
+  },
+  "uriSuffix": "/detach"
 }

@@ -1,0 +1,31 @@
+{
+  "name": "StorageProfile",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "nfsCsiDriver",
+      "name": "NfsCsiDriver",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "StorageProfileNfsCSIDriver"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "smbCsiDriver",
+      "name": "SmbCsiDriver",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "StorageProfileSmbCSIDriver"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

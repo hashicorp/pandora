@@ -1,0 +1,57 @@
+{
+  "name": "DetailedTransferStatus",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "errorDetails",
+      "name": "ErrorDetails",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Error"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "productId",
+      "name": "ProductId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "productType",
+      "name": "ProductType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ProductType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "transferStatus",
+      "name": "TransferStatus",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ProductTransferStatus"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

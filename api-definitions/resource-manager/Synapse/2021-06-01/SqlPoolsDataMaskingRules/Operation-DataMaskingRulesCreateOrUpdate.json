@@ -1,0 +1,19 @@
+{
+  "name": "DataMaskingRulesCreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": false,
+  "httpMethod": "PUT",
+  "resourceIdName": "RuleId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "DataMaskingRule"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "DataMaskingRule"
+  }
+}

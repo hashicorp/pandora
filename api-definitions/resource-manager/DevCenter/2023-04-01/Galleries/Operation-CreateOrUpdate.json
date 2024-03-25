@@ -1,14 +1,18 @@
 {
- "name": "CreateOrUpdate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  201
- ],
- "longRunning": true,
- "httpMethod": "PUT",
- "resourceIdName": "GalleryId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "Gallery"
- }
+  "name": "CreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "GalleryId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "Gallery"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "Gallery"
+  }
 }

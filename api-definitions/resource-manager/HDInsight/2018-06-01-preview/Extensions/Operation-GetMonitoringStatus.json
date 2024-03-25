@@ -1,15 +1,15 @@
 {
- "name": "GetMonitoringStatus",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "GET",
- "resourceIdName": "ClusterId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "ClusterMonitoringResponse"
- },
- "uriSuffix": "/extensions/clustermonitoring"
+  "name": "GetMonitoringStatus",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "HDInsightClusterId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ClusterMonitoringResponse"
+  },
+  "uriSuffix": "/extensions/clustermonitoring"
 }

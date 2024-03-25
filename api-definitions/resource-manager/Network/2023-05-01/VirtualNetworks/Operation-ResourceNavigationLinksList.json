@@ -1,15 +1,16 @@
 {
- "name": "ResourceNavigationLinksList",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "GET",
- "resourceIdName": "SubnetId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "ResourceNavigationLinksListResult"
- },
- "uriSuffix": "/resourceNavigationLinks"
+  "name": "ResourceNavigationLinksList",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "SubnetId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ResourceNavigationLink"
+  },
+  "uriSuffix": "/resourceNavigationLinks"
 }

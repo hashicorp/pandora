@@ -1,58 +1,61 @@
 {
- "name": "BudgetFilter",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "and",
-   "name": "And",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "BudgetFilterProperties",
-     "minItems": 0
+  "name": "BudgetFilter",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "and",
+      "name": "And",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "BudgetFilterProperties"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "dimensions",
+      "name": "Dimensions",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "BudgetComparisonExpression"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "not",
+      "name": "Not",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "BudgetFilterProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "tags",
+      "name": "Tags",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "BudgetComparisonExpression"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "dimensions",
-   "name": "Dimensions",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "BudgetComparisonExpression"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "not",
-   "name": "Not",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "BudgetFilterProperties"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "tags",
-   "name": "Tags",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "BudgetComparisonExpression"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

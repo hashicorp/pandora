@@ -1,81 +1,87 @@
 {
- "name": "IoTSecuritySolutionAnalyticsModelProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "devicesMetrics",
-   "name": "DevicesMetrics",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "IoTSecuritySolutionAnalyticsModelPropertiesDevicesMetricsInlined"
+  "name": "IoTSecuritySolutionAnalyticsModelProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "devicesMetrics",
+      "name": "DevicesMetrics",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "IoTSecuritySolutionAnalyticsModelPropertiesDevicesMetricsInlined"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "metrics",
+      "name": "Metrics",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "IoTSeverityMetrics"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "mostPrevalentDeviceAlerts",
+      "name": "MostPrevalentDeviceAlerts",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "IoTSecurityDeviceAlertsList"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "mostPrevalentDeviceRecommendations",
+      "name": "MostPrevalentDeviceRecommendations",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "IoTSecurityDeviceRecommendationsList"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "topAlertedDevices",
+      "name": "TopAlertedDevices",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "IoTSecurityAlertedDevicesList"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "unhealthyDeviceCount",
+      "name": "UnhealthyDeviceCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "metrics",
-   "name": "Metrics",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "IoTSeverityMetrics"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "mostPrevalentDeviceAlerts",
-   "name": "MostPrevalentDeviceAlerts",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "IoTSecurityDeviceAlertsList"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "mostPrevalentDeviceRecommendations",
-   "name": "MostPrevalentDeviceRecommendations",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "IoTSecurityDeviceRecommendationsList"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "topAlertedDevices",
-   "name": "TopAlertedDevices",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "IoTSecurityAlertedDevicesList"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "unhealthyDeviceCount",
-   "name": "UnhealthyDeviceCount",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

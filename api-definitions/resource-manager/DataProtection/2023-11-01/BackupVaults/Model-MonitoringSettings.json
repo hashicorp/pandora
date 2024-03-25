@@ -1,17 +1,18 @@
 {
- "name": "MonitoringSettings",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "azureMonitorAlertSettings",
-   "name": "AzureMonitorAlertSettings",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "AzureMonitorAlertSettings"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "MonitoringSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "azureMonitorAlertSettings",
+      "name": "AzureMonitorAlertSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AzureMonitorAlertSettings"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

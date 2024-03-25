@@ -1,57 +1,61 @@
 {
- "name": "Template",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "containers",
-   "name": "Containers",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "Container"
+  "name": "Template",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "containers",
+      "name": "Containers",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "Container"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "dapr",
+      "name": "Dapr",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Dapr"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "revisionSuffix",
+      "name": "RevisionSuffix",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "scale",
+      "name": "Scale",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Scale"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "dapr",
-   "name": "Dapr",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "Dapr"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "revisionSuffix",
-   "name": "RevisionSuffix",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "scale",
-   "name": "Scale",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "Scale"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

@@ -1,29 +1,29 @@
 {
- "name": "ScopedRoleEligibilityScheduleId",
- "id": "/{scope}/providers/Microsoft.Authorization/roleEligibilitySchedules/{roleEligibilityScheduleName}",
- "segments": [
-  {
-   "name": "scope",
-   "type": "Scope"
-  },
-  {
-   "name": "staticProviders",
-   "type": "Static",
-   "value": "providers"
-  },
-  {
-   "name": "staticMicrosoftAuthorization",
-   "type": "ResourceProvider",
-   "value": "Microsoft.Authorization"
-  },
-  {
-   "name": "staticRoleEligibilitySchedules",
-   "type": "Static",
-   "value": "roleEligibilitySchedules"
-  },
-  {
-   "name": "roleEligibilityScheduleName",
-   "type": "UserSpecified"
-  }
- ]
+  "name": "ScopedRoleEligibilityScheduleId",
+  "id": "/{scope}/providers/Microsoft.Authorization/roleEligibilitySchedules/{roleEligibilityScheduleName}",
+  "segments": [
+    {
+      "name": "scope",
+      "type": "Scope"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftAuthorization",
+      "type": "ResourceProvider",
+      "value": "Microsoft.Authorization"
+    },
+    {
+      "name": "staticRoleEligibilitySchedules",
+      "type": "Static",
+      "value": "roleEligibilitySchedules"
+    },
+    {
+      "name": "roleEligibilityScheduleName",
+      "type": "UserSpecified"
+    }
+  ]
 }

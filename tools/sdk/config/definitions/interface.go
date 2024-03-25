@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package definitions
 
 type Config struct {
@@ -30,6 +33,18 @@ type ResourceDefinition struct {
 	// Name is the human-friendly/marketing name for this Resource
 	Name string
 
+	// GenerateCreate specifies whether the create method should be generated or not
+	GenerateCreate bool
+
+	// GenerateDelete specifies whether the Delete method should be generated or not
+	GenerateDelete bool
+
+	// GenerateRead specifies whether the read method should be generated or not
+	GenerateRead bool
+
+	// GenerateUpdate specifies whether the update method should be generated or not
+	GenerateUpdate bool
+
 	// WebsiteSubcategory is the name of the subcategory which this Resource should appear under on the website
 	WebsiteSubcategory string
 
@@ -38,6 +53,21 @@ type ResourceDefinition struct {
 
 	// TestData contains specific values for the tests of this resource
 	TestData ResourceTestDataDefinition
+
+	// Overrides contains a mapping of properties that require renames or custom descriptions, for now
+	Overrides *[]Override
+}
+
+type Override struct {
+	// Name specifies the field for which the overrides will be applied to
+	Name string
+
+	// UpdatedName defines the updated name the field should be renamed to
+	UpdatedName *string
+
+	// Description defines a custom description for this field.
+	// If unspecified a description will be determined based on the field name.
+	Description *string
 }
 
 type ResourceTestDataDefinition struct {

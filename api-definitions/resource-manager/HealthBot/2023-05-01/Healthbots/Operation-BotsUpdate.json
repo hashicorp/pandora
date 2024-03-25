@@ -1,15 +1,19 @@
 {
- "name": "BotsUpdate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201
- ],
- "longRunning": true,
- "httpMethod": "PATCH",
- "resourceIdName": "HealthBotId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "HealthBotUpdateParameters"
- }
+  "name": "BotsUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "HealthBotId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "HealthBotUpdateParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "HealthBot"
+  }
 }

@@ -1,17 +1,18 @@
 {
- "name": "PartnerContent",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "b2b",
-   "name": "B2b",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "B2BPartnerContent"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "PartnerContent",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "b2b",
+      "name": "B2b",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "B2BPartnerContent"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

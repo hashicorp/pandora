@@ -1,29 +1,29 @@
 {
- "name": "ScopedBlueprintId",
- "id": "/{resourceScope}/providers/Microsoft.Blueprint/blueprints/{blueprintName}",
- "segments": [
-  {
-   "name": "resourceScope",
-   "type": "Scope"
-  },
-  {
-   "name": "staticProviders",
-   "type": "Static",
-   "value": "providers"
-  },
-  {
-   "name": "staticMicrosoftBlueprint",
-   "type": "ResourceProvider",
-   "value": "Microsoft.Blueprint"
-  },
-  {
-   "name": "staticBlueprints",
-   "type": "Static",
-   "value": "blueprints"
-  },
-  {
-   "name": "blueprintName",
-   "type": "UserSpecified"
-  }
- ]
+  "name": "ScopedBlueprintId",
+  "id": "/{resourceScope}/providers/Microsoft.Blueprint/blueprints/{blueprintName}",
+  "segments": [
+    {
+      "name": "resourceScope",
+      "type": "Scope"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftBlueprint",
+      "type": "ResourceProvider",
+      "value": "Microsoft.Blueprint"
+    },
+    {
+      "name": "staticBlueprints",
+      "type": "Static",
+      "value": "blueprints"
+    },
+    {
+      "name": "blueprintName",
+      "type": "UserSpecified"
+    }
+  ]
 }

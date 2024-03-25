@@ -1,11 +1,16 @@
 {
- "name": "ExpressRouteCircuitsListRoutesTableSummary",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "POST",
- "resourceIdName": "RouteTablesSummaryId"
+  "name": "ExpressRouteCircuitsListRoutesTableSummary",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "RouteTablesSummaryId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ExpressRouteCircuitRoutesTableSummary"
+  }
 }

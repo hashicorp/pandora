@@ -1,0 +1,20 @@
+{
+  "name": "RegenerateKey",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "NamespaceTopicId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "TopicRegenerateKeyRequest"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "TopicSharedAccessKeys"
+  },
+  "uriSuffix": "/regenerateKey"
+}

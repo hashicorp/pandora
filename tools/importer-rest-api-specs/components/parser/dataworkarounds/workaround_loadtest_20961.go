@@ -1,9 +1,13 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package dataworkarounds
 
 import (
 	"fmt"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 var _ workaround = workaroundLoadTest20961{}
@@ -14,7 +18,7 @@ var _ workaround = workaroundLoadTest20961{}
 type workaroundLoadTest20961 struct {
 }
 
-func (workaroundLoadTest20961) IsApplicable(apiDefinition *models.AzureApiDefinition) bool {
+func (workaroundLoadTest20961) IsApplicable(apiDefinition *importerModels.AzureApiDefinition) bool {
 	serviceMatches := apiDefinition.ServiceName == "LoadTestService"
 	apiVersionMatches := apiDefinition.ApiVersion == "2021-12-01-preview" || apiDefinition.ApiVersion == "2022-04-15-preview" || apiDefinition.ApiVersion == "2022-12-01"
 	return serviceMatches && apiVersionMatches
@@ -24,7 +28,7 @@ func (workaroundLoadTest20961) Name() string {
 	return "LoadTest / 20961"
 }
 
-func (workaroundLoadTest20961) Process(apiDefinition models.AzureApiDefinition) (*models.AzureApiDefinition, error) {
+func (workaroundLoadTest20961) Process(apiDefinition importerModels.AzureApiDefinition) (*importerModels.AzureApiDefinition, error) {
 	resource, ok := apiDefinition.Resources["LoadTests"]
 	if !ok {
 		return nil, fmt.Errorf("couldn't find API Resource LoadTests")
@@ -37,9 +41,9 @@ func (workaroundLoadTest20961) Process(apiDefinition models.AzureApiDefinition) 
 	if !ok {
 		return nil, fmt.Errorf("couldn't find field Tags within model LoadTestResourcePatchRequestBody")
 	}
-	tagsType := models.CustomFieldTypeTags
-	field.CustomFieldType = &tagsType
-	field.ObjectDefinition = nil
+	field.ObjectDefinition = models.SDKObjectDefinition{
+		Type: models.TagsSDKObjectDefinitionType,
+	}
 
 	model.Fields["Tags"] = field
 	resource.Models["LoadTestResourcePatchRequestBody"] = model

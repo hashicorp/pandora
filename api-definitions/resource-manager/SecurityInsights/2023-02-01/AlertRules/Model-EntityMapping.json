@@ -1,33 +1,35 @@
 {
- "name": "EntityMapping",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "entityType",
-   "name": "EntityType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "EntityMappingType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "fieldMappings",
-   "name": "FieldMappings",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "FieldMapping"
+  "name": "EntityMapping",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "entityType",
+      "name": "EntityType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EntityMappingType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "fieldMappings",
+      "name": "FieldMappings",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "FieldMapping"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

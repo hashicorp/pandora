@@ -1,15 +1,19 @@
 {
- "name": "ConfigurationPolicyGroupsCreateOrUpdate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201
- ],
- "longRunning": true,
- "httpMethod": "PUT",
- "resourceIdName": "ConfigurationPolicyGroupId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "VpnServerConfigurationPolicyGroup"
- }
+  "name": "ConfigurationPolicyGroupsCreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "ConfigurationPolicyGroupId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "VpnServerConfigurationPolicyGroup"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "VpnServerConfigurationPolicyGroup"
+  }
 }

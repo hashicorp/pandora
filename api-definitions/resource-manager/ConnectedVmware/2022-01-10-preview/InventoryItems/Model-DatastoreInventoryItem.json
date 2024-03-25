@@ -1,32 +1,34 @@
 {
- "name": "DatastoreInventoryItem",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "capacityGB",
-   "name": "CapacityGB",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "freeSpaceGB",
-   "name": "FreeSpaceGB",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "InventoryItemProperties",
- "discriminatedTypeValue": "Datastore",
- "typeHintIn": "InventoryType"
+  "name": "DatastoreInventoryItem",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "capacityGB",
+      "name": "CapacityGB",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "freeSpaceGB",
+      "name": "FreeSpaceGB",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "InventoryItemProperties",
+  "discriminatedTypeValue": "Datastore",
+  "typeHintIn": "InventoryType"
 }

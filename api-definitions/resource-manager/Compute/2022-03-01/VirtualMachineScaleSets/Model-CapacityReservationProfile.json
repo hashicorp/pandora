@@ -1,17 +1,18 @@
 {
- "name": "CapacityReservationProfile",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "capacityReservationGroup",
-   "name": "CapacityReservationGroup",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SubResource"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "CapacityReservationProfile",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "capacityReservationGroup",
+      "name": "CapacityReservationGroup",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SubResource"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

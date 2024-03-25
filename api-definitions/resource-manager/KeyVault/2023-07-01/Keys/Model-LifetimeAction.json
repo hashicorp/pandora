@@ -1,29 +1,31 @@
 {
- "name": "LifetimeAction",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "action",
-   "name": "Action",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "Action"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "trigger",
-   "name": "Trigger",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "Trigger"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "LifetimeAction",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "action",
+      "name": "Action",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Action"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "trigger",
+      "name": "Trigger",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Trigger"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

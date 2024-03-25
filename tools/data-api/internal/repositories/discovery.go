@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package repositories
 
 import (
@@ -7,6 +10,7 @@ import (
 	"os"
 	"path"
 
+	"github.com/hashicorp/pandora/tools/data-api/internal/logging"
 	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
 )
 
@@ -62,6 +66,7 @@ func (s *ServicesRepositoryImpl) discoverSubsetOfServices() error {
 	services := make(map[string]string, 0)
 	for _, d := range *dirs {
 		for _, service := range *s.serviceNames {
+			logging.Debugf("Finding service %q", service)
 			serviceDir := path.Join(d, service)
 			if _, err := os.Stat(serviceDir); os.IsNotExist(err) {
 				// we continue here since the service we're looking for could exist in another source directory e.g. under handwritten definitions
@@ -71,6 +76,7 @@ func (s *ServicesRepositoryImpl) discoverSubsetOfServices() error {
 				return fmt.Errorf("duplicate definitions for service %q", service)
 			}
 			services[service] = serviceDir
+			logging.Debugf("Found service %q", service)
 		}
 	}
 
@@ -95,6 +101,7 @@ func (s *ServicesRepositoryImpl) discoverAllServices() error {
 		return fmt.Errorf("discovering service type directories for service type %q: %+v", s.serviceType, err)
 	}
 
+	logging.Debugf("Finding all services")
 	allServices := make(map[string]string, 0)
 	for _, d := range *dirs {
 		files, err := os.ReadDir(d)
@@ -108,6 +115,7 @@ func (s *ServicesRepositoryImpl) discoverAllServices() error {
 					return fmt.Errorf("duplicate definitions for service %q", f.Name())
 				}
 				allServices[f.Name()] = path.Join(d, f.Name())
+				logging.Debugf("Found service %q", f.Name())
 			}
 		}
 	}

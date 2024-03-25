@@ -1,0 +1,21 @@
+{
+  "name": "BoolEqualsFilter",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "value",
+      "name": "Value",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "Filter",
+  "discriminatedTypeValue": "BoolEquals",
+  "typeHintIn": "OperatorType"
+}

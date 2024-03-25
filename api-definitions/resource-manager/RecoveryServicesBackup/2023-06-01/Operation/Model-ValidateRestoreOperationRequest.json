@@ -1,20 +1,21 @@
 {
- "name": "ValidateRestoreOperationRequest",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "restoreRequest",
-   "name": "RestoreRequest",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "RestoreRequest"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "ValidateOperationRequest",
- "discriminatedTypeValue": "ValidateRestoreOperationRequest",
- "typeHintIn": "ObjectType"
+  "name": "ValidateRestoreOperationRequest",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "restoreRequest",
+      "name": "RestoreRequest",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RestoreRequest"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "ValidateOperationRequest",
+  "discriminatedTypeValue": "ValidateRestoreOperationRequest",
+  "typeHintIn": "ObjectType"
 }

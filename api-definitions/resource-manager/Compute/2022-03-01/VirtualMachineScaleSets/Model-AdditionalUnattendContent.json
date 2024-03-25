@@ -1,53 +1,57 @@
 {
- "name": "AdditionalUnattendContent",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "componentName",
-   "name": "ComponentName",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ComponentNames"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "content",
-   "name": "Content",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "passName",
-   "name": "PassName",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "PassNames"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "settingName",
-   "name": "SettingName",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SettingNames"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "AdditionalUnattendContent",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "componentName",
+      "name": "ComponentName",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ComponentNames"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "content",
+      "name": "Content",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "passName",
+      "name": "PassName",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PassNames"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "settingName",
+      "name": "SettingName",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SettingNames"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

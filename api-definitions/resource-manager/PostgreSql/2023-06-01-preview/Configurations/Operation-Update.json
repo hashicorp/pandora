@@ -1,16 +1,20 @@
 {
- "name": "Update",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201,
-  202
- ],
- "longRunning": true,
- "httpMethod": "PATCH",
- "resourceIdName": "ConfigurationId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "ConfigurationForUpdate"
- }
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "ConfigurationId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ConfigurationForUpdate"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "Configuration"
+  }
 }

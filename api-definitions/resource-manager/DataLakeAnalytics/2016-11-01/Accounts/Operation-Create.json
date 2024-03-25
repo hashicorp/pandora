@@ -1,15 +1,19 @@
 {
- "name": "Create",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201
- ],
- "longRunning": true,
- "httpMethod": "PUT",
- "resourceIdName": "AccountId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "CreateDataLakeAnalyticsAccountParameters"
- }
+  "name": "Create",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "AccountId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "CreateDataLakeAnalyticsAccountParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "DataLakeAnalyticsAccount"
+  }
 }

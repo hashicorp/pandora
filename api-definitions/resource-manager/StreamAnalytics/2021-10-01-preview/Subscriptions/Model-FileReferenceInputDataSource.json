@@ -1,20 +1,21 @@
 {
- "name": "FileReferenceInputDataSource",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "properties",
-   "name": "Properties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "FileReferenceInputDataSourceProperties"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "ReferenceInputDataSource",
- "discriminatedTypeValue": "File",
- "typeHintIn": "Type"
+  "name": "FileReferenceInputDataSource",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "FileReferenceInputDataSourceProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "ReferenceInputDataSource",
+  "discriminatedTypeValue": "File",
+  "typeHintIn": "Type"
 }

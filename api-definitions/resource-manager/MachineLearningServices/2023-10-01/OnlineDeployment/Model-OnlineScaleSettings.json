@@ -1,18 +1,19 @@
 {
- "name": "OnlineScaleSettings",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": true,
-   "jsonName": "scaleType",
-   "name": "ScaleType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ScaleType"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ],
- "typeHintIn": "ScaleType"
+  "name": "OnlineScaleSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": true,
+      "jsonName": "scaleType",
+      "name": "ScaleType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ScaleType"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "typeHintIn": "ScaleType"
 }

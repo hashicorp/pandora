@@ -1,32 +1,34 @@
 {
- "name": "AutomationActionLogicApp",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "logicAppResourceId",
-   "name": "LogicAppResourceId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "uri",
-   "name": "Uri",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "AutomationAction",
- "discriminatedTypeValue": "LogicApp",
- "typeHintIn": "ActionType"
+  "name": "AutomationActionLogicApp",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "logicAppResourceId",
+      "name": "LogicAppResourceId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "uri",
+      "name": "Uri",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "AutomationAction",
+  "discriminatedTypeValue": "LogicApp",
+  "typeHintIn": "ActionType"
 }

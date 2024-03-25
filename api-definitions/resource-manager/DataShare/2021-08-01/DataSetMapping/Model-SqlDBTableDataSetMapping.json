@@ -1,20 +1,21 @@
 {
- "name": "SqlDBTableDataSetMapping",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "properties",
-   "name": "Properties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SqlDBTableDataSetMappingProperties"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "DataSetMapping",
- "discriminatedTypeValue": "SqlDBTable",
- "typeHintIn": "Kind"
+  "name": "SqlDBTableDataSetMapping",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SqlDBTableDataSetMappingProperties"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "DataSetMapping",
+  "discriminatedTypeValue": "SqlDBTable",
+  "typeHintIn": "Kind"
 }

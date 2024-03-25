@@ -1,14 +1,18 @@
 {
- "name": "Update",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": true,
- "httpMethod": "PATCH",
- "resourceIdName": "VirtualMachineRunCommandId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "VirtualMachineRunCommandUpdate"
- }
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "VirtualMachineRunCommandId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "VirtualMachineRunCommandUpdate"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "VirtualMachineRunCommand"
+  }
 }

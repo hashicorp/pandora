@@ -1,54 +1,58 @@
 {
- "name": "PlanData",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "billingCycle",
-   "name": "BillingCycle",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "BillingCycle"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "effectiveDate",
-   "name": "EffectiveDate",
-   "objectDefinition": {
-    "type": "DateTime",
-    "referenceName": null,
-    "dateFormat": "RFC3339"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "planDetails",
-   "name": "PlanDetails",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "usageType",
-   "name": "UsageType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "UsageType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "PlanData",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "billingCycle",
+      "name": "BillingCycle",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "BillingCycle"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "effectiveDate",
+      "name": "EffectiveDate",
+      "objectDefinition": {
+        "type": "DateTime",
+        "referenceName": null,
+        "dateFormat": "RFC3339"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "planDetails",
+      "name": "PlanDetails",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "usageType",
+      "name": "UsageType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "UsageType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

@@ -1,18 +1,19 @@
 {
- "name": "AlertsMetaDataProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": true,
-   "jsonName": "metadataIdentifier",
-   "name": "MetadataIdentifier",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "MetadataIdentifier"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ],
- "typeHintIn": "MetadataIdentifier"
+  "name": "AlertsMetaDataProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": true,
+      "jsonName": "metadataIdentifier",
+      "name": "MetadataIdentifier",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MetadataIdentifier"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "typeHintIn": "MetadataIdentifier"
 }

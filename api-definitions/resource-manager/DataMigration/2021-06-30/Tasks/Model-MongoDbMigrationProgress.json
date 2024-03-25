@@ -1,0 +1,25 @@
+{
+  "name": "MongoDbMigrationProgress",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "databases",
+      "name": "Databases",
+      "objectDefinition": {
+        "type": "Dictionary",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "MongoDbDatabaseProgress"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "MongoDbProgress",
+  "discriminatedTypeValue": "Migration",
+  "typeHintIn": "ResultType"
+}

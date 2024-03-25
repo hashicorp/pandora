@@ -1,29 +1,31 @@
 {
- "name": "ImmutableStorageAccount",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "enabled",
-   "name": "Enabled",
-   "objectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "immutabilityPolicy",
-   "name": "ImmutabilityPolicy",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "AccountImmutabilityPolicyProperties"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "ImmutableStorageAccount",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "enabled",
+      "name": "Enabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "immutabilityPolicy",
+      "name": "ImmutabilityPolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AccountImmutabilityPolicyProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

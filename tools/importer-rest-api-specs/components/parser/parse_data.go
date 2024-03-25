@@ -1,14 +1,19 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package parser
 
 import (
 	"fmt"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/resourceids"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func combineResourcesWith(first models.AzureApiDefinition, other map[string]models.AzureApiResource) (*map[string]models.AzureApiResource, error) {
-	resources := make(map[string]models.AzureApiResource)
+func combineResourcesWith(first importerModels.AzureApiDefinition, other map[string]importerModels.AzureApiResource) (*map[string]importerModels.AzureApiResource, error) {
+	resources := make(map[string]importerModels.AzureApiResource)
 	for k, v := range first.Resources {
 		resources[k] = v
 	}
@@ -50,8 +55,8 @@ func combineResourcesWith(first models.AzureApiDefinition, other map[string]mode
 	return &resources, nil
 }
 
-func combineConstants(first map[string]resourcemanager.ConstantDetails, second map[string]resourcemanager.ConstantDetails) (*map[string]resourcemanager.ConstantDetails, error) {
-	constants := make(map[string]resourcemanager.ConstantDetails, 0)
+func combineConstants(first, second map[string]models.SDKConstant) (*map[string]models.SDKConstant, error) {
+	constants := make(map[string]models.SDKConstant)
 	for k, v := range first {
 		constants[k] = v
 	}
@@ -78,8 +83,8 @@ func combineConstants(first map[string]resourcemanager.ConstantDetails, second m
 	return &constants, nil
 }
 
-func combineModels(first map[string]models.ModelDetails, second map[string]models.ModelDetails) (*map[string]models.ModelDetails, error) {
-	output := make(map[string]models.ModelDetails)
+func combineModels(first map[string]models.SDKModel, second map[string]models.SDKModel) (*map[string]models.SDKModel, error) {
+	output := make(map[string]models.SDKModel)
 
 	for k, v := range first {
 		output[k] = v
@@ -90,15 +95,33 @@ func combineModels(first map[string]models.ModelDetails, second map[string]model
 		if ok && len(existing.Fields) != len(v.Fields) {
 			return nil, fmt.Errorf("duplicate models named %q with different fields - first %d - second %d", k, len(existing.Fields), len(v.Fields))
 		}
-
 		output[k] = v
+	}
+
+	// once we've combined the models for a resource and de-duplicated them, we will iterate over all of them to link any
+	// orphaned discriminated models to their parent
+	for k, v := range output {
+		// this model is an implementation, so we need to find/update the parent
+		if v.ParentTypeName != nil && v.FieldNameContainingDiscriminatedValue != nil && v.DiscriminatedValue != nil {
+			parent, ok := output[*v.ParentTypeName]
+			if !ok {
+				return nil, fmt.Errorf("no parent definition %q found for implementation %q", *v.ParentTypeName, k)
+			}
+			// discriminated models that are defined in a separate file with no reference to a path/tag/resource ID
+			// will not be found when we parse the parent, as a result the parent's TypeHintIn is set to nil,
+			// here we set the information back into the parent after we've found the implementation
+			if parent.FieldNameContainingDiscriminatedValue == nil {
+				parent.FieldNameContainingDiscriminatedValue = v.FieldNameContainingDiscriminatedValue
+			}
+			output[*v.ParentTypeName] = parent
+		}
 	}
 
 	return &output, nil
 }
 
-func combineOperations(first map[string]models.OperationDetails, second map[string]models.OperationDetails) (*map[string]models.OperationDetails, error) {
-	output := make(map[string]models.OperationDetails, 0)
+func combineOperations(first map[string]models.SDKOperation, second map[string]models.SDKOperation) (*map[string]models.SDKOperation, error) {
+	output := make(map[string]models.SDKOperation, 0)
 
 	for k, v := range first {
 		output[k] = v
@@ -117,8 +140,8 @@ func combineOperations(first map[string]models.OperationDetails, second map[stri
 	return &output, nil
 }
 
-func combineResourceIds(first map[string]models.ParsedResourceId, second map[string]models.ParsedResourceId) (*map[string]models.ParsedResourceId, error) {
-	output := make(map[string]models.ParsedResourceId, 0)
+func combineResourceIds(first map[string]models.ResourceID, second map[string]models.ResourceID) (*map[string]models.ResourceID, error) {
+	output := make(map[string]models.ResourceID)
 
 	for k, v := range first {
 		output[k] = v
@@ -127,8 +150,8 @@ func combineResourceIds(first map[string]models.ParsedResourceId, second map[str
 	for k, v := range second {
 		// if there's duplicate Resource ID's named the same thing in different Swaggers, this is likely a data issue
 		otherVal, ok := output[k]
-		if ok && !v.Matches(otherVal) {
-			return nil, fmt.Errorf("duplicate Resource ID named %q (First %q / Second %q)", k, v.String(), otherVal.String())
+		if ok && !resourceids.ResourceIdsMatch(v, otherVal) {
+			return nil, fmt.Errorf("duplicate Resource ID named %q (First %q / Second %q)", k, helpers.DisplayValueForResourceID(v), helpers.DisplayValueForResourceID(otherVal))
 		}
 
 		output[k] = v

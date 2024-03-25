@@ -1,18 +1,19 @@
 {
- "name": "AuthInfoBase",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": true,
-   "jsonName": "authType",
-   "name": "AuthType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "AuthType"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ],
- "typeHintIn": "AuthType"
+  "name": "AuthInfoBase",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": true,
+      "jsonName": "authType",
+      "name": "AuthType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AuthType"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "typeHintIn": "AuthType"
 }

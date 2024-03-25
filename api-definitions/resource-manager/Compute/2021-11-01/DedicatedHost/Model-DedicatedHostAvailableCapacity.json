@@ -1,21 +1,22 @@
 {
- "name": "DedicatedHostAvailableCapacity",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "allocatableVMs",
-   "name": "AllocatableVMs",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "DedicatedHostAllocatableVM"
+  "name": "DedicatedHostAvailableCapacity",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "allocatableVMs",
+      "name": "AllocatableVMs",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "DedicatedHostAllocatableVM"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

@@ -1,29 +1,31 @@
 {
- "name": "PanoramaStatus",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "panoramaServer2Status",
-   "name": "PanoramaServer2Status",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ServerStatus"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "panoramaServerStatus",
-   "name": "PanoramaServerStatus",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ServerStatus"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "PanoramaStatus",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "panoramaServer2Status",
+      "name": "PanoramaServer2Status",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ServerStatus"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "panoramaServerStatus",
+      "name": "PanoramaServerStatus",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ServerStatus"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

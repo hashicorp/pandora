@@ -1,21 +1,22 @@
 {
- "name": "ContainerExec",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "command",
-   "name": "Command",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "String",
-     "referenceName": null
+  "name": "ContainerExec",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "command",
+      "name": "Command",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

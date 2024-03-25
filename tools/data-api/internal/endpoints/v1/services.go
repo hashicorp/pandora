@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package v1
 
 import (
@@ -5,7 +8,7 @@ import (
 	"net/http"
 
 	"github.com/go-chi/render"
-	"github.com/hashicorp/pandora/tools/data-api/models"
+	v1 "github.com/hashicorp/pandora/tools/data-api-sdk/v1"
 )
 
 func (api Api) services(w http.ResponseWriter, r *http.Request) {
@@ -15,8 +18,8 @@ func (api Api) services(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	payload := models.ServicesDefinition{
-		Services: make(map[string]models.ServiceSummary, 0),
+	payload := v1.GetAvailableServices{
+		Services: make(map[string]v1.AvailableServiceSummary),
 	}
 	services, err := api.servicesRepository.GetAll(opts.ServiceType)
 	if err != nil {
@@ -25,7 +28,7 @@ func (api Api) services(w http.ResponseWriter, r *http.Request) {
 	}
 
 	for _, service := range *services {
-		payload.Services[service.Name] = models.ServiceSummary{
+		payload.Services[service.Name] = v1.AvailableServiceSummary{
 			Generate: service.Generate,
 			Uri:      fmt.Sprintf("%s/services/%s", opts.UriPrefix, service.Name),
 		}

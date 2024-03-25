@@ -1,57 +1,61 @@
 {
- "name": "DynamicMetricCriteria",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "alertSensitivity",
-   "name": "AlertSensitivity",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "DynamicThresholdSensitivity"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "failingPeriods",
-   "name": "FailingPeriods",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "DynamicThresholdFailingPeriods"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "ignoreDataBefore",
-   "name": "IgnoreDataBefore",
-   "objectDefinition": {
-    "type": "DateTime",
-    "referenceName": null,
-    "dateFormat": "RFC3339"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "operator",
-   "name": "Operator",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "DynamicThresholdOperator"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "MultiMetricCriteria",
- "discriminatedTypeValue": "DynamicThresholdCriterion",
- "typeHintIn": "CriterionType"
+  "name": "DynamicMetricCriteria",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "alertSensitivity",
+      "name": "AlertSensitivity",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DynamicThresholdSensitivity"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "failingPeriods",
+      "name": "FailingPeriods",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DynamicThresholdFailingPeriods"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "ignoreDataBefore",
+      "name": "IgnoreDataBefore",
+      "objectDefinition": {
+        "type": "DateTime",
+        "referenceName": null,
+        "dateFormat": "RFC3339"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "operator",
+      "name": "Operator",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DynamicThresholdOperator"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "MultiMetricCriteria",
+  "discriminatedTypeValue": "DynamicThresholdCriterion",
+  "typeHintIn": "CriterionType"
 }

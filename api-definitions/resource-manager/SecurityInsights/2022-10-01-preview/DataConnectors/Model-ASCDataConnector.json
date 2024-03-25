@@ -1,20 +1,21 @@
 {
- "name": "ASCDataConnector",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "properties",
-   "name": "Properties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ASCDataConnectorProperties"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "DataConnector",
- "discriminatedTypeValue": "AzureSecurityCenter",
- "typeHintIn": "Kind"
+  "name": "ASCDataConnector",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ASCDataConnectorProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "DataConnector",
+  "discriminatedTypeValue": "AzureSecurityCenter",
+  "typeHintIn": "Kind"
 }

@@ -1,20 +1,21 @@
 {
- "name": "AzureFunctionOutputDataSource",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "properties",
-   "name": "Properties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "AzureFunctionOutputDataSourceProperties"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "OutputDataSource",
- "discriminatedTypeValue": "Microsoft.AzureFunction",
- "typeHintIn": "Type"
+  "name": "AzureFunctionOutputDataSource",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AzureFunctionOutputDataSourceProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "OutputDataSource",
+  "discriminatedTypeValue": "Microsoft.AzureFunction",
+  "typeHintIn": "Type"
 }

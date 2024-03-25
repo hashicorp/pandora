@@ -1,19 +1,19 @@
 {
- "name": "GetTimelinelist",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "POST",
- "resourceIdName": "EntityId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "EntityTimelineParameters"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "EntityTimelineResponse"
- },
- "uriSuffix": "/getTimeline"
+  "name": "GetTimelinelist",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "EntityId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "EntityTimelineParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "EntityTimelineResponse"
+  },
+  "uriSuffix": "/getTimeline"
 }

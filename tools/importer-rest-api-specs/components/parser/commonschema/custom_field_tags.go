@@ -1,21 +1,27 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package commonschema
 
 import (
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
-
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 var _ customFieldMatcher = tagsMatcher{}
 
 type tagsMatcher struct{}
 
-func (tagsMatcher) IsMatch(field models.FieldDetails, definition models.ObjectDefinition, known internal.ParseResult) bool {
-	return strings.EqualFold(field.JsonName, "tags") && definition.Type == models.ObjectDefinitionDictionary && definition.NestedItem.Type == models.ObjectDefinitionString
+func (tagsMatcher) ReplacementObjectDefinition() models.SDKObjectDefinition {
+	return models.SDKObjectDefinition{
+		Type: models.TagsSDKObjectDefinitionType,
+	}
 }
 
-func (tagsMatcher) CustomFieldType() models.CustomFieldType {
-	return models.CustomFieldTypeTags
+func (tagsMatcher) IsMatch(field models.SDKField, _ internal.ParseResult) bool {
+	nameMatches := strings.EqualFold(field.JsonName, "tags")
+	typeMatches := field.ObjectDefinition.Type == models.DictionarySDKObjectDefinitionType && field.ObjectDefinition.NestedItem.Type == models.StringSDKObjectDefinitionType
+	return nameMatches && typeMatches
 }

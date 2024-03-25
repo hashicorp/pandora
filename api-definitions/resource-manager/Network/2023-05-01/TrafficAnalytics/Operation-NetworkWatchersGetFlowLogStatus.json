@@ -1,16 +1,20 @@
 {
- "name": "NetworkWatchersGetFlowLogStatus",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "POST",
- "resourceIdName": "NetworkWatcherId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "FlowLogStatusParameters"
- },
- "uriSuffix": "/queryFlowLogStatus"
+  "name": "NetworkWatchersGetFlowLogStatus",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "NetworkWatcherId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "FlowLogStatusParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "FlowLogInformation"
+  },
+  "uriSuffix": "/queryFlowLogStatus"
 }

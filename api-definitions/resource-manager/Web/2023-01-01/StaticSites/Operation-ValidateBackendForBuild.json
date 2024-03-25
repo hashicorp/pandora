@@ -1,16 +1,16 @@
 {
- "name": "ValidateBackendForBuild",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  202,
-  204
- ],
- "longRunning": true,
- "httpMethod": "POST",
- "resourceIdName": "BuildLinkedBackendId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "StaticSiteLinkedBackendARMResource"
- },
- "uriSuffix": "/validate"
+  "name": "ValidateBackendForBuild",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    202,
+    204
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "BuildLinkedBackendId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "StaticSiteLinkedBackendARMResource"
+  },
+  "uriSuffix": "/validate"
 }

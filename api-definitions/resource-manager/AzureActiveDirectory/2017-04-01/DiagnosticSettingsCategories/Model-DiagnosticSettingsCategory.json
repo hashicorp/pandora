@@ -1,17 +1,18 @@
 {
- "name": "DiagnosticSettingsCategory",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "categoryType",
-   "name": "CategoryType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "CategoryType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "DiagnosticSettingsCategory",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "categoryType",
+      "name": "CategoryType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CategoryType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

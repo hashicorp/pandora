@@ -1,0 +1,81 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Example",
+    "description": "Example",
+    "version": "2020-01-01"
+  },
+  "host": "management.mysite.com",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "security": [],
+  "securityDefinitions": {},
+  "paths": {
+    "/example": {
+      "get": {
+        "tags": [
+          "Example"
+        ],
+        "operationId": "Example_Test",
+        "description": "Tests parsing of a model containing a Constant",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/ExampleWrapper"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "ExampleWrapper": {
+      "description": "The Resource definition.",
+      "properties": {
+        "favouriteTable": {
+          "description": "Preferred Table number.",
+          "enum": [
+            1,
+            2,
+            3
+          ],
+          "type": "integer",
+          "x-ms-enum": {
+            "name": "TableNumber",
+            "modelAsString": false,
+            "values": [
+              {
+                "value": 1,
+                "name": "First",
+                "description": "First item."
+              },
+              {
+                "value": 2,
+                "name": "Second",
+                "description": "Second item."
+              },
+              {
+                "value": 3,
+                "name": "Third",
+                "description": "Third item."
+              }
+            ]
+          }
+        }
+      },
+      "title": "ExampleWrapper",
+      "type": "object",
+      "x-ms-azure-resource": true
+    }
+  },
+  "parameters": {}
+}

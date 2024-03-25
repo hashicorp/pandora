@@ -1,21 +1,22 @@
 {
- "name": "SuppressionAlertsScope",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "allOf",
-   "name": "AllOf",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "ScopeElement"
+  "name": "SuppressionAlertsScope",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "allOf",
+      "name": "AllOf",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "ScopeElement"
+        }
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
     }
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  ]
 }

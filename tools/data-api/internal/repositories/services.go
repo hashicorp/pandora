@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package repositories
 
 import (
@@ -10,6 +13,7 @@ import (
 	"sync"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	"github.com/hashicorp/pandora/tools/data-api/internal/logging"
 	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
 )
 
@@ -63,16 +67,19 @@ func NewServicesRepository(directory string, serviceType ServiceType, serviceNam
 	// all service definitions for the specified service type, building a complete list of services as well as their directory paths
 	// to load from
 
-	var expectedDataSource dataapimodels.DataSource
-	if serviceType == ResourceManagerServiceType {
-		expectedDataSource = dataapimodels.AzureResourceManagerDataSource
+	dataSources := map[ServiceType]dataapimodels.DataSource{
+		MicrosoftGraphServiceType:  dataapimodels.MicrosoftGraphDataSource,
+		ResourceManagerServiceType: dataapimodels.AzureResourceManagerDataSource,
 	}
-	if serviceType == MicrosoftGraphV1StableServiceType {
-		expectedDataSource = dataapimodels.MicrosoftGraphDataSource
+	dataSource, ok := dataSources[serviceType]
+	if !ok {
+		return nil, fmt.Errorf("internal-error: unimplemented data source %q", string(serviceType))
 	}
 
+	logging.Debugf("Initialising new Service Respository for %q", serviceType)
+
 	repo := &ServicesRepositoryImpl{
-		expectedDataSource: expectedDataSource,
+		expectedDataSource: dataSource,
 		rootDirectory:      directory,
 		serviceNames:       serviceNames,
 		serviceType:        serviceType,
@@ -121,6 +128,7 @@ func (s *ServicesRepositoryImpl) GetAll(serviceType ServiceType) (*[]ServiceDeta
 		for _, serviceToLoad := range servicesToLoadSorted {
 			serviceInCache, ok := (*s.services)[serviceToLoad]
 			if !ok {
+				logging.Debugf("Loading service %q", serviceToLoad)
 				serviceDetail, err := s.GetByName(serviceToLoad, s.serviceType)
 				if err != nil {
 					return nil, fmt.Errorf("retrieving service details for %s: %+v", serviceToLoad, err)
@@ -128,6 +136,7 @@ func (s *ServicesRepositoryImpl) GetAll(serviceType ServiceType) (*[]ServiceDeta
 				// add it to the cache
 				(*s.services)[serviceToLoad] = *serviceDetail
 				serviceDetails = append(serviceDetails, *serviceDetail)
+				logging.Debugf("Loaded service %q", serviceToLoad)
 			} else {
 				serviceDetails = append(serviceDetails, serviceInCache)
 			}
@@ -140,12 +149,14 @@ func (s *ServicesRepositoryImpl) GetAll(serviceType ServiceType) (*[]ServiceDeta
 		s.Lock()
 		servicesMap := make(map[string]ServiceDetails)
 		for _, service := range servicesToLoadSorted {
+			logging.Debugf("Loading service %q", service)
 			serviceDetail, err := s.GetByName(service, s.serviceType)
 			if err != nil {
 				return nil, fmt.Errorf("retrieving service details for %s: %+v", service, err)
 			}
 			serviceDetails = append(serviceDetails, *serviceDetail)
 			servicesMap[serviceDetail.Name] = *serviceDetail
+			logging.Debugf("Loaded service %q", service)
 		}
 		s.services = &servicesMap
 		s.Unlock()
@@ -198,6 +209,7 @@ func (s *ServicesRepositoryImpl) ProcessServiceDefinitions(serviceName string) (
 
 	if versions != nil {
 		for _, version := range *versions {
+			logging.Debugf("Processing version %q for service %q", version, serviceName)
 			// The Terraform directory can be skipped as it only has a subdirectory for tests
 			if version == "Terraform" {
 				continue
@@ -211,6 +223,7 @@ func (s *ServicesRepositoryImpl) ProcessServiceDefinitions(serviceName string) (
 				return nil, fmt.Errorf("processing version definitions for %s: %+v", version, err)
 			}
 			versionDefinitions[version] = versionDetails
+			logging.Debugf("Processed version %q for service %q", version, serviceName)
 		}
 	}
 
@@ -271,12 +284,14 @@ func (s *ServicesRepositoryImpl) ProcessVersionDefinitions(serviceName string, v
 	resourceDefinitions := make(map[string]*ServiceApiVersionResourceDetails, 0)
 
 	for _, resource := range resources {
+		logging.Debugf("Processing resource %q in version %q for service %q", resource, version, serviceName)
 		resourceDetail, err := s.ProcessResourceDefinitions(serviceName, version, resource)
 		if err != nil {
 			return nil, fmt.Errorf("processing resource definition for %s: %+v", resource, err)
 		}
 
 		resourceDefinitions[resource] = resourceDetail
+		logging.Debugf("Processed resource %q in version %q for service %q", resource, version, serviceName)
 	}
 
 	versionDefinition.Resources = resourceDefinitions
@@ -438,11 +453,15 @@ func parseModelFromFilePath(filePath string) (*ModelDetails, error) {
 	fieldDetails := make(map[string]FieldDetails)
 	for _, field := range model.Fields {
 		fieldDetail := FieldDetails{
-			IsTypeHint:  field.ContainsDiscriminatedTypeValue,
-			JsonName:    field.JsonName,
-			Optional:    field.Optional,
-			Required:    field.Required,
-			Description: field.Description,
+			ForceNew:         false,
+			IsTypeHint:       field.ContainsDiscriminatedTypeValue,
+			JsonName:         field.JsonName,
+			ObjectDefinition: ObjectDefinition{},
+			Optional:         field.Optional,
+			Required:         field.Required,
+			Description:      pointer.From(field.Description),
+			ReadOnly:         field.ReadOnly,
+			Sensitive:        field.Sensitive,
 		}
 
 		objectDefinition, err := mapObjectDefinition(&field.ObjectDefinition)
@@ -563,6 +582,7 @@ func (s *ServicesRepositoryImpl) ProcessTerraformDefinitions(serviceName string)
 		}
 
 		definitionName, definitionType, err := getTerraformDefinitionInfo(file.Name())
+		logging.Debugf("Processing Terraform Definitions for %q", definitionName)
 		if err != nil {
 			return nil, err
 		}
@@ -588,7 +608,7 @@ func (s *ServicesRepositoryImpl) ProcessTerraformDefinitions(serviceName string)
 			}
 
 		case "resource-schema":
-			resource.SchemaModels, err = parseTerraformDefinitionResourceSchemaFromFilePath(terraformDefinitionsPath, file)
+			resource.SchemaModels, err = parseTerraformDefinitionResourceSchemaFromFilePath(terraformDefinitionsPath, file, resource.SchemaModels)
 			if err != nil {
 				return nil, err
 			}
@@ -619,6 +639,7 @@ func (s *ServicesRepositoryImpl) ProcessTerraformDefinitions(serviceName string)
 
 		// todo the `_` is defintionType (ie. Resource, Datasource?), we'll probably do something with that later but for now we'll ignore
 		definitionName, _, testType, err := getTerraformTestInfo(file.Name())
+		logging.Debugf("Processing Terraform Tests for %q", definitionName)
 		if err != nil {
 			return nil, err
 		}
@@ -832,17 +853,19 @@ func parseTerraformTestFromFilePath(resourcePath string, file os.DirEntry) (stri
 	return contents, nil
 }
 
-func parseTerraformDefinitionResourceSchemaFromFilePath(resourcePath string, file os.DirEntry) (map[string]TerraformSchemaModelDefinition, error) {
-	schemaModelDefinition := make(map[string]TerraformSchemaModelDefinition)
+func parseTerraformDefinitionResourceSchemaFromFilePath(resourcePath string, file os.DirEntry, input map[string]TerraformSchemaModelDefinition) (map[string]TerraformSchemaModelDefinition, error) {
+	if input == nil {
+		input = make(map[string]TerraformSchemaModelDefinition)
+	}
+
 	contents, err := loadJson(path.Join(resourcePath, file.Name()))
 	if err != nil {
-		return schemaModelDefinition, err
+		return input, err
 	}
 
 	var schemaModel dataapimodels.TerraformSchemaModel
-
 	if err := json.Unmarshal(*contents, &schemaModel); err != nil {
-		return schemaModelDefinition, fmt.Errorf("unmarshaling Terraform Resource Schema %+v", err)
+		return input, fmt.Errorf("unmarshaling Terraform Resource Schema %+v", err)
 	}
 
 	fields := make(map[string]TerraformSchemaFieldDefinition)
@@ -862,9 +885,13 @@ func parseTerraformDefinitionResourceSchemaFromFilePath(resourcePath string, fil
 			}
 
 			if field.Validation.PossibleValues != nil {
+				valueType, err := mapValidationPossibleValueTypes(field.Validation.PossibleValues.Type)
+				if err != nil {
+					return input, err
+				}
 				fieldDefinition.Validation.PossibleValues = &TerraformSchemaValidationPossibleValuesDefinition{
-					Type:   fieldDefinition.Validation.PossibleValues.Type,
-					Values: fieldDefinition.Validation.PossibleValues.Values,
+					Type:   *valueType,
+					Values: field.Validation.PossibleValues.Values,
 				}
 			}
 		}
@@ -878,15 +905,11 @@ func parseTerraformDefinitionResourceSchemaFromFilePath(resourcePath string, fil
 		fields[field.Name] = fieldDefinition
 	}
 
-	// todo do we take the file name and strip it of these pieces or is this information somewhere else
-	// the v1 data api has this value as `LoadTestResourceSchema` which is the filename (LoadTest-Resource-Schema.json) with the following stripped
-	modelDefinitionName := strings.Replace(strings.Replace(file.Name(), "-", "", -1), ".json", "", -1)
-
-	schemaModelDefinition[modelDefinitionName] = TerraformSchemaModelDefinition{
+	input[schemaModel.Name] = TerraformSchemaModelDefinition{
 		Fields: fields,
 	}
 
-	return schemaModelDefinition, nil
+	return input, nil
 }
 
 func parseTerraformDefinitionResourceTestsFromFilePath(resourcePath string, file os.DirEntry) (TerraformResourceTestsDefinition, error) {
@@ -953,11 +976,13 @@ func parseResourceIdFromFilePath(filePath string, constants map[string]ConstantD
 			Type:              pointer.From(segmentType),
 		}
 
+		// TODO: update this so it's persisted/retrieved from disk
 		switch *segmentType {
 		case ConstantResourceIdSegmentType:
 			if s.ConstantReference == nil {
 				return nil, fmt.Errorf("constant segment has no constant reference")
 			}
+
 			constant, ok := constants[*s.ConstantReference]
 			if !ok {
 				return nil, fmt.Errorf("no constant definition found for constant segment reference %q", *s.ConstantReference)

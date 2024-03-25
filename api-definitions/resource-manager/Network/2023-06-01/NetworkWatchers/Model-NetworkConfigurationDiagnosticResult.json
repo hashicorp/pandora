@@ -1,29 +1,31 @@
 {
- "name": "NetworkConfigurationDiagnosticResult",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "networkSecurityGroupResult",
-   "name": "NetworkSecurityGroupResult",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "NetworkSecurityGroupResult"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "profile",
-   "name": "Profile",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "NetworkConfigurationDiagnosticProfile"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "NetworkConfigurationDiagnosticResult",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "networkSecurityGroupResult",
+      "name": "NetworkSecurityGroupResult",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "NetworkSecurityGroupResult"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "profile",
+      "name": "Profile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "NetworkConfigurationDiagnosticProfile"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

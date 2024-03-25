@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package cleanup
 
 import (
@@ -109,6 +112,7 @@ func NormalizeSegment(input string, camelCase bool) string {
 		"connectionstrings":                 "connectionStrings",
 		"configreferences":                  "configReferences",
 		"consumergroups":                    "consumerGroups",
+		"contentproducttemplates":           "contentProductTemplates",
 		"continuouswebjobs":                 "continuousWebJobs",
 		"customimages":                      "customImages",
 		"customipprefixes":                  "customIPPrefixes",

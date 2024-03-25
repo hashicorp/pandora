@@ -1,56 +1,60 @@
 {
- "name": "TextClassification",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "featurizationSettings",
-   "name": "FeaturizationSettings",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "FeaturizationSettings"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "limitSettings",
-   "name": "LimitSettings",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "NlpVerticalLimitSettings"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "primaryMetric",
-   "name": "PrimaryMetric",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ClassificationPrimaryMetrics"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "validationData",
-   "name": "ValidationData",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "MLTableJobInput"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "AutoMLVertical",
- "discriminatedTypeValue": "TextClassification",
- "typeHintIn": "TaskType"
+  "name": "TextClassification",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "featurizationSettings",
+      "name": "FeaturizationSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "FeaturizationSettings"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "limitSettings",
+      "name": "LimitSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "NlpVerticalLimitSettings"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "primaryMetric",
+      "name": "PrimaryMetric",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ClassificationPrimaryMetrics"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "validationData",
+      "name": "ValidationData",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MLTableJobInput"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "AutoMLVertical",
+  "discriminatedTypeValue": "TextClassification",
+  "typeHintIn": "TaskType"
 }

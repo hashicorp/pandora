@@ -1,169 +1,182 @@
 {
- "name": "AzureVMWorkloadSAPHanaDBInstanceProtectedItem",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "extendedInfo",
-   "name": "ExtendedInfo",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "AzureVMWorkloadProtectedItemExtendedInfo"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "friendlyName",
-   "name": "FriendlyName",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "kpisHealths",
-   "name": "KpisHealths",
-   "objectDefinition": {
-    "type": "Dictionary",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "KPIResourceHealthDetails"
+  "name": "AzureVMWorkloadSAPHanaDBInstanceProtectedItem",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "extendedInfo",
+      "name": "ExtendedInfo",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AzureVMWorkloadProtectedItemExtendedInfo"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "friendlyName",
+      "name": "FriendlyName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "kpisHealths",
+      "name": "KpisHealths",
+      "objectDefinition": {
+        "type": "Dictionary",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "KPIResourceHealthDetails"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "lastBackupErrorDetail",
+      "name": "LastBackupErrorDetail",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ErrorDetail"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "lastBackupStatus",
+      "name": "LastBackupStatus",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "LastBackupStatus"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "lastBackupTime",
+      "name": "LastBackupTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "referenceName": null,
+        "dateFormat": "RFC3339"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "parentName",
+      "name": "ParentName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "parentType",
+      "name": "ParentType",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "protectedItemDataSourceId",
+      "name": "ProtectedItemDataSourceId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "protectedItemHealthStatus",
+      "name": "ProtectedItemHealthStatus",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ProtectedItemHealthStatus"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "protectionState",
+      "name": "ProtectionState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ProtectionState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "protectionStatus",
+      "name": "ProtectionStatus",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "serverName",
+      "name": "ServerName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "lastBackupErrorDetail",
-   "name": "LastBackupErrorDetail",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ErrorDetail"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "lastBackupStatus",
-   "name": "LastBackupStatus",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "LastBackupStatus"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "lastBackupTime",
-   "name": "LastBackupTime",
-   "objectDefinition": {
-    "type": "DateTime",
-    "referenceName": null,
-    "dateFormat": "RFC3339"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "parentName",
-   "name": "ParentName",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "parentType",
-   "name": "ParentType",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "protectedItemDataSourceId",
-   "name": "ProtectedItemDataSourceId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "protectedItemHealthStatus",
-   "name": "ProtectedItemHealthStatus",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ProtectedItemHealthStatus"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "protectionState",
-   "name": "ProtectionState",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ProtectionState"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "protectionStatus",
-   "name": "ProtectionStatus",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "serverName",
-   "name": "ServerName",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "ProtectedItem",
- "discriminatedTypeValue": "AzureVmWorkloadSAPHanaDBInstance",
- "typeHintIn": "ProtectedItemType"
+  ],
+  "discriminatedParentModelName": "ProtectedItem",
+  "discriminatedTypeValue": "AzureVmWorkloadSAPHanaDBInstance",
+  "typeHintIn": "ProtectedItemType"
 }

@@ -1,28 +1,32 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package commonschema
 
 import (
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
-
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 var _ customFieldMatcher = systemOrUserAssignedIdentityListMatcher{}
 
 type systemOrUserAssignedIdentityListMatcher struct{}
 
-func (systemOrUserAssignedIdentityListMatcher) CustomFieldType() models.CustomFieldType {
-	return models.CustomFieldTypeSystemOrUserAssignedIdentityList
+func (systemOrUserAssignedIdentityListMatcher) ReplacementObjectDefinition() models.SDKObjectDefinition {
+	return models.SDKObjectDefinition{
+		Type: models.SystemOrUserAssignedIdentityListSDKObjectDefinitionType,
+	}
 }
 
-func (systemOrUserAssignedIdentityListMatcher) IsMatch(field models.FieldDetails, definition models.ObjectDefinition, known internal.ParseResult) bool {
-	if definition.Type != models.ObjectDefinitionReference {
+func (systemOrUserAssignedIdentityListMatcher) IsMatch(field models.SDKField, known internal.ParseResult) bool {
+	if field.ObjectDefinition.Type != models.ReferenceSDKObjectDefinitionType {
 		return false
 	}
 
 	// retrieve the model from the reference
-	model, ok := known.Models[*definition.ReferenceName]
+	model, ok := known.Models[*field.ObjectDefinition.ReferenceName]
 	if !ok {
 		return false
 	}
@@ -45,10 +49,10 @@ func (systemOrUserAssignedIdentityListMatcher) IsMatch(field models.FieldDetails
 
 		if strings.EqualFold(fieldName, "UserAssignedIdentities") {
 			// this should be a List of Strings
-			if fieldVal.ObjectDefinition == nil || fieldVal.ObjectDefinition.Type != models.ObjectDefinitionList {
+			if fieldVal.ObjectDefinition.Type != models.ListSDKObjectDefinitionType {
 				continue
 			}
-			if fieldVal.ObjectDefinition.NestedItem == nil || fieldVal.ObjectDefinition.NestedItem.Type != models.ObjectDefinitionString {
+			if fieldVal.ObjectDefinition.NestedItem == nil || fieldVal.ObjectDefinition.NestedItem.Type != models.StringSDKObjectDefinitionType {
 				continue
 			}
 
@@ -57,7 +61,7 @@ func (systemOrUserAssignedIdentityListMatcher) IsMatch(field models.FieldDetails
 		}
 
 		if strings.EqualFold(fieldName, "Type") {
-			if fieldVal.ObjectDefinition == nil || fieldVal.ObjectDefinition.Type != models.ObjectDefinitionReference {
+			if fieldVal.ObjectDefinition.Type != models.ReferenceSDKObjectDefinitionType {
 				continue
 			}
 			constant, ok := known.Constants[*fieldVal.ObjectDefinition.ReferenceName]

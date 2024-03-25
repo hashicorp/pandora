@@ -1,16 +1,20 @@
 {
- "name": "SqlResourcesRetrieveContinuousBackupInformation",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "POST",
- "resourceIdName": "ContainerId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "ContinuousBackupRestoreLocation"
- },
- "uriSuffix": "/retrieveContinuousBackupInformation"
+  "name": "SqlResourcesRetrieveContinuousBackupInformation",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "ContainerId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ContinuousBackupRestoreLocation"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "BackupInformation"
+  },
+  "uriSuffix": "/retrieveContinuousBackupInformation"
 }

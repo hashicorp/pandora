@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package internal
 
 import (
@@ -6,25 +9,24 @@ import (
 	"strings"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 type ParseResult struct {
-	Constants map[string]resourcemanager.ConstantDetails
-	Models    map[string]models.ModelDetails
+	Constants map[string]models.SDKConstant
+	Models    map[string]models.SDKModel
 }
 
 func (r *ParseResult) Append(other ParseResult) error {
 	if r.Constants == nil {
-		r.Constants = make(map[string]resourcemanager.ConstantDetails)
+		r.Constants = make(map[string]models.SDKConstant)
 	}
 	if err := r.AppendConstants(other.Constants); err != nil {
 		return fmt.Errorf("appending constants: %+v", err)
 	}
 
 	if r.Models == nil {
-		r.Models = make(map[string]models.ModelDetails)
+		r.Models = make(map[string]models.SDKModel)
 	}
 	if err := r.AppendModels(other.Models); err != nil {
 		return fmt.Errorf("appending models: %+v", err)
@@ -33,7 +35,7 @@ func (r *ParseResult) Append(other ParseResult) error {
 	return nil
 }
 
-func (r *ParseResult) AppendConstants(other map[string]resourcemanager.ConstantDetails) error {
+func (r *ParseResult) AppendConstants(other map[string]models.SDKConstant) error {
 	for k, v := range other {
 		existing, hasExisting := r.Constants[k]
 		if !hasExisting {
@@ -53,7 +55,7 @@ func (r *ParseResult) AppendConstants(other map[string]resourcemanager.ConstantD
 	return nil
 }
 
-func (r *ParseResult) AppendModels(other map[string]models.ModelDetails) error {
+func (r *ParseResult) AppendModels(other map[string]models.SDKModel) error {
 	for k, v := range other {
 		existing, hasExisting := r.Models[k]
 		if !hasExisting {
@@ -61,14 +63,14 @@ func (r *ParseResult) AppendModels(other map[string]models.ModelDetails) error {
 			continue
 		}
 
+		if err := compareNilableString(existing.DiscriminatedValue, v.DiscriminatedValue); err != nil {
+			return fmt.Errorf("comparing DiscriminatedValue: %+v", err)
+		}
+		if err := compareNilableString(existing.FieldNameContainingDiscriminatedValue, v.FieldNameContainingDiscriminatedValue); err != nil {
+			return fmt.Errorf("comparing FieldNameContainingDiscriminatedValue: %+v", err)
+		}
 		if err := compareNilableString(existing.ParentTypeName, v.ParentTypeName); err != nil {
 			return fmt.Errorf("comparing ParentTypeName: %+v", err)
-		}
-		if err := compareNilableString(existing.TypeHintIn, v.TypeHintIn); err != nil {
-			return fmt.Errorf("comparing TypeHintIn: %+v", err)
-		}
-		if err := compareNilableString(existing.TypeHintValue, v.TypeHintValue); err != nil {
-			return fmt.Errorf("comparing TypeHintValue: %+v", err)
 		}
 
 		if err := compareFields(existing.Fields, v.Fields); err != nil {
@@ -79,7 +81,7 @@ func (r *ParseResult) AppendModels(other map[string]models.ModelDetails) error {
 	return nil
 }
 
-func compareFields(first map[string]models.FieldDetails, second map[string]models.FieldDetails) error {
+func compareFields(first map[string]models.SDKField, second map[string]models.SDKField) error {
 	if len(first) != len(second) {
 		return fmt.Errorf("first had %d fields but second had %d fields", len(first), len(second))
 	}
@@ -91,6 +93,10 @@ func compareFields(first map[string]models.FieldDetails, second map[string]model
 			return fmt.Errorf("second didn't contain the key %q", k)
 		}
 
+		// TODO this can be uncommented when #3325 has been fixed
+		//if firstVal.Description != secondVal.Description {
+		//	return fmt.Errorf("first.Description was %q but second.Description was %q", firstVal.Description, secondVal.Description)
+		//}
 		if firstVal.JsonName != secondVal.JsonName {
 			return fmt.Errorf("first.JsonName was %q but second.JsonName was %q", firstVal.JsonName, secondVal.JsonName)
 		}
@@ -103,27 +109,22 @@ func compareFields(first map[string]models.FieldDetails, second map[string]model
 		if err := objectDefinitionsMatch(firstVal.ObjectDefinition, secondVal.ObjectDefinition); err != nil {
 			return fmt.Errorf("object definitions differ: %+v.\n\nFirst %q\n\nSecond %q", err, firstVal.ObjectDefinition, secondVal.ObjectDefinition)
 		}
-		if err := customFieldTypesMatch(firstVal.CustomFieldType, secondVal.CustomFieldType); err != nil {
-			return fmt.Errorf("custom field types differ: %+v\n\nFirst %q\n\nSecond %q", err, firstVal.ObjectDefinition, secondVal.ObjectDefinition)
-		}
-		// NOTE: we're intentionally not checking Description at this time
 	}
 
 	return nil
 }
 
-func objectDefinitionsMatch(first *models.ObjectDefinition, second *models.ObjectDefinition) error {
-	if first == nil && second == nil {
-		return nil
+func objectDefinitionsMatch(first, second models.SDKObjectDefinition) error {
+	if first.NestedItem != nil && second.NestedItem == nil {
+		return fmt.Errorf("`first` had a nested item but `second` didn't. First: %+v. Second: %+v", first, second)
 	}
-	if first != nil && second == nil {
-		return fmt.Errorf("first was %q but second was nil", first.String())
+	if first.NestedItem == nil && second.NestedItem != nil {
+		return fmt.Errorf("`second` had a nested item but `first` didn't. First: %+v. Second: %+v", first, second)
 	}
-	if first == nil && second != nil {
-		return fmt.Errorf("first was nil but second was %q", second.String())
-	}
-	if err := objectDefinitionsMatch(first.NestedItem, second.NestedItem); err != nil {
-		return fmt.Errorf("nested items differ: %+v", err)
+	if first.NestedItem != nil && second.NestedItem != nil {
+		if err := objectDefinitionsMatch(*first.NestedItem, *second.NestedItem); err != nil {
+			return fmt.Errorf("nested items differ: %+v", err)
+		}
 	}
 	if first.Type != second.Type {
 		return fmt.Errorf("first.Type was %q but second.Type was %q", string(first.Type), string(second.Type))
@@ -131,33 +132,17 @@ func objectDefinitionsMatch(first *models.ObjectDefinition, second *models.Objec
 	if err := compareNilableString(first.ReferenceName, second.ReferenceName); err != nil {
 		return fmt.Errorf("value for ReferenceName differs: %+v\n\nFirst was %q but second was %q", err, pointer.From(first.ReferenceName), pointer.From(second.ReferenceName))
 	}
-	if err := compareNilableInteger(first.Maximum, second.Maximum); err != nil {
-		return fmt.Errorf("value for Maximum differs: %+v\n\nFirst was %d but second was %d", err, pointer.From(first.Maximum), pointer.From(second.Maximum))
-	}
-	if err := compareNilableInteger(first.Minimum, second.Minimum); err != nil {
-		return fmt.Errorf("value for Minimum differs: %+v\n\nFirst was %d but second was %d", err, pointer.From(first.Minimum), pointer.From(second.Minimum))
-	}
-	if err := compareNilableBoolean(first.UniqueItems, second.UniqueItems); err != nil {
-		return fmt.Errorf("value for Unique Items differs: %+v\n\nFirst was %t but second was %t", err, pointer.From(first.UniqueItems), pointer.From(second.UniqueItems))
-	}
 
-	return nil
-}
-
-func customFieldTypesMatch(first *models.CustomFieldType, second *models.CustomFieldType) error {
-	if first == nil && second == nil {
-		return nil
-	}
-	if first != nil && second == nil {
-		return fmt.Errorf("first was %q but second was nil", string(*first))
-	}
-	if first == nil && second != nil {
-		return fmt.Errorf("first was nil but second was %q", string(*second))
-	}
-
-	if *first != *second {
-		return fmt.Errorf("values differ - first was %q but second was %q", string(*first), string(*second))
-	}
+	// TODO: re-enable minimum/maximum/unique on Object Definition
+	//if err := compareNilableInteger(first.Maximum, second.Maximum); err != nil {
+	//	return fmt.Errorf("value for Maximum differs: %+v\n\nFirst was %d but second was %d", err, pointer.From(first.Maximum), pointer.From(second.Maximum))
+	//}
+	//if err := compareNilableInteger(first.Minimum, second.Minimum); err != nil {
+	//	return fmt.Errorf("value for Minimum differs: %+v\n\nFirst was %d but second was %d", err, pointer.From(first.Minimum), pointer.From(second.Minimum))
+	//}
+	//if err := compareNilableBoolean(first.UniqueItems, second.UniqueItems); err != nil {
+	//	return fmt.Errorf("value for Unique Items differs: %+v\n\nFirst was %t but second was %t", err, pointer.From(first.UniqueItems), pointer.From(second.UniqueItems))
+	//}
 
 	return nil
 }
@@ -183,46 +168,6 @@ func compareNilableString(first *string, second *string) error {
 
 	if second != nil {
 		return fmt.Errorf("first value was nil but second value was %q", *second)
-	}
-
-	return nil
-}
-
-func compareNilableInteger(first *int, second *int) error {
-	if first != nil {
-		if second == nil {
-			return fmt.Errorf("first value was %d but second value was nil", *first)
-		}
-
-		if *first != *second {
-			return fmt.Errorf("first value was %d but second value was %d", *first, *second)
-		}
-
-		return nil
-	}
-
-	if second != nil {
-		return fmt.Errorf("first value was nil but second value was %d", *second)
-	}
-
-	return nil
-}
-
-func compareNilableBoolean(first *bool, second *bool) error {
-	if first != nil {
-		if second == nil {
-			return fmt.Errorf("first value was %t but second value was nil", *first)
-		}
-
-		if *first != *second {
-			return fmt.Errorf("first value was %t but second value was %t", *first, *second)
-		}
-
-		return nil
-	}
-
-	if second != nil {
-		return fmt.Errorf("first value was nil but second value was %t", *second)
 	}
 
 	return nil

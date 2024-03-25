@@ -1,29 +1,31 @@
 {
- "name": "VaultRetentionPolicy",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "snapshotRetentionInDays",
-   "name": "SnapshotRetentionInDays",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "vaultRetention",
-   "name": "VaultRetention",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "RetentionPolicy"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  "name": "VaultRetentionPolicy",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "snapshotRetentionInDays",
+      "name": "SnapshotRetentionInDays",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "vaultRetention",
+      "name": "VaultRetention",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RetentionPolicy"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ]
 }

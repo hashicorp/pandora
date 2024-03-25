@@ -1,85 +1,91 @@
 {
- "name": "NetworkProfile",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "egressNatIp",
-   "name": "EgressNatIP",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "IPAddress"
+  "name": "NetworkProfile",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "egressNatIp",
+      "name": "EgressNatIP",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "IPAddress"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "enableEgressNat",
+      "name": "EnableEgressNat",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EgressNat"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "networkType",
+      "name": "NetworkType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "NetworkType"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "publicIps",
+      "name": "PublicIPs",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "IPAddress"
+        }
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "vnetConfiguration",
+      "name": "VnetConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "VnetConfiguration"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "vwanConfiguration",
+      "name": "VwanConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "VwanConfiguration"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "enableEgressNat",
-   "name": "EnableEgressNat",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "EgressNat"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "networkType",
-   "name": "NetworkType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "NetworkType"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "publicIps",
-   "name": "PublicIPs",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "IPAddress"
-    }
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "vnetConfiguration",
-   "name": "VnetConfiguration",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "VnetConfiguration"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "vwanConfiguration",
-   "name": "VwanConfiguration",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "VwanConfiguration"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

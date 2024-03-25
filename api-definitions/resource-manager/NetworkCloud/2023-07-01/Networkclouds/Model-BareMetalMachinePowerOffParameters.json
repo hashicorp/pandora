@@ -1,17 +1,18 @@
 {
- "name": "BareMetalMachinePowerOffParameters",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "skipShutdown",
-   "name": "SkipShutdown",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "BareMetalMachineSkipShutdown"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "BareMetalMachinePowerOffParameters",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "skipShutdown",
+      "name": "SkipShutdown",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "BareMetalMachineSkipShutdown"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

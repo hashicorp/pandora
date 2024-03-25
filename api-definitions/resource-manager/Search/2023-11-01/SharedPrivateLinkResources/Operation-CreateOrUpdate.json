@@ -1,27 +1,31 @@
 {
- "name": "CreateOrUpdate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "PUT",
- "options": [
-  {
-   "headerName": "x-ms-client-request-id",
-   "optional": true,
-   "required": false,
-   "field": "XMsClientRequestId",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
+  "name": "CreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "options": [
+    {
+      "headerName": "x-ms-client-request-id",
+      "optional": true,
+      "required": false,
+      "field": "XMsClientRequestId",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "SharedPrivateLinkResourceId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "SharedPrivateLinkResource"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "SharedPrivateLinkResource"
   }
- ],
- "resourceIdName": "SharedPrivateLinkResourceId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "SharedPrivateLinkResource"
- }
 }

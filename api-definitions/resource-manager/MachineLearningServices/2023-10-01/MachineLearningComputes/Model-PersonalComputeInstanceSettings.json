@@ -1,17 +1,18 @@
 {
- "name": "PersonalComputeInstanceSettings",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "assignedUser",
-   "name": "AssignedUser",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "AssignedUser"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "PersonalComputeInstanceSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "assignedUser",
+      "name": "AssignedUser",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AssignedUser"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

@@ -1,29 +1,31 @@
 {
- "name": "MultiSubnetIPConfiguration",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "privateIpAddress",
-   "name": "PrivateIPAddress",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "PrivateIPAddress"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "sqlVirtualMachineInstance",
-   "name": "SqlVirtualMachineInstance",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  "name": "MultiSubnetIPConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "privateIpAddress",
+      "name": "PrivateIPAddress",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PrivateIPAddress"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sqlVirtualMachineInstance",
+      "name": "SqlVirtualMachineInstance",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ]
 }

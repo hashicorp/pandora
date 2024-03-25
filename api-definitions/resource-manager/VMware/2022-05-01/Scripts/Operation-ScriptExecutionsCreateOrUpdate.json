@@ -1,15 +1,19 @@
 {
- "name": "ScriptExecutionsCreateOrUpdate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201
- ],
- "longRunning": true,
- "httpMethod": "PUT",
- "resourceIdName": "ScriptExecutionId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "ScriptExecution"
- }
+  "name": "ScriptExecutionsCreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "ScriptExecutionId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ScriptExecution"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ScriptExecution"
+  }
 }

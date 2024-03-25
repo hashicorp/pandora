@@ -1,17 +1,18 @@
 {
- "name": "BatchLocationQuota",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "accountQuota",
-   "name": "AccountQuota",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "BatchLocationQuota",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "accountQuota",
+      "name": "AccountQuota",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

@@ -1,17 +1,18 @@
 {
- "name": "ManagedClusterAutoUpgradeProfile",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "upgradeChannel",
-   "name": "UpgradeChannel",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "UpgradeChannel"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "ManagedClusterAutoUpgradeProfile",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "upgradeChannel",
+      "name": "UpgradeChannel",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "UpgradeChannel"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

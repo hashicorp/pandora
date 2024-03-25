@@ -1,0 +1,21 @@
+{
+  "name": "SecurityGroupEntity",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SecurityGroupEntityProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "SecurityGroup",
+  "typeHintIn": "Kind"
+}

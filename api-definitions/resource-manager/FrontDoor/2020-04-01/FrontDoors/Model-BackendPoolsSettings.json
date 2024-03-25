@@ -1,29 +1,31 @@
 {
- "name": "BackendPoolsSettings",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "enforceCertificateNameCheck",
-   "name": "EnforceCertificateNameCheck",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "EnforceCertificateNameCheckEnabledState"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "sendRecvTimeoutSeconds",
-   "name": "SendRecvTimeoutSeconds",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "BackendPoolsSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "enforceCertificateNameCheck",
+      "name": "EnforceCertificateNameCheck",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EnforceCertificateNameCheckEnabledState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sendRecvTimeoutSeconds",
+      "name": "SendRecvTimeoutSeconds",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

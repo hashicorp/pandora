@@ -1,14 +1,18 @@
 {
- "name": "Update",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": true,
- "httpMethod": "PATCH",
- "resourceIdName": "HostId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "DedicatedHostUpdate"
- }
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "DedicatedHostId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "DedicatedHostUpdate"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "DedicatedHost"
+  }
 }

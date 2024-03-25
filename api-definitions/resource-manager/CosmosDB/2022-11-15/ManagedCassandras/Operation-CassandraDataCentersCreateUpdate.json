@@ -1,15 +1,19 @@
 {
- "name": "CassandraDataCentersCreateUpdate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201
- ],
- "longRunning": true,
- "httpMethod": "PUT",
- "resourceIdName": "DataCenterId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "DataCenterResource"
- }
+  "name": "CassandraDataCentersCreateUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "DataCenterId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "DataCenterResource"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "DataCenterResource"
+  }
 }

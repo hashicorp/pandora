@@ -1,15 +1,19 @@
 {
- "name": "RacksUpdate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "PATCH",
- "resourceIdName": "RackId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "RackPatchParameters"
- }
+  "name": "RacksUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "RackId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "RackPatchParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "Rack"
+  }
 }

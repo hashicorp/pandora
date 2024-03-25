@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package pipeline
 
 import (
@@ -11,12 +14,9 @@ import (
 
 type RunInput struct {
 	ConfigFilePath           string
-	DataApiEndpoint          *string
-	JustOutputSegments       bool
 	JustParseData            bool
 	Logger                   hclog.Logger
-	OutputDirectoryCS        string
-	OutputDirectoryJson      string
+	OutputDirectory          string
 	ProviderPrefix           string
 	Services                 []string
 	SwaggerDirectory         string
@@ -31,11 +31,10 @@ func Run(input RunInput) error {
 	}
 
 	findInput := discovery.FindServiceInput{
-		SwaggerDirectory:    input.SwaggerDirectory,
-		ConfigFilePath:      input.ConfigFilePath,
-		OutputDirectoryCS:   input.OutputDirectoryCS,
-		OutputDirectoryJson: input.OutputDirectoryJson,
-		Logger:              input.Logger.Named("Discovery"),
+		SwaggerDirectory: input.SwaggerDirectory,
+		ConfigFilePath:   input.ConfigFilePath,
+		OutputDirectory:  input.OutputDirectory,
+		Logger:           input.Logger.Named("Discovery"),
 	}
 
 	var generationData *[]discovery.ServiceInput
@@ -55,10 +54,6 @@ func Run(input RunInput) error {
 	swaggerGitSha, err := determineGitSha(input.SwaggerDirectory, input.Logger)
 	if err != nil {
 		return fmt.Errorf("determining Git SHA at %q: %+v", input.SwaggerDirectory, err)
-	}
-
-	if input.JustOutputSegments {
-		return parseAndOutputSegments(input, *generationData)
 	}
 
 	if input.JustParseData {

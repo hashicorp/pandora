@@ -1,29 +1,31 @@
 {
- "name": "ContainerExecRequest",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "command",
-   "name": "Command",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "terminalSize",
-   "name": "TerminalSize",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ContainerExecRequestTerminalSize"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "ContainerExecRequest",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "command",
+      "name": "Command",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "terminalSize",
+      "name": "TerminalSize",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ContainerExecRequestTerminalSize"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

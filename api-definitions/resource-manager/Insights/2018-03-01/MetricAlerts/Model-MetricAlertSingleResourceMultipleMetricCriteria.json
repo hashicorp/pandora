@@ -1,24 +1,25 @@
 {
- "name": "MetricAlertSingleResourceMultipleMetricCriteria",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "allOf",
-   "name": "AllOf",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "MetricCriteria"
+  "name": "MetricAlertSingleResourceMultipleMetricCriteria",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "allOf",
+      "name": "AllOf",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "MetricCriteria"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "MetricAlertCriteria",
- "discriminatedTypeValue": "Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria",
- "typeHintIn": "OdataType"
+  ],
+  "discriminatedParentModelName": "MetricAlertCriteria",
+  "discriminatedTypeValue": "Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria",
+  "typeHintIn": "OdataType"
 }

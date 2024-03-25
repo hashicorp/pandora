@@ -1,19 +1,19 @@
 {
- "name": "CheckTrialAvailability",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "POST",
- "resourceIdName": "LocationId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "Sku"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "Trial"
- },
- "uriSuffix": "/checkTrialAvailability"
+  "name": "CheckTrialAvailability",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "LocationId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "Sku"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "Trial"
+  },
+  "uriSuffix": "/checkTrialAvailability"
 }

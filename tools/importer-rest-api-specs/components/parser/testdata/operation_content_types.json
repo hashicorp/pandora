@@ -27,37 +27,16 @@
         }
       }
     },
-    "/xml-request": {
+    "/jsonRequest": {
       "get": {
         "tags": [
           "Hello"
         ],
-        "operationId": "Hello_XmlRequest",
+        "operationId": "Hello_JsonRequest",
         "produces": [
-          "application/xml"
+          "application/json"
         ],
-        "description": "An operation using XML as a Content-Type. This intentionally only sets Produces and not Consumes since this shouldn't be set for Get.",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "Success.",
-            "schema": {
-              "type": "string"
-            }
-          }
-        }
-      }
-    },
-    "/xml-response": {
-      "put": {
-        "tags": [
-          "Hello"
-        ],
-        "operationId": "Hello_XmlResponse",
-        "consumes": [
-          "application/xml"
-        ],
-        "description": "An operation using XML as a Content-Type. This intentionally only sets Consumes and not Produces since this shouldn't be set for a PUT.",
+        "description": "An operation using JSON as a Content-Type. This intentionally only sets Produces and not Consumes since this shouldn't be set for Get.",
         "parameters": [
           {
             "name": "parameters",
@@ -71,6 +50,76 @@
         "responses": {
           "200": {
             "description": "Success."
+          }
+        }
+      }
+    },
+    "/jsonResponse": {
+      "put": {
+        "tags": [
+          "Hello"
+        ],
+        "operationId": "Hello_JsonResponse",
+        "consumes": [
+          "application/json"
+        ],
+        "description": "An operation using JSON as a Content-Type. This intentionally only sets Consumes and not Produces since this shouldn't be set for a PUT.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/xmlRequest": {
+      "get": {
+        "tags": [
+          "Hello"
+        ],
+        "operationId": "Hello_XmlRequest",
+        "produces": [
+          "application/xml"
+        ],
+        "description": "An operation using XML as a Content-Type. This intentionally only sets Produces and not Consumes since this shouldn't be set for Get.",
+        "parameters": [
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success."
+          }
+        }
+      }
+    },
+    "/xmlResponse": {
+      "put": {
+        "tags": [
+          "Hello"
+        ],
+        "operationId": "Hello_XmlResponse",
+        "consumes": [
+          "application/xml"
+        ],
+        "description": "An operation using XML as a Content-Type. This intentionally only sets Consumes and not Produces since this shouldn't be set for a PUT.",
+        "parameters": [
+        ],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "type": "string"
+            }
           }
         }
       }

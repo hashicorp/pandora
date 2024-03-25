@@ -1,41 +1,44 @@
 {
- "name": "PeriodicModeProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "backupIntervalInMinutes",
-   "name": "BackupIntervalInMinutes",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "backupRetentionIntervalInHours",
-   "name": "BackupRetentionIntervalInHours",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "backupStorageRedundancy",
-   "name": "BackupStorageRedundancy",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "BackupStorageRedundancy"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "PeriodicModeProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "backupIntervalInMinutes",
+      "name": "BackupIntervalInMinutes",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "backupRetentionIntervalInHours",
+      "name": "BackupRetentionIntervalInHours",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "backupStorageRedundancy",
+      "name": "BackupStorageRedundancy",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "BackupStorageRedundancy"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

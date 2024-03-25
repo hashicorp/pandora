@@ -1,17 +1,18 @@
 {
- "name": "VirtualMachineRestrictMovement",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "restrictMovement",
-   "name": "RestrictMovement",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "VirtualMachineRestrictMovementState"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "VirtualMachineRestrictMovement",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "restrictMovement",
+      "name": "RestrictMovement",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "VirtualMachineRestrictMovementState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

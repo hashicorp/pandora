@@ -1,20 +1,21 @@
 {
- "name": "NrtAlertRule",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "properties",
-   "name": "Properties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "QueryBasedAlertRuleProperties"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "AlertRule",
- "discriminatedTypeValue": "NRT",
- "typeHintIn": "Kind"
+  "name": "NrtAlertRule",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "QueryBasedAlertRuleProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "AlertRule",
+  "discriminatedTypeValue": "NRT",
+  "typeHintIn": "Kind"
 }

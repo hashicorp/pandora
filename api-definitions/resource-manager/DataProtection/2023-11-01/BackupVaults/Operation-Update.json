@@ -1,15 +1,19 @@
 {
- "name": "Update",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "PATCH",
- "resourceIdName": "BackupVaultId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "PatchResourceRequestInput"
- }
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "BackupVaultId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "PatchResourceRequestInput"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "BackupVaultResource"
+  }
 }

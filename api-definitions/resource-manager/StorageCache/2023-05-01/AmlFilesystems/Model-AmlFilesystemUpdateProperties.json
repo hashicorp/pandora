@@ -1,29 +1,31 @@
 {
- "name": "AmlFilesystemUpdateProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "encryptionSettings",
-   "name": "EncryptionSettings",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "AmlFilesystemEncryptionSettings"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "maintenanceWindow",
-   "name": "MaintenanceWindow",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "AmlFilesystemUpdatePropertiesMaintenanceWindow"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "AmlFilesystemUpdateProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "encryptionSettings",
+      "name": "EncryptionSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AmlFilesystemEncryptionSettings"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "maintenanceWindow",
+      "name": "MaintenanceWindow",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AmlFilesystemUpdatePropertiesMaintenanceWindow"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

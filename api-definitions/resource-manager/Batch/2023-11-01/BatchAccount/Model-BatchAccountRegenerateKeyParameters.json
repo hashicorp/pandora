@@ -1,17 +1,18 @@
 {
- "name": "BatchAccountRegenerateKeyParameters",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "keyName",
-   "name": "KeyName",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "AccountKeyType"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  "name": "BatchAccountRegenerateKeyParameters",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "keyName",
+      "name": "KeyName",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AccountKeyType"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ]
 }

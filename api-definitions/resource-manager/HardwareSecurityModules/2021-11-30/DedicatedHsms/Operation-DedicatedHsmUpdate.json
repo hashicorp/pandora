@@ -1,14 +1,18 @@
 {
- "name": "DedicatedHsmUpdate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": true,
- "httpMethod": "PATCH",
- "resourceIdName": "DedicatedHSMId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "DedicatedHsmPatchParameters"
- }
+  "name": "DedicatedHsmUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "DedicatedHSMId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "DedicatedHsmPatchParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "DedicatedHsm"
+  }
 }

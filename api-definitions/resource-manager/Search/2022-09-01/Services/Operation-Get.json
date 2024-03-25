@@ -1,26 +1,26 @@
 {
- "name": "Get",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "GET",
- "options": [
-  {
-   "headerName": "x-ms-client-request-id",
-   "optional": true,
-   "required": false,
-   "field": "XMsClientRequestId",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
+  "name": "Get",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "headerName": "x-ms-client-request-id",
+      "optional": true,
+      "required": false,
+      "field": "XMsClientRequestId",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "SearchServiceId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "SearchService"
   }
- ],
- "resourceIdName": "SearchServiceId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "SearchService"
- }
 }

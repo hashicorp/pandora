@@ -1,24 +1,26 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package resourceids
 
 import (
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 var _ commonIdMatcher = commonIdManagementGroupMatcher{}
 
 type commonIdManagementGroupMatcher struct{}
 
-func (commonIdManagementGroupMatcher) id() models.ParsedResourceId {
+func (commonIdManagementGroupMatcher) id() models.ResourceID {
 	name := "ManagementGroup"
-	return models.ParsedResourceId{
-		CommonAlias: &name,
-		Constants:   map[string]resourcemanager.ConstantDetails{},
-		Segments: []resourcemanager.ResourceIdSegment{
-			models.StaticResourceIDSegment("providers", "providers"),
-			models.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Management"),
-			models.StaticResourceIDSegment("managementGroups", "managementGroups"),
-			models.UserSpecifiedResourceIDSegment("groupId"),
+	return models.ResourceID{
+		CommonIDAlias: &name,
+		ConstantNames: []string{},
+		Segments: []models.ResourceIDSegment{
+			models.NewStaticValueResourceIDSegment("providers", "providers"),
+			models.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Management"),
+			models.NewStaticValueResourceIDSegment("managementGroups", "managementGroups"),
+			models.NewUserSpecifiedResourceIDSegment("groupId", "groupId"),
 		},
 	}
 }

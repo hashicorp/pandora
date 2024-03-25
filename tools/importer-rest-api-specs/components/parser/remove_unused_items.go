@@ -1,20 +1,23 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package parser
 
 import (
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
-
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func removeUnusedItems(operations map[string]models.OperationDetails, resourceIds map[string]models.ParsedResourceId, result internal.ParseResult) (internal.ParseResult, map[string]models.ParsedResourceId) {
+func removeUnusedItems(operations map[string]models.SDKOperation, resourceIds map[string]models.ResourceID, result internal.ParseResult) (internal.ParseResult, map[string]models.ResourceID) {
 	// The ordering matters here, we need to remove the ResourceIDs first since
 	// they contain references to Constants - as do Models, so remove unused
 	// Resource IDs, then Models, then Constants else we can have orphaned
 	// constants within a package
 
-	resourceIdsForThisResource := make(map[string]models.ParsedResourceId, 0)
+	resourceIdsForThisResource := make(map[string]models.ResourceID)
 	for k, v := range resourceIds {
 		resourceIdsForThisResource[k] = v
 	}
@@ -53,18 +56,15 @@ func removeUnusedItems(operations map[string]models.OperationDetails, resourceId
 	return result, resourceIdsForThisResource
 }
 
-func findUnusedConstants(operations map[string]models.OperationDetails, resourceIds map[string]models.ParsedResourceId, result internal.ParseResult) []string {
+func findUnusedConstants(operations map[string]models.SDKOperation, resourceIds map[string]models.ResourceID, result internal.ParseResult) []string {
 	unusedConstants := make(map[string]struct{}, 0)
 	for constantName := range result.Constants {
 		// constants are either housed inside a Model
 		usedInAModel := false
 		for _, model := range result.Models {
 			for _, field := range model.Fields {
-				if field.ObjectDefinition == nil {
-					continue
-				}
-				definition := topLevelObjectDefinition(*field.ObjectDefinition)
-				if definition.Type != models.ObjectDefinitionReference {
+				definition := helpers.InnerMostSDKObjectDefinition(field.ObjectDefinition)
+				if definition.Type != models.ReferenceSDKObjectDefinitionType {
 					continue
 				}
 				if *definition.ReferenceName == constantName {
@@ -84,28 +84,24 @@ func findUnusedConstants(operations map[string]models.OperationDetails, resource
 		usedInAnOperation := false
 		for _, operation := range operations {
 			if operation.RequestObject != nil {
-				definition := topLevelObjectDefinition(*operation.RequestObject)
-				if definition.Type == models.ObjectDefinitionReference && *definition.ReferenceName == constantName {
+				definition := helpers.InnerMostSDKObjectDefinition(*operation.RequestObject)
+				if definition.Type == models.ReferenceSDKObjectDefinitionType && *definition.ReferenceName == constantName {
 					usedInAnOperation = true
 					break
 				}
 			}
 
 			if operation.ResponseObject != nil {
-				definition := topLevelObjectDefinition(*operation.ResponseObject)
-				if definition.Type == models.ObjectDefinitionReference && *definition.ReferenceName == constantName {
+				definition := helpers.InnerMostSDKObjectDefinition(*operation.ResponseObject)
+				if definition.Type == models.ReferenceSDKObjectDefinitionType && *definition.ReferenceName == constantName {
 					usedInAnOperation = true
 					break
 				}
 			}
 
 			for _, v := range operation.Options {
-				if v.ObjectDefinition == nil {
-					continue
-				}
-
-				definition := topLevelObjectDefinition(*v.ObjectDefinition)
-				if definition.Type != models.ObjectDefinitionReference {
+				definition := topLevelOptionsObjectDefinition(v.ObjectDefinition)
+				if definition.Type != models.ReferenceSDKOperationOptionObjectDefinitionType {
 					continue
 				}
 				if *definition.ReferenceName == constantName {
@@ -150,23 +146,38 @@ func findUnusedConstants(operations map[string]models.OperationDetails, resource
 	return out
 }
 
-func findUnusedModels(operations map[string]models.OperationDetails, result internal.ParseResult) []string {
-	unusedModels := make(map[string]struct{}, 0)
+func topLevelOptionsObjectDefinition(input models.SDKOperationOptionObjectDefinition) models.SDKOperationOptionObjectDefinition {
+	if input.NestedItem != nil {
+		return topLevelOptionsObjectDefinition(*input.NestedItem)
+	}
+
+	return input
+}
+
+func findUnusedModels(operations map[string]models.SDKOperation, result internal.ParseResult) []string {
+	unusedModels := make(map[string]struct{})
 	for modelName, model := range result.Models {
+		if modelName == "" {
+			// if the model name is empty this is an unused model (so is safe to remove) - but is a bug
+			// TODO: track down empty models and then remove this
+			unusedModels[modelName] = struct{}{}
+			continue
+		}
+
 		// models are either referenced by operations
 		usedInAnOperation := false
 		for _, operation := range operations {
 			if operation.RequestObject != nil {
-				definition := topLevelObjectDefinition(*operation.RequestObject)
-				if definition.Type == models.ObjectDefinitionReference && *definition.ReferenceName == modelName {
+				definition := helpers.InnerMostSDKObjectDefinition(*operation.RequestObject)
+				if definition.Type == models.ReferenceSDKObjectDefinitionType && *definition.ReferenceName == modelName {
 					usedInAnOperation = true
 					break
 				}
 			}
 
 			if operation.ResponseObject != nil {
-				definition := topLevelObjectDefinition(*operation.ResponseObject)
-				if definition.Type == models.ObjectDefinitionReference && *definition.ReferenceName == modelName {
+				definition := helpers.InnerMostSDKObjectDefinition(*operation.ResponseObject)
+				if definition.Type == models.ReferenceSDKObjectDefinitionType && *definition.ReferenceName == modelName {
 					usedInAnOperation = true
 					break
 				}
@@ -174,12 +185,8 @@ func findUnusedModels(operations map[string]models.OperationDetails, result inte
 
 			// @tombuildsstuff: whilst I don't _think_ there are any examples of this today, checking it because it's an option
 			for _, v := range operation.Options {
-				if v.ObjectDefinition == nil {
-					continue
-				}
-
-				definition := topLevelObjectDefinition(*v.ObjectDefinition)
-				if definition.Type != models.ObjectDefinitionReference {
+				definition := topLevelOptionsObjectDefinition(v.ObjectDefinition)
+				if definition.Type != models.ReferenceSDKOperationOptionObjectDefinitionType {
 					continue
 				}
 				if *definition.ReferenceName == modelName {
@@ -200,12 +207,8 @@ func findUnusedModels(operations map[string]models.OperationDetails, result inte
 			}
 
 			for _, field := range thisModel.Fields {
-				if field.ObjectDefinition == nil {
-					continue
-				}
-
-				definition := topLevelObjectDefinition(*field.ObjectDefinition)
-				if definition.Type != models.ObjectDefinitionReference {
+				definition := helpers.InnerMostSDKObjectDefinition(field.ObjectDefinition)
+				if definition.Type != models.ReferenceSDKObjectDefinitionType {
 					continue
 				}
 				if *definition.ReferenceName == modelName {
@@ -241,7 +244,7 @@ func findUnusedModels(operations map[string]models.OperationDetails, result inte
 	return out
 }
 
-func findUnusedResourceIds(operations map[string]models.OperationDetails, resourceIds map[string]models.ParsedResourceId) []string {
+func findUnusedResourceIds(operations map[string]models.SDKOperation, resourceIds map[string]models.ResourceID) []string {
 	unusedResourceIds := make(map[string]struct{}, 0)
 
 	// first add everything
@@ -251,13 +254,13 @@ func findUnusedResourceIds(operations map[string]models.OperationDetails, resour
 
 	// then go through and remove the Resource ID if it's used
 	for _, operation := range operations {
-		if operation.ResourceIdName == nil {
+		if operation.ResourceIDName == nil {
 			continue
 		}
 
 		// since this hasn't been normalized yet, find the correct casing for the key to remove
 		for key := range unusedResourceIds {
-			if strings.EqualFold(*operation.ResourceIdName, key) {
+			if strings.EqualFold(*operation.ResourceIDName, key) {
 				delete(unusedResourceIds, key)
 			}
 		}

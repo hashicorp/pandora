@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package parser
 
 import (
@@ -7,15 +10,15 @@ import (
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/dataworkarounds"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/resourceids"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVersion string, resourceProvider *string, logger hclog.Logger) (*models.AzureApiDefinition, error) {
+func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVersion string, resourceProvider *string, logger hclog.Logger) (*importerModels.AzureApiDefinition, error) {
 	// Some Services have been deprecated or should otherwise be ignored - check before proceeding
 	if serviceShouldBeIgnored(serviceName) {
 		logger.Debug(fmt.Sprintf("Service %q should be ignored - skipping", serviceName))
 
-		return &models.AzureApiDefinition{}, nil
+		return &importerModels.AzureApiDefinition{}, nil
 	}
 
 	// First go through and parse all of the Resource ID's across all of the files
@@ -40,7 +43,7 @@ func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVer
 		}
 	}
 
-	parsed := make(map[string]models.AzureApiDefinition, 0)
+	parsed := make(map[string]importerModels.AzureApiDefinition, 0)
 	for _, file := range fileNames {
 		swaggerFile := file2Swagger[file]
 
@@ -49,7 +52,7 @@ func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVer
 			return nil, fmt.Errorf("parsing definition: %+v", err)
 		}
 
-		data := models.AzureApiDefinition{
+		data := importerModels.AzureApiDefinition{
 			ServiceName: definition.ServiceName,
 			ApiVersion:  definition.ApiVersion,
 			Resources:   definition.Resources,
@@ -70,7 +73,7 @@ func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVer
 		parsed[key] = data
 	}
 
-	out := make([]models.AzureApiDefinition, 0)
+	out := make([]importerModels.AzureApiDefinition, 0)
 	for _, v := range parsed {
 		// the Data API expects that an API Version will contain at least 1 Resource - avoid bad data here
 		if len(v.Resources) == 0 {
@@ -87,17 +90,6 @@ func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVer
 		return nil, fmt.Errorf("applying Swagger overrides: %+v", err)
 	}
 
-	// the response object is removed for long-running operations (see #2828) as well as for operations that are not
-	// list operations for parity with the former data api definitions in C# (see #3364).
-	// this can only be done here, since there are data workarounds that manipulate the operation information that
-	// we need to determine if the response object should be stripped or not e.g. workaround_automation_25435.go
-	for _, service := range *output {
-		for _, resource := range service.Resources {
-			operations := removeResponseObjectForSpecificOperations(&resource.Operations)
-			resource.Operations = *operations
-		}
-	}
-
 	out = *output
 
 	if len(out) > 1 {
@@ -109,17 +101,6 @@ func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVer
 	}
 
 	return nil, nil
-}
-
-func removeResponseObjectForSpecificOperations(operations *map[string]models.OperationDetails) *map[string]models.OperationDetails {
-	for name, details := range *operations {
-		if details.LongRunning && !details.IsListOperation {
-			details.ResponseObject = nil
-		}
-		(*operations)[name] = details
-	}
-
-	return operations
 }
 
 func serviceShouldBeIgnored(name string) bool {
@@ -139,6 +120,6 @@ func serviceShouldBeIgnored(name string) bool {
 	return false
 }
 
-func keyForAzureApiDefinition(input models.AzureApiDefinition) string {
+func keyForAzureApiDefinition(input importerModels.AzureApiDefinition) string {
 	return fmt.Sprintf("%s-%s", input.ServiceName, input.ApiVersion)
 }

@@ -1,53 +1,57 @@
 {
- "name": "TokenStore",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "azureBlobStorage",
-   "name": "AzureBlobStorage",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "BlobStorageTokenStore"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "enabled",
-   "name": "Enabled",
-   "objectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "fileSystem",
-   "name": "FileSystem",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "FileSystemTokenStore"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "tokenRefreshExtensionHours",
-   "name": "TokenRefreshExtensionHours",
-   "objectDefinition": {
-    "type": "Float",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "TokenStore",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "azureBlobStorage",
+      "name": "AzureBlobStorage",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "BlobStorageTokenStore"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "enabled",
+      "name": "Enabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "fileSystem",
+      "name": "FileSystem",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "FileSystemTokenStore"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "tokenRefreshExtensionHours",
+      "name": "TokenRefreshExtensionHours",
+      "objectDefinition": {
+        "type": "Float",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

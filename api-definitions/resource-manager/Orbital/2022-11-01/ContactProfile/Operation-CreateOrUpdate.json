@@ -1,15 +1,19 @@
 {
- "name": "CreateOrUpdate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201
- ],
- "longRunning": true,
- "httpMethod": "PUT",
- "resourceIdName": "ContactProfileId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "ContactProfile"
- }
+  "name": "CreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "ContactProfileId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ContactProfile"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ContactProfile"
+  }
 }

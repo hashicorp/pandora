@@ -1,21 +1,22 @@
 {
- "name": "AzureFileShareBackupRequest",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "recoveryPointExpiryTimeInUTC",
-   "name": "RecoveryPointExpiryTimeInUTC",
-   "objectDefinition": {
-    "type": "DateTime",
-    "referenceName": null,
-    "dateFormat": "RFC3339"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "BackupRequest",
- "discriminatedTypeValue": "AzureFileShareBackupRequest",
- "typeHintIn": "ObjectType"
+  "name": "AzureFileShareBackupRequest",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "recoveryPointExpiryTimeInUTC",
+      "name": "RecoveryPointExpiryTimeInUTC",
+      "objectDefinition": {
+        "type": "DateTime",
+        "referenceName": null,
+        "dateFormat": "RFC3339"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "BackupRequest",
+  "discriminatedTypeValue": "AzureFileShareBackupRequest",
+  "typeHintIn": "ObjectType"
 }

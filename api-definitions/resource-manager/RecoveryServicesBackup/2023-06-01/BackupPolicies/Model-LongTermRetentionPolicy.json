@@ -1,56 +1,60 @@
 {
- "name": "LongTermRetentionPolicy",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "dailySchedule",
-   "name": "DailySchedule",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "DailyRetentionSchedule"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "monthlySchedule",
-   "name": "MonthlySchedule",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "MonthlyRetentionSchedule"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "weeklySchedule",
-   "name": "WeeklySchedule",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "WeeklyRetentionSchedule"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "yearlySchedule",
-   "name": "YearlySchedule",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "YearlyRetentionSchedule"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "RetentionPolicy",
- "discriminatedTypeValue": "LongTermRetentionPolicy",
- "typeHintIn": "RetentionPolicyType"
+  "name": "LongTermRetentionPolicy",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "dailySchedule",
+      "name": "DailySchedule",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DailyRetentionSchedule"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "monthlySchedule",
+      "name": "MonthlySchedule",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MonthlyRetentionSchedule"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "weeklySchedule",
+      "name": "WeeklySchedule",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "WeeklyRetentionSchedule"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "yearlySchedule",
+      "name": "YearlySchedule",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "YearlyRetentionSchedule"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "RetentionPolicy",
+  "discriminatedTypeValue": "LongTermRetentionPolicy",
+  "typeHintIn": "RetentionPolicyType"
 }

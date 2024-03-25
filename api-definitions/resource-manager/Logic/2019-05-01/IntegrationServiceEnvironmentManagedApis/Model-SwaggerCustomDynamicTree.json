@@ -1,41 +1,44 @@
 {
- "name": "SwaggerCustomDynamicTree",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "browse",
-   "name": "Browse",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SwaggerCustomDynamicTreeCommand"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "open",
-   "name": "Open",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SwaggerCustomDynamicTreeCommand"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "settings",
-   "name": "Settings",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SwaggerCustomDynamicTreeSettings"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "SwaggerCustomDynamicTree",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "browse",
+      "name": "Browse",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SwaggerCustomDynamicTreeCommand"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "open",
+      "name": "Open",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SwaggerCustomDynamicTreeCommand"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "settings",
+      "name": "Settings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SwaggerCustomDynamicTreeSettings"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

@@ -1,0 +1,21 @@
+{
+  "name": "FacebookChannel",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "FacebookChannelProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "Channel",
+  "discriminatedTypeValue": "FacebookChannel",
+  "typeHintIn": "ChannelName"
+}

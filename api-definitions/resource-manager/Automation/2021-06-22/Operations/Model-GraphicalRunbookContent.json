@@ -1,29 +1,31 @@
 {
- "name": "GraphicalRunbookContent",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "graphRunbookJson",
-   "name": "GraphRunbookJson",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "rawContent",
-   "name": "RawContent",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "RawGraphicalRunbookContent"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "GraphicalRunbookContent",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "graphRunbookJson",
+      "name": "GraphRunbookJson",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rawContent",
+      "name": "RawContent",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RawGraphicalRunbookContent"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

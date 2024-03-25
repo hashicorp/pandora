@@ -1,0 +1,27 @@
+{
+  "name": "List",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "startTime",
+      "required": false,
+      "field": "StartTime",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "ScopeId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "MetricNamespaceCollection"
+  },
+  "uriSuffix": "/providers/Microsoft.Insights/metricNamespaces"
+}

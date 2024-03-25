@@ -1,30 +1,33 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package commonschema
 
 import (
 	"reflect"
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
-
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 var _ customFieldMatcher = systemAssignedIdentityMatcher{}
 
 type systemAssignedIdentityMatcher struct{}
 
-func (systemAssignedIdentityMatcher) CustomFieldType() models.CustomFieldType {
-	return models.CustomFieldTypeSystemAssignedIdentity
+func (systemAssignedIdentityMatcher) ReplacementObjectDefinition() models.SDKObjectDefinition {
+	return models.SDKObjectDefinition{
+		Type: models.SystemAssignedIdentitySDKObjectDefinitionType,
+	}
 }
 
-func (systemAssignedIdentityMatcher) IsMatch(_ models.FieldDetails, definition models.ObjectDefinition, known internal.ParseResult) bool {
-	if definition.Type != models.ObjectDefinitionReference {
+func (systemAssignedIdentityMatcher) IsMatch(field models.SDKField, known internal.ParseResult) bool {
+	if field.ObjectDefinition.Type != models.ReferenceSDKObjectDefinitionType {
 		return false
 	}
 
 	// retrieve the model from the reference
-	model, ok := known.Models[*definition.ReferenceName]
+	model, ok := known.Models[*field.ObjectDefinition.ReferenceName]
 	if !ok {
 		return false
 	}
@@ -45,7 +48,7 @@ func (systemAssignedIdentityMatcher) IsMatch(_ models.FieldDetails, definition m
 		}
 
 		if strings.EqualFold(fieldName, "Type") {
-			if fieldVal.ObjectDefinition == nil || fieldVal.ObjectDefinition.Type != models.ObjectDefinitionReference {
+			if fieldVal.ObjectDefinition.Type != models.ReferenceSDKObjectDefinitionType {
 				continue
 			}
 			constant, ok := known.Constants[*fieldVal.ObjectDefinition.ReferenceName]
@@ -66,8 +69,8 @@ func (systemAssignedIdentityMatcher) IsMatch(_ models.FieldDetails, definition m
 	return hasMatchingType && hasPrincipalId && hasTenantId
 }
 
-func validateIdentityConstantValues(input resourcemanager.ConstantDetails, expected map[string]string) bool {
-	if input.Type != resourcemanager.StringConstant {
+func validateIdentityConstantValues(input models.SDKConstant, expected map[string]string) bool {
+	if input.Type != models.StringSDKConstantType {
 		return false
 	}
 

@@ -1,17 +1,18 @@
 {
- "name": "ContainerGroupDiagnostics",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "logAnalytics",
-   "name": "LogAnalytics",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "LogAnalytics"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "ContainerGroupDiagnostics",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "logAnalytics",
+      "name": "LogAnalytics",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "LogAnalytics"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

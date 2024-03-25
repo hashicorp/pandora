@@ -1,20 +1,21 @@
 {
- "name": "SynapseSpark",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "properties",
-   "name": "Properties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SynapseSparkProperties"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "Compute",
- "discriminatedTypeValue": "SynapseSpark",
- "typeHintIn": "ComputeType"
+  "name": "SynapseSpark",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SynapseSparkProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "Compute",
+  "discriminatedTypeValue": "SynapseSpark",
+  "typeHintIn": "ComputeType"
 }

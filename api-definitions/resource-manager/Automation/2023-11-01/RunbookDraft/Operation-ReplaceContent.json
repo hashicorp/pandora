@@ -1,16 +1,20 @@
 {
- "name": "ReplaceContent",
- "contentType": "text/powershell",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "PUT",
- "resourceIdName": "RunbookId",
- "requestObject": {
-  "type": "RawFile",
-  "referenceName": null
- },
- "uriSuffix": "/draft/content"
+  "name": "ReplaceContent",
+  "contentType": "text/powershell",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "RunbookId",
+  "requestObject": {
+    "type": "RawFile",
+    "referenceName": null
+  },
+  "responseObject": {
+    "type": "RawFile",
+    "referenceName": null
+  },
+  "uriSuffix": "/draft/content"
 }

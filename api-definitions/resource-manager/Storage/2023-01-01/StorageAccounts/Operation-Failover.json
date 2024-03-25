@@ -1,24 +1,24 @@
 {
- "name": "Failover",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "POST",
- "options": [
-  {
-   "optional": true,
-   "queryString": "failoverType",
-   "required": false,
-   "field": "FailoverType",
-   "optionsObjectDefinition": {
-    "type": "Reference",
-    "referenceName": "FailoverType"
-   }
-  }
- ],
- "resourceIdName": "StorageAccountId",
- "uriSuffix": "/failover"
+  "name": "Failover",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "failoverType",
+      "required": false,
+      "field": "FailoverType",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "FailoverType"
+      }
+    }
+  ],
+  "resourceIdName": "StorageAccountId",
+  "uriSuffix": "/failover"
 }

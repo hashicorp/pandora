@@ -1,19 +1,19 @@
 {
- "name": "SpatialAnchorsAccountsRegenerateKeys",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "POST",
- "resourceIdName": "SpatialAnchorsAccountId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "AccountKeyRegenerateRequest"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "AccountKeys"
- },
- "uriSuffix": "/regenerateKeys"
+  "name": "SpatialAnchorsAccountsRegenerateKeys",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "SpatialAnchorsAccountId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "AccountKeyRegenerateRequest"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "AccountKeys"
+  },
+  "uriSuffix": "/regenerateKeys"
 }

@@ -1,0 +1,19 @@
+{
+  "name": "PartnerClientAuthentication",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": true,
+      "jsonName": "clientAuthenticationType",
+      "name": "ClientAuthenticationType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PartnerClientAuthenticationType"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "typeHintIn": "ClientAuthenticationType"
+}

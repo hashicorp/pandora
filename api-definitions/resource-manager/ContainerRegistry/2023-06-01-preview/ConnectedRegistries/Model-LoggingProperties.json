@@ -1,29 +1,31 @@
 {
- "name": "LoggingProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "auditLogStatus",
-   "name": "AuditLogStatus",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "AuditLogStatus"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "logLevel",
-   "name": "LogLevel",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "LogLevel"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "LoggingProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "auditLogStatus",
+      "name": "AuditLogStatus",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AuditLogStatus"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "logLevel",
+      "name": "LogLevel",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "LogLevel"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

@@ -1,18 +1,19 @@
 {
- "name": "OSConfiguration",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": true,
-   "jsonName": "osType",
-   "name": "OsType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "OSType"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ],
- "typeHintIn": "OsType"
+  "name": "OSConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": true,
+      "jsonName": "osType",
+      "name": "OsType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "OSType"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "typeHintIn": "OsType"
 }

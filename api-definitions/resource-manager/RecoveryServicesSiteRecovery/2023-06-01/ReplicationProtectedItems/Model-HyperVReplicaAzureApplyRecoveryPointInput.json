@@ -1,32 +1,34 @@
 {
- "name": "HyperVReplicaAzureApplyRecoveryPointInput",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "primaryKekCertificatePfx",
-   "name": "PrimaryKekCertificatePfx",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "secondaryKekCertificatePfx",
-   "name": "SecondaryKekCertificatePfx",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "ApplyRecoveryPointProviderSpecificInput",
- "discriminatedTypeValue": "HyperVReplicaAzure",
- "typeHintIn": "InstanceType"
+  "name": "HyperVReplicaAzureApplyRecoveryPointInput",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "primaryKekCertificatePfx",
+      "name": "PrimaryKekCertificatePfx",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "secondaryKekCertificatePfx",
+      "name": "SecondaryKekCertificatePfx",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "ApplyRecoveryPointProviderSpecificInput",
+  "discriminatedTypeValue": "HyperVReplicaAzure",
+  "typeHintIn": "InstanceType"
 }

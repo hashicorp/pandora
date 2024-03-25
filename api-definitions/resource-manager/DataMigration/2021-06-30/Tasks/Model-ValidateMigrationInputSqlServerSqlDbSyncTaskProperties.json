@@ -1,0 +1,38 @@
+{
+  "name": "ValidateMigrationInputSqlServerSqlDbSyncTaskProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "input",
+      "name": "Input",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ValidateSyncMigrationInputSqlServerTaskInput"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "output",
+      "name": "Output",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "ValidateSyncMigrationInputSqlServerTaskOutput"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "ProjectTaskProperties",
+  "discriminatedTypeValue": "ValidateMigrationInput.SqlServer.SqlDb.Sync",
+  "typeHintIn": "TaskType"
+}

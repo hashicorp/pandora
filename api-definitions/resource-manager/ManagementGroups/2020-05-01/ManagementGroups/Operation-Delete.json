@@ -1,23 +1,27 @@
 {
- "name": "Delete",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  202,
-  204
- ],
- "longRunning": true,
- "httpMethod": "DELETE",
- "options": [
-  {
-   "headerName": "Cache-Control",
-   "optional": true,
-   "required": false,
-   "field": "CacheControl",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
+  "name": "Delete",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    202,
+    204
+  ],
+  "longRunning": true,
+  "httpMethod": "DELETE",
+  "options": [
+    {
+      "headerName": "Cache-Control",
+      "optional": true,
+      "required": false,
+      "field": "CacheControl",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "ManagementGroupId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "AzureAsyncOperationResults"
   }
- ],
- "resourceIdName": "ManagementGroupId"
 }

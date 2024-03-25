@@ -1,33 +1,35 @@
 {
- "name": "DefaultAuthorizationPolicy",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "allowedApplications",
-   "name": "AllowedApplications",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "String",
-     "referenceName": null
+  "name": "DefaultAuthorizationPolicy",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "allowedApplications",
+      "name": "AllowedApplications",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "allowedPrincipals",
+      "name": "AllowedPrincipals",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AllowedPrincipals"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "allowedPrincipals",
-   "name": "AllowedPrincipals",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "AllowedPrincipals"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

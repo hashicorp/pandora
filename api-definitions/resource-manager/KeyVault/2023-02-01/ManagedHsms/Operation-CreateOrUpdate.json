@@ -1,15 +1,19 @@
 {
- "name": "CreateOrUpdate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "PUT",
- "resourceIdName": "ManagedHSMId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "ManagedHsm"
- }
+  "name": "CreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "ManagedHSMId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ManagedHsm"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ManagedHsm"
+  }
 }

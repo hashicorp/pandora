@@ -1,0 +1,21 @@
+{
+  "name": "GoogleBigQueryV2ObjectDataset",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "typeProperties",
+      "name": "TypeProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "GoogleBigQueryV2DatasetTypeProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "Dataset",
+  "discriminatedTypeValue": "GoogleBigQueryV2Object",
+  "typeHintIn": "Type"
+}

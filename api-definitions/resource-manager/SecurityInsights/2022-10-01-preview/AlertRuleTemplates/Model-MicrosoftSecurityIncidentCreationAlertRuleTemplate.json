@@ -1,20 +1,21 @@
 {
- "name": "MicrosoftSecurityIncidentCreationAlertRuleTemplate",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "properties",
-   "name": "Properties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "MicrosoftSecurityIncidentCreationAlertRuleTemplateProperties"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "AlertRuleTemplate",
- "discriminatedTypeValue": "MicrosoftSecurityIncidentCreation",
- "typeHintIn": "Kind"
+  "name": "MicrosoftSecurityIncidentCreationAlertRuleTemplate",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MicrosoftSecurityIncidentCreationAlertRuleTemplateProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "AlertRuleTemplate",
+  "discriminatedTypeValue": "MicrosoftSecurityIncidentCreation",
+  "typeHintIn": "Kind"
 }

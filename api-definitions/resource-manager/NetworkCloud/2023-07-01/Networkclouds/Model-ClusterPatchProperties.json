@@ -1,69 +1,74 @@
 {
- "name": "ClusterPatchProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "aggregatorOrSingleRackDefinition",
-   "name": "AggregatorOrSingleRackDefinition",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "RackDefinition"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "clusterLocation",
-   "name": "ClusterLocation",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "clusterServicePrincipal",
-   "name": "ClusterServicePrincipal",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ServicePrincipalInformation"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "computeDeploymentThreshold",
-   "name": "ComputeDeploymentThreshold",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ValidationThreshold"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "computeRackDefinitions",
-   "name": "ComputeRackDefinitions",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "RackDefinition"
+  "name": "ClusterPatchProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "aggregatorOrSingleRackDefinition",
+      "name": "AggregatorOrSingleRackDefinition",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RackDefinition"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "clusterLocation",
+      "name": "ClusterLocation",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "clusterServicePrincipal",
+      "name": "ClusterServicePrincipal",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ServicePrincipalInformation"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "computeDeploymentThreshold",
+      "name": "ComputeDeploymentThreshold",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ValidationThreshold"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "computeRackDefinitions",
+      "name": "ComputeRackDefinitions",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "RackDefinition"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

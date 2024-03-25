@@ -1,20 +1,21 @@
 {
- "name": "AzureDataExplorerOutputDataSource",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "properties",
-   "name": "Properties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "AzureDataExplorerOutputDataSourceProperties"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "OutputDataSource",
- "discriminatedTypeValue": "Microsoft.Kusto/clusters/databases",
- "typeHintIn": "Type"
+  "name": "AzureDataExplorerOutputDataSource",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AzureDataExplorerOutputDataSourceProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "OutputDataSource",
+  "discriminatedTypeValue": "Microsoft.Kusto/clusters/databases",
+  "typeHintIn": "Type"
 }

@@ -1,15 +1,19 @@
 {
- "name": "CreateDhcp",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201
- ],
- "longRunning": true,
- "httpMethod": "PUT",
- "resourceIdName": "DhcpConfigurationId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "WorkloadNetworkDhcp"
- }
+  "name": "CreateDhcp",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "DhcpConfigurationId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "WorkloadNetworkDhcp"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "WorkloadNetworkDhcp"
+  }
 }

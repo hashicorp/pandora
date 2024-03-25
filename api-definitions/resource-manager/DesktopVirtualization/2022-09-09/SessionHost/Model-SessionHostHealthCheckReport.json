@@ -1,41 +1,44 @@
 {
- "name": "SessionHostHealthCheckReport",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "additionalFailureDetails",
-   "name": "AdditionalFailureDetails",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SessionHostHealthCheckFailureDetails"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "healthCheckName",
-   "name": "HealthCheckName",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "HealthCheckName"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "healthCheckResult",
-   "name": "HealthCheckResult",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "HealthCheckResult"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "SessionHostHealthCheckReport",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "additionalFailureDetails",
+      "name": "AdditionalFailureDetails",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SessionHostHealthCheckFailureDetails"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "healthCheckName",
+      "name": "HealthCheckName",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "HealthCheckName"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "healthCheckResult",
+      "name": "HealthCheckResult",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "HealthCheckResult"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

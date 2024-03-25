@@ -1,16 +1,20 @@
 {
- "name": "ValidateAtSubscriptionScope",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "POST",
- "resourceIdName": "ProviderDeploymentId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "Deployment"
- },
- "uriSuffix": "/validate"
+  "name": "ValidateAtSubscriptionScope",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "ProviderDeploymentId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "Deployment"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "DeploymentValidateResult"
+  },
+  "uriSuffix": "/validate"
 }

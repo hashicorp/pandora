@@ -1,15 +1,19 @@
 {
- "name": "Update",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "PATCH",
- "resourceIdName": "RediId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "RedisUpdateParameters"
- }
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "RediId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "RedisUpdateParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "RedisResource"
+  }
 }

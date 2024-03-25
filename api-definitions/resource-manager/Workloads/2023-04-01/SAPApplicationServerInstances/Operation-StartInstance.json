@@ -1,12 +1,16 @@
 {
- "name": "StartInstance",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "POST",
- "resourceIdName": "ApplicationInstanceId",
- "uriSuffix": "/start"
+  "name": "StartInstance",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "ApplicationInstanceId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "OperationStatusResult"
+  },
+  "uriSuffix": "/start"
 }

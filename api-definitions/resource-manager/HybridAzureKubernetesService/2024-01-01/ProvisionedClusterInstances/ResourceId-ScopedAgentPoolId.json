@@ -1,0 +1,39 @@
+{
+  "name": "ScopedAgentPoolId",
+  "id": "/{connectedClusterResourceUri}/providers/Microsoft.HybridContainerService/provisionedClusterInstances/default/agentPools/{agentPoolName}",
+  "segments": [
+    {
+      "name": "connectedClusterResourceUri",
+      "type": "Scope"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftHybridContainerService",
+      "type": "ResourceProvider",
+      "value": "Microsoft.HybridContainerService"
+    },
+    {
+      "name": "staticProvisionedClusterInstances",
+      "type": "Static",
+      "value": "provisionedClusterInstances"
+    },
+    {
+      "name": "staticDefault",
+      "type": "Static",
+      "value": "default"
+    },
+    {
+      "name": "staticAgentPools",
+      "type": "Static",
+      "value": "agentPools"
+    },
+    {
+      "name": "agentPoolName",
+      "type": "UserSpecified"
+    }
+  ]
+}

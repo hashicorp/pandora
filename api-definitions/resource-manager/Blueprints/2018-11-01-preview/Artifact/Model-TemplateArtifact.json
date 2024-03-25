@@ -1,20 +1,21 @@
 {
- "name": "TemplateArtifact",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "properties",
-   "name": "Properties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "TemplateArtifactProperties"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "Artifact",
- "discriminatedTypeValue": "template",
- "typeHintIn": "Kind"
+  "name": "TemplateArtifact",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "TemplateArtifactProperties"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "Artifact",
+  "discriminatedTypeValue": "template",
+  "typeHintIn": "Kind"
 }

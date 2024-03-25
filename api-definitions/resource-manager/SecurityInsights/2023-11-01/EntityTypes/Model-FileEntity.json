@@ -1,0 +1,21 @@
+{
+  "name": "FileEntity",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "FileEntityProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "File",
+  "typeHintIn": "Kind"
+}

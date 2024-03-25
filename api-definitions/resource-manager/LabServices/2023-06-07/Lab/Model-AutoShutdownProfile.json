@@ -1,77 +1,83 @@
 {
- "name": "AutoShutdownProfile",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "disconnectDelay",
-   "name": "DisconnectDelay",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "idleDelay",
-   "name": "IdleDelay",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "noConnectDelay",
-   "name": "NoConnectDelay",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "shutdownOnDisconnect",
-   "name": "ShutdownOnDisconnect",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "EnableState"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "shutdownOnIdle",
-   "name": "ShutdownOnIdle",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ShutdownOnIdleMode"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "shutdownWhenNotConnected",
-   "name": "ShutdownWhenNotConnected",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "EnableState"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "AutoShutdownProfile",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "disconnectDelay",
+      "name": "DisconnectDelay",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "idleDelay",
+      "name": "IdleDelay",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "noConnectDelay",
+      "name": "NoConnectDelay",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "shutdownOnDisconnect",
+      "name": "ShutdownOnDisconnect",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EnableState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "shutdownOnIdle",
+      "name": "ShutdownOnIdle",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ShutdownOnIdleMode"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "shutdownWhenNotConnected",
+      "name": "ShutdownWhenNotConnected",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EnableState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

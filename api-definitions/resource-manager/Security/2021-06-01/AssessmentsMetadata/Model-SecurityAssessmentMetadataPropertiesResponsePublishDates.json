@@ -1,29 +1,31 @@
 {
- "name": "SecurityAssessmentMetadataPropertiesResponsePublishDates",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "GA",
-   "name": "GA",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "public",
-   "name": "Public",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  "name": "SecurityAssessmentMetadataPropertiesResponsePublishDates",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "GA",
+      "name": "GA",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "public",
+      "name": "Public",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ]
 }

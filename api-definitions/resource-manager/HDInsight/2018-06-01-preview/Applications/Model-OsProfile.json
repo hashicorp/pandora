@@ -1,17 +1,18 @@
 {
- "name": "OsProfile",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "linuxOperatingSystemProfile",
-   "name": "LinuxOperatingSystemProfile",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "LinuxOperatingSystemProfile"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "OsProfile",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "linuxOperatingSystemProfile",
+      "name": "LinuxOperatingSystemProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "LinuxOperatingSystemProfile"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

@@ -1,20 +1,21 @@
 {
- "name": "OfficePowerBIDataConnector",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "properties",
-   "name": "Properties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "OfficePowerBIDataConnectorProperties"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "DataConnector",
- "discriminatedTypeValue": "OfficePowerBI",
- "typeHintIn": "Kind"
+  "name": "OfficePowerBIDataConnector",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "OfficePowerBIDataConnectorProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "DataConnector",
+  "discriminatedTypeValue": "OfficePowerBI",
+  "typeHintIn": "Kind"
 }

@@ -1,53 +1,57 @@
 {
- "name": "MachineInstallPatchesParameters",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "linuxParameters",
-   "name": "LinuxParameters",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "LinuxParameters"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "maximumDuration",
-   "name": "MaximumDuration",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "rebootSetting",
-   "name": "RebootSetting",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "VMGuestPatchRebootSetting"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "windowsParameters",
-   "name": "WindowsParameters",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "WindowsParameters"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "MachineInstallPatchesParameters",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "linuxParameters",
+      "name": "LinuxParameters",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "LinuxParameters"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "maximumDuration",
+      "name": "MaximumDuration",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rebootSetting",
+      "name": "RebootSetting",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "VMGuestPatchRebootSetting"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "windowsParameters",
+      "name": "WindowsParameters",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "WindowsParameters"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

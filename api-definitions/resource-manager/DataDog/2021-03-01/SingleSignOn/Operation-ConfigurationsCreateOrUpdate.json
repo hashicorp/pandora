@@ -1,15 +1,19 @@
 {
- "name": "ConfigurationsCreateOrUpdate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201
- ],
- "longRunning": true,
- "httpMethod": "PUT",
- "resourceIdName": "SingleSignOnConfigurationId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "DatadogSingleSignOnResource"
- }
+  "name": "ConfigurationsCreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "SingleSignOnConfigurationId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "DatadogSingleSignOnResource"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "DatadogSingleSignOnResource"
+  }
 }

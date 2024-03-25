@@ -1,18 +1,19 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package resourceids
 
 import (
 	"fmt"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
-
 	"github.com/hashicorp/go-hclog"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
 )
 
 type ParsedOperation struct {
 	// ResourceId is the ParsedResourceId object for this Resource Id
-	ResourceId *models.ParsedResourceId
+	ResourceId *models.ResourceID
 
 	// ResourceIdName is the name of the ResourceID
 	ResourceIdName *string
@@ -28,16 +29,16 @@ type ParseResult struct {
 	// object containing the parsed Resource ID.
 	OperationIdsToParsedResourceIds map[string]ParsedOperation
 
-	// NamesToResourceIDs is a mapping of the ResourceID Names to the Parsed Resource ID objects
-	NamesToResourceIDs map[string]models.ParsedResourceId
+	// NamesToResourceIDs is a mapping of the ResourceID Names to the parsed Resource ID objects
+	NamesToResourceIDs map[string]models.ResourceID
 
 	// Constants is a map of Name - ConstantDetails found within the Resource IDs
-	Constants map[string]resourcemanager.ConstantDetails
+	Constants map[string]models.SDKConstant
 }
 
 func (r *ParseResult) Append(other ParseResult, logger hclog.Logger) error {
 	intermediate := internal.ParseResult{
-		Constants: map[string]resourcemanager.ConstantDetails{},
+		Constants: map[string]models.SDKConstant{},
 	}
 	intermediate.AppendConstants(r.Constants)
 	intermediate.AppendConstants(other.Constants)
@@ -55,7 +56,7 @@ func (r *ParseResult) Append(other ParseResult, logger hclog.Logger) error {
 			if existingVal, existing := operationIdsToParsedOperations[k]; existing {
 				matches := false
 
-				if v.ResourceId != nil && existingVal.ResourceId != nil && v.ResourceId.Matches(*existingVal.ResourceId) {
+				if v.ResourceId != nil && existingVal.ResourceId != nil && ResourceIdsMatch(*v.ResourceId, *existingVal.ResourceId) {
 					matches = true
 				}
 				if v.UriSuffix != nil && existingVal.UriSuffix != nil && *v.UriSuffix == *existingVal.UriSuffix {
@@ -74,14 +75,14 @@ func (r *ParseResult) Append(other ParseResult, logger hclog.Logger) error {
 
 		// since we have a new list of Resource IDs we also need to go through and regenerate the names
 		// as we may have conflicts etc
-		combinedResourceIds := make([]models.ParsedResourceId, 0)
+		combinedResourceIds := make([]models.ResourceID, 0)
 		for _, v := range r.NamesToResourceIDs {
 			combinedResourceIds = append(combinedResourceIds, v)
 		}
 		for _, v := range other.NamesToResourceIDs {
 			foundMatching := false
 			for _, otherId := range combinedResourceIds {
-				if v.Matches(otherId) {
+				if ResourceIdsMatch(v, otherId) {
 					foundMatching = true
 					break
 				}

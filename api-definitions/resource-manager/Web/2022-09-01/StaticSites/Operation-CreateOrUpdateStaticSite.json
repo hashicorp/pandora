@@ -1,15 +1,19 @@
 {
- "name": "CreateOrUpdateStaticSite",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "PUT",
- "resourceIdName": "StaticSiteId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "StaticSiteARMResource"
- }
+  "name": "CreateOrUpdateStaticSite",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "StaticSiteId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "StaticSiteARMResource"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "StaticSiteARMResource"
+  }
 }

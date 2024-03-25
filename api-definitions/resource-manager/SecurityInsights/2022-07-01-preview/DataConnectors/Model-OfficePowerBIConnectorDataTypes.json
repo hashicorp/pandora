@@ -1,17 +1,18 @@
 {
- "name": "OfficePowerBIConnectorDataTypes",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "logs",
-   "name": "Logs",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "DataConnectorDataTypeCommon"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  "name": "OfficePowerBIConnectorDataTypes",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "logs",
+      "name": "Logs",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DataConnectorDataTypeCommon"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ]
 }

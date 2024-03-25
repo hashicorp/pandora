@@ -1,53 +1,57 @@
 {
- "name": "SiteLogsConfigProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "applicationLogs",
-   "name": "ApplicationLogs",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ApplicationLogsConfig"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "detailedErrorMessages",
-   "name": "DetailedErrorMessages",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "EnabledConfig"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "failedRequestsTracing",
-   "name": "FailedRequestsTracing",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "EnabledConfig"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "httpLogs",
-   "name": "HTTPLogs",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "HTTPLogsConfig"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "SiteLogsConfigProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "applicationLogs",
+      "name": "ApplicationLogs",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ApplicationLogsConfig"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "detailedErrorMessages",
+      "name": "DetailedErrorMessages",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EnabledConfig"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "failedRequestsTracing",
+      "name": "FailedRequestsTracing",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EnabledConfig"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "httpLogs",
+      "name": "HTTPLogs",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "HTTPLogsConfig"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

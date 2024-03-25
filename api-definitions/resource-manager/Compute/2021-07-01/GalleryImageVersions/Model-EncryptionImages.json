@@ -1,33 +1,35 @@
 {
- "name": "EncryptionImages",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "dataDiskImages",
-   "name": "DataDiskImages",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "DataDiskImageEncryption"
+  "name": "EncryptionImages",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "dataDiskImages",
+      "name": "DataDiskImages",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "DataDiskImageEncryption"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "osDiskImage",
+      "name": "OsDiskImage",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DiskImageEncryption"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "osDiskImage",
-   "name": "OsDiskImage",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "DiskImageEncryption"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

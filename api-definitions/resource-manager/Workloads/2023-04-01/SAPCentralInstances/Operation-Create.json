@@ -1,15 +1,19 @@
 {
- "name": "Create",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201
- ],
- "longRunning": true,
- "httpMethod": "PUT",
- "resourceIdName": "CentralInstanceId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "SAPCentralServerInstance"
- }
+  "name": "Create",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "CentralInstanceId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "SAPCentralServerInstance"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "SAPCentralServerInstance"
+  }
 }

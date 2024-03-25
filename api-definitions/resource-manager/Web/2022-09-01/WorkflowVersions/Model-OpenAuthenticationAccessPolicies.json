@@ -1,21 +1,22 @@
 {
- "name": "OpenAuthenticationAccessPolicies",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "policies",
-   "name": "Policies",
-   "objectDefinition": {
-    "type": "Dictionary",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "OpenAuthenticationAccessPolicy"
+  "name": "OpenAuthenticationAccessPolicies",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "policies",
+      "name": "Policies",
+      "objectDefinition": {
+        "type": "Dictionary",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "OpenAuthenticationAccessPolicy"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

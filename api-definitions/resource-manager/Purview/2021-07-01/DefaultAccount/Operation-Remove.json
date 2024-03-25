@@ -1,43 +1,43 @@
 {
- "name": "Remove",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  204
- ],
- "longRunning": false,
- "httpMethod": "POST",
- "options": [
-  {
-   "optional": true,
-   "queryString": "scope",
-   "required": false,
-   "field": "Scope",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  },
-  {
-   "optional": false,
-   "queryString": "scopeTenantId",
-   "required": true,
-   "field": "ScopeTenantId",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  },
-  {
-   "optional": false,
-   "queryString": "scopeType",
-   "required": true,
-   "field": "ScopeType",
-   "optionsObjectDefinition": {
-    "type": "Reference",
-    "referenceName": "ScopeType"
-   }
-  }
- ],
- "uriSuffix": "/providers/Microsoft.Purview/removeDefaultAccount"
+  "name": "Remove",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "scope",
+      "required": false,
+      "field": "Scope",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": false,
+      "queryString": "scopeTenantId",
+      "required": true,
+      "field": "ScopeTenantId",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": false,
+      "queryString": "scopeType",
+      "required": true,
+      "field": "ScopeType",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "ScopeType"
+      }
+    }
+  ],
+  "uriSuffix": "/providers/Microsoft.Purview/removeDefaultAccount"
 }

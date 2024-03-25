@@ -1,15 +1,19 @@
 {
- "name": "LedgerCreate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201
- ],
- "longRunning": true,
- "httpMethod": "PUT",
- "resourceIdName": "LedgerId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "ConfidentialLedger"
- }
+  "name": "LedgerCreate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "LedgerId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ConfidentialLedger"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ConfidentialLedger"
+  }
 }

@@ -1,117 +1,126 @@
 {
- "name": "ManagedGrafanaPropertiesUpdateParameters",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "apiKey",
-   "name": "ApiKey",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ApiKey"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "deterministicOutboundIP",
-   "name": "DeterministicOutboundIP",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "DeterministicOutboundIP"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "enterpriseConfigurations",
-   "name": "EnterpriseConfigurations",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "EnterpriseConfigurations"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "grafanaConfigurations",
-   "name": "GrafanaConfigurations",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "GrafanaConfigurations"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "grafanaIntegrations",
-   "name": "GrafanaIntegrations",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "GrafanaIntegrations"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "grafanaMajorVersion",
-   "name": "GrafanaMajorVersion",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "grafanaPlugins",
-   "name": "GrafanaPlugins",
-   "objectDefinition": {
-    "type": "Dictionary",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "GrafanaPlugin"
+  "name": "ManagedGrafanaPropertiesUpdateParameters",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "apiKey",
+      "name": "ApiKey",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ApiKey"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "deterministicOutboundIP",
+      "name": "DeterministicOutboundIP",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DeterministicOutboundIP"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "enterpriseConfigurations",
+      "name": "EnterpriseConfigurations",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EnterpriseConfigurations"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "grafanaConfigurations",
+      "name": "GrafanaConfigurations",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "GrafanaConfigurations"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "grafanaIntegrations",
+      "name": "GrafanaIntegrations",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "GrafanaIntegrations"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "grafanaMajorVersion",
+      "name": "GrafanaMajorVersion",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "grafanaPlugins",
+      "name": "GrafanaPlugins",
+      "objectDefinition": {
+        "type": "Dictionary",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "GrafanaPlugin"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "publicNetworkAccess",
+      "name": "PublicNetworkAccess",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PublicNetworkAccess"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "zoneRedundancy",
+      "name": "ZoneRedundancy",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ZoneRedundancy"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "publicNetworkAccess",
-   "name": "PublicNetworkAccess",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "PublicNetworkAccess"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "zoneRedundancy",
-   "name": "ZoneRedundancy",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ZoneRedundancy"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

@@ -1,17 +1,18 @@
 {
- "name": "SecuritySettings",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "immutabilitySettings",
-   "name": "ImmutabilitySettings",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ImmutabilitySettings"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "SecuritySettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "immutabilitySettings",
+      "name": "ImmutabilitySettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ImmutabilitySettings"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

@@ -1,0 +1,44 @@
+{
+  "name": "AzureMLUpdateResourceActivityTypeProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "trainedModelFilePath",
+      "name": "TrainedModelFilePath",
+      "objectDefinition": {
+        "type": "RawObject",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "trainedModelLinkedServiceName",
+      "name": "TrainedModelLinkedServiceName",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "LinkedServiceReference"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "trainedModelName",
+      "name": "TrainedModelName",
+      "objectDefinition": {
+        "type": "RawObject",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ]
+}

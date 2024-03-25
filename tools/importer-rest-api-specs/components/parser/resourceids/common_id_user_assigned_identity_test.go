@@ -1,61 +1,63 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package resourceids
 
 import (
 	"testing"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 func TestCommonResourceID_UserAssignedIdentity(t *testing.T) {
-	valid := models.ParsedResourceId{
-		Constants: map[string]resourcemanager.ConstantDetails{},
-		Segments: []resourcemanager.ResourceIdSegment{
-			models.StaticResourceIDSegment("subscriptions", "subscriptions"),
-			models.SubscriptionIDResourceIDSegment("subscriptionId"),
-			models.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
-			models.ResourceGroupResourceIDSegment("resourceGroupName"),
-			models.StaticResourceIDSegment("providers", "providers"),
-			models.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.ManagedIdentity"),
-			models.StaticResourceIDSegment("userAssignedIdentities", "userAssignedIdentities"),
-			models.UserSpecifiedResourceIDSegment("userAssignedIdentityName"),
+	valid := models.ResourceID{
+		ConstantNames: []string{},
+		Segments: []models.ResourceIDSegment{
+			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			models.NewStaticValueResourceIDSegment("providers", "providers"),
+			models.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.ManagedIdentity"),
+			models.NewStaticValueResourceIDSegment("userAssignedIdentities", "userAssignedIdentities"),
+			models.NewUserSpecifiedResourceIDSegment("userAssignedIdentityName", "userAssignedIdentityName"),
 		},
 	}
-	invalid := models.ParsedResourceId{
-		Constants: map[string]resourcemanager.ConstantDetails{},
-		Segments: []resourcemanager.ResourceIdSegment{
-			models.StaticResourceIDSegment("subscriptions", "subscriptions"),
-			models.SubscriptionIDResourceIDSegment("subscriptionId"),
-			models.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
-			models.ResourceGroupResourceIDSegment("resourceGroupName"),
-			models.StaticResourceIDSegment("providers", "providers"),
-			models.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.ManagedIdentity"),
-			models.StaticResourceIDSegment("userAssignedIdentities", "userAssignedIdentities"),
-			models.UserSpecifiedResourceIDSegment("userAssignedIdentityName"),
-			models.StaticResourceIDSegment("someResource", "someResource"),
-			models.UserSpecifiedResourceIDSegment("resourceName"),
+	invalid := models.ResourceID{
+		ConstantNames: []string{},
+		Segments: []models.ResourceIDSegment{
+			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			models.NewStaticValueResourceIDSegment("providers", "providers"),
+			models.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.ManagedIdentity"),
+			models.NewStaticValueResourceIDSegment("userAssignedIdentities", "userAssignedIdentities"),
+			models.NewUserSpecifiedResourceIDSegment("userAssignedIdentityName", "userAssignedIdentityName"),
+			models.NewStaticValueResourceIDSegment("someResource", "someResource"),
+			models.NewUserSpecifiedResourceIDSegment("resourceName", "resourceName"),
 		},
 	}
-	input := []models.ParsedResourceId{
+	input := []models.ResourceID{
 		valid,
 		invalid,
 	}
 	output := switchOutCommonResourceIDsAsNeeded(input)
 	for _, actual := range output {
 		if normalizedResourceId(actual.Segments) == normalizedResourceId(valid.Segments) {
-			if actual.CommonAlias == nil {
-				t.Fatalf("Expected `valid` to have the CommonAlias `UserAssignedIdentity` but got nil")
+			if actual.CommonIDAlias == nil {
+				t.Fatalf("Expected `valid` to have the CommonIDAlias `UserAssignedIdentity` but got nil")
 			}
-			if *actual.CommonAlias != "UserAssignedIdentity" {
-				t.Fatalf("Expected `valid` to have the CommonAlias `UserAssignedIdentity` but got %q", *actual.CommonAlias)
+			if *actual.CommonIDAlias != "UserAssignedIdentity" {
+				t.Fatalf("Expected `valid` to have the CommonIDAlias `UserAssignedIdentity` but got %q", *actual.CommonIDAlias)
 			}
 
 			continue
 		}
 
 		if normalizedResourceId(actual.Segments) == normalizedResourceId(invalid.Segments) {
-			if actual.CommonAlias != nil {
-				t.Fatalf("Expected `invalid` to have no CommonAlias but got %q", *actual.CommonAlias)
+			if actual.CommonIDAlias != nil {
+				t.Fatalf("Expected `invalid` to have no CommonIDAlias but got %q", *actual.CommonIDAlias)
 			}
 			continue
 		}

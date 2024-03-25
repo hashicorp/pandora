@@ -1,17 +1,18 @@
 {
- "name": "VirtualMachineAdditionalCapabilities",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "installGpuDrivers",
-   "name": "InstallGpuDrivers",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "EnableState"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "VirtualMachineAdditionalCapabilities",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "installGpuDrivers",
+      "name": "InstallGpuDrivers",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EnableState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

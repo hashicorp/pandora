@@ -1,41 +1,44 @@
 {
- "name": "AttestationServiceCreationSpecificParams",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "policySigningCertificates",
-   "name": "PolicySigningCertificates",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "JsonWebKeySet"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "publicNetworkAccess",
-   "name": "PublicNetworkAccess",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "PublicNetworkAccessType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "tpmAttestationAuthentication",
-   "name": "TpmAttestationAuthentication",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "TpmAttestationAuthenticationType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "AttestationServiceCreationSpecificParams",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "policySigningCertificates",
+      "name": "PolicySigningCertificates",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "JsonWebKeySet"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "publicNetworkAccess",
+      "name": "PublicNetworkAccess",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PublicNetworkAccessType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "tpmAttestationAuthentication",
+      "name": "TpmAttestationAuthentication",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "TpmAttestationAuthenticationType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

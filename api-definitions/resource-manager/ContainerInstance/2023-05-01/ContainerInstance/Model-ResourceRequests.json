@@ -1,41 +1,44 @@
 {
- "name": "ResourceRequests",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "cpu",
-   "name": "Cpu",
-   "objectDefinition": {
-    "type": "Float",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "gpu",
-   "name": "Gpu",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "GpuResource"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "memoryInGB",
-   "name": "MemoryInGB",
-   "objectDefinition": {
-    "type": "Float",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  "name": "ResourceRequests",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "cpu",
+      "name": "Cpu",
+      "objectDefinition": {
+        "type": "Float",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "gpu",
+      "name": "Gpu",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "GpuResource"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "memoryInGB",
+      "name": "MemoryInGB",
+      "objectDefinition": {
+        "type": "Float",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ]
 }

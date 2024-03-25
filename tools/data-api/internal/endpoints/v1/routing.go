@@ -1,12 +1,15 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package v1
 
 import (
 	"context"
 	"fmt"
-	"log"
 	"net/http"
 
 	"github.com/go-chi/chi/v5"
+	"github.com/hashicorp/pandora/tools/data-api/internal/logging"
 	"github.com/hashicorp/pandora/tools/data-api/internal/repositories"
 )
 
@@ -80,7 +83,7 @@ func (api Api) serviceRouteContext(next http.Handler) http.Handler {
 
 		serviceName := chi.URLParam(r, "serviceName")
 		if serviceName == "" {
-			log.Printf("[DEBUG] Missing Service Name")
+			logging.Debugf("Missing Service Name")
 			http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
 		}
 
@@ -100,7 +103,7 @@ func serviceApiVersionRouteContext(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		serviceApiVersion := chi.URLParam(r, "serviceApiVersion")
 		if serviceApiVersion == "" {
-			log.Printf("[DEBUG] Missing Service API Version")
+			logging.Debugf("Missing Service API Version")
 			http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
 		}
 
@@ -126,7 +129,7 @@ func apiResourceNameRouteContext(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		resourceName := chi.URLParam(r, "resourceName")
 		if resourceName == "" {
-			log.Printf("[DEBUG] Missing Resource Name")
+			logging.Debugf("Missing Resource Name")
 			http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
 		}
 

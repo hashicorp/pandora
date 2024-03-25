@@ -1,17 +1,18 @@
 {
- "name": "StorageSyncServiceUpdateProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "incomingTrafficPolicy",
-   "name": "IncomingTrafficPolicy",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "IncomingTrafficPolicy"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "StorageSyncServiceUpdateProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "incomingTrafficPolicy",
+      "name": "IncomingTrafficPolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "IncomingTrafficPolicy"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

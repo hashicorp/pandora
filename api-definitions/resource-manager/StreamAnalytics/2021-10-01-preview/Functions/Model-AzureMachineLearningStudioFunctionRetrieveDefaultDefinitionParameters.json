@@ -1,20 +1,21 @@
 {
- "name": "AzureMachineLearningStudioFunctionRetrieveDefaultDefinitionParameters",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "bindingRetrievalProperties",
-   "name": "BindingRetrievalProperties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "AzureMachineLearningStudioFunctionBindingRetrievalProperties"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "FunctionRetrieveDefaultDefinitionParameters",
- "discriminatedTypeValue": "Microsoft.MachineLearning/WebService",
- "typeHintIn": "BindingType"
+  "name": "AzureMachineLearningStudioFunctionRetrieveDefaultDefinitionParameters",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "bindingRetrievalProperties",
+      "name": "BindingRetrievalProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AzureMachineLearningStudioFunctionBindingRetrievalProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "FunctionRetrieveDefaultDefinitionParameters",
+  "discriminatedTypeValue": "Microsoft.MachineLearning/WebService",
+  "typeHintIn": "BindingType"
 }

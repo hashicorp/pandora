@@ -1,44 +1,47 @@
 {
- "name": "NfsMountEndpointProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "export",
-   "name": "Export",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "host",
-   "name": "Host",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "nfsVersion",
-   "name": "NfsVersion",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "NfsVersion"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "EndpointBaseProperties",
- "discriminatedTypeValue": "NfsMount",
- "typeHintIn": "EndpointType"
+  "name": "NfsMountEndpointProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "export",
+      "name": "Export",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "host",
+      "name": "Host",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "nfsVersion",
+      "name": "NfsVersion",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "NfsVersion"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "EndpointBaseProperties",
+  "discriminatedTypeValue": "NfsMount",
+  "typeHintIn": "EndpointType"
 }

@@ -1,20 +1,21 @@
 {
- "name": "PolicyAssignmentArtifact",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "properties",
-   "name": "Properties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "PolicyAssignmentArtifactProperties"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "Artifact",
- "discriminatedTypeValue": "policyAssignment",
- "typeHintIn": "Kind"
+  "name": "PolicyAssignmentArtifact",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PolicyAssignmentArtifactProperties"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "Artifact",
+  "discriminatedTypeValue": "policyAssignment",
+  "typeHintIn": "Kind"
 }

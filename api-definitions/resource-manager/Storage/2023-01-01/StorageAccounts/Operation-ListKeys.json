@@ -1,27 +1,27 @@
 {
- "name": "ListKeys",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "POST",
- "options": [
-  {
-   "optional": true,
-   "queryString": "$expand",
-   "required": false,
-   "field": "Expand",
-   "optionsObjectDefinition": {
+  "name": "ListKeys",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "$expand",
+      "required": false,
+      "field": "Expand",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "ListKeyExpand"
+      }
+    }
+  ],
+  "resourceIdName": "StorageAccountId",
+  "responseObject": {
     "type": "Reference",
-    "referenceName": "ListKeyExpand"
-   }
-  }
- ],
- "resourceIdName": "StorageAccountId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "StorageAccountListKeysResult"
- },
- "uriSuffix": "/listKeys"
+    "referenceName": "StorageAccountListKeysResult"
+  },
+  "uriSuffix": "/listKeys"
 }

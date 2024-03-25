@@ -1,225 +1,243 @@
 {
- "name": "ScalingSchedule",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "daysOfWeek",
-   "name": "DaysOfWeek",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "DaysOfWeek"
+  "name": "ScalingSchedule",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "daysOfWeek",
+      "name": "DaysOfWeek",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "DaysOfWeek"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "name",
+      "name": "Name",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "offPeakLoadBalancingAlgorithm",
+      "name": "OffPeakLoadBalancingAlgorithm",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SessionHostLoadBalancingAlgorithm"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "offPeakStartTime",
+      "name": "OffPeakStartTime",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Time"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "peakLoadBalancingAlgorithm",
+      "name": "PeakLoadBalancingAlgorithm",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SessionHostLoadBalancingAlgorithm"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "peakStartTime",
+      "name": "PeakStartTime",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Time"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rampDownCapacityThresholdPct",
+      "name": "RampDownCapacityThresholdPct",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rampDownForceLogoffUsers",
+      "name": "RampDownForceLogoffUsers",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rampDownLoadBalancingAlgorithm",
+      "name": "RampDownLoadBalancingAlgorithm",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SessionHostLoadBalancingAlgorithm"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rampDownMinimumHostsPct",
+      "name": "RampDownMinimumHostsPct",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rampDownNotificationMessage",
+      "name": "RampDownNotificationMessage",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rampDownStartTime",
+      "name": "RampDownStartTime",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Time"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rampDownStopHostsWhen",
+      "name": "RampDownStopHostsWhen",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "StopHostsWhen"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rampDownWaitTimeMinutes",
+      "name": "RampDownWaitTimeMinutes",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rampUpCapacityThresholdPct",
+      "name": "RampUpCapacityThresholdPct",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rampUpLoadBalancingAlgorithm",
+      "name": "RampUpLoadBalancingAlgorithm",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SessionHostLoadBalancingAlgorithm"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rampUpMinimumHostsPct",
+      "name": "RampUpMinimumHostsPct",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rampUpStartTime",
+      "name": "RampUpStartTime",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Time"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "name",
-   "name": "Name",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "offPeakLoadBalancingAlgorithm",
-   "name": "OffPeakLoadBalancingAlgorithm",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SessionHostLoadBalancingAlgorithm"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "offPeakStartTime",
-   "name": "OffPeakStartTime",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "Time"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "peakLoadBalancingAlgorithm",
-   "name": "PeakLoadBalancingAlgorithm",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SessionHostLoadBalancingAlgorithm"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "peakStartTime",
-   "name": "PeakStartTime",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "Time"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "rampDownCapacityThresholdPct",
-   "name": "RampDownCapacityThresholdPct",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "rampDownForceLogoffUsers",
-   "name": "RampDownForceLogoffUsers",
-   "objectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "rampDownLoadBalancingAlgorithm",
-   "name": "RampDownLoadBalancingAlgorithm",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SessionHostLoadBalancingAlgorithm"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "rampDownMinimumHostsPct",
-   "name": "RampDownMinimumHostsPct",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "rampDownNotificationMessage",
-   "name": "RampDownNotificationMessage",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "rampDownStartTime",
-   "name": "RampDownStartTime",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "Time"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "rampDownStopHostsWhen",
-   "name": "RampDownStopHostsWhen",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "StopHostsWhen"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "rampDownWaitTimeMinutes",
-   "name": "RampDownWaitTimeMinutes",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "rampUpCapacityThresholdPct",
-   "name": "RampUpCapacityThresholdPct",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "rampUpLoadBalancingAlgorithm",
-   "name": "RampUpLoadBalancingAlgorithm",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SessionHostLoadBalancingAlgorithm"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "rampUpMinimumHostsPct",
-   "name": "RampUpMinimumHostsPct",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "rampUpStartTime",
-   "name": "RampUpStartTime",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "Time"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

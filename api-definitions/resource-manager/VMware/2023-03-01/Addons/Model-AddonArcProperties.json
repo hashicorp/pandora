@@ -1,20 +1,21 @@
 {
- "name": "AddonArcProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "vCenter",
-   "name": "VCenter",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "AddonProperties",
- "discriminatedTypeValue": "Arc",
- "typeHintIn": "AddonType"
+  "name": "AddonArcProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "vCenter",
+      "name": "VCenter",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "AddonProperties",
+  "discriminatedTypeValue": "Arc",
+  "typeHintIn": "AddonType"
 }

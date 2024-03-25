@@ -1,17 +1,18 @@
 {
- "name": "PolicyProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "scope",
-   "name": "Scope",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "PolicyPropertiesScope"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "PolicyProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "scope",
+      "name": "Scope",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PolicyPropertiesScope"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

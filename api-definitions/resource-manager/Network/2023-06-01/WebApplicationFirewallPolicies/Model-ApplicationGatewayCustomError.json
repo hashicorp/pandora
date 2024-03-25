@@ -1,29 +1,31 @@
 {
- "name": "ApplicationGatewayCustomError",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "customErrorPageUrl",
-   "name": "CustomErrorPageUrl",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "statusCode",
-   "name": "StatusCode",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ApplicationGatewayCustomErrorStatusCode"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "ApplicationGatewayCustomError",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "customErrorPageUrl",
+      "name": "CustomErrorPageUrl",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "statusCode",
+      "name": "StatusCode",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ApplicationGatewayCustomErrorStatusCode"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

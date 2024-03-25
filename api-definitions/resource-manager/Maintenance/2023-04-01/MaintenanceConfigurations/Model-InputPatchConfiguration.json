@@ -1,41 +1,44 @@
 {
- "name": "InputPatchConfiguration",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "linuxParameters",
-   "name": "LinuxParameters",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "InputLinuxParameters"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "rebootSetting",
-   "name": "RebootSetting",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "RebootOptions"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "windowsParameters",
-   "name": "WindowsParameters",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "InputWindowsParameters"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "InputPatchConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "linuxParameters",
+      "name": "LinuxParameters",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "InputLinuxParameters"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rebootSetting",
+      "name": "RebootSetting",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RebootOptions"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "windowsParameters",
+      "name": "WindowsParameters",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "InputWindowsParameters"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

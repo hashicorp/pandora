@@ -1,97 +1,104 @@
 {
- "name": "FluxConfigurationPatchProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "azureBlob",
-   "name": "AzureBlob",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "AzureBlobPatchDefinition"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "bucket",
-   "name": "Bucket",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "BucketPatchDefinition"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "configurationProtectedSettings",
-   "name": "ConfigurationProtectedSettings",
-   "objectDefinition": {
-    "type": "Dictionary",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "String",
-     "referenceName": null
+  "name": "FluxConfigurationPatchProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "azureBlob",
+      "name": "AzureBlob",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AzureBlobPatchDefinition"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "bucket",
+      "name": "Bucket",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "BucketPatchDefinition"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "configurationProtectedSettings",
+      "name": "ConfigurationProtectedSettings",
+      "objectDefinition": {
+        "type": "Dictionary",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "gitRepository",
+      "name": "GitRepository",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "GitRepositoryPatchDefinition"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "kustomizations",
+      "name": "Kustomizations",
+      "objectDefinition": {
+        "type": "Dictionary",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "KustomizationPatchDefinition"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sourceKind",
+      "name": "SourceKind",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SourceKindType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "suspend",
+      "name": "Suspend",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "gitRepository",
-   "name": "GitRepository",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "GitRepositoryPatchDefinition"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "kustomizations",
-   "name": "Kustomizations",
-   "objectDefinition": {
-    "type": "Dictionary",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "KustomizationPatchDefinition"
-    }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "sourceKind",
-   "name": "SourceKind",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SourceKindType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "suspend",
-   "name": "Suspend",
-   "objectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

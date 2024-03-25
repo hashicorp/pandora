@@ -1,20 +1,21 @@
 {
- "name": "TagInheritanceSetting",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "properties",
-   "name": "Properties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "TagInheritanceProperties"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "Setting",
- "discriminatedTypeValue": "taginheritance",
- "typeHintIn": "Kind"
+  "name": "TagInheritanceSetting",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "TagInheritanceProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "Setting",
+  "discriminatedTypeValue": "taginheritance",
+  "typeHintIn": "Kind"
 }

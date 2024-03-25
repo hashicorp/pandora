@@ -1,45 +1,48 @@
 {
- "name": "AutoscaleNotification",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "email",
-   "name": "Email",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "EmailNotification"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "operation",
-   "name": "Operation",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "OperationType"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "webhooks",
-   "name": "WebHooks",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "WebhookNotification"
+  "name": "AutoscaleNotification",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "email",
+      "name": "Email",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EmailNotification"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "operation",
+      "name": "Operation",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "OperationType"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "webhooks",
+      "name": "WebHooks",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "WebhookNotification"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

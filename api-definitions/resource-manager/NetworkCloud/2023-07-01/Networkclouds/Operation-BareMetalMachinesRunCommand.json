@@ -1,16 +1,16 @@
 {
- "name": "BareMetalMachinesRunCommand",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  202,
-  204
- ],
- "longRunning": true,
- "httpMethod": "POST",
- "resourceIdName": "BareMetalMachineId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "BareMetalMachineRunCommandParameters"
- },
- "uriSuffix": "/runCommand"
+  "name": "BareMetalMachinesRunCommand",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    202,
+    204
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "BareMetalMachineId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "BareMetalMachineRunCommandParameters"
+  },
+  "uriSuffix": "/runCommand"
 }

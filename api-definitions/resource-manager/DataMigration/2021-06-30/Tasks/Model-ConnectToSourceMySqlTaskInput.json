@@ -1,0 +1,57 @@
+{
+  "name": "ConnectToSourceMySqlTaskInput",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "checkPermissionsGroup",
+      "name": "CheckPermissionsGroup",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ServerLevelPermissionsGroup"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "isOfflineMigration",
+      "name": "IsOfflineMigration",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sourceConnectionInfo",
+      "name": "SourceConnectionInfo",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MySqlConnectionInfo"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "targetPlatform",
+      "name": "TargetPlatform",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MySqlTargetPlatformType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

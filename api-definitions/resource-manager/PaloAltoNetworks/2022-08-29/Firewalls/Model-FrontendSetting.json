@@ -1,53 +1,57 @@
 {
- "name": "FrontendSetting",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "backendConfiguration",
-   "name": "BackendConfiguration",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "EndpointConfiguration"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "frontendConfiguration",
-   "name": "FrontendConfiguration",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "EndpointConfiguration"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "name",
-   "name": "Name",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "protocol",
-   "name": "Protocol",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ProtocolType"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  "name": "FrontendSetting",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "backendConfiguration",
+      "name": "BackendConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EndpointConfiguration"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "frontendConfiguration",
+      "name": "FrontendConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EndpointConfiguration"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "name",
+      "name": "Name",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "protocol",
+      "name": "Protocol",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ProtocolType"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ]
 }

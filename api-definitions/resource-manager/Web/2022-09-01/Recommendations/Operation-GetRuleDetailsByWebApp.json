@@ -1,36 +1,36 @@
 {
- "name": "GetRuleDetailsByWebApp",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "GET",
- "options": [
-  {
-   "optional": true,
-   "queryString": "recommendationId",
-   "required": false,
-   "field": "RecommendationId",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  },
-  {
-   "optional": true,
-   "queryString": "updateSeen",
-   "required": false,
-   "field": "UpdateSeen",
-   "optionsObjectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   }
+  "name": "GetRuleDetailsByWebApp",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "recommendationId",
+      "required": false,
+      "field": "RecommendationId",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "updateSeen",
+      "required": false,
+      "field": "UpdateSeen",
+      "optionsObjectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "SiteRecommendationId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "RecommendationRule"
   }
- ],
- "resourceIdName": "SiteRecommendationId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "RecommendationRule"
- }
 }

@@ -1,17 +1,18 @@
 {
- "name": "HighAvailabilityConfiguration",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "highAvailabilityType",
-   "name": "HighAvailabilityType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SAPHighAvailabilityType"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  "name": "HighAvailabilityConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "highAvailabilityType",
+      "name": "HighAvailabilityType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SAPHighAvailabilityType"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ]
 }

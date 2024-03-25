@@ -1,20 +1,21 @@
 {
- "name": "AzureBackupParams",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "backupType",
-   "name": "BackupType",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "BackupParameters",
- "discriminatedTypeValue": "AzureBackupParams",
- "typeHintIn": "ObjectType"
+  "name": "AzureBackupParams",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "backupType",
+      "name": "BackupType",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "BackupParameters",
+  "discriminatedTypeValue": "AzureBackupParams",
+  "typeHintIn": "ObjectType"
 }

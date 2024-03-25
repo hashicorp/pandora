@@ -1,14 +1,18 @@
 {
- "name": "CreateOrUpdate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  201
- ],
- "longRunning": true,
- "httpMethod": "PUT",
- "resourceIdName": "PrivateEndpointConnectionProxyId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "PrivateEndpointConnectionProxy"
- }
+  "name": "CreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "PrivateEndpointConnectionProxyId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "PrivateEndpointConnectionProxy"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "PrivateEndpointConnectionProxy"
+  }
 }

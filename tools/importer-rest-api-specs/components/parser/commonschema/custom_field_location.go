@@ -1,21 +1,25 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package commonschema
 
 import (
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
-
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 var _ customFieldMatcher = locationMatcher{}
 
 type locationMatcher struct{}
 
-func (l locationMatcher) IsMatch(field models.FieldDetails, definition models.ObjectDefinition, known internal.ParseResult) bool {
-	return strings.EqualFold(field.JsonName, "location") && definition.Type == models.ObjectDefinitionString
+func (l locationMatcher) ReplacementObjectDefinition() models.SDKObjectDefinition {
+	return models.SDKObjectDefinition{
+		Type: models.LocationSDKObjectDefinitionType,
+	}
 }
 
-func (locationMatcher) CustomFieldType() models.CustomFieldType {
-	return models.CustomFieldTypeLocation
+func (l locationMatcher) IsMatch(field models.SDKField, _ internal.ParseResult) bool {
+	return strings.EqualFold(field.JsonName, "location") && field.ObjectDefinition.Type == models.StringSDKObjectDefinitionType
 }

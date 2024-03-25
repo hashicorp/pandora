@@ -1,16 +1,20 @@
 {
- "name": "CancelSynchronization",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "POST",
- "resourceIdName": "ShareSubscriptionId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "ShareSubscriptionSynchronization"
- },
- "uriSuffix": "/cancelSynchronization"
+  "name": "CancelSynchronization",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "ShareSubscriptionId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ShareSubscriptionSynchronization"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ShareSubscriptionSynchronization"
+  },
+  "uriSuffix": "/cancelSynchronization"
 }

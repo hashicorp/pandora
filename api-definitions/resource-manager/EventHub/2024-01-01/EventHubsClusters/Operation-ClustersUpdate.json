@@ -1,16 +1,20 @@
 {
- "name": "ClustersUpdate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201,
-  202
- ],
- "longRunning": true,
- "httpMethod": "PATCH",
- "resourceIdName": "ClusterId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "Cluster"
- }
+  "name": "ClustersUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "ClusterId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "Cluster"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "Cluster"
+  }
 }

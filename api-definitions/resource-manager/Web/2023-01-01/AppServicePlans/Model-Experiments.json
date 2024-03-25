@@ -1,21 +1,22 @@
 {
- "name": "Experiments",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "rampUpRules",
-   "name": "RampUpRules",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "RampUpRule"
+  "name": "Experiments",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rampUpRules",
+      "name": "RampUpRules",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "RampUpRule"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

@@ -1,17 +1,18 @@
 {
- "name": "VerificationParameter",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "verificationType",
-   "name": "VerificationType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "VerificationType"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  "name": "VerificationParameter",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "verificationType",
+      "name": "VerificationType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "VerificationType"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ]
 }

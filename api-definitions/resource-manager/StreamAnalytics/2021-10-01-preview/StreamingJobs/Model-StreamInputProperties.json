@@ -1,20 +1,21 @@
 {
- "name": "StreamInputProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "datasource",
-   "name": "Datasource",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "StreamInputDataSource"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "InputProperties",
- "discriminatedTypeValue": "Stream",
- "typeHintIn": "Type"
+  "name": "StreamInputProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "datasource",
+      "name": "Datasource",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "StreamInputDataSource"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "InputProperties",
+  "discriminatedTypeValue": "Stream",
+  "typeHintIn": "Type"
 }

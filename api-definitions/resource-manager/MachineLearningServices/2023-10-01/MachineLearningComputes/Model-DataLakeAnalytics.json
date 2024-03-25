@@ -1,20 +1,21 @@
 {
- "name": "DataLakeAnalytics",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "properties",
-   "name": "Properties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "DataLakeAnalyticsSchemaProperties"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "Compute",
- "discriminatedTypeValue": "DataLakeAnalytics",
- "typeHintIn": "ComputeType"
+  "name": "DataLakeAnalytics",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DataLakeAnalyticsSchemaProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "Compute",
+  "discriminatedTypeValue": "DataLakeAnalytics",
+  "typeHintIn": "ComputeType"
 }

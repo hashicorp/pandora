@@ -1,0 +1,39 @@
+{
+  "fieldMappings": [
+    {
+      "type": "DirectAssignment",
+      "directAssignment": {
+        "schemaModelName": "ChaosStudioTargetResourceSchema",
+        "schemaFieldPath": "Location",
+        "sdkModelName": "Target",
+        "sdkFieldPath": "Location"
+      }
+    },
+    {
+      "type": "ModelToModel",
+      "modelToModel": {
+        "schemaModelName": "ChaosStudioTargetResourceSchema",
+        "sdkModelName": "Target",
+        "sdkFieldName": "Properties"
+      }
+    }
+  ],
+  "modelToModelMappings": [
+    {
+      "schemaModelName": "ChaosStudioTargetResourceSchema",
+      "sdkModelName": "Target"
+    }
+  ],
+  "resourceIdMappings": [
+    {
+      "parsedFromParentId": false,
+      "schemaFieldName": "TargetResourceId",
+      "segmentName": "scope"
+    },
+    {
+      "parsedFromParentId": false,
+      "schemaFieldName": "TargetType",
+      "segmentName": "targetName"
+    }
+  ]
+}

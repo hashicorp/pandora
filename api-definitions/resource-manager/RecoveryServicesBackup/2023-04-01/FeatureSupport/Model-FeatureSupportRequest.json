@@ -1,18 +1,19 @@
 {
- "name": "FeatureSupportRequest",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": true,
-   "jsonName": "featureType",
-   "name": "FeatureType",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ],
- "typeHintIn": "FeatureType"
+  "name": "FeatureSupportRequest",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": true,
+      "jsonName": "featureType",
+      "name": "FeatureType",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "typeHintIn": "FeatureType"
 }

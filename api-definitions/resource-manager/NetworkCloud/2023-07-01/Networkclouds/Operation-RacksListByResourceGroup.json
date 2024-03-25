@@ -1,16 +1,16 @@
 {
- "name": "RacksListByResourceGroup",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "fieldContainingPaginationDetails": "nextLink",
- "longRunning": false,
- "httpMethod": "GET",
- "resourceIdName": "ResourceGroupId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "Rack"
- },
- "uriSuffix": "/providers/Microsoft.NetworkCloud/racks"
+  "name": "RacksListByResourceGroup",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "ResourceGroupId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "Rack"
+  },
+  "uriSuffix": "/providers/Microsoft.NetworkCloud/racks"
 }

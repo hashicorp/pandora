@@ -1,20 +1,21 @@
 {
- "name": "VMwareCbtEventDetails",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "migrationItemName",
-   "name": "MigrationItemName",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "EventProviderSpecificDetails",
- "discriminatedTypeValue": "VMwareCbt",
- "typeHintIn": "InstanceType"
+  "name": "VMwareCbtEventDetails",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "migrationItemName",
+      "name": "MigrationItemName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "EventProviderSpecificDetails",
+  "discriminatedTypeValue": "VMwareCbt",
+  "typeHintIn": "InstanceType"
 }

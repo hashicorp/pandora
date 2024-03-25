@@ -1,47 +1,48 @@
 {
- "name": "ListAdvancedSecurityObjects",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "POST",
- "options": [
-  {
-   "optional": true,
-   "queryString": "skip",
-   "required": false,
-   "field": "Skip",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  },
-  {
-   "optional": true,
-   "queryString": "top",
-   "required": false,
-   "field": "Top",
-   "optionsObjectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   }
-  },
-  {
-   "optional": false,
-   "queryString": "type",
-   "required": true,
-   "field": "Type",
-   "optionsObjectDefinition": {
+  "name": "ListAdvancedSecurityObjects",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "skip",
+      "required": false,
+      "field": "Skip",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "top",
+      "required": false,
+      "field": "Top",
+      "optionsObjectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": false,
+      "queryString": "type",
+      "required": true,
+      "field": "Type",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "AdvSecurityObjectTypeEnum"
+      }
+    }
+  ],
+  "resourceIdName": "LocalRulestackId",
+  "responseObject": {
     "type": "Reference",
-    "referenceName": "AdvSecurityObjectTypeEnum"
-   }
-  }
- ],
- "resourceIdName": "LocalRulestackId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "AdvSecurityObjectListResponse"
- },
- "uriSuffix": "/listAdvancedSecurityObjects"
+    "referenceName": "AdvSecurityObjectModel"
+  },
+  "uriSuffix": "/listAdvancedSecurityObjects"
 }

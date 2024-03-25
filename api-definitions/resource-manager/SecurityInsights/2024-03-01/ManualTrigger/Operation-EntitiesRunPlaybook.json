@@ -1,0 +1,15 @@
+{
+  "name": "EntitiesRunPlaybook",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "EntityId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "EntityManualTriggerRequestBody"
+  },
+  "uriSuffix": "/runPlaybook"
+}

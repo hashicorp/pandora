@@ -1,29 +1,31 @@
 {
- "name": "CassandraKeyspaceGetProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "options",
-   "name": "Options",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "OptionsResource"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "resource",
-   "name": "Resource",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "CassandraKeyspaceGetPropertiesResource"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "CassandraKeyspaceGetProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "options",
+      "name": "Options",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "OptionsResource"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "resource",
+      "name": "Resource",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CassandraKeyspaceGetPropertiesResource"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

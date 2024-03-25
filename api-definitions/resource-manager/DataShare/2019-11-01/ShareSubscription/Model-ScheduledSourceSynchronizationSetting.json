@@ -1,20 +1,21 @@
 {
- "name": "ScheduledSourceSynchronizationSetting",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "properties",
-   "name": "Properties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ScheduledSourceShareSynchronizationSettingProperties"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "SourceShareSynchronizationSetting",
- "discriminatedTypeValue": "ScheduleBased",
- "typeHintIn": "Kind"
+  "name": "ScheduledSourceSynchronizationSetting",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ScheduledSourceShareSynchronizationSettingProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "SourceShareSynchronizationSetting",
+  "discriminatedTypeValue": "ScheduleBased",
+  "typeHintIn": "Kind"
 }

@@ -1,36 +1,38 @@
 {
- "name": "RuleEmailAction",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "customEmails",
-   "name": "CustomEmails",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "String",
-     "referenceName": null
+  "name": "RuleEmailAction",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "customEmails",
+      "name": "CustomEmails",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sendToServiceOwners",
+      "name": "SendToServiceOwners",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "sendToServiceOwners",
-   "name": "SendToServiceOwners",
-   "objectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "RuleAction",
- "discriminatedTypeValue": "Microsoft.Azure.Management.Insights.Models.RuleEmailAction",
- "typeHintIn": "OdataType"
+  ],
+  "discriminatedParentModelName": "RuleAction",
+  "discriminatedTypeValue": "Microsoft.Azure.Management.Insights.Models.RuleEmailAction",
+  "typeHintIn": "OdataType"
 }

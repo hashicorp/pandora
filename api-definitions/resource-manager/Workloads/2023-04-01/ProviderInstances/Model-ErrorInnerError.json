@@ -1,17 +1,18 @@
 {
- "name": "ErrorInnerError",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "innerError",
-   "name": "InnerError",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "Error"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "ErrorInnerError",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "innerError",
+      "name": "InnerError",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Error"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

@@ -1,0 +1,34 @@
+{
+  "name": "DefenderForDatabasesGcpOffering",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "arcAutoProvisioning",
+      "name": "ArcAutoProvisioning",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DefenderForDatabasesGcpOfferingArcAutoProvisioning"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "defenderForDatabasesArcAutoProvisioning",
+      "name": "DefenderForDatabasesArcAutoProvisioning",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DefenderForDatabasesGcpOfferingDefenderForDatabasesArcAutoProvisioning"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "CloudOffering",
+  "discriminatedTypeValue": "DefenderForDatabasesGcp",
+  "typeHintIn": "OfferingType"
+}

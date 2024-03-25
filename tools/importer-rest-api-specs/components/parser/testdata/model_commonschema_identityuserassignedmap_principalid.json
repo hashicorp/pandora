@@ -1,0 +1,69 @@
+{
+  "paths": {
+    "/example": {
+      "get": {
+        "tags": [
+          "Resource"
+        ],
+        "operationId": "Resource_Test",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/Model"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Model": {
+      "properties": {
+        "identity": {
+          "$ref": "#/definitions/UserAssignedIdentityMap"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "UserAssignedIdentityMap": {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "None",
+            "UserAssigned"
+          ],
+          "x-ms-enum": {
+            "name": "IdentityType2",
+            "modelAsString": true
+          }
+        },
+        "userAssignedIdentities": {
+          "$ref": "#/definitions/UserAssignedIdentityMapReal"
+        },
+        "principalId" : {
+          "type": "string",
+          "description": "The principal ID for the user-assigned identity of the resource.",
+          "readOnly": true
+        }
+      }
+    },
+    "UserAssignedIdentityMapReal": {
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "clientId": {
+            "type": "string"
+          },
+          "principalId": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

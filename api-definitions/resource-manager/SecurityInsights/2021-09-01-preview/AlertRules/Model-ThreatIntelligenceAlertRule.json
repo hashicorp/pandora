@@ -1,20 +1,21 @@
 {
- "name": "ThreatIntelligenceAlertRule",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "properties",
-   "name": "Properties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ThreatIntelligenceAlertRuleProperties"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "AlertRule",
- "discriminatedTypeValue": "ThreatIntelligence",
- "typeHintIn": "Kind"
+  "name": "ThreatIntelligenceAlertRule",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ThreatIntelligenceAlertRuleProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "AlertRule",
+  "discriminatedTypeValue": "ThreatIntelligence",
+  "typeHintIn": "Kind"
 }

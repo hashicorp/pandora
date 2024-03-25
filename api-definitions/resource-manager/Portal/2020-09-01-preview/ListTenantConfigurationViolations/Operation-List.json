@@ -1,0 +1,15 @@
+{
+  "name": "List",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "POST",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "Violation"
+  },
+  "uriSuffix": "/providers/Microsoft.Portal/listTenantConfigurationViolations"
+}

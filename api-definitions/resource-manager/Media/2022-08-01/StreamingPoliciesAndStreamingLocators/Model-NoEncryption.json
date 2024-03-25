@@ -1,17 +1,18 @@
 {
- "name": "NoEncryption",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "enabledProtocols",
-   "name": "EnabledProtocols",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "EnabledProtocols"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "NoEncryption",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "enabledProtocols",
+      "name": "EnabledProtocols",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EnabledProtocols"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

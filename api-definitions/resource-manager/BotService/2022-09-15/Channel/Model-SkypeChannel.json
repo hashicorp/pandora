@@ -1,0 +1,21 @@
+{
+  "name": "SkypeChannel",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SkypeChannelProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "Channel",
+  "discriminatedTypeValue": "SkypeChannel",
+  "typeHintIn": "ChannelName"
+}

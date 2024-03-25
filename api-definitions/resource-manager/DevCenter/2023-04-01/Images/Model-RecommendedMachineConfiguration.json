@@ -1,29 +1,31 @@
 {
- "name": "RecommendedMachineConfiguration",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "memory",
-   "name": "Memory",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ResourceRange"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "vCPUs",
-   "name": "VCPUs",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ResourceRange"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "RecommendedMachineConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "memory",
+      "name": "Memory",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ResourceRange"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "vCPUs",
+      "name": "VCPUs",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ResourceRange"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

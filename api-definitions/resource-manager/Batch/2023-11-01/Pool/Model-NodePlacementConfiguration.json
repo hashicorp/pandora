@@ -1,17 +1,18 @@
 {
- "name": "NodePlacementConfiguration",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "policy",
-   "name": "Policy",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "NodePlacementPolicyType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "NodePlacementConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "policy",
+      "name": "Policy",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "NodePlacementPolicyType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

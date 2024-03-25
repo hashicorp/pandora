@@ -1,17 +1,18 @@
 {
- "name": "SecurityProfile",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "uefiSettings",
-   "name": "UefiSettings",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "UefiSettings"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "SecurityProfile",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "uefiSettings",
+      "name": "UefiSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "UefiSettings"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

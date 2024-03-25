@@ -1,15 +1,19 @@
 {
- "name": "AccountsUpdate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201
- ],
- "longRunning": true,
- "httpMethod": "PATCH",
- "resourceIdName": "AccountId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "AccountUpdate"
- }
+  "name": "AccountsUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "AccountId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "AccountUpdate"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "Account"
+  }
 }

@@ -1,53 +1,57 @@
 {
- "name": "StorageAccountMigrationProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "migrationFailedDetailedReason",
-   "name": "MigrationFailedDetailedReason",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "migrationFailedReason",
-   "name": "MigrationFailedReason",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "migrationStatus",
-   "name": "MigrationStatus",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "MigrationStatus"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "targetSkuName",
-   "name": "TargetSkuName",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SkuName"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  "name": "StorageAccountMigrationProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "migrationFailedDetailedReason",
+      "name": "MigrationFailedDetailedReason",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "migrationFailedReason",
+      "name": "MigrationFailedReason",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "migrationStatus",
+      "name": "MigrationStatus",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MigrationStatus"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "targetSkuName",
+      "name": "TargetSkuName",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SkuName"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ]
 }

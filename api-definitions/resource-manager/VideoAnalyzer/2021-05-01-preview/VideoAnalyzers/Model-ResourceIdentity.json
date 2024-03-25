@@ -1,17 +1,18 @@
 {
- "name": "ResourceIdentity",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "userAssignedIdentity",
-   "name": "UserAssignedIdentity",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  "name": "ResourceIdentity",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "userAssignedIdentity",
+      "name": "UserAssignedIdentity",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ]
 }

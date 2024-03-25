@@ -1,17 +1,18 @@
 {
- "name": "AgentRegistrationRegenerateKeyParameter",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "keyName",
-   "name": "KeyName",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "AgentRegistrationKeyName"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  "name": "AgentRegistrationRegenerateKeyParameter",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "keyName",
+      "name": "KeyName",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AgentRegistrationKeyName"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ]
 }

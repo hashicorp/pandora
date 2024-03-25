@@ -1,21 +1,22 @@
 {
- "name": "ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignment",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "roles",
-   "name": "Roles",
-   "objectDefinition": {
-    "type": "Dictionary",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "EnvironmentRole"
+  "name": "ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignment",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "roles",
+      "name": "Roles",
+      "objectDefinition": {
+        "type": "Dictionary",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "EnvironmentRole"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

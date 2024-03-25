@@ -1,15 +1,19 @@
 {
- "name": "CreateOrUpdate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201
- ],
- "longRunning": true,
- "httpMethod": "PUT",
- "resourceIdName": "ResourceProviderId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "CustomRPManifest"
- }
+  "name": "CreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "ResourceProviderId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "CustomRPManifest"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "CustomRPManifest"
+  }
 }

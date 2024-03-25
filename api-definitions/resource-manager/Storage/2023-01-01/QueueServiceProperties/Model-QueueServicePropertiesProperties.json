@@ -1,17 +1,18 @@
 {
- "name": "QueueServicePropertiesProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "cors",
-   "name": "Cors",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "CorsRules"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "QueueServicePropertiesProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "cors",
+      "name": "Cors",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CorsRules"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

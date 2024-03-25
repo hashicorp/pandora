@@ -1,20 +1,21 @@
 {
- "name": "Office365ProjectCheckRequirements",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "properties",
-   "name": "Properties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "DataConnectorTenantId"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "DataConnectorsCheckRequirements",
- "discriminatedTypeValue": "Office365Project",
- "typeHintIn": "Kind"
+  "name": "Office365ProjectCheckRequirements",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DataConnectorTenantId"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "DataConnectorsCheckRequirements",
+  "discriminatedTypeValue": "Office365Project",
+  "typeHintIn": "Kind"
 }

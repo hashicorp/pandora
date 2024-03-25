@@ -1,15 +1,19 @@
 {
- "name": "Update",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "PATCH",
- "resourceIdName": "OnlineEndpointDeploymentId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "PartialMinimalTrackedResourceWithSku"
- }
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "OnlineEndpointDeploymentId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "PartialMinimalTrackedResourceWithSku"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "OnlineDeploymentTrackedResource"
+  }
 }

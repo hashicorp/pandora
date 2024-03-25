@@ -1,17 +1,18 @@
 {
- "name": "BackupInformation",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "continuousBackupInformation",
-   "name": "ContinuousBackupInformation",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ContinuousBackupInformation"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "BackupInformation",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "continuousBackupInformation",
+      "name": "ContinuousBackupInformation",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ContinuousBackupInformation"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

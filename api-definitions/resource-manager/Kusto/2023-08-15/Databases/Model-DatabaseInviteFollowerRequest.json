@@ -1,29 +1,31 @@
 {
- "name": "DatabaseInviteFollowerRequest",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "inviteeEmail",
-   "name": "InviteeEmail",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "tableLevelSharingProperties",
-   "name": "TableLevelSharingProperties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "TableLevelSharingProperties"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "DatabaseInviteFollowerRequest",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "inviteeEmail",
+      "name": "InviteeEmail",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "tableLevelSharingProperties",
+      "name": "TableLevelSharingProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "TableLevelSharingProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

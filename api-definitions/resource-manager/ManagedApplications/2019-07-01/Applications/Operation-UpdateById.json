@@ -1,15 +1,19 @@
 {
- "name": "UpdateById",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "PATCH",
- "resourceIdName": "ApplicationIdId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "ApplicationPatchable"
- }
+  "name": "UpdateById",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "ApplicationIdId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ApplicationPatchable"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ApplicationPatchable"
+  }
 }

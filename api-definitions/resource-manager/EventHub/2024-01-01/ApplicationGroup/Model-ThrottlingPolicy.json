@@ -1,32 +1,34 @@
 {
- "name": "ThrottlingPolicy",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "metricId",
-   "name": "MetricId",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "MetricId"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "rateLimitThreshold",
-   "name": "RateLimitThreshold",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "ApplicationGroupPolicy",
- "discriminatedTypeValue": "ThrottlingPolicy",
- "typeHintIn": "Type"
+  "name": "ThrottlingPolicy",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "metricId",
+      "name": "MetricId",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MetricId"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rateLimitThreshold",
+      "name": "RateLimitThreshold",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "ApplicationGroupPolicy",
+  "discriminatedTypeValue": "ThrottlingPolicy",
+  "typeHintIn": "Type"
 }

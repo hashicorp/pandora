@@ -1,26 +1,26 @@
 {
- "name": "AlertsMetaData",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "GET",
- "options": [
-  {
-   "optional": false,
-   "queryString": "identifier",
-   "required": true,
-   "field": "Identifier",
-   "optionsObjectDefinition": {
+  "name": "AlertsMetaData",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "optional": false,
+      "queryString": "identifier",
+      "required": true,
+      "field": "Identifier",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "Identifier"
+      }
+    }
+  ],
+  "responseObject": {
     "type": "Reference",
-    "referenceName": "Identifier"
-   }
-  }
- ],
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "AlertsMetaData"
- },
- "uriSuffix": "/providers/Microsoft.AlertsManagement/alertsMetaData"
+    "referenceName": "AlertsMetaData"
+  },
+  "uriSuffix": "/providers/Microsoft.AlertsManagement/alertsMetaData"
 }

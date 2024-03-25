@@ -1,20 +1,21 @@
 {
- "name": "PropertyChangedConditionProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "conditionProperties",
-   "name": "ConditionProperties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "AutomationRulePropertyValuesChangedCondition"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "AutomationRuleCondition",
- "discriminatedTypeValue": "PropertyChanged",
- "typeHintIn": "ConditionType"
+  "name": "PropertyChangedConditionProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "conditionProperties",
+      "name": "ConditionProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AutomationRulePropertyValuesChangedCondition"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "AutomationRuleCondition",
+  "discriminatedTypeValue": "PropertyChanged",
+  "typeHintIn": "ConditionType"
 }

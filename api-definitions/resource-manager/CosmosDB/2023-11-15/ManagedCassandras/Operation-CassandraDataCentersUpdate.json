@@ -1,15 +1,19 @@
 {
- "name": "CassandraDataCentersUpdate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "PATCH",
- "resourceIdName": "DataCenterId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "DataCenterResource"
- }
+  "name": "CassandraDataCentersUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "DataCenterId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "DataCenterResource"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "DataCenterResource"
+  }
 }

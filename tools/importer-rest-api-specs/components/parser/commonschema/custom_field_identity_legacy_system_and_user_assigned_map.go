@@ -1,28 +1,32 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package commonschema
 
 import (
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
-
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 var _ customFieldMatcher = legacySystemAndUserAssignedIdentityMapMatcher{}
 
 type legacySystemAndUserAssignedIdentityMapMatcher struct{}
 
-func (legacySystemAndUserAssignedIdentityMapMatcher) CustomFieldType() models.CustomFieldType {
-	return models.CustomFieldTypeLegacySystemAndUserAssignedIdentityMap
+func (legacySystemAndUserAssignedIdentityMapMatcher) ReplacementObjectDefinition() models.SDKObjectDefinition {
+	return models.SDKObjectDefinition{
+		Type: models.LegacySystemAndUserAssignedIdentityMapSDKObjectDefinitionType,
+	}
 }
 
-func (legacySystemAndUserAssignedIdentityMapMatcher) IsMatch(_ models.FieldDetails, definition models.ObjectDefinition, known internal.ParseResult) bool {
-	if definition.Type != models.ObjectDefinitionReference {
+func (legacySystemAndUserAssignedIdentityMapMatcher) IsMatch(field models.SDKField, known internal.ParseResult) bool {
+	if field.ObjectDefinition.Type != models.ReferenceSDKObjectDefinitionType {
 		return false
 	}
 
 	// retrieve the model from the reference
-	model, ok := known.Models[*definition.ReferenceName]
+	model, ok := known.Models[*field.ObjectDefinition.ReferenceName]
 	if !ok {
 		return false
 	}
@@ -45,10 +49,7 @@ func (legacySystemAndUserAssignedIdentityMapMatcher) IsMatch(_ models.FieldDetai
 
 		if strings.EqualFold(fieldName, "UserAssignedIdentities") {
 			// this should be a Map of an Object containing ClientId/PrincipalId
-			if fieldVal.ObjectDefinition == nil {
-				continue
-			}
-			if fieldVal.ObjectDefinition.Type == models.ObjectDefinitionDictionary {
+			if fieldVal.ObjectDefinition.Type == models.DictionarySDKObjectDefinitionType {
 				// however some Swaggers don't define the internals e.g. DataFactory
 				//type FactoryIdentity struct {
 				//	PrincipalId            *string                 `json:"principalId,omitempty"`
@@ -59,7 +60,7 @@ func (legacySystemAndUserAssignedIdentityMapMatcher) IsMatch(_ models.FieldDetai
 				hasUserAssignedIdentities = true
 				continue
 			}
-			if fieldVal.ObjectDefinition.NestedItem == nil || fieldVal.ObjectDefinition.NestedItem.Type != models.ObjectDefinitionReference {
+			if fieldVal.ObjectDefinition.NestedItem == nil || fieldVal.ObjectDefinition.NestedItem.Type != models.ReferenceSDKObjectDefinitionType {
 				continue
 			}
 
@@ -72,10 +73,7 @@ func (legacySystemAndUserAssignedIdentityMapMatcher) IsMatch(_ models.FieldDetai
 			innerHasPrincipalId := false
 			for innerName, innerVal := range inlinedModel.Fields {
 				if strings.EqualFold(innerName, "ClientId") {
-					if innerVal.ObjectDefinition == nil {
-						continue
-					}
-					if innerVal.ObjectDefinition.Type != models.ObjectDefinitionString {
+					if innerVal.ObjectDefinition.Type != models.StringSDKObjectDefinitionType {
 						continue
 					}
 
@@ -84,10 +82,7 @@ func (legacySystemAndUserAssignedIdentityMapMatcher) IsMatch(_ models.FieldDetai
 				}
 
 				if strings.EqualFold(innerName, "PrincipalId") {
-					if innerVal.ObjectDefinition == nil {
-						continue
-					}
-					if innerVal.ObjectDefinition.Type != models.ObjectDefinitionString {
+					if innerVal.ObjectDefinition.Type != models.StringSDKObjectDefinitionType {
 						continue
 					}
 
@@ -103,7 +98,7 @@ func (legacySystemAndUserAssignedIdentityMapMatcher) IsMatch(_ models.FieldDetai
 		}
 
 		if strings.EqualFold(fieldName, "Type") {
-			if fieldVal.ObjectDefinition == nil || fieldVal.ObjectDefinition.Type != models.ObjectDefinitionReference {
+			if fieldVal.ObjectDefinition.Type != models.ReferenceSDKObjectDefinitionType {
 				continue
 			}
 			constant, ok := known.Constants[*fieldVal.ObjectDefinition.ReferenceName]

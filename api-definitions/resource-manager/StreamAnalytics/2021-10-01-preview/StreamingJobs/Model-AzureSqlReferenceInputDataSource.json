@@ -1,20 +1,21 @@
 {
- "name": "AzureSqlReferenceInputDataSource",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "properties",
-   "name": "Properties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "AzureSqlReferenceInputDataSourceProperties"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "ReferenceInputDataSource",
- "discriminatedTypeValue": "Microsoft.Sql/Server/Database",
- "typeHintIn": "Type"
+  "name": "AzureSqlReferenceInputDataSource",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AzureSqlReferenceInputDataSourceProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "ReferenceInputDataSource",
+  "discriminatedTypeValue": "Microsoft.Sql/Server/Database",
+  "typeHintIn": "Type"
 }

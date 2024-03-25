@@ -1,0 +1,34 @@
+{
+  "name": "MigrateMISyncCompleteCommandProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "input",
+      "name": "Input",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MigrateMISyncCompleteCommandInput"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "output",
+      "name": "Output",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MigrateMISyncCompleteCommandOutput"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "CommandProperties",
+  "discriminatedTypeValue": "Migrate.SqlServer.AzureDbSqlMi.Complete",
+  "typeHintIn": "CommandType"
+}

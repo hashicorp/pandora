@@ -1,29 +1,31 @@
 {
- "name": "ScaleSettings",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "autoScale",
-   "name": "AutoScale",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "AutoScaleSettings"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "fixedScale",
-   "name": "FixedScale",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "FixedScaleSettings"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "ScaleSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "autoScale",
+      "name": "AutoScale",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AutoScaleSettings"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "fixedScale",
+      "name": "FixedScale",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "FixedScaleSettings"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

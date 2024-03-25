@@ -1,44 +1,47 @@
 {
- "name": "LinuxConfiguration",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "disablePasswordAuthentication",
-   "name": "DisablePasswordAuthentication",
-   "objectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "ssh",
-   "name": "Ssh",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SshConfiguration"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "sshKeyPair",
-   "name": "SshKeyPair",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SshKeyPair"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "OSConfiguration",
- "discriminatedTypeValue": "Linux",
- "typeHintIn": "OsType"
+  "name": "LinuxConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "disablePasswordAuthentication",
+      "name": "DisablePasswordAuthentication",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "ssh",
+      "name": "Ssh",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SshConfiguration"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sshKeyPair",
+      "name": "SshKeyPair",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SshKeyPair"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "OSConfiguration",
+  "discriminatedTypeValue": "Linux",
+  "typeHintIn": "OsType"
 }

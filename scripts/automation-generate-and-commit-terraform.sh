@@ -1,38 +1,42 @@
 #!/bin/bash
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
 
 set -e
 
 DIR="$(cd "$(dirname "$0")" && pwd)/.."
 
 function buildAndInstallDependencies {
-    echo "Outputting Go Version.."
-    go version
+  echo "Outputting Go Version.."
+  go version
 
-    echo "Outputting .net Version.."
-    dotnet --version
+  echo "Installing the Data API into the GOBIN.."
+  cd "${DIR}/tools/data-api"
+  go install .
+  cd "${DIR}"
 
-    echo "Installing the Terraform Generator into the GOBIN.."
-    cd "${DIR}/tools/generator-terraform"
-    go install .
-    cd "${DIR}"
+  echo "Installing the Terraform Generator into the GOBIN.."
+  cd "${DIR}/tools/generator-terraform"
+  go install .
+  cd "${DIR}"
 
-    echo "Building Wrapper.."
-    cd "${DIR}/tools/wrapper-automation"
-    go build -o wrapper-automation
-    cd "${DIR}"
+  echo "Building Wrapper.."
+  cd "${DIR}/tools/wrapper-automation"
+  go build -o wrapper-automation
+  cd "${DIR}"
 }
 
 function runWrapper {
-  local dataApiAssemblyPath=$1
-  local outputDirectory=$2
-  local useV2Generator=$4
+  local sourceDataType=$1
+  local apiDefinitionsDirectory=$2
+  local outputDirectory=$3
 
-  echo "Running Wrapper.."
+  echo "Running Wrapper for ${sourceDataType}.."
   cd "${DIR}/tools/wrapper-automation"
-  ./wrapper-automation terraform \
-    -data-api-assembly-path="../../$dataApiAssemblyPath"\
-    -output-dir="../../$outputDirectory"\
-    -use-v2-generator="$useV2Generator"
+  ./wrapper-automation "${sourceDataType}" terraform \
+    --api-definitions-dir="../../$apiDefinitionsDirectory"\
+    --output-dir="../../$outputDirectory"
 
   cd "${DIR}"
 
@@ -141,23 +145,16 @@ function cleanup {
 }
 
 function main {
-  local dataApiAssemblyPath="data/Pandora.Api/bin/Debug/net7.0/Pandora.Api.dll"
-  local dataApiV2Path="tools/data-api/data-api"
+  local apiDefinitionsDirectory="./api-definitions"
   local swaggerSubmodule="./submodules/rest-api-specs"
   local outputDirectory="tmp/terraform-provider-azurerm"
   local providerRepo="git@github.com:hashicorp/terraform-provider-azurerm.git"
   local sha
-  local useV2Generator=false
 
   buildAndInstallDependencies
   sha=$(getSwaggerSubmoduleSha "$swaggerSubmodule")
   prepareTerraformProvider "$outputDirectory" "$providerRepo"
-  if [ "$useV2Generator" = true ]
-  then
-    runWrapper "$dataApiV2Path" "$outputDirectory" "$sha" "$useV2Generator"
-  else
-    runWrapper "$dataApiAssemblyPath" "$outputDirectory" "$sha" "$useV2Generator"
-  fi
+  runWrapper "resource-manager" "$apiDefinitionsDirectory" "$outputDirectory"
   runFmtImportsAndGenerate "$outputDirectory"
   conditionallyCommitAndPushTerraformProvider "$outputDirectory" "$sha"
   cleanup "$outputDirectory"

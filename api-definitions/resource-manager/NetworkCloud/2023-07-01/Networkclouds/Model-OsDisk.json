@@ -1,41 +1,44 @@
 {
- "name": "OsDisk",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "createOption",
-   "name": "CreateOption",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "OsDiskCreateOption"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "deleteOption",
-   "name": "DeleteOption",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "OsDiskDeleteOption"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "diskSizeGB",
-   "name": "DiskSizeGB",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  "name": "OsDisk",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "createOption",
+      "name": "CreateOption",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "OsDiskCreateOption"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "deleteOption",
+      "name": "DeleteOption",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "OsDiskDeleteOption"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "diskSizeGB",
+      "name": "DiskSizeGB",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ]
 }

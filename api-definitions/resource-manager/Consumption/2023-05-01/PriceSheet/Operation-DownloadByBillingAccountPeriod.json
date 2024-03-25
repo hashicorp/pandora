@@ -1,12 +1,16 @@
 {
- "name": "DownloadByBillingAccountPeriod",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "POST",
- "resourceIdName": "BillingAccountBillingPeriodId",
- "uriSuffix": "/providers/Microsoft.Consumption/pricesheets/download"
+  "name": "DownloadByBillingAccountPeriod",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "BillingAccountBillingPeriodId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "OperationStatus"
+  },
+  "uriSuffix": "/providers/Microsoft.Consumption/pricesheets/download"
 }

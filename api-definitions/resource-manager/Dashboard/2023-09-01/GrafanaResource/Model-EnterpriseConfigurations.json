@@ -1,29 +1,31 @@
 {
- "name": "EnterpriseConfigurations",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "marketplaceAutoRenew",
-   "name": "MarketplaceAutoRenew",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "MarketplaceAutoRenew"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "marketplacePlanId",
-   "name": "MarketplacePlanId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "EnterpriseConfigurations",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "marketplaceAutoRenew",
+      "name": "MarketplaceAutoRenew",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MarketplaceAutoRenew"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "marketplacePlanId",
+      "name": "MarketplacePlanId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

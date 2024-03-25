@@ -1,41 +1,44 @@
 {
- "name": "HTTPSettings",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "forwardProxy",
-   "name": "ForwardProxy",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ForwardProxy"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "requireHttps",
-   "name": "RequireHTTPS",
-   "objectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "routes",
-   "name": "Routes",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "HTTPSettingsRoutes"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "HTTPSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "forwardProxy",
+      "name": "ForwardProxy",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ForwardProxy"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "requireHttps",
+      "name": "RequireHTTPS",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "routes",
+      "name": "Routes",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "HTTPSettingsRoutes"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

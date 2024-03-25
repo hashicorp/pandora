@@ -1,42 +1,45 @@
 {
- "name": "RoleManagementPolicyRule",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "id",
-   "name": "Id",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": true,
-   "jsonName": "ruleType",
-   "name": "RuleType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "RoleManagementPolicyRuleType"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "target",
-   "name": "Target",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "RoleManagementPolicyRuleTarget"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "typeHintIn": "RuleType"
+  "name": "RoleManagementPolicyRule",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "id",
+      "name": "Id",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": true,
+      "jsonName": "ruleType",
+      "name": "RuleType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RoleManagementPolicyRuleType"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "target",
+      "name": "Target",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RoleManagementPolicyRuleTarget"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "typeHintIn": "RuleType"
 }

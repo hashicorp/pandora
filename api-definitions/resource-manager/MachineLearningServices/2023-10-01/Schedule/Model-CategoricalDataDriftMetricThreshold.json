@@ -1,20 +1,21 @@
 {
- "name": "CategoricalDataDriftMetricThreshold",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "metric",
-   "name": "Metric",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "CategoricalDataDriftMetric"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "DataDriftMetricThresholdBase",
- "discriminatedTypeValue": "Categorical",
- "typeHintIn": "DataType"
+  "name": "CategoricalDataDriftMetricThreshold",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "metric",
+      "name": "Metric",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CategoricalDataDriftMetric"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "DataDriftMetricThresholdBase",
+  "discriminatedTypeValue": "Categorical",
+  "typeHintIn": "DataType"
 }

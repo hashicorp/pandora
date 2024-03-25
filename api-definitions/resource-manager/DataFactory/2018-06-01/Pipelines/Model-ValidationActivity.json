@@ -1,0 +1,21 @@
+{
+  "name": "ValidationActivity",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "typeProperties",
+      "name": "TypeProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ValidationActivityTypeProperties"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "Activity",
+  "discriminatedTypeValue": "Validation",
+  "typeHintIn": "Type"
+}

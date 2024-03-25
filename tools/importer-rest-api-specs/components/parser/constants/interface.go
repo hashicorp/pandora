@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package constants
 
 import (
@@ -9,21 +12,27 @@ import (
 
 	"github.com/go-openapi/spec"
 	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/featureflags"
 )
 
 type constantExtension struct {
+	// name defines the Name that should be used for this Constant
 	name string
+
+	// valuesToDisplayNames defines any display name overrides that should be used for this Constant
+	// NOTE: whilst the API Definitions may define a value with no display name - this map contains
+	// only values with a name defined.
+	valuesToDisplayNames *map[interface{}]string
 }
 
 type ParsedConstant struct {
 	Name    string
-	Details resourcemanager.ConstantDetails
+	Details models.SDKConstant
 }
 
-func MapConstant(typeVal spec.StringOrArray, fieldName string, values []interface{}, extensions spec.Extensions, logger hclog.Logger) (*ParsedConstant, error) {
+func MapConstant(typeVal spec.StringOrArray, fieldName string, modelName *string, values []interface{}, extensions spec.Extensions, logger hclog.Logger) (*ParsedConstant, error) {
 	if len(values) == 0 {
 		return nil, fmt.Errorf("Enum in %q has no values", fieldName)
 	}
@@ -35,6 +44,15 @@ func MapConstant(typeVal spec.StringOrArray, fieldName string, values []interfac
 	if err != nil {
 		if featureflags.AllowConstantsWithoutXMSEnum {
 			logger.Debug(fmt.Sprintf("Field %q had an invalid `x-ms-enum`: %+v", fieldName, err))
+			// this attempts to construct a unique name for a constant out of the model name and field name
+			// to prevent duplicate definitions of constants, specifically constants called `type`
+			// of which there are several in data factory (#3725)
+			if strings.EqualFold(fieldName, "type") && modelName != nil {
+				constantPrefix := strings.TrimSuffix(*modelName, "Type")
+				constantName = constantPrefix + strings.Title(fieldName)
+				logger.Debug(fmt.Sprintf("Field %q renamed to %q", fieldName, constantName))
+			}
+
 		} else {
 			return nil, fmt.Errorf("parsing x-ms-enum: %+v", err)
 		}
@@ -43,16 +61,16 @@ func MapConstant(typeVal spec.StringOrArray, fieldName string, values []interfac
 		constantName = constExtension.name
 	}
 
-	constantType := resourcemanager.StringConstant
+	constantType := models.StringSDKConstantType
 	if typeVal.Contains("integer") {
-		constantType = resourcemanager.IntegerConstant
+		constantType = models.IntegerSDKConstantType
 	} else if typeVal.Contains("number") {
-		constantType = resourcemanager.FloatConstant
+		constantType = models.FloatSDKConstantType
 	}
 
 	keysAndValues := make(map[string]string)
 	for i, raw := range values {
-		if constantType == resourcemanager.StringConstant {
+		if constantType == models.StringSDKConstantType {
 			value, ok := raw.(string)
 			if !ok {
 				return nil, fmt.Errorf("expected a string but got %+v for the %d value for %q", raw, i, constExtension.name)
@@ -76,7 +94,7 @@ func MapConstant(typeVal spec.StringOrArray, fieldName string, values []interfac
 			continue
 		}
 
-		if constantType == resourcemanager.IntegerConstant {
+		if constantType == models.IntegerSDKConstantType {
 			// This gets parsed out as a float64 even though it's an Integer :upside_down_smile:
 			value, ok := raw.(float64)
 			if !ok {
@@ -96,13 +114,21 @@ func MapConstant(typeVal spec.StringOrArray, fieldName string, values []interfac
 			}
 
 			key := keyValueForInteger(int64(value))
+			// if an override name is defined for this Constant then we should use it
+			if constExtension.valuesToDisplayNames != nil {
+				overrideName, hasOverride := (*constExtension.valuesToDisplayNames)[value]
+				if hasOverride {
+					key = overrideName
+				}
+			}
+
 			val := fmt.Sprintf("%d", int64(value))
 			normalizedName := normalizeConstantKey(key)
 			keysAndValues[normalizedName] = val
 			continue
 		}
 
-		if constantType == resourcemanager.FloatConstant {
+		if constantType == models.FloatSDKConstantType {
 			value, ok := raw.(float64)
 			if !ok {
 				return nil, fmt.Errorf("expected an float but got %+v for the %d value for %q", raw, i, constExtension.name)
@@ -120,12 +146,12 @@ func MapConstant(typeVal spec.StringOrArray, fieldName string, values []interfac
 
 	// allows us to parse out the actual types above then force a string here if needed
 	if constExtension == nil {
-		constantType = resourcemanager.StringConstant
+		constantType = models.StringSDKConstantType
 	}
 
 	return &ParsedConstant{
 		Name: constantName,
-		Details: resourcemanager.ConstantDetails{
+		Details: models.SDKConstant{
 			Values: keysAndValues,
 			Type:   constantType,
 		},
@@ -145,11 +171,36 @@ func parseConstantExtensionFromExtension(field spec.Extensions) (*constantExtens
 	}
 
 	var enumName *string
+	var valuesToDisplayNames *map[interface{}]string
 	for k, v := range enumDetails {
 		// presume inconsistencies in the data
 		if strings.EqualFold(k, "name") {
 			normalizedEnumName := cleanup.NormalizeName(v.(string))
 			enumName = &normalizedEnumName
+		}
+
+		if strings.EqualFold(k, "values") {
+			items := v.([]interface{})
+			displayNameOverrides := make(map[interface{}]string)
+			for _, itemRaw := range items {
+				item := itemRaw.(map[string]interface{})
+				name, ok := item["name"].(string)
+				if !ok || name == "" {
+					// there isn't a custom name defined for this, so we should ignore it
+					continue
+				}
+				value, ok := item["value"].(interface{})
+				if !ok {
+					continue
+				}
+				// NOTE: whilst `x-ms-enum` includes a `description` field we don't support that today
+				// support for that is tracked in https://github.com/hashicorp/pandora/issues/231
+
+				displayNameOverrides[value] = name
+			}
+			if len(displayNameOverrides) > 0 {
+				valuesToDisplayNames = &displayNameOverrides
+			}
 		}
 
 		// NOTE: the Swagger Extension defines `modelAsString` which is used to define whether
@@ -161,9 +212,13 @@ func parseConstantExtensionFromExtension(field spec.Extensions) (*constantExtens
 		return nil, fmt.Errorf("enum details are missing a `name`")
 	}
 
-	return &constantExtension{
+	output := constantExtension{
 		name: *enumName,
-	}, nil
+	}
+	if valuesToDisplayNames != nil {
+		output.valuesToDisplayNames = valuesToDisplayNames
+	}
+	return &output, nil
 }
 
 func keyValueForInteger(value int64) string {

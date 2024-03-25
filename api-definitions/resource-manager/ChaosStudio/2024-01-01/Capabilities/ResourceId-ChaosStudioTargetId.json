@@ -1,0 +1,30 @@
+{
+  "name": "ChaosStudioTargetId",
+  "commonAlias": "ChaosStudioTarget",
+  "id": "/{scope}/providers/Microsoft.Chaos/targets/{targetName}",
+  "segments": [
+    {
+      "name": "scope",
+      "type": "Scope"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftChaos",
+      "type": "ResourceProvider",
+      "value": "Microsoft.Chaos"
+    },
+    {
+      "name": "staticTargets",
+      "type": "Static",
+      "value": "targets"
+    },
+    {
+      "name": "targetName",
+      "type": "UserSpecified"
+    }
+  ]
+}

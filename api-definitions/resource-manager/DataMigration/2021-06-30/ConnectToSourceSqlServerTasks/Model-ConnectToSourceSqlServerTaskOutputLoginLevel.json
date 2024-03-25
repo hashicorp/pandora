@@ -1,0 +1,73 @@
+{
+  "name": "ConnectToSourceSqlServerTaskOutputLoginLevel",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "defaultDatabase",
+      "name": "DefaultDatabase",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "isEnabled",
+      "name": "IsEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "loginType",
+      "name": "LoginType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "LoginType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "migrationEligibility",
+      "name": "MigrationEligibility",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MigrationEligibilityInfo"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "name",
+      "name": "Name",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "ConnectToSourceSqlServerTaskOutput",
+  "discriminatedTypeValue": "LoginLevelOutput",
+  "typeHintIn": "ResultType"
+}

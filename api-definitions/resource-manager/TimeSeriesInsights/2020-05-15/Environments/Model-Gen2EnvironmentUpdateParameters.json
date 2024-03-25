@@ -1,20 +1,21 @@
 {
- "name": "Gen2EnvironmentUpdateParameters",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "properties",
-   "name": "Properties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "Gen2EnvironmentMutableProperties"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "EnvironmentUpdateParameters",
- "discriminatedTypeValue": "Gen2",
- "typeHintIn": "Kind"
+  "name": "Gen2EnvironmentUpdateParameters",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Gen2EnvironmentMutableProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "EnvironmentUpdateParameters",
+  "discriminatedTypeValue": "Gen2",
+  "typeHintIn": "Kind"
 }

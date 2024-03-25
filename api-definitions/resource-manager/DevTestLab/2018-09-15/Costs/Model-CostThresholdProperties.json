@@ -1,65 +1,70 @@
 {
- "name": "CostThresholdProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "displayOnChart",
-   "name": "DisplayOnChart",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "CostThresholdStatus"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "notificationSent",
-   "name": "NotificationSent",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "percentageThreshold",
-   "name": "PercentageThreshold",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "PercentageCostThresholdProperties"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "sendNotificationWhenExceeded",
-   "name": "SendNotificationWhenExceeded",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "CostThresholdStatus"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "thresholdId",
-   "name": "ThresholdId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "CostThresholdProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "displayOnChart",
+      "name": "DisplayOnChart",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CostThresholdStatus"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "notificationSent",
+      "name": "NotificationSent",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "percentageThreshold",
+      "name": "PercentageThreshold",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PercentageCostThresholdProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sendNotificationWhenExceeded",
+      "name": "SendNotificationWhenExceeded",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CostThresholdStatus"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "thresholdId",
+      "name": "ThresholdId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

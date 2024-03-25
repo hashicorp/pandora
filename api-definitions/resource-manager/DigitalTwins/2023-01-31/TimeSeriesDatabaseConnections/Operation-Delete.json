@@ -1,24 +1,28 @@
 {
- "name": "Delete",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202,
-  204
- ],
- "longRunning": true,
- "httpMethod": "DELETE",
- "options": [
-  {
-   "optional": true,
-   "queryString": "cleanupConnectionArtifacts",
-   "required": false,
-   "field": "CleanupConnectionArtifacts",
-   "optionsObjectDefinition": {
+  "name": "Delete",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202,
+    204
+  ],
+  "longRunning": true,
+  "httpMethod": "DELETE",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "cleanupConnectionArtifacts",
+      "required": false,
+      "field": "CleanupConnectionArtifacts",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "CleanupConnectionArtifacts"
+      }
+    }
+  ],
+  "resourceIdName": "TimeSeriesDatabaseConnectionId",
+  "responseObject": {
     "type": "Reference",
-    "referenceName": "CleanupConnectionArtifacts"
-   }
+    "referenceName": "TimeSeriesDatabaseConnection"
   }
- ],
- "resourceIdName": "TimeSeriesDatabaseConnectionId"
 }

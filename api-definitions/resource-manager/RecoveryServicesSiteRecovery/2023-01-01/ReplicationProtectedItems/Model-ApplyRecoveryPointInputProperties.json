@@ -1,29 +1,31 @@
 {
- "name": "ApplyRecoveryPointInputProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "providerSpecificDetails",
-   "name": "ProviderSpecificDetails",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ApplyRecoveryPointProviderSpecificInput"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "recoveryPointId",
-   "name": "RecoveryPointId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "ApplyRecoveryPointInputProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "providerSpecificDetails",
+      "name": "ProviderSpecificDetails",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ApplyRecoveryPointProviderSpecificInput"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "recoveryPointId",
+      "name": "RecoveryPointId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

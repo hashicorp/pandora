@@ -1,29 +1,31 @@
 {
- "name": "ApplicableScheduleProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "labVmsShutdown",
-   "name": "LabVMsShutdown",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "Schedule"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "labVmsStartup",
-   "name": "LabVMsStartup",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "Schedule"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "ApplicableScheduleProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "labVmsShutdown",
+      "name": "LabVMsShutdown",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Schedule"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "labVmsStartup",
+      "name": "LabVMsStartup",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Schedule"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

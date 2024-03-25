@@ -1,15 +1,19 @@
 {
- "name": "UpdateOnNode",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201
- ],
- "longRunning": true,
- "httpMethod": "PUT",
- "resourceIdName": "NodeConfigurationId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "ServerConfiguration"
- }
+  "name": "UpdateOnNode",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "NodeConfigurationId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ServerConfiguration"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ServerConfiguration"
+  }
 }

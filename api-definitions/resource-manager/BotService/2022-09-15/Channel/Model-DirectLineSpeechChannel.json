@@ -1,0 +1,21 @@
+{
+  "name": "DirectLineSpeechChannel",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DirectLineSpeechChannelProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "Channel",
+  "discriminatedTypeValue": "DirectLineSpeechChannel",
+  "typeHintIn": "ChannelName"
+}

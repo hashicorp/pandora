@@ -1,33 +1,35 @@
 {
- "name": "IngestionPolicyPropertiesFormat",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "ingestionSources",
-   "name": "IngestionSources",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "IngestionSourcesPropertiesFormat"
+  "name": "IngestionPolicyPropertiesFormat",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "ingestionSources",
+      "name": "IngestionSources",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "IngestionSourcesPropertiesFormat"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "ingestionType",
+      "name": "IngestionType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "IngestionType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "ingestionType",
-   "name": "IngestionType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "IngestionType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

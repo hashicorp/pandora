@@ -1,20 +1,21 @@
 {
- "name": "PeriodicModeBackupPolicy",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "periodicModeProperties",
-   "name": "PeriodicModeProperties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "PeriodicModeProperties"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "BackupPolicy",
- "discriminatedTypeValue": "Periodic",
- "typeHintIn": "Type"
+  "name": "PeriodicModeBackupPolicy",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "periodicModeProperties",
+      "name": "PeriodicModeProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PeriodicModeProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "BackupPolicy",
+  "discriminatedTypeValue": "Periodic",
+  "typeHintIn": "Type"
 }

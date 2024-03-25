@@ -1,32 +1,32 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package parser
 
 import (
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 // normalizeAzureApiResource works through the parsed AzureApiResource and ensures
 // that all the Names and References are consistent (TitleCase) as a final effort
 // to ensure the Swagger Data is normalized.
-func normalizeAzureApiResource(input models.AzureApiResource) models.AzureApiResource {
-	normalizedConstants := make(map[string]resourcemanager.ConstantDetails)
+func normalizeAzureApiResource(input importerModels.AzureApiResource) importerModels.AzureApiResource {
+	normalizedConstants := make(map[string]models.SDKConstant)
 	for k, v := range input.Constants {
 		name := cleanup.NormalizeName(k)
 		normalizedConstants[name] = v
 	}
 
-	normalizedModels := make(map[string]models.ModelDetails)
+	normalizedModels := make(map[string]models.SDKModel)
 	for k, v := range input.Models {
 		modelName := cleanup.NormalizeName(k)
-		fields := make(map[string]models.FieldDetails)
+		fields := make(map[string]models.SDKField)
 		for fieldName, fieldVal := range v.Fields {
 			normalizedFieldName := cleanup.NormalizeName(fieldName)
-
-			if fieldVal.ObjectDefinition != nil {
-				fieldVal.ObjectDefinition = normalizeObjectDefinition(*fieldVal.ObjectDefinition)
-			}
-
+			fieldVal.ObjectDefinition = normalizeSDKObjectDefinition(fieldVal.ObjectDefinition)
 			fields[normalizedFieldName] = fieldVal
 		}
 		v.Fields = fields
@@ -37,36 +37,36 @@ func normalizeAzureApiResource(input models.AzureApiResource) models.AzureApiRes
 		}
 
 		// Discriminators can be `@type` which get normalized to `Type` so we need to normalize the field name here
-		if v.TypeHintIn != nil {
-			val := cleanup.NormalizeName(*v.TypeHintIn)
-			v.TypeHintIn = &val
+		if v.FieldNameContainingDiscriminatedValue != nil {
+			val := cleanup.NormalizeName(*v.FieldNameContainingDiscriminatedValue)
+			v.FieldNameContainingDiscriminatedValue = &val
 		}
 
 		normalizedModels[modelName] = v
 	}
 
-	normalizedOperations := make(map[string]models.OperationDetails)
+	normalizedOperations := make(map[string]models.SDKOperation)
 	for k, v := range input.Operations {
-		if v.ResourceIdName != nil {
-			normalized := cleanup.NormalizeName(*v.ResourceIdName)
-			v.ResourceIdName = &normalized
+		if v.ResourceIDName != nil {
+			normalized := cleanup.NormalizeName(*v.ResourceIDName)
+			v.ResourceIDName = &normalized
 		}
 
 		if v.RequestObject != nil {
-			v.RequestObject = normalizeObjectDefinition(*v.RequestObject)
+			request := normalizeSDKObjectDefinition(*v.RequestObject)
+			v.RequestObject = pointer.To(request)
 		}
 
 		if v.ResponseObject != nil {
-			v.ResponseObject = normalizeObjectDefinition(*v.ResponseObject)
+			response := normalizeSDKObjectDefinition(*v.ResponseObject)
+			v.ResponseObject = pointer.To(response)
 		}
 
-		normalizedOptions := make(map[string]models.OperationOption, 0)
+		normalizedOptions := make(map[string]models.SDKOperationOption, 0)
 		for optionKey, optionVal := range v.Options {
 			optionKey = cleanup.NormalizeName(optionKey)
 
-			if optionVal.ObjectDefinition != nil {
-				optionVal.ObjectDefinition = normalizeObjectDefinition(*optionVal.ObjectDefinition)
-			}
+			optionVal.ObjectDefinition = normalizeOptionsObjectDefinition(optionVal.ObjectDefinition)
 
 			normalizedOptions[optionKey] = optionVal
 		}
@@ -75,16 +75,16 @@ func normalizeAzureApiResource(input models.AzureApiResource) models.AzureApiRes
 		normalizedOperations[k] = v
 	}
 
-	normalizedResourceIds := make(map[string]models.ParsedResourceId)
+	normalizedResourceIds := make(map[string]models.ResourceID)
 	for k, v := range input.ResourceIds {
-		segments := make([]resourcemanager.ResourceIdSegment, 0)
+		segments := make([]models.ResourceIDSegment, 0)
 
-		normalizedConstants := make(map[string]resourcemanager.ConstantDetails)
-		for k, constant := range v.Constants {
-			name := cleanup.NormalizeName(k)
-			normalizedConstants[name] = constant
+		normalizedConstantNames := make([]string, 0)
+		for _, cn := range v.ConstantNames {
+			name := cleanup.NormalizeName(cn)
+			normalizedConstantNames = append(normalizedConstantNames, name)
 		}
-		v.Constants = normalizedConstants
+		v.ConstantNames = normalizedConstantNames
 
 		for _, segment := range v.Segments {
 			if segment.ConstantReference != nil {
@@ -98,7 +98,7 @@ func normalizeAzureApiResource(input models.AzureApiResource) models.AzureApiRes
 		normalizedResourceIds[k] = v
 	}
 
-	return models.AzureApiResource{
+	return importerModels.AzureApiResource{
 		Constants:   normalizedConstants,
 		Models:      normalizedModels,
 		Operations:  normalizedOperations,
@@ -110,15 +110,30 @@ func normalizeAzureApiResource(input models.AzureApiResource) models.AzureApiRes
 	}
 }
 
-func normalizeObjectDefinition(input models.ObjectDefinition) *models.ObjectDefinition {
+func normalizeSDKObjectDefinition(input models.SDKObjectDefinition) models.SDKObjectDefinition {
 	if input.ReferenceName != nil {
 		normalized := cleanup.NormalizeName(*input.ReferenceName)
 		input.ReferenceName = &normalized
 	}
 
 	if input.NestedItem != nil {
-		input.NestedItem = normalizeObjectDefinition(*input.NestedItem)
+		nested := normalizeSDKObjectDefinition(*input.NestedItem)
+		input.NestedItem = pointer.To(nested)
 	}
 
-	return &input
+	return input
+}
+
+func normalizeOptionsObjectDefinition(input models.SDKOperationOptionObjectDefinition) models.SDKOperationOptionObjectDefinition {
+	if input.ReferenceName != nil {
+		normalized := cleanup.NormalizeName(*input.ReferenceName)
+		input.ReferenceName = &normalized
+	}
+
+	if input.NestedItem != nil {
+		nestedItem := normalizeOptionsObjectDefinition(*input.NestedItem)
+		input.NestedItem = pointer.To(nestedItem)
+	}
+
+	return input
 }

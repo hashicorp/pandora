@@ -1,12 +1,16 @@
 {
- "name": "FlushCache",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "POST",
- "resourceIdName": "RediId",
- "uriSuffix": "/flush"
+  "name": "FlushCache",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "RediId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "OperationStatusResult"
+  },
+  "uriSuffix": "/flush"
 }

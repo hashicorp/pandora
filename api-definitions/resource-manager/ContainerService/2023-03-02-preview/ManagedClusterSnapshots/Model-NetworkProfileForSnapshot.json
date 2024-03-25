@@ -1,65 +1,70 @@
 {
- "name": "NetworkProfileForSnapshot",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "loadBalancerSku",
-   "name": "LoadBalancerSku",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "LoadBalancerSku"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "networkMode",
-   "name": "NetworkMode",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "NetworkMode"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "networkPlugin",
-   "name": "NetworkPlugin",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "NetworkPlugin"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "networkPluginMode",
-   "name": "NetworkPluginMode",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "NetworkPluginMode"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "networkPolicy",
-   "name": "NetworkPolicy",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "NetworkPolicy"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "NetworkProfileForSnapshot",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "loadBalancerSku",
+      "name": "LoadBalancerSku",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "LoadBalancerSku"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "networkMode",
+      "name": "NetworkMode",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "NetworkMode"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "networkPlugin",
+      "name": "NetworkPlugin",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "NetworkPlugin"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "networkPluginMode",
+      "name": "NetworkPluginMode",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "NetworkPluginMode"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "networkPolicy",
+      "name": "NetworkPolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "NetworkPolicy"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

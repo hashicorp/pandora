@@ -1,20 +1,21 @@
 {
- "name": "ContentKeyPolicyX509CertificateTokenKey",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "rawBody",
-   "name": "RawBody",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "ContentKeyPolicyRestrictionTokenKey",
- "discriminatedTypeValue": "#Microsoft.Media.ContentKeyPolicyX509CertificateTokenKey",
- "typeHintIn": "OdataType"
+  "name": "ContentKeyPolicyX509CertificateTokenKey",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rawBody",
+      "name": "RawBody",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "ContentKeyPolicyRestrictionTokenKey",
+  "discriminatedTypeValue": "#Microsoft.Media.ContentKeyPolicyX509CertificateTokenKey",
+  "typeHintIn": "OdataType"
 }

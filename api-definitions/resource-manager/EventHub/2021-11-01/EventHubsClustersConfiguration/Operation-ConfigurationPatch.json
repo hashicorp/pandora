@@ -1,21 +1,21 @@
 {
- "name": "ConfigurationPatch",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201,
-  202
- ],
- "longRunning": false,
- "httpMethod": "PATCH",
- "resourceIdName": "ClusterId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "ClusterQuotaConfigurationProperties"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "ClusterQuotaConfigurationProperties"
- },
- "uriSuffix": "/quotaConfiguration/default"
+  "name": "ConfigurationPatch",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201,
+    202
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "resourceIdName": "ClusterId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ClusterQuotaConfigurationProperties"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ClusterQuotaConfigurationProperties"
+  },
+  "uriSuffix": "/quotaConfiguration/default"
 }

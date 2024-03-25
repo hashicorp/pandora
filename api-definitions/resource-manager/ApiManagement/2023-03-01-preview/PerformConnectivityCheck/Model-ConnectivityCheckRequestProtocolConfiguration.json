@@ -1,17 +1,18 @@
 {
- "name": "ConnectivityCheckRequestProtocolConfiguration",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "HTTPConfiguration",
-   "name": "HTTPConfiguration",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ConnectivityCheckRequestProtocolConfigurationHTTPConfiguration"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "ConnectivityCheckRequestProtocolConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "HTTPConfiguration",
+      "name": "HTTPConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ConnectivityCheckRequestProtocolConfigurationHTTPConfiguration"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

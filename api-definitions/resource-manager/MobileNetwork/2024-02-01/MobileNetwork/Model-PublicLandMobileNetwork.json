@@ -1,0 +1,44 @@
+{
+  "name": "PublicLandMobileNetwork",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "homeNetworkPublicKeys",
+      "name": "HomeNetworkPublicKeys",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PublicLandMobileNetworkHomeNetworkPublicKeys"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "mcc",
+      "name": "Mcc",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "mnc",
+      "name": "Mnc",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ]
+}

@@ -1,21 +1,22 @@
 {
- "name": "ServiceSpecification",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "metricSpecifications",
-   "name": "MetricSpecifications",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "MetricSpecification"
+  "name": "ServiceSpecification",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "metricSpecifications",
+      "name": "MetricSpecifications",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "MetricSpecification"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

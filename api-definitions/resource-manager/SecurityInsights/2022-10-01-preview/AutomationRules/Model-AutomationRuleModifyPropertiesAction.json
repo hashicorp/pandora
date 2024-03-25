@@ -1,20 +1,21 @@
 {
- "name": "AutomationRuleModifyPropertiesAction",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "actionConfiguration",
-   "name": "ActionConfiguration",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "IncidentPropertiesAction"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "AutomationRuleAction",
- "discriminatedTypeValue": "ModifyProperties",
- "typeHintIn": "ActionType"
+  "name": "AutomationRuleModifyPropertiesAction",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "actionConfiguration",
+      "name": "ActionConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "IncidentPropertiesAction"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "AutomationRuleAction",
+  "discriminatedTypeValue": "ModifyProperties",
+  "typeHintIn": "ActionType"
 }

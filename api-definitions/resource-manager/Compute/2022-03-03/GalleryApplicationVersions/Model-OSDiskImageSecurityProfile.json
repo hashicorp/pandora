@@ -1,29 +1,31 @@
 {
- "name": "OSDiskImageSecurityProfile",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "confidentialVMEncryptionType",
-   "name": "ConfidentialVMEncryptionType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ConfidentialVMEncryptionType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "secureVMDiskEncryptionSetId",
-   "name": "SecureVMDiskEncryptionSetId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "OSDiskImageSecurityProfile",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "confidentialVMEncryptionType",
+      "name": "ConfidentialVMEncryptionType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ConfidentialVMEncryptionType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "secureVMDiskEncryptionSetId",
+      "name": "SecureVMDiskEncryptionSetId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

@@ -1,29 +1,31 @@
 {
- "name": "CsvSerializationProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "encoding",
-   "name": "Encoding",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "Encoding"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "fieldDelimiter",
-   "name": "FieldDelimiter",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "CsvSerializationProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "encoding",
+      "name": "Encoding",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Encoding"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "fieldDelimiter",
+      "name": "FieldDelimiter",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

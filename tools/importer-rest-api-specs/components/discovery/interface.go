@@ -1,20 +1,16 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package discovery
 
 import "github.com/hashicorp/pandora/tools/sdk/config/definitions"
 
 type ServiceInput struct {
-	// RootNamespace is the root namespace which should be used as a prefix for each Service/API Version etc.
-	// (e.g. `Pandora.Definitions.ResourceManager`).
-	RootNamespace string
-
 	// ServiceName is the name of the Service (e.g. `Compute`).
 	ServiceName string
 
 	// ApiVersion is the version of the API (e.g. `2020-10-01`).
 	ApiVersion string
-
-	// OutputDirectoryCS is the directory where the generated C# files should be output.
-	OutputDirectoryCS string
 
 	// OutputDirectoryJson is the directory where the generated JSON files should be output.
 	OutputDirectoryJson string
@@ -44,7 +40,6 @@ type ServiceInput struct {
 type ResourceManagerServiceInput struct {
 	ServiceName                string
 	ApiVersion                 string
-	OutputDirectoryCS          string
 	OutputDirectoryJson        string
 	ResourceProvider           *string
 	ResourceProviderToFilterTo *string
@@ -55,12 +50,10 @@ type ResourceManagerServiceInput struct {
 
 func (rmi ResourceManagerServiceInput) ToRunInput() ServiceInput {
 	return ServiceInput{
-		RootNamespace:              "Pandora.Definitions.ResourceManager",
 		ServiceName:                rmi.ServiceName,
 		ApiVersion:                 rmi.ApiVersion,
 		ResourceProvider:           rmi.ResourceProvider,
 		ResourceProviderToFilterTo: rmi.ResourceProviderToFilterTo,
-		OutputDirectoryCS:          rmi.OutputDirectoryCS,
 		OutputDirectoryJson:        rmi.OutputDirectoryJson,
 		SwaggerDirectory:           rmi.SwaggerDirectory,
 		SwaggerFiles:               rmi.SwaggerFiles,

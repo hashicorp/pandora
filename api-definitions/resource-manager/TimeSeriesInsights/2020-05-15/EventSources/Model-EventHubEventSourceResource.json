@@ -1,20 +1,21 @@
 {
- "name": "EventHubEventSourceResource",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "properties",
-   "name": "Properties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "EventHubEventSourceCommonProperties"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "EventSourceResource",
- "discriminatedTypeValue": "Microsoft.EventHub",
- "typeHintIn": "Kind"
+  "name": "EventHubEventSourceResource",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EventHubEventSourceCommonProperties"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "EventSourceResource",
+  "discriminatedTypeValue": "Microsoft.EventHub",
+  "typeHintIn": "Kind"
 }

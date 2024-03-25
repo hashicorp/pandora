@@ -1,0 +1,100 @@
+{
+  "paths": {
+    "/example": {
+      "get": {
+        "tags": [
+          "Resource"
+        ],
+        "operationId": "Resource_Test",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/Model"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Model": {
+      "properties": {
+        "identity": {
+          "$ref": "#/definitions/SystemAssignedUserAssignedIdentity"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "SystemAssignedUserAssignedIdentity": {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "None",
+            "SystemAssigned",
+            "UserAssigned"
+          ],
+          "x-ms-enum": {
+            "name": "IdentityType1",
+            "modelAsString": true
+          }
+        },
+        "principalId": {
+          "type": "string",
+          "readOnly": true
+        },
+        "tenantId": {
+          "type": "string",
+          "readOnly": true
+        },
+        "userAssignedIdentities": {
+          "$ref": "#/definitions/SystemAssignedUserAssignedIdentityMap"
+        },
+        "delegatedResources": {
+          "$ref": "#/definitions/DelegatedResources"
+        }
+      }
+    },
+    "SystemAssignedUserAssignedIdentityMap": {
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "clientId": {
+            "type": "string"
+          },
+          "principalId": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "DelegatedResources": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/DelegatedResource"
+      }
+    },
+    "DelegatedResource": {
+      "type": "object",
+      "properties": {
+        "resourceId": {
+          "type": "string"
+        },
+        "tenantId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "referralResource": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

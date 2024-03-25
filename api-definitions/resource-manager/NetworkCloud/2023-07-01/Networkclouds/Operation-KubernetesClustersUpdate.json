@@ -1,15 +1,19 @@
 {
- "name": "KubernetesClustersUpdate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "PATCH",
- "resourceIdName": "KubernetesClusterId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "KubernetesClusterPatchParameters"
- }
+  "name": "KubernetesClustersUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "KubernetesClusterId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "KubernetesClusterPatchParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "KubernetesCluster"
+  }
 }

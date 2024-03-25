@@ -1,0 +1,44 @@
+{
+  "fields": [
+    {
+      "documentation": {
+        "markdown": "The Azure Region where the Chaos Studio Target should exist."
+      },
+      "forceNew": true,
+      "hclName": "location",
+      "name": "Location",
+      "objectDefinition": {
+        "referenceName": null,
+        "type": "Location"
+      },
+      "required": true
+    },
+    {
+      "documentation": {
+        "markdown": "Specifies the Target Resource Id within which this Chaos Studio Target should exist."
+      },
+      "forceNew": true,
+      "hclName": "target_resource_id",
+      "name": "TargetResourceId",
+      "objectDefinition": {
+        "referenceName": null,
+        "type": "String"
+      },
+      "required": true
+    },
+    {
+      "documentation": {
+        "markdown": "The name of the Chaos Studio Target. This has the format of [publisher]-[targetType] e.g. `Microsoft-StorageAccount`. For supported values please see this Target Type column in [this table](https://learn.microsoft.com/azure/chaos-studio/chaos-studio-fault-providers)."
+      },
+      "forceNew": true,
+      "hclName": "target_type",
+      "name": "TargetType",
+      "objectDefinition": {
+        "referenceName": null,
+        "type": "String"
+      },
+      "required": true
+    }
+  ],
+  "name": "ChaosStudioTargetResourceSchema"
+}

@@ -1,17 +1,18 @@
 {
- "name": "QueueSettings",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "jobTier",
-   "name": "JobTier",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "JobTier"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "QueueSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "jobTier",
+      "name": "JobTier",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "JobTier"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

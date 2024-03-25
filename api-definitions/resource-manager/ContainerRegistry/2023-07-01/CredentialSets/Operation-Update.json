@@ -1,15 +1,19 @@
 {
- "name": "Update",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201
- ],
- "longRunning": true,
- "httpMethod": "PATCH",
- "resourceIdName": "CredentialSetId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "CredentialSetUpdateParameters"
- }
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "CredentialSetId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "CredentialSetUpdateParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "CredentialSet"
+  }
 }

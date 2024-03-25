@@ -1,16 +1,20 @@
 {
- "name": "InstallPatches",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "POST",
- "resourceIdName": "MachineId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "MachineInstallPatchesParameters"
- },
- "uriSuffix": "/installPatches"
+  "name": "InstallPatches",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "MachineId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "MachineInstallPatchesParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "MachineInstallPatchesResult"
+  },
+  "uriSuffix": "/installPatches"
 }

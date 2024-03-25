@@ -1,41 +1,44 @@
 {
- "name": "PrivateEndpointConnectionProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "privateEndpoint",
-   "name": "PrivateEndpoint",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "PrivateEndpoint"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "privateLinkServiceConnectionState",
-   "name": "PrivateLinkServiceConnectionState",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "PrivateLinkServiceConnectionState"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "provisioningState",
-   "name": "ProvisioningState",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ProvisioningState"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "PrivateEndpointConnectionProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "privateEndpoint",
+      "name": "PrivateEndpoint",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PrivateEndpoint"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "privateLinkServiceConnectionState",
+      "name": "PrivateLinkServiceConnectionState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PrivateLinkServiceConnectionState"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "provisioningState",
+      "name": "ProvisioningState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ProvisioningState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

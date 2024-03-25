@@ -1,77 +1,83 @@
 {
- "name": "BackupResourceConfig",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "crossRegionRestoreFlag",
-   "name": "CrossRegionRestoreFlag",
-   "objectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "dedupState",
-   "name": "DedupState",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "DedupState"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "storageModelType",
-   "name": "StorageModelType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "StorageType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "storageType",
-   "name": "StorageType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "StorageType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "storageTypeState",
-   "name": "StorageTypeState",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "StorageTypeState"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "xcoolState",
-   "name": "XcoolState",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "XcoolState"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "BackupResourceConfig",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "crossRegionRestoreFlag",
+      "name": "CrossRegionRestoreFlag",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "dedupState",
+      "name": "DedupState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DedupState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "storageModelType",
+      "name": "StorageModelType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "StorageType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "storageType",
+      "name": "StorageType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "StorageType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "storageTypeState",
+      "name": "StorageTypeState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "StorageTypeState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "xcoolState",
+      "name": "XcoolState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "XcoolState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

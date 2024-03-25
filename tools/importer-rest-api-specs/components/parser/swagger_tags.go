@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package parser
 
 import (
@@ -6,9 +9,9 @@ import (
 )
 
 var tagsToIgnore = map[string]struct{}{
-	"deploymentoperations": {},
-	"tags":                 {},
-	"usage":                {},
+	"deploymentoperations":  {},
+	"azurefirewallfqdntags": {},
+	"usage":                 {},
 }
 
 func (d *SwaggerDefinition) findTags() []string {

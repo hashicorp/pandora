@@ -1,0 +1,21 @@
+{
+  "name": "CspmMonitorAwsOffering",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "nativeCloudConnection",
+      "name": "NativeCloudConnection",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CspmMonitorAwsOfferingNativeCloudConnection"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "CloudOffering",
+  "discriminatedTypeValue": "CspmMonitorAws",
+  "typeHintIn": "OfferingType"
+}

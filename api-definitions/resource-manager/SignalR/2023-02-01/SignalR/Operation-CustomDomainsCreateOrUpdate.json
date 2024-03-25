@@ -1,14 +1,18 @@
 {
- "name": "CustomDomainsCreateOrUpdate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  201
- ],
- "longRunning": true,
- "httpMethod": "PUT",
- "resourceIdName": "CustomDomainId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "CustomDomain"
- }
+  "name": "CustomDomainsCreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "CustomDomainId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "CustomDomain"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "CustomDomain"
+  }
 }

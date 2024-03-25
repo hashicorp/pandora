@@ -1,28 +1,32 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package commonschema
 
 import (
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
-
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 var _ customFieldMatcher = userAssignedIdentityMapMatcher{}
 
 type userAssignedIdentityMapMatcher struct{}
 
-func (userAssignedIdentityMapMatcher) CustomFieldType() models.CustomFieldType {
-	return models.CustomFieldTypeUserAssignedIdentityMap
+func (userAssignedIdentityMapMatcher) ReplacementObjectDefinition() models.SDKObjectDefinition {
+	return models.SDKObjectDefinition{
+		Type: models.UserAssignedIdentityMapSDKObjectDefinitionType,
+	}
 }
 
-func (userAssignedIdentityMapMatcher) IsMatch(_ models.FieldDetails, definition models.ObjectDefinition, known internal.ParseResult) bool {
-	if definition.Type != models.ObjectDefinitionReference {
+func (userAssignedIdentityMapMatcher) IsMatch(field models.SDKField, known internal.ParseResult) bool {
+	if field.ObjectDefinition.Type != models.ReferenceSDKObjectDefinitionType {
 		return false
 	}
 
 	// retrieve the model from the reference
-	model, ok := known.Models[*definition.ReferenceName]
+	model, ok := known.Models[*field.ObjectDefinition.ReferenceName]
 	if !ok {
 		return false
 	}
@@ -33,10 +37,10 @@ func (userAssignedIdentityMapMatcher) IsMatch(_ models.FieldDetails, definition 
 	for fieldName, fieldVal := range model.Fields {
 		if strings.EqualFold(fieldName, "UserAssignedIdentities") {
 			// this should be a Map of an Object containing ClientId/PrincipalId
-			if fieldVal.ObjectDefinition == nil || fieldVal.ObjectDefinition.Type != models.ObjectDefinitionDictionary {
+			if fieldVal.ObjectDefinition.Type != models.DictionarySDKObjectDefinitionType {
 				continue
 			}
-			if fieldVal.ObjectDefinition.NestedItem == nil || fieldVal.ObjectDefinition.NestedItem.Type != models.ObjectDefinitionReference {
+			if fieldVal.ObjectDefinition.NestedItem == nil || fieldVal.ObjectDefinition.NestedItem.Type != models.ReferenceSDKObjectDefinitionType {
 				continue
 			}
 
@@ -49,10 +53,7 @@ func (userAssignedIdentityMapMatcher) IsMatch(_ models.FieldDetails, definition 
 			innerHasPrincipalId := false
 			for innerName, innerVal := range inlinedModel.Fields {
 				if strings.EqualFold(innerName, "ClientId") {
-					if innerVal.ObjectDefinition == nil {
-						continue
-					}
-					if innerVal.ObjectDefinition.Type != models.ObjectDefinitionString {
+					if innerVal.ObjectDefinition.Type != models.StringSDKObjectDefinitionType {
 						continue
 					}
 
@@ -61,10 +62,7 @@ func (userAssignedIdentityMapMatcher) IsMatch(_ models.FieldDetails, definition 
 				}
 
 				if strings.EqualFold(innerName, "PrincipalId") {
-					if innerVal.ObjectDefinition == nil {
-						continue
-					}
-					if innerVal.ObjectDefinition.Type != models.ObjectDefinitionString {
+					if innerVal.ObjectDefinition.Type != models.StringSDKObjectDefinitionType {
 						continue
 					}
 
@@ -81,7 +79,7 @@ func (userAssignedIdentityMapMatcher) IsMatch(_ models.FieldDetails, definition 
 		}
 
 		if strings.EqualFold(fieldName, "Type") {
-			if fieldVal.ObjectDefinition == nil || fieldVal.ObjectDefinition.Type != models.ObjectDefinitionReference {
+			if fieldVal.ObjectDefinition.Type != models.ReferenceSDKObjectDefinitionType {
 				continue
 			}
 			constant, ok := known.Constants[*fieldVal.ObjectDefinition.ReferenceName]

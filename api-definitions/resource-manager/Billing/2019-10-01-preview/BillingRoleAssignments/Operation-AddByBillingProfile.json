@@ -1,0 +1,20 @@
+{
+  "name": "AddByBillingProfile",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    201
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "BillingProfileId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "BillingRoleAssignmentPayload"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "BillingRoleAssignment"
+  },
+  "uriSuffix": "/createBillingRoleAssignment"
+}

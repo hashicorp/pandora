@@ -1,33 +1,35 @@
 {
- "name": "ApplicationInsightsComponentBillingFeatures",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "CurrentBillingFeatures",
-   "name": "CurrentBillingFeatures",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "String",
-     "referenceName": null
+  "name": "ApplicationInsightsComponentBillingFeatures",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "CurrentBillingFeatures",
+      "name": "CurrentBillingFeatures",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "DataVolumeCap",
+      "name": "DataVolumeCap",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ApplicationInsightsComponentDataVolumeCap"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "DataVolumeCap",
-   "name": "DataVolumeCap",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ApplicationInsightsComponentDataVolumeCap"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

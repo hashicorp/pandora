@@ -1,41 +1,44 @@
 {
- "name": "ScheduleEntry",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "dayOfWeek",
-   "name": "DayOfWeek",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "DayOfWeek"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "maintenanceWindow",
-   "name": "MaintenanceWindow",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "startHourUtc",
-   "name": "StartHourUtc",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  "name": "ScheduleEntry",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "dayOfWeek",
+      "name": "DayOfWeek",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DayOfWeek"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "maintenanceWindow",
+      "name": "MaintenanceWindow",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "startHourUtc",
+      "name": "StartHourUtc",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ]
 }

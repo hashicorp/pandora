@@ -1,29 +1,31 @@
 {
- "name": "AddressPrefixItem",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "addressPrefix",
-   "name": "AddressPrefix",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "addressPrefixType",
-   "name": "AddressPrefixType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "AddressPrefixType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "AddressPrefixItem",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "addressPrefix",
+      "name": "AddressPrefix",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "addressPrefixType",
+      "name": "AddressPrefixType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AddressPrefixType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

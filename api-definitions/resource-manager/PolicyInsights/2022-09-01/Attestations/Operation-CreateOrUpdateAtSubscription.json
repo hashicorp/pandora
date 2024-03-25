@@ -1,15 +1,19 @@
 {
- "name": "CreateOrUpdateAtSubscription",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201
- ],
- "longRunning": true,
- "httpMethod": "PUT",
- "resourceIdName": "AttestationId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "Attestation"
- }
+  "name": "CreateOrUpdateAtSubscription",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "AttestationId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "Attestation"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "Attestation"
+  }
 }

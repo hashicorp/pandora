@@ -1,17 +1,18 @@
 {
- "name": "RestoreSettings",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "crossSubscriptionRestoreSettings",
-   "name": "CrossSubscriptionRestoreSettings",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "CrossSubscriptionRestoreSettings"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "RestoreSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "crossSubscriptionRestoreSettings",
+      "name": "CrossSubscriptionRestoreSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CrossSubscriptionRestoreSettings"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

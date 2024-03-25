@@ -1,17 +1,18 @@
 {
- "name": "DNSZone",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "subResource",
-   "name": "SubResource",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "VaultSubResourceType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "DNSZone",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "subResource",
+      "name": "SubResource",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "VaultSubResourceType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

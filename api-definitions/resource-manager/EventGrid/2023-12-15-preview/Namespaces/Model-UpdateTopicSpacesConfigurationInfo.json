@@ -1,0 +1,96 @@
+{
+  "name": "UpdateTopicSpacesConfigurationInfo",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "clientAuthentication",
+      "name": "ClientAuthentication",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ClientAuthenticationSettings"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "maximumClientSessionsPerAuthenticationName",
+      "name": "MaximumClientSessionsPerAuthenticationName",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "maximumSessionExpiryInHours",
+      "name": "MaximumSessionExpiryInHours",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "routeTopicResourceId",
+      "name": "RouteTopicResourceId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "routingEnrichments",
+      "name": "RoutingEnrichments",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RoutingEnrichments"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "routingIdentityInfo",
+      "name": "RoutingIdentityInfo",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RoutingIdentityInfo"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "state",
+      "name": "State",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "TopicSpacesConfigurationState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

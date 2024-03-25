@@ -1,25 +1,26 @@
 {
- "name": "ClusterConfigurations",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "configurations",
-   "name": "Configurations",
-   "objectDefinition": {
-    "type": "Dictionary",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Dictionary",
-     "referenceName": null,
-     "nestedItem": {
-      "type": "String",
-      "referenceName": null
-     }
+  "name": "ClusterConfigurations",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "configurations",
+      "name": "Configurations",
+      "objectDefinition": {
+        "type": "Dictionary",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Dictionary",
+          "referenceName": null,
+          "nestedItem": {
+            "type": "String",
+            "referenceName": null
+          }
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

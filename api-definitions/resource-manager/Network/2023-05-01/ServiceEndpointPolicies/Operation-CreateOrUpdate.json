@@ -1,15 +1,19 @@
 {
- "name": "CreateOrUpdate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201
- ],
- "longRunning": true,
- "httpMethod": "PUT",
- "resourceIdName": "ServiceEndpointPolicyId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "ServiceEndpointPolicy"
- }
+  "name": "CreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "ServiceEndpointPolicyId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ServiceEndpointPolicy"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ServiceEndpointPolicy"
+  }
 }

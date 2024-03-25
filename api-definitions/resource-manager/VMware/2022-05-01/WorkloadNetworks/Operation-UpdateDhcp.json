@@ -1,15 +1,19 @@
 {
- "name": "UpdateDhcp",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "PATCH",
- "resourceIdName": "DhcpConfigurationId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "WorkloadNetworkDhcp"
- }
+  "name": "UpdateDhcp",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "DhcpConfigurationId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "WorkloadNetworkDhcp"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "WorkloadNetworkDhcp"
+  }
 }

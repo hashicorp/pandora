@@ -1,78 +1,84 @@
 {
- "name": "CommonExportProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "definition",
-   "name": "Definition",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ExportDefinition"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "deliveryInfo",
-   "name": "DeliveryInfo",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ExportDeliveryInfo"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "format",
-   "name": "Format",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "FormatType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "nextRunTimeEstimate",
-   "name": "NextRunTimeEstimate",
-   "objectDefinition": {
-    "type": "DateTime",
-    "referenceName": null,
-    "dateFormat": "RFC3339"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "partitionData",
-   "name": "PartitionData",
-   "objectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "runHistory",
-   "name": "RunHistory",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ExportExecutionListResult"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "CommonExportProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "definition",
+      "name": "Definition",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ExportDefinition"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "deliveryInfo",
+      "name": "DeliveryInfo",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ExportDeliveryInfo"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "format",
+      "name": "Format",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "FormatType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "nextRunTimeEstimate",
+      "name": "NextRunTimeEstimate",
+      "objectDefinition": {
+        "type": "DateTime",
+        "referenceName": null,
+        "dateFormat": "RFC3339"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "partitionData",
+      "name": "PartitionData",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "runHistory",
+      "name": "RunHistory",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ExportExecutionListResult"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

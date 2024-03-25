@@ -1,57 +1,58 @@
 {
- "name": "List",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "GET",
- "options": [
-  {
-   "headerName": "clientRequestId",
-   "optional": true,
-   "required": false,
-   "field": "ClientRequestId",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
+  "name": "List",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "headerName": "clientRequestId",
+      "optional": true,
+      "required": false,
+      "field": "ClientRequestId",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "$filter",
+      "required": false,
+      "field": "Filter",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "$skip",
+      "required": false,
+      "field": "Skip",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "$top",
+      "required": false,
+      "field": "Top",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "AutomationAccountId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "SoftwareUpdateConfigurationMachineRun"
   },
-  {
-   "optional": true,
-   "queryString": "$filter",
-   "required": false,
-   "field": "Filter",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  },
-  {
-   "optional": true,
-   "queryString": "$skip",
-   "required": false,
-   "field": "Skip",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  },
-  {
-   "optional": true,
-   "queryString": "$top",
-   "required": false,
-   "field": "Top",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  }
- ],
- "resourceIdName": "AutomationAccountId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "SoftwareUpdateConfigurationMachineRunListResult"
- },
- "uriSuffix": "/softwareUpdateConfigurationMachineRuns"
+  "uriSuffix": "/softwareUpdateConfigurationMachineRuns"
 }

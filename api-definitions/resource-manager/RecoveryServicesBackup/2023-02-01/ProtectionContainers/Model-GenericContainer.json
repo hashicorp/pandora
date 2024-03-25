@@ -1,32 +1,34 @@
 {
- "name": "GenericContainer",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "extendedInformation",
-   "name": "ExtendedInformation",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "GenericContainerExtendedInfo"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "fabricName",
-   "name": "FabricName",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "ProtectionContainer",
- "discriminatedTypeValue": "GenericContainer",
- "typeHintIn": "ContainerType"
+  "name": "GenericContainer",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "extendedInformation",
+      "name": "ExtendedInformation",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "GenericContainerExtendedInfo"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "fabricName",
+      "name": "FabricName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "ProtectionContainer",
+  "discriminatedTypeValue": "GenericContainer",
+  "typeHintIn": "ContainerType"
 }

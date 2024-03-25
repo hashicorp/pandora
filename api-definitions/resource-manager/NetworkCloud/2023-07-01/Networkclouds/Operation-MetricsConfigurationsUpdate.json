@@ -1,15 +1,19 @@
 {
- "name": "MetricsConfigurationsUpdate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "PATCH",
- "resourceIdName": "MetricsConfigurationId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "ClusterMetricsConfigurationPatchParameters"
- }
+  "name": "MetricsConfigurationsUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "MetricsConfigurationId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ClusterMetricsConfigurationPatchParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ClusterMetricsConfiguration"
+  }
 }

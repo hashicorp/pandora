@@ -1,84 +1,90 @@
 {
- "name": "AzureWorkloadRestoreRequest",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "propertyBag",
-   "name": "PropertyBag",
-   "objectDefinition": {
-    "type": "Dictionary",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "String",
-     "referenceName": null
+  "name": "AzureWorkloadRestoreRequest",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "propertyBag",
+      "name": "PropertyBag",
+      "objectDefinition": {
+        "type": "Dictionary",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "recoveryMode",
+      "name": "RecoveryMode",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RecoveryMode"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "recoveryType",
+      "name": "RecoveryType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RecoveryType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sourceResourceId",
+      "name": "SourceResourceId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "targetInfo",
+      "name": "TargetInfo",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "TargetRestoreInfo"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "targetVirtualMachineId",
+      "name": "TargetVirtualMachineId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "recoveryMode",
-   "name": "RecoveryMode",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "RecoveryMode"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "recoveryType",
-   "name": "RecoveryType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "RecoveryType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "sourceResourceId",
-   "name": "SourceResourceId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "targetInfo",
-   "name": "TargetInfo",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "TargetRestoreInfo"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "targetVirtualMachineId",
-   "name": "TargetVirtualMachineId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "RestoreRequest",
- "discriminatedTypeValue": "AzureWorkloadRestoreRequest",
- "typeHintIn": "ObjectType"
+  ],
+  "discriminatedParentModelName": "RestoreRequest",
+  "discriminatedTypeValue": "AzureWorkloadRestoreRequest",
+  "typeHintIn": "ObjectType"
 }

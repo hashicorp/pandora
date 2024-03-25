@@ -1,12 +1,16 @@
 {
- "name": "ProviderShareSubscriptionsRevoke",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "POST",
- "resourceIdName": "ProviderShareSubscriptionId",
- "uriSuffix": "/revoke"
+  "name": "ProviderShareSubscriptionsRevoke",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "ProviderShareSubscriptionId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ProviderShareSubscription"
+  },
+  "uriSuffix": "/revoke"
 }

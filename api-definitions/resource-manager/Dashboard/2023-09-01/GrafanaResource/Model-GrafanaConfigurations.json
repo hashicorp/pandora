@@ -1,17 +1,18 @@
 {
- "name": "GrafanaConfigurations",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "smtp",
-   "name": "Smtp",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "Smtp"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "GrafanaConfigurations",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "smtp",
+      "name": "Smtp",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Smtp"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

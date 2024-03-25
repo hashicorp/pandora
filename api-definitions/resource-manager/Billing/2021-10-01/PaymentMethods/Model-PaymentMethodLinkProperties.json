@@ -1,0 +1,18 @@
+{
+  "name": "PaymentMethodLinkProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "paymentMethod",
+      "name": "PaymentMethod",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PaymentMethodProjectionProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

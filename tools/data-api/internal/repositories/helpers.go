@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package repositories
 
 import (
@@ -6,6 +9,8 @@ import (
 	"os"
 	"strconv"
 	"strings"
+
+	"github.com/hashicorp/pandora/tools/data-api/internal/logging"
 )
 
 func listSubDirectories(path string) (*[]string, error) {
@@ -80,6 +85,13 @@ func getTerraformDefinitionInfo(fileName string) (string, string, error) {
 
 	definitionName := splitName[0]
 	definitionType := strings.Split(splitName[1], ".")[0]
+
+	// Resource-Schema Files can have multiple files with the model type appended to it (ie. KubernetesFleetManager-Resource-Schema-FleetHubProfile
+	// that final piece of the final name is not used and can be safely ignored
+	if strings.Contains(strings.ToLower(definitionType), "resource-schema") && len(strings.Split(definitionType, "-")) >= 3 {
+		logging.Tracef("FileName: %s", fileName)
+		definitionType = "Resource-Schema"
+	}
 
 	return definitionName, definitionType, nil
 

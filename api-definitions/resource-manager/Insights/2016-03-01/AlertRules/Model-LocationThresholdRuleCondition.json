@@ -1,32 +1,34 @@
 {
- "name": "LocationThresholdRuleCondition",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "failedLocationCount",
-   "name": "FailedLocationCount",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "windowSize",
-   "name": "WindowSize",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "RuleCondition",
- "discriminatedTypeValue": "Microsoft.Azure.Management.Insights.Models.LocationThresholdRuleCondition",
- "typeHintIn": "OdataType"
+  "name": "LocationThresholdRuleCondition",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "failedLocationCount",
+      "name": "FailedLocationCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "windowSize",
+      "name": "WindowSize",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "RuleCondition",
+  "discriminatedTypeValue": "Microsoft.Azure.Management.Insights.Models.LocationThresholdRuleCondition",
+  "typeHintIn": "OdataType"
 }

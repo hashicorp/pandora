@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package internal
 
 import "strings"
@@ -35,6 +38,12 @@ func OperationShouldBeIgnored(operationUri string) bool {
 		"/operationsstatus/":                          {},
 		"/privatelinkscopeoperationstatuses/":         {},
 		"/recommendedactionsessionsoperationresults/": {},
+
+		// Tags within this package is unnecessary
+		"/providers/microsoft.consumption/tags": {},
+
+		// usageDetails doesn't make sense for our use-cases
+		"/providers/microsoft.consumption/usagedetails": {},
 
 		// we can't just use `/operations` since some APIs (e.g. API Management) expose these, so we're intentionally
 		// checking more (but not all) of the path

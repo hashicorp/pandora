@@ -1,20 +1,21 @@
 {
- "name": "JavaScriptFunctionRetrieveDefaultDefinitionParameters",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "bindingRetrievalProperties",
-   "name": "BindingRetrievalProperties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "JavaScriptFunctionBindingRetrievalProperties"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "FunctionRetrieveDefaultDefinitionParameters",
- "discriminatedTypeValue": "Microsoft.StreamAnalytics/JavascriptUdf",
- "typeHintIn": "BindingType"
+  "name": "JavaScriptFunctionRetrieveDefaultDefinitionParameters",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "bindingRetrievalProperties",
+      "name": "BindingRetrievalProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "JavaScriptFunctionBindingRetrievalProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "FunctionRetrieveDefaultDefinitionParameters",
+  "discriminatedTypeValue": "Microsoft.StreamAnalytics/JavascriptUdf",
+  "typeHintIn": "BindingType"
 }

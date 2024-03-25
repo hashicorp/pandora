@@ -1,20 +1,21 @@
 {
- "name": "ReferenceInputProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "datasource",
-   "name": "Datasource",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ReferenceInputDataSource"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "InputProperties",
- "discriminatedTypeValue": "Reference",
- "typeHintIn": "Type"
+  "name": "ReferenceInputProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "datasource",
+      "name": "Datasource",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ReferenceInputDataSource"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "InputProperties",
+  "discriminatedTypeValue": "Reference",
+  "typeHintIn": "Type"
 }

@@ -1,41 +1,44 @@
 {
- "name": "VaultPropertiesEncryption",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "infrastructureEncryption",
-   "name": "InfrastructureEncryption",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "InfrastructureEncryptionState"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "kekIdentity",
-   "name": "KekIdentity",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "CmkKekIdentity"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "keyVaultProperties",
-   "name": "KeyVaultProperties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "CmkKeyVaultProperties"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "VaultPropertiesEncryption",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "infrastructureEncryption",
+      "name": "InfrastructureEncryption",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "InfrastructureEncryptionState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "kekIdentity",
+      "name": "KekIdentity",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CmkKekIdentity"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "keyVaultProperties",
+      "name": "KeyVaultProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CmkKeyVaultProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

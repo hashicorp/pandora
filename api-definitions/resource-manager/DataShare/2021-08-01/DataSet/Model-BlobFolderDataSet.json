@@ -1,20 +1,21 @@
 {
- "name": "BlobFolderDataSet",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "properties",
-   "name": "Properties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "BlobFolderProperties"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "DataSet",
- "discriminatedTypeValue": "BlobFolder",
- "typeHintIn": "Kind"
+  "name": "BlobFolderDataSet",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "BlobFolderProperties"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "DataSet",
+  "discriminatedTypeValue": "BlobFolder",
+  "typeHintIn": "Kind"
 }

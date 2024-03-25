@@ -1,20 +1,21 @@
 {
- "name": "IoTHubEventSourceUpdateParameters",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "properties",
-   "name": "Properties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "IoTHubEventSourceMutableProperties"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "EventSourceUpdateParameters",
- "discriminatedTypeValue": "Microsoft.IoTHub",
- "typeHintIn": "Kind"
+  "name": "IoTHubEventSourceUpdateParameters",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "IoTHubEventSourceMutableProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "EventSourceUpdateParameters",
+  "discriminatedTypeValue": "Microsoft.IoTHub",
+  "typeHintIn": "Kind"
 }

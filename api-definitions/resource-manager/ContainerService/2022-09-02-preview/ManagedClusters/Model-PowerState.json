@@ -1,17 +1,18 @@
 {
- "name": "PowerState",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "code",
-   "name": "Code",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "Code"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "PowerState",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "code",
+      "name": "Code",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Code"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

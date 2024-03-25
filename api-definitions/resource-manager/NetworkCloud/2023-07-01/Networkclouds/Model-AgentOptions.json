@@ -1,29 +1,31 @@
 {
- "name": "AgentOptions",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "hugepagesCount",
-   "name": "HugepagesCount",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "hugepagesSize",
-   "name": "HugepagesSize",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "HugepagesSize"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "AgentOptions",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "hugepagesCount",
+      "name": "HugepagesCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "hugepagesSize",
+      "name": "HugepagesSize",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "HugepagesSize"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

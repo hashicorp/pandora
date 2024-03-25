@@ -1,17 +1,18 @@
 {
- "name": "PipelineTriggerDescriptor",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "sourceTrigger",
-   "name": "SourceTrigger",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "PipelineSourceTriggerDescriptor"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "PipelineTriggerDescriptor",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sourceTrigger",
+      "name": "SourceTrigger",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PipelineSourceTriggerDescriptor"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

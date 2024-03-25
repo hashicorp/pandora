@@ -1,16 +1,20 @@
 {
- "name": "ProvisionsProvisionManagedNetwork",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "POST",
- "resourceIdName": "WorkspaceId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "ManagedNetworkProvisionOptions"
- },
- "uriSuffix": "/provisionManagedNetwork"
+  "name": "ProvisionsProvisionManagedNetwork",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "WorkspaceId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ManagedNetworkProvisionOptions"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ManagedNetworkProvisionStatus"
+  },
+  "uriSuffix": "/provisionManagedNetwork"
 }

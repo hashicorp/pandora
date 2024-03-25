@@ -1,19 +1,19 @@
 {
- "name": "CheckNameAvailability",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "POST",
- "resourceIdName": "ClusterId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "AttachedDatabaseConfigurationsCheckNameRequest"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "CheckNameResult"
- },
- "uriSuffix": "/attachedDatabaseConfigurationCheckNameAvailability"
+  "name": "CheckNameAvailability",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "KustoClusterId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "AttachedDatabaseConfigurationsCheckNameRequest"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "CheckNameResult"
+  },
+  "uriSuffix": "/attachedDatabaseConfigurationCheckNameAvailability"
 }

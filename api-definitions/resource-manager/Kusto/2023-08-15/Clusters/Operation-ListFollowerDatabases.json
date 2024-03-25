@@ -1,15 +1,15 @@
 {
- "name": "ListFollowerDatabases",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "POST",
- "resourceIdName": "ClusterId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "FollowerDatabaseListResult"
- },
- "uriSuffix": "/listFollowerDatabases"
+  "name": "ListFollowerDatabases",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "KustoClusterId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "FollowerDatabaseListResult"
+  },
+  "uriSuffix": "/listFollowerDatabases"
 }

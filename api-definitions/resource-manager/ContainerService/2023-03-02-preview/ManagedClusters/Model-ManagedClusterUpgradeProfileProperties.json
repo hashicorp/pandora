@@ -1,33 +1,35 @@
 {
- "name": "ManagedClusterUpgradeProfileProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "agentPoolProfiles",
-   "name": "AgentPoolProfiles",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "ManagedClusterPoolUpgradeProfile"
+  "name": "ManagedClusterUpgradeProfileProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "agentPoolProfiles",
+      "name": "AgentPoolProfiles",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "ManagedClusterPoolUpgradeProfile"
+        }
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "controlPlaneProfile",
+      "name": "ControlPlaneProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ManagedClusterPoolUpgradeProfile"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
     }
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "controlPlaneProfile",
-   "name": "ControlPlaneProfile",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ManagedClusterPoolUpgradeProfile"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  ]
 }

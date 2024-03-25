@@ -1,15 +1,19 @@
 {
- "name": "UpdateOnCoordinator",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201
- ],
- "longRunning": true,
- "httpMethod": "PUT",
- "resourceIdName": "CoordinatorConfigurationId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "ServerConfiguration"
- }
+  "name": "UpdateOnCoordinator",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "CoordinatorConfigurationId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ServerConfiguration"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ServerConfiguration"
+  }
 }

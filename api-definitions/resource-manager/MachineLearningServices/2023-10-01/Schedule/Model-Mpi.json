@@ -1,20 +1,21 @@
 {
- "name": "Mpi",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "processCountPerInstance",
-   "name": "ProcessCountPerInstance",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "DistributionConfiguration",
- "discriminatedTypeValue": "Mpi",
- "typeHintIn": "DistributionType"
+  "name": "Mpi",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "processCountPerInstance",
+      "name": "ProcessCountPerInstance",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "DistributionConfiguration",
+  "discriminatedTypeValue": "Mpi",
+  "typeHintIn": "DistributionType"
 }

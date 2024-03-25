@@ -1,34 +1,34 @@
 {
- "name": "CustomerId",
- "id": "/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/customers/{customerId}",
- "segments": [
-  {
-   "name": "staticProviders",
-   "type": "Static",
-   "value": "providers"
-  },
-  {
-   "name": "staticMicrosoftBilling",
-   "type": "ResourceProvider",
-   "value": "Microsoft.Billing"
-  },
-  {
-   "name": "staticBillingAccounts",
-   "type": "Static",
-   "value": "billingAccounts"
-  },
-  {
-   "name": "billingAccountId",
-   "type": "UserSpecified"
-  },
-  {
-   "name": "staticCustomers",
-   "type": "Static",
-   "value": "customers"
-  },
-  {
-   "name": "customerId",
-   "type": "UserSpecified"
-  }
- ]
+  "name": "CustomerId",
+  "id": "/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/customers/{customerId}",
+  "segments": [
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftBilling",
+      "type": "ResourceProvider",
+      "value": "Microsoft.Billing"
+    },
+    {
+      "name": "staticBillingAccounts",
+      "type": "Static",
+      "value": "billingAccounts"
+    },
+    {
+      "name": "billingAccountId",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticCustomers",
+      "type": "Static",
+      "value": "customers"
+    },
+    {
+      "name": "customerId",
+      "type": "UserSpecified"
+    }
+  ]
 }

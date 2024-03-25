@@ -1,17 +1,18 @@
 {
- "name": "TestMigrateInputProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "providerSpecificDetails",
-   "name": "ProviderSpecificDetails",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "TestMigrateProviderSpecificInput"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  "name": "TestMigrateInputProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "providerSpecificDetails",
+      "name": "ProviderSpecificDetails",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "TestMigrateProviderSpecificInput"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ]
 }

@@ -1,17 +1,18 @@
 {
- "name": "EdgeProfilePatch",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "subscription",
-   "name": "Subscription",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "EdgeProfileSubscriptionPatch"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "EdgeProfilePatch",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "subscription",
+      "name": "Subscription",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EdgeProfileSubscriptionPatch"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

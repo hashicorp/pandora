@@ -1,68 +1,73 @@
 {
- "name": "InMageAzureV2PolicyInput",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "appConsistentFrequencyInMinutes",
-   "name": "AppConsistentFrequencyInMinutes",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "crashConsistentFrequencyInMinutes",
-   "name": "CrashConsistentFrequencyInMinutes",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "multiVmSyncStatus",
-   "name": "MultiVMSyncStatus",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SetMultiVMSyncStatus"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "recoveryPointHistory",
-   "name": "RecoveryPointHistory",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "recoveryPointThresholdInMinutes",
-   "name": "RecoveryPointThresholdInMinutes",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "PolicyProviderSpecificInput",
- "discriminatedTypeValue": "InMageAzureV2",
- "typeHintIn": "InstanceType"
+  "name": "InMageAzureV2PolicyInput",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "appConsistentFrequencyInMinutes",
+      "name": "AppConsistentFrequencyInMinutes",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "crashConsistentFrequencyInMinutes",
+      "name": "CrashConsistentFrequencyInMinutes",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "multiVmSyncStatus",
+      "name": "MultiVMSyncStatus",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SetMultiVMSyncStatus"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "recoveryPointHistory",
+      "name": "RecoveryPointHistory",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "recoveryPointThresholdInMinutes",
+      "name": "RecoveryPointThresholdInMinutes",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "PolicyProviderSpecificInput",
+  "discriminatedTypeValue": "InMageAzureV2",
+  "typeHintIn": "InstanceType"
 }

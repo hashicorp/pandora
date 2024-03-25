@@ -1,89 +1,96 @@
 {
- "name": "DataEncryption",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "geoBackupEncryptionKeyStatus",
-   "name": "GeoBackupEncryptionKeyStatus",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "KeyStatusEnum"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "geoBackupKeyURI",
-   "name": "GeoBackupKeyURI",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "geoBackupUserAssignedIdentityId",
-   "name": "GeoBackupUserAssignedIdentityId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "primaryEncryptionKeyStatus",
-   "name": "PrimaryEncryptionKeyStatus",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "KeyStatusEnum"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "primaryKeyURI",
-   "name": "PrimaryKeyURI",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "primaryUserAssignedIdentityId",
-   "name": "PrimaryUserAssignedIdentityId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "type",
-   "name": "Type",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ArmServerKeyType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "DataEncryption",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "geoBackupEncryptionKeyStatus",
+      "name": "GeoBackupEncryptionKeyStatus",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "KeyStatusEnum"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "geoBackupKeyURI",
+      "name": "GeoBackupKeyURI",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "geoBackupUserAssignedIdentityId",
+      "name": "GeoBackupUserAssignedIdentityId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "primaryEncryptionKeyStatus",
+      "name": "PrimaryEncryptionKeyStatus",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "KeyStatusEnum"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "primaryKeyURI",
+      "name": "PrimaryKeyURI",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "primaryUserAssignedIdentityId",
+      "name": "PrimaryUserAssignedIdentityId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "type",
+      "name": "Type",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ArmServerKeyType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

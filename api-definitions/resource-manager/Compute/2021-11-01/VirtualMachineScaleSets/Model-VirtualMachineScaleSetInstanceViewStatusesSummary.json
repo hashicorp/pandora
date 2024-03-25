@@ -1,21 +1,22 @@
 {
- "name": "VirtualMachineScaleSetInstanceViewStatusesSummary",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "statusesSummary",
-   "name": "StatusesSummary",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "VirtualMachineStatusCodeCount"
+  "name": "VirtualMachineScaleSetInstanceViewStatusesSummary",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "statusesSummary",
+      "name": "StatusesSummary",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "VirtualMachineStatusCodeCount"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

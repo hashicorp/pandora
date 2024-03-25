@@ -1,29 +1,31 @@
 {
- "name": "AccessKeys",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "atlasKafkaPrimaryEndpoint",
-   "name": "AtlasKafkaPrimaryEndpoint",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "atlasKafkaSecondaryEndpoint",
-   "name": "AtlasKafkaSecondaryEndpoint",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "AccessKeys",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "atlasKafkaPrimaryEndpoint",
+      "name": "AtlasKafkaPrimaryEndpoint",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "atlasKafkaSecondaryEndpoint",
+      "name": "AtlasKafkaSecondaryEndpoint",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

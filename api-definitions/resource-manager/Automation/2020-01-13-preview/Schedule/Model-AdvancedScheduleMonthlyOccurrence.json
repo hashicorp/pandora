@@ -1,29 +1,31 @@
 {
- "name": "AdvancedScheduleMonthlyOccurrence",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "day",
-   "name": "Day",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ScheduleDay"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "occurrence",
-   "name": "Occurrence",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "AdvancedScheduleMonthlyOccurrence",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "day",
+      "name": "Day",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ScheduleDay"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "occurrence",
+      "name": "Occurrence",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

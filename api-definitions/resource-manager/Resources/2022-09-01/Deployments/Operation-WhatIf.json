@@ -1,16 +1,20 @@
 {
- "name": "WhatIf",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "POST",
- "resourceIdName": "ResourceGroupProviderDeploymentId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "DeploymentWhatIf"
- },
- "uriSuffix": "/whatIf"
+  "name": "WhatIf",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "ResourceGroupProviderDeploymentId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "DeploymentWhatIf"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "WhatIfOperationResult"
+  },
+  "uriSuffix": "/whatIf"
 }

@@ -1,29 +1,31 @@
 {
- "name": "StreamingEndpointAccessControl",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "akamai",
-   "name": "Akamai",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "AkamaiAccessControl"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "ip",
-   "name": "IP",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "IPAccessControl"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "StreamingEndpointAccessControl",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "akamai",
+      "name": "Akamai",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AkamaiAccessControl"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "ip",
+      "name": "IP",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "IPAccessControl"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

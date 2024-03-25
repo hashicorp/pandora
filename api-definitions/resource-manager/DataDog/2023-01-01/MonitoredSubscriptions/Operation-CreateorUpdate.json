@@ -1,16 +1,20 @@
 {
- "name": "CreateorUpdate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201,
-  202
- ],
- "longRunning": true,
- "httpMethod": "PUT",
- "resourceIdName": "MonitoredSubscriptionId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "MonitoredSubscriptionProperties"
- }
+  "name": "CreateorUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "MonitoredSubscriptionId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "MonitoredSubscriptionProperties"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "MonitoredSubscriptionProperties"
+  }
 }

@@ -1,16 +1,20 @@
 {
- "name": "CreateOrUpdate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201,
-  202
- ],
- "longRunning": true,
- "httpMethod": "PUT",
- "resourceIdName": "ImageVersionId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "GalleryImageVersion"
- }
+  "name": "CreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "ImageVersionId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "GalleryImageVersion"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "GalleryImageVersion"
+  }
 }

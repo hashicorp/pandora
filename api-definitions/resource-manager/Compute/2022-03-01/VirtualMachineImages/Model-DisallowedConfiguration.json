@@ -1,17 +1,18 @@
 {
- "name": "DisallowedConfiguration",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "vmDiskType",
-   "name": "VMDiskType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "VMDiskTypes"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "DisallowedConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "vmDiskType",
+      "name": "VMDiskType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "VMDiskTypes"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

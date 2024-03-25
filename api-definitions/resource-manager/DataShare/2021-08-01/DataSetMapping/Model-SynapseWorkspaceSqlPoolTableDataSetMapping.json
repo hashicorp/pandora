@@ -1,20 +1,21 @@
 {
- "name": "SynapseWorkspaceSqlPoolTableDataSetMapping",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "properties",
-   "name": "Properties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SynapseWorkspaceSqlPoolTableDataSetMappingProperties"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "DataSetMapping",
- "discriminatedTypeValue": "SynapseWorkspaceSqlPoolTable",
- "typeHintIn": "Kind"
+  "name": "SynapseWorkspaceSqlPoolTableDataSetMapping",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SynapseWorkspaceSqlPoolTableDataSetMappingProperties"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "DataSetMapping",
+  "discriminatedTypeValue": "SynapseWorkspaceSqlPoolTable",
+  "typeHintIn": "Kind"
 }

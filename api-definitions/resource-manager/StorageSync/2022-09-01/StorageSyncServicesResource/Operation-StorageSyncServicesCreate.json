@@ -1,15 +1,19 @@
 {
- "name": "StorageSyncServicesCreate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "PUT",
- "resourceIdName": "StorageSyncServiceId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "StorageSyncServiceCreateParameters"
- }
+  "name": "StorageSyncServicesCreate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "StorageSyncServiceId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "StorageSyncServiceCreateParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "StorageSyncService"
+  }
 }

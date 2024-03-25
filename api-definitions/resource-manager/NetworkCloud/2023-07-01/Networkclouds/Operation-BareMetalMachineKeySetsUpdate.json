@@ -1,15 +1,19 @@
 {
- "name": "BareMetalMachineKeySetsUpdate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "PATCH",
- "resourceIdName": "BareMetalMachineKeySetId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "BareMetalMachineKeySetPatchParameters"
- }
+  "name": "BareMetalMachineKeySetsUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "BareMetalMachineKeySetId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "BareMetalMachineKeySetPatchParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "BareMetalMachineKeySet"
+  }
 }

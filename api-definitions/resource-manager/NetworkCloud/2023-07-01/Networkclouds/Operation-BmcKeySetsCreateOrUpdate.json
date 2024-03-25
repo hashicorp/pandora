@@ -1,15 +1,19 @@
 {
- "name": "BmcKeySetsCreateOrUpdate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201
- ],
- "longRunning": true,
- "httpMethod": "PUT",
- "resourceIdName": "BmcKeySetId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "BmcKeySet"
- }
+  "name": "BmcKeySetsCreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "BmcKeySetId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "BmcKeySet"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "BmcKeySet"
+  }
 }

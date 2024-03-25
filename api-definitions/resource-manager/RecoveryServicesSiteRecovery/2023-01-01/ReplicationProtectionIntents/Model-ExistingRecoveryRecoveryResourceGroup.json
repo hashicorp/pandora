@@ -1,20 +1,21 @@
 {
- "name": "ExistingRecoveryRecoveryResourceGroup",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "recoveryResourceGroupId",
-   "name": "RecoveryResourceGroupId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "RecoveryResourceGroupCustomDetails",
- "discriminatedTypeValue": "Existing",
- "typeHintIn": "ResourceType"
+  "name": "ExistingRecoveryRecoveryResourceGroup",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "recoveryResourceGroupId",
+      "name": "RecoveryResourceGroupId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "RecoveryResourceGroupCustomDetails",
+  "discriminatedTypeValue": "Existing",
+  "typeHintIn": "ResourceType"
 }

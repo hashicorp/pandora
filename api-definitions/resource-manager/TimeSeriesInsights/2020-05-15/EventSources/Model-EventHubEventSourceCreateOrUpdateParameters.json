@@ -1,20 +1,21 @@
 {
- "name": "EventHubEventSourceCreateOrUpdateParameters",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "properties",
-   "name": "Properties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "EventHubEventSourceCreationProperties"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "EventSourceCreateOrUpdateParameters",
- "discriminatedTypeValue": "Microsoft.EventHub",
- "typeHintIn": "Kind"
+  "name": "EventHubEventSourceCreateOrUpdateParameters",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EventHubEventSourceCreationProperties"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "EventSourceCreateOrUpdateParameters",
+  "discriminatedTypeValue": "Microsoft.EventHub",
+  "typeHintIn": "Kind"
 }

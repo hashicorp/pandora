@@ -1,29 +1,31 @@
 {
- "name": "SAPAvailabilityZonePair",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "zoneA",
-   "name": "ZoneA",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "zoneB",
-   "name": "ZoneB",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "SAPAvailabilityZonePair",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "zoneA",
+      "name": "ZoneA",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "zoneB",
+      "name": "ZoneB",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

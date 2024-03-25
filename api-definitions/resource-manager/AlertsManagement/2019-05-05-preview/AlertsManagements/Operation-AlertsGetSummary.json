@@ -1,137 +1,137 @@
 {
- "name": "AlertsGetSummary",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "GET",
- "options": [
-  {
-   "optional": true,
-   "queryString": "alertRule",
-   "required": false,
-   "field": "AlertRule",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  },
-  {
-   "optional": true,
-   "queryString": "alertState",
-   "required": false,
-   "field": "AlertState",
-   "optionsObjectDefinition": {
+  "name": "AlertsGetSummary",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "alertRule",
+      "required": false,
+      "field": "AlertRule",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "alertState",
+      "required": false,
+      "field": "AlertState",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "AlertState"
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "customTimeRange",
+      "required": false,
+      "field": "CustomTimeRange",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": false,
+      "queryString": "groupby",
+      "required": true,
+      "field": "Groupby",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "AlertsSummaryGroupByFields"
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "includeSmartGroupsCount",
+      "required": false,
+      "field": "IncludeSmartGroupsCount",
+      "optionsObjectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "monitorCondition",
+      "required": false,
+      "field": "MonitorCondition",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "MonitorCondition"
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "monitorService",
+      "required": false,
+      "field": "MonitorService",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "MonitorService"
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "severity",
+      "required": false,
+      "field": "Severity",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "Severity"
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "targetResource",
+      "required": false,
+      "field": "TargetResource",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "targetResourceGroup",
+      "required": false,
+      "field": "TargetResourceGroup",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "targetResourceType",
+      "required": false,
+      "field": "TargetResourceType",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "timeRange",
+      "required": false,
+      "field": "TimeRange",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "TimeRange"
+      }
+    }
+  ],
+  "resourceIdName": "SubscriptionId",
+  "responseObject": {
     "type": "Reference",
-    "referenceName": "AlertState"
-   }
+    "referenceName": "AlertsSummary"
   },
-  {
-   "optional": true,
-   "queryString": "customTimeRange",
-   "required": false,
-   "field": "CustomTimeRange",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  },
-  {
-   "optional": false,
-   "queryString": "groupby",
-   "required": true,
-   "field": "Groupby",
-   "optionsObjectDefinition": {
-    "type": "Reference",
-    "referenceName": "AlertsSummaryGroupByFields"
-   }
-  },
-  {
-   "optional": true,
-   "queryString": "includeSmartGroupsCount",
-   "required": false,
-   "field": "IncludeSmartGroupsCount",
-   "optionsObjectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   }
-  },
-  {
-   "optional": true,
-   "queryString": "monitorCondition",
-   "required": false,
-   "field": "MonitorCondition",
-   "optionsObjectDefinition": {
-    "type": "Reference",
-    "referenceName": "MonitorCondition"
-   }
-  },
-  {
-   "optional": true,
-   "queryString": "monitorService",
-   "required": false,
-   "field": "MonitorService",
-   "optionsObjectDefinition": {
-    "type": "Reference",
-    "referenceName": "MonitorService"
-   }
-  },
-  {
-   "optional": true,
-   "queryString": "severity",
-   "required": false,
-   "field": "Severity",
-   "optionsObjectDefinition": {
-    "type": "Reference",
-    "referenceName": "Severity"
-   }
-  },
-  {
-   "optional": true,
-   "queryString": "targetResource",
-   "required": false,
-   "field": "TargetResource",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  },
-  {
-   "optional": true,
-   "queryString": "targetResourceGroup",
-   "required": false,
-   "field": "TargetResourceGroup",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  },
-  {
-   "optional": true,
-   "queryString": "targetResourceType",
-   "required": false,
-   "field": "TargetResourceType",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  },
-  {
-   "optional": true,
-   "queryString": "timeRange",
-   "required": false,
-   "field": "TimeRange",
-   "optionsObjectDefinition": {
-    "type": "Reference",
-    "referenceName": "TimeRange"
-   }
-  }
- ],
- "resourceIdName": "SubscriptionId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "AlertsSummary"
- },
- "uriSuffix": "/providers/Microsoft.AlertsManagement/alertsSummary"
+  "uriSuffix": "/providers/Microsoft.AlertsManagement/alertsSummary"
 }

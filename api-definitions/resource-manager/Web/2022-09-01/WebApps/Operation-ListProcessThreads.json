@@ -1,16 +1,16 @@
 {
- "name": "ListProcessThreads",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "fieldContainingPaginationDetails": "nextLink",
- "longRunning": false,
- "httpMethod": "GET",
- "resourceIdName": "ProcessId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "ProcessThreadInfo"
- },
- "uriSuffix": "/threads"
+  "name": "ListProcessThreads",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "ProcessId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ProcessThreadInfo"
+  },
+  "uriSuffix": "/threads"
 }

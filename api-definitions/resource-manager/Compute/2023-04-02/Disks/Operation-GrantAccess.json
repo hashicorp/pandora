@@ -1,16 +1,20 @@
 {
- "name": "GrantAccess",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "POST",
- "resourceIdName": "DiskId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "GrantAccessData"
- },
- "uriSuffix": "/beginGetAccess"
+  "name": "GrantAccess",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "ManagedDiskId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "GrantAccessData"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "AccessUri"
+  },
+  "uriSuffix": "/beginGetAccess"
 }

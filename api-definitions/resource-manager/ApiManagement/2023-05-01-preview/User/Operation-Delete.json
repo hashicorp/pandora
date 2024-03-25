@@ -1,0 +1,53 @@
+{
+  "name": "Delete",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    202,
+    204
+  ],
+  "longRunning": true,
+  "httpMethod": "DELETE",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "appType",
+      "required": false,
+      "field": "AppType",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "AppType"
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "deleteSubscriptions",
+      "required": false,
+      "field": "DeleteSubscriptions",
+      "optionsObjectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      }
+    },
+    {
+      "headerName": "If-Match",
+      "optional": false,
+      "required": true,
+      "field": "IfMatch",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "notify",
+      "required": false,
+      "field": "Notify",
+      "optionsObjectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "UserId"
+}

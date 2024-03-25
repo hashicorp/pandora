@@ -1,15 +1,19 @@
 {
- "name": "CreateDnsService",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201
- ],
- "longRunning": true,
- "httpMethod": "PUT",
- "resourceIdName": "DnsServiceId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "WorkloadNetworkDnsService"
- }
+  "name": "CreateDnsService",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "DnsServiceId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "WorkloadNetworkDnsService"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "WorkloadNetworkDnsService"
+  }
 }

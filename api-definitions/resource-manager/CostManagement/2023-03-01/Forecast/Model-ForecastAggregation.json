@@ -1,29 +1,31 @@
 {
- "name": "ForecastAggregation",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "function",
-   "name": "Function",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "FunctionType"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "name",
-   "name": "Name",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "FunctionName"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  "name": "ForecastAggregation",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "function",
+      "name": "Function",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "FunctionType"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "name",
+      "name": "Name",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "FunctionName"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ]
 }

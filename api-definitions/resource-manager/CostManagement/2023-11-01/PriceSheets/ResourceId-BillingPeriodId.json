@@ -1,0 +1,34 @@
+{
+  "name": "BillingPeriodId",
+  "id": "/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingPeriods/{billingPeriodName}",
+  "segments": [
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftBilling",
+      "type": "ResourceProvider",
+      "value": "Microsoft.Billing"
+    },
+    {
+      "name": "staticBillingAccounts",
+      "type": "Static",
+      "value": "billingAccounts"
+    },
+    {
+      "name": "billingAccountId",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticBillingPeriods",
+      "type": "Static",
+      "value": "billingPeriods"
+    },
+    {
+      "name": "billingPeriodName",
+      "type": "UserSpecified"
+    }
+  ]
+}

@@ -1,56 +1,60 @@
 {
- "name": "ThreeTierFullResourceNames",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "applicationServer",
-   "name": "ApplicationServer",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ApplicationServerFullResourceNames"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "centralServer",
-   "name": "CentralServer",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "CentralServerFullResourceNames"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "databaseServer",
-   "name": "DatabaseServer",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "DatabaseServerFullResourceNames"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "sharedStorage",
-   "name": "SharedStorage",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SharedStorageResourceNames"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "ThreeTierCustomResourceNames",
- "discriminatedTypeValue": "FullResourceName",
- "typeHintIn": "NamingPatternType"
+  "name": "ThreeTierFullResourceNames",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "applicationServer",
+      "name": "ApplicationServer",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ApplicationServerFullResourceNames"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "centralServer",
+      "name": "CentralServer",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CentralServerFullResourceNames"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "databaseServer",
+      "name": "DatabaseServer",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DatabaseServerFullResourceNames"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sharedStorage",
+      "name": "SharedStorage",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SharedStorageResourceNames"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "ThreeTierCustomResourceNames",
+  "discriminatedTypeValue": "FullResourceName",
+  "typeHintIn": "NamingPatternType"
 }

@@ -1,17 +1,18 @@
 {
- "name": "DataPlaneAadOrApiKeyAuthOption",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "aadAuthFailureMode",
-   "name": "AadAuthFailureMode",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "AadAuthFailureMode"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "DataPlaneAadOrApiKeyAuthOption",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "aadAuthFailureMode",
+      "name": "AadAuthFailureMode",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AadAuthFailureMode"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

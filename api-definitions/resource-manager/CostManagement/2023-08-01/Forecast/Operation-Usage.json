@@ -1,32 +1,32 @@
 {
- "name": "Usage",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  204
- ],
- "longRunning": false,
- "httpMethod": "POST",
- "options": [
-  {
-   "optional": true,
-   "queryString": "$filter",
-   "required": false,
-   "field": "Filter",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  }
- ],
- "resourceIdName": "ScopeId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "ForecastDefinition"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "ForecastResult"
- },
- "uriSuffix": "/providers/Microsoft.CostManagement/forecast"
+  "name": "Usage",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "$filter",
+      "required": false,
+      "field": "Filter",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "ScopeId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ForecastDefinition"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ForecastResult"
+  },
+  "uriSuffix": "/providers/Microsoft.CostManagement/forecast"
 }

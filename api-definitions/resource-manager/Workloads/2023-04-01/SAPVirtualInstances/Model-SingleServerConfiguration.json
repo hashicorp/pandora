@@ -1,80 +1,86 @@
 {
- "name": "SingleServerConfiguration",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "customResourceNames",
-   "name": "CustomResourceNames",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SingleServerCustomResourceNames"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "databaseType",
-   "name": "DatabaseType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SAPDatabaseType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "dbDiskConfiguration",
-   "name": "DbDiskConfiguration",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "DiskConfiguration"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "networkConfiguration",
-   "name": "NetworkConfiguration",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "NetworkConfiguration"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "subnetId",
-   "name": "SubnetId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "virtualMachineConfiguration",
-   "name": "VirtualMachineConfiguration",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "VirtualMachineConfiguration"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "InfrastructureConfiguration",
- "discriminatedTypeValue": "SingleServer",
- "typeHintIn": "DeploymentType"
+  "name": "SingleServerConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "customResourceNames",
+      "name": "CustomResourceNames",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SingleServerCustomResourceNames"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "databaseType",
+      "name": "DatabaseType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SAPDatabaseType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "dbDiskConfiguration",
+      "name": "DbDiskConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DiskConfiguration"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "networkConfiguration",
+      "name": "NetworkConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "NetworkConfiguration"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "subnetId",
+      "name": "SubnetId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "virtualMachineConfiguration",
+      "name": "VirtualMachineConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "VirtualMachineConfiguration"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "InfrastructureConfiguration",
+  "discriminatedTypeValue": "SingleServer",
+  "typeHintIn": "DeploymentType"
 }

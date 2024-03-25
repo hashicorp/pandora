@@ -1,0 +1,19 @@
+{
+  "name": "DataMaskingPoliciesCreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PUT",
+  "resourceIdName": "SqlPoolId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "DataMaskingPolicy"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "DataMaskingPolicy"
+  },
+  "uriSuffix": "/dataMaskingPolicies/default"
+}

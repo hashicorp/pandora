@@ -1,20 +1,21 @@
 {
- "name": "Dynamics365DataConnector",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "properties",
-   "name": "Properties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "Dynamics365DataConnectorProperties"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "DataConnector",
- "discriminatedTypeValue": "Dynamics365",
- "typeHintIn": "Kind"
+  "name": "Dynamics365DataConnector",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Dynamics365DataConnectorProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "DataConnector",
+  "discriminatedTypeValue": "Dynamics365",
+  "typeHintIn": "Kind"
 }

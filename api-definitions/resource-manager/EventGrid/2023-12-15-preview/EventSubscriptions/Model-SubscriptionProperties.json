@@ -1,0 +1,57 @@
+{
+  "name": "SubscriptionProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "deliveryConfiguration",
+      "name": "DeliveryConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DeliveryConfiguration"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "eventDeliverySchema",
+      "name": "EventDeliverySchema",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DeliverySchema"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "filtersConfiguration",
+      "name": "FiltersConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "FiltersConfiguration"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "provisioningState",
+      "name": "ProvisioningState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SubscriptionProvisioningState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

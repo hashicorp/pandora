@@ -1,18 +1,19 @@
 {
- "name": "AutomationAction",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": true,
-   "jsonName": "actionType",
-   "name": "ActionType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ActionType"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ],
- "typeHintIn": "ActionType"
+  "name": "AutomationAction",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": true,
+      "jsonName": "actionType",
+      "name": "ActionType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ActionType"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "typeHintIn": "ActionType"
 }

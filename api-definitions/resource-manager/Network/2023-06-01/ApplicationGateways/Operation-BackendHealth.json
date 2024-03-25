@@ -1,24 +1,28 @@
 {
- "name": "BackendHealth",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "POST",
- "options": [
-  {
-   "optional": true,
-   "queryString": "$expand",
-   "required": false,
-   "field": "Expand",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  }
- ],
- "resourceIdName": "ApplicationGatewayId",
- "uriSuffix": "/backendhealth"
+  "name": "BackendHealth",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "$expand",
+      "required": false,
+      "field": "Expand",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "ApplicationGatewayId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ApplicationGatewayBackendHealth"
+  },
+  "uriSuffix": "/backendhealth"
 }

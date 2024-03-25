@@ -1,15 +1,19 @@
 {
- "name": "CommitmentPlansCreateOrUpdatePlan",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201
- ],
- "longRunning": true,
- "httpMethod": "PUT",
- "resourceIdName": "CommitmentPlanId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "CommitmentPlan"
- }
+  "name": "CommitmentPlansCreateOrUpdatePlan",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "CommitmentPlanId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "CommitmentPlan"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "CommitmentPlan"
+  }
 }

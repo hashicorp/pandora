@@ -1,0 +1,44 @@
+{
+  "name": "ManagedIntegrationRuntimeTypeProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "computeProperties",
+      "name": "ComputeProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "IntegrationRuntimeComputeProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "customerVirtualNetwork",
+      "name": "CustomerVirtualNetwork",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "IntegrationRuntimeCustomerVirtualNetwork"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "ssisProperties",
+      "name": "SsisProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "IntegrationRuntimeSsisProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

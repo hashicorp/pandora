@@ -1,29 +1,31 @@
 {
- "name": "KubernetesRoleNetwork",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "cniConfig",
-   "name": "CniConfig",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "CniConfig"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "loadBalancerConfig",
-   "name": "LoadBalancerConfig",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "LoadBalancerConfig"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "KubernetesRoleNetwork",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "cniConfig",
+      "name": "CniConfig",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CniConfig"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "loadBalancerConfig",
+      "name": "LoadBalancerConfig",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "LoadBalancerConfig"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

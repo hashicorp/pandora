@@ -1,30 +1,32 @@
 {
- "name": "ResourceMoveDetails",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "operationInProgress",
-   "name": "OperationInProgress",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ResourceMoveStatus"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "operationInProgressLockTimeoutInUTC",
-   "name": "OperationInProgressLockTimeoutInUTC",
-   "objectDefinition": {
-    "type": "DateTime",
-    "referenceName": null,
-    "dateFormat": "RFC3339"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "ResourceMoveDetails",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "operationInProgress",
+      "name": "OperationInProgress",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ResourceMoveStatus"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "operationInProgressLockTimeoutInUTC",
+      "name": "OperationInProgressLockTimeoutInUTC",
+      "objectDefinition": {
+        "type": "DateTime",
+        "referenceName": null,
+        "dateFormat": "RFC3339"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

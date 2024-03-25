@@ -1,13 +1,14 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package parser
 
 import (
 	"fmt"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
-
 	"github.com/go-openapi/spec"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
 )
 
 func fragmentNameFromReference(input spec.Ref) *string {
@@ -44,13 +45,4 @@ func operationMatchesTag(operation *spec.Operation, tag *string) bool {
 	}
 
 	return false
-}
-
-// topLevelObjectDefinition returns the top level object definition, that is a Constant or Model (or simple type) directly
-func topLevelObjectDefinition(input models.ObjectDefinition) models.ObjectDefinition {
-	if input.NestedItem != nil {
-		return topLevelObjectDefinition(*input.NestedItem)
-	}
-
-	return input
 }

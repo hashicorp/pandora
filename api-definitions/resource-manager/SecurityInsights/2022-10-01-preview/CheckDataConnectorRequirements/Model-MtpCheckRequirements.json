@@ -1,20 +1,21 @@
 {
- "name": "MtpCheckRequirements",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "properties",
-   "name": "Properties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "DataConnectorTenantId"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "DataConnectorsCheckRequirements",
- "discriminatedTypeValue": "MicrosoftThreatProtection",
- "typeHintIn": "Kind"
+  "name": "MtpCheckRequirements",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DataConnectorTenantId"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "DataConnectorsCheckRequirements",
+  "discriminatedTypeValue": "MicrosoftThreatProtection",
+  "typeHintIn": "Kind"
 }

@@ -1,29 +1,31 @@
 {
- "name": "NotifyParameters",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "eventName",
-   "name": "EventName",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "NotificationChannelEventType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "jsonPayload",
-   "name": "JsonPayload",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "NotifyParameters",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "eventName",
+      "name": "EventName",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "NotificationChannelEventType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "jsonPayload",
+      "name": "JsonPayload",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
 }

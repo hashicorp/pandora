@@ -1,8 +1,10 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package resourceids
 
 import (
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 var _ commonIdMatcher = commonIdVMwareSiteRunAsAccount{}
@@ -10,22 +12,22 @@ var _ commonIdMatcher = commonIdVMwareSiteRunAsAccount{}
 type commonIdVMwareSiteRunAsAccount struct {
 }
 
-func (c commonIdVMwareSiteRunAsAccount) id() models.ParsedResourceId {
+func (c commonIdVMwareSiteRunAsAccount) id() models.ResourceID {
 	name := "VMwareSiteRunAsAccount"
-	return models.ParsedResourceId{
-		CommonAlias: &name,
-		Constants:   map[string]resourcemanager.ConstantDetails{},
-		Segments: []resourcemanager.ResourceIdSegment{
-			models.StaticResourceIDSegment("subscriptions", "subscriptions"),
-			models.SubscriptionIDResourceIDSegment("subscriptionId"),
-			models.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
-			models.ResourceGroupResourceIDSegment("resourceGroupName"),
-			models.StaticResourceIDSegment("providers", "providers"),
-			models.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.OffAzure"),
-			models.StaticResourceIDSegment("vmwareSites", "vmwareSites"),
-			models.UserSpecifiedResourceIDSegment("vmwareSiteName"),
-			models.StaticResourceIDSegment("runAsAccounts", "runAsAccounts"),
-			models.UserSpecifiedResourceIDSegment("runAsAccountName"),
+	return models.ResourceID{
+		CommonIDAlias: &name,
+		ConstantNames: []string{},
+		Segments: []models.ResourceIDSegment{
+			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			models.NewStaticValueResourceIDSegment("providers", "providers"),
+			models.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.OffAzure"),
+			models.NewStaticValueResourceIDSegment("vmwareSites", "vmwareSites"),
+			models.NewUserSpecifiedResourceIDSegment("vmwareSiteName", "vmwareSiteName"),
+			models.NewStaticValueResourceIDSegment("runAsAccounts", "runAsAccounts"),
+			models.NewUserSpecifiedResourceIDSegment("runAsAccountName", "runAsAccountName"),
 		},
 	}
 }

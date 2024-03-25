@@ -1,56 +1,60 @@
 {
- "name": "SimpleSchedulePolicyV2",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "dailySchedule",
-   "name": "DailySchedule",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "DailySchedule"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "hourlySchedule",
-   "name": "HourlySchedule",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "HourlySchedule"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "scheduleRunFrequency",
-   "name": "ScheduleRunFrequency",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ScheduleRunType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "weeklySchedule",
-   "name": "WeeklySchedule",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "WeeklySchedule"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "SchedulePolicy",
- "discriminatedTypeValue": "SimpleSchedulePolicyV2",
- "typeHintIn": "SchedulePolicyType"
+  "name": "SimpleSchedulePolicyV2",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "dailySchedule",
+      "name": "DailySchedule",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DailySchedule"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "hourlySchedule",
+      "name": "HourlySchedule",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "HourlySchedule"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "scheduleRunFrequency",
+      "name": "ScheduleRunFrequency",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ScheduleRunType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "weeklySchedule",
+      "name": "WeeklySchedule",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "WeeklySchedule"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "SchedulePolicy",
+  "discriminatedTypeValue": "SimpleSchedulePolicyV2",
+  "typeHintIn": "SchedulePolicyType"
 }

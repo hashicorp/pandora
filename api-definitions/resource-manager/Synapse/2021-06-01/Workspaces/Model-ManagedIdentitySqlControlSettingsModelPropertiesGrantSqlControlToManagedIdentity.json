@@ -1,0 +1,31 @@
+{
+  "name": "ManagedIdentitySqlControlSettingsModelPropertiesGrantSqlControlToManagedIdentity",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "actualState",
+      "name": "ActualState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ActualState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "desiredState",
+      "name": "DesiredState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DesiredState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

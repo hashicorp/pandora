@@ -1,15 +1,19 @@
 {
- "name": "GremlinResourcesCreateUpdateGremlinGraph",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "PUT",
- "resourceIdName": "GraphId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "GremlinGraphCreateUpdateParameters"
- }
+  "name": "GremlinResourcesCreateUpdateGremlinGraph",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "GraphId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "GremlinGraphCreateUpdateParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "GremlinGraphGetResults"
+  }
 }
