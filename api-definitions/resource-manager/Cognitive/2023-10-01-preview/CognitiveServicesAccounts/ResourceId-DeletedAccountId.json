@@ -1,0 +1,52 @@
+{
+  "name": "DeletedAccountId",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/locations/{locationName}/resourceGroups/{resourceGroupName}/deletedAccounts/{deletedAccountName}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftCognitiveServices",
+      "type": "ResourceProvider",
+      "value": "Microsoft.CognitiveServices"
+    },
+    {
+      "name": "staticLocations",
+      "type": "Static",
+      "value": "locations"
+    },
+    {
+      "name": "locationName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticResourceGroups",
+      "type": "Static",
+      "value": "resourceGroups"
+    },
+    {
+      "name": "resourceGroupName",
+      "type": "ResourceGroup"
+    },
+    {
+      "name": "staticDeletedAccounts",
+      "type": "Static",
+      "value": "deletedAccounts"
+    },
+    {
+      "name": "deletedAccountName",
+      "type": "UserSpecified"
+    }
+  ]
+}
