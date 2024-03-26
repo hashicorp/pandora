@@ -1,0 +1,62 @@
+{
+  "name": "OfferId",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Compute/locations/{locationName}/publishers/{publisherName}/artifactTypes/vmImage/offers/{offerName}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftCompute",
+      "type": "ResourceProvider",
+      "value": "Microsoft.Compute"
+    },
+    {
+      "name": "staticLocations",
+      "type": "Static",
+      "value": "locations"
+    },
+    {
+      "name": "locationName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticPublishers",
+      "type": "Static",
+      "value": "publishers"
+    },
+    {
+      "name": "publisherName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticArtifactTypes",
+      "type": "Static",
+      "value": "artifactTypes"
+    },
+    {
+      "name": "staticVmImage",
+      "type": "Static",
+      "value": "vmImage"
+    },
+    {
+      "name": "staticOffers",
+      "type": "Static",
+      "value": "offers"
+    },
+    {
+      "name": "offerName",
+      "type": "UserSpecified"
+    }
+  ]
+}

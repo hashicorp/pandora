@@ -1,0 +1,19 @@
+{
+  "name": "EdgeZoneListOffers",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "EdgeZonePublisherId",
+  "responseObject": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+      "type": "Reference",
+      "referenceName": "VirtualMachineImageResource"
+    }
+  },
+  "uriSuffix": "/artifactTypes/vmImage/offers"
+}
