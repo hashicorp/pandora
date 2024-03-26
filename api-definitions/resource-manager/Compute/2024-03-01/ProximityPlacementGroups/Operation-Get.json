@@ -1,0 +1,26 @@
+{
+  "name": "Get",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "includeColocationStatus",
+      "required": false,
+      "field": "IncludeColocationStatus",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "ProximityPlacementGroupId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ProximityPlacementGroup"
+  }
+}
