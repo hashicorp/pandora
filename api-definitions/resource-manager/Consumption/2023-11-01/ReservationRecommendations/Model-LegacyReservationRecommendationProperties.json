@@ -56,6 +56,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "jsonName": "lastUsageDate",
+      "name": "LastUsageDate",
+      "objectDefinition": {
+        "type": "DateTime",
+        "referenceName": null,
+        "dateFormat": "RFC3339"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "jsonName": "lookBackPeriod",
       "name": "LookBackPeriod",
       "objectDefinition": {
@@ -194,6 +208,19 @@
       "name": "TotalCostWithReservedInstances",
       "objectDefinition": {
         "type": "Float",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "totalHours",
+      "name": "TotalHours",
+      "objectDefinition": {
+        "type": "Integer",
         "referenceName": null
       },
       "optional": true,
