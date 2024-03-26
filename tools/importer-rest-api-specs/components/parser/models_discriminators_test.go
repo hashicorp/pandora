@@ -12,7 +12,7 @@ import (
 )
 
 func TestParseDiscriminatorsTopLevel(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "model_discriminators_simple.json")
+	actual, err := ParseSwaggerFileForTesting(t, "model_discriminators_simple.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -109,7 +109,7 @@ func TestParseDiscriminatorsTopLevel(t *testing.T) {
 }
 
 func TestParseDiscriminatorsWithinArray(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "model_discriminators_within_array.json")
+	actual, err := ParseSwaggerFileForTesting(t, "model_discriminators_within_array.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -216,7 +216,7 @@ func TestParseDiscriminatorsWithinArray(t *testing.T) {
 }
 
 func TestParseDiscriminatorsWithinDiscriminators(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "model_discriminators_within_discriminators.json")
+	actual, err := ParseSwaggerFileForTesting(t, "model_discriminators_within_discriminators.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -401,7 +401,7 @@ func TestParseDiscriminatedParentTypeThatShouldntBe(t *testing.T) {
 	// Some Swagger files define top level types with a Discriminator value which don't inherit
 	// from anything. As such these aren't actually discriminated types but bad data - so we should
 	// look to ensure these are parsed out as a regular non-discriminated type.
-	actual, err := ParseSwaggerFileForTesting(t, "model_discriminators_parent_that_shouldnt_be.json")
+	actual, err := ParseSwaggerFileForTesting(t, "model_discriminators_parent_that_shouldnt_be.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -446,7 +446,7 @@ func TestParseDiscriminatedChildTypeThatShouldntBe(t *testing.T) {
 	// Some Swagger files define top level types with a Discriminator value which don't inherit
 	// from anything. As such these aren't actually discriminated types but bad data - so we should
 	// look to ensure these are parsed out as a regular non-discriminated type.
-	actual, err := ParseSwaggerFileForTesting(t, "model_discriminators_child_that_shouldnt_be.json")
+	actual, err := ParseSwaggerFileForTesting(t, "model_discriminators_child_that_shouldnt_be.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -491,7 +491,7 @@ func TestParseDiscriminatedChildTypeWhereParentShouldNotBeUsed(t *testing.T) {
 	// Some Swagger files contain Models with a reference to a Discriminated Type (e.g. an implementation
 	// where a Parent should be used instead) - this asserts that we shouldn't switch these out to
 	// referencing the Parent, instead should just use the Implementation itself.
-	actual, err := ParseSwaggerFileForTesting(t, "model_discriminators_child_used_as_parent.json")
+	actual, err := ParseSwaggerFileForTesting(t, "model_discriminators_child_used_as_parent.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -588,7 +588,7 @@ func TestParseDiscriminatedChildTypeWhereParentShouldNotBeUsed(t *testing.T) {
 }
 
 func TestParseDiscriminatorsInheritingFromOtherDiscriminators(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "model_discriminators_inherited_from_discriminators.json")
+	actual, err := ParseSwaggerFileForTesting(t, "model_discriminators_inherited_from_discriminators.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -692,7 +692,7 @@ func TestParseDiscriminatorsInheritingFromOtherDiscriminators(t *testing.T) {
 }
 
 func TestParseDiscriminatorsDeepInheritance(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "model_discriminators_deep_inheritance.json")
+	actual, err := ParseSwaggerFileForTesting(t, "model_discriminators_deep_inheritance.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -875,7 +875,7 @@ func TestParseDiscriminatorsDeepInheritance(t *testing.T) {
 func TestParseDiscriminatorsWithMultipleParents(t *testing.T) {
 	// In this scenario the discriminated type Human inherits from NamedEntity (containing just properties)
 	// which inherits from the discriminated parent type BiologicalEntity
-	actual, err := ParseSwaggerFileForTesting(t, "model_discriminators_multiple_parents.json")
+	actual, err := ParseSwaggerFileForTesting(t, "model_discriminators_multiple_parents.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1026,7 +1026,7 @@ func TestParseDiscriminatorsWithMultipleParents(t *testing.T) {
 func TestParseDiscriminatorsWithMultipleParentsWithinArray(t *testing.T) {
 	// In this scenario the discriminated type Human inherits from NamedEntity (containing just properties)
 	// which inherits from the discriminated parent type BiologicalEntity
-	actual, err := ParseSwaggerFileForTesting(t, "model_discriminators_multiple_parents_within_array.json")
+	actual, err := ParseSwaggerFileForTesting(t, "model_discriminators_multiple_parents_within_array.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1178,7 +1178,7 @@ func TestParseDiscriminatorsWithMultipleParentsWithinArray(t *testing.T) {
 }
 
 func TestParseDiscriminatorsOrphanedChild(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "/nestedtestdata/model_discriminators_orphaned_child.json")
+	actual, err := ParseSwaggerFileForTesting(t, "/nestedtestdata/model_discriminators_orphaned_child.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1255,7 +1255,7 @@ func TestParseDiscriminatorsOrphanedChild(t *testing.T) {
 }
 
 func TestParseDiscriminatorsOrphanedChildWithNestedModel(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "/nestedtestdata/model_discriminators_orphaned_child_with_nested_model.json")
+	actual, err := ParseSwaggerFileForTesting(t, "/nestedtestdata/model_discriminators_orphaned_child_with_nested_model.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1353,6 +1353,69 @@ func TestParseDiscriminatorsOrphanedChildWithNestedModel(t *testing.T) {
 							},
 						},
 					},
+				},
+			},
+		},
+	}
+	validateParsedSwaggerResultMatches(t, expected, actual)
+}
+
+func TestParseDiscriminatorsOrphanedChildWithoutDiscriminatorValue(t *testing.T) {
+	actual, err := ParseSwaggerFileForTesting(t, "/nestedtestdata/model_discriminators_orphaned_child_without_discriminator_value.json", pointer.To("datafactory"))
+	if err != nil {
+		t.Fatalf("parsing: %+v", err)
+	}
+
+	expected := importerModels.AzureApiDefinition{
+		ServiceName: "DataFactory",
+		ApiVersion:  "2020-01-01",
+		Resources: map[string]importerModels.AzureApiResource{
+			// NOTE: since there's no Operations defined the Models are placed into an APIResource based on the
+			// File Name. Whilst in a normal scenario this would make sense - for testing purposes it leads to
+			// some unexpectedly named data, but this is fine providing the APIResource we're expecting exists.
+			"ModelDiscriminatorsOrphanedChildWithoutDiscriminatorValues": {
+				Models: map[string]models.SDKModel{
+					"Animal": {
+						Fields: map[string]models.SDKField{
+							"AnimalType": {
+								JsonName: "animalType",
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
+								},
+								Required: true,
+							},
+						},
+						FieldNameContainingDiscriminatedValue: pointer.To("AnimalType"),
+					},
+					"Cat": {
+						Fields: map[string]models.SDKField{
+							"AnimalType": {
+								JsonName: "animalType",
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
+								},
+								Required: true,
+							},
+						},
+						ParentTypeName:                        pointer.To("Animal"),
+						FieldNameContainingDiscriminatedValue: pointer.To("AnimalType"),
+						DiscriminatedValue:                    pointer.To("Cat"),
+					},
+					"Dog": {
+						Fields: map[string]models.SDKField{
+							"AnimalType": {
+								JsonName: "animalType",
+								ObjectDefinition: models.SDKObjectDefinition{
+									Type: models.StringSDKObjectDefinitionType,
+								},
+								Required: true,
+							},
+						},
+						ParentTypeName:                        pointer.To("Animal"),
+						FieldNameContainingDiscriminatedValue: pointer.To("AnimalType"),
+						DiscriminatedValue:                    pointer.To("Dog"),
+					},
+					// ExampleWrapper is present in the Swagger but unused
 				},
 			},
 		},
