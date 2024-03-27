@@ -16,63 +16,11 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "disableMetricsCollection",
-      "name": "DisableMetricsCollection",
-      "objectDefinition": {
-        "type": "RawObject",
-        "referenceName": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
       "jsonName": "formatSettings",
       "name": "FormatSettings",
       "objectDefinition": {
         "type": "Reference",
         "referenceName": "XmlReadSettings"
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "maxConcurrentConnections",
-      "name": "MaxConcurrentConnections",
-      "objectDefinition": {
-        "type": "RawObject",
-        "referenceName": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "sourceRetryCount",
-      "name": "SourceRetryCount",
-      "objectDefinition": {
-        "type": "RawObject",
-        "referenceName": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "sourceRetryWait",
-      "name": "SourceRetryWait",
-      "objectDefinition": {
-        "type": "RawObject",
-        "referenceName": null
       },
       "optional": true,
       "readOnly": false,
@@ -91,19 +39,9 @@
       "readOnly": false,
       "required": false,
       "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "type",
-      "name": "Type",
-      "objectDefinition": {
-        "type": "String",
-        "referenceName": null
-      },
-      "optional": false,
-      "readOnly": false,
-      "required": true,
-      "sensitive": false
     }
-  ]
+  ],
+  "discriminatedParentModelName": "CopySource",
+  "discriminatedTypeValue": "XmlSource",
+  "typeHintIn": "Type"
 }

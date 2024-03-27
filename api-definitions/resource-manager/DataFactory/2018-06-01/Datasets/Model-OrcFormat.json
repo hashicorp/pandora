@@ -1,44 +1,7 @@
 {
   "name": "OrcFormat",
-  "fields": [
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "deserializer",
-      "name": "Deserializer",
-      "objectDefinition": {
-        "type": "RawObject",
-        "referenceName": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "serializer",
-      "name": "Serializer",
-      "objectDefinition": {
-        "type": "RawObject",
-        "referenceName": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "type",
-      "name": "Type",
-      "objectDefinition": {
-        "type": "String",
-        "referenceName": null
-      },
-      "optional": false,
-      "readOnly": false,
-      "required": true,
-      "sensitive": false
-    }
-  ]
+  "fields": [],
+  "discriminatedParentModelName": "DatasetStorageFormat",
+  "discriminatedTypeValue": "OrcFormat",
+  "typeHintIn": "Type"
 }

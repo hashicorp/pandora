@@ -3,36 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "annotations",
-      "name": "Annotations",
-      "objectDefinition": {
-        "type": "List",
-        "referenceName": null,
-        "nestedItem": {
-          "type": "RawObject",
-          "referenceName": null
-        }
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "description",
-      "name": "Description",
-      "objectDefinition": {
-        "type": "String",
-        "referenceName": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
       "jsonName": "pipelines",
       "name": "Pipelines",
       "objectDefinition": {
@@ -50,32 +20,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "runtimeState",
-      "name": "RuntimeState",
-      "objectDefinition": {
-        "type": "Reference",
-        "referenceName": "TriggerRuntimeState"
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "type",
-      "name": "Type",
-      "objectDefinition": {
-        "type": "String",
-        "referenceName": null
-      },
-      "optional": false,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
       "jsonName": "typeProperties",
       "name": "TypeProperties",
       "objectDefinition": {
@@ -87,5 +31,8 @@
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "discriminatedParentModelName": "Trigger",
+  "discriminatedTypeValue": "BlobTrigger",
+  "typeHintIn": "Type"
 }

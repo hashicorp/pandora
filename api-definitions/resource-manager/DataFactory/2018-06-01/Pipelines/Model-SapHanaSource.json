@@ -16,32 +16,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "disableMetricsCollection",
-      "name": "DisableMetricsCollection",
-      "objectDefinition": {
-        "type": "RawObject",
-        "referenceName": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "maxConcurrentConnections",
-      "name": "MaxConcurrentConnections",
-      "objectDefinition": {
-        "type": "RawObject",
-        "referenceName": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
       "jsonName": "packetSize",
       "name": "PacketSize",
       "objectDefinition": {
@@ -104,45 +78,9 @@
       "readOnly": false,
       "required": false,
       "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "sourceRetryCount",
-      "name": "SourceRetryCount",
-      "objectDefinition": {
-        "type": "RawObject",
-        "referenceName": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "sourceRetryWait",
-      "name": "SourceRetryWait",
-      "objectDefinition": {
-        "type": "RawObject",
-        "referenceName": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "type",
-      "name": "Type",
-      "objectDefinition": {
-        "type": "String",
-        "referenceName": null
-      },
-      "optional": false,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
     }
-  ]
+  ],
+  "discriminatedParentModelName": "CopySource",
+  "discriminatedTypeValue": "SapHanaSource",
+  "typeHintIn": "Type"
 }

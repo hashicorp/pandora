@@ -29,34 +29,8 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "disableMetricsCollection",
-      "name": "DisableMetricsCollection",
-      "objectDefinition": {
-        "type": "RawObject",
-        "referenceName": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
       "jsonName": "endTime",
       "name": "EndTime",
-      "objectDefinition": {
-        "type": "RawObject",
-        "referenceName": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "maxConcurrentConnections",
-      "name": "MaxConcurrentConnections",
       "objectDefinition": {
         "type": "RawObject",
         "referenceName": null
@@ -81,32 +55,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "sourceRetryCount",
-      "name": "SourceRetryCount",
-      "objectDefinition": {
-        "type": "RawObject",
-        "referenceName": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "sourceRetryWait",
-      "name": "SourceRetryWait",
-      "objectDefinition": {
-        "type": "RawObject",
-        "referenceName": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
       "jsonName": "startTime",
       "name": "StartTime",
       "objectDefinition": {
@@ -116,19 +64,6 @@
       "optional": true,
       "readOnly": false,
       "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "type",
-      "name": "Type",
-      "objectDefinition": {
-        "type": "String",
-        "referenceName": null
-      },
-      "optional": false,
-      "readOnly": false,
-      "required": true,
       "sensitive": false
     },
     {
@@ -144,5 +79,8 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "discriminatedParentModelName": "CopySource",
+  "discriminatedTypeValue": "Office365Source",
+  "typeHintIn": "Type"
 }
