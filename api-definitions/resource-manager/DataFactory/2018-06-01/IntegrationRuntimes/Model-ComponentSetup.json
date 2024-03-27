@@ -3,19 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "type",
-      "name": "Type",
-      "objectDefinition": {
-        "type": "String",
-        "referenceName": null
-      },
-      "optional": false,
-      "readOnly": false,
-      "required": true,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
       "jsonName": "typeProperties",
       "name": "TypeProperties",
       "objectDefinition": {
@@ -27,5 +14,8 @@
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "discriminatedParentModelName": "CustomSetupBase",
+  "discriminatedTypeValue": "ComponentSetup",
+  "typeHintIn": "Type"
 }

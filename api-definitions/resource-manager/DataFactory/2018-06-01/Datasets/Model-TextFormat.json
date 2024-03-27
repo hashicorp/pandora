@@ -16,19 +16,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "deserializer",
-      "name": "Deserializer",
-      "objectDefinition": {
-        "type": "RawObject",
-        "referenceName": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
       "jsonName": "encodingName",
       "name": "EncodingName",
       "objectDefinition": {
@@ -107,19 +94,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "serializer",
-      "name": "Serializer",
-      "objectDefinition": {
-        "type": "RawObject",
-        "referenceName": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
       "jsonName": "skipLineCount",
       "name": "SkipLineCount",
       "objectDefinition": {
@@ -143,19 +117,9 @@
       "readOnly": false,
       "required": false,
       "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "type",
-      "name": "Type",
-      "objectDefinition": {
-        "type": "String",
-        "referenceName": null
-      },
-      "optional": false,
-      "readOnly": false,
-      "required": true,
-      "sensitive": false
     }
-  ]
+  ],
+  "discriminatedParentModelName": "DatasetStorageFormat",
+  "discriminatedTypeValue": "TextFormat",
+  "typeHintIn": "Type"
 }

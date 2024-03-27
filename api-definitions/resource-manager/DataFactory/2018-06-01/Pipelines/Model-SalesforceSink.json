@@ -3,19 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "disableMetricsCollection",
-      "name": "DisableMetricsCollection",
-      "objectDefinition": {
-        "type": "RawObject",
-        "referenceName": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
       "jsonName": "externalIdFieldName",
       "name": "ExternalIdFieldName",
       "objectDefinition": {
@@ -42,84 +29,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "maxConcurrentConnections",
-      "name": "MaxConcurrentConnections",
-      "objectDefinition": {
-        "type": "RawObject",
-        "referenceName": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "sinkRetryCount",
-      "name": "SinkRetryCount",
-      "objectDefinition": {
-        "type": "RawObject",
-        "referenceName": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "sinkRetryWait",
-      "name": "SinkRetryWait",
-      "objectDefinition": {
-        "type": "RawObject",
-        "referenceName": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "type",
-      "name": "Type",
-      "objectDefinition": {
-        "type": "String",
-        "referenceName": null
-      },
-      "optional": false,
-      "readOnly": false,
-      "required": true,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "writeBatchSize",
-      "name": "WriteBatchSize",
-      "objectDefinition": {
-        "type": "RawObject",
-        "referenceName": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "writeBatchTimeout",
-      "name": "WriteBatchTimeout",
-      "objectDefinition": {
-        "type": "RawObject",
-        "referenceName": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
       "jsonName": "writeBehavior",
       "name": "WriteBehavior",
       "objectDefinition": {
@@ -131,5 +40,8 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "discriminatedParentModelName": "CopySink",
+  "discriminatedTypeValue": "SalesforceSink",
+  "typeHintIn": "Type"
 }
