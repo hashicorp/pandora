@@ -15,7 +15,7 @@ import (
 // TODO: tests for the different types of Operation Object Definition - including CSV's inner object
 
 func TestParseOperationsEmpty(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "operations_empty.json")
+	actual, err := ParseSwaggerFileForTesting(t, "operations_empty.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -28,7 +28,7 @@ func TestParseOperationsEmpty(t *testing.T) {
 }
 
 func TestParseOperationSingleWithTag(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "operations_single_with_tag.json")
+	actual, err := ParseSwaggerFileForTesting(t, "operations_single_with_tag.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -53,7 +53,7 @@ func TestParseOperationSingleWithTag(t *testing.T) {
 }
 
 func TestParseOperationSingleWithTagAndResourceId(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "operations_single_with_tag_resource_id.json")
+	actual, err := ParseSwaggerFileForTesting(t, "operations_single_with_tag_resource_id.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -92,7 +92,7 @@ func TestParseOperationSingleWithTagAndResourceId(t *testing.T) {
 }
 
 func TestParseOperationSingleWithTagAndResourceIdSuffix(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "operations_single_with_tag_resource_id_suffix.json")
+	actual, err := ParseSwaggerFileForTesting(t, "operations_single_with_tag_resource_id_suffix.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -132,7 +132,7 @@ func TestParseOperationSingleWithTagAndResourceIdSuffix(t *testing.T) {
 }
 
 func TestParseOperationSingleWithRequestObject(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "operations_single_with_request_object.json")
+	actual, err := ParseSwaggerFileForTesting(t, "operations_single_with_request_object.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -174,7 +174,7 @@ func TestParseOperationSingleWithRequestObject(t *testing.T) {
 }
 
 func TestParseOperationSingleWithRequestObjectInlined(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "operations_single_with_request_object_inlined.json")
+	actual, err := ParseSwaggerFileForTesting(t, "operations_single_with_request_object_inlined.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -216,7 +216,7 @@ func TestParseOperationSingleWithRequestObjectInlined(t *testing.T) {
 }
 
 func TestParseOperationSingleWithResponseObject(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "operations_single_with_response_object.json")
+	actual, err := ParseSwaggerFileForTesting(t, "operations_single_with_response_object.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -258,7 +258,7 @@ func TestParseOperationSingleWithResponseObject(t *testing.T) {
 }
 
 func TestParseOperationSingleWithResponseObjectInlined(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "operations_single_with_response_object_inlined.json")
+	actual, err := ParseSwaggerFileForTesting(t, "operations_single_with_response_object_inlined.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -300,7 +300,7 @@ func TestParseOperationSingleWithResponseObjectInlined(t *testing.T) {
 }
 
 func TestParseOperationSingleWithResponseObjectInlinedList(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "operations_single_with_response_object_inlined_list.json")
+	actual, err := ParseSwaggerFileForTesting(t, "operations_single_with_response_object_inlined_list.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -345,7 +345,7 @@ func TestParseOperationSingleWithResponseObjectInlinedList(t *testing.T) {
 }
 
 func TestParseOperationSingleRequestingWithABool(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "operations_single_requesting_with_a_bool.json")
+	actual, err := ParseSwaggerFileForTesting(t, "operations_single_requesting_with_a_bool.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -373,7 +373,7 @@ func TestParseOperationSingleRequestingWithABool(t *testing.T) {
 }
 
 func TestParseOperationSingleRequestingWithAInteger(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "operations_single_requesting_with_a_int.json")
+	actual, err := ParseSwaggerFileForTesting(t, "operations_single_requesting_with_a_int.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -401,7 +401,7 @@ func TestParseOperationSingleRequestingWithAInteger(t *testing.T) {
 }
 
 func TestParseOperationSingleRequestingWithADictionaryOfStrings(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "operations_single_requesting_with_a_dictionary_of_strings.json")
+	actual, err := ParseSwaggerFileForTesting(t, "operations_single_requesting_with_a_dictionary_of_strings.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -432,7 +432,7 @@ func TestParseOperationSingleRequestingWithADictionaryOfStrings(t *testing.T) {
 }
 
 func TestParseOperationSingleRequestingWithAListOfStrings(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "operations_single_requesting_with_a_list_of_strings.json")
+	actual, err := ParseSwaggerFileForTesting(t, "operations_single_requesting_with_a_list_of_strings.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -465,7 +465,7 @@ func TestParseOperationSingleRequestingWithAListOfStrings(t *testing.T) {
 // Models are already tested above
 
 func TestParseOperationSingleRequestingWithAString(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "operations_single_requesting_with_a_string.json")
+	actual, err := ParseSwaggerFileForTesting(t, "operations_single_requesting_with_a_string.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -493,7 +493,7 @@ func TestParseOperationSingleRequestingWithAString(t *testing.T) {
 }
 
 func TestParseOperationSingleReturningABool(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "operations_single_returning_a_bool.json")
+	actual, err := ParseSwaggerFileForTesting(t, "operations_single_returning_a_bool.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -521,7 +521,7 @@ func TestParseOperationSingleReturningABool(t *testing.T) {
 }
 
 func TestParseOperationSingleReturningAFloat(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "operations_single_returning_a_float.json")
+	actual, err := ParseSwaggerFileForTesting(t, "operations_single_returning_a_float.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -549,7 +549,7 @@ func TestParseOperationSingleReturningAFloat(t *testing.T) {
 }
 
 func TestParseOperationSingleReturningAFile(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "operations_single_returning_a_file.json")
+	actual, err := ParseSwaggerFileForTesting(t, "operations_single_returning_a_file.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -577,7 +577,7 @@ func TestParseOperationSingleReturningAFile(t *testing.T) {
 }
 
 func TestParseOperationSingleReturningAnInteger(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "operations_single_returning_an_integer.json")
+	actual, err := ParseSwaggerFileForTesting(t, "operations_single_returning_an_integer.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -605,7 +605,7 @@ func TestParseOperationSingleReturningAnInteger(t *testing.T) {
 }
 
 func TestParseOperationSingleReturningAString(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "operations_single_returning_a_string.json")
+	actual, err := ParseSwaggerFileForTesting(t, "operations_single_returning_a_string.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -634,7 +634,7 @@ func TestParseOperationSingleReturningAString(t *testing.T) {
 
 func TestParseOperationSingleReturningAnErrorStatusCode(t *testing.T) {
 	// In this instance the error status code should be ignored we're only concerned with 2XX status codes
-	actual, err := ParseSwaggerFileForTesting(t, "operations_single_returning_an_error_status_code.json")
+	actual, err := ParseSwaggerFileForTesting(t, "operations_single_returning_an_error_status_code.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -662,7 +662,7 @@ func TestParseOperationSingleReturningAnErrorStatusCode(t *testing.T) {
 }
 
 func TestParseOperationSingleReturningATopLevelRawObject(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "operations_single_returning_a_top_level_raw_object.json")
+	actual, err := ParseSwaggerFileForTesting(t, "operations_single_returning_a_top_level_raw_object.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -693,7 +693,7 @@ func TestParseOperationSingleReturningATopLevelRawObject(t *testing.T) {
 }
 
 func TestParseOperationSingleReturningADictionaryOfAModel(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "operations_single_returning_a_dictionary_of_model.json")
+	actual, err := ParseSwaggerFileForTesting(t, "operations_single_returning_a_dictionary_of_model.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -738,7 +738,7 @@ func TestParseOperationSingleReturningADictionaryOfAModel(t *testing.T) {
 }
 
 func TestParseOperationSingleReturningADictionaryOfStrings(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "operations_single_returning_a_dictionary_of_strings.json")
+	actual, err := ParseSwaggerFileForTesting(t, "operations_single_returning_a_dictionary_of_strings.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -769,7 +769,7 @@ func TestParseOperationSingleReturningADictionaryOfStrings(t *testing.T) {
 }
 
 func TestParseOperationSingleReturningAListOfIntegers(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "operations_single_returning_a_list_of_ints.json")
+	actual, err := ParseSwaggerFileForTesting(t, "operations_single_returning_a_list_of_ints.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -800,7 +800,7 @@ func TestParseOperationSingleReturningAListOfIntegers(t *testing.T) {
 }
 
 func TestParseOperationSingleReturningAListOfAModel(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "operations_single_returning_a_list_of_model.json")
+	actual, err := ParseSwaggerFileForTesting(t, "operations_single_returning_a_list_of_model.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -845,7 +845,7 @@ func TestParseOperationSingleReturningAListOfAModel(t *testing.T) {
 }
 
 func TestParseOperationSingleReturningAListOfStrings(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "operations_single_returning_a_list_of_strings.json")
+	actual, err := ParseSwaggerFileForTesting(t, "operations_single_returning_a_list_of_strings.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -876,7 +876,7 @@ func TestParseOperationSingleReturningAListOfStrings(t *testing.T) {
 }
 
 func TestParseOperationSingleReturningAListOfListOfAModel(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "operations_single_returning_a_list_of_list_of_model.json")
+	actual, err := ParseSwaggerFileForTesting(t, "operations_single_returning_a_list_of_list_of_model.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -924,7 +924,7 @@ func TestParseOperationSingleReturningAListOfListOfAModel(t *testing.T) {
 }
 
 func TestParseOperationSingleReturningAListOfListOfStrings(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "operations_single_returning_a_list_of_list_of_strings.json")
+	actual, err := ParseSwaggerFileForTesting(t, "operations_single_returning_a_list_of_list_of_strings.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -958,7 +958,7 @@ func TestParseOperationSingleReturningAListOfListOfStrings(t *testing.T) {
 }
 
 func TestParseOperationSingleWithList(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "operations_single_list.json")
+	actual, err := ParseSwaggerFileForTesting(t, "operations_single_list.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1003,7 +1003,7 @@ func TestParseOperationSingleWithList(t *testing.T) {
 func TestParseOperationSingleWithListWhichIsNotAList(t *testing.T) {
 	// all List operations should have an `x-ms-pageable` attribute, but some don't due to bad data
 	// as such this checks we can duck-type it out
-	actual, err := ParseSwaggerFileForTesting(t, "operations_single_list_which_is_not_a_list.json")
+	actual, err := ParseSwaggerFileForTesting(t, "operations_single_list_which_is_not_a_list.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1050,7 +1050,7 @@ func TestParseOperationSingleWithListWhichIsNotAList(t *testing.T) {
 }
 
 func TestParseOperationSingleWithListReturningAListOfStrings(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "operations_single_list_of_strings.json")
+	actual, err := ParseSwaggerFileForTesting(t, "operations_single_list_of_strings.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1081,7 +1081,7 @@ func TestParseOperationSingleWithListReturningAListOfStrings(t *testing.T) {
 func TestParseOperationSingleWithListWithoutPageable(t *testing.T) {
 	// all List operations should have an `x-ms-pageable` attribute, but some don't due to bad data
 	// as such this checks we can duck-type it out
-	actual, err := ParseSwaggerFileForTesting(t, "operations_single_list_without_pageable.json")
+	actual, err := ParseSwaggerFileForTesting(t, "operations_single_list_without_pageable.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1124,7 +1124,7 @@ func TestParseOperationSingleWithListWithoutPageable(t *testing.T) {
 }
 
 func TestParseOperationSingleWithLongRunningOperation(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "operations_single_long_running.json")
+	actual, err := ParseSwaggerFileForTesting(t, "operations_single_long_running.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1167,7 +1167,7 @@ func TestParseOperationSingleWithLongRunningOperation(t *testing.T) {
 }
 
 func TestParseOperationSingleWithRequestAndResponseObject(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "operations_single_with_request_and_response_object.json")
+	actual, err := ParseSwaggerFileForTesting(t, "operations_single_with_request_and_response_object.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1213,7 +1213,7 @@ func TestParseOperationSingleWithRequestAndResponseObject(t *testing.T) {
 }
 
 func TestParseOperationSingleWithMultipleTags(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "operations_single_multiple_tags.json")
+	actual, err := ParseSwaggerFileForTesting(t, "operations_single_multiple_tags.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1250,7 +1250,7 @@ func TestParseOperationSingleWithMultipleTags(t *testing.T) {
 }
 
 func TestParseOperationSingleWithInferredTag(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "operations_single_with_no_tag.json")
+	actual, err := ParseSwaggerFileForTesting(t, "operations_single_with_no_tag.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1277,7 +1277,7 @@ func TestParseOperationSingleWithInferredTag(t *testing.T) {
 }
 
 func TestParseOperationSingleWithHeaderOptions(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "operations_single_with_header_options.json")
+	actual, err := ParseSwaggerFileForTesting(t, "operations_single_with_header_options.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1359,7 +1359,7 @@ func TestParseOperationSingleWithHeaderOptions(t *testing.T) {
 }
 
 func TestParseOperationSingleWithQueryStringOptions(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "operations_single_with_querystring_options.json")
+	actual, err := ParseSwaggerFileForTesting(t, "operations_single_with_querystring_options.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1441,7 +1441,7 @@ func TestParseOperationSingleWithQueryStringOptions(t *testing.T) {
 }
 
 func TestParseOperationMultipleBasedOnTheSameResourceId(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "operations_multiple_same_resource_id.json")
+	actual, err := ParseSwaggerFileForTesting(t, "operations_multiple_same_resource_id.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1487,7 +1487,7 @@ func TestParseOperationMultipleBasedOnTheSameResourceId(t *testing.T) {
 }
 
 func TestParseOperationsContainingContentTypes(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "operation_content_types.json")
+	actual, err := ParseSwaggerFileForTesting(t, "operation_content_types.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1549,7 +1549,7 @@ func TestParseOperationsContainingContentTypes(t *testing.T) {
 }
 
 func TestParseOperationContainingMultipleReturnObjects(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "operations_single_multiple_return_objects.json")
+	actual, err := ParseSwaggerFileForTesting(t, "operations_single_multiple_return_objects.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1591,7 +1591,7 @@ func TestParseOperationContainingMultipleReturnObjects(t *testing.T) {
 }
 
 func TestParseOperationsWithStutteringNames(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "operations_with_stuttering_names.json")
+	actual, err := ParseSwaggerFileForTesting(t, "operations_with_stuttering_names.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}

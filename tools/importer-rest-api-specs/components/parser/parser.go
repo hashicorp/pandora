@@ -78,7 +78,7 @@ func (d *SwaggerDefinition) parse(serviceName, apiVersion string, resourceProvid
 		inferredTag := cleanup.PluraliseName(swaggerFileName[len(swaggerFileName)-1])
 		normalizedTag := cleanup.NormalizeResourceName(inferredTag)
 
-		result, err := d.findOrphanedDiscriminatedModels()
+		result, err := d.findOrphanedDiscriminatedModels(serviceName)
 		if err != nil {
 			return nil, fmt.Errorf("finding orphaned discriminated models in %q: %+v", d.Name, err)
 		}

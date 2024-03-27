@@ -12,7 +12,7 @@ import (
 )
 
 func TestParseModelWithADictionaryOfIntegers(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "model_dictionary_of_integers.json")
+	actual, err := ParseSwaggerFileForTesting(t, "model_dictionary_of_integers.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -64,7 +64,7 @@ func TestParseModelWithADictionaryOfIntegers(t *testing.T) {
 }
 
 func TestParseModelWithADictionaryOfIntegersInlined(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "model_dictionary_of_integers_inlined.json")
+	actual, err := ParseSwaggerFileForTesting(t, "model_dictionary_of_integers_inlined.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -116,7 +116,7 @@ func TestParseModelWithADictionaryOfIntegersInlined(t *testing.T) {
 }
 
 func TestParseModelWithADictionaryOfAnObject(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "model_dictionary_of_object.json")
+	actual, err := ParseSwaggerFileForTesting(t, "model_dictionary_of_object.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -201,7 +201,7 @@ func TestParseModelWithADictionaryOfAnObject(t *testing.T) {
 }
 
 func TestParseModelWithADictionaryOfAnObjectInlined(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "model_dictionary_of_object_inlined.json")
+	actual, err := ParseSwaggerFileForTesting(t, "model_dictionary_of_object_inlined.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -286,7 +286,7 @@ func TestParseModelWithADictionaryOfAnObjectInlined(t *testing.T) {
 }
 
 func TestParseModelWithADictionaryOfString(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "model_dictionary_of_string.json")
+	actual, err := ParseSwaggerFileForTesting(t, "model_dictionary_of_string.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -338,7 +338,7 @@ func TestParseModelWithADictionaryOfString(t *testing.T) {
 }
 
 func TestParseModelWithADictionaryOfStringInlined(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "model_dictionary_of_string_inlined.json")
+	actual, err := ParseSwaggerFileForTesting(t, "model_dictionary_of_string_inlined.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}

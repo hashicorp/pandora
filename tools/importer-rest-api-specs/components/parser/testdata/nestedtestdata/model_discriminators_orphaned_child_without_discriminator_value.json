@@ -1,0 +1,57 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "DataFactory",
+    "description": "DataFactory",
+    "version": "2020-01-01"
+  },
+  "paths": {},
+  "definitions": {
+    "ExampleWrapper": {
+      "description": "The Resource definition.",
+      "properties": {
+        "nested": {
+          "$ref": "#/definitions/Animal"
+        }
+      },
+      "required": [
+        "nested"
+      ],
+      "title": "ExampleWrapper",
+      "type": "object",
+      "x-ms-azure-resource": true
+    },
+    "Animal": {
+      "discriminator": "animalType",
+      "properties": {
+        "animalType": {
+          "type": "string",
+          "description": "The type of Animal this is, used as a Discriminator value."
+        }
+      },
+      "required": [
+        "animalType"
+      ],
+      "title": "Animal",
+      "type": "object"
+    },
+    "Cat": {
+      "description": "A cat is a kind of animal",
+      "allOf": [
+        {
+          "$ref": "#/definitions/Animal"
+        }
+      ],
+      "type": "object"
+    },
+    "Dog": {
+      "description": "A dog is a kind of animal",
+      "allOf": [
+        {
+          "$ref": "#/definitions/Animal"
+        }
+      ],
+      "type": "object"
+    }
+  }
+}

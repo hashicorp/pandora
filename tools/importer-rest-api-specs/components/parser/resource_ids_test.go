@@ -12,7 +12,7 @@ import (
 )
 
 func TestParseResourceIdBasic(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "resource_ids_basic.json")
+	actual, err := ParseSwaggerFileForTesting(t, "resource_ids_basic.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -51,7 +51,7 @@ func TestParseResourceIdBasic(t *testing.T) {
 }
 
 func TestParseResourceIdContainingAConstant(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "resource_ids_containing_constant.json")
+	actual, err := ParseSwaggerFileForTesting(t, "resource_ids_containing_constant.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -98,7 +98,7 @@ func TestParseResourceIdContainingAConstant(t *testing.T) {
 }
 
 func TestParseResourceIdContainingAScope(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "resource_ids_containing_scope.json")
+	actual, err := ParseSwaggerFileForTesting(t, "resource_ids_containing_scope.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -143,7 +143,7 @@ func TestParseResourceIdContainingAHiddenScope(t *testing.T) {
 		t.Run(file, func(t *testing.T) {
 			fileName := file
 
-			actual, err := ParseSwaggerFileForTesting(t, fileName)
+			actual, err := ParseSwaggerFileForTesting(t, fileName, nil)
 			if err != nil {
 				t.Fatalf("parsing: %+v", err)
 			}
@@ -179,7 +179,7 @@ func TestParseResourceIdContainingAHiddenScope(t *testing.T) {
 
 func TestParseResourceIdContainingAHiddenScopeWithExtraSegment(t *testing.T) {
 	// The extra segment should be ignored and detected as a regular scope
-	actual, err := ParseSwaggerFileForTesting(t, "resource_ids_containing_hidden_scope_with_extra_segment.json")
+	actual, err := ParseSwaggerFileForTesting(t, "resource_ids_containing_hidden_scope_with_extra_segment.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -212,7 +212,7 @@ func TestParseResourceIdContainingAHiddenScopeWithExtraSegment(t *testing.T) {
 }
 
 func TestParseResourceIdContainingAHiddenScopeWithSuffix(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "resource_ids_containing_hidden_scope_with_suffix.json")
+	actual, err := ParseSwaggerFileForTesting(t, "resource_ids_containing_hidden_scope_with_suffix.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -255,7 +255,7 @@ func TestParseResourceIdContainingAHiddenScopeNested(t *testing.T) {
 		t.Run(file, func(t *testing.T) {
 			fileName := file
 
-			actual, err := ParseSwaggerFileForTesting(t, fileName)
+			actual, err := ParseSwaggerFileForTesting(t, fileName, nil)
 			if err != nil {
 				t.Fatalf("parsing: %+v", err)
 			}
@@ -290,7 +290,7 @@ func TestParseResourceIdContainingAHiddenScopeNested(t *testing.T) {
 }
 
 func TestParseResourceIdContainingAHiddenScopeNestedWithExtraSegment(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "resource_ids_containing_hidden_scope_nested_with_extra_segment.json")
+	actual, err := ParseSwaggerFileForTesting(t, "resource_ids_containing_hidden_scope_nested_with_extra_segment.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -323,7 +323,7 @@ func TestParseResourceIdContainingAHiddenScopeNestedWithExtraSegment(t *testing.
 }
 
 func TestParseResourceIdContainingAHiddenScopeNestedWithSuffix(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "resource_ids_containing_hidden_scope_nested_with_suffix.json")
+	actual, err := ParseSwaggerFileForTesting(t, "resource_ids_containing_hidden_scope_nested_with_suffix.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -357,7 +357,7 @@ func TestParseResourceIdContainingAHiddenScopeNestedWithSuffix(t *testing.T) {
 }
 
 func TestParseResourceIdWithJustUriSuffix(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "resource_ids_with_just_suffix.json")
+	actual, err := ParseSwaggerFileForTesting(t, "resource_ids_with_just_suffix.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -382,7 +382,7 @@ func TestParseResourceIdWithJustUriSuffix(t *testing.T) {
 }
 
 func TestParseResourceIdWithResourceIdAndUriSuffix(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "resource_ids_with_suffix.json")
+	actual, err := ParseSwaggerFileForTesting(t, "resource_ids_with_suffix.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -422,7 +422,7 @@ func TestParseResourceIdWithResourceIdAndUriSuffix(t *testing.T) {
 }
 
 func TestParseResourceIdWithResourceIdAndUriSuffixForMultipleUris(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "resource_ids_with_suffix_multiple_uris.json")
+	actual, err := ParseSwaggerFileForTesting(t, "resource_ids_with_suffix_multiple_uris.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -475,7 +475,7 @@ func TestParseResourceIdWithResourceIdAndUriSuffixForMultipleUris(t *testing.T) 
 }
 
 func TestParseResourceIdContainingResourceProviderShouldGetTitleCased(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "resource_ids_lowercased_resource_provider.json")
+	actual, err := ParseSwaggerFileForTesting(t, "resource_ids_lowercased_resource_provider.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -514,7 +514,7 @@ func TestParseResourceIdContainingResourceProviderShouldGetTitleCased(t *testing
 }
 
 func TestParseResourceIdContainingTheSameResourceIdWithDifferentSegments(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "resource_ids_same_id_different_segment_casing.json")
+	actual, err := ParseSwaggerFileForTesting(t, "resource_ids_same_id_different_segment_casing.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -560,7 +560,7 @@ func TestParseResourceIdContainingTheSameResourceIdWithDifferentSegments(t *test
 }
 
 func TestParseResourceIdContainingTheSegmentsNamedTheSame(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "resource_ids_multiple_segments_same_name.json")
+	actual, err := ParseSwaggerFileForTesting(t, "resource_ids_multiple_segments_same_name.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -613,7 +613,7 @@ func TestParseResourceIdsWhereTheSameUriContainsDifferentConstantValuesPerOperat
 	for i := 0; i < 100; i++ {
 		t.Logf("iteration %d", i)
 
-		actual, err := ParseSwaggerFileForTesting(t, "resource_ids_same_uri_different_constant_values_per_operation.json")
+		actual, err := ParseSwaggerFileForTesting(t, "resource_ids_same_uri_different_constant_values_per_operation.json", nil)
 		if err != nil {
 			t.Fatalf("parsing: %+v", err)
 		}
@@ -674,7 +674,7 @@ func TestParseResourceIdsWhereTheSameUriContainsDifferentConstantValuesPerOperat
 }
 
 func TestParseResourceIdsCommon(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "resource_ids_common.json")
+	actual, err := ParseSwaggerFileForTesting(t, "resource_ids_common.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
