@@ -1,0 +1,31 @@
+{
+  "name": "SoftDeleteSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "retentionDurationInDays",
+      "name": "RetentionDurationInDays",
+      "objectDefinition": {
+        "type": "Float",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "state",
+      "name": "State",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SoftDeleteState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}
