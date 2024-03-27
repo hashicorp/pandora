@@ -1422,3 +1422,18 @@ func TestParseDiscriminatorsOrphanedChildWithoutDiscriminatorValue(t *testing.T)
 	}
 	validateParsedSwaggerResultMatches(t, expected, actual)
 }
+
+func TestParseDiscriminatorsOrphanedChildWithoutDiscriminatorValueForDifferentService(t *testing.T) {
+	actual, err := ParseSwaggerFileForTesting(t, "/nestedtestdata/model_discriminators_orphaned_child_without_discriminator_value.json", pointer.To("Compute"))
+	if err != nil {
+		t.Fatalf("parsing: %+v", err)
+	}
+
+	// This test ensures that this behaviour is scoped to Data Factory and won't impact other services
+	expected := importerModels.AzureApiDefinition{
+		ServiceName: "Compute",
+		ApiVersion:  "2020-01-01",
+		Resources:   map[string]importerModels.AzureApiResource{},
+	}
+	validateParsedSwaggerResultMatches(t, expected, actual)
+}
