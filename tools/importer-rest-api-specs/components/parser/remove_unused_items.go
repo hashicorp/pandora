@@ -8,10 +8,9 @@ import (
 
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
 )
 
-func removeUnusedItems(operations map[string]models.SDKOperation, resourceIds map[string]models.ResourceID, result internal.ParseResult) (internal.ParseResult, map[string]models.ResourceID) {
+func removeUnusedItems(operations map[string]models.SDKOperation, resourceIds map[string]models.ResourceID, resourceModels map[string]models.SDKModel, resourceConstants map[string]models.SDKConstant) (map[string]models.SDKModel, map[string]models.SDKConstant, map[string]models.ResourceID) {
 	// The ordering matters here, we need to remove the ResourceIDs first since
 	// they contain references to Constants - as do Models, so remove unused
 	// Resource IDs, then Models, then Constants else we can have orphaned
@@ -31,37 +30,37 @@ func removeUnusedItems(operations map[string]models.SDKOperation, resourceIds ma
 		unusedResourceIds = findUnusedResourceIds(operations, resourceIdsForThisResource)
 	}
 
-	unusedModels := findUnusedModels(operations, result)
+	unusedModels := findUnusedModels(operations, resourceModels)
 	for len(unusedModels) > 0 {
 		// remove those models
 		for _, modelName := range unusedModels {
-			delete(result.Models, modelName)
+			delete(resourceModels, modelName)
 		}
 
 		// then go around again
-		unusedModels = findUnusedModels(operations, result)
+		unusedModels = findUnusedModels(operations, resourceModels)
 	}
 
-	unusedConstants := findUnusedConstants(operations, resourceIdsForThisResource, result)
+	unusedConstants := findUnusedConstants(operations, resourceIdsForThisResource, resourceModels, resourceConstants)
 	for len(unusedConstants) > 0 {
 		// remove those constants
 		for _, constantName := range unusedConstants {
-			delete(result.Constants, constantName)
+			delete(resourceConstants, constantName)
 		}
 
 		// then go around again
-		unusedConstants = findUnusedConstants(operations, resourceIdsForThisResource, result)
+		unusedConstants = findUnusedConstants(operations, resourceIdsForThisResource, resourceModels, resourceConstants)
 	}
 
-	return result, resourceIdsForThisResource
+	return resourceModels, resourceConstants, resourceIdsForThisResource
 }
 
-func findUnusedConstants(operations map[string]models.SDKOperation, resourceIds map[string]models.ResourceID, result internal.ParseResult) []string {
+func findUnusedConstants(operations map[string]models.SDKOperation, resourceIds map[string]models.ResourceID, resourceModels map[string]models.SDKModel, resourceConstants map[string]models.SDKConstant) []string {
 	unusedConstants := make(map[string]struct{}, 0)
-	for constantName := range result.Constants {
+	for constantName := range resourceConstants {
 		// constants are either housed inside a Model
 		usedInAModel := false
-		for _, model := range result.Models {
+		for _, model := range resourceModels {
 			for _, field := range model.Fields {
 				definition := helpers.InnerMostSDKObjectDefinition(field.ObjectDefinition)
 				if definition.Type != models.ReferenceSDKObjectDefinitionType {
@@ -154,9 +153,9 @@ func topLevelOptionsObjectDefinition(input models.SDKOperationOptionObjectDefini
 	return input
 }
 
-func findUnusedModels(operations map[string]models.SDKOperation, result internal.ParseResult) []string {
+func findUnusedModels(operations map[string]models.SDKOperation, resourceModels map[string]models.SDKModel) []string {
 	unusedModels := make(map[string]struct{})
-	for modelName, model := range result.Models {
+	for modelName, model := range resourceModels {
 		if modelName == "" {
 			// if the model name is empty this is an unused model (so is safe to remove) - but is a bug
 			// TODO: track down empty models and then remove this
@@ -201,7 +200,7 @@ func findUnusedModels(operations map[string]models.SDKOperation, result internal
 
 		// or on other models
 		usedInAModel := false
-		for thisModelName, thisModel := range result.Models {
+		for thisModelName, thisModel := range resourceModels {
 			if thisModelName == modelName {
 				continue
 			}

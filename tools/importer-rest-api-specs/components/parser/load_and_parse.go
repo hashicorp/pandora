@@ -92,6 +92,19 @@ func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVer
 
 	out = *output
 
+	for _, service := range out {
+		for resource, details := range service.Resources {
+			models, constants, resourceIdNamesToUris := removeUnusedItems(details.Operations, details.ResourceIds, details.Models, details.Constants)
+			service.Resources[resource] = importerModels.AzureApiResource{
+				Constants:   constants,
+				Models:      models,
+				Operations:  details.Operations,
+				ResourceIds: resourceIdNamesToUris,
+				Terraform:   details.Terraform,
+			}
+		}
+	}
+
 	if len(out) > 1 {
 		return nil, fmt.Errorf("internal-error:the Swagger files for Service %q / API Version %q contained multiple resources (%d total)", serviceName, apiVersion, len(out))
 	}

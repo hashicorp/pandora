@@ -12,6 +12,7 @@ import (
 
 var workarounds = []workaround{
 	// These workarounds are related to issues with the upstream API Definitions
+	workaroundAlertsManagement{},
 	workaroundAuthorization25080{},
 	workaroundDigitalTwins25120{},
 	workaroundAutomation25108{},

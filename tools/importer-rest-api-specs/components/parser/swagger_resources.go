@@ -58,19 +58,16 @@ func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resource
 	// then switch out any custom types (e.g. Identity)
 	result = switchOutCustomTypesAsNeeded(result)
 
-	// finally remove any models and constants which aren't referenced / have been replaced
-	constantsAndModels, resourceIdNamesToUris := removeUnusedItems(*operations, resourceIds.NamesToResourceIDs, result)
-
 	// if there's nothing here, there's no point generating a package
 	if len(*operations) == 0 {
 		return nil, nil
 	}
 
 	resource := importerModels.AzureApiResource{
-		Constants:   constantsAndModels.Constants,
-		Models:      constantsAndModels.Models,
+		Constants:   result.Constants,
+		Models:      result.Models,
 		Operations:  *operations,
-		ResourceIds: resourceIdNamesToUris,
+		ResourceIds: resourceIds.NamesToResourceIDs,
 	}
 
 	// first Normalize the names, meaning `foo` -> `Foo` for consistency
