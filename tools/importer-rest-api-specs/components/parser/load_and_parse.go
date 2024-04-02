@@ -92,6 +92,10 @@ func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVer
 
 	out = *output
 
+	for _, service := range out {
+		service.Resources = removeUnusedItems(service.Resources)
+	}
+
 	if len(out) > 1 {
 		return nil, fmt.Errorf("internal-error:the Swagger files for Service %q / API Version %q contained multiple resources (%d total)", serviceName, apiVersion, len(out))
 	}
