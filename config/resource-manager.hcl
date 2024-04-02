@@ -178,7 +178,7 @@ service "desktopvirtualization" {
 }
 service "devcenter" {
   name      = "DevCenter"
-  available = ["2023-04-01"]
+  available = ["2023-04-01", "2024-02-01"]
 }
 service "deviceprovisioningservices" {
   name      = "DeviceProvisioningServices"
