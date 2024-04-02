@@ -1,0 +1,52 @@
+{
+  "name": "DevCenterDevBoxDefinitionId",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevCenter/devCenters/{devCenterName}/devBoxDefinitions/{devBoxDefinitionName}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticResourceGroups",
+      "type": "Static",
+      "value": "resourceGroups"
+    },
+    {
+      "name": "resourceGroupName",
+      "type": "ResourceGroup"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftDevCenter",
+      "type": "ResourceProvider",
+      "value": "Microsoft.DevCenter"
+    },
+    {
+      "name": "staticDevCenters",
+      "type": "Static",
+      "value": "devCenters"
+    },
+    {
+      "name": "devCenterName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticDevBoxDefinitions",
+      "type": "Static",
+      "value": "devBoxDefinitions"
+    },
+    {
+      "name": "devBoxDefinitionName",
+      "type": "UserSpecified"
+    }
+  ]
+}
