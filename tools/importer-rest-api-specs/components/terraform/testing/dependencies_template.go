@@ -159,7 +159,7 @@ resource "%[1]s_kubernetes_cluster" "test" {
     vm_size    = "Standard_DS2_v2"
   }
   upgrade_settings {
-      max_surge = "10%%"
+      max_surge = "10%%%%"
   }
 
   identity {
