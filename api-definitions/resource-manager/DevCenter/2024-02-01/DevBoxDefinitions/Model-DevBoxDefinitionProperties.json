@@ -1,0 +1,122 @@
+{
+  "name": "DevBoxDefinitionProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "activeImageReference",
+      "name": "ActiveImageReference",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ImageReference"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "hibernateSupport",
+      "name": "HibernateSupport",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "HibernateSupport"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "imageReference",
+      "name": "ImageReference",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ImageReference"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "imageValidationErrorDetails",
+      "name": "ImageValidationErrorDetails",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ImageValidationErrorDetails"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "imageValidationStatus",
+      "name": "ImageValidationStatus",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ImageValidationStatus"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "osStorageType",
+      "name": "OsStorageType",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "provisioningState",
+      "name": "ProvisioningState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ProvisioningState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sku",
+      "name": "Sku",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Sku"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "validationStatus",
+      "name": "ValidationStatus",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CatalogResourceValidationStatus"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

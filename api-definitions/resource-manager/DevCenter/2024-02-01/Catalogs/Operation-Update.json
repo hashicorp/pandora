@@ -1,0 +1,19 @@
+{
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "DevCenterCatalogId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "CatalogUpdate"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "Catalog"
+  }
+}

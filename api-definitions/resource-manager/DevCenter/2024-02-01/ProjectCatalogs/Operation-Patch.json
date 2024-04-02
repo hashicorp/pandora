@@ -1,0 +1,19 @@
+{
+  "name": "Patch",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "CatalogId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "CatalogUpdate"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "Catalog"
+  }
+}
