@@ -33,6 +33,10 @@ func (workaroundAlertsManagement) Process(apiDefinition importerModels.AzureApiD
 	if !ok {
 		return nil, fmt.Errorf("expected a Resource named `ActionRules`")
 	}
+	_, ok = resource.Models["ActionRuleProperties"]
+	if !ok {
+		return nil, fmt.Errorf("expected a Resource named `ActionRuleProperties`")
+	}
 
 	modelNames := []string{
 		"ActionGroup",

@@ -40,16 +40,7 @@ func ParseSwaggerFileForTesting(t *testing.T, file string, serviceName *string) 
 	// removeUnusedItems used to be called as we iterated through the swagger files
 	// it's now called once after all the processing for a service has been done so must be called here
 	// to replicate the entire parsing process for swagger files
-	for resource, details := range out.Resources {
-		resourceModels, resourceConstants, resourceIdsToUri := removeUnusedItems(details.Operations, details.ResourceIds, details.Models, details.Constants)
-		out.Resources[resource] = importerModels.AzureApiResource{
-			Constants:   resourceConstants,
-			Models:      resourceModels,
-			Operations:  details.Operations,
-			ResourceIds: resourceIdsToUri,
-			Terraform:   details.Terraform,
-		}
-	}
+	out.Resources = removeUnusedItems(out.Resources)
 
 	return out, nil
 }

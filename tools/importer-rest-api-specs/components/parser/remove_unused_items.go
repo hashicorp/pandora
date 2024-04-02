@@ -8,51 +8,62 @@ import (
 
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func removeUnusedItems(operations map[string]models.SDKOperation, resourceIds map[string]models.ResourceID, resourceModels map[string]models.SDKModel, resourceConstants map[string]models.SDKConstant) (map[string]models.SDKModel, map[string]models.SDKConstant, map[string]models.ResourceID) {
+func removeUnusedItems(resources map[string]importerModels.AzureApiResource) map[string]importerModels.AzureApiResource {
 	// The ordering matters here, we need to remove the ResourceIDs first since
 	// they contain references to Constants - as do Models, so remove unused
 	// Resource IDs, then Models, then Constants else we can have orphaned
 	// constants within a package
 
-	resourceIdsForThisResource := make(map[string]models.ResourceID)
-	for k, v := range resourceIds {
-		resourceIdsForThisResource[k] = v
-	}
-	unusedResourceIds := findUnusedResourceIds(operations, resourceIdsForThisResource)
-	for len(unusedResourceIds) > 0 {
-		for _, resourceIdName := range unusedResourceIds {
-			delete(resourceIdsForThisResource, resourceIdName)
+	for resource, details := range resources {
+		resourceIdsForThisResource := make(map[string]models.ResourceID)
+		for k, v := range details.ResourceIds {
+			resourceIdsForThisResource[k] = v
+		}
+		unusedResourceIds := findUnusedResourceIds(details.Operations, resourceIdsForThisResource)
+		for len(unusedResourceIds) > 0 {
+			for _, resourceIdName := range unusedResourceIds {
+				delete(resourceIdsForThisResource, resourceIdName)
+			}
+
+			// then go around again
+			unusedResourceIds = findUnusedResourceIds(details.Operations, resourceIdsForThisResource)
 		}
 
-		// then go around again
-		unusedResourceIds = findUnusedResourceIds(operations, resourceIdsForThisResource)
-	}
+		unusedModels := findUnusedModels(details.Operations, details.Models)
+		for len(unusedModels) > 0 {
+			// remove those models
+			for _, modelName := range unusedModels {
+				delete(details.Models, modelName)
+			}
 
-	unusedModels := findUnusedModels(operations, resourceModels)
-	for len(unusedModels) > 0 {
-		// remove those models
-		for _, modelName := range unusedModels {
-			delete(resourceModels, modelName)
+			// then go around again
+			unusedModels = findUnusedModels(details.Operations, details.Models)
 		}
 
-		// then go around again
-		unusedModels = findUnusedModels(operations, resourceModels)
-	}
+		unusedConstants := findUnusedConstants(details.Operations, resourceIdsForThisResource, details.Models, details.Constants)
+		for len(unusedConstants) > 0 {
+			// remove those constants
+			for _, constantName := range unusedConstants {
+				delete(details.Constants, constantName)
+			}
 
-	unusedConstants := findUnusedConstants(operations, resourceIdsForThisResource, resourceModels, resourceConstants)
-	for len(unusedConstants) > 0 {
-		// remove those constants
-		for _, constantName := range unusedConstants {
-			delete(resourceConstants, constantName)
+			// then go around again
+			unusedConstants = findUnusedConstants(details.Operations, resourceIdsForThisResource, details.Models, details.Constants)
 		}
 
-		// then go around again
-		unusedConstants = findUnusedConstants(operations, resourceIdsForThisResource, resourceModels, resourceConstants)
+		resources[resource] = importerModels.AzureApiResource{
+			Constants:   details.Constants,
+			Models:      details.Models,
+			Operations:  details.Operations,
+			ResourceIds: resourceIdsForThisResource,
+			Terraform:   details.Terraform,
+		}
 	}
 
-	return resourceModels, resourceConstants, resourceIdsForThisResource
+	return resources
 }
 
 func findUnusedConstants(operations map[string]models.SDKOperation, resourceIds map[string]models.ResourceID, resourceModels map[string]models.SDKModel, resourceConstants map[string]models.SDKConstant) []string {

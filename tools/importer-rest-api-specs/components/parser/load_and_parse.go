@@ -93,16 +93,7 @@ func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVer
 	out = *output
 
 	for _, service := range out {
-		for resource, details := range service.Resources {
-			models, constants, resourceIdNamesToUris := removeUnusedItems(details.Operations, details.ResourceIds, details.Models, details.Constants)
-			service.Resources[resource] = importerModels.AzureApiResource{
-				Constants:   constants,
-				Models:      models,
-				Operations:  details.Operations,
-				ResourceIds: resourceIdNamesToUris,
-				Terraform:   details.Terraform,
-			}
-		}
+		service.Resources = removeUnusedItems(service.Resources)
 	}
 
 	if len(out) > 1 {
