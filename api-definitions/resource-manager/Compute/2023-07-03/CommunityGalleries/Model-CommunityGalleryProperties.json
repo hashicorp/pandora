@@ -1,0 +1,48 @@
+{
+  "name": "CommunityGalleryProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "artifactTags",
+      "name": "ArtifactTags",
+      "objectDefinition": {
+        "type": "Dictionary",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "communityMetadata",
+      "name": "CommunityMetadata",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CommunityGalleryMetadata"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "disclaimer",
+      "name": "Disclaimer",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CommunityGalleryDisclaimer"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}
