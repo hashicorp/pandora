@@ -33,20 +33,20 @@ func (workaroundLoadTest20961) Process(apiDefinition importerModels.AzureApiDefi
 	if !ok {
 		return nil, fmt.Errorf("couldn't find API Resource LoadTests")
 	}
-	model, ok := resource.Models["LoadTestResourcePatchRequestBody"]
+	model, ok := resource.Models["LoadTestResourceUpdate"]
 	if !ok {
-		return nil, fmt.Errorf("couldn't find Model LoadTestResourcePatchRequestBody")
+		return nil, fmt.Errorf("couldn't find Model LoadTestResourceUpdate")
 	}
 	field, ok := model.Fields["Tags"]
 	if !ok {
-		return nil, fmt.Errorf("couldn't find field Tags within model LoadTestResourcePatchRequestBody")
+		return nil, fmt.Errorf("couldn't find field Tags within model LoadTestResourceUpdate")
 	}
 	field.ObjectDefinition = models.SDKObjectDefinition{
 		Type: models.TagsSDKObjectDefinitionType,
 	}
 
 	model.Fields["Tags"] = field
-	resource.Models["LoadTestResourcePatchRequestBody"] = model
+	resource.Models["LoadTestResourceUpdate"] = model
 	apiDefinition.Resources["LoadTests"] = resource
 	return &apiDefinition, nil
 }
