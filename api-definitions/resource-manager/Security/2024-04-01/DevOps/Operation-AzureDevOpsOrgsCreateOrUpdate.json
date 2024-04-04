@@ -1,0 +1,19 @@
+{
+  "name": "AzureDevOpsOrgsCreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "AzureDevOpsOrgId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "AzureDevOpsOrg"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "AzureDevOpsOrg"
+  }
+}
