@@ -1,0 +1,16 @@
+{
+  "name": "GitLabSubgroupsList",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "GitLabGroupId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "GitLabGroup"
+  },
+  "uriSuffix": "/listSubgroups"
+}

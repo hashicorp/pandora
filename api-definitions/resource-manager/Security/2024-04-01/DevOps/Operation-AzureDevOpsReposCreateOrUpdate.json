@@ -1,0 +1,19 @@
+{
+  "name": "AzureDevOpsReposCreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "ProjectRepoId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "AzureDevOpsRepository"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "AzureDevOpsRepository"
+  }
+}
