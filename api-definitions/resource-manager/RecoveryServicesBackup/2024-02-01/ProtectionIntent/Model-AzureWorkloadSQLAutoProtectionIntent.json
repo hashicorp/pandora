@@ -1,0 +1,21 @@
+{
+  "name": "AzureWorkloadSQLAutoProtectionIntent",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "workloadItemType",
+      "name": "WorkloadItemType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "WorkloadItemType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "ProtectionIntent",
+  "discriminatedTypeValue": "AzureWorkloadSQLAutoProtectionIntent",
+  "typeHintIn": "ProtectionIntentItemType"
+}

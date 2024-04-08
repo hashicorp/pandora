@@ -1,0 +1,34 @@
+{
+  "name": "MabProtectionPolicy",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "retentionPolicy",
+      "name": "RetentionPolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RetentionPolicy"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "schedulePolicy",
+      "name": "SchedulePolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SchedulePolicy"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "ProtectionPolicy",
+  "discriminatedTypeValue": "MAB",
+  "typeHintIn": "BackupManagementType"
+}

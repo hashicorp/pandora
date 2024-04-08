@@ -1,0 +1,19 @@
+{
+  "name": "CreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": false,
+  "httpMethod": "PUT",
+  "resourceIdName": "ProtectedItemId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ProtectedItemResource"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ProtectedItemResource"
+  }
+}

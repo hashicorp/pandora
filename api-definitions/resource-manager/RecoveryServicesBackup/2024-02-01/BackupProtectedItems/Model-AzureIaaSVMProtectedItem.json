@@ -1,0 +1,173 @@
+{
+  "name": "AzureIaaSVMProtectedItem",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "extendedInfo",
+      "name": "ExtendedInfo",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AzureIaaSVMProtectedItemExtendedInfo"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "extendedProperties",
+      "name": "ExtendedProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ExtendedProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "friendlyName",
+      "name": "FriendlyName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "healthDetails",
+      "name": "HealthDetails",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "ResourceHealthDetails"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "healthStatus",
+      "name": "HealthStatus",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "HealthStatus"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "kpisHealths",
+      "name": "KpisHealths",
+      "objectDefinition": {
+        "type": "Dictionary",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "KPIResourceHealthDetails"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "lastBackupStatus",
+      "name": "LastBackupStatus",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "lastBackupTime",
+      "name": "LastBackupTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "referenceName": null,
+        "dateFormat": "RFC3339"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "protectedItemDataId",
+      "name": "ProtectedItemDataId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "protectionState",
+      "name": "ProtectionState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ProtectionState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "protectionStatus",
+      "name": "ProtectionStatus",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "virtualMachineId",
+      "name": "VirtualMachineId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "ProtectedItem",
+  "discriminatedTypeValue": "AzureIaaSVMProtectedItem",
+  "typeHintIn": "ProtectedItemType"
+}
