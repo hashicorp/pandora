@@ -44,7 +44,6 @@ import (
 
 // acctests licence placeholder
 
-// Adds Basic Test to a register of known ids
 func init() {
     recaser.RegisterResourceId(&BasicTestId{})
 }
@@ -194,7 +193,6 @@ import (
 
 // acctests licence placeholder
 
-// Adds Constant Only to a register of known ids
 func init() {
     recaser.RegisterResourceId(&ConstantOnlyId{})
 }

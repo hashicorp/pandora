@@ -88,7 +88,6 @@ type %[1]s struct {
 func (r resourceIdTemplater) registerId() string {
 	wordifiedName := wordifyString(r.name)
 	return fmt.Sprintf(`
-	// Adds %[1]s to a register of known ids
 	func init() {
 		recaser.RegisterResourceId(&%[2]s{})
 	}
