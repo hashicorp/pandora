@@ -439,6 +439,10 @@ service "purview" {
   name      = "Purview"
   available = ["2021-07-01", "2021-12-01"]
 }
+service "quota" {
+  name      = "Quota"
+  available = ["2023-02-01"]
+}
 service "recoveryservices" {
   name      = "RecoveryServices"
   available = ["2022-10-01", "2023-02-01", "2023-04-01", "2023-06-01", "2023-08-01", "2024-01-01", "2024-02-01"]
