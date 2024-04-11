@@ -1,6 +1,7 @@
 # Copyright (c) HashiCorp, Inc.
 # SPDX-License-Identifier: MPL-2.0
 
+/*
 service "LoadTestService" {
   terraform_package = "loadtestservice"
 
@@ -15,3 +16,4 @@ service "LoadTestService" {
     }
   }
 }
+*/
