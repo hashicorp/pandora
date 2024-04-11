@@ -1,0 +1,15 @@
+{
+  "name": "Restart",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "NetworkVirtualApplianceId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "NetworkVirtualApplianceInstanceIds"
+  },
+  "uriSuffix": "/restart"
+}

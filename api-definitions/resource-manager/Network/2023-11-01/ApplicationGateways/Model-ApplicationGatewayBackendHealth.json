@@ -1,0 +1,22 @@
+{
+  "name": "ApplicationGatewayBackendHealth",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "backendAddressPools",
+      "name": "BackendAddressPools",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "ApplicationGatewayBackendHealthPool"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}
