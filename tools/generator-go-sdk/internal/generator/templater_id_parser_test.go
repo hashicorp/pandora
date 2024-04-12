@@ -38,8 +38,8 @@ import (
     "strconv"
     "strings"
 
+    "github.com/hashicorp/go-azure-helpers/resourcemanager/recaser"
     "github.com/hashicorp/go-azure-helpers/resourcemanager/resourceids"
-	"github.com/hashicorp/go-azure-helpers/resourcemanager/resourceids/recaser"
 )
 
 // acctests licence placeholder
@@ -187,8 +187,8 @@ import (
 	"strconv"
 	"strings"
 
+    "github.com/hashicorp/go-azure-helpers/resourcemanager/recaser"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/resourceids"
-    "github.com/hashicorp/go-azure-helpers/resourcemanager/resourceids/recaser"
 )
 
 // acctests licence placeholder
