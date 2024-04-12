@@ -39,7 +39,7 @@ import (
     "strings"
 
     "github.com/hashicorp/go-azure-helpers/resourcemanager/resourceids"
-	"github.com/hashicorp/go-azure-helpers/resourcemanager/resourceids/recaser"
+	"github.com/hashicorp/go-azure-helpers/resourcemanager/recaser"
 )
 
 // acctests licence placeholder
@@ -188,7 +188,7 @@ import (
 	"strings"
 
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/resourceids"
-    "github.com/hashicorp/go-azure-helpers/resourcemanager/resourceids/recaser"
+    "github.com/hashicorp/go-azure-helpers/resourcemanager/recaser"
 )
 
 // acctests licence placeholder
