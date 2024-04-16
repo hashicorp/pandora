@@ -1,0 +1,19 @@
+{
+  "name": "LimitJsonObject",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": true,
+      "jsonName": "limitObjectType",
+      "name": "LimitObjectType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "LimitType"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "typeHintIn": "LimitObjectType"
+}

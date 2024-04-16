@@ -1,0 +1,19 @@
+{
+  "name": "QuotaCreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "ScopedQuotaId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "CurrentQuotaLimitBase"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "CurrentQuotaLimitBase"
+  }
+}
