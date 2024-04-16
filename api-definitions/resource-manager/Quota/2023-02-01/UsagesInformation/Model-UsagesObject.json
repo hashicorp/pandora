@@ -1,0 +1,31 @@
+{
+  "name": "UsagesObject",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "usagesType",
+      "name": "UsagesType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "UsagesTypes"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "value",
+      "name": "Value",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ]
+}
