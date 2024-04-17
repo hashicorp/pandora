@@ -1,0 +1,22 @@
+{
+  "name": "AgentPoolAvailableVersionsProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "agentPoolVersions",
+      "name": "AgentPoolVersions",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "AgentPoolAvailableVersionsPropertiesAgentPoolVersionsInlined"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}
