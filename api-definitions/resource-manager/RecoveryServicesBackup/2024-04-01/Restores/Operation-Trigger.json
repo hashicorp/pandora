@@ -1,0 +1,27 @@
+{
+  "name": "Trigger",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "headerName": "x-ms-authorization-auxiliary",
+      "optional": true,
+      "required": false,
+      "field": "XMsAuthorizationAuxiliary",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "RecoveryPointId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "RestoreRequestResource"
+  },
+  "uriSuffix": "/restore"
+}

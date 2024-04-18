@@ -1,0 +1,31 @@
+{
+  "name": "VirtualMachineIdentity",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "resourceId",
+      "name": "ResourceId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "type",
+      "name": "Type",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "VMIdentityType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}
