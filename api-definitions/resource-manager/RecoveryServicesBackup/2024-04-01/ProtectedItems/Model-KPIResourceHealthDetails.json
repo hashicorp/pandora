@@ -1,0 +1,35 @@
+{
+  "name": "KPIResourceHealthDetails",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "resourceHealthDetails",
+      "name": "ResourceHealthDetails",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "ResourceHealthDetails"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "resourceHealthStatus",
+      "name": "ResourceHealthStatus",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ResourceHealthStatus"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

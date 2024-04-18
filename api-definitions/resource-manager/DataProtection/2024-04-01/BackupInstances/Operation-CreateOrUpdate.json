@@ -1,0 +1,32 @@
+{
+  "name": "CreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "options": [
+    {
+      "headerName": "x-ms-authorization-auxiliary",
+      "optional": true,
+      "required": false,
+      "field": "XMsAuthorizationAuxiliary",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "BackupInstanceId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "BackupInstanceResource"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "BackupInstanceResource"
+  }
+}

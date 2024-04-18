@@ -1,0 +1,21 @@
+{
+  "name": "SimpleRetentionPolicy",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "retentionDuration",
+      "name": "RetentionDuration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RetentionDuration"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "RetentionPolicy",
+  "discriminatedTypeValue": "SimpleRetentionPolicy",
+  "typeHintIn": "RetentionPolicyType"
+}
