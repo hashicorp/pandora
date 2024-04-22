@@ -1,0 +1,44 @@
+{
+  "name": "IngressPortMapping",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "exposedPort",
+      "name": "ExposedPort",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "external",
+      "name": "External",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "targetPort",
+      "name": "TargetPort",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ]
+}

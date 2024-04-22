@@ -1,0 +1,43 @@
+{
+  "name": "ManagedClusterVersionId",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.ServiceFabric/locations/{locationName}/managedClusterVersions/{managedClusterVersionName}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftServiceFabric",
+      "type": "ResourceProvider",
+      "value": "Microsoft.ServiceFabric"
+    },
+    {
+      "name": "staticLocations",
+      "type": "Static",
+      "value": "locations"
+    },
+    {
+      "name": "locationName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticManagedClusterVersions",
+      "type": "Static",
+      "value": "managedClusterVersions"
+    },
+    {
+      "name": "managedClusterVersionName",
+      "type": "UserSpecified"
+    }
+  ]
+}

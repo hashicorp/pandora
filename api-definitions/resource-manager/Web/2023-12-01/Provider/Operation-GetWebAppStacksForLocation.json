@@ -1,0 +1,28 @@
+{
+  "name": "GetWebAppStacksForLocation",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "stackOsType",
+      "required": false,
+      "field": "StackOsType",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "ProviderStackOsType"
+      }
+    }
+  ],
+  "resourceIdName": "LocationId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "WebAppStack"
+  },
+  "uriSuffix": "/webAppStacks"
+}

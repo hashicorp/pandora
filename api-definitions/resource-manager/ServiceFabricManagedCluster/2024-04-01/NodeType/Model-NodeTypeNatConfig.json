@@ -1,0 +1,44 @@
+{
+  "name": "NodeTypeNatConfig",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "backendPort",
+      "name": "BackendPort",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "frontendPortRangeEnd",
+      "name": "FrontendPortRangeEnd",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "frontendPortRangeStart",
+      "name": "FrontendPortRangeStart",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "name": "ServiceTypeHealthPolicy",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "maxPercentUnhealthyPartitionsPerService",
+      "name": "MaxPercentUnhealthyPartitionsPerService",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "maxPercentUnhealthyReplicasPerPartition",
+      "name": "MaxPercentUnhealthyReplicasPerPartition",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "maxPercentUnhealthyServices",
+      "name": "MaxPercentUnhealthyServices",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ]
+}

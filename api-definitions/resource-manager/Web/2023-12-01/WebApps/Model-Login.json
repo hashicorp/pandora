@@ -1,0 +1,87 @@
+{
+  "name": "Login",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "allowedExternalRedirectUrls",
+      "name": "AllowedExternalRedirectUrls",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "cookieExpiration",
+      "name": "CookieExpiration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CookieExpiration"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "nonce",
+      "name": "Nonce",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Nonce"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "preserveUrlFragmentsForLogins",
+      "name": "PreserveUrlFragmentsForLogins",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "routes",
+      "name": "Routes",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "LoginRoutes"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "tokenStore",
+      "name": "TokenStore",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "TokenStore"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

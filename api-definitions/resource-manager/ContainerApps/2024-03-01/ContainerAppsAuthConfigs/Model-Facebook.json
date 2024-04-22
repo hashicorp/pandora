@@ -1,0 +1,57 @@
+{
+  "name": "Facebook",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "enabled",
+      "name": "Enabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "graphApiVersion",
+      "name": "GraphApiVersion",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "login",
+      "name": "Login",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "LoginScopes"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "registration",
+      "name": "Registration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AppRegistration"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "name": "ContainerCPUStatistics",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "cpuUsage",
+      "name": "CpuUsage",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ContainerCPUUsage"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "onlineCpuCount",
+      "name": "OnlineCPUCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "systemCpuUsage",
+      "name": "SystemCPUUsage",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "throttlingData",
+      "name": "ThrottlingData",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ContainerThrottlingData"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

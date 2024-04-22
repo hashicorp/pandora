@@ -1,0 +1,31 @@
+{
+  "name": "FlowEndpointsConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "connector",
+      "name": "Connector",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "FlowEndpoints"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "workflow",
+      "name": "Workflow",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "FlowEndpoints"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

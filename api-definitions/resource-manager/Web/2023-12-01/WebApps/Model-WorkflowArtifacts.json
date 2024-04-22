@@ -1,0 +1,52 @@
+{
+  "name": "WorkflowArtifacts",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "appSettings",
+      "name": "AppSettings",
+      "objectDefinition": {
+        "type": "RawObject",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "files",
+      "name": "Files",
+      "objectDefinition": {
+        "type": "Dictionary",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "RawObject",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "filesToDelete",
+      "name": "FilesToDelete",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

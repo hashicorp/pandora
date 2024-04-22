@@ -1,0 +1,15 @@
+{
+  "name": "ValidateMove",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "ResourceGroupId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "CsmMoveResourceEnvelope"
+  },
+  "uriSuffix": "/validateMoveResources"
+}

@@ -1,0 +1,16 @@
+{
+  "name": "GetUserProvidedFunctionAppsForStaticSiteBuild",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "BuildId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "StaticSiteUserProvidedFunctionAppARMResource"
+  },
+  "uriSuffix": "/userProvidedFunctionApps"
+}

@@ -1,0 +1,31 @@
+{
+  "name": "EncryptionSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "containerAppAuthEncryptionSecretName",
+      "name": "ContainerAppAuthEncryptionSecretName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "containerAppAuthSigningSecretName",
+      "name": "ContainerAppAuthSigningSecretName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "name": "DiagnosticMetricSample",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "isAggregated",
+      "name": "IsAggregated",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "maximum",
+      "name": "Maximum",
+      "objectDefinition": {
+        "type": "Float",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "minimum",
+      "name": "Minimum",
+      "objectDefinition": {
+        "type": "Float",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "roleInstance",
+      "name": "RoleInstance",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "timestamp",
+      "name": "Timestamp",
+      "objectDefinition": {
+        "type": "DateTime",
+        "referenceName": null,
+        "dateFormat": "RFC3339"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "total",
+      "name": "Total",
+      "objectDefinition": {
+        "type": "Float",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

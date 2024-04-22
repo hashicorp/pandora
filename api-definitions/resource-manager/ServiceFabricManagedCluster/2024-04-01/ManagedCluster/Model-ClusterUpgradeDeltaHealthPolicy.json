@@ -1,0 +1,44 @@
+{
+  "name": "ClusterUpgradeDeltaHealthPolicy",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "maxPercentDeltaUnhealthyApplications",
+      "name": "MaxPercentDeltaUnhealthyApplications",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "maxPercentDeltaUnhealthyNodes",
+      "name": "MaxPercentDeltaUnhealthyNodes",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "maxPercentUpgradeDomainDeltaUnhealthyNodes",
+      "name": "MaxPercentUpgradeDomainDeltaUnhealthyNodes",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

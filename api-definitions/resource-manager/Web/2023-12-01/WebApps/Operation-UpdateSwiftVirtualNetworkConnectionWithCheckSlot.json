@@ -1,0 +1,19 @@
+{
+  "name": "UpdateSwiftVirtualNetworkConnectionWithCheckSlot",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "resourceIdName": "SlotId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "SwiftVirtualNetwork"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "SwiftVirtualNetwork"
+  },
+  "uriSuffix": "/networkConfig/virtualNetwork"
+}

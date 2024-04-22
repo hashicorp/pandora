@@ -1,0 +1,15 @@
+{
+  "name": "GetBackupConfigurationSlot",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "SlotId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "BackupRequest"
+  },
+  "uriSuffix": "/config/backup/list"
+}

@@ -1,0 +1,43 @@
+{
+  "name": "LocationDeletedSiteId",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Web/locations/{locationName}/deletedSites/{deletedSiteId}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftWeb",
+      "type": "ResourceProvider",
+      "value": "Microsoft.Web"
+    },
+    {
+      "name": "staticLocations",
+      "type": "Static",
+      "value": "locations"
+    },
+    {
+      "name": "locationName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticDeletedSites",
+      "type": "Static",
+      "value": "deletedSites"
+    },
+    {
+      "name": "deletedSiteId",
+      "type": "UserSpecified"
+    }
+  ]
+}

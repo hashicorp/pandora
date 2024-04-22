@@ -1,0 +1,47 @@
+{
+  "name": "ExecuteSiteAnalysis",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "endTime",
+      "required": false,
+      "field": "EndTime",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "startTime",
+      "required": false,
+      "field": "StartTime",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "timeGrain",
+      "required": false,
+      "field": "TimeGrain",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "AnalysisId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "DiagnosticAnalysis"
+  },
+  "uriSuffix": "/execute"
+}

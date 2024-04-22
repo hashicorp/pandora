@@ -1,0 +1,18 @@
+{
+  "name": "GetNetworkTracesV2",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "SiteNetworkTraceId",
+  "responseObject": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+      "type": "Reference",
+      "referenceName": "NetworkTrace"
+    }
+  }
+}
