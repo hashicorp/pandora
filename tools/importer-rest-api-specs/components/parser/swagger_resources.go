@@ -5,6 +5,7 @@ package parser
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 	"strings"
 
@@ -40,6 +41,10 @@ func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resource
 		return nil, fmt.Errorf("appending nestedResult from Operations: %+v", err)
 	}
 
+	// HERE
+	if tag != nil && strings.EqualFold(*tag, "Triggers") {
+		log.Printf("DEBUG")
+	}
 	// pull out all of the remaining models based on what we've got
 	nestedResult, err = d.findNestedItemsYetToBeParsed(*operations, result)
 	if err != nil {

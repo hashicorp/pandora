@@ -5,6 +5,7 @@ package parser
 
 import (
 	"fmt"
+	"log"
 	"strings"
 
 	"github.com/go-openapi/spec"
@@ -230,6 +231,10 @@ func (d *SwaggerDefinition) detailsForField(modelName string, propertyName strin
 }
 
 func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, known internal.ParseResult) (*map[string]models.SDKField, *internal.ParseResult, error) {
+	if strings.EqualFold(modelName, "trigger") {
+		log.Printf("DEBUG")
+	}
+
 	fields := make(map[string]models.SDKField, 0)
 	result := internal.ParseResult{
 		Constants: map[string]models.SDKConstant{},
@@ -349,6 +354,24 @@ func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, 
 		fields[propName] = *field
 	}
 
+	if input.AdditionalProperties != nil {
+		for _, t := range input.AdditionalProperties.Schema.Type {
+			if strings.EqualFold(t, "object") {
+				field, nestedResult, err := d.detailsForField(modelName, "additionalProperties", *input.AdditionalProperties.Schema, false, result)
+				if err != nil {
+					return nil, nil, fmt.Errorf("mapping field `additionalProperties` for %q: %+v", modelName, err)
+				}
+				if nestedResult != nil {
+					if err := result.Append(*nestedResult); err != nil {
+						return nil, nil, fmt.Errorf("appending nestedResult for `additionalProperties`: %+v", err)
+					}
+				}
+
+				fields["additionalProperties"] = *field
+			}
+		}
+	}
+
 	return &fields, &result, nil
 }
 
@@ -451,6 +474,9 @@ func (d *SwaggerDefinition) findOrphanedDiscriminatedModels(serviceName string) 
 	}
 
 	for modelName, definition := range d.swaggerSpecRaw.Definitions {
+		if strings.EqualFold(modelName, "Trigger") {
+			log.Printf("DEBUG")
+		}
 		if _, ok := definition.Extensions.GetString("x-ms-discriminator-value"); ok {
 			details, err := d.parseModel(modelName, definition)
 			if err != nil {
@@ -695,14 +721,14 @@ func (d SwaggerDefinition) parseObjectDefinition(
 	}
 
 	// if it's a simple type, there'll be no other objects
-	if nativeType := d.parseNativeType(input); nativeType != nil {
+	if nativeType := d.parseNativeType(input, &modelName); nativeType != nil {
 		return nativeType, &result, nil
 	}
 
 	return nil, nil, fmt.Errorf("unimplemented object definition")
 }
 
-func (d SwaggerDefinition) parseNativeType(input *spec.Schema) *models.SDKObjectDefinition {
+func (d SwaggerDefinition) parseNativeType(input *spec.Schema, modelName *string) *models.SDKObjectDefinition {
 	if input == nil {
 		return nil
 	}
@@ -735,6 +761,14 @@ func (d SwaggerDefinition) parseNativeType(input *spec.Schema) *models.SDKObject
 		if strings.EqualFold(input.Format, "file") {
 			return &models.SDKObjectDefinition{
 				Type: models.RawFileSDKObjectDefinitionType,
+			}
+		}
+		if modelName != nil && strings.EqualFold(*modelName, "additionalProperties") {
+			return &models.SDKObjectDefinition{
+				NestedItem: &models.SDKObjectDefinition{
+					Type: models.StringSDKObjectDefinitionType,
+				},
+				Type: models.DictionarySDKObjectDefinitionType,
 			}
 		}
 		return &models.SDKObjectDefinition{
