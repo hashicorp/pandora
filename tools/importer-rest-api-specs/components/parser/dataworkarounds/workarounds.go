@@ -21,7 +21,6 @@ var workarounds = []workaround{
 	workaroundBotService27351{},
 	workaroundContainerService21394{},
 	workaroundDataFactory23013{},
-	workaroundDataFactory28122{},
 	workaroundHDInsight26838{},
 	workaroundLoadTest20961{},
 	workaroundRedis22407{},
