@@ -20,7 +20,7 @@ service "apimanagement" {
 }
 service "app" {
   name      = "ContainerApps"
-  available = ["2023-05-01"]
+  available = ["2023-05-01", "2024-03-01"]
 }
 service "appconfiguration" {
   name      = "AppConfiguration"
@@ -510,7 +510,7 @@ service "servicefabric" {
 }
 service "servicefabricmanagedclusters" {
   name      = "ServiceFabricManagedCluster"
-  available = ["2021-05-01", "2022-01-01"]
+  available = ["2021-05-01", "2022-01-01", "2024-04-01"]
 }
 service "servicelinker" {
   name      = "ServiceLinker"
@@ -591,7 +591,7 @@ service "voiceservices" {
 }
 service "web" {
   name      = "Web"
-  available = ["2016-06-01", "2022-09-01", "2023-01-01"]
+  available = ["2016-06-01", "2022-09-01", "2023-01-01", "2023-12-01"]
 }
 service "webpubsub" {
   name      = "WebPubSub"
