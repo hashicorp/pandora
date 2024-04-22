@@ -1,0 +1,20 @@
+{
+  "name": "ListRecommendations",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "SubscriptionId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "DomainRecommendationSearchParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "NameIdentifier"
+  },
+  "uriSuffix": "/providers/Microsoft.DomainRegistration/listDomainRecommendations"
+}

@@ -1,0 +1,31 @@
+{
+  "name": "DiagnosticData",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "renderingProperties",
+      "name": "RenderingProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Rendering"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "table",
+      "name": "Table",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DataTableResponseObject"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

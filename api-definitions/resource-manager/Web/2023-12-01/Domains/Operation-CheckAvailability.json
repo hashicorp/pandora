@@ -1,0 +1,19 @@
+{
+  "name": "CheckAvailability",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "SubscriptionId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "NameIdentifier"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "DomainAvailabilityCheckResult"
+  },
+  "uriSuffix": "/providers/Microsoft.DomainRegistration/checkDomainAvailability"
+}

@@ -1,0 +1,19 @@
+{
+  "name": "Backup",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "AppServiceId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "BackupRequest"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "BackupItem"
+  },
+  "uriSuffix": "/backup"
+}

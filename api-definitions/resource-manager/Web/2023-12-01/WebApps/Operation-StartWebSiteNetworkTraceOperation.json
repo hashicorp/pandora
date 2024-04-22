@@ -1,0 +1,52 @@
+{
+  "name": "StartWebSiteNetworkTraceOperation",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "durationInSeconds",
+      "required": false,
+      "field": "DurationInSeconds",
+      "optionsObjectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "maxFrameLength",
+      "required": false,
+      "field": "MaxFrameLength",
+      "optionsObjectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "sasUrl",
+      "required": false,
+      "field": "SasUrl",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "AppServiceId",
+  "responseObject": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+      "type": "Reference",
+      "referenceName": "NetworkTrace"
+    }
+  },
+  "uriSuffix": "/networkTrace/startOperation"
+}

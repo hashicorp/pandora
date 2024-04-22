@@ -1,0 +1,19 @@
+{
+  "name": "RetrieveCertificateActions",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "CertificateOrderId",
+  "responseObject": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+      "type": "Reference",
+      "referenceName": "CertificateOrderAction"
+    }
+  },
+  "uriSuffix": "/retrieveCertificateActions"
+}

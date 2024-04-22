@@ -1,0 +1,20 @@
+{
+  "name": "ListSiteIdentifiersAssignedToHostName",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "SubscriptionId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "NameIdentifier"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "Identifier"
+  },
+  "uriSuffix": "/providers/Microsoft.Web/listSitesAssignedToHostName"
+}

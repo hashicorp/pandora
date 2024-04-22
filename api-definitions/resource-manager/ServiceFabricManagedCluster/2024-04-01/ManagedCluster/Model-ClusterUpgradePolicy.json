@@ -1,0 +1,70 @@
+{
+  "name": "ClusterUpgradePolicy",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "deltaHealthPolicy",
+      "name": "DeltaHealthPolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ClusterUpgradeDeltaHealthPolicy"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "forceRestart",
+      "name": "ForceRestart",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "healthPolicy",
+      "name": "HealthPolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ClusterHealthPolicy"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "monitoringPolicy",
+      "name": "MonitoringPolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ClusterMonitoringPolicy"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "upgradeReplicaSetCheckTimeout",
+      "name": "UpgradeReplicaSetCheckTimeout",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}
