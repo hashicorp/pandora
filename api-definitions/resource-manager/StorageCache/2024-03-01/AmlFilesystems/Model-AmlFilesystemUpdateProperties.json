@@ -1,0 +1,44 @@
+{
+  "name": "AmlFilesystemUpdateProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "encryptionSettings",
+      "name": "EncryptionSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AmlFilesystemEncryptionSettings"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "maintenanceWindow",
+      "name": "MaintenanceWindow",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AmlFilesystemUpdatePropertiesMaintenanceWindow"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rootSquashSettings",
+      "name": "RootSquashSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AmlFilesystemRootSquashSettings"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}
