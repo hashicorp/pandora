@@ -311,7 +311,7 @@ service "logz" {
 }
 service "machinelearningservices" {
   name      = "MachineLearningServices"
-  available = ["2023-10-01"]
+  available = ["2023-10-01", "2024-04-01"]
 }
 service "maintenance" {
   name      = "Maintenance"
@@ -514,7 +514,7 @@ service "servicefabricmanagedclusters" {
 }
 service "servicelinker" {
   name      = "ServiceLinker"
-  available = ["2022-05-01"]
+  available = ["2022-05-01", "2024-04-01"]
 }
 service "servicenetworking" {
   name      = "ServiceNetworking"
