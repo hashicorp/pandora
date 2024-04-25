@@ -1,0 +1,19 @@
+{
+  "name": "UpdateDryrun",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "DryrunId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "DryrunPatch"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "DryrunResource"
+  }
+}

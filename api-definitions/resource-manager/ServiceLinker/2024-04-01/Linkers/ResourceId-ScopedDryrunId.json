@@ -1,0 +1,29 @@
+{
+  "name": "ScopedDryrunId",
+  "id": "/{resourceUri}/providers/Microsoft.ServiceLinker/dryruns/{dryrunName}",
+  "segments": [
+    {
+      "name": "resourceUri",
+      "type": "Scope"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftServiceLinker",
+      "type": "ResourceProvider",
+      "value": "Microsoft.ServiceLinker"
+    },
+    {
+      "name": "staticDryruns",
+      "type": "Static",
+      "value": "dryruns"
+    },
+    {
+      "name": "dryrunName",
+      "type": "UserSpecified"
+    }
+  ]
+}

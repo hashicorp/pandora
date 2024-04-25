@@ -1,0 +1,29 @@
+{
+  "name": "ScopedLinkerId",
+  "id": "/{resourceUri}/providers/Microsoft.ServiceLinker/linkers/{linkerName}",
+  "segments": [
+    {
+      "name": "resourceUri",
+      "type": "Scope"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftServiceLinker",
+      "type": "ResourceProvider",
+      "value": "Microsoft.ServiceLinker"
+    },
+    {
+      "name": "staticLinkers",
+      "type": "Static",
+      "value": "linkers"
+    },
+    {
+      "name": "linkerName",
+      "type": "UserSpecified"
+    }
+  ]
+}

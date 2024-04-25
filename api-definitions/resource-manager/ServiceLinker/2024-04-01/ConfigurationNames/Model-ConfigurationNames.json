@@ -1,0 +1,87 @@
+{
+  "name": "ConfigurationNames",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "authType",
+      "name": "AuthType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AuthType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "clientType",
+      "name": "ClientType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ClientType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "daprProperties",
+      "name": "DaprProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DaprProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "names",
+      "name": "Names",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "ConfigurationName"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "secretType",
+      "name": "SecretType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SecretSourceType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "targetService",
+      "name": "TargetService",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

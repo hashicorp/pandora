@@ -1,0 +1,19 @@
+{
+  "name": "GenerateConfigurations",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "ScopedLinkerId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ConfigurationInfo"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ConfigurationResult"
+  },
+  "uriSuffix": "/generateConfigurations"
+}
