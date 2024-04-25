@@ -1,0 +1,19 @@
+{
+  "name": "CreateDryrun",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "DryrunId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "DryrunResource"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "DryrunResource"
+  }
+}
