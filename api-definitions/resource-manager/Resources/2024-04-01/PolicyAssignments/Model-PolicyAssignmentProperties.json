@@ -3,6 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "jsonName": "assignmentType",
+      "name": "AssignmentType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AssignmentType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
@@ -34,19 +47,6 @@
       "objectDefinition": {
         "type": "Reference",
         "referenceName": "EnforcementMode"
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "isSystemPolicy",
-      "name": "IsSystemPolicy",
-      "objectDefinition": {
-        "type": "Boolean",
-        "referenceName": null
       },
       "optional": true,
       "readOnly": false,
