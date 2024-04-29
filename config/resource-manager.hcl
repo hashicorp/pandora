@@ -255,7 +255,7 @@ service "hardwaresecuritymodules" {
 }
 service "hdinsight" {
   name      = "HDInsight"
-  available = ["2018-06-01-preview", "2021-06-01"]
+  available = ["2018-06-01-preview", "2021-06-01", "2024-05-01"]
 }
 service "healthbot" {
   name      = "HealthBot"
