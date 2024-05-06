@@ -1,0 +1,19 @@
+{
+  "name": "CreateOrUpdateAtResourceGroup",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "ProviderDeploymentStackId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "DeploymentStack"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "DeploymentStack"
+  }
+}

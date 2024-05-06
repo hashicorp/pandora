@@ -1,0 +1,21 @@
+{
+  "name": "ClusterPoolAvailableUpgradeNodeOsUpgradeProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "latestVersion",
+      "name": "LatestVersion",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "ClusterPoolAvailableUpgradeProperties",
+  "discriminatedTypeValue": "NodeOsUpgrade",
+  "typeHintIn": "UpgradeType"
+}

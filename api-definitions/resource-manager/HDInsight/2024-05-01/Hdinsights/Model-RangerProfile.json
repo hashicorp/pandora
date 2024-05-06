@@ -1,0 +1,44 @@
+{
+  "name": "RangerProfile",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rangerAdmin",
+      "name": "RangerAdmin",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RangerAdminSpec"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rangerAudit",
+      "name": "RangerAudit",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RangerAuditSpec"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rangerUsersync",
+      "name": "RangerUsersync",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RangerUsersyncSpec"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ]
+}

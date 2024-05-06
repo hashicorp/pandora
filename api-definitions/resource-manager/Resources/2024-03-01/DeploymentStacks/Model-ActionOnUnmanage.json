@@ -1,0 +1,44 @@
+{
+  "name": "ActionOnUnmanage",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "managementGroups",
+      "name": "ManagementGroups",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DeploymentStacksDeleteDetachEnum"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "resourceGroups",
+      "name": "ResourceGroups",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DeploymentStacksDeleteDetachEnum"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "resources",
+      "name": "Resources",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DeploymentStacksDeleteDetachEnum"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ]
+}
