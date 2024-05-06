@@ -100,7 +100,7 @@ service "confidentialledger" {
 }
 service "connectedvmware" {
   name      = "ConnectedVmware"
-  available = ["2022-01-10-preview", "2023-10-01"]
+  available = ["2022-01-10-preview", "2023-10-01", "2023-12-01"]
 }
 service "consumption" {
   name      = "Consumption"
@@ -368,7 +368,7 @@ service "mysql" {
 }
 service "netapp" {
   name      = "NetApp"
-  available = ["2023-05-01", "2023-07-01"]
+  available = ["2023-05-01", "2023-07-01", "2023-11-01"]
 }
 service "network" {
   name      = "Network"
