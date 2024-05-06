@@ -1,0 +1,70 @@
+{
+  "name": "AutoscaleProfile",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "autoscaleType",
+      "name": "AutoscaleType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AutoscaleType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "enabled",
+      "name": "Enabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "gracefulDecommissionTimeout",
+      "name": "GracefulDecommissionTimeout",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "loadBasedConfig",
+      "name": "LoadBasedConfig",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "LoadBasedConfig"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "scheduleBasedConfig",
+      "name": "ScheduleBasedConfig",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ScheduleBasedConfig"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

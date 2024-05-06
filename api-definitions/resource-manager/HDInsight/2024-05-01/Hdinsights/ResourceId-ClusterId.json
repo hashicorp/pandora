@@ -1,0 +1,52 @@
+{
+  "name": "ClusterId",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusterpools/{clusterpoolName}/clusters/{clusterName}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticResourceGroups",
+      "type": "Static",
+      "value": "resourceGroups"
+    },
+    {
+      "name": "resourceGroupName",
+      "type": "ResourceGroup"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftHDInsight",
+      "type": "ResourceProvider",
+      "value": "Microsoft.HDInsight"
+    },
+    {
+      "name": "staticClusterpools",
+      "type": "Static",
+      "value": "clusterpools"
+    },
+    {
+      "name": "clusterpoolName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticClusters",
+      "type": "Static",
+      "value": "clusters"
+    },
+    {
+      "name": "clusterName",
+      "type": "UserSpecified"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "name": "FlinkHiveCatalogOption",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "metastoreDbConnectionAuthenticationMode",
+      "name": "MetastoreDbConnectionAuthenticationMode",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MetastoreDbConnectionAuthenticationMode"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "metastoreDbConnectionPasswordSecret",
+      "name": "MetastoreDbConnectionPasswordSecret",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "metastoreDbConnectionURL",
+      "name": "MetastoreDbConnectionURL",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "metastoreDbConnectionUserName",
+      "name": "MetastoreDbConnectionUserName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

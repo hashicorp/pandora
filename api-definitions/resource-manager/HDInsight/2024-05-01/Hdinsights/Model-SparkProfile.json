@@ -1,0 +1,44 @@
+{
+  "name": "SparkProfile",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "defaultStorageUrl",
+      "name": "DefaultStorageUrl",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "metastoreSpec",
+      "name": "MetastoreSpec",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SparkMetastoreSpec"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "userPluginsSpec",
+      "name": "UserPluginsSpec",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SparkUserPlugins"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

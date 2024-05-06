@@ -1,0 +1,109 @@
+{
+  "name": "FlinkProfile",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "catalogOptions",
+      "name": "CatalogOptions",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "FlinkCatalogOptions"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "deploymentMode",
+      "name": "DeploymentMode",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DeploymentMode"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "historyServer",
+      "name": "HistoryServer",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ComputeResourceDefinition"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "jobManager",
+      "name": "JobManager",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ComputeResourceDefinition"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "jobSpec",
+      "name": "JobSpec",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "FlinkJobProfile"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "numReplicas",
+      "name": "NumReplicas",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "storage",
+      "name": "Storage",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "FlinkStorageProfile"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "taskManager",
+      "name": "TaskManager",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ComputeResourceDefinition"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ]
+}
