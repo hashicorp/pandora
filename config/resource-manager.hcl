@@ -60,7 +60,7 @@ service "azureactivedirectory" {
 }
 service "azurestackhci" {
   name      = "AzureStackHCI"
-  available = ["2023-08-01", "2023-08-01-preview", "2023-09-01-preview", "2024-01-01"]
+  available = ["2024-01-01"]
 }
 service "batch" {
   name      = "Batch"
@@ -80,7 +80,7 @@ service "botservice" {
 }
 service "chaos" {
   name      = "ChaosStudio"
-  available = ["2023-04-15-preview", "2023-11-01", "2024-01-01"]
+  available = ["2023-11-01", "2024-01-01"]
 }
 service "cognitiveservices" {
   name      = "Cognitive"
@@ -117,7 +117,7 @@ service "containerregistry" {
 }
 service "containerservice" {
   name      = "ContainerService"
-  available = ["2019-08-01", "2022-09-02-preview", "2023-03-02-preview", "2023-04-02-preview", "2023-06-02-preview", "2023-09-02-preview", "2023-10-01", "2023-10-15", "2024-01-01", "2024-02-01"]
+  available = ["2019-08-01", "2023-03-02-preview", "2023-06-02-preview", "2023-09-02-preview", "2023-10-01", "2023-10-15", "2024-01-01", "2024-02-01"]
 }
 service "cosmos-db" {
   name      = "CosmosDB"
@@ -255,7 +255,7 @@ service "hardwaresecuritymodules" {
 }
 service "hdinsight" {
   name      = "HDInsight"
-  available = ["2018-06-01-preview", "2021-06-01", "2024-05-01"]
+  available = ["2021-06-01", "2024-05-01"]
 }
 service "healthbot" {
   name      = "HealthBot"
@@ -287,11 +287,11 @@ service "keyvault" {
 }
 service "kubernetesconfiguration" {
   name      = "KubernetesConfiguration"
-  available = ["2022-03-01", "2022-11-01", "2023-05-01"]
+  available = ["2022-11-01", "2023-05-01"]
 }
 service "labservices" {
   name      = "LabServices"
-  available = ["2021-10-01-preview", "2022-08-01", "2023-06-07"]
+  available = ["2022-08-01", "2023-06-07"]
 }
 service "liftrqumulo" {
   name      = "QumuloStorage"
@@ -315,7 +315,7 @@ service "machinelearningservices" {
 }
 service "maintenance" {
   name      = "Maintenance"
-  available = ["2022-07-01-preview", "2023-04-01"]
+  available = ["2023-04-01"]
 }
 service "managedservices" {
   name      = "ManagedServices"
@@ -356,7 +356,7 @@ service "mobilenetwork" {
 }
 service "monitor" {
   name      = "Insights"
-  available = ["2015-04-01", "2016-03-01", "2018-03-01", "2018-04-16", "2019-10-17-preview", "2020-10-01", "2021-04-01", "2021-05-01-preview", "2021-07-01-preview", "2021-08-01", "2021-09-01", "2022-06-01", "2022-10-01", "2023-01-01", "2023-03-15-preview", "2023-04-03", "2023-10-01", "2024-02-01"]
+  available = ["2015-04-01", "2016-03-01", "2018-03-01", "2018-04-16", "2019-10-17-preview", "2020-10-01", "2021-05-01-preview", "2021-08-01", "2021-09-01", "2022-06-01", "2022-10-01", "2023-01-01", "2023-03-15-preview", "2023-04-03", "2023-10-01", "2024-02-01"]
 }
 service "msi" {
   name      = "ManagedIdentity"
@@ -372,7 +372,7 @@ service "netapp" {
 }
 service "network" {
   name      = "Network"
-  available = ["2023-04-01", "2023-05-01", "2023-06-01", "2023-09-01", "2023-11-01"]
+  available = ["2022-07-01", "2023-09-01", "2023-11-01"]
 }
 service "networkcloud" {
   name      = "NetworkCloud"
@@ -425,7 +425,7 @@ service "postgresql" {
 }
 service "postgresqlhsc" {
   name      = "PostgreSqlHSC"
-  available = ["2020-10-05-privatepreview", "2022-11-08"]
+  available = ["2022-11-08"]
 }
 service "powerbidedicated" {
   name      = "PowerBIDedicated"
@@ -445,11 +445,11 @@ service "quota" {
 }
 service "recoveryservices" {
   name      = "RecoveryServices"
-  available = ["2022-10-01", "2023-02-01", "2023-04-01", "2023-06-01", "2023-08-01", "2024-01-01", "2024-02-01", "2024-04-01"]
+  available = ["2022-10-01", "2024-01-01", "2024-02-01", "2024-04-01"]
 }
 service "recoveryservicesbackup" {
   name      = "RecoveryServicesBackup"
-  available = ["2023-01-15", "2023-02-01", "2023-04-01", "2023-06-01", "2023-08-01", "2024-01-01", "2024-02-01", "2024-04-01"]
+  available = ["2023-02-01", "2023-04-01", "2023-06-01", "2023-08-01", "2024-01-01", "2024-02-01", "2024-04-01"]
 }
 service "recoveryservicessiterecovery" {
   name      = "RecoveryServicesSiteRecovery"
@@ -494,11 +494,11 @@ service "search" {
 }
 service "security" {
   name      = "Security"
-  available = ["2017-08-01-preview", "2019-01-01", "2019-01-01-preview", "2020-01-01", "2021-06-01", "2022-03-01", "2022-05-01", "2022-12-01-preview", "2023-01-01", "2023-05-01", "2023-10-01-preview", "2023-11-15", "2024-01-01", "2024-04-01"]
+  available = ["2019-01-01-preview", "2020-01-01", "2021-06-01", "2022-03-01", "2022-05-01", "2022-12-01-preview", "2023-01-01", "2023-05-01", "2023-10-01-preview", "2023-11-15", "2024-01-01", "2024-04-01"]
 }
 service "securityinsights" {
   name      = "SecurityInsights"
-  available = ["2021-09-01-preview", "2022-07-01-preview", "2022-08-01", "2022-10-01-preview", "2022-11-01", "2023-02-01", "2023-11-01", "2024-03-01"]
+  available = ["2022-10-01-preview", "2022-11-01", "2023-02-01", "2023-11-01", "2024-03-01"]
 }
 service "servicebus" {
   name      = "ServiceBus"
