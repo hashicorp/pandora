@@ -1,0 +1,16 @@
+{
+  "name": "GetMetadata",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "SubVolumeId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "SubvolumeModel"
+  },
+  "uriSuffix": "/getMetadata"
+}

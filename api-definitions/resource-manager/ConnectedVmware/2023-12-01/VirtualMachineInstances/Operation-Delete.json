@@ -1,0 +1,34 @@
+{
+  "name": "Delete",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    202,
+    204
+  ],
+  "longRunning": true,
+  "httpMethod": "DELETE",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "deleteFromHost",
+      "required": false,
+      "field": "DeleteFromHost",
+      "optionsObjectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "force",
+      "required": false,
+      "field": "Force",
+      "optionsObjectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "ScopeId",
+  "uriSuffix": "/providers/Microsoft.ConnectedVMwarevSphere/virtualMachineInstances/default"
+}
