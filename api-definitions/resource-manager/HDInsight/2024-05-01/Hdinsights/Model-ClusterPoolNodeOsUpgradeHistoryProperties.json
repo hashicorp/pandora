@@ -1,0 +1,21 @@
+{
+  "name": "ClusterPoolNodeOsUpgradeHistoryProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "newNodeOs",
+      "name": "NewNodeOs",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "ClusterPoolUpgradeHistoryProperties",
+  "discriminatedTypeValue": "NodeOsUpgrade",
+  "typeHintIn": "UpgradeType"
+}

@@ -1,0 +1,316 @@
+{
+  "name": "ClusterProfile",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "authorizationProfile",
+      "name": "AuthorizationProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AuthorizationProfile"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "autoscaleProfile",
+      "name": "AutoscaleProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AutoscaleProfile"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "clusterAccessProfile",
+      "name": "ClusterAccessProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ClusterAccessProfile"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "clusterVersion",
+      "name": "ClusterVersion",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "components",
+      "name": "Components",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "ClusterComponentsComponentsInlined"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "connectivityProfile",
+      "name": "ConnectivityProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ConnectivityProfile"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "flinkProfile",
+      "name": "FlinkProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "FlinkProfile"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "identityProfile",
+      "name": "IdentityProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "IdentityProfile"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "kafkaProfile",
+      "name": "KafkaProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "KafkaProfile"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "llapProfile",
+      "name": "LlapProfile",
+      "objectDefinition": {
+        "type": "RawObject",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "logAnalyticsProfile",
+      "name": "LogAnalyticsProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ClusterLogAnalyticsProfile"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "managedIdentityProfile",
+      "name": "ManagedIdentityProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ManagedIdentityProfile"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "ossVersion",
+      "name": "OssVersion",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "prometheusProfile",
+      "name": "PrometheusProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ClusterPrometheusProfile"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rangerPluginProfile",
+      "name": "RangerPluginProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ClusterRangerPluginProfile"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rangerProfile",
+      "name": "RangerProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RangerProfile"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "scriptActionProfiles",
+      "name": "ScriptActionProfiles",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "ScriptActionProfile"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "secretsProfile",
+      "name": "SecretsProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SecretsProfile"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "serviceConfigsProfiles",
+      "name": "ServiceConfigsProfiles",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "ClusterServiceConfigsProfile"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sparkProfile",
+      "name": "SparkProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SparkProfile"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sshProfile",
+      "name": "SshProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SshProfile"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "stubProfile",
+      "name": "StubProfile",
+      "objectDefinition": {
+        "type": "RawObject",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "trinoProfile",
+      "name": "TrinoProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "TrinoProfile"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

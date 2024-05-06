@@ -1,0 +1,22 @@
+{
+  "name": "SparkUserPlugins",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "plugins",
+      "name": "Plugins",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "SparkUserPlugin"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}
