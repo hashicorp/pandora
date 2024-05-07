@@ -1,0 +1,20 @@
+{
+  "name": "BulkUpload",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "SimGroupId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "SimUploadList"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "AsyncOperationStatus"
+  },
+  "uriSuffix": "/uploadSims"
+}

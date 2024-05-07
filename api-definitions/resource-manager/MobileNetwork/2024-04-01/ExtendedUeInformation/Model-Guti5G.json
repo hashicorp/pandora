@@ -1,0 +1,44 @@
+{
+  "name": "Guti5G",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "amfId",
+      "name": "AmfId",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AmfId"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "fivegTmsi",
+      "name": "FivegTmsi",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "plmn",
+      "name": "Plmn",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PlmnId"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ]
+}
