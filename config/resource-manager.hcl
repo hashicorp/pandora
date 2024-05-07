@@ -141,7 +141,7 @@ service "databoxedge" {
 }
 service "databricks" {
   name      = "Databricks"
-  available = ["2022-04-01-preview", "2022-10-01-preview", "2023-02-01", "2023-05-01"]
+  available = ["2022-04-01-preview", "2022-10-01-preview", "2023-02-01", "2023-05-01", "2024-05-01"]
 }
 service "datadog" {
   name      = "DataDog"
@@ -352,7 +352,7 @@ service "mixedreality" {
 }
 service "mobilenetwork" {
   name      = "MobileNetwork"
-  available = ["2022-11-01", "2023-06-01", "2023-09-01", "2024-02-01"]
+  available = ["2022-11-01", "2023-06-01", "2023-09-01", "2024-02-01", "2024-04-01"]
 }
 service "monitor" {
   name      = "Insights"
