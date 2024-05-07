@@ -1,0 +1,21 @@
+{
+  "name": "UeInfo5G",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "info",
+      "name": "Info",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "UeInfo5GProperties"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "ExtendedUeInfoProperties",
+  "discriminatedTypeValue": "5G",
+  "typeHintIn": "RatType"
+}

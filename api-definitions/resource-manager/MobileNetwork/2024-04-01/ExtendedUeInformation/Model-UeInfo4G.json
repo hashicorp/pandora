@@ -1,0 +1,21 @@
+{
+  "name": "UeInfo4G",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "info",
+      "name": "Info",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "UeInfo4GProperties"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "ExtendedUeInfoProperties",
+  "discriminatedTypeValue": "4G",
+  "typeHintIn": "RatType"
+}

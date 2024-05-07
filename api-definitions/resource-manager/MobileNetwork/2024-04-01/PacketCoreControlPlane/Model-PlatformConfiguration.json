@@ -1,0 +1,87 @@
+{
+  "name": "PlatformConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "azureStackEdgeDevice",
+      "name": "AzureStackEdgeDevice",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AzureStackEdgeDeviceResourceId"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "azureStackEdgeDevices",
+      "name": "AzureStackEdgeDevices",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "AzureStackEdgeDeviceResourceId"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "azureStackHciCluster",
+      "name": "AzureStackHciCluster",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AzureStackHCIClusterResourceId"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "connectedCluster",
+      "name": "ConnectedCluster",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ConnectedClusterResourceId"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "customLocation",
+      "name": "CustomLocation",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CustomLocationResourceId"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "type",
+      "name": "Type",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PlatformType"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ]
+}

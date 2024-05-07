@@ -1,0 +1,52 @@
+{
+  "name": "UeId",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/{packetCoreControlPlaneName}/ues/{ueId}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticResourceGroups",
+      "type": "Static",
+      "value": "resourceGroups"
+    },
+    {
+      "name": "resourceGroupName",
+      "type": "ResourceGroup"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftMobileNetwork",
+      "type": "ResourceProvider",
+      "value": "Microsoft.MobileNetwork"
+    },
+    {
+      "name": "staticPacketCoreControlPlanes",
+      "type": "Static",
+      "value": "packetCoreControlPlanes"
+    },
+    {
+      "name": "packetCoreControlPlaneName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticUes",
+      "type": "Static",
+      "value": "ues"
+    },
+    {
+      "name": "ueId",
+      "type": "UserSpecified"
+    }
+  ]
+}
