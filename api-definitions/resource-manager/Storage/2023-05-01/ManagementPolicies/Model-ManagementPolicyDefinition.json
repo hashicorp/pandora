@@ -1,0 +1,31 @@
+{
+  "name": "ManagementPolicyDefinition",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "actions",
+      "name": "Actions",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ManagementPolicyAction"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "filters",
+      "name": "Filters",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ManagementPolicyFilter"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}
