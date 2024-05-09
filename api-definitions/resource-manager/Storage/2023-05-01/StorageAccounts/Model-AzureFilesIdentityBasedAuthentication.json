@@ -1,0 +1,44 @@
+{
+  "name": "AzureFilesIdentityBasedAuthentication",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "activeDirectoryProperties",
+      "name": "ActiveDirectoryProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ActiveDirectoryProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "defaultSharePermission",
+      "name": "DefaultSharePermission",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DefaultSharePermission"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "directoryServiceOptions",
+      "name": "DirectoryServiceOptions",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DirectoryServiceOptions"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ]
+}

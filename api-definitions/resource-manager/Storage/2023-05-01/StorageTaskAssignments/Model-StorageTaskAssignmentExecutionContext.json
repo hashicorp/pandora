@@ -1,0 +1,31 @@
+{
+  "name": "StorageTaskAssignmentExecutionContext",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "target",
+      "name": "Target",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ExecutionTarget"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "trigger",
+      "name": "Trigger",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ExecutionTrigger"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ]
+}
