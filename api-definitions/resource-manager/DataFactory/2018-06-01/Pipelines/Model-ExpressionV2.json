@@ -20,11 +20,15 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "operator",
-      "name": "Operator",
+      "jsonName": "operators",
+      "name": "Operators",
       "objectDefinition": {
-        "type": "String",
-        "referenceName": null
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
       },
       "optional": true,
       "readOnly": false,
