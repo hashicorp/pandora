@@ -121,7 +121,7 @@ service "containerservice" {
 }
 service "cosmos-db" {
   name      = "CosmosDB"
-  available = ["2022-05-15", "2022-11-15", "2023-04-15", "2023-09-15", "2023-11-15"]
+  available = ["2022-05-15", "2022-11-15", "2023-04-15", "2023-09-15", "2023-11-15", "2024-05-15"]
 }
 service "cost-management" {
   name      = "CostManagement"
@@ -173,7 +173,7 @@ service "datashare" {
 }
 service "desktopvirtualization" {
   name      = "DesktopVirtualization"
-  available = ["2021-09-03-preview", "2022-02-10-preview", "2022-09-09"]
+  available = ["2021-09-03-preview", "2022-02-10-preview", "2022-09-09", "2024-04-03"]
   ignore    = ["2023-09-05"]
 }
 service "devcenter" {
@@ -461,7 +461,7 @@ service "redhatopenshift" {
 }
 service "redis" {
   name      = "Redis"
-  available = ["2023-08-01"]
+  available = ["2023-08-01", "2024-03-01"]
 }
 service "redisenterprise" {
   name      = "RedisEnterprise"
