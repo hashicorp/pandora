@@ -20,7 +20,6 @@ type RunInput struct {
 	OpenApiFilePattern       string
 	OutputDirectory          string
 	Services                 []string
-	SupportedVersions        []string
 }
 
 func Run(input RunInput) error {

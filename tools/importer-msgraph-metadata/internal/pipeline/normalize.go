@@ -131,7 +131,7 @@ func definitionsDirectory(version string) string {
 }
 
 func versionIsPreview(version string) bool {
-	if version == "v1.0" {
+	if version == ApiVersion1_0 {
 		return false
 	}
 	return true

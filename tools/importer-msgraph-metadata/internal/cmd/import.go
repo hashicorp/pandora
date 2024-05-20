@@ -12,32 +12,28 @@ import (
 	"time"
 
 	"github.com/hashicorp/go-hclog"
-	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/pipeline"
+	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/internal/pipeline"
 	"github.com/mitchellh/cli"
 )
 
 var _ cli.Command = ImportCommand{}
 
-func NewImportCommand(metadataDirectory, microsoftGraphConfigPath, openApiFilePattern, outputDirectory, commonTypesDirectoryName string, supportedVersions []string) func() (cli.Command, error) {
+func NewImportCommand(metadataDirectory, microsoftGraphConfigPath, openApiFilePattern, outputDirectory string) func() (cli.Command, error) {
 	return func() (cli.Command, error) {
 		return ImportCommand{
-			commonTypesDirectoryName: commonTypesDirectoryName,
 			metadataDirectory:        metadataDirectory,
 			microsoftGraphConfigPath: microsoftGraphConfigPath,
 			openApiFilePattern:       openApiFilePattern,
 			outputDirectory:          outputDirectory,
-			supportedVersions:        supportedVersions,
 		}, nil
 	}
 }
 
 type ImportCommand struct {
-	commonTypesDirectoryName string
 	metadataDirectory        string
 	microsoftGraphConfigPath string
 	openApiFilePattern       string
 	outputDirectory          string
-	supportedVersions        []string
 }
 
 func (ImportCommand) Synopsis() string {
@@ -74,13 +70,11 @@ func (c ImportCommand) Run(args []string) int {
 		ProviderPrefix: "azuread",
 		Logger:         logger,
 
-		CommonTypesDirectoryName: c.commonTypesDirectoryName,
-		ConfigFilePath:           c.microsoftGraphConfigPath,
-		MetadataDirectory:        c.metadataDirectory,
-		OpenApiFilePattern:       c.openApiFilePattern,
-		OutputDirectory:          c.outputDirectory,
-		Services:                 serviceNames,
-		SupportedVersions:        c.supportedVersions,
+		ConfigFilePath:     c.microsoftGraphConfigPath,
+		MetadataDirectory:  c.metadataDirectory,
+		OpenApiFilePattern: c.openApiFilePattern,
+		OutputDirectory:    c.outputDirectory,
+		Services:           serviceNames,
 	}
 	if err := pipeline.Run(input); err != nil {
 		log.Fatalf("Error: %+v", err)

@@ -7,6 +7,7 @@ require (
 	github.com/getkin/kin-openapi v0.117.0
 	github.com/go-git/go-git/v5 v5.11.0
 	github.com/hashicorp/go-hclog v1.4.0
+	github.com/hashicorp/pandora/tools/data-api-sdk v0.0.0-00010101000000-000000000000
 	github.com/hashicorp/pandora/tools/sdk v0.0.0-20230809001200-97c549958463
 	github.com/jedib0t/go-pretty/v6 v6.4.6
 	github.com/mitchellh/cli v1.1.5
@@ -34,8 +35,9 @@ require (
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
 	github.com/google/go-cmp v0.6.0 // indirect
 	github.com/google/uuid v1.1.2 // indirect
-	github.com/hashicorp/errwrap v1.0.0 // indirect
-	github.com/hashicorp/go-multierror v1.0.0 // indirect
+	github.com/hashicorp/errwrap v1.1.0 // indirect
+	github.com/hashicorp/go-azure-helpers v0.66.2 // indirect
+	github.com/hashicorp/go-multierror v1.1.1 // indirect
 	github.com/hashicorp/hcl/v2 v2.16.2 // indirect
 	github.com/huandu/xstrings v1.3.2 // indirect
 	github.com/imdario/mergo v0.3.13 // indirect
@@ -47,9 +49,9 @@ require (
 	github.com/mattn/go-colorable v0.1.12 // indirect
 	github.com/mattn/go-isatty v0.0.14 // indirect
 	github.com/mattn/go-runewidth v0.0.13 // indirect
-	github.com/mitchellh/copystructure v1.0.0 // indirect
+	github.com/mitchellh/copystructure v1.2.0 // indirect
 	github.com/mitchellh/go-wordwrap v1.0.0 // indirect
-	github.com/mitchellh/reflectwalk v1.0.0 // indirect
+	github.com/mitchellh/reflectwalk v1.0.2 // indirect
 	github.com/mohae/deepcopy v0.0.0-20170929034955-c48cc78d4826 // indirect
 	github.com/perimeterx/marshmallow v1.1.4 // indirect
 	github.com/pjbgf/sha1cd v0.3.0 // indirect

@@ -16,7 +16,7 @@ import (
 )
 
 func OutputSupportedServices(input RunInput) error {
-	for _, apiVersion := range input.SupportedVersions {
+	for _, apiVersion := range SupportedVersions {
 		openApiFile := fmt.Sprintf(input.OpenApiFilePattern, apiVersion)
 
 		spec, err := openapi3.NewLoader().LoadFromFile(filepath.Join(input.MetadataDirectory, openApiFile))

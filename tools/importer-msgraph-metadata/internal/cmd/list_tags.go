@@ -12,18 +12,17 @@ import (
 	"time"
 
 	"github.com/hashicorp/go-hclog"
-	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/pipeline"
+	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/internal/pipeline"
 	"github.com/mitchellh/cli"
 )
 
 var _ cli.Command = ListTagsCommand{}
 
-func NewListTagsCommand(metadataDirectory, openApiFilePattern string, supportedVersions []string) func() (cli.Command, error) {
+func NewListTagsCommand(metadataDirectory, openApiFilePattern string) func() (cli.Command, error) {
 	return func() (cli.Command, error) {
 		return ListTagsCommand{
 			metadataDirectory:  metadataDirectory,
 			openApiFilePattern: openApiFilePattern,
-			supportedVersions:  supportedVersions,
 		}, nil
 	}
 }
@@ -31,7 +30,6 @@ func NewListTagsCommand(metadataDirectory, openApiFilePattern string, supportedV
 type ListTagsCommand struct {
 	metadataDirectory  string
 	openApiFilePattern string
-	supportedVersions  []string
 }
 
 func (ListTagsCommand) Synopsis() string {
@@ -62,7 +60,6 @@ func (c ListTagsCommand) Run(args []string) int {
 
 		MetadataDirectory:  c.metadataDirectory,
 		OpenApiFilePattern: c.openApiFilePattern,
-		SupportedVersions:  c.supportedVersions,
 	}
 	if err := pipeline.OutputSupportedServices(input); err != nil {
 		log.Fatalf("Error: %+v", err)

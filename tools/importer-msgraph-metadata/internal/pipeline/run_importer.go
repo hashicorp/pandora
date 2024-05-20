@@ -5,9 +5,10 @@ package pipeline
 
 import (
 	"fmt"
+	"path/filepath"
+
 	"github.com/getkin/kin-openapi/openapi3"
 	"github.com/hashicorp/pandora/tools/sdk/config/services"
-	"path/filepath"
 )
 
 func runImporter(input RunInput, metadataGitSha string) error {
@@ -18,7 +19,7 @@ func runImporter(input RunInput, metadataGitSha string) error {
 		return fmt.Errorf("loading config: %+v", err)
 	}
 
-	for _, apiVersion := range input.SupportedVersions {
+	for _, apiVersion := range SupportedVersions {
 		openApiFile := fmt.Sprintf(input.OpenApiFilePattern, apiVersion)
 		if err := runImportForVersion(input, apiVersion, openApiFile, metadataGitSha, config); err != nil {
 			return err
@@ -79,14 +80,13 @@ func runImportForVersion(input RunInput, apiVersion, openApiFile, metadataGitSha
 				input.Logger.Info(fmt.Sprintf("Importing service %q for API version %q", service.Name, version))
 
 				task := &pipelineTask{
-					apiVersion:               apiVersion,
-					commonTypesDirectoryName: input.CommonTypesDirectoryName,
-					files:                    newTree(),
-					logger:                   input.Logger,
-					metadataGitSha:           metadataGitSha,
-					outputDirectory:          input.OutputDirectory,
-					service:                  service.Directory,
-					spec:                     spec,
+					apiVersion:      apiVersion,
+					files:           newTree(),
+					logger:          input.Logger,
+					metadataGitSha:  metadataGitSha,
+					outputDirectory: input.OutputDirectory,
+					service:         service.Directory,
+					spec:            spec,
 				}
 
 				if err = task.runImportForService(serviceTags[service.Directory], models); err != nil {
@@ -96,21 +96,21 @@ func runImportForVersion(input RunInput, apiVersion, openApiFile, metadataGitSha
 		}
 	}
 
-	files := newTree()
-
-	input.Logger.Info(fmt.Sprintf("Templating models for API version %q", apiVersion))
-	if err = templateCommonModels(files, input.CommonTypesDirectoryName, apiVersion, models); err != nil {
-		return err
-	}
-
-	input.Logger.Info(fmt.Sprintf("Templating constants for API version %q", apiVersion))
-	if err = templateCommonConstants(files, input.CommonTypesDirectoryName, apiVersion, models); err != nil {
-		return err
-	}
-
-	if err = files.write(input.OutputDirectory, input.Logger); err != nil {
-		return err
-	}
+	//files := newTree()
+	//
+	//input.Logger.Info(fmt.Sprintf("Templating models for API version %q", apiVersion))
+	//if err = templateCommonModels(files, input.CommonTypesDirectoryName, apiVersion, models); err != nil {
+	//	return err
+	//}
+	//
+	//input.Logger.Info(fmt.Sprintf("Templating constants for API version %q", apiVersion))
+	//if err = templateCommonConstants(files, input.CommonTypesDirectoryName, apiVersion, models); err != nil {
+	//	return err
+	//}
+	//
+	//if err = files.write(input.OutputDirectory, input.Logger); err != nil {
+	//	return err
+	//}
 
 	return nil
 }
