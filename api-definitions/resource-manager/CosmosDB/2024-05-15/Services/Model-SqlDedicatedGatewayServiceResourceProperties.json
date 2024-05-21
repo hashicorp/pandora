@@ -1,0 +1,51 @@
+{
+  "name": "SqlDedicatedGatewayServiceResourceProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "dedicatedGatewayType",
+      "name": "DedicatedGatewayType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DedicatedGatewayType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "locations",
+      "name": "Locations",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "SqlDedicatedGatewayRegionalServiceResource"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sqlDedicatedGatewayEndpoint",
+      "name": "SqlDedicatedGatewayEndpoint",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "ServiceResourceProperties",
+  "discriminatedTypeValue": "SqlDedicatedGateway",
+  "typeHintIn": "ServiceType"
+}

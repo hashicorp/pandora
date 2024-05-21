@@ -1,0 +1,38 @@
+{
+  "name": "A2AClusterUnplannedFailoverInput",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "clusterRecoveryPointId",
+      "name": "ClusterRecoveryPointId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "individualNodeRecoveryPoints",
+      "name": "IndividualNodeRecoveryPoints",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "ClusterUnplannedFailoverProviderSpecificInput",
+  "discriminatedTypeValue": "A2A",
+  "typeHintIn": "InstanceType"
+}

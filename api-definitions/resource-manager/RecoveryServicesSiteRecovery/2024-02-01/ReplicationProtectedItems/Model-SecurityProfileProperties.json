@@ -1,0 +1,70 @@
+{
+  "name": "SecurityProfileProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "targetVmConfidentialEncryption",
+      "name": "TargetVMConfidentialEncryption",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SecurityConfiguration"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "targetVmMonitoring",
+      "name": "TargetVMMonitoring",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SecurityConfiguration"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "targetVmSecureBoot",
+      "name": "TargetVMSecureBoot",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SecurityConfiguration"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "targetVmSecurityType",
+      "name": "TargetVMSecurityType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SecurityType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "targetVmTpm",
+      "name": "TargetVMTpm",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SecurityConfiguration"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "name": "DatabaseAccountKeysMetadata",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "primaryMasterKey",
+      "name": "PrimaryMasterKey",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AccountKeyMetadata"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "primaryReadonlyMasterKey",
+      "name": "PrimaryReadonlyMasterKey",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AccountKeyMetadata"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "secondaryMasterKey",
+      "name": "SecondaryMasterKey",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AccountKeyMetadata"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "secondaryReadonlyMasterKey",
+      "name": "SecondaryReadonlyMasterKey",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AccountKeyMetadata"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

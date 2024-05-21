@@ -1,0 +1,21 @@
+{
+  "name": "PeriodicModeBackupPolicy",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "periodicModeProperties",
+      "name": "PeriodicModeProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PeriodicModeProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "BackupPolicy",
+  "discriminatedTypeValue": "Periodic",
+  "typeHintIn": "Type"
+}

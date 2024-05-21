@@ -1,0 +1,19 @@
+{
+  "name": "CreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": false,
+  "httpMethod": "PUT",
+  "resourceIdName": "FirewallRuleId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "RedisFirewallRule"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "RedisFirewallRule"
+  }
+}
