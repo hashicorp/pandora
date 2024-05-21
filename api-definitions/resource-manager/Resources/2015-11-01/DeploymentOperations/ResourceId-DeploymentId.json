@@ -1,0 +1,33 @@
+{
+  "name": "DeploymentId",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/deployments/{deploymentName}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticResourceGroups",
+      "type": "Static",
+      "value": "resourceGroups"
+    },
+    {
+      "name": "resourceGroupName",
+      "type": "ResourceGroup"
+    },
+    {
+      "name": "staticDeployments",
+      "type": "Static",
+      "value": "deployments"
+    },
+    {
+      "name": "deploymentName",
+      "type": "UserSpecified"
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "name": "ProviderResourceType",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "apiVersions",
+      "name": "ApiVersions",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "locations",
+      "name": "Locations",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Dictionary",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "resourceType",
+      "name": "ResourceType",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}
