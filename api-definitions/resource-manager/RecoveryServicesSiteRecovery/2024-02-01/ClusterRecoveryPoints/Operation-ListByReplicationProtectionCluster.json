@@ -1,0 +1,16 @@
+{
+  "name": "ListByReplicationProtectionCluster",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "ReplicationProtectionClusterId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ClusterRecoveryPoint"
+  },
+  "uriSuffix": "/recoveryPoints"
+}

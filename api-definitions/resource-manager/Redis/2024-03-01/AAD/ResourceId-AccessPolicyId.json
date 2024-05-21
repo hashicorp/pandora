@@ -1,0 +1,52 @@
+{
+  "name": "AccessPolicyId",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redis/{redisName}/accessPolicies/{accessPolicyName}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticResourceGroups",
+      "type": "Static",
+      "value": "resourceGroups"
+    },
+    {
+      "name": "resourceGroupName",
+      "type": "ResourceGroup"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftCache",
+      "type": "ResourceProvider",
+      "value": "Microsoft.Cache"
+    },
+    {
+      "name": "staticRedis",
+      "type": "Static",
+      "value": "redis"
+    },
+    {
+      "name": "redisName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticAccessPolicies",
+      "type": "Static",
+      "value": "accessPolicies"
+    },
+    {
+      "name": "accessPolicyName",
+      "type": "UserSpecified"
+    }
+  ]
+}

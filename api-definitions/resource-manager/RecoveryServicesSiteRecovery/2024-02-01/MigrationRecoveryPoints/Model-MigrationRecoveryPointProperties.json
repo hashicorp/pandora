@@ -1,0 +1,32 @@
+{
+  "name": "MigrationRecoveryPointProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "recoveryPointTime",
+      "name": "RecoveryPointTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "referenceName": null,
+        "dateFormat": "RFC3339"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "recoveryPointType",
+      "name": "RecoveryPointType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MigrationRecoveryPointType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "InMageRcmAddDisksInput",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "disks",
+      "name": "Disks",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "InMageRcmDiskInput"
+        }
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "AddDisksProviderSpecificInput",
+  "discriminatedTypeValue": "InMageRcm",
+  "typeHintIn": "InstanceType"
+}

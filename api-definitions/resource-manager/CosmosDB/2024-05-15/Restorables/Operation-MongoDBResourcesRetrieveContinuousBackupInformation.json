@@ -1,0 +1,20 @@
+{
+  "name": "MongoDBResourcesRetrieveContinuousBackupInformation",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "MongodbDatabaseCollectionId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ContinuousBackupRestoreLocation"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "BackupInformation"
+  },
+  "uriSuffix": "/retrieveContinuousBackupInformation"
+}
