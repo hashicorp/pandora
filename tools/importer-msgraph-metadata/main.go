@@ -15,7 +15,7 @@ const (
 	metadataDirectory    = "../../submodules/msgraph-metadata"
 	microsoftGraphConfig = "../../config/microsoft-graph.hcl"
 	openApiFilePattern   = "transformed_%s_metadata.xml.yaml"
-	outputDirectory      = "../../data"
+	outputDirectory      = "../../api-definitions"
 )
 
 func main() {

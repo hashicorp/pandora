@@ -5,15 +5,17 @@ package pipeline
 
 import (
 	"fmt"
-
 	"github.com/davecgh/go-spew/spew"
 	"github.com/getkin/kin-openapi/openapi3"
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/go-hclog"
+	dataapisdk "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/dataapigeneratorjson"
 )
 
 type pipelineTask struct {
 	apiVersion      string
-	files           *Tree
+	repo            dataapigeneratorjson.Repository
 	logger          hclog.Logger
 	metadataGitSha  string
 	outputDirectory string
@@ -56,51 +58,36 @@ func (p pipelineTask) runImportForService(serviceTags []string, models Models) e
 		return err
 	}
 
-	fmt.Printf("%#v\n", sdkServices)
+	for serviceName, service := range *sdkServices {
+		for version := range service.APIVersions {
+			p.logger.Debug(fmt.Sprintf("Removing any existing API Definitions for the Service %q with Version %q", serviceName, version))
+			removeServiceOpts := dataapigeneratorjson.RemoveServiceOptions{
+				ServiceName:      serviceName,
+				SourceDataOrigin: dataapisdk.MicrosoftGraphMetaDataSourceDataOrigin,
+				SourceDataType:   dataapisdk.MicrosoftGraphSourceDataType,
+				Version:          version,
+			}
+			if err = p.repo.RemoveService(removeServiceOpts); err != nil {
+				return fmt.Errorf("removing existing API Definitions for Service %q with Version %q: %+v", serviceName, version, err)
+			}
+		}
 
-	//p.logger.Info(fmt.Sprintf("Deleting any exsting directory for %q", p.service))
-	//if err = p.removeDirectoryForService(resources); err != nil {
-	//	return err
-	//}
-	//
-	//p.logger.Info(fmt.Sprintf("Templating resource IDs for %q", p.service))
-	//if err = p.templateResourceIdsForService(resources); err != nil {
-	//	return err
-	//}
-	//
-	//p.logger.Info(fmt.Sprintf("Templating models for %q", p.service))
-	//if err = p.templateModelsForService(p.commonTypesDirectoryName, resources, models); err != nil {
-	//	return err
-	//}
-	//
-	//p.logger.Info(fmt.Sprintf("Templating constants for %q", p.service))
-	//if err = p.templateConstantsForService(resources, models); err != nil {
-	//	return err
-	//}
-	//
-	//p.logger.Info(fmt.Sprintf("Templating operations for %q", p.service))
-	//if err = p.templateOperationsForService(p.commonTypesDirectoryName, resources); err != nil {
-	//	return err
-	//}
-	//
-	//p.logger.Info(fmt.Sprintf("Templating definitions for %q", p.service))
-	//if err = p.templateDefinitionsForService(p.commonTypesDirectoryName, resources, models); err != nil {
-	//	return err
-	//}
-	//
-	//p.logger.Info(fmt.Sprintf("Templating service definition for %q", p.service))
-	//if err = p.templateServiceDefinitionForService(resources); err != nil {
-	//	return err
-	//}
-	//
-	//p.logger.Info(fmt.Sprintf("Templating API version definition for %q", p.service))
-	//if err = p.templateApiVersionDefinitionForService(resources); err != nil {
-	//	return err
-	//}
-	//
-	//if err = p.files.write(p.outputDirectory, p.logger); err != nil {
-	//	return err
-	//}
+		p.logger.Info(fmt.Sprintf("Persisting API Definitions for Service %q..", serviceName))
+
+		opts := dataapigeneratorjson.SaveServiceOptions{
+			AzureRestAPISpecsGitSHA: pointer.To(p.metadataGitSha),
+			ResourceProvider:        nil,
+			Service:                 service,
+			ServiceName:             serviceName,
+			SourceDataOrigin:        dataapisdk.MicrosoftGraphMetaDataSourceDataOrigin,
+			SourceDataType:          dataapisdk.MicrosoftGraphSourceDataType,
+		}
+
+		if err = p.repo.SaveService(opts); err != nil {
+			//p.logger.Info("FIXME: skipping failure: %v", err)
+			return fmt.Errorf("persisting Data API Definitions for Service %q: %+v", serviceName, err)
+		}
+	}
 
 	return nil
 }

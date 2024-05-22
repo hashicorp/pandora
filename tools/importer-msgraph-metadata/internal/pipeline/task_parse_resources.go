@@ -105,8 +105,8 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 
 			if uriSuffix != nil {
 				if uriSuffixParsed := NewResourceId(*uriSuffix, operationTags); uriSuffixParsed.HasUserValue() {
-					err = fmt.Errorf("encountered URI suffix containing user value in resource %q (category %q, service %q, version %q): %q", resourceName, resourceCategory, p.service, p.apiVersion, *uriSuffix)
-					return
+					p.logger.Info(fmt.Sprintf("skipping URI suffix containing user value in resource %q (category %q, service %q, version %q): %q", resourceName, resourceCategory, p.service, p.apiVersion, *uriSuffix))
+					continue
 				}
 			}
 
@@ -132,8 +132,12 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 						for t, m := range resp.Value.Content {
 							contentType = &t
 
-							if strings.HasPrefix(strings.ToLower(t), "text/plain") {
-								continue
+							unsupportedTypes := []string{"text/plain"}
+							for _, unsupportedType := range unsupportedTypes {
+								if strings.HasPrefix(strings.ToLower(t), unsupportedType) {
+									p.logger.Info(fmt.Sprintf("skipping response with unsupported content-type %q for %q: %v", unsupportedType, p.service, path))
+									continue
+								}
 							}
 
 							// Prefer model name from Ref
@@ -195,6 +199,7 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 
 			// Skip unknown operations
 			if operationType == OperationTypeUnknown {
+				p.logger.Info(fmt.Sprintf("skipping unknown operation type for %q: %v", p.service, path))
 				continue
 			}
 

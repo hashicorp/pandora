@@ -1,6 +1,7 @@
 package pipeline
 
 import (
+	"fmt"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
@@ -47,7 +48,7 @@ func (p pipelineTask) translateServiceToDataApiSdkTypes(models Models, resources
 
 				sdkResourceId, err := operation.ResourceId.DataApiSdkResourceId()
 				if err != nil {
-					return &sdkServices, err
+					return nil, err
 				}
 
 				sdkServices[resource.Service].APIVersions[resource.Version].Resources[resource.Category].ResourceIDs[operation.ResourceId.Name] = *sdkResourceId
@@ -57,12 +58,14 @@ func (p pipelineTask) translateServiceToDataApiSdkTypes(models Models, resources
 
 			if operation.RequestModel != nil {
 				if !models.Found(*operation.RequestModel) {
-					panic("request model not found")
+					return nil, fmt.Errorf("request model not found")
 				}
 
-				if model := models[*operation.RequestModel]; !model.IsValid() && !model.Common {
+				if model := models[*operation.RequestModel]; !model.IsValid() {
+					return nil, fmt.Errorf("request model was invalid")
+				} else { //if !model.Common {
 					if err := serviceModels.MergeDependants(models, *operation.RequestModel); err != nil {
-						return &sdkServices, err
+						return nil, err
 					}
 				}
 
@@ -82,34 +85,29 @@ func (p pipelineTask) translateServiceToDataApiSdkTypes(models Models, resources
 			var responseObject *sdkModels.SDKObjectDefinition
 
 			for _, response := range operation.Responses {
-				if response.ModelName != nil {
+				if response.Type != nil && *response.Type == DataTypeModel && response.ModelName != nil {
 					if !models.Found(*response.ModelName) {
-						panic("response model not found")
+						return nil, fmt.Errorf("response model not found")
 					}
 
-					if model := models[*response.ModelName]; !model.IsValid() && !model.Common {
+					if model := models[*response.ModelName]; !model.IsValid() {
+						return nil, fmt.Errorf("response model was invalid")
+					} else { //if !model.Common {
 						if err := serviceModels.MergeDependants(models, *response.ModelName); err != nil {
-							return &sdkServices, err
+							return nil, err
 						}
 					}
 
-					// TODO this is not right
-					if operation.Type == OperationTypeList {
-						responseObject = &sdkModels.SDKObjectDefinition{
-							NestedItem: &sdkModels.SDKObjectDefinition{
-								NestedItem:    nil,
-								ReferenceName: response.ModelName,
-								Type:          sdkModels.ReferenceSDKObjectDefinitionType,
-							},
-							ReferenceName: nil,
-							Type:          sdkModels.ListSDKObjectDefinitionType,
-						}
-					} else {
-						responseObject = &sdkModels.SDKObjectDefinition{
-							NestedItem:    nil,
-							ReferenceName: response.ModelName,
-							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
-						}
+					responseObject = &sdkModels.SDKObjectDefinition{
+						NestedItem:    nil,
+						ReferenceName: response.ModelName,
+						Type:          sdkModels.ReferenceSDKObjectDefinitionType,
+					}
+				} else if response.Type != nil {
+					requestObject = &sdkModels.SDKObjectDefinition{
+						NestedItem:    nil,
+						ReferenceName: nil,
+						Type:          response.Type.DataApiSdkObjectDefinitionType(),
 					}
 				}
 			}
@@ -125,7 +123,7 @@ func (p pipelineTask) translateServiceToDataApiSdkTypes(models Models, resources
 			}
 
 			if contentType == "" {
-				panic("unknown content type")
+				return nil, fmt.Errorf("unknown content type")
 			}
 
 			// TODO probably don't hardcode this, but it'll work fine for now
@@ -148,7 +146,7 @@ func (p pipelineTask) translateServiceToDataApiSdkTypes(models Models, resources
 		for modelName, model := range serviceModels {
 			sdkModel, err := model.DataApiSdkModel(models)
 			if err != nil {
-				return &sdkServices, err
+				return nil, err
 			}
 
 			sdkServices[resource.Service].APIVersions[resource.Version].Resources[resource.Category].Models[modelName] = *sdkModel

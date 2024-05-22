@@ -8,6 +8,7 @@ import (
 	"path/filepath"
 
 	"github.com/getkin/kin-openapi/openapi3"
+	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/dataapigeneratorjson"
 	"github.com/hashicorp/pandora/tools/sdk/config/services"
 )
 
@@ -37,6 +38,8 @@ func runImportForVersion(input RunInput, apiVersion, openApiFile, metadataGitSha
 		return err
 	}
 
+	repo := dataapigeneratorjson.NewRepository(input.OutputDirectory)
+
 	models, err := parseCommonModels(spec.Components.Schemas)
 	if err != nil {
 		return err
@@ -47,7 +50,7 @@ func runImportForVersion(input RunInput, apiVersion, openApiFile, metadataGitSha
 		return err
 	}
 
-	fmt.Printf("%#v\n", sdkModels)
+	fmt.Printf("%T\n", sdkModels)
 
 	serviceTags, err := parseTags(spec.Tags)
 	if err != nil {
@@ -88,10 +91,10 @@ func runImportForVersion(input RunInput, apiVersion, openApiFile, metadataGitSha
 
 				task := &pipelineTask{
 					apiVersion:      apiVersion,
-					files:           newTree(),
 					logger:          input.Logger,
 					metadataGitSha:  metadataGitSha,
 					outputDirectory: input.OutputDirectory,
+					repo:            repo,
 					service:         service.Directory,
 					spec:            spec,
 				}
@@ -102,22 +105,6 @@ func runImportForVersion(input RunInput, apiVersion, openApiFile, metadataGitSha
 			}
 		}
 	}
-
-	//files := newTree()
-	//
-	//input.Logger.Info(fmt.Sprintf("Templating models for API version %q", apiVersion))
-	//if err = templateCommonModels(files, input.CommonTypesDirectoryName, apiVersion, models); err != nil {
-	//	return err
-	//}
-	//
-	//input.Logger.Info(fmt.Sprintf("Templating constants for API version %q", apiVersion))
-	//if err = templateCommonConstants(files, input.CommonTypesDirectoryName, apiVersion, models); err != nil {
-	//	return err
-	//}
-	//
-	//if err = files.write(input.OutputDirectory, input.Logger); err != nil {
-	//	return err
-	//}
 
 	return nil
 }
