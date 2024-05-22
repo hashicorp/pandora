@@ -42,6 +42,13 @@ func runImportForVersion(input RunInput, apiVersion, openApiFile, metadataGitSha
 		return err
 	}
 
+	sdkModels, err := translateModelsToDataApiSdkTypes(models)
+	if err != nil {
+		return err
+	}
+
+	fmt.Printf("%#v\n", sdkModels)
+
 	serviceTags, err := parseTags(spec.Tags)
 	if err != nil {
 		return err

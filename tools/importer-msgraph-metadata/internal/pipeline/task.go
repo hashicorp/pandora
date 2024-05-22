@@ -51,12 +51,12 @@ func (p pipelineTask) runImportForService(serviceTags []string, models Models) e
 		}
 	}
 
-	services, err := p.translateServiceToDataApiSdkTypes(models, resources)
+	sdkServices, err := p.translateServiceToDataApiSdkTypes(models, resources)
 	if err != nil {
 		return err
 	}
 
-	fmt.Printf("%#v\n", services)
+	fmt.Printf("%#v\n", sdkServices)
 
 	//p.logger.Info(fmt.Sprintf("Deleting any exsting directory for %q", p.service))
 	//if err = p.removeDirectoryForService(resources); err != nil {

@@ -8,6 +8,8 @@ import (
 	"regexp"
 	"sort"
 	"strings"
+
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 var resourceSuffix = "ById"
@@ -67,6 +69,39 @@ func (r ResourceId) ID() string {
 		segments[i] = s.Value
 	}
 	return "/" + strings.Join(segments, "/")
+}
+
+func (r ResourceId) DataApiSdkResourceId() (*sdkModels.ResourceID, error) {
+	sdkSegments := make([]sdkModels.ResourceIDSegment, 0, len(r.Segments))
+
+	for _, segment := range r.Segments {
+		switch segment.Type {
+		case SegmentAction, SegmentCast, SegmentFunction, SegmentLabel, SegmentODataReference:
+			sdkSegments = append(sdkSegments, sdkModels.ResourceIDSegment{
+				ConstantReference: nil,
+				FixedValue:        &segment.Value,
+				Type:              sdkModels.StaticResourceIDSegmentType,
+				Name:              segment.Value,
+			})
+		case SegmentUserValue:
+			sdkSegments = append(sdkSegments, sdkModels.ResourceIDSegment{
+				ConstantReference: nil,
+				FixedValue:        nil,
+				Type:              sdkModels.UserSpecifiedSegment,
+				Name:              *segment.Field,
+			})
+		default:
+			return nil, fmt.Errorf("unknown segment type")
+		}
+	}
+
+	return &sdkModels.ResourceID{
+		CommonIDAlias: nil,
+		ConstantNames: nil,
+		Constants:     nil,
+		ExampleValue:  r.ID(),
+		Segments:      sdkSegments,
+	}, nil
 }
 
 // IsMatchOrAncestor compares the provided ResourceId (r2) against the current ResourceId and returns true if the

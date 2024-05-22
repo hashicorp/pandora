@@ -1,10 +1,11 @@
 package pipeline
 
-import sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+import (
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+)
 
 func (p pipelineTask) translateServiceToDataApiSdkTypes(models Models, resources Resources) (*map[string]sdkModels.Service, error) {
-
-	sdkServices := make(map[string]sdkModels.Service, 0)
+	sdkServices := make(map[string]sdkModels.Service)
 
 	for _, resource := range resources {
 		// First scaffold all discovered services, version(s) and resources (categories)
@@ -35,6 +36,8 @@ func (p pipelineTask) translateServiceToDataApiSdkTypes(models Models, resources
 			}
 		}
 
+		serviceModels := make(Models)
+
 		// Populate everything else
 		for _, operation := range resource.Operations {
 			var resourceIdName *string
@@ -42,36 +45,12 @@ func (p pipelineTask) translateServiceToDataApiSdkTypes(models Models, resources
 			if operation.ResourceId != nil {
 				resourceIdName = &operation.ResourceId.Name
 
-				sdkResourceId := sdkModels.ResourceID{
-					CommonIDAlias: nil,
-					ConstantNames: nil,
-					Constants:     nil,
-					ExampleValue:  operation.ResourceId.ID(),
-					Segments:      make([]sdkModels.ResourceIDSegment, 0, len(operation.ResourceId.Segments)),
+				sdkResourceId, err := operation.ResourceId.DataApiSdkResourceId()
+				if err != nil {
+					return &sdkServices, err
 				}
 
-				for _, segment := range operation.ResourceId.Segments {
-					switch segment.Type {
-					case SegmentAction, SegmentCast, SegmentFunction, SegmentLabel, SegmentODataReference:
-						sdkResourceId.Segments = append(sdkResourceId.Segments, sdkModels.ResourceIDSegment{
-							ConstantReference: nil,
-							FixedValue:        &segment.Value,
-							Type:              sdkModels.StaticResourceIDSegmentType,
-							Name:              segment.Value,
-						})
-					case SegmentUserValue:
-						sdkResourceId.Segments = append(sdkResourceId.Segments, sdkModels.ResourceIDSegment{
-							ConstantReference: nil,
-							FixedValue:        nil,
-							Type:              sdkModels.UserSpecifiedSegment,
-							Name:              *segment.Field,
-						})
-					default:
-						panic("unknown segment type")
-					}
-				}
-
-				sdkServices[resource.Service].APIVersions[resource.Version].Resources[resource.Category].ResourceIDs[operation.ResourceId.Name] = sdkResourceId
+				sdkServices[resource.Service].APIVersions[resource.Version].Resources[resource.Category].ResourceIDs[operation.ResourceId.Name] = *sdkResourceId
 			}
 
 			var requestObject *sdkModels.SDKObjectDefinition
@@ -81,41 +60,22 @@ func (p pipelineTask) translateServiceToDataApiSdkTypes(models Models, resources
 					panic("request model not found")
 				}
 
+				if model := models[*operation.RequestModel]; !model.IsValid() && !model.Common {
+					if err := serviceModels.MergeDependants(models, *operation.RequestModel); err != nil {
+						return &sdkServices, err
+					}
+				}
+
 				requestObject = &sdkModels.SDKObjectDefinition{
 					NestedItem:    nil,
 					ReferenceName: operation.RequestModel,
 					Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 				}
-
-				if !models[*operation.RequestModel].Common {
-					// TODO convert model
-					//sdkModel := sdkModels.SDKModel{
-					//	DiscriminatedValue:                    nil,
-					//	FieldNameContainingDiscriminatedValue: nil,
-					//	Fields:                                make(map[string]sdkModels.SDKField),
-					//	ParentTypeName:                        nil,
-					//}
-				}
-			}
-
-			if operation.RequestType != nil {
-				var requestObjectType sdkModels.SDKObjectDefinitionType
-
-				switch *operation.RequestType {
-				case DataTypeInteger64, DataTypeIntegerUnsigned64, DataTypeInteger32, DataTypeIntegerUnsigned32, DataTypeInteger16, DataTypeIntegerUnsigned16, DataTypeInteger8, DataTypeIntegerUnsigned8:
-					requestObjectType = sdkModels.IntegerSDKObjectDefinitionType
-				case DataTypeFloat64, DataTypeFloat32:
-					requestObjectType = sdkModels.FloatSDKObjectDefinitionType
-				case DataTypeDateTime, DataTypeDate, DataTypeTime:
-					requestObjectType = sdkModels.DateTimeSDKObjectDefinitionType
-				case DataTypeBase64, DataTypeDuration, DataTypeString, DataTypeUuid:
-					requestObjectType = sdkModels.StringSDKObjectDefinitionType
-				}
-
+			} else if operation.RequestType != nil {
 				requestObject = &sdkModels.SDKObjectDefinition{
 					NestedItem:    nil,
 					ReferenceName: nil,
-					Type:          requestObjectType,
+					Type:          operation.RequestType.DataApiSdkObjectDefinitionType(),
 				}
 			}
 
@@ -127,10 +87,13 @@ func (p pipelineTask) translateServiceToDataApiSdkTypes(models Models, resources
 						panic("response model not found")
 					}
 
-					if !models[*response.ModelName].Common {
-						// TODO convert model
+					if model := models[*response.ModelName]; !model.IsValid() && !model.Common {
+						if err := serviceModels.MergeDependants(models, *response.ModelName); err != nil {
+							return &sdkServices, err
+						}
 					}
 
+					// TODO this is not right
 					if operation.Type == OperationTypeList {
 						responseObject = &sdkModels.SDKObjectDefinition{
 							NestedItem: &sdkModels.SDKObjectDefinition{
@@ -179,6 +142,30 @@ func (p pipelineTask) translateServiceToDataApiSdkTypes(models Models, resources
 				ResourceIDName:                   resourceIdName,
 				ResponseObject:                   responseObject,
 				URISuffix:                        operation.UriSuffix,
+			}
+		}
+
+		for modelName, model := range serviceModels {
+			sdkModel, err := model.DataApiSdkModel(models)
+			if err != nil {
+				return &sdkServices, err
+			}
+
+			sdkServices[resource.Service].APIVersions[resource.Version].Resources[resource.Category].Models[modelName] = *sdkModel
+
+			for _, field := range model.Fields {
+				if field.ConstantName != nil {
+					constantValues := make(map[string]string)
+					for _, value := range field.Enum {
+						constantValues[value] = value
+					}
+
+					// TODO support additional types, if there are any
+					sdkServices[resource.Service].APIVersions[resource.Version].Resources[resource.Category].Constants[*field.ConstantName] = sdkModels.SDKConstant{
+						Type:   sdkModels.StringSDKConstantType,
+						Values: constantValues,
+					}
+				}
 			}
 		}
 	}

@@ -8,6 +8,7 @@ import (
 	"strings"
 
 	"github.com/getkin/kin-openapi/openapi3"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 /* ===================
@@ -96,6 +97,41 @@ func (m *Model) IsValid() bool {
 	return true
 }
 
+func (m *Model) DataApiSdkModel(models Models) (*sdkModels.SDKModel, error) {
+	sdkFields := make(map[string]sdkModels.SDKField)
+	for fieldName, field := range m.Fields {
+		objectDefinition, err := field.DataApiSdkObjectDefinition(models)
+		if err != nil {
+			return nil, err
+		}
+
+		if objectDefinition == nil {
+			return nil, fmt.Errorf("could not determine SDKObjectDefinition for field: %s", fieldName)
+		}
+
+		sdkFields[fieldName] = sdkModels.SDKField{
+			ContainsDiscriminatedValue: false,
+			DateFormat:                 nil,
+			Description:                field.Description,
+			JsonName:                   field.JsonField,
+			ObjectDefinition:           *objectDefinition,
+
+			// TODO work these out
+			Optional:  false,
+			ReadOnly:  false,
+			Required:  false,
+			Sensitive: false,
+		}
+	}
+
+	return &sdkModels.SDKModel{
+		DiscriminatedValue:                    nil,
+		FieldNameContainingDiscriminatedValue: nil,
+		Fields:                                sdkFields,
+		ParentTypeName:                        nil,
+	}, nil
+}
+
 type ModelField struct {
 	Title        string
 	Type         *DataType
@@ -153,6 +189,92 @@ func (f ModelField) CSType(models Models) *string {
 	return f.Type.CSType()
 }
 
+func (f ModelField) DataApiSdkObjectDefinition(models Models) (*sdkModels.SDKObjectDefinition, error) {
+	if f.ConstantName != nil {
+		return &sdkModels.SDKObjectDefinition{
+			NestedItem:    nil,
+			ReferenceName: f.ConstantName,
+			Type:          sdkModels.ReferenceSDKObjectDefinitionType,
+		}, nil
+	}
+
+	if f.Type == nil {
+		// Default to strings when the type is unknown
+		return &sdkModels.SDKObjectDefinition{
+			NestedItem:    nil,
+			ReferenceName: nil,
+			Type:          sdkModels.StringSDKObjectDefinitionType,
+		}, nil
+	}
+
+	switch *f.Type {
+	case DataTypeModel:
+		if f.ModelName == nil {
+			return nil, fmt.Errorf("field type Model encountered without model name")
+		}
+
+		if !models.Found(*f.ModelName) || !models[*f.ModelName].IsValid() {
+			return nil, fmt.Errorf("field type Model encountered with invalid referenced model")
+		}
+
+		return &sdkModels.SDKObjectDefinition{
+			NestedItem:    nil,
+			ReferenceName: f.ModelName,
+			Type:          sdkModels.ReferenceSDKObjectDefinitionType,
+		}, nil
+
+	case DataTypeArray:
+		if f.ModelName != nil {
+			if !models.Found(*f.ModelName) || !models[*f.ModelName].IsValid() {
+				return nil, fmt.Errorf("field type Model encountered with invalid referenced model")
+			}
+
+			return &sdkModels.SDKObjectDefinition{
+				NestedItem: &sdkModels.SDKObjectDefinition{
+					NestedItem:    nil,
+					ReferenceName: f.ModelName,
+					Type:          sdkModels.ReferenceSDKObjectDefinitionType,
+				},
+				ReferenceName: nil,
+				Type:          sdkModels.ListSDKObjectDefinitionType,
+			}, nil
+		}
+
+		if f.ConstantName != nil {
+			// TODO validate constant exists
+			return &sdkModels.SDKObjectDefinition{
+				NestedItem: &sdkModels.SDKObjectDefinition{
+					NestedItem:    nil,
+					ReferenceName: f.ConstantName,
+					Type:          sdkModels.ReferenceSDKObjectDefinitionType,
+				},
+				ReferenceName: nil,
+				Type:          sdkModels.ListSDKObjectDefinitionType,
+			}, nil
+		}
+
+		if f.ItemType != nil {
+			return &sdkModels.SDKObjectDefinition{
+				NestedItem: &sdkModels.SDKObjectDefinition{
+					NestedItem:    nil,
+					ReferenceName: nil,
+					Type:          f.ItemType.DataApiSdkObjectDefinitionType(),
+				},
+				ReferenceName: nil,
+				Type:          sdkModels.ListSDKObjectDefinitionType,
+			}, nil
+		}
+
+		return nil, nil
+	}
+
+	return &sdkModels.SDKObjectDefinition{
+		NestedItem:    nil,
+		ReferenceName: nil,
+		Type:          f.Type.DataApiSdkObjectDefinitionType(),
+	}, nil
+}
+
 type DataType uint8
 
 const (
@@ -207,6 +329,27 @@ func (ft DataType) CSType() *string {
 	}
 
 	return &csType
+}
+
+func (ft DataType) DataApiSdkObjectDefinitionType() sdkModels.SDKObjectDefinitionType {
+	switch ft {
+	case DataTypeString, DataTypeBase64, DataTypeDuration, DataTypeUuid:
+		return sdkModels.StringSDKObjectDefinitionType
+	case DataTypeInteger64, DataTypeInteger32, DataTypeInteger16, DataTypeInteger8, DataTypeIntegerUnsigned64,
+		DataTypeIntegerUnsigned32, DataTypeIntegerUnsigned16, DataTypeIntegerUnsigned8:
+		return sdkModels.IntegerSDKObjectDefinitionType
+	case DataTypeFloat64, DataTypeFloat32:
+		return sdkModels.FloatSDKObjectDefinitionType
+	case DataTypeBool:
+		return sdkModels.BooleanSDKObjectDefinitionType
+	case DataTypeDate, DataTypeDateTime, DataTypeTime:
+		return sdkModels.DateTimeSDKObjectDefinitionType
+	case DataTypeBinary:
+		return sdkModels.RawFileSDKObjectDefinitionType
+	}
+
+	// Fall back to string where the type is not known
+	return sdkModels.StringSDKObjectDefinitionType
 }
 
 // fieldType parses the schemaType and schemaFormat from the OpenAPI spec for a given field, and returns the appropriate DataType
