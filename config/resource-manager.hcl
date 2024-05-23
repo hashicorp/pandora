@@ -522,7 +522,7 @@ service "servicenetworking" {
 }
 service "signalr" {
   name      = "SignalR"
-  available = ["2023-02-01"]
+  available = ["2023-02-01", "2024-03-01"]
 }
 service "solutions" {
   name      = "ManagedApplications"
@@ -595,7 +595,7 @@ service "web" {
 }
 service "webpubsub" {
   name      = "WebPubSub"
-  available = ["2023-02-01"]
+  available = ["2023-02-01", "2024-03-01"]
 }
 service "workloads" {
   name      = "Workloads"
