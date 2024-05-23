@@ -3,6 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "jsonName": "availabilityZones",
+      "name": "AvailabilityZones",
+      "objectDefinition": {
+        "type": "Zones",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "jsonName": "nodes",
       "name": "Nodes",
       "objectDefinition": {
