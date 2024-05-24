@@ -1,0 +1,19 @@
+{
+  "name": "ReplicasUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "ReplicaId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "Replica"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "Replica"
+  }
+}

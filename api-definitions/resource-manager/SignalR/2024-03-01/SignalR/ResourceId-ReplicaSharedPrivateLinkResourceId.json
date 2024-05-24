@@ -1,0 +1,61 @@
+{
+  "name": "ReplicaSharedPrivateLinkResourceId",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SignalRService/signalR/{signalRName}/replicas/{replicaName}/sharedPrivateLinkResources/{sharedPrivateLinkResourceName}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticResourceGroups",
+      "type": "Static",
+      "value": "resourceGroups"
+    },
+    {
+      "name": "resourceGroupName",
+      "type": "ResourceGroup"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftSignalRService",
+      "type": "ResourceProvider",
+      "value": "Microsoft.SignalRService"
+    },
+    {
+      "name": "staticSignalR",
+      "type": "Static",
+      "value": "signalR"
+    },
+    {
+      "name": "signalRName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticReplicas",
+      "type": "Static",
+      "value": "replicas"
+    },
+    {
+      "name": "replicaName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticSharedPrivateLinkResources",
+      "type": "Static",
+      "value": "sharedPrivateLinkResources"
+    },
+    {
+      "name": "sharedPrivateLinkResourceName",
+      "type": "UserSpecified"
+    }
+  ]
+}
