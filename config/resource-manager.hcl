@@ -403,6 +403,10 @@ service "operationsmanagement" {
   name      = "OperationsManagement"
   available = ["2015-11-01-preview"]
 }
+service "oracledatabase" {
+  name      = "OracleDatabase"
+  available = ["2023-09-01-preview"]
+}
 service "orbital" {
   name      = "Orbital"
   available = ["2022-11-01"]
