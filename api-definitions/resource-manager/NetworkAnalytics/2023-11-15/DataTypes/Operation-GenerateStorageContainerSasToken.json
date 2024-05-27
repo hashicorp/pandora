@@ -1,0 +1,19 @@
+{
+  "name": "GenerateStorageContainerSasToken",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "DataTypeId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ContainerSaS"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ContainerSasToken"
+  },
+  "uriSuffix": "/generateStorageContainerSasToken"
+}
