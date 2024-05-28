@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 
 	"github.com/getkin/kin-openapi/openapi3"
-	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/dataapigeneratorjson"
+	"github.com/hashicorp/pandora/tools/data-api-repository/repository"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/parser"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/tags"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/versions"
@@ -62,7 +62,7 @@ func runImportForVersion(input RunInput, apiVersion, openApiFile, metadataGitSha
 		logger:                input.Logger,
 		metadataGitSha:        metadataGitSha,
 		outputDirectory:       input.OutputDirectory,
-		repo:                  dataapigeneratorjson.NewRepository(input.OutputDirectory),
+		repo:                  repository.NewRepository(input.OutputDirectory, input.Logger),
 		spec:                  spec,
 	}
 

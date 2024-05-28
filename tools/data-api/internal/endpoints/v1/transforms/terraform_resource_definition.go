@@ -72,7 +72,7 @@ func mapTerraformResourceDefinition(input repositories.TerraformResourceDetails)
 	}
 
 	// todo remove this when https://github.com/hashicorp/pandora/issues/3352 is fixed
-	// tests won't be added unless Generate is true when writing this out in dataapigeneratorjson/helpers.go writeTestsHclToFile
+	// tests won't be added unless Generate is true when writing this out in generatorjson/helpers.go writeTestsHclToFile
 	// so we can set this to true if BasicConfiguration has been written out
 	if output.Tests.BasicConfiguration != "" {
 		output.Tests.Generate = true

@@ -69,23 +69,30 @@ func (f *FileSystem) Stage(path FilePath, body any) error {
 	return fmt.Errorf("internal-error: unexpected file extension %q for %q", fileExtension, path)
 }
 
-func PersistFileSystem(workingDirectory string, dataType models.SourceDataType, serviceName string, input *FileSystem, logger hclog.Logger) error {
-	// TODO: note this is going to need to take SourceDataOrigin into account too
+func PersistFileSystem(workingDirectory string, dataType models.SourceDataType, relativeOutputDirectory string, serviceName *string, input *FileSystem, logger hclog.Logger) error {
+	// TODO: note this is going to need to take SourceDataOrigin into account too (manicminer: should it? SourceDataOrigin seems to be a separate concern?)
 
 	rootDir := filepath.Join(workingDirectory, string(dataType))
 	logger.Trace(fmt.Sprintf("Persisting files into %q", rootDir))
 
+	outputDir := filepath.Join(rootDir, relativeOutputDirectory)
+
 	// Delete any existing directory with this service name
-	serviceDir := filepath.Join(rootDir, serviceName)
-	logger.Debug(fmt.Sprintf("Removing any existing Directory for Service %q", serviceName))
-	_ = os.RemoveAll(serviceDir)
-	if err := os.MkdirAll(serviceDir, directoryPermissions); err != nil {
-		return fmt.Errorf("recreating directory %q: %+v", serviceDir, err)
+	// TODO: (manicminer: is this really needed since there is a RemoveService() method to achieve this? we don't always want to blow away the entire service)
+	//logging.Log.Debug(fmt.Sprintf("Removing any existing Directory for Service %q", serviceName))
+	//_ = os.RemoveAll(outputDir)
+
+	if err := os.MkdirAll(outputDir, directoryPermissions); err != nil {
+		return fmt.Errorf("recreating directory %q: %+v", outputDir, err)
 	}
 
 	// pull out a list of directories
 	directories := uniqueDirectories(input.f)
-	logger.Debug(fmt.Sprintf("Creating directories for Service %q", serviceName))
+	if serviceName != nil {
+		logger.Debug(fmt.Sprintf("Creating directories for Service %q", *serviceName))
+	} else {
+		logger.Debug("Creating directories")
+	}
 	for _, dir := range directories {
 		dirPath := filepath.Join(rootDir, dir)
 		if err := os.MkdirAll(dirPath, directoryPermissions); err != nil {

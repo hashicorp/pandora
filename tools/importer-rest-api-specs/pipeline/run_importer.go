@@ -128,7 +128,7 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 		}
 	}
 
-	// Populate all of the data for this API Version..
+	// Populate all the data for this API Version..
 	dataForApiVersions := make([]importerModels.AzureApiDefinition, 0)
 	for apiVersion, api := range consolidatedApiVersions {
 		versionLogger := logger.Named(fmt.Sprintf("Importer for API Version %q", apiVersion))
@@ -155,7 +155,7 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 		dataForApiVersions = append(dataForApiVersions, *dataForApiVersion)
 	}
 
-	// Now that we've got all of the API Versions, build up the Terraform Resources
+	// Now that we've got all the API Versions, build up the Terraform Resources
 	// NOTE: in the near future this will be refactored to be for a Service, this is a stepping-stone refactor
 	// in that direction - as that requires more significant refactoring to the `terraform` package.
 	dataForApiVersionsWithTerraformDetails := make([]importerModels.AzureApiDefinition, 0)
@@ -178,14 +178,14 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 	logger.Info(fmt.Sprintf("Persisting API Definitions for Service %s..", serviceName))
 
 	opts := repository.SaveServiceOptions{
-		SourceCommitSHA:  pointer.To(swaggerGitSha),
 		ResourceProvider: resourceProvider,
 		Service:          *service,
 		ServiceName:      serviceName,
+		SourceCommitSHA:  pointer.To(swaggerGitSha),
 		SourceDataOrigin: sourceDataOrigin,
 		SourceDataType:   sourceDataType,
 	}
-	if err := repo.SaveService(opts); err != nil {
+	if err = repo.SaveService(opts); err != nil {
 		return fmt.Errorf("persisting Data API Definitions for Service %q: %+v", serviceName, err)
 	}
 

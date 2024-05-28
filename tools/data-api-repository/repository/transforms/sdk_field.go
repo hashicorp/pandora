@@ -10,9 +10,9 @@ import (
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
-func mapSDKFieldToRepository(fieldName string, fieldDetails sdkModels.SDKField, isTypeHint bool, constants map[string]sdkModels.SDKConstant, knownModels map[string]sdkModels.SDKModel) (*repositoryModels.ModelField, error) {
+func mapSDKFieldToRepository(fieldName string, fieldDetails sdkModels.SDKField, isTypeHint bool, constants map[string]sdkModels.SDKConstant, knownModels map[string]sdkModels.SDKModel, commonTypes sdkModels.CommonTypes) (*repositoryModels.ModelField, error) {
 	// TODO: thread through logging
-	objectDefinition, err := mapSDKObjectDefinitionToRepository(fieldDetails.ObjectDefinition, constants, knownModels)
+	objectDefinition, err := mapSDKObjectDefinitionToRepository(fieldDetails.ObjectDefinition, constants, knownModels, commonTypes)
 	if err != nil {
 		return nil, fmt.Errorf("mapping the ObjectDefinition for field %q: %+v", fieldName, err)
 	}

@@ -9,15 +9,15 @@ import (
 	"github.com/davecgh/go-spew/spew"
 	"github.com/getkin/kin-openapi/openapi3"
 	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/pandora/tools/data-api-repository/repository"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/dataapigeneratorjson"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/parser"
 )
 
 type pipeline struct {
 	apiVersion            string
 	commonTypesForVersion sdkModels.CommonTypes
-	repo                  dataapigeneratorjson.Repository
+	repo                  repository.Repository
 	logger                hclog.Logger
 	metadataGitSha        string
 	outputDirectory       string

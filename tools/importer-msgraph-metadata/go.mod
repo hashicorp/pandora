@@ -1,6 +1,8 @@
 module github.com/hashicorp/pandora/tools/importer-msgraph-metadata
 
-go 1.21
+go 1.22.1
+
+toolchain go1.22.3
 
 require (
 	github.com/davecgh/go-spew v1.1.1
@@ -8,6 +10,7 @@ require (
 	github.com/go-git/go-git/v5 v5.11.0
 	github.com/hashicorp/go-azure-helpers v0.66.2
 	github.com/hashicorp/go-hclog v1.4.0
+	github.com/hashicorp/pandora/tools/data-api-repository v0.0.0-00010101000000-000000000000
 	github.com/hashicorp/pandora/tools/data-api-sdk v0.0.0-00010101000000-000000000000
 	github.com/hashicorp/pandora/tools/sdk v0.0.0-20230809001200-97c549958463
 	github.com/jedib0t/go-pretty/v6 v6.4.6
@@ -73,6 +76,8 @@ require (
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
+
+replace github.com/hashicorp/pandora/tools/data-api-repository => ../data-api-repository
 
 replace github.com/hashicorp/pandora/tools/sdk => ../sdk
 

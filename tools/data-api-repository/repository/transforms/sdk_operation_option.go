@@ -20,7 +20,7 @@ var sdkOperationOptionsToRepository = map[sdkModels.SDKOperationOptionObjectDefi
 	sdkModels.StringSDKOperationOptionObjectDefinitionType:    repositoryModels.StringOptionObjectDefinitionType,
 }
 
-func mapSDKOperationOptionToRepository(definition sdkModels.SDKOperationOptionObjectDefinition, constants map[string]sdkModels.SDKConstant, models map[string]sdkModels.SDKModel) (*repositoryModels.OptionObjectDefinition, error) {
+func mapSDKOperationOptionToRepository(definition sdkModels.SDKOperationOptionObjectDefinition, constants map[string]sdkModels.SDKConstant, models map[string]sdkModels.SDKModel, commonTypes sdkModels.CommonTypes) (*repositoryModels.OptionObjectDefinition, error) {
 	typeVal, ok := sdkOperationOptionsToRepository[definition.Type]
 	if !ok {
 		return nil, fmt.Errorf("internal-error: no OptionObjectDefinition mapping is defined for the OptionObjectDefinition Type %q", string(definition.Type))
@@ -37,7 +37,7 @@ func mapSDKOperationOptionToRepository(definition sdkModels.SDKOperationOptionOb
 	}
 
 	if definition.NestedItem != nil {
-		nestedItem, err := mapSDKOperationOptionToRepository(*definition.NestedItem, constants, models)
+		nestedItem, err := mapSDKOperationOptionToRepository(*definition.NestedItem, constants, models, commonTypes)
 		if err != nil {
 			return nil, fmt.Errorf("mapping nested option object definition: %+v", err)
 		}
@@ -45,14 +45,14 @@ func mapSDKOperationOptionToRepository(definition sdkModels.SDKOperationOptionOb
 	}
 
 	// finally let's do some sanity-checking to ensure the data being output looks legit
-	if err := validateSDKOperationOptionObjectDefinition(output, constants, models); err != nil {
+	if err := validateSDKOperationOptionObjectDefinition(output, constants, models, commonTypes); err != nil {
 		return nil, fmt.Errorf("validating mapped OptionObjectDefinition: %+v", err)
 	}
 
 	return &output, nil
 }
 
-func validateSDKOperationOptionObjectDefinition(input repositoryModels.OptionObjectDefinition, constants map[string]sdkModels.SDKConstant, models map[string]sdkModels.SDKModel) error {
+func validateSDKOperationOptionObjectDefinition(input repositoryModels.OptionObjectDefinition, constants map[string]sdkModels.SDKConstant, models map[string]sdkModels.SDKModel, commonTypes sdkModels.CommonTypes) error {
 	requiresNestedItem := input.Type == repositoryModels.CsvOptionObjectDefinitionType || input.Type == repositoryModels.ListOptionObjectDefinitionType
 	requiresReference := input.Type == repositoryModels.ReferenceOptionObjectDefinitionType
 	if requiresNestedItem && input.NestedItem == nil {
@@ -66,13 +66,18 @@ func validateSDKOperationOptionObjectDefinition(input repositoryModels.OptionObj
 			return fmt.Errorf("a Reference must be specified for a %q type but didn't get one", string(input.Type))
 		}
 
-		_, isConstant := constants[*input.ReferenceName]
-		_, isModel := models[*input.ReferenceName]
-		if !isConstant && !isModel {
-			return fmt.Errorf("reference %q was not found as a constant or a model", *input.ReferenceName)
+		_, isLocalConstant := constants[*input.ReferenceName]
+		var isCommonConstant bool
+		if commonTypes.Constants != nil {
+			_, isCommonConstant = commonTypes.Constants[*input.ReferenceName]
 		}
-		if isConstant && isModel {
-			return fmt.Errorf("internal-error: %q was found as BOTH a Constant and a Model", *input.ReferenceName)
+
+		if input.ReferenceNameIsCommonType != nil && *input.ReferenceNameIsCommonType {
+			if !isCommonConstant {
+				return fmt.Errorf("reference %q was not found as a common constant or model", *input.ReferenceName)
+			}
+		} else if !isLocalConstant {
+			return fmt.Errorf("reference %q was not found as a local constant or model", *input.ReferenceName)
 		}
 	}
 	if !requiresReference && input.ReferenceName != nil {

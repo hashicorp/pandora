@@ -11,7 +11,7 @@ import (
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
-func mapSDKObjectDefinitionToRepository(details sdkModels.SDKObjectDefinition, constants map[string]sdkModels.SDKConstant, models map[string]sdkModels.SDKModel) (*repositoryModels.ObjectDefinition, error) {
+func mapSDKObjectDefinitionToRepository(details sdkModels.SDKObjectDefinition, constants map[string]sdkModels.SDKConstant, models map[string]sdkModels.SDKModel, commonTypes sdkModels.CommonTypes) (*repositoryModels.ObjectDefinition, error) {
 	typeVal, ok := internalObjectDefinitionsToObjectDefinitionTypes[details.Type]
 	if !ok {
 		return nil, fmt.Errorf("internal-error: no ObjectDefinition mapping is defined for the ObjectDefinition Type %q", string(details.Type))
@@ -27,8 +27,12 @@ func mapSDKObjectDefinitionToRepository(details sdkModels.SDKObjectDefinition, c
 		output.ReferenceName = details.ReferenceName
 	}
 
+	if details.ReferenceNameIsCommonType != nil {
+		output.ReferenceNameIsCommonType = details.ReferenceNameIsCommonType
+	}
+
 	if details.NestedItem != nil {
-		nestedItem, err := mapSDKObjectDefinitionToRepository(*details.NestedItem, constants, models)
+		nestedItem, err := mapSDKObjectDefinitionToRepository(*details.NestedItem, constants, models, commonTypes)
 		if err != nil {
 			return nil, fmt.Errorf("mapping nested object definition: %+v", err)
 		}
@@ -48,14 +52,14 @@ func mapSDKObjectDefinitionToRepository(details sdkModels.SDKObjectDefinition, c
 	}
 
 	// finally let's do some sanity-checking to ensure the data being output looks legit
-	if err := validateObjectDefinition(output, constants, models); err != nil {
+	if err := validateObjectDefinition(output, constants, models, commonTypes); err != nil {
 		return nil, fmt.Errorf("validating mapped ObjectDefinition: %+v", err)
 	}
 
 	return &output, nil
 }
 
-func validateObjectDefinition(input repositoryModels.ObjectDefinition, constants map[string]sdkModels.SDKConstant, models map[string]sdkModels.SDKModel) error {
+func validateObjectDefinition(input repositoryModels.ObjectDefinition, constants map[string]sdkModels.SDKConstant, models map[string]sdkModels.SDKModel, commonTypes sdkModels.CommonTypes) error {
 	requiresNestedItem := input.Type == repositoryModels.CsvObjectDefinitionType ||
 		input.Type == repositoryModels.DictionaryObjectDefinitionType ||
 		input.Type == repositoryModels.ListObjectDefinitionType
@@ -71,13 +75,30 @@ func validateObjectDefinition(input repositoryModels.ObjectDefinition, constants
 			return fmt.Errorf("a Reference must be specified for a %q type but didn't get one", string(input.Type))
 		}
 
-		_, isConstant := constants[*input.ReferenceName]
-		_, isModel := models[*input.ReferenceName]
-		if !isConstant && !isModel {
-			return fmt.Errorf("reference %q was not found as a constant or a model", *input.ReferenceName)
+		_, isLocalConstant := constants[*input.ReferenceName]
+		_, isLocalModel := models[*input.ReferenceName]
+		var isCommonConstant, isCommonModel bool
+		if commonTypes.Constants != nil {
+			_, isCommonConstant = commonTypes.Constants[*input.ReferenceName]
 		}
-		if isConstant && isModel {
-			return fmt.Errorf("internal-error: %q was found as BOTH a Constant and a Model", *input.ReferenceName)
+		if commonTypes.Models != nil {
+			_, isCommonModel = commonTypes.Models[*input.ReferenceName]
+		}
+
+		if input.ReferenceNameIsCommonType != nil && *input.ReferenceNameIsCommonType {
+			if !isCommonConstant && !isCommonModel {
+				return fmt.Errorf("reference %q was not found as a common constant or model", *input.ReferenceName)
+			}
+			if isCommonConstant && isCommonModel {
+				return fmt.Errorf("internal-error: %q was found as BOTH a common constant and model", *input.ReferenceName)
+			}
+		} else {
+			if !isLocalConstant && !isLocalModel {
+				return fmt.Errorf("reference %q was not found as a local constant or model", *input.ReferenceName)
+			}
+			if isLocalConstant && isLocalModel {
+				return fmt.Errorf("internal-error: %q was found as BOTH a local constant and model", *input.ReferenceName)
+			}
 		}
 	}
 	if !requiresReference && input.ReferenceName != nil {

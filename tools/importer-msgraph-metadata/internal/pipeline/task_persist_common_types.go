@@ -3,18 +3,16 @@ package pipeline
 import (
 	"fmt"
 
-	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	dataapisdk "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/data-api-repository/repository"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/dataapigeneratorjson"
 )
 
 func (p pipeline) PersistCommonTypesDefinitions() error {
 	p.logger.Debug(fmt.Sprintf("removing any existing Common Types Definitions with Version %q", p.apiVersion))
 
-	removeCommonTypesOpts := dataapigeneratorjson.RemoveCommonTypesOptions{
-		SourceDataOrigin: dataapisdk.MicrosoftGraphMetaDataSourceDataOrigin,
-		SourceDataType:   dataapisdk.MicrosoftGraphSourceDataType,
+	removeCommonTypesOpts := repository.RemoveCommonTypesOptions{
+		SourceDataOrigin: sdkModels.MicrosoftGraphMetaDataSourceDataOrigin,
+		SourceDataType:   sdkModels.MicrosoftGraphSourceDataType,
 		Version:          p.apiVersion,
 	}
 
@@ -28,11 +26,11 @@ func (p pipeline) PersistCommonTypesDefinitions() error {
 		p.apiVersion: p.commonTypesForVersion,
 	}
 
-	opts := dataapigeneratorjson.SaveCommonTypesOptions{
-		AzureRestAPISpecsGitSHA: pointer.To(p.metadataGitSha),
-		CommonTypes:             commonTypes,
-		SourceDataOrigin:        dataapisdk.MicrosoftGraphMetaDataSourceDataOrigin,
-		SourceDataType:          dataapisdk.MicrosoftGraphSourceDataType,
+	opts := repository.SaveCommonTypesOptions{
+		SourceCommitSHA:  pointerTo(p.metadataGitSha),
+		CommonTypes:      commonTypes,
+		SourceDataOrigin: sdkModels.MicrosoftGraphMetaDataSourceDataOrigin,
+		SourceDataType:   sdkModels.MicrosoftGraphSourceDataType,
 	}
 
 	if err := p.repo.SaveCommonTypes(opts); err != nil {
