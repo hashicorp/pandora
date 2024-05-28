@@ -1,7 +1,7 @@
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
 
-package pipeline
+package parser
 
 import (
 	"fmt"
@@ -9,6 +9,7 @@ import (
 
 	"github.com/getkin/kin-openapi/openapi3"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/normalize"
 )
 
 /* ===================
@@ -25,8 +26,9 @@ import (
    Schema leads to SchemaRefs and Schemas
 */
 
-const refPrefix = "#/components/schemas/"
+const RefPrefix = "#/components/schemas/"
 
+type Constants map[string]*Constant
 type Models map[string]*Model
 
 // Found returns true when the provided modelName was found in the Models map
@@ -83,6 +85,11 @@ func (m Models) Merge(m2 Models) {
 	}
 }
 
+type Constant struct {
+	Enum []string
+	Type *DataType
+}
+
 type Model struct {
 	Fields map[string]*ModelField
 	Common bool
@@ -137,56 +144,10 @@ type ModelField struct {
 	Type         *DataType
 	Description  string
 	Default      interface{}
-	Enum         []string
 	ItemType     *DataType
 	ConstantName *string
 	ModelName    *string
 	JsonField    string
-}
-
-// CSType returns a string containing the C# type name for the ModelField, either describing it as a literal type, a
-// specific model type, or a collection of either.
-func (f ModelField) CSType(models Models) *string {
-	if f.Type == nil {
-		return nil
-	}
-
-	switch *f.Type {
-	case DataTypeModel:
-		if f.ModelName == nil {
-			return nil
-		}
-
-		if models.Found(*f.ModelName) && models[*f.ModelName].IsValid() {
-			return pointerTo(fmt.Sprintf("%sModel", *f.ModelName))
-		}
-
-	case DataTypeArray:
-		if f.ModelName != nil {
-			if models.Found(*f.ModelName) && models[*f.ModelName].IsValid() {
-				return pointerTo(fmt.Sprintf("List<%sModel>", *f.ModelName))
-			}
-		}
-
-		if f.ConstantName != nil {
-			return pointerTo(fmt.Sprintf("List<%sConstant>", *f.ConstantName))
-		}
-
-		if f.ItemType != nil {
-			if itemCSType := f.ItemType.CSType(); itemCSType != nil {
-				return pointerTo(fmt.Sprintf("List<%s>", *itemCSType))
-			}
-		}
-
-		return nil
-
-	case DataTypeString:
-		if f.ConstantName != nil {
-			return pointerTo(fmt.Sprintf("%sConstant", *f.ConstantName))
-		}
-	}
-
-	return f.Type.CSType()
 }
 
 func (f ModelField) DataApiSdkObjectDefinition(models Models) (*sdkModels.SDKObjectDefinition, error) {
@@ -352,8 +313,8 @@ func (ft DataType) DataApiSdkObjectDefinitionType() sdkModels.SDKObjectDefinitio
 	return sdkModels.StringSDKObjectDefinitionType
 }
 
-// fieldType parses the schemaType and schemaFormat from the OpenAPI spec for a given field, and returns the appropriate DataType
-func fieldType(schemaType, schemaFormat string, hasModel bool) *DataType {
+// FieldType parses the schemaType and schemaFormat from the OpenAPI spec for a given field, and returns the appropriate DataType
+func FieldType(schemaType, schemaFormat string, hasModel bool) *DataType {
 	var ret DataType
 
 	switch strings.ToLower(schemaFormat) {
@@ -420,14 +381,15 @@ func fieldType(schemaType, schemaFormat string, hasModel bool) *DataType {
 	return nil
 }
 
-func parseCommonModels(schemas openapi3.Schemas) (models Models, err error) {
+func Common(schemas openapi3.Schemas) (models Models, constants Constants, err error) {
 	models = make(Models)
+	constants = make(Constants)
 	for modelName, schemaRef := range schemas {
-		name := cleanName(modelName)
+		name := normalize.CleanName(modelName)
 		if schemaRef.Value != nil {
 			var f *flattenedSchema
-			if f, _ = flattenSchemaRef(schemaRef, nil); f != nil {
-				models = parseSchemas(*f, name, models, true)
+			if f, _ = FlattenSchemaRef(schemaRef, nil); f != nil {
+				models, constants = Schemas(*f, name, models, constants, true)
 			}
 		}
 	}
@@ -444,10 +406,10 @@ type flattenedSchema struct {
 	Enum    []interface{}
 }
 
-// flattenSchemaRef attempts to recursively parse and flatten the provided *openapi3.Schema and returns a flattenedSchema
+// FlattenSchemaRef attempts to recursively parse and flatten the provided *openapi3.Schema and returns a flattenedSchema
 // which is much more convenient to inspect for types. The returned map[string]bool is used when recursing to track
 // Refs which have been observed in order to avoid infinite recursion, and is usually not interesting to the caller.
-func flattenSchemaRef(schemaRef *openapi3.SchemaRef, seenRefs map[string]bool) (*flattenedSchema, map[string]bool) {
+func FlattenSchemaRef(schemaRef *openapi3.SchemaRef, seenRefs map[string]bool) (*flattenedSchema, map[string]bool) {
 	if seenRefs == nil {
 		seenRefs = make(map[string]bool)
 	}
@@ -459,12 +421,12 @@ func flattenSchemaRef(schemaRef *openapi3.SchemaRef, seenRefs map[string]bool) (
 	prefix := ""
 	title := ""
 	titleFromRef := false
-	if strings.HasPrefix(schemaRef.Ref, refPrefix) {
-		ref := schemaRef.Ref[len(refPrefix):]
+	if strings.HasPrefix(schemaRef.Ref, RefPrefix) {
+		ref := schemaRef.Ref[len(RefPrefix):]
 		if i := strings.LastIndex(ref, "."); i > 0 {
-			prefix = strings.Title(cleanName(ref[0:i]))
+			prefix = strings.Title(normalize.CleanName(ref[0:i]))
 		}
-		title = strings.Title(cleanName(ref))
+		title = strings.Title(normalize.CleanName(ref))
 		titleFromRef = true
 	}
 	schema := schemaRef.Value
@@ -481,20 +443,20 @@ func flattenSchemaRef(schemaRef *openapi3.SchemaRef, seenRefs map[string]bool) (
 				}
 			}
 			seenRefs[r.Ref] = true
-			if title == "" && strings.HasPrefix(r.Ref, refPrefix) {
-				ref := r.Ref[len(refPrefix):]
+			if title == "" && strings.HasPrefix(r.Ref, RefPrefix) {
+				ref := r.Ref[len(RefPrefix):]
 				if i := strings.LastIndex(ref, "."); i > 0 {
-					prefix = strings.Title(cleanName(ref[0:i]))
+					prefix = strings.Title(normalize.CleanName(ref[0:i]))
 				}
-				title = strings.Title(cleanName(ref))
+				title = strings.Title(normalize.CleanName(ref))
 			}
 		}
 
 		if r.Value != nil {
 			var result *flattenedSchema
-			result, seenRefs = flattenSchemaRef(r, seenRefs)
+			result, seenRefs = FlattenSchemaRef(r, seenRefs)
 			if title == "" && result.Title != "" {
-				title = strings.Title(cleanName(result.Title))
+				title = strings.Title(normalize.CleanName(result.Title))
 			}
 			if result.Type != "" {
 				typ = result.Type
@@ -519,21 +481,21 @@ func flattenSchemaRef(schemaRef *openapi3.SchemaRef, seenRefs map[string]bool) (
 						}
 					}
 					seenRefs[r.Ref] = true
-					if !titleFromRef && strings.HasPrefix(r.Ref, refPrefix) {
-						ref := r.Ref[len(refPrefix):]
+					if !titleFromRef && strings.HasPrefix(r.Ref, RefPrefix) {
+						ref := r.Ref[len(RefPrefix):]
 						if i := strings.LastIndex(ref, "."); i > 0 {
-							prefix = strings.Title(cleanName(ref[0:i]))
+							prefix = strings.Title(normalize.CleanName(ref[0:i]))
 						}
-						title = strings.Title(cleanName(ref))
+						title = strings.Title(normalize.CleanName(ref))
 						titleFromRef = true
 					}
 				}
 
 				if r.Value != nil {
 					var result *flattenedSchema
-					result, seenRefs = flattenSchemaRef(r, seenRefs)
+					result, seenRefs = FlattenSchemaRef(r, seenRefs)
 					if !titleFromRef && result.Title != "" {
-						title = strings.Title(cleanName(result.Title))
+						title = strings.Title(normalize.CleanName(result.Title))
 					}
 					if typ == "" && result.Type != "" {
 						typ = result.Type
@@ -560,21 +522,21 @@ func flattenSchemaRef(schemaRef *openapi3.SchemaRef, seenRefs map[string]bool) (
 						}
 					}
 					seenRefs[r.Ref] = true
-					if !titleFromRef && strings.HasPrefix(r.Ref, refPrefix) {
-						ref := r.Ref[len(refPrefix):]
+					if !titleFromRef && strings.HasPrefix(r.Ref, RefPrefix) {
+						ref := r.Ref[len(RefPrefix):]
 						if i := strings.LastIndex(ref, "."); i > 0 {
-							prefix = strings.Title(cleanName(ref[0:i]))
+							prefix = strings.Title(normalize.CleanName(ref[0:i]))
 						}
-						title = strings.Title(cleanName(ref))
+						title = strings.Title(normalize.CleanName(ref))
 						titleFromRef = true
 					}
 				}
 
 				if r.Value != nil {
 					var result *flattenedSchema
-					result, seenRefs = flattenSchemaRef(r, seenRefs)
+					result, seenRefs = FlattenSchemaRef(r, seenRefs)
 					if !titleFromRef && result.Title != "" {
-						title = strings.Title(cleanName(result.Title))
+						title = strings.Title(normalize.CleanName(result.Title))
 					}
 					if typ == "" && result.Type != "" {
 						typ = result.Type
@@ -595,7 +557,7 @@ func flattenSchemaRef(schemaRef *openapi3.SchemaRef, seenRefs map[string]bool) (
 
 	// TODO: may need to prefer innermost title
 	if schema.Title != "" {
-		title = strings.Title(cleanName(schema.Title))
+		title = strings.Title(normalize.CleanName(schema.Title))
 	}
 
 	// prefer the innermost type
@@ -632,13 +594,24 @@ func flattenSchemaRef(schemaRef *openapi3.SchemaRef, seenRefs map[string]bool) (
 	}, seenRefs
 }
 
-// parseSchemas inspects the provided flattenedSchema to parse out the fields for the provided modelName, optionally
+// Schemas inspects the provided flattenedSchema to parse out the fields for the provided modelName, optionally
 // marking it as a common model. The provided Models (map[string]Model) is mutated to append the new model and its fields.
 // Fields having the type of another model are parsed recursively to extract all known models that may not be directly
 // referenced in the root schema.
-func parseSchemas(input flattenedSchema, modelName string, models Models, common bool) Models {
-	if _, ok := models[modelName]; ok {
-		return models
+func Schemas(input flattenedSchema, name string, models Models, constants Constants, common bool) (Models, Constants) {
+	if _, ok := models[name]; ok {
+		return models, constants
+	}
+
+	// Check if this is a constant
+	if input.Enum != nil && input.Schemas == nil {
+		constant := Constant{
+			Enum: parseEnum(input.Enum),
+			Type: FieldType(input.Type, input.Format, false),
+		}
+
+		constants[name] = &constant
+		return models, constants
 	}
 
 	model := Model{
@@ -648,7 +621,7 @@ func parseSchemas(input flattenedSchema, modelName string, models Models, common
 	}
 
 	// Add to models map before descending, to prevent recursion
-	models[modelName] = &model
+	models[name] = &model
 
 	for jsonField, schemaRef := range input.Schemas {
 		if schema := schemaRef.Value; schema != nil {
@@ -656,7 +629,6 @@ func parseSchemas(input flattenedSchema, modelName string, models Models, common
 				Title:       strings.Title(jsonField),
 				Description: schema.Description,
 				Default:     schema.Default,
-				Enum:        parseEnum(schema.Enum),
 				JsonField:   jsonField,
 			}
 
@@ -664,42 +636,50 @@ func parseSchemas(input flattenedSchema, modelName string, models Models, common
 				continue
 			}
 
-			result, _ := flattenSchemaRef(schemaRef, nil)
+			result, _ := FlattenSchemaRef(schemaRef, nil)
 
-			if result != nil && len(result.Enum) > 0 && len(field.Enum) == 0 {
-				field.Enum = parseEnum(result.Enum)
+			enum := parseEnum(schema.Enum)
+			if result != nil && len(result.Enum) > 0 && len(enum) == 0 {
+				enum = parseEnum(result.Enum)
 			}
 
 			if result != nil && result.Title != "" && result.Schemas != nil {
 				if _, ok := models[result.Title]; !ok {
-					models = parseSchemas(*result, result.Title, models, common)
+					models, constants = Schemas(*result, result.Title, models, constants, common)
 				}
 				field.ModelName = &result.Title
 			}
 
 			if schema.Items != nil && schema.Items.Value != nil && schema.Items.Value.Type != "" {
-				field.ItemType = fieldType(schema.Items.Value.Type, schema.Items.Value.Format, field.ModelName != nil)
+				field.ItemType = FieldType(schema.Items.Value.Type, schema.Items.Value.Format, field.ModelName != nil)
 			}
 
 			if result != nil && schema.Type == "" && schema.Format == "" && (result.Type != "" || result.Format != "") {
-				field.Type = fieldType(result.Type, result.Format, field.ModelName != nil)
+				field.Type = FieldType(result.Type, result.Format, field.ModelName != nil)
 			} else {
-				field.Type = fieldType(schema.Type, schema.Format, field.ModelName != nil)
+				field.Type = FieldType(schema.Type, schema.Format, field.ModelName != nil)
 			}
 
-			if result != nil && field.Type != nil && *field.Type == DataTypeArray && len(field.Enum) > 0 && (result.Type != "" || result.Format != "") {
-				field.ItemType = fieldType(result.Type, result.Format, field.ModelName != nil)
+			if result != nil && field.Type != nil && *field.Type == DataTypeArray && len(enum) > 0 && (result.Type != "" || result.Format != "") {
+				field.ItemType = FieldType(result.Type, result.Format, field.ModelName != nil)
 			}
 
-			if ((field.Type != nil && *field.Type == DataTypeString) || (field.ItemType != nil && *field.ItemType == DataTypeString)) && len(field.Enum) > 0 {
-				field.ConstantName = pointerTo(modelName + field.Title)
+			if ((field.Type != nil && *field.Type == DataTypeString) || (field.ItemType != nil && *field.ItemType == DataTypeString)) && len(enum) > 0 {
+				// Despite being "fully qualified", type names are not unique in MS Graph, so we prefix them with the field name to provide some namespacing.
+				// This leads to some excessively long constant names, it is what it is.
+				field.ConstantName = pointerTo(name + field.Title)
+
+				constants[*field.ConstantName] = &Constant{
+					Enum: enum,
+					Type: field.Type,
+				}
 			}
 
-			model.Fields[cleanName(jsonField)] = &field
+			model.Fields[normalize.CleanName(jsonField)] = &field
 		}
 	}
 
-	return models
+	return models, constants
 }
 
 // parseEnum returns a slice of sanitized enum values (which are always strings)

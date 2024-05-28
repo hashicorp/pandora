@@ -9,6 +9,9 @@ import (
 
 	"github.com/getkin/kin-openapi/openapi3"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/dataapigeneratorjson"
+	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/parser"
+	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/tags"
+	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/versions"
 	"github.com/hashicorp/pandora/tools/sdk/config/services"
 )
 
@@ -20,7 +23,7 @@ func runImporter(input RunInput, metadataGitSha string) error {
 		return fmt.Errorf("loading config: %+v", err)
 	}
 
-	for _, apiVersion := range SupportedVersions {
+	for _, apiVersion := range versions.Supported {
 		openApiFile := fmt.Sprintf(input.OpenApiFilePattern, apiVersion)
 		if err := runImportForVersion(input, apiVersion, openApiFile, metadataGitSha, config); err != nil {
 			return err
@@ -38,22 +41,32 @@ func runImportForVersion(input RunInput, apiVersion, openApiFile, metadataGitSha
 		return err
 	}
 
-	repo := dataapigeneratorjson.NewRepository(input.OutputDirectory)
-
-	models, err := parseCommonModels(spec.Components.Schemas)
+	models, constants, err := parser.Common(spec.Components.Schemas)
 	if err != nil {
 		return err
 	}
 
-	sdkModels, err := translateModelsToDataApiSdkTypes(models)
+	commonTypesForApiVersion, err := translateModelsToDataApiSdkTypes(models, constants)
 	if err != nil {
 		return err
 	}
 
-	fmt.Printf("%T\n", sdkModels)
-
-	serviceTags, err := parseTags(spec.Tags)
+	serviceTags, err := tags.Parse(spec.Tags)
 	if err != nil {
+		return err
+	}
+
+	p := &pipeline{
+		apiVersion:            apiVersion,
+		commonTypesForVersion: *commonTypesForApiVersion,
+		logger:                input.Logger,
+		metadataGitSha:        metadataGitSha,
+		outputDirectory:       input.OutputDirectory,
+		repo:                  dataapigeneratorjson.NewRepository(input.OutputDirectory),
+		spec:                  spec,
+	}
+
+	if err = p.PersistCommonTypesDefinitions(); err != nil {
 		return err
 	}
 
@@ -89,17 +102,7 @@ func runImportForVersion(input RunInput, apiVersion, openApiFile, metadataGitSha
 
 				input.Logger.Info(fmt.Sprintf("Importing service %q for API version %q", service.Name, version))
 
-				task := &pipelineTask{
-					apiVersion:      apiVersion,
-					logger:          input.Logger,
-					metadataGitSha:  metadataGitSha,
-					outputDirectory: input.OutputDirectory,
-					repo:            repo,
-					service:         service.Directory,
-					spec:            spec,
-				}
-
-				if err = task.runImportForService(serviceTags[service.Directory], models); err != nil {
+				if err = p.ForService(service.Directory).runImport(serviceTags[service.Directory], models, constants); err != nil {
 					return err
 				}
 			}

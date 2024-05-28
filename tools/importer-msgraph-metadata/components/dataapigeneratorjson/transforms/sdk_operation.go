@@ -13,7 +13,7 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
 )
 
-func MapSDKOperationToRepository(operationName string, input models.SDKOperation, knownConstants map[string]models.SDKConstant, knownModels map[string]models.SDKModel) (*dataapimodels.Operation, error) {
+func MapSDKOperationToRepository(operationName string, input models.SDKOperation, knownConstants map[string]models.SDKConstant, knownModels map[string]models.SDKModel, knownCommonTypes models.CommonTypes) (*dataapimodels.Operation, error) {
 	contentType := input.ContentType
 	if strings.Contains(strings.ToLower(contentType), "application/json") {
 		contentType = fmt.Sprintf("%s; charset=utf-8", contentType)
@@ -31,7 +31,7 @@ func MapSDKOperationToRepository(operationName string, input models.SDKOperation
 	}
 
 	if input.RequestObject != nil {
-		requestObject, err := mapSDKObjectDefinitionToRepository(*input.RequestObject, knownConstants, knownModels)
+		requestObject, err := mapSDKObjectDefinitionToRepository(*input.RequestObject, knownConstants, knownModels, knownCommonTypes)
 		if err != nil {
 			return nil, fmt.Errorf("mapping the request object definition: %+v", err)
 		}
@@ -39,7 +39,7 @@ func MapSDKOperationToRepository(operationName string, input models.SDKOperation
 	}
 
 	if input.ResponseObject != nil {
-		responseObject, err := mapSDKObjectDefinitionToRepository(*input.ResponseObject, knownConstants, knownModels)
+		responseObject, err := mapSDKObjectDefinitionToRepository(*input.ResponseObject, knownConstants, knownModels, knownCommonTypes)
 		if err != nil {
 			return nil, fmt.Errorf("mapping the response object definition: %+v", err)
 		}
@@ -57,7 +57,7 @@ func MapSDKOperationToRepository(operationName string, input models.SDKOperation
 		for _, optionName := range sortedOptionsKeys {
 			optionDetails := input.Options[optionName]
 
-			optionObjectDefinition, err := mapSDKOperationOptionToRepository(optionDetails.ObjectDefinition, knownConstants, knownModels)
+			optionObjectDefinition, err := mapSDKOperationOptionToRepository(optionDetails.ObjectDefinition, knownConstants, knownModels, knownCommonTypes)
 			if err != nil {
 				return nil, fmt.Errorf("mapping the object definition: %+v", err)
 			}

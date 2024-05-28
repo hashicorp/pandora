@@ -1,7 +1,7 @@
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
 
-package pipeline
+package parser
 
 import (
 	"fmt"
@@ -10,10 +10,11 @@ import (
 	"strings"
 
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/normalize"
 )
 
-var resourceSuffix = "ById"
-var resourceIdSuffix = "Id"
+var ResourceSuffix = "ById"
+var ResourceIdSuffix = "Id"
 
 type ResourceIds []*ResourceId
 
@@ -144,7 +145,7 @@ func (r ResourceId) FullyQualifiedResourceName(suffixQualification *string) (*st
 	verb := ""
 	for i, segment := range r.Segments {
 		if segment.Type == SegmentAction || segment.Type == SegmentLabel || segment.Type == SegmentODataReference {
-			newName := cleanName(segment.Value)
+			newName := normalize.CleanName(segment.Value)
 			shouldSingularize := false
 
 			if segment.Type == SegmentLabel {
@@ -159,7 +160,7 @@ func (r ResourceId) FullyQualifiedResourceName(suffixQualification *string) (*st
 					// Look for a verb match in the next segment, if it exists and is not a SegmentUserValue
 					// Example: in the following ID, we want to _not_ singularize the `jobs` label
 					//          /applications/{applicationId}/synchronization/jobs/validateCredentials
-					if _, ok := verbs.match(cleanName(r.Segments[i+1].Value)); ok {
+					if _, ok := normalize.Verbs.Match(normalize.CleanName(r.Segments[i+1].Value)); ok {
 						shouldSingularize = false
 					}
 
@@ -171,14 +172,14 @@ func (r ResourceId) FullyQualifiedResourceName(suffixQualification *string) (*st
 			}
 
 			// Note we intentionally match verbs on any segment type, not just SegmentTypeAction
-			if v, ok := verbs.match(newName); ok && verb == "" {
+			if v, ok := normalize.Verbs.Match(newName); ok && verb == "" {
 				verb = *v
 				newName = newName[len(verb):]
 				shouldSingularize = false
 			}
 
 			if shouldSingularize {
-				newName = singularize(newName)
+				newName = normalize.Singularize(newName)
 			}
 
 			name = name + newName
@@ -196,7 +197,7 @@ func (r ResourceId) FullyQualifiedResourceName(suffixQualification *string) (*st
 	}
 
 	// TODO: it would be nice to do this but it's causing some clobbering issues
-	//name = deDuplicateName(name)
+	//name = DeDuplicateName(name)
 
 	return &name, true
 }
@@ -262,13 +263,13 @@ func (r ResourceId) FindResourceName() (*string, bool) {
 		break
 	}
 
-	return r2.FullyQualifiedResourceName(&resourceSuffix)
+	return r2.FullyQualifiedResourceName(&ResourceSuffix)
 }
 
 // FindResourceIdName returns a short name for the ResourceId. This currently has the same behavior as FindResourceName
 // but may be changed in future if the ResourceId needs to be distinctly named.
 func (r ResourceId) FindResourceIdName() (*string, bool) {
-	name, ok := r.FullyQualifiedResourceName(&resourceIdSuffix)
+	name, ok := r.FullyQualifiedResourceName(&ResourceIdSuffix)
 	return name, ok
 }
 
@@ -339,15 +340,15 @@ type ResourceIdSegment struct {
 	Field *string
 }
 
-type ResourceIdSegmentType uint
+type ResourceIdSegmentType string
 
 const (
-	SegmentLabel ResourceIdSegmentType = iota
-	SegmentUserValue
-	SegmentODataReference
-	SegmentAction
-	SegmentCast
-	SegmentFunction
+	SegmentLabel          ResourceIdSegmentType = "Label"
+	SegmentUserValue      ResourceIdSegmentType = "UserValue"
+	SegmentODataReference ResourceIdSegmentType = "ODataReference"
+	SegmentAction         ResourceIdSegmentType = "Action"
+	SegmentCast           ResourceIdSegmentType = "Cast"
+	SegmentFunction       ResourceIdSegmentType = "Function"
 )
 
 func NewResourceId(path string, tags []string) (id ResourceId) {

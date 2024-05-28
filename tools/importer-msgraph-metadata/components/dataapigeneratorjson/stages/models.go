@@ -19,8 +19,9 @@ type ModelsStage struct {
 	// APIVersion specifies the APIVersion within the Service where the Models exist.
 	APIVersion string
 
-	// APIResource specifies the APIResource within the APIVersion where the Models exist.
-	APIResource string
+	// CommonTypes specifies a map of API Version (key) to CommonTypes (value)
+	// which defines the available Common Types for this Service.
+	CommonTypes map[string]models.CommonTypes
 
 	// Constants specifies the map of Constant Name (key) to SDKConstant (value) which should be
 	// persisted.
@@ -30,12 +31,17 @@ type ModelsStage struct {
 	// persisted.
 	Models map[string]models.SDKModel
 
-	// ServiceName specifies the name of the Service within which the Models exist.
-	ServiceName string
+	// OutputDirectory specifies the path where constants should be persisted.
+	OutputDirectory string
 }
 
 func (g ModelsStage) Generate(input *helpers.FileSystem) error {
 	logging.Log.Debug("Generating Models")
+
+	if g.OutputDirectory == "" {
+		return fmt.Errorf("internal: OutputDirectory cannot be empty")
+	}
+
 	for modelName := range g.Models {
 		logging.Log.Trace(fmt.Sprintf("Generating Model %q..", modelName))
 		modelValue := g.Models[modelName]
@@ -49,13 +55,17 @@ func (g ModelsStage) Generate(input *helpers.FileSystem) error {
 			}
 		}
 
-		mapped, err := transforms.MapSDKModelToRepository(modelName, modelValue, parent, g.Constants, g.Models)
+		var commonTypes models.CommonTypes
+		if commonTypesForVersion, ok := g.CommonTypes[g.APIVersion]; ok {
+			commonTypes = commonTypesForVersion
+		}
+
+		mapped, err := transforms.MapSDKModelToRepository(modelName, modelValue, parent, g.Constants, g.Models, commonTypes)
 		if err != nil {
 			return fmt.Errorf("mapping model %q: %+v", modelName, err)
 		}
 
-		// {workingDirectory}/Service/APIVersion/APIResource/Model-{Name}.json
-		path := filepath.Join(g.ServiceName, g.APIVersion, g.APIResource, fmt.Sprintf("Model-%s.json", modelName))
+		path := filepath.Join(g.OutputDirectory, fmt.Sprintf("Model-%s.json", modelName))
 		logging.Log.Trace(fmt.Sprintf("Staging to %s", path))
 		if err := input.Stage(path, *mapped); err != nil {
 			return fmt.Errorf("staging Model %q: %+v", modelName, err)

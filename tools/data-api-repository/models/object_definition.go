@@ -12,6 +12,9 @@ type ObjectDefinition struct {
 	// ReferenceName is the name of the Constant or Model that this is a reference to
 	ReferenceName *string `json:"referenceName"`
 
+	// ReferenceNameIsCommonType specifies whether the referenced Constant or Model is a common type
+	ReferenceNameIsCommonType *bool `json:"referenceNameIsCommonType,omitempty"`
+
 	// NestedItem is a nested ObjectDefinition when Type is a Dictionary or List
 	// NOTE: that it's possible to have deeply-nested ObjectDefinitions, e.g. a List of a List of a Dictionary[String (key, fixed as a string) : Integer (value)
 	NestedItem *ObjectDefinition `json:"nestedItem,omitempty"`

@@ -12,7 +12,7 @@ import (
 	"time"
 
 	"github.com/hashicorp/go-hclog"
-	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/internal/pipeline"
+	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/internal/supported-services"
 	"github.com/mitchellh/cli"
 )
 
@@ -54,14 +54,12 @@ func (c ListTagsCommand) Run(args []string) int {
 		logger.SetLevel(hclog.LevelFromString(logLevel))
 	}
 
-	input := pipeline.RunInput{
-		ProviderPrefix: "azuread",
-		Logger:         logger,
-
+	input := supported_services.SupportedServicesInput{
+		Logger:             logger,
 		MetadataDirectory:  c.metadataDirectory,
 		OpenApiFilePattern: c.openApiFilePattern,
 	}
-	if err := pipeline.OutputSupportedServices(input); err != nil {
+	if err := supported_services.OutputSupportedServices(input); err != nil {
 		log.Fatalf("Error: %+v", err)
 	}
 

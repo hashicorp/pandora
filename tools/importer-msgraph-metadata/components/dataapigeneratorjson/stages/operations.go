@@ -30,6 +30,10 @@ type OperationsStage struct {
 	// persisted.
 	Models map[string]models.SDKModel
 
+	// CommonTypes specifies a map of API Version (key) to CommonTypes (value)
+	// which defines the available Common Types for this Service.
+	CommonTypes map[string]models.CommonTypes
+
 	// Operations specifies the map of Operation Name (key) to SDKOperation (value) which should be
 	// persisted.
 	Operations map[string]models.SDKOperation
@@ -44,7 +48,13 @@ func (g OperationsStage) Generate(input *helpers.FileSystem) error {
 		logging.Log.Trace(fmt.Sprintf("Generating Operation %q..", operationName))
 
 		operationDetails := g.Operations[operationName]
-		mapped, err := transforms.MapSDKOperationToRepository(operationName, operationDetails, g.Constants, g.Models)
+
+		var commonTypes models.CommonTypes
+		if commonTypesForVersion, ok := g.CommonTypes[g.APIVersion]; ok {
+			commonTypes = commonTypesForVersion
+		}
+
+		mapped, err := transforms.MapSDKOperationToRepository(operationName, operationDetails, g.Constants, g.Models, commonTypes)
 		if err != nil {
 			return fmt.Errorf("mapping Operation %q: %+v", operationName, err)
 		}

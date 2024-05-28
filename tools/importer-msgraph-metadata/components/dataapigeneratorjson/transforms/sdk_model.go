@@ -12,12 +12,12 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
 )
 
-func MapSDKModelToRepository(modelName string, model models.SDKModel, parentModel *models.SDKModel, knownConstants map[string]models.SDKConstant, knownModels map[string]models.SDKModel) (*dataapimodels.Model, error) {
+func MapSDKModelToRepository(modelName string, model models.SDKModel, parentModel *models.SDKModel, knownConstants map[string]models.SDKConstant, knownModels map[string]models.SDKModel, commonTypes models.CommonTypes) (*dataapimodels.Model, error) {
 	if len(model.Fields) == 0 {
 		return nil, fmt.Errorf("the model %q has no fields", modelName)
 	}
 
-	fields, err := mapSDKFieldsForModel(model, parentModel, knownConstants, knownModels)
+	fields, err := mapSDKFieldsForModel(model, parentModel, knownConstants, knownModels, commonTypes)
 	if err != nil {
 		return nil, fmt.Errorf("mapping fields for model %q: %+v", modelName, err)
 	}
@@ -42,7 +42,7 @@ func MapSDKModelToRepository(modelName string, model models.SDKModel, parentMode
 	return &dataApiModel, nil
 }
 
-func mapSDKFieldsForModel(model models.SDKModel, parentModel *models.SDKModel, knownConstants map[string]models.SDKConstant, knownModels map[string]models.SDKModel) (*[]dataapimodels.ModelField, error) {
+func mapSDKFieldsForModel(model models.SDKModel, parentModel *models.SDKModel, knownConstants map[string]models.SDKConstant, knownModels map[string]models.SDKModel, commonTypes models.CommonTypes) (*[]dataapimodels.ModelField, error) {
 	// ensure consistency in the output
 	sortedFieldNames := make([]string, 0)
 	for fieldName := range model.Fields {
@@ -72,7 +72,7 @@ func mapSDKFieldsForModel(model models.SDKModel, parentModel *models.SDKModel, k
 
 		field := model.Fields[fieldName]
 		isTypeHint := model.FieldNameContainingDiscriminatedValue != nil && strings.EqualFold(*model.FieldNameContainingDiscriminatedValue, fieldName)
-		fieldCode, err := mapSDKFieldToRepository(fieldName, field, isTypeHint, knownConstants, knownModels)
+		fieldCode, err := mapSDKFieldToRepository(fieldName, field, isTypeHint, knownConstants, knownModels, commonTypes)
 		if err != nil {
 			return nil, fmt.Errorf("generating code for field %q: %+v", fieldName, err)
 		}

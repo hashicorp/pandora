@@ -1,4 +1,4 @@
-package pipeline
+package versions
 
 type ApiVersion = string
 
@@ -7,4 +7,4 @@ const (
 	ApiVersionBeta ApiVersion = "beta"
 )
 
-var SupportedVersions = []string{ApiVersion1_0, ApiVersionBeta}
+var Supported = []string{ApiVersion1_0, ApiVersionBeta}

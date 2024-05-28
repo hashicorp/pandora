@@ -12,6 +12,9 @@ type OptionObjectDefinition struct {
 	// ReferenceName is the name of the Constant that this is a reference to
 	ReferenceName *string `json:"referenceName"`
 
+	// ReferenceNameIsCommonType specifies whether the referenced Constant is a common type
+	ReferenceNameIsCommonType *bool `json:"referenceNameIsCommonType,omitempty"`
+
 	// NestedItem is a nested OptionObjectDefinition when Type is a CSV or a List
 	NestedItem *OptionObjectDefinition `json:"nestedItem,omitempty"`
 }

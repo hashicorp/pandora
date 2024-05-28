@@ -14,6 +14,12 @@ type Repository interface {
 
 	// TODO: LoadService
 	// TODO: LoadServices
+
+	// RemoveCommonTypes removes any existing Common Types Definitions>
+	RemoveCommonTypes(opts RemoveCommonTypesOptions) error
+
+	// SaveCommonTypes persists the Common Types Definitions.
+	SaveCommonTypes(opts SaveCommonTypesOptions) error
 }
 
 // NewRepository returns an instance of Repository configured for the working directory.

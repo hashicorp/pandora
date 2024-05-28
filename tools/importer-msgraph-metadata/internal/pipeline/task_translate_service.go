@@ -2,10 +2,13 @@ package pipeline
 
 import (
 	"fmt"
+
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/normalize"
+	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/parser"
 )
 
-func (p pipelineTask) translateServiceToDataApiSdkTypes(models Models, resources Resources) (*map[string]sdkModels.Service, error) {
+func (p pipeline) translateServiceToDataApiSdkTypes(models parser.Models, constants parser.Constants, resources parser.Resources) (*map[string]sdkModels.Service, error) {
 	sdkServices := make(map[string]sdkModels.Service)
 
 	for _, resource := range resources {
@@ -22,7 +25,7 @@ func (p pipelineTask) translateServiceToDataApiSdkTypes(models Models, resources
 		if _, ok := sdkServices[resource.Service].APIVersions[resource.Version]; !ok {
 			sdkServices[resource.Service].APIVersions[resource.Version] = sdkModels.APIVersion{
 				Generate:  true,
-				Preview:   versionIsPreview(resource.Version),
+				Preview:   normalize.VersionIsPreview(resource.Version),
 				Resources: make(map[string]sdkModels.APIResource),
 				Source:    sdkModels.MicrosoftGraphMetaDataSourceDataOrigin,
 			}
@@ -37,7 +40,7 @@ func (p pipelineTask) translateServiceToDataApiSdkTypes(models Models, resources
 			}
 		}
 
-		serviceModels := make(Models)
+		serviceModels := make(parser.Models)
 
 		// Populate everything else
 		for _, operation := range resource.Operations {
@@ -55,6 +58,7 @@ func (p pipelineTask) translateServiceToDataApiSdkTypes(models Models, resources
 			}
 
 			var requestObject *sdkModels.SDKObjectDefinition
+			requestObjectIsCommonType := true
 
 			if operation.RequestModel != nil {
 				if !models.Found(*operation.RequestModel) {
@@ -63,51 +67,52 @@ func (p pipelineTask) translateServiceToDataApiSdkTypes(models Models, resources
 
 				if model := models[*operation.RequestModel]; !model.IsValid() {
 					return nil, fmt.Errorf("request model was invalid")
-				} else { //if !model.Common {
+				} else if !model.Common {
+					requestObjectIsCommonType = false
+
 					if err := serviceModels.MergeDependants(models, *operation.RequestModel); err != nil {
 						return nil, err
 					}
 				}
 
 				requestObject = &sdkModels.SDKObjectDefinition{
-					NestedItem:    nil,
-					ReferenceName: operation.RequestModel,
-					Type:          sdkModels.ReferenceSDKObjectDefinitionType,
+					ReferenceName:             operation.RequestModel,
+					ReferenceNameIsCommonType: &requestObjectIsCommonType,
+					Type:                      sdkModels.ReferenceSDKObjectDefinitionType,
 				}
 			} else if operation.RequestType != nil {
 				requestObject = &sdkModels.SDKObjectDefinition{
-					NestedItem:    nil,
-					ReferenceName: nil,
-					Type:          operation.RequestType.DataApiSdkObjectDefinitionType(),
+					Type: operation.RequestType.DataApiSdkObjectDefinitionType(),
 				}
 			}
 
 			var responseObject *sdkModels.SDKObjectDefinition
+			responseObjectIsCommonType := true
 
 			for _, response := range operation.Responses {
-				if response.Type != nil && *response.Type == DataTypeModel && response.ModelName != nil {
+				if response.Type != nil && *response.Type == parser.DataTypeModel && response.ModelName != nil {
 					if !models.Found(*response.ModelName) {
 						return nil, fmt.Errorf("response model not found")
 					}
 
 					if model := models[*response.ModelName]; !model.IsValid() {
 						return nil, fmt.Errorf("response model was invalid")
-					} else { //if !model.Common {
+					} else if !model.Common {
+						responseObjectIsCommonType = false
+
 						if err := serviceModels.MergeDependants(models, *response.ModelName); err != nil {
 							return nil, err
 						}
 					}
 
 					responseObject = &sdkModels.SDKObjectDefinition{
-						NestedItem:    nil,
-						ReferenceName: response.ModelName,
-						Type:          sdkModels.ReferenceSDKObjectDefinitionType,
+						ReferenceName:             response.ModelName,
+						ReferenceNameIsCommonType: &responseObjectIsCommonType,
+						Type:                      sdkModels.ReferenceSDKObjectDefinitionType,
 					}
 				} else if response.Type != nil {
 					requestObject = &sdkModels.SDKObjectDefinition{
-						NestedItem:    nil,
-						ReferenceName: nil,
-						Type:          response.Type.DataApiSdkObjectDefinitionType(),
+						Type: response.Type.DataApiSdkObjectDefinitionType(),
 					}
 				}
 			}
@@ -154,8 +159,10 @@ func (p pipelineTask) translateServiceToDataApiSdkTypes(models Models, resources
 			for _, field := range model.Fields {
 				if field.ConstantName != nil {
 					constantValues := make(map[string]string)
-					for _, value := range field.Enum {
-						constantValues[value] = value
+					if constant, ok := constants[*field.ConstantName]; ok {
+						for _, value := range constant.Enum {
+							constantValues[value] = value
+						}
 					}
 
 					// TODO support additional types, if there are any

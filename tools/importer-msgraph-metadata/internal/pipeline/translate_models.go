@@ -1,8 +1,11 @@
 package pipeline
 
-import sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+import (
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/parser"
+)
 
-func translateModelsToDataApiSdkTypes(models Models) (*sdkModels.CommonTypes, error) {
+func translateModelsToDataApiSdkTypes(models parser.Models, constants parser.Constants) (*sdkModels.CommonTypes, error) {
 	sdkConstantsMap := make(map[string]sdkModels.SDKConstant)
 	sdkModelsMap := make(map[string]sdkModels.SDKModel)
 
@@ -13,19 +16,18 @@ func translateModelsToDataApiSdkTypes(models Models) (*sdkModels.CommonTypes, er
 		}
 		sdkModelsMap[modelName] = *sdkModel
 
-		for _, field := range model.Fields {
-			if field.ConstantName != nil {
-				constantValues := make(map[string]string)
-				for _, value := range field.Enum {
-					constantValues[value] = value
-				}
+	}
 
-				// TODO support additional types, if there are any
-				sdkConstantsMap[*field.ConstantName] = sdkModels.SDKConstant{
-					Type:   sdkModels.StringSDKConstantType,
-					Values: constantValues,
-				}
-			}
+	for constantName, constant := range constants {
+		constantValues := make(map[string]string)
+		for _, value := range constant.Enum {
+			constantValues[value] = value
+		}
+
+		// TODO support additional types, if there are any
+		sdkConstantsMap[constantName] = sdkModels.SDKConstant{
+			Type:   sdkModels.StringSDKConstantType,
+			Values: constantValues,
 		}
 	}
 

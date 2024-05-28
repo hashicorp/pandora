@@ -16,22 +16,16 @@ import (
 var _ Stage = ConstantStage{}
 
 type ConstantStage struct {
-	// APIVersion specifies the APIVersion within the Service where the Constants exist.
-	APIVersion string
-
-	// APIResource specifies the APIResource within the APIVersion where the Constants exist.
-	APIResource string
-
 	// Constants specifies the map of Constant Name (key) to SDKConstant (value) which should be
 	// persisted.
 	Constants map[string]models.SDKConstant
 
+	// OutputDirectory specifies the path where constants should be persisted.
+	OutputDirectory string
+
 	// ResourceIDs specifies a map of Resource ID Name (key) to ResourceID (value) that should
 	// be persisted.
 	ResourceIDs map[string]models.ResourceID
-
-	// ServiceName specifies the name of the Service within which the Constants exist.
-	ServiceName string
 }
 
 func (g ConstantStage) Name() string {
@@ -41,6 +35,10 @@ func (g ConstantStage) Name() string {
 func (g ConstantStage) Generate(input *helpers.FileSystem) error {
 	logging.Log.Debug("Generating Constants")
 
+	if g.OutputDirectory == "" {
+		return fmt.Errorf("internal: OutputDirectory cannot be empty")
+	}
+
 	for constantName, constantVal := range g.Constants {
 		logging.Log.Trace(fmt.Sprintf("Processing Constant %q", constantName))
 
@@ -49,8 +47,7 @@ func (g ConstantStage) Generate(input *helpers.FileSystem) error {
 			return fmt.Errorf("mapping SDKConstant %q: %+v", constantName, err)
 		}
 
-		// {workingDirectory}/Service/APIVersion/APIResource/Constant-{Name}.json
-		path := filepath.Join(g.ServiceName, g.APIVersion, g.APIResource, fmt.Sprintf("Constant-%s.json", constantName))
+		path := filepath.Join(g.OutputDirectory, fmt.Sprintf("Constant-%s.json", constantName))
 		logging.Log.Trace(fmt.Sprintf("Staging to %s", path))
 		if err := input.Stage(path, *mapped); err != nil {
 			return fmt.Errorf("staging Constant %q: %+v", constantName, err)
@@ -58,22 +55,23 @@ func (g ConstantStage) Generate(input *helpers.FileSystem) error {
 	}
 
 	// ResourceIDs also contain Constants - so we need to pull those out and persist them too
-	for resourceIdName, resourceId := range g.ResourceIDs {
-		logging.Log.Trace(fmt.Sprintf("Processing Constants within the Resource ID %q", resourceIdName))
+	if g.ResourceIDs != nil {
+		for resourceIdName, resourceId := range g.ResourceIDs {
+			logging.Log.Trace(fmt.Sprintf("Processing Constants within the Resource ID %q", resourceIdName))
 
-		for constantName, constantVal := range resourceId.Constants {
-			logging.Log.Trace(fmt.Sprintf("Processing Constant %q", constantName))
+			for constantName, constantVal := range resourceId.Constants {
+				logging.Log.Trace(fmt.Sprintf("Processing Constant %q", constantName))
 
-			mapped, err := transforms.MapSDKConstantToRepository(constantName, constantVal)
-			if err != nil {
-				return fmt.Errorf("mapping SDKConstant %q: %+v", constantName, err)
-			}
+				mapped, err := transforms.MapSDKConstantToRepository(constantName, constantVal)
+				if err != nil {
+					return fmt.Errorf("mapping SDKConstant %q: %+v", constantName, err)
+				}
 
-			// {workingDirectory}/Service/APIVersion/APIResource/Constant-{Name}.json
-			path := filepath.Join(g.ServiceName, g.APIVersion, g.APIResource, fmt.Sprintf("Constant-%s.json", constantName))
-			logging.Log.Trace(fmt.Sprintf("Staging to %s", path))
-			if err := input.Stage(path, *mapped); err != nil {
-				return fmt.Errorf("staging Constant %q: %+v", constantName, err)
+				path := filepath.Join(g.OutputDirectory, fmt.Sprintf("Constant-%s.json", constantName))
+				logging.Log.Trace(fmt.Sprintf("Staging to %s", path))
+				if err := input.Stage(path, *mapped); err != nil {
+					return fmt.Errorf("staging Constant %q: %+v", constantName, err)
+				}
 			}
 		}
 	}

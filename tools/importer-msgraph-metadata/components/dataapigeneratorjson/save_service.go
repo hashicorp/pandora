@@ -5,6 +5,7 @@ package dataapigeneratorjson
 
 import (
 	"fmt"
+	"path/filepath"
 
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/dataapigeneratorjson/helpers"
@@ -25,6 +26,10 @@ type SaveServiceOptions struct {
 
 	// ServiceName specifies the name of this Service (e.g. `Compute`).
 	ServiceName string
+
+	// CommonTypes specifies a map of API Version (key) to CommonTypes (value)
+	// which defines the available Common Types for this Service.
+	CommonTypes map[string]models.CommonTypes
 
 	// SourceDataOrigin specifies the origin of this set of source data (e.g. AzureRestAPISpecsSourceDataOrigin).
 	SourceDataOrigin models.SourceDataOrigin
@@ -66,25 +71,24 @@ func (r repositoryImpl) SaveService(opts SaveServiceOptions) error {
 			// Output the API Definitions for this APIResource
 
 			items = append(items, stages.ConstantStage{
-				ServiceName: opts.ServiceName,
-				APIVersion:  apiVersion,
-				APIResource: apiResourceName,
-				Constants:   apiResourceDetails.Constants,
-				ResourceIDs: apiResourceDetails.ResourceIDs,
+				Constants:       apiResourceDetails.Constants,
+				OutputDirectory: filepath.Join(opts.ServiceName, apiVersion, apiResourceName),
+				ResourceIDs:     apiResourceDetails.ResourceIDs,
 			})
 
 			items = append(items, stages.ModelsStage{
-				ServiceName: opts.ServiceName,
-				APIVersion:  apiVersion,
-				APIResource: apiResourceName,
-				Constants:   apiResourceDetails.Constants,
-				Models:      apiResourceDetails.Models,
+				APIVersion:      apiVersion,
+				CommonTypes:     opts.CommonTypes,
+				Constants:       apiResourceDetails.Constants,
+				Models:          apiResourceDetails.Models,
+				OutputDirectory: filepath.Join(opts.ServiceName, apiVersion, apiResourceName),
 			})
 
 			items = append(items, stages.OperationsStage{
 				ServiceName: opts.ServiceName,
 				APIVersion:  apiVersion,
 				APIResource: apiResourceName,
+				CommonTypes: opts.CommonTypes,
 				Constants:   apiResourceDetails.Constants,
 				Models:      apiResourceDetails.Models,
 				Operations:  apiResourceDetails.Operations,
@@ -138,7 +142,7 @@ func (r repositoryImpl) SaveService(opts SaveServiceOptions) error {
 	// TODO: ensure that any existing directory for this service is removed
 
 	logging.Log.Debug("Persisting files to disk..")
-	if err := helpers.PersistFileSystem(r.workingDirectory, opts.SourceDataType, opts.ServiceName, fs); err != nil {
+	if err := helpers.PersistFileSystem(r.workingDirectory, opts.SourceDataType, opts.ServiceName, &opts.ServiceName, fs); err != nil {
 		return fmt.Errorf("persisting files: %+v", err)
 	}
 
