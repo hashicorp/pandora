@@ -1,0 +1,43 @@
+{
+  "name": "CapabilitySetId",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.DBforMySQL/locations/{locationName}/capabilitySets/{capabilitySetName}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftDBforMySQL",
+      "type": "ResourceProvider",
+      "value": "Microsoft.DBforMySQL"
+    },
+    {
+      "name": "staticLocations",
+      "type": "Static",
+      "value": "locations"
+    },
+    {
+      "name": "locationName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticCapabilitySets",
+      "type": "Static",
+      "value": "capabilitySets"
+    },
+    {
+      "name": "capabilitySetName",
+      "type": "UserSpecified"
+    }
+  ]
+}
