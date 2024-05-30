@@ -1,0 +1,21 @@
+{
+  "name": "PostgreSqlV2TableDataset",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "typeProperties",
+      "name": "TypeProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PostgreSqlV2TableDatasetTypeProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "Dataset",
+  "discriminatedTypeValue": "PostgreSqlV2Table",
+  "typeHintIn": "Type"
+}

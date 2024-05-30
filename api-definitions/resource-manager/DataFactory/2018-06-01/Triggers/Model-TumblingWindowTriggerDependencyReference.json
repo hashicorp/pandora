@@ -1,0 +1,47 @@
+{
+  "name": "TumblingWindowTriggerDependencyReference",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "offset",
+      "name": "Offset",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "referenceTrigger",
+      "name": "ReferenceTrigger",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "TriggerReference"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "size",
+      "name": "Size",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "DependencyReference",
+  "discriminatedTypeValue": "TumblingWindowTriggerDependencyReference",
+  "typeHintIn": "Type"
+}

@@ -1,0 +1,143 @@
+{
+  "name": "ExecutePowerQueryActivityTypeProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "compute",
+      "name": "Compute",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ExecuteDataFlowActivityTypePropertiesCompute"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "continueOnError",
+      "name": "ContinueOnError",
+      "objectDefinition": {
+        "type": "RawObject",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "dataFlow",
+      "name": "DataFlow",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DataFlowReference"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "integrationRuntime",
+      "name": "IntegrationRuntime",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "IntegrationRuntimeReference"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "queries",
+      "name": "Queries",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "PowerQuerySinkMapping"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "runConcurrently",
+      "name": "RunConcurrently",
+      "objectDefinition": {
+        "type": "RawObject",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sinks",
+      "name": "Sinks",
+      "objectDefinition": {
+        "type": "Dictionary",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "PowerQuerySink"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sourceStagingConcurrency",
+      "name": "SourceStagingConcurrency",
+      "objectDefinition": {
+        "type": "RawObject",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "staging",
+      "name": "Staging",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DataFlowStagingInfo"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "traceLevel",
+      "name": "TraceLevel",
+      "objectDefinition": {
+        "type": "RawObject",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

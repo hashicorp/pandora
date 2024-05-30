@@ -1,0 +1,44 @@
+{
+  "name": "EnhancedSecurityComplianceDefinition",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "automaticClusterUpdate",
+      "name": "AutomaticClusterUpdate",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AutomaticClusterUpdateDefinition"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "complianceSecurityProfile",
+      "name": "ComplianceSecurityProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ComplianceSecurityProfileDefinition"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "enhancedSecurityMonitoring",
+      "name": "EnhancedSecurityMonitoring",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EnhancedSecurityMonitoringDefinition"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

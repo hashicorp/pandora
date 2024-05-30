@@ -131,7 +131,7 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 
 					if param.Enum != nil {
 						// then find the constant itself
-						constant, err := constants.MapConstant([]string{param.Type}, param.Name, param.Enum, param.Extensions, p.logger.Named("Constant Parser"))
+						constant, err := constants.MapConstant([]string{param.Type}, param.Name, nil, param.Enum, param.Extensions, p.logger.Named("Constant Parser"))
 						if err != nil {
 							return nil, fmt.Errorf("parsing constant from %q: %+v", uriSegment, err)
 						}

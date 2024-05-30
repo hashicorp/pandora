@@ -1,0 +1,35 @@
+{
+  "name": "GalleryImageVersionUefiSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "additionalSignatures",
+      "name": "AdditionalSignatures",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "UefiKeySignatures"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "signatureTemplateNames",
+      "name": "SignatureTemplateNames",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "UefiSignatureTemplateName"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

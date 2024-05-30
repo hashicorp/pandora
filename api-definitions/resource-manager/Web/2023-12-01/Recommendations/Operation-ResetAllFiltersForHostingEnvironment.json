@@ -1,0 +1,23 @@
+{
+  "name": "ResetAllFiltersForHostingEnvironment",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "optional": false,
+      "queryString": "environmentName",
+      "required": true,
+      "field": "EnvironmentName",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "AppServiceEnvironmentId",
+  "uriSuffix": "/recommendations/reset"
+}

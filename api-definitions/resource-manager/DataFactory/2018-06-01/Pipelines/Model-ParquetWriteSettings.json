@@ -1,0 +1,34 @@
+{
+  "name": "ParquetWriteSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "fileNamePrefix",
+      "name": "FileNamePrefix",
+      "objectDefinition": {
+        "type": "RawObject",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "maxRowsPerFile",
+      "name": "MaxRowsPerFile",
+      "objectDefinition": {
+        "type": "RawObject",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "FormatWriteSettings",
+  "discriminatedTypeValue": "ParquetWriteSettings",
+  "typeHintIn": "Type"
+}

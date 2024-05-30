@@ -1,0 +1,104 @@
+{
+  "name": "PrivateCloudUpdateProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "availability",
+      "name": "Availability",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AvailabilityProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "dnsZoneType",
+      "name": "DnsZoneType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DnsZoneType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "encryption",
+      "name": "Encryption",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Encryption"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "extendedNetworkBlocks",
+      "name": "ExtendedNetworkBlocks",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "identitySources",
+      "name": "IdentitySources",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "IdentitySource"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "internet",
+      "name": "Internet",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "InternetEnum"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "managementCluster",
+      "name": "ManagementCluster",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ManagementCluster"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

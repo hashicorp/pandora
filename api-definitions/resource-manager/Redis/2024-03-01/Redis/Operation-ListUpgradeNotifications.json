@@ -1,0 +1,28 @@
+{
+  "name": "ListUpgradeNotifications",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "optional": false,
+      "queryString": "history",
+      "required": true,
+      "field": "History",
+      "optionsObjectDefinition": {
+        "type": "Float",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "RediId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "UpgradeNotification"
+  },
+  "uriSuffix": "/listUpgradeNotifications"
+}

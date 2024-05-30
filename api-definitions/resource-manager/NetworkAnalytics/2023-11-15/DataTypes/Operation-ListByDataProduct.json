@@ -1,0 +1,16 @@
+{
+  "name": "ListByDataProduct",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "DataProductId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "DataType"
+  },
+  "uriSuffix": "/dataTypes"
+}

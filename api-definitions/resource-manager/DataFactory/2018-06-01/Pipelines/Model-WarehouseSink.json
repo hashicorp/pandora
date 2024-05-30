@@ -1,0 +1,73 @@
+{
+  "name": "WarehouseSink",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "allowCopyCommand",
+      "name": "AllowCopyCommand",
+      "objectDefinition": {
+        "type": "RawObject",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "copyCommandSettings",
+      "name": "CopyCommandSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DWCopyCommandSettings"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "preCopyScript",
+      "name": "PreCopyScript",
+      "objectDefinition": {
+        "type": "RawObject",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "tableOption",
+      "name": "TableOption",
+      "objectDefinition": {
+        "type": "RawObject",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "writeBehavior",
+      "name": "WriteBehavior",
+      "objectDefinition": {
+        "type": "RawObject",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "CopySink",
+  "discriminatedTypeValue": "WarehouseSink",
+  "typeHintIn": "Type"
+}

@@ -1,0 +1,77 @@
+{
+  "name": "BlobSink",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "blobWriterAddHeader",
+      "name": "BlobWriterAddHeader",
+      "objectDefinition": {
+        "type": "RawObject",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "blobWriterDateTimeFormat",
+      "name": "BlobWriterDateTimeFormat",
+      "objectDefinition": {
+        "type": "RawObject",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "blobWriterOverwriteFiles",
+      "name": "BlobWriterOverwriteFiles",
+      "objectDefinition": {
+        "type": "RawObject",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "copyBehavior",
+      "name": "CopyBehavior",
+      "objectDefinition": {
+        "type": "RawObject",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "metadata",
+      "name": "Metadata",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "MetadataItem"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "CopySink",
+  "discriminatedTypeValue": "BlobSink",
+  "typeHintIn": "Type"
+}

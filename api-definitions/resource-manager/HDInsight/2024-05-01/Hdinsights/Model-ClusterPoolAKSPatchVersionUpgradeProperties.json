@@ -1,0 +1,47 @@
+{
+  "name": "ClusterPoolAKSPatchVersionUpgradeProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "targetAksVersion",
+      "name": "TargetAksVersion",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "upgradeAllClusterNodes",
+      "name": "UpgradeAllClusterNodes",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "upgradeClusterPool",
+      "name": "UpgradeClusterPool",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "ClusterPoolUpgradeProperties",
+  "discriminatedTypeValue": "AKSPatchUpgrade",
+  "typeHintIn": "UpgradeType"
+}

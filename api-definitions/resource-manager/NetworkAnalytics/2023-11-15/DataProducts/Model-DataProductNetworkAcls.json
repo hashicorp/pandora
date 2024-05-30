@@ -1,0 +1,69 @@
+{
+  "name": "DataProductNetworkAcls",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "allowedQueryIpRangeList",
+      "name": "AllowedQueryIPRangeList",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "defaultAction",
+      "name": "DefaultAction",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DefaultAction"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "ipRules",
+      "name": "IPRules",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "IPRules"
+        }
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "virtualNetworkRule",
+      "name": "VirtualNetworkRule",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "VirtualNetworkRule"
+        }
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ]
+}

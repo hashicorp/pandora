@@ -1,0 +1,34 @@
+{
+  "name": "AzureDatabricksDeltaLakeSource",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "exportSettings",
+      "name": "ExportSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AzureDatabricksDeltaLakeExportCommand"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "query",
+      "name": "Query",
+      "objectDefinition": {
+        "type": "RawObject",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "CopySource",
+  "discriminatedTypeValue": "AzureDatabricksDeltaLakeSource",
+  "typeHintIn": "Type"
+}

@@ -1,0 +1,57 @@
+{
+  "name": "PushInfo",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "deadLetterDestinationWithResourceIdentity",
+      "name": "DeadLetterDestinationWithResourceIdentity",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DeadLetterWithResourceIdentity"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "deliveryWithResourceIdentity",
+      "name": "DeliveryWithResourceIdentity",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DeliveryWithResourceIdentity"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "eventTimeToLive",
+      "name": "EventTimeToLive",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "maxDeliveryCount",
+      "name": "MaxDeliveryCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "name": "ProviderPacketCoreControlPlaneVersionId",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.MobileNetwork/packetCoreControlPlaneVersions/{packetCoreControlPlaneVersionName}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftMobileNetwork",
+      "type": "ResourceProvider",
+      "value": "Microsoft.MobileNetwork"
+    },
+    {
+      "name": "staticPacketCoreControlPlaneVersions",
+      "type": "Static",
+      "value": "packetCoreControlPlaneVersions"
+    },
+    {
+      "name": "packetCoreControlPlaneVersionName",
+      "type": "UserSpecified"
+    }
+  ]
+}

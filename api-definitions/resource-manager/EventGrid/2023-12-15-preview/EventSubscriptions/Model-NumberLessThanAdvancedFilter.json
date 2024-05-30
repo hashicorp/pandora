@@ -1,0 +1,21 @@
+{
+  "name": "NumberLessThanAdvancedFilter",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "value",
+      "name": "Value",
+      "objectDefinition": {
+        "type": "Float",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "AdvancedFilter",
+  "discriminatedTypeValue": "NumberLessThan",
+  "typeHintIn": "OperatorType"
+}

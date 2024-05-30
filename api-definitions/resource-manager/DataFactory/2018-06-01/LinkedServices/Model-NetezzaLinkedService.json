@@ -1,0 +1,21 @@
+{
+  "name": "NetezzaLinkedService",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "typeProperties",
+      "name": "TypeProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "NetezzaLinkedServiceTypeProperties"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "LinkedService",
+  "discriminatedTypeValue": "Netezza",
+  "typeHintIn": "Type"
+}

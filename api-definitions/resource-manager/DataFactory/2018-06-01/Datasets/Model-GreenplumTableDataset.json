@@ -1,0 +1,21 @@
+{
+  "name": "GreenplumTableDataset",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "typeProperties",
+      "name": "TypeProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "GreenplumDatasetTypeProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "Dataset",
+  "discriminatedTypeValue": "GreenplumTable",
+  "typeHintIn": "Type"
+}

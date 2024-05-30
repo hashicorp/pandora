@@ -1,0 +1,19 @@
+{
+  "name": "WorkloadNetworksUpdateSegments",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "SegmentId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "WorkloadNetworkSegmentUpdate"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "WorkloadNetworkSegment"
+  }
+}

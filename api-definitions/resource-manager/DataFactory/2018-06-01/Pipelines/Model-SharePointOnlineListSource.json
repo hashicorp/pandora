@@ -1,0 +1,34 @@
+{
+  "name": "SharePointOnlineListSource",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "httpRequestTimeout",
+      "name": "HTTPRequestTimeout",
+      "objectDefinition": {
+        "type": "RawObject",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "query",
+      "name": "Query",
+      "objectDefinition": {
+        "type": "RawObject",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "CopySource",
+  "discriminatedTypeValue": "SharePointOnlineListSource",
+  "typeHintIn": "Type"
+}

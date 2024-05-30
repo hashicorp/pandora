@@ -1,0 +1,21 @@
+{
+  "name": "ParquetReadSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "compressionProperties",
+      "name": "CompressionProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CompressionReadSettings"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "FormatReadSettings",
+  "discriminatedTypeValue": "ParquetReadSettings",
+  "typeHintIn": "Type"
+}

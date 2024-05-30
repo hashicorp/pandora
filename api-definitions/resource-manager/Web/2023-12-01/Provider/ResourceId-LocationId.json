@@ -1,0 +1,25 @@
+{
+  "name": "LocationId",
+  "id": "/providers/Microsoft.Web/locations/{locationName}",
+  "segments": [
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftWeb",
+      "type": "ResourceProvider",
+      "value": "Microsoft.Web"
+    },
+    {
+      "name": "staticLocations",
+      "type": "Static",
+      "value": "locations"
+    },
+    {
+      "name": "locationName",
+      "type": "UserSpecified"
+    }
+  ]
+}

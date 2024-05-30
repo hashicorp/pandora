@@ -345,6 +345,7 @@ func (c %[1]s) %[2]sCompleteMatchingPredicate(ctx context.Context%[4]s, predicat
 
 	resp, err := c.%[2]s(ctx%[6]s)
 	if err != nil {
+		result.LatestHttpResponse = resp.HttpResponse
 		err = fmt.Errorf("loading results: %%+v", err)
 		return
 	}
@@ -371,6 +372,7 @@ func (c %[1]s) %[2]sComplete(ctx context.Context%[3]s) (result %[2]sCompleteResu
 
 	resp, err := c.%[2]s(ctx%[4]s)
 	if err != nil {
+		result.LatestHttpResponse = resp.HttpResponse
 		err = fmt.Errorf("loading results: %%+v", err)
 		return
 	}

@@ -1,0 +1,44 @@
+{
+  "name": "LogSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "copyActivityLogSettings",
+      "name": "CopyActivityLogSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CopyActivityLogSettings"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "enableCopyActivityLog",
+      "name": "EnableCopyActivityLog",
+      "objectDefinition": {
+        "type": "RawObject",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "logLocationSettings",
+      "name": "LogLocationSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "LogLocationSettings"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ]
+}

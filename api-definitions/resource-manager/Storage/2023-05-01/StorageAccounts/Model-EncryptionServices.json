@@ -1,0 +1,57 @@
+{
+  "name": "EncryptionServices",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "blob",
+      "name": "Blob",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EncryptionService"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "file",
+      "name": "File",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EncryptionService"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "queue",
+      "name": "Queue",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EncryptionService"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "table",
+      "name": "Table",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EncryptionService"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

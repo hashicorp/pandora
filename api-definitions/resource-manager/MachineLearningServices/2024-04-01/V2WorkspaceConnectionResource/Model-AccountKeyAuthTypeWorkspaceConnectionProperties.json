@@ -1,0 +1,21 @@
+{
+  "name": "AccountKeyAuthTypeWorkspaceConnectionProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "credentials",
+      "name": "Credentials",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "WorkspaceConnectionSharedAccessSignature"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "WorkspaceConnectionPropertiesV2",
+  "discriminatedTypeValue": "AccountKey",
+  "typeHintIn": "AuthType"
+}

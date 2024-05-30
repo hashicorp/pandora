@@ -1,0 +1,21 @@
+{
+  "name": "InformixTableDataset",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "typeProperties",
+      "name": "TypeProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "InformixTableDatasetTypeProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "Dataset",
+  "discriminatedTypeValue": "InformixTable",
+  "typeHintIn": "Type"
+}

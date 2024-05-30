@@ -1,0 +1,21 @@
+{
+  "name": "BinarySink",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "storeSettings",
+      "name": "StoreSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "StoreWriteSettings"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "CopySink",
+  "discriminatedTypeValue": "BinarySink",
+  "typeHintIn": "Type"
+}

@@ -1,0 +1,60 @@
+{
+  "name": "TieringCostSavingInfo",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "retailSourceTierCostPerGBPerMonth",
+      "name": "RetailSourceTierCostPerGBPerMonth",
+      "objectDefinition": {
+        "type": "Float",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "retailTargetTierCostPerGBPerMonth",
+      "name": "RetailTargetTierCostPerGBPerMonth",
+      "objectDefinition": {
+        "type": "Float",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sourceTierSizeReductionInBytes",
+      "name": "SourceTierSizeReductionInBytes",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "targetTierSizeIncreaseInBytes",
+      "name": "TargetTierSizeIncreaseInBytes",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "TieringCostInfo",
+  "discriminatedTypeValue": "TieringCostSavingInfo",
+  "typeHintIn": "ObjectType"
+}

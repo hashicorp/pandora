@@ -9,7 +9,6 @@ import (
 )
 
 var tagsToIgnore = map[string]struct{}{
-	"deploymentoperations":  {},
 	"azurefirewallfqdntags": {},
 	"usage":                 {},
 }

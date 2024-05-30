@@ -38,10 +38,15 @@ import (
     "strconv"
     "strings"
 
+    "github.com/hashicorp/go-azure-helpers/resourcemanager/recaser"
     "github.com/hashicorp/go-azure-helpers/resourcemanager/resourceids"
 )
 
 // acctests licence placeholder
+
+func init() {
+    recaser.RegisterResourceId(&BasicTestId{})
+}
 
 var _ resourceids.ResourceId = &BasicTestId{}
 
@@ -182,10 +187,15 @@ import (
 	"strconv"
 	"strings"
 
+    "github.com/hashicorp/go-azure-helpers/resourcemanager/recaser"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/resourceids"
 )
 
 // acctests licence placeholder
+
+func init() {
+    recaser.RegisterResourceId(&ConstantOnlyId{})
+}
 
 var _ resourceids.ResourceId = &ConstantOnlyId{}
 

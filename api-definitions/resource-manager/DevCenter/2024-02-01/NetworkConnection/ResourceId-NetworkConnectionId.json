@@ -1,0 +1,43 @@
+{
+  "name": "NetworkConnectionId",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevCenter/networkConnections/{networkConnectionName}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticResourceGroups",
+      "type": "Static",
+      "value": "resourceGroups"
+    },
+    {
+      "name": "resourceGroupName",
+      "type": "ResourceGroup"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftDevCenter",
+      "type": "ResourceProvider",
+      "value": "Microsoft.DevCenter"
+    },
+    {
+      "name": "staticNetworkConnections",
+      "type": "Static",
+      "value": "networkConnections"
+    },
+    {
+      "name": "networkConnectionName",
+      "type": "UserSpecified"
+    }
+  ]
+}

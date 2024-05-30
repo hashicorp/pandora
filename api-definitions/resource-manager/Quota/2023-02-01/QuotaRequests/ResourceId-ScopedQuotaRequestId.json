@@ -1,0 +1,29 @@
+{
+  "name": "ScopedQuotaRequestId",
+  "id": "/{scope}/providers/Microsoft.Quota/quotaRequests/{quotaRequestName}",
+  "segments": [
+    {
+      "name": "scope",
+      "type": "Scope"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftQuota",
+      "type": "ResourceProvider",
+      "value": "Microsoft.Quota"
+    },
+    {
+      "name": "staticQuotaRequests",
+      "type": "Static",
+      "value": "quotaRequests"
+    },
+    {
+      "name": "quotaRequestName",
+      "type": "UserSpecified"
+    }
+  ]
+}

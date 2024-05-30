@@ -1,0 +1,21 @@
+{
+  "name": "InformationProtectionAwsOffering",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "informationProtection",
+      "name": "InformationProtection",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "InformationProtectionAwsOfferingInformationProtection"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "CloudOffering",
+  "discriminatedTypeValue": "InformationProtectionAws",
+  "typeHintIn": "OfferingType"
+}

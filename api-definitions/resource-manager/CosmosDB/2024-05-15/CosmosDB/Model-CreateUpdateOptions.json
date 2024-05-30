@@ -1,0 +1,31 @@
+{
+  "name": "CreateUpdateOptions",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "autoscaleSettings",
+      "name": "AutoScaleSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AutoScaleSettings"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "throughput",
+      "name": "Throughput",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

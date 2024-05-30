@@ -1,0 +1,34 @@
+{
+  "name": "DocumentDbCollectionSink",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "nestingSeparator",
+      "name": "NestingSeparator",
+      "objectDefinition": {
+        "type": "RawObject",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "writeBehavior",
+      "name": "WriteBehavior",
+      "objectDefinition": {
+        "type": "RawObject",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "CopySink",
+  "discriminatedTypeValue": "DocumentDbCollectionSink",
+  "typeHintIn": "Type"
+}

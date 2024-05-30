@@ -1,0 +1,31 @@
+{
+  "name": "LocalDiagnosticsAccessConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "authenticationType",
+      "name": "AuthenticationType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AuthenticationType"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "httpsServerCertificate",
+      "name": "HTTPSServerCertificate",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "HTTPSServerCertificate"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "AzureSqlMITableDataset",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "typeProperties",
+      "name": "TypeProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AzureSqlMITableDatasetTypeProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "Dataset",
+  "discriminatedTypeValue": "AzureSqlMITable",
+  "typeHintIn": "Type"
+}

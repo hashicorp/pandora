@@ -1,0 +1,44 @@
+{
+  "name": "ScheduledEventsPolicy",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "scheduledEventsAdditionalPublishingTargets",
+      "name": "ScheduledEventsAdditionalPublishingTargets",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ScheduledEventsAdditionalPublishingTargets"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "userInitiatedReboot",
+      "name": "UserInitiatedReboot",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "UserInitiatedReboot"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "userInitiatedRedeploy",
+      "name": "UserInitiatedRedeploy",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "UserInitiatedRedeploy"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

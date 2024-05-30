@@ -1,0 +1,357 @@
+{
+  "name": "VirtualMachineProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "additionalCapabilities",
+      "name": "AdditionalCapabilities",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AdditionalCapabilities"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "applicationProfile",
+      "name": "ApplicationProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ApplicationProfile"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "availabilitySet",
+      "name": "AvailabilitySet",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SubResource"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "billingProfile",
+      "name": "BillingProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "BillingProfile"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "capacityReservation",
+      "name": "CapacityReservation",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CapacityReservationProfile"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "diagnosticsProfile",
+      "name": "DiagnosticsProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DiagnosticsProfile"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "evictionPolicy",
+      "name": "EvictionPolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "VirtualMachineEvictionPolicyTypes"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "extensionsTimeBudget",
+      "name": "ExtensionsTimeBudget",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "hardwareProfile",
+      "name": "HardwareProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "HardwareProfile"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "host",
+      "name": "Host",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SubResource"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "hostGroup",
+      "name": "HostGroup",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SubResource"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "instanceView",
+      "name": "InstanceView",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "VirtualMachineInstanceView"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "licenseType",
+      "name": "LicenseType",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "networkProfile",
+      "name": "NetworkProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "NetworkProfile"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "osProfile",
+      "name": "OsProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "OSProfile"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "platformFaultDomain",
+      "name": "PlatformFaultDomain",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "priority",
+      "name": "Priority",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "VirtualMachinePriorityTypes"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "provisioningState",
+      "name": "ProvisioningState",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "proximityPlacementGroup",
+      "name": "ProximityPlacementGroup",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SubResource"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "scheduledEventsPolicy",
+      "name": "ScheduledEventsPolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ScheduledEventsPolicy"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "scheduledEventsProfile",
+      "name": "ScheduledEventsProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ScheduledEventsProfile"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "securityProfile",
+      "name": "SecurityProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SecurityProfile"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "storageProfile",
+      "name": "StorageProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "StorageProfile"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "timeCreated",
+      "name": "TimeCreated",
+      "objectDefinition": {
+        "type": "DateTime",
+        "referenceName": null,
+        "dateFormat": "RFC3339"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "userData",
+      "name": "UserData",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "vmId",
+      "name": "VMId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "virtualMachineScaleSet",
+      "name": "VirtualMachineScaleSet",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SubResource"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

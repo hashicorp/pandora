@@ -1,0 +1,21 @@
+{
+  "name": "ODataResourceDataset",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "typeProperties",
+      "name": "TypeProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ODataResourceDatasetTypeProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "Dataset",
+  "discriminatedTypeValue": "ODataResource",
+  "typeHintIn": "Type"
+}

@@ -1,0 +1,31 @@
+{
+  "name": "DefaultCatalogProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "initialName",
+      "name": "InitialName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "initialType",
+      "name": "InitialType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "InitialType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

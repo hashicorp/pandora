@@ -1,0 +1,21 @@
+{
+  "name": "MongoDbAtlasSink",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "writeBehavior",
+      "name": "WriteBehavior",
+      "objectDefinition": {
+        "type": "RawObject",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "CopySink",
+  "discriminatedTypeValue": "MongoDbAtlasSink",
+  "typeHintIn": "Type"
+}

@@ -1,0 +1,24 @@
+{
+  "name": "DeleteSourceControl",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": false,
+  "httpMethod": "DELETE",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "additionalFlags",
+      "required": false,
+      "field": "AdditionalFlags",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "AppServiceId",
+  "uriSuffix": "/sourceControls/web"
+}

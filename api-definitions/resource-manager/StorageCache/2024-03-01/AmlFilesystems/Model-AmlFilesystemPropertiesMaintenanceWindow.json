@@ -1,0 +1,31 @@
+{
+  "name": "AmlFilesystemPropertiesMaintenanceWindow",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "dayOfWeek",
+      "name": "DayOfWeek",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MaintenanceDayOfWeekType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "timeOfDayUTC",
+      "name": "TimeOfDayUTC",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

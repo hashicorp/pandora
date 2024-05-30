@@ -40,13 +40,15 @@ import (
     "strconv"
     "strings"
 
+    "github.com/hashicorp/go-azure-helpers/resourcemanager/recaser"
     "github.com/hashicorp/go-azure-helpers/resourcemanager/resourceids"
 )
 
 %[2]s
 %[3]s
 %[4]s
-`, data.packageName, *copyrightLines, *structBody, *methods)
+%[5]s
+`, data.packageName, *copyrightLines, r.registerId(), *structBody, *methods)
 	return &out, nil
 }
 
@@ -81,6 +83,15 @@ type %[1]s struct {
 }
 `, r.name, strings.Join(lines, "\n"), wordifiedName)
 	return &out, nil
+}
+
+func (r resourceIdTemplater) registerId() string {
+	wordifiedName := wordifyString(r.name)
+	return fmt.Sprintf(`
+	func init() {
+		recaser.RegisterResourceId(&%[2]s{})
+	}
+`, wordifiedName, r.name)
 }
 
 func (r resourceIdTemplater) methods() (*string, error) {

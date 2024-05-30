@@ -8,6 +8,7 @@ import (
 	"strings"
 
 	"github.com/go-openapi/spec"
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/constants"
@@ -21,7 +22,7 @@ func (d *SwaggerDefinition) parseModel(name string, input spec.Schema) (*interna
 	}
 
 	// 1. find any constants used within this model
-	nestedResult, err := d.findConstantsWithinModel(name, input, result)
+	nestedResult, err := d.findConstantsWithinModel(name, nil, input, result)
 	if err != nil {
 		return nil, fmt.Errorf("finding constants within model: %+v", err)
 	}
@@ -55,7 +56,7 @@ func (d *SwaggerDefinition) parseModel(name string, input spec.Schema) (*interna
 	return &result, nil
 }
 
-func (d *SwaggerDefinition) findConstantsWithinModel(fieldName string, input spec.Schema, known internal.ParseResult) (*internal.ParseResult, error) {
+func (d *SwaggerDefinition) findConstantsWithinModel(fieldName string, modelName *string, input spec.Schema, known internal.ParseResult) (*internal.ParseResult, error) {
 	// NOTE: both Models and Fields are passed in here
 	result := internal.ParseResult{
 		Constants: map[string]models.SDKConstant{},
@@ -64,7 +65,7 @@ func (d *SwaggerDefinition) findConstantsWithinModel(fieldName string, input spe
 	result.Append(known)
 
 	if len(input.Enum) > 0 {
-		constant, err := constants.MapConstant(input.Type, fieldName, input.Enum, input.Extensions, d.logger.Named("Constant Parser"))
+		constant, err := constants.MapConstant(input.Type, fieldName, modelName, input.Enum, input.Extensions, d.logger.Named("Constant Parser"))
 		if err != nil {
 			return nil, fmt.Errorf("parsing constant: %+v", err)
 		}
@@ -89,7 +90,7 @@ func (d *SwaggerDefinition) findConstantsWithinModel(fieldName string, input spe
 				return nil, fmt.Errorf("finding top level model %q for constants: %+v", *fragmentName, err)
 			}
 
-			nestedResult, err := d.findConstantsWithinModel(*fragmentName, *topLevelModel, result)
+			nestedResult, err := d.findConstantsWithinModel(*fragmentName, &fieldName, *topLevelModel, result)
 			if err != nil {
 				return nil, fmt.Errorf("finding constants within parent model %q: %+v", *fragmentName, err)
 			}
@@ -103,7 +104,7 @@ func (d *SwaggerDefinition) findConstantsWithinModel(fieldName string, input spe
 	for propName, propVal := range input.Properties {
 		d.logger.Trace(fmt.Sprintf("Processing Property %q..", propName))
 		// models can contain nested models - either can contain constants, so around we go..
-		nestedResult, err := d.findConstantsWithinModel(propName, propVal, result)
+		nestedResult, err := d.findConstantsWithinModel(propName, &fieldName, propVal, result)
 		if err != nil {
 			return nil, fmt.Errorf("finding nested constants within %q: %+v", propName, err)
 		}
@@ -116,7 +117,7 @@ func (d *SwaggerDefinition) findConstantsWithinModel(fieldName string, input spe
 		for propName, propVal := range input.AdditionalProperties.Schema.Properties {
 			d.logger.Trace(fmt.Sprintf("Processing Additional Property %q..", propName))
 			// models can contain nested models - either can contain constants, so around we go..
-			nestedConstants, err := d.findConstantsWithinModel(propName, propVal, result)
+			nestedConstants, err := d.findConstantsWithinModel(propName, &fieldName, propVal, result)
 			if err != nil {
 				return nil, fmt.Errorf("finding nested constants within %q: %+v", propName, err)
 			}
@@ -443,7 +444,7 @@ func (d *SwaggerDefinition) findAncestorType(input spec.Schema) (*string, *strin
 	return nil, nil, nil
 }
 
-func (d *SwaggerDefinition) findOrphanedDiscriminatedModels() (*internal.ParseResult, error) {
+func (d *SwaggerDefinition) findOrphanedDiscriminatedModels(serviceName string) (*internal.ParseResult, error) {
 	result := internal.ParseResult{
 		Constants: map[string]models.SDKConstant{},
 		Models:    map[string]models.SDKModel{},
@@ -457,6 +458,34 @@ func (d *SwaggerDefinition) findOrphanedDiscriminatedModels() (*internal.ParseRe
 			}
 			if err := result.Append(*details); err != nil {
 				return nil, fmt.Errorf("appending model %q: %+v", modelName, err)
+			}
+		}
+
+		// intentionally scoped to `datafactory` given the peculiarities in the swagger definition
+		// in particular question 4. in this issue https://github.com/Azure/azure-rest-api-specs/issues/28380
+		if strings.EqualFold(serviceName, "datafactory") {
+			// this catches orphaned discriminated models where the discriminator information is housed in the parent
+			// and uses the name of the model as the discriminated value
+			if _, ok := definition.Extensions.GetString("x-ms-discriminator-value"); !ok && len(definition.AllOf) > 0 {
+				parentType, discriminator, err := d.findAncestorType(definition)
+				if err != nil {
+					return nil, fmt.Errorf("determining ancestor type for model %q: %+v", modelName, err)
+				}
+
+				details, err := d.parseModel(modelName, definition)
+				if err != nil {
+					return nil, fmt.Errorf("parsing model details for model %q: %+v", modelName, err)
+				}
+				if parentType != nil && discriminator != nil {
+					model := details.Models[modelName]
+					model.ParentTypeName = parentType
+					model.FieldNameContainingDiscriminatedValue = discriminator
+					model.DiscriminatedValue = pointer.To(modelName)
+					details.Models[modelName] = model
+				}
+				if err := result.Append(*details); err != nil {
+					return nil, fmt.Errorf("appending model %q: %+v", modelName, err)
+				}
 			}
 		}
 	}
@@ -491,7 +520,7 @@ func (d SwaggerDefinition) parseObjectDefinition(
 
 	// if it's an enum then parse that out
 	if len(input.Enum) > 0 {
-		constant, err := constants.MapConstant(input.Type, propertyName, input.Enum, input.Extensions, d.logger.Named("Constant Parser"))
+		constant, err := constants.MapConstant(input.Type, propertyName, &modelName, input.Enum, input.Extensions, d.logger.Named("Constant Parser"))
 		if err != nil {
 			return nil, nil, fmt.Errorf("parsing constant: %+v", err)
 		}

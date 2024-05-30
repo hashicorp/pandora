@@ -1,0 +1,35 @@
+{
+  "name": "FlowAccessControlConfigurationPolicy",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "allowedCallerIpAddresses",
+      "name": "AllowedCallerIPAddresses",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "IPAddressRange"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "openAuthenticationPolicies",
+      "name": "OpenAuthenticationPolicies",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "OpenAuthenticationAccessPolicies"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

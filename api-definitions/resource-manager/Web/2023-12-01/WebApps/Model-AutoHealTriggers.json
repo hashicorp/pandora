@@ -1,0 +1,95 @@
+{
+  "name": "AutoHealTriggers",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "privateBytesInKB",
+      "name": "PrivateBytesInKB",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "requests",
+      "name": "Requests",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RequestsBasedTrigger"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "slowRequests",
+      "name": "SlowRequests",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SlowRequestsBasedTrigger"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "slowRequestsWithPath",
+      "name": "SlowRequestsWithPath",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "SlowRequestsBasedTrigger"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "statusCodes",
+      "name": "StatusCodes",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "StatusCodesBasedTrigger"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "statusCodesRange",
+      "name": "StatusCodesRange",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "StatusCodesRangeBasedTrigger"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

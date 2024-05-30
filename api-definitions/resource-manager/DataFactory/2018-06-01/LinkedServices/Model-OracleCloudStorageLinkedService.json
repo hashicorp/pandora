@@ -1,0 +1,21 @@
+{
+  "name": "OracleCloudStorageLinkedService",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "typeProperties",
+      "name": "TypeProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "OracleCloudStorageLinkedServiceTypeProperties"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "LinkedService",
+  "discriminatedTypeValue": "OracleCloudStorage",
+  "typeHintIn": "Type"
+}

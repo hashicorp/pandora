@@ -1,0 +1,19 @@
+{
+  "name": "GcpOrganizationalData",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": true,
+      "jsonName": "organizationMembershipType",
+      "name": "OrganizationMembershipType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "OrganizationMembershipType"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "typeHintIn": "OrganizationMembershipType"
+}

@@ -1,0 +1,44 @@
+{
+  "name": "ApplicationLogsConfig",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "azureBlobStorage",
+      "name": "AzureBlobStorage",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AzureBlobStorageApplicationLogsConfig"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "azureTableStorage",
+      "name": "AzureTableStorage",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AzureTableStorageApplicationLogsConfig"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "fileSystem",
+      "name": "FileSystem",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "FileSystemApplicationLogsConfig"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

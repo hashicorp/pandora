@@ -1,0 +1,135 @@
+{
+  "name": "AmlFilesystemProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "clientInfo",
+      "name": "ClientInfo",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AmlFilesystemClientInfo"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "encryptionSettings",
+      "name": "EncryptionSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AmlFilesystemEncryptionSettings"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "filesystemSubnet",
+      "name": "FilesystemSubnet",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "health",
+      "name": "Health",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AmlFilesystemHealth"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "hsm",
+      "name": "Hsm",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AmlFilesystemPropertiesHsm"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "maintenanceWindow",
+      "name": "MaintenanceWindow",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AmlFilesystemPropertiesMaintenanceWindow"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "provisioningState",
+      "name": "ProvisioningState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AmlFilesystemProvisioningStateType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rootSquashSettings",
+      "name": "RootSquashSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AmlFilesystemRootSquashSettings"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "storageCapacityTiB",
+      "name": "StorageCapacityTiB",
+      "objectDefinition": {
+        "type": "Float",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "throughputProvisionedMBps",
+      "name": "ThroughputProvisionedMBps",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "AzureBlobStorageLocation",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "container",
+      "name": "Container",
+      "objectDefinition": {
+        "type": "RawObject",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "DatasetLocation",
+  "discriminatedTypeValue": "AzureBlobStorageLocation",
+  "typeHintIn": "Type"
+}

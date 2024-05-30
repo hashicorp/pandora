@@ -1,0 +1,21 @@
+{
+  "name": "Suppression",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "suppressionConfig",
+      "name": "SuppressionConfig",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SuppressionConfig"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "ActionRuleProperties",
+  "discriminatedTypeValue": "Suppression",
+  "typeHintIn": "Type"
+}

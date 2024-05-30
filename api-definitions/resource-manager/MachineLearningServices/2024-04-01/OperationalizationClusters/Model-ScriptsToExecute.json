@@ -1,0 +1,31 @@
+{
+  "name": "ScriptsToExecute",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "creationScript",
+      "name": "CreationScript",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ScriptReference"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "startupScript",
+      "name": "StartupScript",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ScriptReference"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "CheckZonePeers",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "SubscriptionId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "CheckZonePeersRequest"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "CheckZonePeersResult"
+  },
+  "uriSuffix": "/providers/Microsoft.Resources/checkZonePeers"
+}

@@ -1,0 +1,47 @@
+{
+  "name": "JsonSource",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "additionalColumns",
+      "name": "AdditionalColumns",
+      "objectDefinition": {
+        "type": "RawObject",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "formatSettings",
+      "name": "FormatSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "JsonReadSettings"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "storeSettings",
+      "name": "StoreSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "StoreReadSettings"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "CopySource",
+  "discriminatedTypeValue": "JsonSource",
+  "typeHintIn": "Type"
+}

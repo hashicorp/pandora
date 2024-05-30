@@ -1,0 +1,42 @@
+{
+  "name": "SnowflakeImportCopyCommand",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "additionalCopyOptions",
+      "name": "AdditionalCopyOptions",
+      "objectDefinition": {
+        "type": "Dictionary",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "RawObject",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "additionalFormatOptions",
+      "name": "AdditionalFormatOptions",
+      "objectDefinition": {
+        "type": "Dictionary",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "RawObject",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "ImportSettings",
+  "discriminatedTypeValue": "SnowflakeImportCopyCommand",
+  "typeHintIn": "Type"
+}

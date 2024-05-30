@@ -1,0 +1,34 @@
+{
+  "name": "SapCloudForCustomerSink",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "httpRequestTimeout",
+      "name": "HTTPRequestTimeout",
+      "objectDefinition": {
+        "type": "RawObject",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "writeBehavior",
+      "name": "WriteBehavior",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SapCloudForCustomerSinkWriteBehavior"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "CopySink",
+  "discriminatedTypeValue": "SapCloudForCustomerSink",
+  "typeHintIn": "Type"
+}

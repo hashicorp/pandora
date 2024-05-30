@@ -1,0 +1,21 @@
+{
+  "name": "CosmosDbSqlApiCollectionDataset",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "typeProperties",
+      "name": "TypeProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CosmosDbSqlApiCollectionDatasetTypeProperties"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "Dataset",
+  "discriminatedTypeValue": "CosmosDbSqlApiCollection",
+  "typeHintIn": "Type"
+}

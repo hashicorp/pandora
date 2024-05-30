@@ -1,0 +1,48 @@
+{
+  "name": "SubscriptionList",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "monitoredSubscriptionList",
+      "name": "MonitoredSubscriptionList",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "MonitoredSubscription"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "patchOperation",
+      "name": "PatchOperation",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PatchOperation"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "provisioningState",
+      "name": "ProvisioningState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ProvisioningState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "name": "SnowflakeSink",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "importSettings",
+      "name": "ImportSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SnowflakeImportCopyCommand"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "preCopyScript",
+      "name": "PreCopyScript",
+      "objectDefinition": {
+        "type": "RawObject",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "CopySink",
+  "discriminatedTypeValue": "SnowflakeSink",
+  "typeHintIn": "Type"
+}

@@ -1,0 +1,43 @@
+{
+  "name": "FrontDoorWebApplicationFirewallPolicyId",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/{frontDoorWebApplicationFirewallPolicyName}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticResourceGroups",
+      "type": "Static",
+      "value": "resourceGroups"
+    },
+    {
+      "name": "resourceGroupName",
+      "type": "ResourceGroup"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftNetwork",
+      "type": "ResourceProvider",
+      "value": "Microsoft.Network"
+    },
+    {
+      "name": "staticFrontDoorWebApplicationFirewallPolicies",
+      "type": "Static",
+      "value": "frontDoorWebApplicationFirewallPolicies"
+    },
+    {
+      "name": "frontDoorWebApplicationFirewallPolicyName",
+      "type": "UserSpecified"
+    }
+  ]
+}

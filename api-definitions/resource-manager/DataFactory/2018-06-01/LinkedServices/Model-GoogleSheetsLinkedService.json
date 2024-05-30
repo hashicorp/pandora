@@ -1,0 +1,21 @@
+{
+  "name": "GoogleSheetsLinkedService",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "typeProperties",
+      "name": "TypeProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "GoogleSheetsLinkedServiceTypeProperties"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "LinkedService",
+  "discriminatedTypeValue": "GoogleSheets",
+  "typeHintIn": "Type"
+}

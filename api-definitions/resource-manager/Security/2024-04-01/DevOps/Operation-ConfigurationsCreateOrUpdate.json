@@ -1,0 +1,21 @@
+{
+  "name": "ConfigurationsCreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "SecurityConnectorId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "DevOpsConfiguration"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "DevOpsConfiguration"
+  },
+  "uriSuffix": "/devops/default"
+}

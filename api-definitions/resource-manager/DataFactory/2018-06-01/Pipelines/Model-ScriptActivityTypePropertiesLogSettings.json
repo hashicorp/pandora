@@ -1,0 +1,31 @@
+{
+  "name": "ScriptActivityTypePropertiesLogSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "logDestination",
+      "name": "LogDestination",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ScriptActivityLogDestination"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "logLocationSettings",
+      "name": "LogLocationSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "LogLocationSettings"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

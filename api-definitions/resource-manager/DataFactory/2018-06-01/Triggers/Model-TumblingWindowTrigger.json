@@ -1,0 +1,34 @@
+{
+  "name": "TumblingWindowTrigger",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "pipeline",
+      "name": "Pipeline",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "TriggerPipelineReference"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "typeProperties",
+      "name": "TypeProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "TumblingWindowTriggerTypeProperties"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "Trigger",
+  "discriminatedTypeValue": "TumblingWindowTrigger",
+  "typeHintIn": "Type"
+}

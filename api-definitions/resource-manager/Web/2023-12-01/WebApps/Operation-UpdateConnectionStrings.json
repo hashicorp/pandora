@@ -1,0 +1,19 @@
+{
+  "name": "UpdateConnectionStrings",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PUT",
+  "resourceIdName": "AppServiceId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ConnectionStringDictionary"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ConnectionStringDictionary"
+  },
+  "uriSuffix": "/config/connectionStrings"
+}

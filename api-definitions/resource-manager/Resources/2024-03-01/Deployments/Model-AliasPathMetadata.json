@@ -1,0 +1,31 @@
+{
+  "name": "AliasPathMetadata",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "attributes",
+      "name": "Attributes",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AliasPathAttributes"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "type",
+      "name": "Type",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AliasPathTokenType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

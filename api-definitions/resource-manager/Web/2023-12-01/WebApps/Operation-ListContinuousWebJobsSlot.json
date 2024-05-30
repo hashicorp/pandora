@@ -1,0 +1,16 @@
+{
+  "name": "ListContinuousWebJobsSlot",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "SlotId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ContinuousWebJob"
+  },
+  "uriSuffix": "/continuousWebJobs"
+}

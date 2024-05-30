@@ -1,0 +1,21 @@
+{
+  "name": "EnvironmentVariableSetup",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "typeProperties",
+      "name": "TypeProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EnvironmentVariableSetupTypeProperties"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "CustomSetupBase",
+  "discriminatedTypeValue": "EnvironmentVariableSetup",
+  "typeHintIn": "Type"
+}

@@ -1,0 +1,61 @@
+{
+  "name": "ActionableRemediation",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "branchConfiguration",
+      "name": "BranchConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "TargetBranchConfiguration"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "categoryConfigurations",
+      "name": "CategoryConfigurations",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "CategoryConfiguration"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "inheritFromParentState",
+      "name": "InheritFromParentState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "InheritFromParentState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "state",
+      "name": "State",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ActionableRemediationState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

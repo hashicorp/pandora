@@ -1,0 +1,43 @@
+{
+  "name": "OperationProgressId",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.DBforMySQL/locations/{locationName}/operationProgress/{operationId}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftDBforMySQL",
+      "type": "ResourceProvider",
+      "value": "Microsoft.DBforMySQL"
+    },
+    {
+      "name": "staticLocations",
+      "type": "Static",
+      "value": "locations"
+    },
+    {
+      "name": "locationName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticOperationProgress",
+      "type": "Static",
+      "value": "operationProgress"
+    },
+    {
+      "name": "operationId",
+      "type": "UserSpecified"
+    }
+  ]
+}

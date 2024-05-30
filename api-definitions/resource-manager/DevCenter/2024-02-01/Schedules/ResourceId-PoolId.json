@@ -1,0 +1,52 @@
+{
+  "name": "PoolId",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevCenter/projects/{projectName}/pools/{poolName}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticResourceGroups",
+      "type": "Static",
+      "value": "resourceGroups"
+    },
+    {
+      "name": "resourceGroupName",
+      "type": "ResourceGroup"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftDevCenter",
+      "type": "ResourceProvider",
+      "value": "Microsoft.DevCenter"
+    },
+    {
+      "name": "staticProjects",
+      "type": "Static",
+      "value": "projects"
+    },
+    {
+      "name": "projectName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticPools",
+      "type": "Static",
+      "value": "pools"
+    },
+    {
+      "name": "poolName",
+      "type": "UserSpecified"
+    }
+  ]
+}

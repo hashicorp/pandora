@@ -1,0 +1,21 @@
+{
+  "name": "ServiceNowV2LinkedService",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "typeProperties",
+      "name": "TypeProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ServiceNowV2LinkedServiceTypeProperties"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "LinkedService",
+  "discriminatedTypeValue": "ServiceNowV2",
+  "typeHintIn": "Type"
+}

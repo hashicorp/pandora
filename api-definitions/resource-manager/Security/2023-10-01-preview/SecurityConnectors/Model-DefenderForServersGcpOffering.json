@@ -1,0 +1,86 @@
+{
+  "name": "DefenderForServersGcpOffering",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "arcAutoProvisioning",
+      "name": "ArcAutoProvisioning",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DefenderForServersGcpOfferingArcAutoProvisioning"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "defenderForServers",
+      "name": "DefenderForServers",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DefenderForServersGcpOfferingDefenderForServers"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "mdeAutoProvisioning",
+      "name": "MdeAutoProvisioning",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DefenderForServersGcpOfferingMdeAutoProvisioning"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "subPlan",
+      "name": "SubPlan",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DefenderForServersGcpOfferingSubPlan"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "vmScanners",
+      "name": "VMScanners",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DefenderForServersGcpOfferingVMScanners"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "vaAutoProvisioning",
+      "name": "VaAutoProvisioning",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DefenderForServersGcpOfferingVaAutoProvisioning"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "CloudOffering",
+  "discriminatedTypeValue": "DefenderForServersGcp",
+  "typeHintIn": "OfferingType"
+}

@@ -1,0 +1,21 @@
+{
+  "name": "BulkDelete",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202,
+    204
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "SimGroupId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "SimDeleteList"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "AsyncOperationStatus"
+  },
+  "uriSuffix": "/deleteSims"
+}

@@ -1,0 +1,52 @@
+{
+  "name": "WorkflowId",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/workflows/{workflowName}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticResourceGroups",
+      "type": "Static",
+      "value": "resourceGroups"
+    },
+    {
+      "name": "resourceGroupName",
+      "type": "ResourceGroup"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftWeb",
+      "type": "ResourceProvider",
+      "value": "Microsoft.Web"
+    },
+    {
+      "name": "staticSites",
+      "type": "Static",
+      "value": "sites"
+    },
+    {
+      "name": "siteName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticWorkflows",
+      "type": "Static",
+      "value": "workflows"
+    },
+    {
+      "name": "workflowName",
+      "type": "UserSpecified"
+    }
+  ]
+}

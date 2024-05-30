@@ -1,0 +1,31 @@
+{
+  "name": "ResiliencyPolicy",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "resilientVMCreationPolicy",
+      "name": "ResilientVMCreationPolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ResilientVMCreationPolicy"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "resilientVMDeletionPolicy",
+      "name": "ResilientVMDeletionPolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ResilientVMDeletionPolicy"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

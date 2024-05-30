@@ -1,0 +1,19 @@
+{
+  "name": "AzureDevOpsReposUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "ProjectRepoId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "AzureDevOpsRepository"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "AzureDevOpsRepository"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "name": "BinarySource",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "formatSettings",
+      "name": "FormatSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "BinaryReadSettings"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "storeSettings",
+      "name": "StoreSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "StoreReadSettings"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "CopySource",
+  "discriminatedTypeValue": "BinarySource",
+  "typeHintIn": "Type"
+}

@@ -1,0 +1,161 @@
+{
+  "name": "VirtualMachineScaleSetUpdateProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "additionalCapabilities",
+      "name": "AdditionalCapabilities",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AdditionalCapabilities"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "automaticRepairsPolicy",
+      "name": "AutomaticRepairsPolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AutomaticRepairsPolicy"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "doNotRunExtensionsOnOverprovisionedVMs",
+      "name": "DoNotRunExtensionsOnOverprovisionedVMs",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "overprovision",
+      "name": "Overprovision",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "priorityMixPolicy",
+      "name": "PriorityMixPolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PriorityMixPolicy"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "proximityPlacementGroup",
+      "name": "ProximityPlacementGroup",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SubResource"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "resiliencyPolicy",
+      "name": "ResiliencyPolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ResiliencyPolicy"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "scaleInPolicy",
+      "name": "ScaleInPolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ScaleInPolicy"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "singlePlacementGroup",
+      "name": "SinglePlacementGroup",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "spotRestorePolicy",
+      "name": "SpotRestorePolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SpotRestorePolicy"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "upgradePolicy",
+      "name": "UpgradePolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "UpgradePolicy"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "virtualMachineProfile",
+      "name": "VirtualMachineProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "VirtualMachineScaleSetUpdateVMProfile"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "SqlResourcesCreateUpdateSqlRoleAssignment",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "AccountId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "SqlRoleAssignmentCreateUpdateParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "SqlRoleAssignmentGetResults"
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "name": "NamespaceProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "inboundIpRules",
+      "name": "InboundIPRules",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "InboundIPRule"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "isZoneRedundant",
+      "name": "IsZoneRedundant",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "minimumTlsVersionAllowed",
+      "name": "MinimumTlsVersionAllowed",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "TlsVersion"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "privateEndpointConnections",
+      "name": "PrivateEndpointConnections",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "PrivateEndpointConnection"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "provisioningState",
+      "name": "ProvisioningState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "NamespaceProvisioningState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "publicNetworkAccess",
+      "name": "PublicNetworkAccess",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PublicNetworkAccess"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "topicSpacesConfiguration",
+      "name": "TopicSpacesConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "TopicSpacesConfiguration"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "topicsConfiguration",
+      "name": "TopicsConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "TopicsConfiguration"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

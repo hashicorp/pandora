@@ -1,0 +1,45 @@
+{
+  "name": "ChannelUpdateParametersProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "expirationTimeIfNotActivatedUtc",
+      "name": "ExpirationTimeIfNotActivatedUtc",
+      "objectDefinition": {
+        "type": "DateTime",
+        "referenceName": null,
+        "dateFormat": "RFC3339"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "partnerDestinationInfo",
+      "name": "PartnerDestinationInfo",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PartnerUpdateDestinationInfo"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "partnerTopicInfo",
+      "name": "PartnerTopicInfo",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PartnerUpdateTopicInfo"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

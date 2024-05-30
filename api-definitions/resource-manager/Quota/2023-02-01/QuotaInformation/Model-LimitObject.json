@@ -1,0 +1,34 @@
+{
+  "name": "LimitObject",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "limitType",
+      "name": "LimitType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "QuotaLimitTypes"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "value",
+      "name": "Value",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "LimitJsonObject",
+  "discriminatedTypeValue": "LimitValue",
+  "typeHintIn": "LimitObjectType"
+}

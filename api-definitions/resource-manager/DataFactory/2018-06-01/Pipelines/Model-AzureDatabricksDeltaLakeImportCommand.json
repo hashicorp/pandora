@@ -1,0 +1,34 @@
+{
+  "name": "AzureDatabricksDeltaLakeImportCommand",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "dateFormat",
+      "name": "DateFormat",
+      "objectDefinition": {
+        "type": "RawObject",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "timestampFormat",
+      "name": "TimestampFormat",
+      "objectDefinition": {
+        "type": "RawObject",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "ImportSettings",
+  "discriminatedTypeValue": "AzureDatabricksDeltaLakeImportCommand",
+  "typeHintIn": "Type"
+}

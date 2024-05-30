@@ -1,0 +1,70 @@
+{
+  "name": "NaptConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "enabled",
+      "name": "Enabled",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "NaptEnabled"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "pinholeLimits",
+      "name": "PinholeLimits",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "pinholeTimeouts",
+      "name": "PinholeTimeouts",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PinholeTimeouts"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "portRange",
+      "name": "PortRange",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PortRange"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "portReuseHoldTime",
+      "name": "PortReuseHoldTime",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PortReuseHoldTimes"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

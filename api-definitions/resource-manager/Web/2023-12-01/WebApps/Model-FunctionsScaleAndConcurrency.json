@@ -1,0 +1,61 @@
+{
+  "name": "FunctionsScaleAndConcurrency",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "alwaysReady",
+      "name": "AlwaysReady",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "FunctionsAlwaysReadyConfig"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "instanceMemoryMB",
+      "name": "InstanceMemoryMB",
+      "objectDefinition": {
+        "type": "Float",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "maximumInstanceCount",
+      "name": "MaximumInstanceCount",
+      "objectDefinition": {
+        "type": "Float",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "triggers",
+      "name": "Triggers",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "FunctionsScaleAndConcurrencyTriggers"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

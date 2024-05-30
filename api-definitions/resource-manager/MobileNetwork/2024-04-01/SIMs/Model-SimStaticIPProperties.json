@@ -1,0 +1,44 @@
+{
+  "name": "SimStaticIPProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "attachedDataNetwork",
+      "name": "AttachedDataNetwork",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AttachedDataNetworkResourceId"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "slice",
+      "name": "Slice",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SliceResourceId"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "staticIp",
+      "name": "StaticIP",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SimStaticIPPropertiesStaticIP"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

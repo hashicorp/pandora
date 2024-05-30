@@ -1,0 +1,44 @@
+{
+  "name": "OpenIdConnectRegistration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "clientCredential",
+      "name": "ClientCredential",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "OpenIdConnectClientCredential"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "clientId",
+      "name": "ClientId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "openIdConnectConfiguration",
+      "name": "OpenIdConnectConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "OpenIdConnectConfig"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

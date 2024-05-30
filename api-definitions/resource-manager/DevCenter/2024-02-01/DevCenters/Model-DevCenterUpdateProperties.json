@@ -1,0 +1,44 @@
+{
+  "name": "DevCenterUpdateProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "displayName",
+      "name": "DisplayName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "encryption",
+      "name": "Encryption",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Encryption"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "projectCatalogSettings",
+      "name": "ProjectCatalogSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DevCenterProjectCatalogSettings"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "FileSystemSink",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "copyBehavior",
+      "name": "CopyBehavior",
+      "objectDefinition": {
+        "type": "RawObject",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "CopySink",
+  "discriminatedTypeValue": "FileSystemSink",
+  "typeHintIn": "Type"
+}

@@ -1,0 +1,19 @@
+{
+  "name": "SqlResourcesCreateUpdateClientEncryptionKey",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "ClientEncryptionKeyId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ClientEncryptionKeyCreateUpdateParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ClientEncryptionKeyGetResults"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "name": "GcpOrganizationalDataMember",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "managementProjectNumber",
+      "name": "ManagementProjectNumber",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "parentHierarchyId",
+      "name": "ParentHierarchyId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "GcpOrganizationalData",
+  "discriminatedTypeValue": "Member",
+  "typeHintIn": "OrganizationMembershipType"
+}

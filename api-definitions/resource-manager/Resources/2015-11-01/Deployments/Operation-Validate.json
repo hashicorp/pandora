@@ -1,0 +1,19 @@
+{
+  "name": "Validate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "ProviderDeploymentId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "Deployment"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "DeploymentValidateResult"
+  },
+  "uriSuffix": "/validate"
+}

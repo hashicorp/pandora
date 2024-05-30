@@ -107,11 +107,13 @@ func NormalizeSegment(input string, camelCase bool) string {
 		"cdnwebapplicationfirewallpolicies": "cdnWebApplicationFirewallPolicies",
 		"certificates":                      "certificates", // handles Certificates
 		"channels":                          "channels",
+		"clusterpools":                      "clusterPools",
 		"clusters":                          "clusters", // handles Clusters
 		"compilationjobs":                   "compilationJobs",
 		"connectionstrings":                 "connectionStrings",
 		"configreferences":                  "configReferences",
 		"consumergroups":                    "consumerGroups",
+		"contentproducttemplates":           "contentProductTemplates",
 		"continuouswebjobs":                 "continuousWebJobs",
 		"customimages":                      "customImages",
 		"customipprefixes":                  "customIPPrefixes",

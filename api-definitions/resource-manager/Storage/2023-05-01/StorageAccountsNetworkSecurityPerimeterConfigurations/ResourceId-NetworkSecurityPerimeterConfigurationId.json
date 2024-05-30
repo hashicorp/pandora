@@ -1,0 +1,52 @@
+{
+  "name": "NetworkSecurityPerimeterConfigurationId",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/networkSecurityPerimeterConfigurations/{networkSecurityPerimeterConfigurationName}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticResourceGroups",
+      "type": "Static",
+      "value": "resourceGroups"
+    },
+    {
+      "name": "resourceGroupName",
+      "type": "ResourceGroup"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftStorage",
+      "type": "ResourceProvider",
+      "value": "Microsoft.Storage"
+    },
+    {
+      "name": "staticStorageAccounts",
+      "type": "Static",
+      "value": "storageAccounts"
+    },
+    {
+      "name": "storageAccountName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticNetworkSecurityPerimeterConfigurations",
+      "type": "Static",
+      "value": "networkSecurityPerimeterConfigurations"
+    },
+    {
+      "name": "networkSecurityPerimeterConfigurationName",
+      "type": "UserSpecified"
+    }
+  ]
+}

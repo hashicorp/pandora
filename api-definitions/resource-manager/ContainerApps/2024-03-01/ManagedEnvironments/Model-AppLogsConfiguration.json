@@ -1,0 +1,31 @@
+{
+  "name": "AppLogsConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "destination",
+      "name": "Destination",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "logAnalyticsConfiguration",
+      "name": "LogAnalyticsConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "LogAnalyticsConfiguration"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "name": "ReplicationObject",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "endpointType",
+      "name": "EndpointType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EndpointType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "remoteVolumeRegion",
+      "name": "RemoteVolumeRegion",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "remoteVolumeResourceId",
+      "name": "RemoteVolumeResourceId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "replicationId",
+      "name": "ReplicationId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "replicationSchedule",
+      "name": "ReplicationSchedule",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ReplicationSchedule"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

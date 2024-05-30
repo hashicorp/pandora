@@ -1,0 +1,36 @@
+{
+  "name": "Get",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "$expand",
+      "required": false,
+      "field": "Expand",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "GalleryExpandParams"
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "$select",
+      "required": false,
+      "field": "Select",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "SelectPermissions"
+      }
+    }
+  ],
+  "resourceIdName": "SharedImageGalleryId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "Gallery"
+  }
+}

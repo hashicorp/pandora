@@ -69,35 +69,32 @@ func (d *SwaggerDefinition) parse(serviceName, apiVersion string, resourceProvid
 		resourcesOut[resourceName] = updated
 	}
 
-	// TODO this can be removed when https://github.com/hashicorp/pandora/issues/3725 is resolved
-	if !strings.EqualFold(serviceName, "datafactory") {
-		// discriminator implementations that are defined in separate files with no link to a swagger tag
-		// are not parsed. So far there are two known instances of this (Data Factory, Chaos Studio) where the
-		// files are defined in a nested directory e.g. d.Name = /Types/Capabilities
-		swaggerFileName := strings.Split(d.Name, "/")
-		if len(resources) == 0 && len(swaggerFileName) > 2 {
-			// if we're here then there is no tag in this file, so we'll use the file name
-			inferredTag := cleanup.PluraliseName(swaggerFileName[len(swaggerFileName)-1])
-			normalizedTag := cleanup.NormalizeResourceName(inferredTag)
+	// discriminator implementations that are defined in separate files with no link to a swagger tag
+	// are not parsed. So far there are two known instances of this (Data Factory, Chaos Studio) where the
+	// files are defined in a nested directory e.g. d.Name = /Types/Capabilities
+	swaggerFileName := strings.Split(d.Name, "/")
+	if len(resources) == 0 && len(swaggerFileName) > 2 {
+		// if we're here then there is no tag in this file, so we'll use the file name
+		inferredTag := cleanup.PluraliseName(swaggerFileName[len(swaggerFileName)-1])
+		normalizedTag := cleanup.NormalizeResourceName(inferredTag)
 
-			result, err := d.findOrphanedDiscriminatedModels()
-			if err != nil {
-				return nil, fmt.Errorf("finding orphaned discriminated models in %q: %+v", d.Name, err)
+		result, err := d.findOrphanedDiscriminatedModels(serviceName)
+		if err != nil {
+			return nil, fmt.Errorf("finding orphaned discriminated models in %q: %+v", d.Name, err)
+		}
+
+		// this is to avoid the creation of empty packages/directories in the api definitions
+		if len(result.Models) > 0 || len(result.Constants) > 0 {
+			resource := importerModels.AzureApiResource{
+				Constants: result.Constants,
+				Models:    result.Models,
 			}
+			resource = normalizeAzureApiResource(resource)
 
-			// this is to avoid the creation of empty packages/directories in the api definitions
-			if len(result.Models) > 0 || len(result.Constants) > 0 {
-				resource := importerModels.AzureApiResource{
-					Constants: result.Constants,
-					Models:    result.Models,
-				}
-				resource = normalizeAzureApiResource(resource)
-
-				if mergeResources, ok := resources[normalizedTag]; ok {
-					resources[normalizedTag] = importerModels.MergeResourcesForTag(mergeResources, resource)
-				} else {
-					resourcesOut[normalizedTag] = resource
-				}
+			if mergeResources, ok := resources[normalizedTag]; ok {
+				resources[normalizedTag] = importerModels.MergeResourcesForTag(mergeResources, resource)
+			} else {
+				resourcesOut[normalizedTag] = resource
 			}
 		}
 	}

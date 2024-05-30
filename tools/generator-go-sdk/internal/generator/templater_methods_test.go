@@ -309,6 +309,7 @@ func (c pandaClient) ListCompleteMatchingPredicate(ctx context.Context, id Panda
 
 	resp, err := c.List(ctx, id)
 	if err != nil {
+		result.LatestHttpResponse = resp.HttpResponse
 		err = fmt.Errorf("loading results: %%+v", err)
 		return
 	}
@@ -431,6 +432,7 @@ func (c pandaClient) ListComplete(ctx context.Context, id PandaPop) (result List
 
 	resp, err := c.List(ctx, id)
 	if err != nil {
+		result.LatestHttpResponse = resp.HttpResponse
 		err = fmt.Errorf("loading results: %%+v", err)
 		return
 	}
@@ -557,6 +559,7 @@ func (c pandaClient) ListCompleteMatchingPredicate(ctx context.Context, id Panda
 
 	resp, err := c.List(ctx, id)
 	if err != nil {
+		result.LatestHttpResponse = resp.HttpResponse
 		err = fmt.Errorf("loading results: %%+v", err)
 		return
 	}

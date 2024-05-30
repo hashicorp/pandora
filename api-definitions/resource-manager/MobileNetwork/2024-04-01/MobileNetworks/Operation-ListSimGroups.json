@@ -1,0 +1,16 @@
+{
+  "name": "ListSimGroups",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "MobileNetworkId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "SimGroup"
+  },
+  "uriSuffix": "/listSimGroups"
+}

@@ -1,0 +1,18 @@
+{
+  "name": "ImageVersionSecurityProfile",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "uefiSettings",
+      "name": "UefiSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "GalleryImageVersionUefiSettings"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

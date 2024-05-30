@@ -1,0 +1,183 @@
+{
+  "name": "SharedGalleryImageProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "architecture",
+      "name": "Architecture",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Architecture"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "artifactTags",
+      "name": "ArtifactTags",
+      "objectDefinition": {
+        "type": "Dictionary",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "disallowed",
+      "name": "Disallowed",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Disallowed"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "endOfLifeDate",
+      "name": "EndOfLifeDate",
+      "objectDefinition": {
+        "type": "DateTime",
+        "referenceName": null,
+        "dateFormat": "RFC3339"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "eula",
+      "name": "Eula",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "features",
+      "name": "Features",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "GalleryImageFeature"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "hyperVGeneration",
+      "name": "HyperVGeneration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "HyperVGeneration"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "identifier",
+      "name": "Identifier",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "GalleryImageIdentifier"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "osState",
+      "name": "OsState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "OperatingSystemStateTypes"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "osType",
+      "name": "OsType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "OperatingSystemTypes"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "privacyStatementUri",
+      "name": "PrivacyStatementUri",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "purchasePlan",
+      "name": "PurchasePlan",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ImagePurchasePlan"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "recommended",
+      "name": "Recommended",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RecommendedMachineConfiguration"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

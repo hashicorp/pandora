@@ -1,0 +1,31 @@
+{
+  "name": "QueryUtterancesResult",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sampleUtterance",
+      "name": "SampleUtterance",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SampleUtterance"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "score",
+      "name": "Score",
+      "objectDefinition": {
+        "type": "Float",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

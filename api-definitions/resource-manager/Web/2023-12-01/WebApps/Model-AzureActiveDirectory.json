@@ -1,0 +1,70 @@
+{
+  "name": "AzureActiveDirectory",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "enabled",
+      "name": "Enabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "isAutoProvisioned",
+      "name": "IsAutoProvisioned",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "login",
+      "name": "Login",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AzureActiveDirectoryLogin"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "registration",
+      "name": "Registration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AzureActiveDirectoryRegistration"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "validation",
+      "name": "Validation",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AzureActiveDirectoryValidation"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "name": "RelayId",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/hybridConnectionNamespaces/{hybridConnectionNamespaceName}/relays/{relayName}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticResourceGroups",
+      "type": "Static",
+      "value": "resourceGroups"
+    },
+    {
+      "name": "resourceGroupName",
+      "type": "ResourceGroup"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftWeb",
+      "type": "ResourceProvider",
+      "value": "Microsoft.Web"
+    },
+    {
+      "name": "staticSites",
+      "type": "Static",
+      "value": "sites"
+    },
+    {
+      "name": "siteName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticHybridConnectionNamespaces",
+      "type": "Static",
+      "value": "hybridConnectionNamespaces"
+    },
+    {
+      "name": "hybridConnectionNamespaceName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticRelays",
+      "type": "Static",
+      "value": "relays"
+    },
+    {
+      "name": "relayName",
+      "type": "UserSpecified"
+    }
+  ]
+}

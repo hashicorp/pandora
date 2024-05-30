@@ -1,0 +1,18 @@
+{
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "ImageVersionId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "GalleryImageVersionUpdate"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "GalleryImageVersion"
+  }
+}

@@ -15,7 +15,7 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func ParseSwaggerFileForTesting(t *testing.T, file string) (*importerModels.AzureApiDefinition, error) {
+func ParseSwaggerFileForTesting(t *testing.T, file string, serviceName *string) (*importerModels.AzureApiDefinition, error) {
 	// TODO: make this function private
 	parsed, err := load("testdata/", file, hclog.New(hclog.DefaultOptions))
 	if err != nil {
@@ -28,10 +28,19 @@ func ParseSwaggerFileForTesting(t *testing.T, file string) (*importerModels.Azur
 		t.Fatalf("parsing Resource Ids: %+v", err)
 	}
 
-	out, err := parsed.parse("Example", "2020-01-01", resourceProvider, *resourceIds)
+	service := "Example"
+	if serviceName != nil {
+		service = *serviceName
+	}
+	out, err := parsed.parse(service, "2020-01-01", resourceProvider, *resourceIds)
 	if err != nil {
 		t.Fatalf("parsing file %q: %+v", file, err)
 	}
+
+	// removeUnusedItems used to be called as we iterated through the swagger files
+	// it's now called once after all the processing for a service has been done so must be called here
+	// to replicate the entire parsing process for swagger files
+	out.Resources = removeUnusedItems(out.Resources)
 
 	return out, nil
 }

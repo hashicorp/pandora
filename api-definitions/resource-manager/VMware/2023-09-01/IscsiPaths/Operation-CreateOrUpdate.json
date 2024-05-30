@@ -1,0 +1,20 @@
+{
+  "name": "CreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "PrivateCloudId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "IscsiPath"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "IscsiPath"
+  },
+  "uriSuffix": "/iscsiPaths/default"
+}
