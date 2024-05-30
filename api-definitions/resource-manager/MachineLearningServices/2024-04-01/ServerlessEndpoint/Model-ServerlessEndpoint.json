@@ -1,0 +1,96 @@
+{
+  "name": "ServerlessEndpoint",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "authMode",
+      "name": "AuthMode",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ServerlessInferenceEndpointAuthMode"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "contentSafety",
+      "name": "ContentSafety",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ContentSafety"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "endpointState",
+      "name": "EndpointState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ServerlessEndpointState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "inferenceEndpoint",
+      "name": "InferenceEndpoint",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ServerlessInferenceEndpoint"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "marketplaceSubscriptionId",
+      "name": "MarketplaceSubscriptionId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "modelSettings",
+      "name": "ModelSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ModelSettings"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "provisioningState",
+      "name": "ProvisioningState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EndpointProvisioningState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

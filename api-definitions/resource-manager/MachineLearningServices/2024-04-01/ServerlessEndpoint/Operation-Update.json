@@ -1,0 +1,19 @@
+{
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "ServerlessEndpointId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "PartialMinimalTrackedResourceWithSkuAndIdentity"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ServerlessEndpointTrackedResource"
+  }
+}
