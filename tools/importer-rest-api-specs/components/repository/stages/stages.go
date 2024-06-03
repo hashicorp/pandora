@@ -3,7 +3,7 @@
 
 package stages
 
-import "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/helpers"
+import "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/repository/helpers"
 
 type Stage interface {
 	// Generate runs this generation Stage which returns a map of files to be output or an error

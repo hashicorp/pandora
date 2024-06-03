@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/helpers"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/repository/helpers"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )
 
