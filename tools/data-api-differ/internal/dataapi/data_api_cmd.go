@@ -59,7 +59,10 @@ func (p *dataApiCmd) launchAndWait(ctx context.Context, client *v1.Client) error
 
 		result, err := client.Health(ctx)
 		if err != nil {
-			return fmt.Errorf("unexpected status code %d", result.HttpResponse.StatusCode)
+			if result != nil && result.HttpResponse != nil {
+				return fmt.Errorf("unexpected status code %d", result.HttpResponse.StatusCode)
+			}
+			return fmt.Errorf("connection failure")
 		}
 
 		if result.Available {
