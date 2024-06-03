@@ -7,17 +7,17 @@ import (
 	"fmt"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
+	repositoryModels "github.com/hashicorp/pandora/tools/data-api-repository/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
-func mapSDKObjectDefinitionToRepository(details models.SDKObjectDefinition, constants map[string]models.SDKConstant, models map[string]models.SDKModel) (*dataapimodels.ObjectDefinition, error) {
+func mapSDKObjectDefinitionToRepository(details sdkModels.SDKObjectDefinition, constants map[string]sdkModels.SDKConstant, models map[string]sdkModels.SDKModel) (*repositoryModels.ObjectDefinition, error) {
 	typeVal, ok := internalObjectDefinitionsToObjectDefinitionTypes[details.Type]
 	if !ok {
 		return nil, fmt.Errorf("internal-error: no ObjectDefinition mapping is defined for the ObjectDefinition Type %q", string(details.Type))
 	}
 
-	output := dataapimodels.ObjectDefinition{
+	output := repositoryModels.ObjectDefinition{
 		Type:          typeVal,
 		ReferenceName: nil,
 		NestedItem:    nil,
@@ -42,9 +42,9 @@ func mapSDKObjectDefinitionToRepository(details models.SDKObjectDefinition, cons
 	//if definition.Minimum != nil {
 	//	output.MinItems = definition.Minimum
 	//}
-	if output.Type == dataapimodels.DateTimeObjectDefinitionType {
+	if output.Type == repositoryModels.DateTimeObjectDefinitionType {
 		// TODO: support additional types of Date Formats (#8)
-		output.DateFormat = pointer.To(dataapimodels.RFC3339DateFormat)
+		output.DateFormat = pointer.To(repositoryModels.RFC3339DateFormat)
 	}
 
 	// finally let's do some sanity-checking to ensure the data being output looks legit
@@ -55,11 +55,11 @@ func mapSDKObjectDefinitionToRepository(details models.SDKObjectDefinition, cons
 	return &output, nil
 }
 
-func validateObjectDefinition(input dataapimodels.ObjectDefinition, constants map[string]models.SDKConstant, models map[string]models.SDKModel) error {
-	requiresNestedItem := input.Type == dataapimodels.CsvObjectDefinitionType ||
-		input.Type == dataapimodels.DictionaryObjectDefinitionType ||
-		input.Type == dataapimodels.ListObjectDefinitionType
-	requiresReference := input.Type == dataapimodels.ReferenceObjectDefinitionType
+func validateObjectDefinition(input repositoryModels.ObjectDefinition, constants map[string]sdkModels.SDKConstant, models map[string]sdkModels.SDKModel) error {
+	requiresNestedItem := input.Type == repositoryModels.CsvObjectDefinitionType ||
+		input.Type == repositoryModels.DictionaryObjectDefinitionType ||
+		input.Type == repositoryModels.ListObjectDefinitionType
+	requiresReference := input.Type == repositoryModels.ReferenceObjectDefinitionType
 	if requiresNestedItem && input.NestedItem == nil {
 		return fmt.Errorf("a Nested Object Definition must be specified for a %q type but didn't get one", string(input.Type))
 	}
@@ -87,36 +87,36 @@ func validateObjectDefinition(input dataapimodels.ObjectDefinition, constants ma
 	return nil
 }
 
-var internalObjectDefinitionsToObjectDefinitionTypes = map[models.SDKObjectDefinitionType]dataapimodels.ObjectDefinitionType{
+var internalObjectDefinitionsToObjectDefinitionTypes = map[sdkModels.SDKObjectDefinitionType]repositoryModels.ObjectDefinitionType{
 	// Simple Types
-	models.BooleanSDKObjectDefinitionType:  dataapimodels.BooleanObjectDefinitionType,
-	models.DateTimeSDKObjectDefinitionType: dataapimodels.DateTimeObjectDefinitionType,
-	models.IntegerSDKObjectDefinitionType:  dataapimodels.IntegerObjectDefinitionType,
-	models.FloatSDKObjectDefinitionType:    dataapimodels.FloatObjectDefinitionType,
-	models.StringSDKObjectDefinitionType:   dataapimodels.StringObjectDefinitionType,
+	sdkModels.BooleanSDKObjectDefinitionType:  repositoryModels.BooleanObjectDefinitionType,
+	sdkModels.DateTimeSDKObjectDefinitionType: repositoryModels.DateTimeObjectDefinitionType,
+	sdkModels.IntegerSDKObjectDefinitionType:  repositoryModels.IntegerObjectDefinitionType,
+	sdkModels.FloatSDKObjectDefinitionType:    repositoryModels.FloatObjectDefinitionType,
+	sdkModels.StringSDKObjectDefinitionType:   repositoryModels.StringObjectDefinitionType,
 
 	// Complex Types
-	models.CSVSDKObjectDefinitionType:        dataapimodels.CsvObjectDefinitionType,
-	models.DictionarySDKObjectDefinitionType: dataapimodels.DictionaryObjectDefinitionType,
-	models.ListSDKObjectDefinitionType:       dataapimodels.ListObjectDefinitionType,
-	models.RawFileSDKObjectDefinitionType:    dataapimodels.RawFileObjectDefinitionType,
-	models.RawObjectSDKObjectDefinitionType:  dataapimodels.RawObjectObjectDefinitionType,
-	models.ReferenceSDKObjectDefinitionType:  dataapimodels.ReferenceObjectDefinitionType,
+	sdkModels.CSVSDKObjectDefinitionType:        repositoryModels.CsvObjectDefinitionType,
+	sdkModels.DictionarySDKObjectDefinitionType: repositoryModels.DictionaryObjectDefinitionType,
+	sdkModels.ListSDKObjectDefinitionType:       repositoryModels.ListObjectDefinitionType,
+	sdkModels.RawFileSDKObjectDefinitionType:    repositoryModels.RawFileObjectDefinitionType,
+	sdkModels.RawObjectSDKObjectDefinitionType:  repositoryModels.RawObjectObjectDefinitionType,
+	sdkModels.ReferenceSDKObjectDefinitionType:  repositoryModels.ReferenceObjectDefinitionType,
 
 	// Common Schema
-	models.EdgeZoneSDKObjectDefinitionType:                                dataapimodels.EdgeZoneObjectDefinitionType,
-	models.LocationSDKObjectDefinitionType:                                dataapimodels.LocationObjectDefinitionType,
-	models.SystemAssignedIdentitySDKObjectDefinitionType:                  dataapimodels.SystemAssignedIdentityObjectDefinitionType,
-	models.SystemAndUserAssignedIdentityListSDKObjectDefinitionType:       dataapimodels.SystemAndUserAssignedIdentityListObjectDefinitionType,
-	models.SystemAndUserAssignedIdentityMapSDKObjectDefinitionType:        dataapimodels.SystemAndUserAssignedIdentityMapObjectDefinitionType,
-	models.LegacySystemAndUserAssignedIdentityListSDKObjectDefinitionType: dataapimodels.LegacySystemAndUserAssignedIdentityListObjectDefinitionType,
-	models.LegacySystemAndUserAssignedIdentityMapSDKObjectDefinitionType:  dataapimodels.LegacySystemAndUserAssignedIdentityMapObjectDefinitionType,
-	models.SystemOrUserAssignedIdentityListSDKObjectDefinitionType:        dataapimodels.SystemOrUserAssignedIdentityListObjectDefinitionType,
-	models.SystemOrUserAssignedIdentityMapSDKObjectDefinitionType:         dataapimodels.SystemOrUserAssignedIdentityMapObjectDefinitionType,
-	models.UserAssignedIdentityListSDKObjectDefinitionType:                dataapimodels.UserAssignedIdentityListObjectDefinitionType,
-	models.UserAssignedIdentityMapSDKObjectDefinitionType:                 dataapimodels.UserAssignedIdentityMapObjectDefinitionType,
-	models.TagsSDKObjectDefinitionType:                                    dataapimodels.TagsObjectDefinitionType,
-	models.SystemDataSDKObjectDefinitionType:                              dataapimodels.SystemDataObjectDefinitionType,
-	models.ZoneSDKObjectDefinitionType:                                    dataapimodels.ZoneObjectDefinitionType,
-	models.ZonesSDKObjectDefinitionType:                                   dataapimodels.ZonesObjectDefinitionType,
+	sdkModels.EdgeZoneSDKObjectDefinitionType:                                repositoryModels.EdgeZoneObjectDefinitionType,
+	sdkModels.LocationSDKObjectDefinitionType:                                repositoryModels.LocationObjectDefinitionType,
+	sdkModels.SystemAssignedIdentitySDKObjectDefinitionType:                  repositoryModels.SystemAssignedIdentityObjectDefinitionType,
+	sdkModels.SystemAndUserAssignedIdentityListSDKObjectDefinitionType:       repositoryModels.SystemAndUserAssignedIdentityListObjectDefinitionType,
+	sdkModels.SystemAndUserAssignedIdentityMapSDKObjectDefinitionType:        repositoryModels.SystemAndUserAssignedIdentityMapObjectDefinitionType,
+	sdkModels.LegacySystemAndUserAssignedIdentityListSDKObjectDefinitionType: repositoryModels.LegacySystemAndUserAssignedIdentityListObjectDefinitionType,
+	sdkModels.LegacySystemAndUserAssignedIdentityMapSDKObjectDefinitionType:  repositoryModels.LegacySystemAndUserAssignedIdentityMapObjectDefinitionType,
+	sdkModels.SystemOrUserAssignedIdentityListSDKObjectDefinitionType:        repositoryModels.SystemOrUserAssignedIdentityListObjectDefinitionType,
+	sdkModels.SystemOrUserAssignedIdentityMapSDKObjectDefinitionType:         repositoryModels.SystemOrUserAssignedIdentityMapObjectDefinitionType,
+	sdkModels.UserAssignedIdentityListSDKObjectDefinitionType:                repositoryModels.UserAssignedIdentityListObjectDefinitionType,
+	sdkModels.UserAssignedIdentityMapSDKObjectDefinitionType:                 repositoryModels.UserAssignedIdentityMapObjectDefinitionType,
+	sdkModels.TagsSDKObjectDefinitionType:                                    repositoryModels.TagsObjectDefinitionType,
+	sdkModels.SystemDataSDKObjectDefinitionType:                              repositoryModels.SystemDataObjectDefinitionType,
+	sdkModels.ZoneSDKObjectDefinitionType:                                    repositoryModels.ZoneObjectDefinitionType,
+	sdkModels.ZonesSDKObjectDefinitionType:                                   repositoryModels.ZonesObjectDefinitionType,
 }

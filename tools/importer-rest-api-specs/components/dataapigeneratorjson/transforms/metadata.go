@@ -5,12 +5,12 @@ package transforms
 
 import (
 	"fmt"
-
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
+	
+	repositoryModels "github.com/hashicorp/pandora/tools/data-api-repository/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
-func MapMetaDataToRepository(gitRevision *string, sourceDataType models.SourceDataType, sourceDataOrigin models.SourceDataOrigin) (*dataapimodels.MetaData, error) {
+func MapMetaDataToRepository(gitRevision *string, sourceDataType sdkModels.SourceDataType, sourceDataOrigin sdkModels.SourceDataOrigin) (*repositoryModels.MetaData, error) {
 	dataType, ok := sourceDataTypesToRepository[sourceDataType]
 	if !ok {
 		return nil, fmt.Errorf("internal-error: missing mapping for Source Data Type %q", string(sourceDataType))
@@ -20,14 +20,14 @@ func MapMetaDataToRepository(gitRevision *string, sourceDataType models.SourceDa
 		return nil, fmt.Errorf("internal-error: missing mapping for Source Data Origin %q", string(sourceDataOrigin))
 	}
 
-	return &dataapimodels.MetaData{
+	return &repositoryModels.MetaData{
 		DataSource:        dataType,
 		SourceInformation: dataOrigin,
 		GitRevision:       gitRevision,
 	}, nil
 }
 
-var sourceDataTypesToRepository = map[models.SourceDataType]dataapimodels.DataSource{
-	models.ResourceManagerSourceDataType: dataapimodels.AzureResourceManagerDataSource,
-	models.MicrosoftGraphSourceDataType:  dataapimodels.MicrosoftGraphDataSource,
+var sourceDataTypesToRepository = map[sdkModels.SourceDataType]repositoryModels.DataSource{
+	sdkModels.ResourceManagerSourceDataType: repositoryModels.AzureResourceManagerDataSource,
+	sdkModels.MicrosoftGraphSourceDataType:  repositoryModels.MicrosoftGraphDataSource,
 }

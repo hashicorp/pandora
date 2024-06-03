@@ -6,12 +6,12 @@ package transforms
 import (
 	"fmt"
 
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
+	repositoryModels "github.com/hashicorp/pandora/tools/data-api-repository/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
-func MapResourceIDToRepository(name string, input models.ResourceID) (*dataapimodels.ResourceId, error) {
-	segments := make([]dataapimodels.ResourceIdSegment, 0)
+func MapResourceIDToRepository(name string, input sdkModels.ResourceID) (*repositoryModels.ResourceId, error) {
+	segments := make([]repositoryModels.ResourceIdSegment, 0)
 	for _, inputSegment := range input.Segments {
 		outputSegment, err := mapResourceIdSegmentToRepository(inputSegment)
 		if err != nil {
@@ -20,7 +20,7 @@ func MapResourceIDToRepository(name string, input models.ResourceID) (*dataapimo
 		segments = append(segments, *outputSegment)
 	}
 
-	return &dataapimodels.ResourceId{
+	return &repositoryModels.ResourceId{
 		Name:        name,
 		CommonAlias: input.CommonIDAlias,
 		Id:          input.ExampleValue,

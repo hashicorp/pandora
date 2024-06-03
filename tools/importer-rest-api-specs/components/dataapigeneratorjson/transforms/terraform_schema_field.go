@@ -7,17 +7,17 @@ import (
 	"fmt"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
+	repositoryModels "github.com/hashicorp/pandora/tools/data-api-repository/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
-func mapTerraformSchemaFieldToRepository(fieldName string, input models.TerraformSchemaField) (*dataapimodels.TerraformSchemaField, error) {
+func mapTerraformSchemaFieldToRepository(fieldName string, input sdkModels.TerraformSchemaField) (*repositoryModels.TerraformSchemaField, error) {
 	objectDefinition, err := MapTerraformSchemaObjectDefinitionToRepository(input.ObjectDefinition)
 	if err != nil {
 		return nil, fmt.Errorf("mapping Terraform Schema Object Definition: %+v", err)
 	}
 
-	output := dataapimodels.TerraformSchemaField{
+	output := repositoryModels.TerraformSchemaField{
 		HclName:          input.HCLName,
 		Name:             fieldName,
 		ObjectDefinition: *objectDefinition,
@@ -36,7 +36,7 @@ func mapTerraformSchemaFieldToRepository(fieldName string, input models.Terrafor
 		output.Required = pointer.To(true)
 	}
 	if input.Documentation.Markdown != "" {
-		output.Documentation = &dataapimodels.TerraformSchemaFieldDocumentation{
+		output.Documentation = &repositoryModels.TerraformSchemaFieldDocumentation{
 			Markdown: input.Documentation.Markdown,
 		}
 	}

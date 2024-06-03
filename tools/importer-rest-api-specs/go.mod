@@ -1,6 +1,6 @@
 module github.com/hashicorp/pandora/tools/importer-rest-api-specs
 
-go 1.21
+go 1.22.1
 
 require (
 	github.com/gertd/go-pluralize v0.2.1
@@ -11,6 +11,7 @@ require (
 	github.com/hashicorp/go-azure-helpers v0.66.2
 	github.com/hashicorp/go-hclog v1.4.0
 	github.com/hashicorp/hcl/v2 v2.16.2
+	github.com/hashicorp/pandora/tools/data-api-repository v0.0.0-00010101000000-000000000000
 	github.com/hashicorp/pandora/tools/data-api-sdk v0.0.0-00010101000000-000000000000
 	github.com/hashicorp/pandora/tools/sdk v0.0.0-00010101000000-000000000000
 	github.com/mitchellh/cli v1.1.4
@@ -78,6 +79,8 @@ require (
 )
 
 replace github.com/go-openapi/analysis v0.20.1 => github.com/jackofallops/analysis v0.20.2-0.20210705135157-888aa8dbc8e5
+
+replace github.com/hashicorp/pandora/tools/data-api-repository => ../data-api-repository
 
 replace github.com/hashicorp/pandora/tools/data-api-sdk => ../data-api-sdk
 

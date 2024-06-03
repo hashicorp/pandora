@@ -6,27 +6,27 @@ package transforms
 import (
 	"fmt"
 
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
+	repositoryModels "github.com/hashicorp/pandora/tools/data-api-repository/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
-var sdkOperationOptionsToRepository = map[models.SDKOperationOptionObjectDefinitionType]dataapimodels.OptionObjectDefinitionType{
-	models.BooleanSDKOperationOptionObjectDefinitionType:   dataapimodels.BooleanOptionObjectDefinitionType,
-	models.CSVSDKOperationOptionObjectDefinitionType:       dataapimodels.CsvOptionObjectDefinitionType,
-	models.IntegerSDKOperationOptionObjectDefinitionType:   dataapimodels.IntegerOptionObjectDefinitionType,
-	models.FloatSDKOperationOptionObjectDefinitionType:     dataapimodels.FloatOptionObjectDefinitionType,
-	models.ListSDKOperationOptionObjectDefinitionType:      dataapimodels.ListOptionObjectDefinitionType,
-	models.ReferenceSDKOperationOptionObjectDefinitionType: dataapimodels.ReferenceOptionObjectDefinitionType,
-	models.StringSDKOperationOptionObjectDefinitionType:    dataapimodels.StringOptionObjectDefinitionType,
+var sdkOperationOptionsToRepository = map[sdkModels.SDKOperationOptionObjectDefinitionType]repositoryModels.OptionObjectDefinitionType{
+	sdkModels.BooleanSDKOperationOptionObjectDefinitionType:   repositoryModels.BooleanOptionObjectDefinitionType,
+	sdkModels.CSVSDKOperationOptionObjectDefinitionType:       repositoryModels.CsvOptionObjectDefinitionType,
+	sdkModels.IntegerSDKOperationOptionObjectDefinitionType:   repositoryModels.IntegerOptionObjectDefinitionType,
+	sdkModels.FloatSDKOperationOptionObjectDefinitionType:     repositoryModels.FloatOptionObjectDefinitionType,
+	sdkModels.ListSDKOperationOptionObjectDefinitionType:      repositoryModels.ListOptionObjectDefinitionType,
+	sdkModels.ReferenceSDKOperationOptionObjectDefinitionType: repositoryModels.ReferenceOptionObjectDefinitionType,
+	sdkModels.StringSDKOperationOptionObjectDefinitionType:    repositoryModels.StringOptionObjectDefinitionType,
 }
 
-func mapSDKOperationOptionToRepository(definition models.SDKOperationOptionObjectDefinition, constants map[string]models.SDKConstant, models map[string]models.SDKModel) (*dataapimodels.OptionObjectDefinition, error) {
+func mapSDKOperationOptionToRepository(definition sdkModels.SDKOperationOptionObjectDefinition, constants map[string]sdkModels.SDKConstant, models map[string]sdkModels.SDKModel) (*repositoryModels.OptionObjectDefinition, error) {
 	typeVal, ok := sdkOperationOptionsToRepository[definition.Type]
 	if !ok {
 		return nil, fmt.Errorf("internal-error: no OptionObjectDefinition mapping is defined for the OptionObjectDefinition Type %q", string(definition.Type))
 	}
 
-	output := dataapimodels.OptionObjectDefinition{
+	output := repositoryModels.OptionObjectDefinition{
 		Type:          typeVal,
 		ReferenceName: nil,
 		NestedItem:    nil,
@@ -52,9 +52,9 @@ func mapSDKOperationOptionToRepository(definition models.SDKOperationOptionObjec
 	return &output, nil
 }
 
-func validateSDKOperationOptionObjectDefinition(input dataapimodels.OptionObjectDefinition, constants map[string]models.SDKConstant, models map[string]models.SDKModel) error {
-	requiresNestedItem := input.Type == dataapimodels.CsvOptionObjectDefinitionType || input.Type == dataapimodels.ListOptionObjectDefinitionType
-	requiresReference := input.Type == dataapimodels.ReferenceOptionObjectDefinitionType
+func validateSDKOperationOptionObjectDefinition(input repositoryModels.OptionObjectDefinition, constants map[string]sdkModels.SDKConstant, models map[string]sdkModels.SDKModel) error {
+	requiresNestedItem := input.Type == repositoryModels.CsvOptionObjectDefinitionType || input.Type == repositoryModels.ListOptionObjectDefinitionType
+	requiresReference := input.Type == repositoryModels.ReferenceOptionObjectDefinitionType
 	if requiresNestedItem && input.NestedItem == nil {
 		return fmt.Errorf("a Nested Object Definition must be specified for a %q type but didn't get one", string(input.Type))
 	}

@@ -7,13 +7,13 @@ import (
 	"fmt"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
+	repositoryModels "github.com/hashicorp/pandora/tools/data-api-repository/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
-func MapTerraformResourceDefinitionToRepository(resourceLabel string, input models.TerraformResourceDefinition) (*dataapimodels.TerraformResourceDefinition, error) {
+func MapTerraformResourceDefinitionToRepository(resourceLabel string, input sdkModels.TerraformResourceDefinition) (*repositoryModels.TerraformResourceDefinition, error) {
 	// TODO: ExampleUsage should probably go out into a file - perhaps `Resource-ExampleUsage.hcl`?
-	output := dataapimodels.TerraformResourceDefinition{
+	output := repositoryModels.TerraformResourceDefinition{
 		ApiVersion:                   input.APIVersion,
 		Category:                     input.Documentation.Category,
 		CreateMethod:                 mapTerraformMethodDefinitionToRepository(input.CreateMethod),

@@ -7,18 +7,18 @@ import (
 	"fmt"
 	"sort"
 
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
+	repositoryModels "github.com/hashicorp/pandora/tools/data-api-repository/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
-func MapTerraformSchemaModelToRepository(modelName string, schemaModel models.TerraformSchemaModelDefinition) (*dataapimodels.TerraformSchemaModel, error) {
+func MapTerraformSchemaModelToRepository(modelName string, schemaModel sdkModels.TerraformSchemaModelDefinition) (*repositoryModels.TerraformSchemaModel, error) {
 	fieldList := make([]string, 0)
 	for f := range schemaModel.Fields {
 		fieldList = append(fieldList, f)
 	}
 	sort.Strings(fieldList)
 
-	schemaFields := make([]dataapimodels.TerraformSchemaField, 0)
+	schemaFields := make([]repositoryModels.TerraformSchemaField, 0)
 	for _, fieldName := range fieldList {
 		def := schemaModel.Fields[fieldName]
 
@@ -30,7 +30,7 @@ func MapTerraformSchemaModelToRepository(modelName string, schemaModel models.Te
 		schemaFields = append(schemaFields, *fieldBody)
 	}
 
-	return &dataapimodels.TerraformSchemaModel{
+	return &repositoryModels.TerraformSchemaModel{
 		Fields: schemaFields,
 		// todo remove Schema when https://github.com/hashicorp/pandora/issues/3346 is addressed
 		Name: fmt.Sprintf("%sSchema", modelName),
