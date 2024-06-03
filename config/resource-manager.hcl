@@ -129,7 +129,7 @@ service "cosmos-db" {
 }
 service "cost-management" {
   name      = "CostManagement"
-  available = ["2021-10-01", "2022-06-01-preview", "2022-10-01", "2023-03-01", "2023-08-01", "2023-11-01"]
+  available = ["2021-10-01", "2022-06-01-preview", "2022-10-01", "2023-03-01", "2023-07-01-preview", "2023-08-01", "2023-11-01"]
 }
 service "customproviders" {
   name      = "CustomProviders"
