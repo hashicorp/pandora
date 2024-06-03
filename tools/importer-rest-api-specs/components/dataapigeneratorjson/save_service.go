@@ -13,9 +13,6 @@ import (
 )
 
 type SaveServiceOptions struct {
-	// AzureRestAPISpecsGitSHA specifies the Git Commit SHA that these API Definitions were imported from.
-	AzureRestAPISpecsGitSHA *string
-
 	// ResourceProvider optionally specifies the Azure Resource Provider associated with this Service.
 	// This is only present when SourceDataType is ResourceManagerSourceDataType.
 	ResourceProvider *string
@@ -25,6 +22,9 @@ type SaveServiceOptions struct {
 
 	// ServiceName specifies the name of this Service (e.g. `Compute`).
 	ServiceName string
+
+	// SourceCommitSHA specifies the Git Commit SHA that these API Definitions were imported from.
+	SourceCommitSHA *string
 
 	// SourceDataOrigin specifies the origin of this set of source data (e.g. AzureRestAPISpecsSourceDataOrigin).
 	SourceDataOrigin models.SourceDataOrigin
@@ -39,7 +39,7 @@ func (r repositoryImpl) SaveService(opts SaveServiceOptions) error {
 
 	items := []stages.Stage{
 		stages.MetaDataStage{
-			GitRevision:      opts.AzureRestAPISpecsGitSHA,
+			GitRevision:      opts.SourceCommitSHA,
 			SourceDataOrigin: opts.SourceDataOrigin,
 			SourceDataType:   opts.SourceDataType,
 		},

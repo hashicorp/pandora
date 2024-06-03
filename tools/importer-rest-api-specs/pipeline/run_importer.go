@@ -178,12 +178,12 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 	logger.Info(fmt.Sprintf("Persisting API Definitions for Service %s..", serviceName))
 
 	opts := dataapigeneratorjson.SaveServiceOptions{
-		AzureRestAPISpecsGitSHA: pointer.To(swaggerGitSha),
-		ResourceProvider:        resourceProvider,
-		Service:                 *service,
-		ServiceName:             serviceName,
-		SourceDataOrigin:        sourceDataOrigin,
-		SourceDataType:          sourceDataType,
+		SourceCommitSHA:  pointer.To(swaggerGitSha),
+		ResourceProvider: resourceProvider,
+		Service:          *service,
+		ServiceName:      serviceName,
+		SourceDataOrigin: sourceDataOrigin,
+		SourceDataType:   sourceDataType,
 	}
 	if err := repo.SaveService(opts); err != nil {
 		return fmt.Errorf("persisting Data API Definitions for Service %q: %+v", serviceName, err)
