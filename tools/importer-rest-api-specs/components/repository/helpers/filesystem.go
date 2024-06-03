@@ -11,8 +11,8 @@ import (
 	"sort"
 	"strings"
 
+	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )
 
 var directoryPermissions = os.FileMode(0755)
@@ -69,15 +69,15 @@ func (f *FileSystem) Stage(path FilePath, body any) error {
 	return fmt.Errorf("internal-error: unexpected file extension %q for %q", fileExtension, path)
 }
 
-func PersistFileSystem(workingDirectory string, dataType models.SourceDataType, serviceName string, input *FileSystem) error {
+func PersistFileSystem(workingDirectory string, dataType models.SourceDataType, serviceName string, input *FileSystem, logger hclog.Logger) error {
 	// TODO: note this is going to need to take SourceDataOrigin into account too
 
 	rootDir := filepath.Join(workingDirectory, string(dataType))
-	logging.Log.Trace(fmt.Sprintf("Persisting files into %q", rootDir))
+	logger.Trace(fmt.Sprintf("Persisting files into %q", rootDir))
 
 	// Delete any existing directory with this service name
 	serviceDir := filepath.Join(rootDir, serviceName)
-	logging.Log.Debug(fmt.Sprintf("Removing any existing Directory for Service %q", serviceName))
+	logger.Debug(fmt.Sprintf("Removing any existing Directory for Service %q", serviceName))
 	_ = os.RemoveAll(serviceDir)
 	if err := os.MkdirAll(serviceDir, directoryPermissions); err != nil {
 		return fmt.Errorf("recreating directory %q: %+v", serviceDir, err)
@@ -85,7 +85,7 @@ func PersistFileSystem(workingDirectory string, dataType models.SourceDataType, 
 
 	// pull out a list of directories
 	directories := uniqueDirectories(input.f)
-	logging.Log.Debug(fmt.Sprintf("Creating directories for Service %q", serviceName))
+	logger.Debug(fmt.Sprintf("Creating directories for Service %q", serviceName))
 	for _, dir := range directories {
 		dirPath := filepath.Join(rootDir, dir)
 		if err := os.MkdirAll(dirPath, directoryPermissions); err != nil {
@@ -96,7 +96,7 @@ func PersistFileSystem(workingDirectory string, dataType models.SourceDataType, 
 	// write the files
 	for path, body := range input.f {
 		fileFullPath := filepath.Join(rootDir, path)
-		logging.Log.Trace(fmt.Sprintf("Writing file %q", fileFullPath))
+		logger.Trace(fmt.Sprintf("Writing file %q", fileFullPath))
 		file, err := os.Create(fileFullPath)
 		if err != nil {
 			return fmt.Errorf("opening %q: %+v", fileFullPath, err)

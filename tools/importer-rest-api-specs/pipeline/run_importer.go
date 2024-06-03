@@ -22,7 +22,7 @@ import (
 func runImporter(input RunInput, generationData []discovery.ServiceInput, swaggerGitSha string) error {
 	sourceDataType := models.ResourceManagerSourceDataType
 	sourceDataOrigin := models.AzureRestAPISpecsSourceDataOrigin
-	repo := repository.NewRepository(input.OutputDirectory)
+	repo := repository.NewRepository(input.OutputDirectory, logging.Log)
 
 	// group the API Versions by Service
 	dataByServices := make(map[string][]discovery.ServiceInput)

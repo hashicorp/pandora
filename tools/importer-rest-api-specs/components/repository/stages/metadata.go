@@ -6,10 +6,10 @@ package stages
 import (
 	"fmt"
 
+	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/repository/helpers"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/repository/transforms"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )
 
 var _ Stage = MetaDataStage{}
@@ -26,14 +26,14 @@ type MetaDataStage struct {
 	SourceDataType models.SourceDataType
 }
 
-func (g MetaDataStage) Generate(input *helpers.FileSystem) error {
+func (g MetaDataStage) Generate(input *helpers.FileSystem, logger hclog.Logger) error {
 	metaData, err := transforms.MapMetaDataToRepository(g.GitRevision, g.SourceDataType, g.SourceDataOrigin)
 	if err != nil {
 		return fmt.Errorf("mapping metadata: %+v", err)
 	}
 	path := "metadata.json"
 
-	logging.Log.Trace(fmt.Sprintf("Staging MetaData at %s", path))
+	logger.Trace(fmt.Sprintf("Staging MetaData at %s", path))
 	if err := input.Stage(path, *metaData); err != nil {
 		return fmt.Errorf("staging metadata: %+v", err)
 	}

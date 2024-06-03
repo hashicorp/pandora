@@ -7,10 +7,10 @@ import (
 	"fmt"
 	"path/filepath"
 
+	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/repository/helpers"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/repository/transforms"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )
 
 var _ Stage = ConstantStage{}
@@ -38,11 +38,11 @@ func (g ConstantStage) Name() string {
 	return "Constants"
 }
 
-func (g ConstantStage) Generate(input *helpers.FileSystem) error {
-	logging.Log.Debug("Generating Constants")
+func (g ConstantStage) Generate(input *helpers.FileSystem, logger hclog.Logger) error {
+	logger.Debug("Generating Constants")
 
 	for constantName, constantVal := range g.Constants {
-		logging.Log.Trace(fmt.Sprintf("Processing Constant %q", constantName))
+		logger.Trace(fmt.Sprintf("Processing Constant %q", constantName))
 
 		mapped, err := transforms.MapSDKConstantToRepository(constantName, constantVal)
 		if err != nil {
@@ -51,7 +51,7 @@ func (g ConstantStage) Generate(input *helpers.FileSystem) error {
 
 		// {workingDirectory}/Service/APIVersion/APIResource/Constant-{Name}.json
 		path := filepath.Join(g.ServiceName, g.APIVersion, g.APIResource, fmt.Sprintf("Constant-%s.json", constantName))
-		logging.Log.Trace(fmt.Sprintf("Staging to %s", path))
+		logger.Trace(fmt.Sprintf("Staging to %s", path))
 		if err := input.Stage(path, *mapped); err != nil {
 			return fmt.Errorf("staging Constant %q: %+v", constantName, err)
 		}
@@ -59,10 +59,10 @@ func (g ConstantStage) Generate(input *helpers.FileSystem) error {
 
 	// ResourceIDs also contain Constants - so we need to pull those out and persist them too
 	for resourceIdName, resourceId := range g.ResourceIDs {
-		logging.Log.Trace(fmt.Sprintf("Processing Constants within the Resource ID %q", resourceIdName))
+		logger.Trace(fmt.Sprintf("Processing Constants within the Resource ID %q", resourceIdName))
 
 		for constantName, constantVal := range resourceId.Constants {
-			logging.Log.Trace(fmt.Sprintf("Processing Constant %q", constantName))
+			logger.Trace(fmt.Sprintf("Processing Constant %q", constantName))
 
 			mapped, err := transforms.MapSDKConstantToRepository(constantName, constantVal)
 			if err != nil {
@@ -71,7 +71,7 @@ func (g ConstantStage) Generate(input *helpers.FileSystem) error {
 
 			// {workingDirectory}/Service/APIVersion/APIResource/Constant-{Name}.json
 			path := filepath.Join(g.ServiceName, g.APIVersion, g.APIResource, fmt.Sprintf("Constant-%s.json", constantName))
-			logging.Log.Trace(fmt.Sprintf("Staging to %s", path))
+			logger.Trace(fmt.Sprintf("Staging to %s", path))
 			if err := input.Stage(path, *mapped); err != nil {
 				return fmt.Errorf("staging Constant %q: %+v", constantName, err)
 			}
