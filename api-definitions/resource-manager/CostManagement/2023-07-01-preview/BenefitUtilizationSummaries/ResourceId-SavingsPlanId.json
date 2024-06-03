@@ -1,0 +1,34 @@
+{
+  "name": "SavingsPlanId",
+  "id": "/providers/Microsoft.BillingBenefits/savingsPlanOrders/{savingsPlanOrderId}/savingsPlans/{savingsPlanId}",
+  "segments": [
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftBillingBenefits",
+      "type": "ResourceProvider",
+      "value": "Microsoft.BillingBenefits"
+    },
+    {
+      "name": "staticSavingsPlanOrders",
+      "type": "Static",
+      "value": "savingsPlanOrders"
+    },
+    {
+      "name": "savingsPlanOrderId",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticSavingsPlans",
+      "type": "Static",
+      "value": "savingsPlans"
+    },
+    {
+      "name": "savingsPlanId",
+      "type": "UserSpecified"
+    }
+  ]
+}
