@@ -7,10 +7,10 @@ import (
 	"fmt"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
+	repositoryModels "github.com/hashicorp/pandora/tools/data-api-repository/models"
 )
 
-func mapObjectDefinition(input *dataapimodels.ObjectDefinition) (*ObjectDefinition, error) {
+func mapObjectDefinition(input *repositoryModels.ObjectDefinition) (*ObjectDefinition, error) {
 	if input == nil {
 		return nil, nil
 	}
@@ -36,7 +36,7 @@ func mapObjectDefinition(input *dataapimodels.ObjectDefinition) (*ObjectDefiniti
 	return &output, nil
 }
 
-func mapOptionObjectDefinition(input *dataapimodels.OptionObjectDefinition, constants map[string]ConstantDetails, apiModels map[string]ModelDetails) (*OptionObjectDefinition, error) {
+func mapOptionObjectDefinition(input *repositoryModels.OptionObjectDefinition, constants map[string]ConstantDetails, apiModels map[string]ModelDetails) (*OptionObjectDefinition, error) {
 	optionObjectType, err := mapOptionObjectDefinitionType(input.Type)
 	if err != nil {
 		return nil, err
@@ -62,9 +62,9 @@ func mapOptionObjectDefinition(input *dataapimodels.OptionObjectDefinition, cons
 	return &output, nil
 }
 
-func mapDateFormatType(input dataapimodels.DateFormat) (*DateFormat, error) {
-	mappings := map[dataapimodels.DateFormat]DateFormat{
-		dataapimodels.RFC3339DateFormat: RFC3339DateFormat,
+func mapDateFormatType(input repositoryModels.DateFormat) (*DateFormat, error) {
+	mappings := map[repositoryModels.DateFormat]DateFormat{
+		repositoryModels.RFC3339DateFormat: RFC3339DateFormat,
 	}
 	if v, ok := mappings[input]; ok {
 		return &v, nil
@@ -73,35 +73,35 @@ func mapDateFormatType(input dataapimodels.DateFormat) (*DateFormat, error) {
 	return nil, fmt.Errorf("unmapped Date Format Type %q", string(input))
 }
 
-func mapObjectDefinitionType(input dataapimodels.ObjectDefinitionType) (*ObjectDefinitionType, error) {
-	mappings := map[dataapimodels.ObjectDefinitionType]ObjectDefinitionType{
-		dataapimodels.BooleanObjectDefinitionType:    BooleanObjectDefinitionType,
-		dataapimodels.DateTimeObjectDefinitionType:   DateTimeObjectDefinitionType,
-		dataapimodels.IntegerObjectDefinitionType:    IntegerObjectDefinitionType,
-		dataapimodels.FloatObjectDefinitionType:      FloatObjectDefinitionType,
-		dataapimodels.RawFileObjectDefinitionType:    RawFileObjectDefinitionType,
-		dataapimodels.RawObjectObjectDefinitionType:  RawObjectObjectDefinitionType,
-		dataapimodels.ReferenceObjectDefinitionType:  ReferenceObjectDefinitionType,
-		dataapimodels.StringObjectDefinitionType:     StringObjectDefinitionType,
-		dataapimodels.CsvObjectDefinitionType:        CsvObjectDefinitionType,
-		dataapimodels.DictionaryObjectDefinitionType: DictionaryObjectDefinitionType,
-		dataapimodels.ListObjectDefinitionType:       ListObjectDefinitionType,
+func mapObjectDefinitionType(input repositoryModels.ObjectDefinitionType) (*ObjectDefinitionType, error) {
+	mappings := map[repositoryModels.ObjectDefinitionType]ObjectDefinitionType{
+		repositoryModels.BooleanObjectDefinitionType:    BooleanObjectDefinitionType,
+		repositoryModels.DateTimeObjectDefinitionType:   DateTimeObjectDefinitionType,
+		repositoryModels.IntegerObjectDefinitionType:    IntegerObjectDefinitionType,
+		repositoryModels.FloatObjectDefinitionType:      FloatObjectDefinitionType,
+		repositoryModels.RawFileObjectDefinitionType:    RawFileObjectDefinitionType,
+		repositoryModels.RawObjectObjectDefinitionType:  RawObjectObjectDefinitionType,
+		repositoryModels.ReferenceObjectDefinitionType:  ReferenceObjectDefinitionType,
+		repositoryModels.StringObjectDefinitionType:     StringObjectDefinitionType,
+		repositoryModels.CsvObjectDefinitionType:        CsvObjectDefinitionType,
+		repositoryModels.DictionaryObjectDefinitionType: DictionaryObjectDefinitionType,
+		repositoryModels.ListObjectDefinitionType:       ListObjectDefinitionType,
 
-		dataapimodels.EdgeZoneObjectDefinitionType:                                EdgeZoneObjectDefinitionType,
-		dataapimodels.LocationObjectDefinitionType:                                LocationObjectDefinitionType,
-		dataapimodels.TagsObjectDefinitionType:                                    TagsObjectDefinitionType,
-		dataapimodels.SystemAssignedIdentityObjectDefinitionType:                  SystemAssignedIdentityObjectDefinitionType,
-		dataapimodels.SystemAndUserAssignedIdentityListObjectDefinitionType:       SystemAndUserAssignedIdentityListObjectDefinitionType,
-		dataapimodels.SystemAndUserAssignedIdentityMapObjectDefinitionType:        SystemAndUserAssignedIdentityMapObjectDefinitionType,
-		dataapimodels.LegacySystemAndUserAssignedIdentityListObjectDefinitionType: LegacySystemAndUserAssignedIdentityListObjectDefinitionType,
-		dataapimodels.LegacySystemAndUserAssignedIdentityMapObjectDefinitionType:  LegacySystemAndUserAssignedIdentityMapObjectDefinitionType,
-		dataapimodels.SystemOrUserAssignedIdentityListObjectDefinitionType:        SystemOrUserAssignedIdentityListObjectDefinitionType,
-		dataapimodels.SystemOrUserAssignedIdentityMapObjectDefinitionType:         SystemOrUserAssignedIdentityMapObjectDefinitionType,
-		dataapimodels.UserAssignedIdentityListObjectDefinitionType:                UserAssignedIdentityListObjectDefinitionType,
-		dataapimodels.UserAssignedIdentityMapObjectDefinitionType:                 UserAssignedIdentityMapObjectDefinitionType,
-		dataapimodels.SystemDataObjectDefinitionType:                              SystemDataObjectDefinitionType,
-		dataapimodels.ZoneObjectDefinitionType:                                    ZoneObjectDefinitionType,
-		dataapimodels.ZonesObjectDefinitionType:                                   ZonesObjectDefinitionType,
+		repositoryModels.EdgeZoneObjectDefinitionType:                                EdgeZoneObjectDefinitionType,
+		repositoryModels.LocationObjectDefinitionType:                                LocationObjectDefinitionType,
+		repositoryModels.TagsObjectDefinitionType:                                    TagsObjectDefinitionType,
+		repositoryModels.SystemAssignedIdentityObjectDefinitionType:                  SystemAssignedIdentityObjectDefinitionType,
+		repositoryModels.SystemAndUserAssignedIdentityListObjectDefinitionType:       SystemAndUserAssignedIdentityListObjectDefinitionType,
+		repositoryModels.SystemAndUserAssignedIdentityMapObjectDefinitionType:        SystemAndUserAssignedIdentityMapObjectDefinitionType,
+		repositoryModels.LegacySystemAndUserAssignedIdentityListObjectDefinitionType: LegacySystemAndUserAssignedIdentityListObjectDefinitionType,
+		repositoryModels.LegacySystemAndUserAssignedIdentityMapObjectDefinitionType:  LegacySystemAndUserAssignedIdentityMapObjectDefinitionType,
+		repositoryModels.SystemOrUserAssignedIdentityListObjectDefinitionType:        SystemOrUserAssignedIdentityListObjectDefinitionType,
+		repositoryModels.SystemOrUserAssignedIdentityMapObjectDefinitionType:         SystemOrUserAssignedIdentityMapObjectDefinitionType,
+		repositoryModels.UserAssignedIdentityListObjectDefinitionType:                UserAssignedIdentityListObjectDefinitionType,
+		repositoryModels.UserAssignedIdentityMapObjectDefinitionType:                 UserAssignedIdentityMapObjectDefinitionType,
+		repositoryModels.SystemDataObjectDefinitionType:                              SystemDataObjectDefinitionType,
+		repositoryModels.ZoneObjectDefinitionType:                                    ZoneObjectDefinitionType,
+		repositoryModels.ZonesObjectDefinitionType:                                   ZonesObjectDefinitionType,
 	}
 	if v, ok := mappings[input]; ok {
 		return &v, nil
@@ -110,15 +110,15 @@ func mapObjectDefinitionType(input dataapimodels.ObjectDefinitionType) (*ObjectD
 	return nil, fmt.Errorf("unmapped Object Definition Type %q", string(input))
 }
 
-func mapOptionObjectDefinitionType(input dataapimodels.OptionObjectDefinitionType) (*OptionObjectDefinitionType, error) {
-	mappings := map[dataapimodels.OptionObjectDefinitionType]OptionObjectDefinitionType{
-		dataapimodels.BooleanOptionObjectDefinitionType:   BooleanOptionObjectDefinition,
-		dataapimodels.IntegerOptionObjectDefinitionType:   IntegerOptionObjectDefinition,
-		dataapimodels.FloatOptionObjectDefinitionType:     FloatOptionObjectDefinitionType,
-		dataapimodels.StringOptionObjectDefinitionType:    StringOptionObjectDefinitionType,
-		dataapimodels.CsvOptionObjectDefinitionType:       CsvOptionObjectDefinitionType,
-		dataapimodels.ListOptionObjectDefinitionType:      ListOptionObjectDefinitionType,
-		dataapimodels.ReferenceOptionObjectDefinitionType: ReferenceOptionObjectDefinitionType,
+func mapOptionObjectDefinitionType(input repositoryModels.OptionObjectDefinitionType) (*OptionObjectDefinitionType, error) {
+	mappings := map[repositoryModels.OptionObjectDefinitionType]OptionObjectDefinitionType{
+		repositoryModels.BooleanOptionObjectDefinitionType:   BooleanOptionObjectDefinition,
+		repositoryModels.IntegerOptionObjectDefinitionType:   IntegerOptionObjectDefinition,
+		repositoryModels.FloatOptionObjectDefinitionType:     FloatOptionObjectDefinitionType,
+		repositoryModels.StringOptionObjectDefinitionType:    StringOptionObjectDefinitionType,
+		repositoryModels.CsvOptionObjectDefinitionType:       CsvOptionObjectDefinitionType,
+		repositoryModels.ListOptionObjectDefinitionType:      ListOptionObjectDefinitionType,
+		repositoryModels.ReferenceOptionObjectDefinitionType: ReferenceOptionObjectDefinitionType,
 	}
 	if v, ok := mappings[input]; ok {
 		return &v, nil
@@ -127,11 +127,11 @@ func mapOptionObjectDefinitionType(input dataapimodels.OptionObjectDefinitionTyp
 	return nil, fmt.Errorf("unmapped Options Object Definition Type %q", string(input))
 }
 
-func mapConstantFieldType(input dataapimodels.ConstantType) (*ConstantType, error) {
-	mappings := map[dataapimodels.ConstantType]ConstantType{
-		dataapimodels.FloatConstant:   FloatConstant,
-		dataapimodels.IntegerConstant: IntegerConstant,
-		dataapimodels.StringConstant:  StringConstant,
+func mapConstantFieldType(input repositoryModels.ConstantType) (*ConstantType, error) {
+	mappings := map[repositoryModels.ConstantType]ConstantType{
+		repositoryModels.FloatConstant:   FloatConstant,
+		repositoryModels.IntegerConstant: IntegerConstant,
+		repositoryModels.StringConstant:  StringConstant,
 	}
 	if v, ok := mappings[input]; ok {
 		return &v, nil
@@ -140,15 +140,15 @@ func mapConstantFieldType(input dataapimodels.ConstantType) (*ConstantType, erro
 	return nil, fmt.Errorf("unmapped Constant Type %q", string(input))
 }
 
-func mapResourceIdSegmentType(input dataapimodels.ResourceIdSegmentType) (*ResourceIdSegmentType, error) {
-	mappings := map[dataapimodels.ResourceIdSegmentType]ResourceIdSegmentType{
-		dataapimodels.ConstantResourceIdSegmentType:         ConstantResourceIdSegmentType,
-		dataapimodels.ResourceGroupResourceIdSegmentType:    ResourceGroupResourceIdSegmentType,
-		dataapimodels.ResourceProviderResourceIdSegmentType: ResourceProviderResourceIdSegmentType,
-		dataapimodels.ScopeResourceIdSegmentType:            ScopeResourceIdSegmentType,
-		dataapimodels.StaticResourceIdSegmentType:           StaticResourceIdSegmentType,
-		dataapimodels.SubscriptionIdResourceIdSegmentType:   SubscriptionIdResourceIdSegmentType,
-		dataapimodels.UserSpecifiedResourceIdSegmentType:    UserSpecifiedResourceIdSegmentType,
+func mapResourceIdSegmentType(input repositoryModels.ResourceIdSegmentType) (*ResourceIdSegmentType, error) {
+	mappings := map[repositoryModels.ResourceIdSegmentType]ResourceIdSegmentType{
+		repositoryModels.ConstantResourceIdSegmentType:         ConstantResourceIdSegmentType,
+		repositoryModels.ResourceGroupResourceIdSegmentType:    ResourceGroupResourceIdSegmentType,
+		repositoryModels.ResourceProviderResourceIdSegmentType: ResourceProviderResourceIdSegmentType,
+		repositoryModels.ScopeResourceIdSegmentType:            ScopeResourceIdSegmentType,
+		repositoryModels.StaticResourceIdSegmentType:           StaticResourceIdSegmentType,
+		repositoryModels.SubscriptionIdResourceIdSegmentType:   SubscriptionIdResourceIdSegmentType,
+		repositoryModels.UserSpecifiedResourceIdSegmentType:    UserSpecifiedResourceIdSegmentType,
 	}
 	if v, ok := mappings[input]; ok {
 		return &v, nil
@@ -157,11 +157,11 @@ func mapResourceIdSegmentType(input dataapimodels.ResourceIdSegmentType) (*Resou
 	return nil, fmt.Errorf("unmapped Resource Id Segment Type %q", string(input))
 }
 
-func mapApiDefinitionSourceType(input dataapimodels.ApiDefinitionsSource) (*ApiDefinitionSourceType, error) {
-	mappings := map[dataapimodels.ApiDefinitionsSource]ApiDefinitionSourceType{
-		dataapimodels.HandWrittenApiDefinitionsSource:                      HandWrittenApiDefinitionsSource,
-		dataapimodels.AzureRestApiSpecsRepositoryApiDefinitionsSource:      ResourceManagerRestApiSpecsApiDefinitionsSource,
-		dataapimodels.MicrosoftGraphMetaDataRepositoryApiDefinitionsSource: MicrosoftGraphMetadataApiDefinitionsSource,
+func mapApiDefinitionSourceType(input repositoryModels.ApiDefinitionsSource) (*ApiDefinitionSourceType, error) {
+	mappings := map[repositoryModels.ApiDefinitionsSource]ApiDefinitionSourceType{
+		repositoryModels.HandWrittenApiDefinitionsSource:                      HandWrittenApiDefinitionsSource,
+		repositoryModels.AzureRestApiSpecsRepositoryApiDefinitionsSource:      ResourceManagerRestApiSpecsApiDefinitionsSource,
+		repositoryModels.MicrosoftGraphMetaDataRepositoryApiDefinitionsSource: MicrosoftGraphMetadataApiDefinitionsSource,
 	}
 	if v, ok := mappings[input]; ok {
 		return &v, nil
@@ -170,11 +170,11 @@ func mapApiDefinitionSourceType(input dataapimodels.ApiDefinitionsSource) (*ApiD
 	return nil, fmt.Errorf("unmapped Definition Source Type %q", string(input))
 }
 
-func mapValidationPossibleValueTypes(input dataapimodels.TerraformSchemaValidationPossibleValuesType) (*TerraformSchemaValidationPossibleValueType, error) {
-	mappings := map[dataapimodels.TerraformSchemaValidationPossibleValuesType]TerraformSchemaValidationPossibleValueType{
-		dataapimodels.FloatTerraformSchemaValidationPossibleValuesType:   TerraformSchemaValidationPossibleValueTypeFloat,
-		dataapimodels.IntegerTerraformSchemaValidationPossibleValuesType: TerraformSchemaValidationPossibleValueTypeInt,
-		dataapimodels.StringTerraformSchemaValidationPossibleValuesType:  TerraformSchemaValidationPossibleValueTypeString,
+func mapValidationPossibleValueTypes(input repositoryModels.TerraformSchemaValidationPossibleValuesType) (*TerraformSchemaValidationPossibleValueType, error) {
+	mappings := map[repositoryModels.TerraformSchemaValidationPossibleValuesType]TerraformSchemaValidationPossibleValueType{
+		repositoryModels.FloatTerraformSchemaValidationPossibleValuesType:   TerraformSchemaValidationPossibleValueTypeFloat,
+		repositoryModels.IntegerTerraformSchemaValidationPossibleValuesType: TerraformSchemaValidationPossibleValueTypeInt,
+		repositoryModels.StringTerraformSchemaValidationPossibleValuesType:  TerraformSchemaValidationPossibleValueTypeString,
 	}
 	if v, ok := mappings[input]; ok {
 		return &v, nil

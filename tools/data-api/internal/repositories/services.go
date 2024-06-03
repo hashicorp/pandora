@@ -13,8 +13,8 @@ import (
 	"sync"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	repositoryModels "github.com/hashicorp/pandora/tools/data-api-repository/models"
 	"github.com/hashicorp/pandora/tools/data-api/internal/logging"
-	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
 )
 
 type ServicesRepository interface {
@@ -27,7 +27,7 @@ var _ ServicesRepository = &ServicesRepositoryImpl{}
 
 type ServicesRepositoryImpl struct {
 	// expectedDataSource specifies the Data Source of the API definitions that we should load
-	expectedDataSource dataapimodels.DataSource
+	expectedDataSource repositoryModels.DataSource
 
 	// rootDirectory is the directory containing the API definitions for all service types
 	rootDirectory string
@@ -67,9 +67,9 @@ func NewServicesRepository(directory string, serviceType ServiceType, serviceNam
 	// all service definitions for the specified service type, building a complete list of services as well as their directory paths
 	// to load from
 
-	dataSources := map[ServiceType]dataapimodels.DataSource{
-		MicrosoftGraphServiceType:  dataapimodels.MicrosoftGraphDataSource,
-		ResourceManagerServiceType: dataapimodels.AzureResourceManagerDataSource,
+	dataSources := map[ServiceType]repositoryModels.DataSource{
+		MicrosoftGraphServiceType:  repositoryModels.MicrosoftGraphDataSource,
+		ResourceManagerServiceType: repositoryModels.AzureResourceManagerDataSource,
 	}
 	dataSource, ok := dataSources[serviceType]
 	if !ok {
@@ -232,7 +232,7 @@ func (s *ServicesRepositoryImpl) ProcessServiceDefinitions(serviceName string) (
 		return nil, err
 	}
 
-	var serviceDefinition dataapimodels.ServiceDefinition
+	var serviceDefinition repositoryModels.ServiceDefinition
 
 	contents, err := loadJson(path.Join(servicePath, "ServiceDefinition.json"))
 	if err != nil {
@@ -264,7 +264,7 @@ func (s *ServicesRepositoryImpl) ProcessVersionDefinitions(serviceName string, v
 		Generate: true,
 	}
 
-	var apiVersionDefinition dataapimodels.ApiVersionDefinition
+	var apiVersionDefinition repositoryModels.ApiVersionDefinition
 
 	contents, err := loadJson(path.Join((*s.serviceNamesToDirectory)[serviceName], version, "ApiVersionDefinition.json"))
 	if err != nil {
@@ -410,7 +410,7 @@ func (s *ServicesRepositoryImpl) ProcessResourceDefinitions(serviceName string, 
 }
 
 func parseConstantFromFilePath(filePath string) (*ConstantDetails, error) {
-	var constant dataapimodels.Constant
+	var constant repositoryModels.Constant
 
 	contents, err := loadJson(fmt.Sprintf(filePath))
 	if err != nil {
@@ -439,7 +439,7 @@ func parseConstantFromFilePath(filePath string) (*ConstantDetails, error) {
 }
 
 func parseModelFromFilePath(filePath string) (*ModelDetails, error) {
-	var model dataapimodels.Model
+	var model repositoryModels.Model
 
 	contents, err := loadJson(filePath)
 	if err != nil {
@@ -496,7 +496,7 @@ func parseModelFromFilePath(filePath string) (*ModelDetails, error) {
 }
 
 func parseOperationFromFilePath(filePath string, constants map[string]ConstantDetails, apiModels map[string]ModelDetails, resourceIds map[string]ResourceIdDefinition) (*ResourceOperations, error) {
-	var operation dataapimodels.Operation
+	var operation repositoryModels.Operation
 
 	contents, err := loadJson(filePath)
 	if err != nil {
@@ -717,7 +717,7 @@ func parseTerraformDefinitionResourceFromFilePath(resourcePath string, file os.D
 		return definition, err
 	}
 
-	var resourceDefinition dataapimodels.TerraformResourceDefinition
+	var resourceDefinition repositoryModels.TerraformResourceDefinition
 
 	if err := json.Unmarshal(*contents, &resourceDefinition); err != nil {
 		return definition, fmt.Errorf("unmarshaling Terraform Resource Definition")
@@ -776,7 +776,7 @@ func parseTerraformDefinitionResourceMappingsFromFilePath(resourcePath string, f
 		return mappings, err
 	}
 
-	var resourceMapping dataapimodels.TerraformMappingDefinition
+	var resourceMapping repositoryModels.TerraformMappingDefinition
 
 	if err := json.Unmarshal(*contents, &resourceMapping); err != nil {
 		return mappings, fmt.Errorf("unmarshaling Terraform Resource Mapping")
@@ -863,7 +863,7 @@ func parseTerraformDefinitionResourceSchemaFromFilePath(resourcePath string, fil
 		return input, err
 	}
 
-	var schemaModel dataapimodels.TerraformSchemaModel
+	var schemaModel repositoryModels.TerraformSchemaModel
 	if err := json.Unmarshal(*contents, &schemaModel); err != nil {
 		return input, fmt.Errorf("unmarshaling Terraform Resource Schema %+v", err)
 	}
@@ -918,7 +918,7 @@ func parseTerraformDefinitionResourceTestsFromFilePath(resourcePath string, file
 		return TerraformResourceTestsDefinition{}, err
 	}
 
-	var testConfig dataapimodels.TerraformResourceTestConfig
+	var testConfig repositoryModels.TerraformResourceTestConfig
 	if err := json.Unmarshal(*contents, &testConfig); err != nil {
 		return TerraformResourceTestsDefinition{}, fmt.Errorf("unmarshaling Terraform Resource Tests %+v", err)
 	}
@@ -935,7 +935,7 @@ func parseTerraformDefinitionResourceTestsFromFilePath(resourcePath string, file
 	return testDefinition, nil
 }
 
-func terraformSchemaFieldObjectDefinitionFromField(input dataapimodels.TerraformSchemaObjectDefinition) TerraformSchemaFieldObjectDefinition {
+func terraformSchemaFieldObjectDefinitionFromField(input repositoryModels.TerraformSchemaObjectDefinition) TerraformSchemaFieldObjectDefinition {
 	objectDefinition := TerraformSchemaFieldObjectDefinition{
 		ReferenceName: input.ReferenceName,
 		Type:          TerraformSchemaFieldType(input.Type),
@@ -950,7 +950,7 @@ func terraformSchemaFieldObjectDefinitionFromField(input dataapimodels.Terraform
 }
 
 func parseResourceIdFromFilePath(filePath string, constants map[string]ConstantDetails) (*ResourceIdDefinition, error) {
-	var resourceId dataapimodels.ResourceId
+	var resourceId repositoryModels.ResourceId
 
 	contents, err := loadJson(filePath)
 	if err != nil {

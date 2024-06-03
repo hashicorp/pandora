@@ -10,8 +10,8 @@ import (
 	"os"
 	"path"
 
+	repositoryModels "github.com/hashicorp/pandora/tools/data-api-repository/models"
 	"github.com/hashicorp/pandora/tools/data-api/internal/logging"
-	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
 )
 
 func (s *ServicesRepositoryImpl) discoverServiceTypeDirectories() (*[]string, error) {
@@ -29,7 +29,7 @@ func (s *ServicesRepositoryImpl) discoverServiceTypeDirectories() (*[]string, er
 		serviceTypeDir := path.Join(s.rootDirectory, d)
 
 		// check whether directory contains a metadata.json
-		var metadata dataapimodels.MetaData
+		var metadata repositoryModels.MetaData
 		contents, err := loadJson(path.Join(serviceTypeDir, "metadata.json"))
 		if err != nil {
 			var pathError *os.PathError
