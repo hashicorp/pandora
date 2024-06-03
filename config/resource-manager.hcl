@@ -14,6 +14,10 @@ service "analysisservices" {
   name      = "AnalysisServices"
   available = ["2017-08-01"]
 }
+service "apicenter" {
+  name      = "ApiCenter"
+  available = ["2024-03-01", "2024-03-15-preview"]
+}
 service "apimanagement" {
   name      = "ApiManagement"
   available = ["2022-08-01", "2023-03-01-preview", "2023-05-01-preview"]
