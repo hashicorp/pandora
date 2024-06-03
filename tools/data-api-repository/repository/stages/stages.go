@@ -5,7 +5,7 @@ package stages
 
 import (
 	"github.com/hashicorp/go-hclog"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/repository/helpers"
+	"github.com/hashicorp/pandora/tools/data-api-repository/repository/helpers"
 )
 
 type Stage interface {

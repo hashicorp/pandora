@@ -6,9 +6,9 @@ package repository
 import (
 	"fmt"
 
+	"github.com/hashicorp/pandora/tools/data-api-repository/repository/helpers"
+	"github.com/hashicorp/pandora/tools/data-api-repository/repository/stages"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/repository/helpers"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/repository/stages"
 )
 
 type SaveServiceOptions struct {

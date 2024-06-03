@@ -9,9 +9,9 @@ import (
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/pandora/tools/data-api-repository/repository"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/discovery"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/repository"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform"
 	terraformModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/transformer"

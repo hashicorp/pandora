@@ -9,9 +9,9 @@ import (
 	"strings"
 
 	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/pandora/tools/data-api-repository/repository/helpers"
+	"github.com/hashicorp/pandora/tools/data-api-repository/repository/transforms"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/repository/helpers"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/repository/transforms"
 )
 
 var _ Stage = TerraformSchemaModelsStage{}
