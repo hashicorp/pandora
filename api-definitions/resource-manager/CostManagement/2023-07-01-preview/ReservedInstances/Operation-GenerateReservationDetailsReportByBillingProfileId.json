@@ -1,0 +1,38 @@
+{
+  "name": "GenerateReservationDetailsReportByBillingProfileId",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "optional": false,
+      "queryString": "endDate",
+      "required": true,
+      "field": "EndDate",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": false,
+      "queryString": "startDate",
+      "required": true,
+      "field": "StartDate",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "BillingProfileId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "OperationStatus"
+  },
+  "uriSuffix": "/providers/Microsoft.CostManagement/generateReservationDetailsReport"
+}
