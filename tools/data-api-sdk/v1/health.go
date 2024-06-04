@@ -26,13 +26,12 @@ func (c *Client) Health(ctx context.Context) (*HealthResponse, error) {
 		return nil, fmt.Errorf("checking the health endpoint: %+v", err)
 	}
 
-	resp, err := c.client.Do(req)
+	resp := HealthResponse{}
+	resp.HttpResponse, err = c.client.Do(req)
 	if err != nil {
-		return nil, fmt.Errorf("performing request: %+v", err)
+		return &resp, fmt.Errorf("performing request: %+v", err)
 	}
 
-	return &HealthResponse{
-		Available:    resp.StatusCode == http.StatusOK,
-		HttpResponse: resp,
-	}, nil
+	resp.Available = resp.HttpResponse.StatusCode == http.StatusOK
+	return &resp, nil
 }
