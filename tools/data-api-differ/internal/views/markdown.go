@@ -219,6 +219,24 @@ func renderChangeToMarkdown(input changes.Change) (*string, error) {
 			line := fmt.Sprintf("**Operation uses a different HTTP Method:** `%s` (was `%s` now `%s`) in `%s@%s/%s`.", v.OperationName, v.OldValue, v.NewValue, v.ServiceName, v.ApiVersion, v.ResourceName)
 			return trimSpaceAround(line)
 		}
+	case changes.OperationOptionsAdded:
+		{
+			v := input.(changes.OperationOptionsAdded)
+			line := fmt.Sprintf("**Operation Option Added:** `%s` now supports `%s` in `%s@%s/%s`.", v.OperationName, v.NewValue, v.ServiceName, v.ApiVersion, v.ResourceName)
+			return trimSpaceAround(line)
+		}
+	case changes.OperationOptionsChanged:
+		{
+			v := input.(changes.OperationOptionsChanged)
+			line := fmt.Sprintf("**Operation Option Changed:** `%s` - `%s` is now `%s` in `%s@%s/%s`.", v.OperationName, v.NewValue, v.OldValue, v.ServiceName, v.ApiVersion, v.ResourceName)
+			return trimSpaceAround(line)
+		}
+	case changes.OperationOptionsRemoved:
+		{
+			v := input.(changes.OperationOptionsRemoved)
+			line := fmt.Sprintf("**Operation Option Removed:** `%s` no longer `%s` in `%s@%s/%s`.", v.OperationName, v.OldValue, v.ServiceName, v.ApiVersion, v.ResourceName)
+			return trimSpaceAround(line)
+		}
 	case changes.OperationPaginationFieldChanged:
 		{
 			v := input.(changes.OperationPaginationFieldChanged)
