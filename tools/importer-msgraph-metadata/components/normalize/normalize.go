@@ -9,6 +9,8 @@ import (
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/versions"
+	"golang.org/x/text/cases"
+	"golang.org/x/text/language"
 )
 
 func Singularize(name string) string {
@@ -54,14 +56,29 @@ func Pluralize(name string) string {
 }
 
 func CleanName(name string) string {
-	name = strings.Title(strings.TrimPrefix(name, "microsoft.graph"))
-	name = regexp.MustCompile("[.]").ReplaceAllString(name, "_")
-	name = regexp.MustCompile("[^a-zA-Z0-9]").ReplaceAllString(name, "")
+	// Trim a "microsoft.graph" prefix from type names
+	name = strings.TrimPrefix(name, "microsoft.graph")
+
+	// Replace all periods with spaces to allow for title casing
+	name = strings.ReplaceAll(name, ".", " ")
+
+	// Convert name to title case
+	name = cases.Title(language.AmericanEnglish, cases.NoLower).String(name)
+
+	// Remove all non-alphanumeric characters, except for any leading underscores
+	leading := regexp.MustCompile(`^_+`).FindString(name)
+	trailing := regexp.MustCompile(`[^a-zA-Z0-9]`).ReplaceAllString(name[len(leading):], "")
+	name = leading + trailing
+
+	// Odata should be OData
 	name = regexp.MustCompile("^Odata").ReplaceAllString(name, "OData")
+
+	// Innererror should be InnerError
 	name = regexp.MustCompile("^Innererror").ReplaceAllString(name, "InnerError")
 
 	// known issue where CloudPC appears with inconsistent casing
 	name = regexp.MustCompile("(?i)CloudPc").ReplaceAllString(name, "CloudPC")
+
 	return name
 }
 
