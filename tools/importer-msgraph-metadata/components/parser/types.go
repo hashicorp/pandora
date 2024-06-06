@@ -162,12 +162,7 @@ func (f ModelField) DataApiSdkObjectDefinition(models Models) (*sdkModels.SDKObj
 	}
 
 	if f.Type == nil {
-		// Default to strings when the type is unknown
-		return &sdkModels.SDKObjectDefinition{
-			NestedItem:    nil,
-			ReferenceName: nil,
-			Type:          sdkModels.StringSDKObjectDefinitionType,
-		}, nil
+		return nil, fmt.Errorf("field %q has no Type", f.Title)
 	}
 
 	switch *f.Type {
@@ -241,58 +236,29 @@ func (f ModelField) DataApiSdkObjectDefinition(models Models) (*sdkModels.SDKObj
 type DataType uint8
 
 const (
-	DataTypeUnknown DataType = iota
-	DataTypeModel
+	DataTypeUnknown DataType = iota // zero value is used for comparisons, don't remove
 	DataTypeArray
-	DataTypeString
-	DataTypeInteger64
-	DataTypeIntegerUnsigned64
-	DataTypeInteger32
-	DataTypeIntegerUnsigned32
-	DataTypeInteger16
-	DataTypeIntegerUnsigned16
-	DataTypeInteger8
-	DataTypeIntegerUnsigned8
-	DataTypeFloat32
-	DataTypeFloat64
-	DataTypeBool
 	DataTypeBase64
+	DataTypeBinary
+	DataTypeBool
 	DataTypeDate
 	DataTypeDateTime
 	DataTypeDuration
+	DataTypeFloat32
+	DataTypeFloat64
+	DataTypeInteger16
+	DataTypeInteger32
+	DataTypeInteger64
+	DataTypeInteger8
+	DataTypeIntegerUnsigned16
+	DataTypeIntegerUnsigned32
+	DataTypeIntegerUnsigned64
+	DataTypeIntegerUnsigned8
+	DataTypeModel
+	DataTypeString
 	DataTypeTime
 	DataTypeUuid
-	DataTypeBinary
 )
-
-// CSType returns a string containing the C# type name for the DataType. We intentionally consolidate
-// some of these (ints and floats all the same size) to ease downstream implementation.
-func (ft DataType) CSType() *string {
-	csType := ""
-	switch ft {
-	case DataTypeString, DataTypeBase64, DataTypeDuration, DataTypeUuid:
-		csType = "string"
-	case DataTypeInteger64, DataTypeInteger32, DataTypeInteger16, DataTypeInteger8:
-		csType = "int"
-	case DataTypeIntegerUnsigned64, DataTypeIntegerUnsigned32, DataTypeIntegerUnsigned16, DataTypeIntegerUnsigned8:
-		csType = "uint"
-	case DataTypeFloat64, DataTypeFloat32:
-		csType = "float"
-	case DataTypeBool:
-		csType = "bool"
-	case DataTypeDate, DataTypeDateTime, DataTypeTime:
-		csType = "DateTime"
-	case DataTypeBinary:
-		csType = "RawFile"
-	}
-
-	// Fall back to string where the type is not known
-	if csType == "" {
-		csType = "string"
-	}
-
-	return &csType
-}
 
 func (ft DataType) DataApiSdkObjectDefinitionType() sdkModels.SDKObjectDefinitionType {
 	switch ft {
@@ -517,6 +483,47 @@ func FlattenSchemaRef(schemaRef *openapi3.SchemaRef, seenRefs map[string]bool) (
 
 		if schema.AnyOf != nil {
 			for _, r := range schema.AnyOf {
+				if r.Ref != "" {
+					for s := range seenRefs {
+						if s == r.Ref {
+							continue
+						}
+					}
+					seenRefs[r.Ref] = true
+					if !titleFromRef && strings.HasPrefix(r.Ref, RefPrefix) {
+						ref := r.Ref[len(RefPrefix):]
+						if i := strings.LastIndex(ref, "."); i > 0 {
+							prefix = strings.Title(normalize.CleanName(ref[0:i]))
+						}
+						title = strings.Title(normalize.CleanName(ref))
+						titleFromRef = true
+					}
+				}
+
+				if r.Value != nil {
+					var result *flattenedSchema
+					result, seenRefs = FlattenSchemaRef(r, seenRefs)
+					if !titleFromRef && result.Title != "" {
+						title = strings.Title(normalize.CleanName(result.Title))
+					}
+					if typ == "" && result.Type != "" {
+						typ = result.Type
+					}
+					if format == "" && result.Format != "" {
+						format = result.Format
+					}
+					if len(result.Enum) > 0 {
+						enum = result.Enum
+					}
+					for k, v := range result.Schemas {
+						schemas[k] = v
+					}
+				}
+			}
+		}
+
+		if schema.OneOf != nil {
+			for _, r := range schema.OneOf {
 				if r.Ref != "" {
 					for s := range seenRefs {
 						if s == r.Ref {
