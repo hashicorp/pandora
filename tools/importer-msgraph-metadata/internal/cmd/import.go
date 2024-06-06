@@ -6,12 +6,10 @@ package cmd
 import (
 	"flag"
 	"log"
-	"os"
 	"strings"
-	"time"
 
-	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/data-api-repository/repository"
+	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/internal/logging"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/internal/pipeline"
 	"github.com/mitchellh/cli"
 )
@@ -59,25 +57,15 @@ func (c ImportCommand) Run(args []string) int {
 		serviceNames = strings.Split(serviceNamesRaw, ",")
 	}
 
-	logger := hclog.New(&hclog.LoggerOptions{
-		Level:  hclog.DefaultLevel,
-		Output: hclog.DefaultOutput,
-		TimeFn: time.Now,
-	})
-
-	if logLevel := strings.TrimSpace(os.Getenv("PANDORA_LOG")); logLevel != "" {
-		logger.SetLevel(hclog.LevelFromString(logLevel))
-	}
-
 	input := pipeline.RunInput{
 		ProviderPrefix: "azuread",
-		Logger:         logger,
+		Logger:         logging.Log,
 
 		ConfigFilePath:     c.microsoftGraphConfigPath,
 		MetadataDirectory:  c.metadataDirectory,
 		OpenApiFilePattern: c.openApiFilePattern,
 		OutputDirectory:    c.outputDirectory,
-		Repo:               repository.NewRepository(c.outputDirectory, logger),
+		Repo:               repository.NewRepository(c.outputDirectory, logging.Log),
 		Services:           serviceNames,
 	}
 	if err := pipeline.Run(input); err != nil {

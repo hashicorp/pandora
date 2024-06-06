@@ -7,7 +7,9 @@ import (
 	"log"
 	"os"
 
+	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/internal/cmd"
+	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/internal/logging"
 	"github.com/mitchellh/cli"
 )
 
@@ -19,6 +21,12 @@ const (
 )
 
 func main() {
+	loggingOpts := hclog.DefaultOptions
+	if v := os.Getenv("LOG_LEVEL"); v != "" {
+		loggingOpts.Level = hclog.LevelFromString(v)
+	}
+	logging.Log = hclog.New(loggingOpts)
+
 	c := cli.NewCLI("importer-msgraph-metadata", "0.2.0")
 	c.Args = os.Args[1:]
 	c.Commands = map[string]cli.CommandFactory{

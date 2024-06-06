@@ -6,11 +6,8 @@ package cmd
 import (
 	"flag"
 	"log"
-	"os"
-	"strings"
-	"time"
 
-	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/internal/logging"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/internal/supported-services"
 	"github.com/mitchellh/cli"
 )
@@ -46,18 +43,8 @@ func (c ListTagsCommand) Run(args []string) int {
 		log.Fatalf("Error: %+v", err)
 	}
 
-	logger := hclog.New(&hclog.LoggerOptions{
-		Level:  hclog.DefaultLevel,
-		Output: hclog.DefaultOutput,
-		TimeFn: time.Now,
-	})
-
-	if logLevel := strings.TrimSpace(os.Getenv("PANDORA_LOG")); logLevel != "" {
-		logger.SetLevel(hclog.LevelFromString(logLevel))
-	}
-
 	input := supported_services.SupportedServicesInput{
-		Logger:             logger,
+		Logger:             logging.Log,
 		MetadataDirectory:  c.metadataDirectory,
 		OpenApiFilePattern: c.openApiFilePattern,
 	}
