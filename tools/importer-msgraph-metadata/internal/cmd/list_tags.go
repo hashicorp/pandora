@@ -5,7 +5,6 @@ package cmd
 
 import (
 	"flag"
-	"fmt"
 	"log"
 	"os"
 	"strings"
@@ -37,12 +36,15 @@ func (ListTagsCommand) Synopsis() string {
 }
 
 func (ListTagsCommand) Help() string {
-	return fmt.Sprintf(`Parses Microsoft Graph API metadata and outputs the supported services by tag`)
+	return "Parses Microsoft Graph API metadata and outputs the supported services by tag"
 }
 
 func (c ListTagsCommand) Run(args []string) int {
 	f := flag.NewFlagSet("importer-msgraph", flag.ExitOnError)
-	f.Parse(args)
+
+	if err := f.Parse(args); err != nil {
+		log.Fatalf("Error: %+v", err)
+	}
 
 	logger := hclog.New(&hclog.LoggerOptions{
 		Level:  hclog.DefaultLevel,

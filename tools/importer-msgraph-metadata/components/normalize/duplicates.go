@@ -9,13 +9,7 @@ func DeDuplicate(name string) string {
 	nameSpaced := regexp.MustCompile("([A-Z])").ReplaceAllString(name, " $1")
 	nameParts := strings.Split(strings.TrimSpace(nameSpaced), " ")
 	newParts := make([]string, 0, len(nameParts))
-	checkPieces := make([]string, 0)
 	for i := 0; i < len(nameParts); i++ {
-		checkPiece := ""
-		for j := 0; j < i; j++ {
-			checkPiece = checkPiece + nameParts[j]
-		}
-		checkPieces = append(checkPieces, checkPiece)
 		if i > 0 && strings.EqualFold(nameParts[i], nameParts[i-1]) {
 			continue
 		}

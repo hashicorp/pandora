@@ -11,6 +11,8 @@ import (
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/normalize"
+	"golang.org/x/text/cases"
+	"golang.org/x/text/language"
 )
 
 /* ===================
@@ -392,9 +394,9 @@ func FlattenSchemaRef(schemaRef *openapi3.SchemaRef, seenRefs map[string]bool) (
 	if strings.HasPrefix(schemaRef.Ref, RefPrefix) {
 		ref := schemaRef.Ref[len(RefPrefix):]
 		if i := strings.LastIndex(ref, "."); i > 0 {
-			prefix = strings.Title(normalize.CleanName(ref[0:i]))
+			prefix = normalize.CleanName(ref[0:i])
 		}
-		title = strings.Title(normalize.CleanName(ref))
+		title = normalize.CleanName(ref)
 		titleFromRef = true
 	}
 	schema := schemaRef.Value
@@ -414,9 +416,9 @@ func FlattenSchemaRef(schemaRef *openapi3.SchemaRef, seenRefs map[string]bool) (
 			if title == "" && strings.HasPrefix(r.Ref, RefPrefix) {
 				ref := r.Ref[len(RefPrefix):]
 				if i := strings.LastIndex(ref, "."); i > 0 {
-					prefix = strings.Title(normalize.CleanName(ref[0:i]))
+					prefix = normalize.CleanName(ref[0:i])
 				}
-				title = strings.Title(normalize.CleanName(ref))
+				title = normalize.CleanName(ref)
 			}
 		}
 
@@ -424,7 +426,7 @@ func FlattenSchemaRef(schemaRef *openapi3.SchemaRef, seenRefs map[string]bool) (
 			var result *flattenedSchema
 			result, seenRefs = FlattenSchemaRef(r, seenRefs)
 			if title == "" && result.Title != "" {
-				title = strings.Title(normalize.CleanName(result.Title))
+				title = normalize.CleanName(result.Title)
 			}
 			if result.Type != "" {
 				typ = result.Type
@@ -452,9 +454,9 @@ func FlattenSchemaRef(schemaRef *openapi3.SchemaRef, seenRefs map[string]bool) (
 					if !titleFromRef && strings.HasPrefix(r.Ref, RefPrefix) {
 						ref := r.Ref[len(RefPrefix):]
 						if i := strings.LastIndex(ref, "."); i > 0 {
-							prefix = strings.Title(normalize.CleanName(ref[0:i]))
+							prefix = normalize.CleanName(ref[0:i])
 						}
-						title = strings.Title(normalize.CleanName(ref))
+						title = normalize.CleanName(ref)
 						titleFromRef = true
 					}
 				}
@@ -463,7 +465,7 @@ func FlattenSchemaRef(schemaRef *openapi3.SchemaRef, seenRefs map[string]bool) (
 					var result *flattenedSchema
 					result, seenRefs = FlattenSchemaRef(r, seenRefs)
 					if !titleFromRef && result.Title != "" {
-						title = strings.Title(normalize.CleanName(result.Title))
+						title = normalize.CleanName(result.Title)
 					}
 					if typ == "" && result.Type != "" {
 						typ = result.Type
@@ -493,9 +495,9 @@ func FlattenSchemaRef(schemaRef *openapi3.SchemaRef, seenRefs map[string]bool) (
 					if !titleFromRef && strings.HasPrefix(r.Ref, RefPrefix) {
 						ref := r.Ref[len(RefPrefix):]
 						if i := strings.LastIndex(ref, "."); i > 0 {
-							prefix = strings.Title(normalize.CleanName(ref[0:i]))
+							prefix = normalize.CleanName(ref[0:i])
 						}
-						title = strings.Title(normalize.CleanName(ref))
+						title = normalize.CleanName(ref)
 						titleFromRef = true
 					}
 				}
@@ -504,7 +506,7 @@ func FlattenSchemaRef(schemaRef *openapi3.SchemaRef, seenRefs map[string]bool) (
 					var result *flattenedSchema
 					result, seenRefs = FlattenSchemaRef(r, seenRefs)
 					if !titleFromRef && result.Title != "" {
-						title = strings.Title(normalize.CleanName(result.Title))
+						title = normalize.CleanName(result.Title)
 					}
 					if typ == "" && result.Type != "" {
 						typ = result.Type
@@ -534,9 +536,9 @@ func FlattenSchemaRef(schemaRef *openapi3.SchemaRef, seenRefs map[string]bool) (
 					if !titleFromRef && strings.HasPrefix(r.Ref, RefPrefix) {
 						ref := r.Ref[len(RefPrefix):]
 						if i := strings.LastIndex(ref, "."); i > 0 {
-							prefix = strings.Title(normalize.CleanName(ref[0:i]))
+							prefix = normalize.CleanName(ref[0:i])
 						}
-						title = strings.Title(normalize.CleanName(ref))
+						title = normalize.CleanName(ref)
 						titleFromRef = true
 					}
 				}
@@ -545,7 +547,7 @@ func FlattenSchemaRef(schemaRef *openapi3.SchemaRef, seenRefs map[string]bool) (
 					var result *flattenedSchema
 					result, seenRefs = FlattenSchemaRef(r, seenRefs)
 					if !titleFromRef && result.Title != "" {
-						title = strings.Title(normalize.CleanName(result.Title))
+						title = normalize.CleanName(result.Title)
 					}
 					if typ == "" && result.Type != "" {
 						typ = result.Type
@@ -566,7 +568,7 @@ func FlattenSchemaRef(schemaRef *openapi3.SchemaRef, seenRefs map[string]bool) (
 
 	// TODO: may need to prefer innermost title
 	if schema.Title != "" {
-		title = strings.Title(normalize.CleanName(schema.Title))
+		title = normalize.CleanName(schema.Title)
 	}
 
 	// prefer the innermost type
@@ -635,7 +637,7 @@ func Schemas(input flattenedSchema, name string, models Models, constants Consta
 	for jsonField, schemaRef := range input.Schemas {
 		if schema := schemaRef.Value; schema != nil {
 			field := ModelField{
-				Title:       strings.Title(jsonField),
+				Title:       cases.Title(language.AmericanEnglish, cases.NoLower).String(jsonField),
 				Description: schema.Description,
 				Default:     schema.Default,
 				JsonField:   jsonField,

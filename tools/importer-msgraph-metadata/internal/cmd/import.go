@@ -5,14 +5,13 @@ package cmd
 
 import (
 	"flag"
-	"fmt"
-	"github.com/hashicorp/pandora/tools/data-api-repository/repository"
 	"log"
 	"os"
 	"strings"
 	"time"
 
 	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/pandora/tools/data-api-repository/repository"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/internal/pipeline"
 	"github.com/mitchellh/cli"
 )
@@ -42,7 +41,7 @@ func (ImportCommand) Synopsis() string {
 }
 
 func (ImportCommand) Help() string {
-	return fmt.Sprintf(`Imports and parses Microsoft Graph API metadata`)
+	return "Imports and parses Microsoft Graph API metadata"
 }
 
 func (c ImportCommand) Run(args []string) int {
@@ -50,7 +49,10 @@ func (c ImportCommand) Run(args []string) int {
 
 	f := flag.NewFlagSet("importer-msgraph", flag.ExitOnError)
 	f.StringVar(&serviceNamesRaw, "services", "", "A list of comma separated Service named from the Data API to import")
-	f.Parse(args)
+
+	if err := f.Parse(args); err != nil {
+		log.Fatalf("Error: %+v", err)
+	}
 
 	var serviceNames []string
 	if serviceNamesRaw != "" {

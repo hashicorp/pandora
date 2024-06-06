@@ -357,7 +357,7 @@ func NewResourceId(path string, tags []string) (id ResourceId) {
 	id.Segments = make([]ResourceIdSegment, 0, len(segments))
 
 	for i, s := range segments {
-		segment := ResourceIdSegment{}
+		var segment ResourceIdSegment
 
 		if strings.HasPrefix(s, "{") && strings.HasSuffix(s, "}") {
 			value := s[1 : len(s)-1]

@@ -88,10 +88,7 @@ func CleanNameCamel(name string) string {
 }
 
 func VersionIsPreview(version string) bool {
-	if version == versions.ApiVersion1_0 {
-		return false
-	}
-	return true
+	return version != versions.ApiVersion1_0
 }
 
 type operationVerbs []string

@@ -24,7 +24,7 @@ func runImporter(input RunInput, metadataGitSha string) error {
 		return fmt.Errorf("loading config: %+v", err)
 	}
 
-	logger.Debug("removing any existing API Definitions")
+	logger.Debug("Removing any existing API Definitions")
 	purgeDefinitionsOpts := repository.PurgeExistingDefinitionsOptions{
 		SourceDataOrigin: sdkModels.MicrosoftGraphMetaDataSourceDataOrigin,
 		SourceDataType:   sdkModels.MicrosoftGraphSourceDataType,
