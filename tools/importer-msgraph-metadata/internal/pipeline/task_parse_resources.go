@@ -8,6 +8,7 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/normalize"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/parser"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/tags"
@@ -47,7 +48,7 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 		}
 
 		resourceName := ""
-		if r, ok := parsedPath.FullyQualifiedResourceName(&parser.ResourceSuffix); ok {
+		if r, ok := parsedPath.FullyQualifiedResourceName(pointer.To(parser.ResourceSuffix)); ok {
 			resourceName = *r
 		}
 		if resourceName == "" {
@@ -94,7 +95,7 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 					resourceId = match.Id
 				}
 				if match.Remainder != nil && len(match.Remainder.Segments) > 0 {
-					uriSuffix = pointerTo(match.Remainder.ID())
+					uriSuffix = pointer.To(match.Remainder.ID())
 
 					// When last segment is not a label (e.g. an action, function or cast), adopt the parent resource category,
 					// but only if the suffix has one segment, else this could indicate a different parent, in which case
@@ -154,7 +155,7 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 								// Flatten the response SchemaRef for inspection
 								if f, _ := parser.FlattenSchemaRef(m.Schema, nil); f != nil {
 									if f.Format == "binary" {
-										responseType = pointerTo(parser.DataTypeBinary)
+										responseType = pointer.To(parser.DataTypeBinary)
 										break
 									}
 
@@ -184,7 +185,7 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 
 					// Use generic DirectoryObject model for List operations ending in "/$ref" where no other model was found
 					if listOperation && responseModel == nil && resourceId != nil && len(resourceId.Segments) > 0 && resourceId.Segments[len(resourceId.Segments)-1].Value == "$ref" {
-						responseModel = pointerTo("DirectoryObject")
+						responseModel = pointer.To("DirectoryObject")
 					}
 
 					responses = append(responses, parser.Response{
@@ -252,7 +253,7 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 					if content.Schema != nil {
 						if schema, _ := parser.FlattenSchemaRef(content.Schema, nil); schema != nil {
 							if strings.ToLower(schema.Format) == "binary" {
-								requestType = pointerTo(parser.DataTypeBinary)
+								requestType = pointer.To(parser.DataTypeBinary)
 								break
 							}
 
@@ -285,7 +286,7 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 
 			if operationType == parser.OperationTypeCreate || operationType == parser.OperationTypeUpdate || operationType == parser.OperationTypeCreateUpdate {
 				if resourceId != nil && len(resourceId.Segments) > 0 && resourceId.Segments[len(resourceId.Segments)-1].Value == "$ref" {
-					requestModel = pointerTo("DirectoryObject")
+					requestModel = pointer.To("DirectoryObject")
 				}
 			}
 

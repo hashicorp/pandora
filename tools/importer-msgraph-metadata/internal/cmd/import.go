@@ -6,6 +6,7 @@ package cmd
 import (
 	"flag"
 	"fmt"
+	"github.com/hashicorp/pandora/tools/data-api-repository/repository"
 	"log"
 	"os"
 	"strings"
@@ -74,6 +75,7 @@ func (c ImportCommand) Run(args []string) int {
 		MetadataDirectory:  c.metadataDirectory,
 		OpenApiFilePattern: c.openApiFilePattern,
 		OutputDirectory:    c.outputDirectory,
+		Repo:               repository.NewRepository(c.outputDirectory, logger),
 		Services:           serviceNames,
 	}
 	if err := pipeline.Run(input); err != nil {

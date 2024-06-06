@@ -8,6 +8,8 @@ import (
 	"github.com/hashicorp/pandora/tools/data-api-repository/repository/helpers"
 )
 
+const commonTypesDirectoryName = "common-types"
+
 type Stage interface {
 	// Generate runs this generation Stage which returns a map of files to be output or an error
 	Generate(input *helpers.FileSystem, logger hclog.Logger) error

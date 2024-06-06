@@ -9,12 +9,15 @@ import (
 	"sort"
 	"strings"
 
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/normalize"
 )
 
-var ResourceSuffix = "ById"
-var ResourceIdSuffix = "Id"
+const (
+	ResourceSuffix   = "ById"
+	ResourceIdSuffix = "Id"
+)
 
 type ResourceIds []*ResourceId
 
@@ -197,7 +200,7 @@ func (r ResourceId) FullyQualifiedResourceName(suffixQualification *string) (*st
 	}
 
 	// TODO: it would be nice to do this but it's causing some clobbering issues
-	//name = DeDuplicateName(name)
+	//name = normalize.DeDuplicateName(name)
 
 	return &name, true
 }
@@ -263,13 +266,13 @@ func (r ResourceId) FindResourceName() (*string, bool) {
 		break
 	}
 
-	return r2.FullyQualifiedResourceName(&ResourceSuffix)
+	return r2.FullyQualifiedResourceName(pointer.To(ResourceSuffix))
 }
 
 // FindResourceIdName returns a short name for the ResourceId. This currently has the same behavior as FindResourceName
 // but may be changed in future if the ResourceId needs to be distinctly named.
 func (r ResourceId) FindResourceIdName() (*string, bool) {
-	name, ok := r.FullyQualifiedResourceName(&ResourceIdSuffix)
+	name, ok := r.FullyQualifiedResourceName(pointer.To(ResourceIdSuffix))
 	return name, ok
 }
 

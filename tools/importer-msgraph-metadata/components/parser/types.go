@@ -8,6 +8,7 @@ import (
 	"strings"
 
 	"github.com/getkin/kin-openapi/openapi3"
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/normalize"
 )
@@ -124,13 +125,14 @@ func (m *Model) DataApiSdkModel(models Models) (*sdkModels.SDKModel, error) {
 			ObjectDefinition:           *objectDefinition,
 
 			// TODO work these out
-			Optional:  false,
+			Optional:  true,
 			ReadOnly:  false,
 			Required:  false,
 			Sensitive: false,
 		}
 	}
 
+	// TODO support discriminated types (good example: conditional access named locations)
 	return &sdkModels.SDKModel{
 		DiscriminatedValue:                    nil,
 		FieldNameContainingDiscriminatedValue: nil,
@@ -187,7 +189,7 @@ func (f ModelField) DataApiSdkObjectDefinition(models Models) (*sdkModels.SDKObj
 	case DataTypeArray:
 		if f.ModelName != nil {
 			if !models.Found(*f.ModelName) || !models[*f.ModelName].IsValid() {
-				return nil, fmt.Errorf("field type Model encountered with invalid referenced model")
+				return nil, fmt.Errorf("field type Array[Model] encountered with invalid referenced model")
 			}
 
 			return &sdkModels.SDKObjectDefinition{
@@ -667,7 +669,7 @@ func Schemas(input flattenedSchema, name string, models Models, constants Consta
 			if ((field.Type != nil && *field.Type == DataTypeString) || (field.ItemType != nil && *field.ItemType == DataTypeString)) && len(enum) > 0 {
 				// Despite being "fully qualified", type names are not unique in MS Graph, so we prefix them with the field name to provide some namespacing.
 				// This leads to some excessively long constant names, it is what it is.
-				field.ConstantName = pointerTo(name + field.Title)
+				field.ConstantName = pointer.To(name + field.Title)
 
 				constants[*field.ConstantName] = &Constant{
 					Enum: enum,

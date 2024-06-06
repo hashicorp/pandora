@@ -8,14 +8,11 @@ import "github.com/hashicorp/go-hclog"
 // Repository is an interface defining how to load and save API Definitions from disk.
 // This interface is designed to allow the implementation to be switched out for testing purposes if needed.
 type Repository interface {
-	// RemoveCommonTypes removes any existing Common Types Definitions>
-	RemoveCommonTypes(opts RemoveCommonTypesOptions) error
+	// PurgeExistingDefinitions removes any existing API Definitions.
+	PurgeExistingDefinitions(opts PurgeExistingDefinitionsOptions) error
 
 	// SaveCommonTypes persists the Common Types Definitions.
 	SaveCommonTypes(opts SaveCommonTypesOptions) error
-
-	// RemoveService removes any existing API Definitions for the Service specified in opts.
-	RemoveService(opts RemoveServiceOptions) error
 
 	// SaveService persists the API Definitions for the Service specified in opts.
 	SaveService(opts SaveServiceOptions) error

@@ -7,6 +7,7 @@ import (
 	"fmt"
 
 	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/pandora/tools/data-api-repository/repository"
 )
 
 type RunInput struct {
@@ -19,6 +20,7 @@ type RunInput struct {
 	MetadataDirectory        string
 	OpenApiFilePattern       string
 	OutputDirectory          string
+	Repo                     repository.Repository
 	Services                 []string
 }
 

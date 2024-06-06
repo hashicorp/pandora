@@ -5,8 +5,6 @@ package repository
 
 import (
 	"fmt"
-	"path/filepath"
-
 	"github.com/hashicorp/pandora/tools/data-api-repository/repository/helpers"
 	"github.com/hashicorp/pandora/tools/data-api-repository/repository/stages"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
@@ -70,17 +68,20 @@ func (r repositoryImpl) SaveService(opts SaveServiceOptions) error {
 			// Output the API Definitions for this APIResource
 
 			items = append(items, stages.ConstantStage{
-				Constants:       apiResourceDetails.Constants,
-				OutputDirectory: filepath.Join(opts.ServiceName, apiVersion, apiResourceName),
-				ResourceIDs:     apiResourceDetails.ResourceIDs,
+				ServiceName: opts.ServiceName,
+				APIVersion:  apiVersion,
+				APIResource: apiResourceName,
+				Constants:   apiResourceDetails.Constants,
+				ResourceIDs: apiResourceDetails.ResourceIDs,
 			})
 
 			items = append(items, stages.ModelsStage{
-				APIVersion:      apiVersion,
-				CommonTypes:     opts.CommonTypes,
-				Constants:       apiResourceDetails.Constants,
-				Models:          apiResourceDetails.Models,
-				OutputDirectory: filepath.Join(opts.ServiceName, apiVersion, apiResourceName),
+				ServiceName: opts.ServiceName,
+				APIVersion:  apiVersion,
+				APIResource: apiResourceName,
+				Constants:   apiResourceDetails.Constants,
+				Models:      apiResourceDetails.Models,
+				CommonTypes: opts.CommonTypes,
 			})
 
 			items = append(items, stages.OperationsStage{
@@ -138,10 +139,8 @@ func (r repositoryImpl) SaveService(opts SaveServiceOptions) error {
 		}
 	}
 
-	// TODO: ensure that any existing directory for this service is removed
-
 	r.logger.Debug("Persisting files to disk..")
-	if err := helpers.PersistFileSystem(r.workingDirectory, opts.SourceDataType, opts.ServiceName, &opts.ServiceName, fs, r.logger); err != nil {
+	if err := helpers.PersistFileSystem(r.workingDirectory, opts.SourceDataType, fs, r.logger); err != nil {
 		return fmt.Errorf("persisting files: %+v", err)
 	}
 

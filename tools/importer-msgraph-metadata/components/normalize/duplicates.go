@@ -1,14 +1,11 @@
 package normalize
 
 import (
-	"fmt"
 	"regexp"
 	"strings"
 )
 
 func DeDuplicate(name string) string {
-	name2 := regexp.MustCompile(`\b(\w+)\s+$1\b`).ReplaceAllString(name, "$1")
-	fmt.Println(name2)
 	nameSpaced := regexp.MustCompile("([A-Z])").ReplaceAllString(name, " $1")
 	nameParts := strings.Split(strings.TrimSpace(nameSpaced), " ")
 	newParts := make([]string, 0, len(nameParts))
@@ -40,7 +37,6 @@ func DeDuplicateName(name string) string {
 		}
 		words[i] = words[i] + char
 	}
-
 	out := ""
 	for k, word := range words {
 		if k > 0 && strings.EqualFold(words[k-1], word) {
@@ -48,6 +44,5 @@ func DeDuplicateName(name string) string {
 		}
 		out = out + word
 	}
-
 	return out
 }

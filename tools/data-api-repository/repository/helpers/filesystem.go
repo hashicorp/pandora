@@ -69,32 +69,22 @@ func (f *FileSystem) Stage(path FilePath, body any) error {
 	return fmt.Errorf("internal-error: unexpected file extension %q for %q", fileExtension, path)
 }
 
-func PersistFileSystem(workingDirectory string, dataType models.SourceDataType, relativeOutputDirectory string, serviceName *string, input *FileSystem, logger hclog.Logger) error {
-	// TODO: note this is going to need to take SourceDataOrigin into account too (manicminer: should it? SourceDataOrigin seems to be a separate concern?)
+func PersistFileSystem(workingDirectory string, dataType models.SourceDataType, input *FileSystem, logger hclog.Logger) error {
+	// TODO: note this is going to need to take SourceDataOrigin into account too
 
 	rootDir := filepath.Join(workingDirectory, string(dataType))
 	logger.Trace(fmt.Sprintf("Persisting files into %q", rootDir))
 
-	outputDir := filepath.Join(rootDir, relativeOutputDirectory)
-
-	// Delete any existing directory with this service name
-	// TODO: (manicminer: is this really needed since there is a RemoveService() method to achieve this? we don't always want to blow away the entire service)
-	//logging.Log.Debug(fmt.Sprintf("Removing any existing Directory for Service %q", serviceName))
-	//_ = os.RemoveAll(outputDir)
-
-	if err := os.MkdirAll(outputDir, directoryPermissions); err != nil {
-		return fmt.Errorf("recreating directory %q: %+v", outputDir, err)
+	// create directory tree
+	if err := os.MkdirAll(rootDir, directoryPermissions); err != nil {
+		return fmt.Errorf("recreating directory %q: %+v", rootDir, err)
 	}
 
 	// pull out a list of directories
 	directories := uniqueDirectories(input.f)
-	if serviceName != nil {
-		logger.Debug(fmt.Sprintf("Creating directories for Service %q", *serviceName))
-	} else {
-		logger.Debug("Creating directories")
-	}
 	for _, dir := range directories {
 		dirPath := filepath.Join(rootDir, dir)
+		logger.Debug(fmt.Sprintf("Creating directory %q", dirPath))
 		if err := os.MkdirAll(dirPath, directoryPermissions); err != nil {
 			return fmt.Errorf("creating directory %q: %+v", dirPath, err)
 		}

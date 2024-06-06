@@ -62,11 +62,11 @@ func (p pipeline) translateServiceToDataApiSdkTypes(models parser.Models, consta
 
 			if operation.RequestModel != nil {
 				if !models.Found(*operation.RequestModel) {
-					return nil, fmt.Errorf("request model not found")
+					return nil, fmt.Errorf("request model %q was not found for operation: %s", *operation.RequestModel, operation.Name)
 				}
 
 				if model := models[*operation.RequestModel]; !model.IsValid() {
-					return nil, fmt.Errorf("request model was invalid")
+					return nil, fmt.Errorf("request model %q was invalid for operation: %s", *operation.RequestModel, operation.Name)
 				} else if !model.Common {
 					requestObjectIsCommonType = false
 
@@ -92,11 +92,11 @@ func (p pipeline) translateServiceToDataApiSdkTypes(models parser.Models, consta
 			for _, response := range operation.Responses {
 				if response.Type != nil && *response.Type == parser.DataTypeModel && response.ModelName != nil {
 					if !models.Found(*response.ModelName) {
-						return nil, fmt.Errorf("response model not found")
+						return nil, fmt.Errorf("response model %q was not found for operation: %s", *response.ModelName, operation.Name)
 					}
 
 					if model := models[*response.ModelName]; !model.IsValid() {
-						return nil, fmt.Errorf("response model was invalid")
+						return nil, fmt.Errorf("response model %q was invalid for operation: %s", *response.ModelName, operation.Name)
 					} else if !model.Common {
 						responseObjectIsCommonType = false
 

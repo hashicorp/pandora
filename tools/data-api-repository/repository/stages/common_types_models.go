@@ -13,17 +13,14 @@ import (
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
-var _ Stage = ModelsStage{}
+var _ Stage = CommonTypesModelsStage{}
 
-type ModelsStage struct {
+type CommonTypesModelsStage struct {
 	// APIVersion specifies the APIVersion within the Service where the Models exist.
 	APIVersion string
 
-	// APIResource specifies the APIResource within the APIVersion where the Models exist.
-	APIResource string
-
 	// CommonTypes specifies a map of API Version (key) to CommonTypes (value)
-	// which defines the available Common Types for this Service.
+	// which defines the known Common Types.
 	CommonTypes map[string]models.CommonTypes
 
 	// Constants specifies the map of Constant Name (key) to SDKConstant (value) which should be
@@ -33,15 +30,16 @@ type ModelsStage struct {
 	// Models specifies the map of Model Name (key) to SDKModel (value) which should be
 	// persisted.
 	Models map[string]models.SDKModel
-
-	// ServiceName specifies the name of the Service within which the Models exist.
-	ServiceName string
 }
 
-func (g ModelsStage) Generate(input *helpers.FileSystem, logger hclog.Logger) error {
-	logger.Debug("Generating Models")
+func (g CommonTypesModelsStage) Name() string {
+	return "Common Types Models"
+}
+
+func (g CommonTypesModelsStage) Generate(input *helpers.FileSystem, logger hclog.Logger) error {
+	logger.Debug("Generating Common Types Models")
 	for modelName := range g.Models {
-		logger.Trace(fmt.Sprintf("Generating Model %q..", modelName))
+		logger.Trace(fmt.Sprintf("Generating Common Types Model %q..", modelName))
 		modelValue := g.Models[modelName]
 
 		var parent *models.SDKModel
@@ -63,17 +61,13 @@ func (g ModelsStage) Generate(input *helpers.FileSystem, logger hclog.Logger) er
 			return fmt.Errorf("mapping model %q: %+v", modelName, err)
 		}
 
-		// {workingDirectory}/Service/APIVersion/APIResource/Model-{Name}.json
-		path := filepath.Join(g.ServiceName, g.APIVersion, g.APIResource, fmt.Sprintf("Model-%s.json", modelName))
+		// {workingDirectory}/common-types/APIVersion/Model-{Name}.json
+		path := filepath.Join(commonTypesDirectoryName, g.APIVersion, fmt.Sprintf("Model-%s.json", modelName))
 		logger.Trace(fmt.Sprintf("Staging to %s", path))
 		if err = input.Stage(path, *mapped); err != nil {
-			return fmt.Errorf("staging Model %q: %+v", modelName, err)
+			return fmt.Errorf("staging Common Types Model %q: %+v", modelName, err)
 		}
 	}
 
 	return nil
-}
-
-func (g ModelsStage) Name() string {
-	return "Models"
 }

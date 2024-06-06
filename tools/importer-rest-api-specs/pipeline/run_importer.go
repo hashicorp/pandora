@@ -46,19 +46,19 @@ func runImporter(input RunInput, generationData []discovery.ServiceInput, swagge
 	}
 	sort.Strings(serviceNames)
 
+	// remove all API definitions for resource-manager
+	logging.Log.Debug("removing any existing API Definitions")
+	purgeDefinitionsOpts := repository.PurgeExistingDefinitionsOptions{
+		SourceDataOrigin: sourceDataOrigin,
+		SourceDataType:   sourceDataType,
+	}
+	if err := repo.PurgeExistingDefinitions(purgeDefinitionsOpts); err != nil {
+		return fmt.Errorf("removing existing API Definitions: %+v", err)
+	}
+
 	// then parse/process the data for each of the API Versions for each service
 	for _, serviceName := range serviceNames {
 		serviceDetails := dataByServices[serviceName]
-
-		logging.Log.Debug(fmt.Sprintf("Removing any existing API Definitions for the Service %q", serviceName))
-		removeServiceOpts := repository.RemoveServiceOptions{
-			ServiceName:      serviceName,
-			SourceDataOrigin: sourceDataOrigin,
-			SourceDataType:   sourceDataType,
-		}
-		if err := repo.RemoveService(removeServiceOpts); err != nil {
-			return fmt.Errorf("removing existing API Definitions for Service %q: %+v", serviceName, err)
-		}
 
 		logger := input.Logger.Named(fmt.Sprintf("Importer for Service %q", serviceName))
 		if err := runImportForService(input, serviceName, serviceDetails, sourceDataType, sourceDataOrigin, logger, swaggerGitSha, repo); err != nil {
