@@ -1,14 +1,13 @@
 name: Regenerate API Data with New Microsoft Graph Changes after PR Merge
-
 on:
   push:
     branches:
-      - fake_name_to_disable_trigger
+      - main
     paths:
       - '.github/workflows/**'
       - 'config/microsoft-graph.hcl'
       - 'submodules/msgraph-metadata'
-      - 'tools/importer-msgraph/**'
+      - 'tools/importer-msgraph-metadata/**'
   workflow_dispatch: # for manual invocations
 
 
@@ -29,7 +28,7 @@ jobs:
 
       - uses: actions/setup-go@cdcb36043654635271a94b9a6d1392de5bb323a7 # v5.0.1
         with:
-          go-version: '1.21.3'
+          go-version-file: ./.go-version
 
       - name: build and run importer-msgraph-metadata
         id: import-data
@@ -37,9 +36,9 @@ jobs:
           cd ./tools/importer-msgraph-metadata
           make tools
           make build
-          make import-all-clean
+          make import
         env:
-          PANDORA_LOG: WARN
+          LOG_LEVEL: WARN
 
       - name: then commit the diff
         id: commit-imported-data
@@ -63,6 +62,6 @@ jobs:
         env:
           PR_TITLE: "Data: Microsoft Graph - regenerating based on ${{ github.sha }}"
           PR_BODY: "This PR is automatically generated based on the commit ${{ github.sha }}"
-          PR_SOURCE: "data/regeneration-from-${{ github.sha }}-msgraph"
+          PR_SOURCE: "data/regeneration-from-${{ github.sha }}-msgraph-metadata"
           PR_TARGET: "main"
           GITHUB_TOKEN: ${{ secrets.SERVICE_ACCOUNT_PANDORA_TOKEN }}
