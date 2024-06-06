@@ -27,6 +27,8 @@ jobs:
           cd ./tools/importer-msgraph-metadata
           make tools
           make import
+        env:
+          LOG_LEVEL: WARN
 
       - name: "Run the Go SDK Generator"
         run: |
