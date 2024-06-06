@@ -5,7 +5,6 @@ package parser
 
 import (
 	"fmt"
-	"regexp"
 	"sort"
 	"strings"
 
@@ -78,24 +77,14 @@ func (r ResourceId) ID() string {
 func (r ResourceId) DataApiSdkResourceId() (*sdkModels.ResourceID, error) {
 	sdkSegments := make([]sdkModels.ResourceIDSegment, 0, len(r.Segments))
 
-	for _, segment := range r.Segments {
+	for i, segment := range r.Segments {
 		switch segment.Type {
 		case SegmentAction, SegmentCast, SegmentFunction, SegmentLabel, SegmentODataReference:
-			sdkSegments = append(sdkSegments, sdkModels.ResourceIDSegment{
-				ConstantReference: nil,
-				FixedValue:        &segment.Value,
-				Type:              sdkModels.StaticResourceIDSegmentType,
-				Name:              segment.Value,
-			})
+			sdkSegments = append(sdkSegments, sdkModels.NewStaticValueResourceIDSegment(segment.Value, segment.Value))
 		case SegmentUserValue:
-			sdkSegments = append(sdkSegments, sdkModels.ResourceIDSegment{
-				ConstantReference: nil,
-				FixedValue:        nil,
-				Type:              sdkModels.UserSpecifiedSegment,
-				Name:              *segment.Field,
-			})
+			sdkSegments = append(sdkSegments, sdkModels.NewUserSpecifiedResourceIDSegment(*segment.Field, segment.Value))
 		default:
-			return nil, fmt.Errorf("unknown segment type")
+			return nil, fmt.Errorf("unknown segment type %q at index %d for resource ID: %q", segment.Type, i, r.Name)
 		}
 	}
 
@@ -372,10 +361,9 @@ func NewResourceId(path string, tags []string) (id ResourceId) {
 
 		if strings.HasPrefix(s, "{") && strings.HasSuffix(s, "}") {
 			value := s[1 : len(s)-1]
-			value = strings.Title(strings.ReplaceAll(value, "-", " "))
-			value = regexp.MustCompile("([^A-Za-z0-9])").ReplaceAllString(value, "")
+			value = normalize.CleanName(value)
+			field := value
 			value = strings.ToLower(value[0:1]) + value[1:]
-			field := strings.Title(value)
 			segment = ResourceIdSegment{
 				Type:  SegmentUserValue,
 				Value: fmt.Sprintf("{%s}", value),
