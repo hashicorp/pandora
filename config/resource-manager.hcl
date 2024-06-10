@@ -223,7 +223,7 @@ service "elastic" {
 }
 service "elasticsan" {
   name      = "ElasticSan"
-  available = ["2023-01-01"]
+  available = ["2023-01-01", "2024-05-01"]
 }
 service "eventgrid" {
   name      = "EventGrid"
