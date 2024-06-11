@@ -1,0 +1,70 @@
+{
+  "name": "JobRunId",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageMover/storageMovers/{storageMoverName}/projects/{projectName}/jobDefinitions/{jobDefinitionName}/jobRuns/{jobRunName}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticResourceGroups",
+      "type": "Static",
+      "value": "resourceGroups"
+    },
+    {
+      "name": "resourceGroupName",
+      "type": "ResourceGroup"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftStorageMover",
+      "type": "ResourceProvider",
+      "value": "Microsoft.StorageMover"
+    },
+    {
+      "name": "staticStorageMovers",
+      "type": "Static",
+      "value": "storageMovers"
+    },
+    {
+      "name": "storageMoverName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticProjects",
+      "type": "Static",
+      "value": "projects"
+    },
+    {
+      "name": "projectName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticJobDefinitions",
+      "type": "Static",
+      "value": "jobDefinitions"
+    },
+    {
+      "name": "jobDefinitionName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticJobRuns",
+      "type": "Static",
+      "value": "jobRuns"
+    },
+    {
+      "name": "jobRunName",
+      "type": "UserSpecified"
+    }
+  ]
+}

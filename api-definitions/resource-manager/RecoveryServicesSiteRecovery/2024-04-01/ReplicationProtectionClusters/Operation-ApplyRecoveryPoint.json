@@ -1,0 +1,20 @@
+{
+  "name": "ApplyRecoveryPoint",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "ReplicationProtectionClusterId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ApplyClusterRecoveryPointInput"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ReplicationProtectionCluster"
+  },
+  "uriSuffix": "/applyRecoveryPoint"
+}
