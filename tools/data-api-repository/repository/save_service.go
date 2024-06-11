@@ -27,9 +27,6 @@ type SaveServiceOptions struct {
 
 	// SourceDataOrigin specifies the origin of this set of source data (e.g. AzureRestAPISpecsSourceDataOrigin).
 	SourceDataOrigin models.SourceDataOrigin
-
-	// SourceDataType specifies the type of the source data (e.g. ResourceManagerSourceDataType).
-	SourceDataType models.SourceDataType
 }
 
 // SaveService persists the API Definitions for the Service specified in opts.
@@ -40,7 +37,7 @@ func (r repositoryImpl) SaveService(opts SaveServiceOptions) error {
 		stages.MetaDataStage{
 			GitRevision:      opts.SourceCommitSHA,
 			SourceDataOrigin: opts.SourceDataOrigin,
-			SourceDataType:   opts.SourceDataType,
+			SourceDataType:   r.sourceDataType,
 		},
 		stages.ServiceDefinitionStage{
 			ServiceName:         opts.ServiceName,
@@ -137,7 +134,7 @@ func (r repositoryImpl) SaveService(opts SaveServiceOptions) error {
 	// TODO: ensure that any existing directory for this service is removed
 
 	r.logger.Debug("Persisting files to disk..")
-	if err := helpers.PersistFileSystem(r.workingDirectory, opts.SourceDataType, opts.ServiceName, fs, r.logger); err != nil {
+	if err := helpers.PersistFileSystem(r.workingDirectory, r.sourceDataType, opts.ServiceName, fs, r.logger); err != nil {
 		return fmt.Errorf("persisting files: %+v", err)
 	}
 
