@@ -1,0 +1,16 @@
+{
+  "name": "ListByElasticSan",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "ElasticSanId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "VolumeGroup"
+  },
+  "uriSuffix": "/volumeGroups"
+}

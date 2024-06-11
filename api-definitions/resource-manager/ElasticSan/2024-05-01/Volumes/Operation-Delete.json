@@ -1,0 +1,34 @@
+{
+  "name": "Delete",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202,
+    204
+  ],
+  "longRunning": true,
+  "httpMethod": "DELETE",
+  "options": [
+    {
+      "headerName": "x-ms-delete-snapshots",
+      "optional": true,
+      "required": false,
+      "field": "XMsDeleteSnapshots",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "XMsDeleteSnapshots"
+      }
+    },
+    {
+      "headerName": "x-ms-force-delete",
+      "optional": true,
+      "required": false,
+      "field": "XMsForceDelete",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "XMsForceDelete"
+      }
+    }
+  ],
+  "resourceIdName": "VolumeId"
+}
