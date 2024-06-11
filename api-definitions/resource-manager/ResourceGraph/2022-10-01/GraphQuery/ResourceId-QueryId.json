@@ -1,0 +1,43 @@
+{
+  "name": "QueryId",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ResourceGraph/queries/{queryName}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticResourceGroups",
+      "type": "Static",
+      "value": "resourceGroups"
+    },
+    {
+      "name": "resourceGroupName",
+      "type": "ResourceGroup"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftResourceGraph",
+      "type": "ResourceProvider",
+      "value": "Microsoft.ResourceGraph"
+    },
+    {
+      "name": "staticQueries",
+      "type": "Static",
+      "value": "queries"
+    },
+    {
+      "name": "queryName",
+      "type": "UserSpecified"
+    }
+  ]
+}
