@@ -3,6 +3,8 @@
 
 package repositories
 
+/*
+
 import (
 	"fmt"
 
@@ -182,3 +184,4 @@ func mapValidationPossibleValueTypes(input repositoryModels.TerraformSchemaValid
 
 	return nil, fmt.Errorf("unmapped Validation Posssible Values Type %q", string(input))
 }
+*/

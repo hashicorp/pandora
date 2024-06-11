@@ -3,6 +3,8 @@
 
 package repositories
 
+/*
+
 import (
 	"fmt"
 	"io"
@@ -131,3 +133,4 @@ func getTerraformOtherTestInfo(otherTestType string) (string, int, error) {
 	return testName, testNum, nil
 
 }
+*/

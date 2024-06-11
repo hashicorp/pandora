@@ -3,6 +3,7 @@
 
 package repositories
 
+/*
 import (
 	"fmt"
 )
@@ -139,3 +140,4 @@ func validateOptionObjectDefinition(input OptionObjectDefinition, constants map[
 
 	return nil
 }
+*/

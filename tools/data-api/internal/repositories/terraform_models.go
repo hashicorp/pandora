@@ -3,6 +3,7 @@
 
 package repositories
 
+/*
 type TerraformDetails struct {
 	DataSources map[string]TerraformDataSourceDetails
 	Resources   map[string]TerraformResourceDetails
@@ -258,3 +259,4 @@ type TerraformResourceTestsDefinition struct {
 	OtherTests                  map[string][]string
 	TemplateConfiguration       *string
 }
+*/

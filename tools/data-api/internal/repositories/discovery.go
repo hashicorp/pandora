@@ -3,6 +3,8 @@
 
 package repositories
 
+/*
+
 import (
 	"encoding/json"
 	"errors"
@@ -124,3 +126,4 @@ func (s *ServicesRepositoryImpl) discoverAllServices() error {
 
 	return nil
 }
+*/

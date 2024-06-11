@@ -3,6 +3,8 @@
 
 package repositories
 
+/*
+
 import (
 	"encoding/json"
 	"fmt"
@@ -1023,3 +1025,5 @@ func parseResourceIdFromFilePath(filePath string, constants map[string]ConstantD
 		ConstantNames: constantNames,
 	}, nil
 }
+
+*/

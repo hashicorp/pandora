@@ -3,6 +3,8 @@
 
 package repositories
 
+/*
+
 type ApiDefinitionSourceType string
 type ConstantType string
 type DateFormat string
@@ -195,3 +197,4 @@ type CommonTypesModelDetails struct {
 	TypeHintIn     *string
 	TypeHintValue  *string
 }
+*/
