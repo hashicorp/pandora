@@ -22,7 +22,7 @@ import (
 func runImporter(input RunInput, generationData []discovery.ServiceInput, swaggerGitSha string) error {
 	sourceDataType := models.ResourceManagerSourceDataType
 	sourceDataOrigin := models.AzureRestAPISpecsSourceDataOrigin
-	repo := repository.NewRepository(input.OutputDirectory, logging.Log)
+	repo := repository.NewRepository(input.OutputDirectory, sourceDataType, logging.Log)
 
 	// group the API Versions by Service
 	dataByServices := make(map[string][]discovery.ServiceInput)
@@ -54,14 +54,13 @@ func runImporter(input RunInput, generationData []discovery.ServiceInput, swagge
 		removeServiceOpts := repository.RemoveServiceOptions{
 			ServiceName:      serviceName,
 			SourceDataOrigin: sourceDataOrigin,
-			SourceDataType:   sourceDataType,
 		}
 		if err := repo.RemoveService(removeServiceOpts); err != nil {
 			return fmt.Errorf("removing existing API Definitions for Service %q: %+v", serviceName, err)
 		}
 
 		logger := input.Logger.Named(fmt.Sprintf("Importer for Service %q", serviceName))
-		if err := runImportForService(input, serviceName, serviceDetails, sourceDataType, sourceDataOrigin, logger, swaggerGitSha, repo); err != nil {
+		if err := runImportForService(input, serviceName, serviceDetails, sourceDataOrigin, logger, swaggerGitSha, repo); err != nil {
 			return fmt.Errorf("parsing data for Service %q: %+v", serviceName, err)
 		}
 	}
@@ -69,7 +68,7 @@ func runImporter(input RunInput, generationData []discovery.ServiceInput, swagge
 	return nil
 }
 
-func runImportForService(input RunInput, serviceName string, apiVersionsForService []discovery.ServiceInput, sourceDataType models.SourceDataType, sourceDataOrigin models.SourceDataOrigin, logger hclog.Logger, swaggerGitSha string, repo repository.Repository) error {
+func runImportForService(input RunInput, serviceName string, apiVersionsForService []discovery.ServiceInput, sourceDataOrigin models.SourceDataOrigin, logger hclog.Logger, swaggerGitSha string, repo repository.Repository) error {
 	task := pipelineTask{}
 	var resourceProvider *string
 	var terraformPackageName *string
@@ -183,7 +182,6 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 		Service:          *service,
 		ServiceName:      serviceName,
 		SourceDataOrigin: sourceDataOrigin,
-		SourceDataType:   sourceDataType,
 	}
 	if err := repo.SaveService(opts); err != nil {
 		return fmt.Errorf("persisting Data API Definitions for Service %q: %+v", serviceName, err)
