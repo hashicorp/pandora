@@ -461,7 +461,7 @@ service "recoveryservicesbackup" {
 }
 service "recoveryservicessiterecovery" {
   name      = "RecoveryServicesSiteRecovery"
-  available = ["2022-10-01", "2023-01-01", "2023-02-01", "2023-04-01", "2023-06-01", "2023-08-01", "2024-01-01", "2024-02-01"]
+  available = ["2022-10-01", "2023-01-01", "2023-02-01", "2023-04-01", "2023-06-01", "2023-08-01", "2024-01-01", "2024-02-01", "2024-04-01"]
 }
 service "redhatopenshift" {
   name      = "RedHatOpenShift"
@@ -555,7 +555,7 @@ service "storagecache" {
 }
 service "storagemover" {
   name      = "StorageMover"
-  available = ["2023-03-01", "2023-10-01"]
+  available = ["2023-03-01", "2023-10-01", "2024-07-01"]
 }
 service "storagepool" {
   name      = "StoragePool"
