@@ -1,0 +1,25 @@
+{
+  "name": "InMageRcmApplianceSpecificDetails",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "appliances",
+      "name": "Appliances",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "InMageRcmApplianceDetails"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "ApplianceSpecificDetails",
+  "discriminatedTypeValue": "InMageRcm",
+  "typeHintIn": "InstanceType"
+}

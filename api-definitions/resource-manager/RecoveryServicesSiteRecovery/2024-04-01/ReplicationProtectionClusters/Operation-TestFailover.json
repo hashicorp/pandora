@@ -1,0 +1,20 @@
+{
+  "name": "TestFailover",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "ReplicationProtectionClusterId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ClusterTestFailoverInput"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ReplicationProtectionCluster"
+  },
+  "uriSuffix": "/testFailover"
+}

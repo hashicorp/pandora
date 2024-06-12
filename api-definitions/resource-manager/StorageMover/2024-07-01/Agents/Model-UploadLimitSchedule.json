@@ -1,0 +1,22 @@
+{
+  "name": "UploadLimitSchedule",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "weeklyRecurrences",
+      "name": "WeeklyRecurrences",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "UploadLimitWeeklyRecurrence"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}
