@@ -22,7 +22,10 @@ import (
 func runImporter(input RunInput, generationData []discovery.ServiceInput, swaggerGitSha string) error {
 	sourceDataType := models.ResourceManagerSourceDataType
 	sourceDataOrigin := models.AzureRestAPISpecsSourceDataOrigin
-	repo := repository.NewRepository(input.OutputDirectory, sourceDataType, logging.Log)
+	repo, err := repository.NewRepository(input.OutputDirectory, sourceDataType, nil, logging.Log)
+	if err != nil {
+		return fmt.Errorf("building repository: %+v", err)
+	}
 
 	// group the API Versions by Service
 	dataByServices := make(map[string][]discovery.ServiceInput)
