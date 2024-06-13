@@ -60,7 +60,7 @@ func (c *Client) LoadAllData(ctx context.Context, serviceNamesToLimitTo []string
 		}
 
 		c.logger.Trace(fmt.Sprintf("Retrieving details for Service %q..", serviceName))
-		serviceDetails, err := c.loadAllDetailsForService(ctx, serviceSummary)
+		serviceDetails, err := c.loadAllDetailsForService(ctx, serviceName, serviceSummary)
 		if err != nil {
 			return nil, fmt.Errorf("retrieving details for Service %q: %+v", serviceName, err)
 		}
@@ -71,7 +71,7 @@ func (c *Client) LoadAllData(ctx context.Context, serviceNamesToLimitTo []string
 	return &result, nil
 }
 
-func (c *Client) loadAllDetailsForService(ctx context.Context, summary AvailableServiceSummary) (*models.Service, error) {
+func (c *Client) loadAllDetailsForService(ctx context.Context, serviceName string, summary AvailableServiceSummary) (*models.Service, error) {
 	serviceDetails, err := c.GetDetailsForServiceResponse(ctx, summary)
 	if err != nil {
 		return nil, fmt.Errorf("retrieving details : %+v", err)
@@ -80,7 +80,7 @@ func (c *Client) loadAllDetailsForService(ctx context.Context, summary Available
 	apiVersions := make(map[string]models.APIVersion)
 	for version, versionSummary := range serviceDetails.Model.Versions {
 		c.logger.Trace(fmt.Sprintf("Retrieving details for API Version %q..", version))
-		versionDetails, err := c.loadAllDetailsForAPIVersion(ctx, versionSummary)
+		versionDetails, err := c.loadAllDetailsForAPIVersion(ctx, version, versionSummary)
 		if err != nil {
 			return nil, fmt.Errorf("retrieving details for API Version: %+v", err)
 		}
@@ -97,12 +97,13 @@ func (c *Client) loadAllDetailsForService(ctx context.Context, summary Available
 	return &models.Service{
 		APIVersions:         apiVersions,
 		Generate:            summary.Generate,
+		Name:                serviceName,
 		ResourceProvider:    serviceDetails.Model.ResourceProvider,
 		TerraformDefinition: terraformDetails.Model,
 	}, nil
 }
 
-func (c *Client) loadAllDetailsForAPIVersion(ctx context.Context, summary ServiceAPIVersionSummary) (*models.APIVersion, error) {
+func (c *Client) loadAllDetailsForAPIVersion(ctx context.Context, version string, summary ServiceAPIVersionSummary) (*models.APIVersion, error) {
 	versionDetails, err := c.DetailsForAPIVersion(ctx, summary)
 	if err != nil {
 		return nil, fmt.Errorf("retrieving details: %+v", err)
@@ -131,10 +132,11 @@ func (c *Client) loadAllDetailsForAPIVersion(ctx context.Context, summary Servic
 	}
 
 	return &models.APIVersion{
-		Generate:  summary.Generate,
-		Preview:   summary.Preview,
-		Resources: apiResources,
-		Source:    versionDetails.Model.Source,
+		APIVersion: version,
+		Generate:   summary.Generate,
+		Preview:    summary.Preview,
+		Resources:  apiResources,
+		Source:     versionDetails.Model.Source,
 	}, nil
 }
 

@@ -7,6 +7,9 @@ package models
 // An example of this would be `2021-01-01` (within the Service `Compute`)
 // which contains APIResource's for `ManagedDisks` and `VirtualMachines`.
 type APIVersion struct {
+	// APIVersion specifies the Version of this API.
+	APIVersion string
+
 	// Generate specifies whether this APIVersion should be generated or not.
 	Generate bool
 
