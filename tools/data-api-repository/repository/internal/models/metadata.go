@@ -44,5 +44,5 @@ const (
 
 	// HandWrittenApiDefinitionsSource specifies that these API definitions were written by hand and
 	// not generated from an OpenAPI/Swagger definition.
-	HandWrittenApiDefinitionsSource ApiDefinitionsSource = "handwritten"
+	HandWrittenApiDefinitionsSource ApiDefinitionsSource = "HandWritten"
 )
