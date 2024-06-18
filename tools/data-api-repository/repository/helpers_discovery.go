@@ -2,6 +2,8 @@ package repository
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/data-api-repository/repository/internal/helpers"
+	"strings"
 
 	"github.com/hashicorp/go-hclog"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
@@ -21,8 +23,13 @@ func discoverAvailableSourceDataWithin(workingDirectory string, sourceDataType s
 		return nil, err
 	}
 
-	output := make(map[string]availableService, 0)
+	output := make(map[string]availableService)
 	for _, subDirectory := range *subDirectories {
+		if strings.HasPrefix(subDirectory, helpers.CommonTypesDirectoryName) {
+			logger.Trace(fmt.Sprintf("Skipping the `%s` directory at %q since it's not a Service directory", helpers.CommonTypesDirectoryName, subDirectory))
+			continue
+		}
+
 		logger.Trace(fmt.Sprintf("Processing %q", subDirectory))
 		dataSource, err := parseMetaDataForSourceDataType(subDirectory, logger)
 		if err != nil {

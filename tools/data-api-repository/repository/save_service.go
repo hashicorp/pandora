@@ -33,6 +33,10 @@ type SaveServiceOptions struct {
 func (r *repositoryImpl) SaveService(opts SaveServiceOptions) error {
 	r.logger.Info(fmt.Sprintf("Processing Service %q", opts.ServiceName))
 
+	if opts.ServiceName == helpers.CommonTypesDirectoryName {
+		return fmt.Errorf("`ServiceName` cannot be %q since that's reserved for storing Common Types", opts.ServiceName)
+	}
+
 	r.cacheLock.Lock()
 	defer r.cacheLock.Unlock()
 
