@@ -4,40 +4,52 @@
 package repository
 
 import (
+	"fmt"
+	"sync"
+
 	"github.com/hashicorp/go-hclog"
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
-// Repository is an interface defining how to load and save API Definitions from disk.
-// This interface is designed to allow the implementation to be switched out for testing purposes if needed.
-type Repository interface {
-	// RemoveService removes any existing API Definitions for the Service specified in opts.
-	RemoveService(opts RemoveServiceOptions) error
-
-	// SaveService persists the API Definitions for the Service specified in opts.
-	SaveService(opts SaveServiceOptions) error
-
-	// TODO: LoadService
-	// TODO: LoadServices
-}
-
 // NewRepository returns an instance of Repository configured for the working directory.
-func NewRepository(workingDirectory string, sourceDataType models.SourceDataType, logger hclog.Logger) Repository {
-	return repositoryImpl{
-		logger:           logger,
-		sourceDataType:   sourceDataType,
-		workingDirectory: workingDirectory,
+func NewRepository(workingDirectory string, sourceDataType sdkModels.SourceDataType, serviceNamesToLimitTo *[]string, logger hclog.Logger) (Repository, error) {
+	availableDataSources, err := discoverAvailableSourceDataWithin(workingDirectory, sourceDataType, logger)
+	if err != nil {
+		return nil, fmt.Errorf("discovering the available data sources within %q: %+v", workingDirectory, err)
 	}
+
+	// TODO: make use of serviceNamesToLimitTo
+
+	return &repositoryImpl{
+		availableDataSources: *availableDataSources,
+		cacheLock:            &sync.Mutex{},
+		cachedServices:       make(map[string]sdkModels.Service),
+		logger:               logger,
+		sourceDataType:       sourceDataType,
+		workingDirectory:     workingDirectory,
+	}, nil
 }
 
 var _ Repository = &repositoryImpl{}
 
 type repositoryImpl struct {
+	// availableDataSources specifies the map of Service Name (key) to availableService (value)
+	// representing the available data for this SourceDataType.
+	availableDataSources map[string]availableService
+
+	// cacheLock is a mutex used for populating items into the cache (cachedServices).
+	cacheLock *sync.Mutex
+
+	// cachedServices is a cache containing the cached information for this SourceDataType.
+	// This is a map of Service Name (Key, which must be unique across all SourceDataOrigins
+	// within this SourceDataType) to Service.
+	cachedServices map[string]sdkModels.Service
+
 	// logger is an instance of the logger which should be used for logging purposes.
 	logger hclog.Logger
 
 	// sourceDataType specifies the Source Data Type that this Repository instance is related to.
-	sourceDataType models.SourceDataType
+	sourceDataType sdkModels.SourceDataType
 
 	// workingDirectory specifies the directory where the API Definitions exist/should be written to.
 	// This is the path to the `./api-definitions` directory.

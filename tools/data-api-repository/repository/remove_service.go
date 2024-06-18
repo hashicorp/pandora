@@ -8,7 +8,7 @@ import (
 	"os"
 	"path"
 
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 type RemoveServiceOptions struct {
@@ -16,12 +16,15 @@ type RemoveServiceOptions struct {
 	ServiceName string
 
 	// SourceDataOrigin specifies the origin of this set of source data (e.g. AzureRestAPISpecsSourceDataOrigin).
-	SourceDataOrigin models.SourceDataOrigin
+	SourceDataOrigin sdkModels.SourceDataOrigin
 }
 
 // RemoveService removes any existing API Definitions for the Service specified in opts.
-func (r repositoryImpl) RemoveService(opts RemoveServiceOptions) error {
+func (r *repositoryImpl) RemoveService(opts RemoveServiceOptions) error {
 	// TODO: note this is going to need to take SourceDataOrigin into account too
+
+	r.cacheLock.Lock()
+	defer r.cacheLock.Unlock()
 
 	serviceDirectory := path.Join(r.workingDirectory, string(r.sourceDataType), opts.ServiceName)
 	if err := os.RemoveAll(serviceDirectory); err != nil && os.IsNotExist(err) {

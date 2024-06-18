@@ -6,9 +6,9 @@ package repository
 import (
 	"fmt"
 
-	"github.com/hashicorp/pandora/tools/data-api-repository/repository/helpers"
-	"github.com/hashicorp/pandora/tools/data-api-repository/repository/stages"
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/data-api-repository/repository/internal/helpers"
+	"github.com/hashicorp/pandora/tools/data-api-repository/repository/internal/stages"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 type SaveServiceOptions struct {
@@ -17,7 +17,7 @@ type SaveServiceOptions struct {
 	ResourceProvider *string
 
 	// Service specifies details about this Service, including the available APIVersions.
-	Service models.Service
+	Service sdkModels.Service
 
 	// ServiceName specifies the name of this Service (e.g. `Compute`).
 	ServiceName string
@@ -26,36 +26,32 @@ type SaveServiceOptions struct {
 	SourceCommitSHA *string
 
 	// SourceDataOrigin specifies the origin of this set of source data (e.g. AzureRestAPISpecsSourceDataOrigin).
-	SourceDataOrigin models.SourceDataOrigin
+	SourceDataOrigin sdkModels.SourceDataOrigin
 }
 
 // SaveService persists the API Definitions for the Service specified in opts.
-func (r repositoryImpl) SaveService(opts SaveServiceOptions) error {
+func (r *repositoryImpl) SaveService(opts SaveServiceOptions) error {
 	r.logger.Info(fmt.Sprintf("Processing Service %q", opts.ServiceName))
 
+	r.cacheLock.Lock()
+	defer r.cacheLock.Unlock()
+
 	items := []stages.Stage{
-		stages.MetaDataStage{
+		&stages.MetaDataStage{
 			GitRevision:      opts.SourceCommitSHA,
 			SourceDataOrigin: opts.SourceDataOrigin,
 			SourceDataType:   r.sourceDataType,
 		},
-		stages.ServiceDefinitionStage{
-			ServiceName:         opts.ServiceName,
-			ResourceProvider:    opts.ResourceProvider,
-			ShouldGenerate:      true,
-			TerraformDefinition: opts.Service.TerraformDefinition,
+		&stages.ServiceDefinitionStage{
+			Service: opts.Service,
 		},
 	}
 
 	for apiVersion, apiVersionDetails := range opts.Service.APIVersions {
 		r.logger.Info(fmt.Sprintf("Processing Service %q / API Version %q..", opts.ServiceName, apiVersion))
 		items = append(items, stages.APIVersionStage{
-			APIResources:     apiVersionDetails.Resources,
-			APIVersion:       apiVersion,
-			IsPreviewVersion: apiVersionDetails.Preview,
-			ServiceName:      opts.ServiceName,
-			SourceDataOrigin: apiVersionDetails.Source,
-			ShouldGenerate:   true,
+			APIVersion:  apiVersionDetails,
+			ServiceName: opts.ServiceName,
 		})
 
 		for apiResourceName, apiResourceDetails := range apiVersionDetails.Resources {
