@@ -9,7 +9,6 @@ import (
 
 	"github.com/go-chi/render"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/data-api/internal/endpoints/v1/transforms"
 )
 
 func (api Api) commonTypes(w http.ResponseWriter, r *http.Request) {
@@ -21,7 +20,7 @@ func (api Api) commonTypes(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	services, err := api.servicesRepository.GetAll(opts.ServiceType)
+	services, err := api.servicesRepository.GetAllServices()
 	if err != nil {
 		internalServerError(w, fmt.Errorf("loading services: %+v", err))
 		return
@@ -36,38 +35,16 @@ func (api Api) commonTypes(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	for _, service := range *services {
-		for version, details := range service.ApiVersions {
-			if details == nil {
-				continue
-			}
-
-			for resourceName, resource := range details.Resources {
-				if resource == nil {
-					continue
-				}
-
-				mappedConstants, err := transforms.MapConstants(resource.Schema.Constants)
-				if err != nil {
-					internalServerError(w, fmt.Errorf("mapping constants for API Resource %q: %+v", resourceName, err))
-					return
-				}
-				for k, v := range *mappedConstants {
-					if _, ok := payload.Constants[k]; ok {
-						internalServerError(w, fmt.Errorf("constant %q already exists in common types, there is a duplicated definition in the source data for service: %s, version: %s, resource: %s", k, service.Name, version, resourceName))
-						return
-					}
+	for serviceName, service := range *services {
+		for apiVersion, apiVersionDetails := range service.APIVersions {
+			for resourceName, resource := range apiVersionDetails.Resources {
+				for k, v := range resource.Constants {
 					payload.Constants[k] = v
 				}
 
-				mappedModels, err := transforms.MapSDKModels(resource.Schema.Models)
-				if err != nil {
-					internalServerError(w, fmt.Errorf("mapping models for API Resource %q: %+v", resourceName, err))
-					return
-				}
-				for k, v := range *mappedModels {
+				for k, v := range resource.Models {
 					if _, ok := payload.Models[k]; ok {
-						internalServerError(w, fmt.Errorf("model %q already exists in common types, there is a duplicated definition in the source data for service: %s, version: %s, resource: %s", k, service.Name, version, resourceName))
+						internalServerError(w, fmt.Errorf("model %q already exists in common types, there is a duplicated definition in the source data for service: %s, version: %s, resource: %s", k, serviceName, apiVersion, resourceName))
 						return
 					}
 					payload.Models[k] = v

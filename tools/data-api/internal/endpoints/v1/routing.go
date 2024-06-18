@@ -9,13 +9,14 @@ import (
 	"net/http"
 
 	"github.com/go-chi/chi/v5"
+	"github.com/hashicorp/pandora/tools/data-api-repository/repository"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/data-api/internal/logging"
-	"github.com/hashicorp/pandora/tools/data-api/internal/repositories"
 )
 
 type Options struct {
 	// ServiceType specifies the type of Data that should be used for this endpoint.
-	ServiceType repositories.ServiceType
+	ServiceType sdkModels.SourceDataType
 
 	// UriPrefix specifies the URI which should be prefixed on any Operation URIs.
 	UriPrefix string
@@ -25,10 +26,10 @@ type Options struct {
 }
 
 type Api struct {
-	servicesRepository repositories.ServicesRepository
+	servicesRepository repository.Repository
 }
 
-func Router(router chi.Router, options Options, servicesRepository repositories.ServicesRepository) {
+func Router(router chi.Router, options Options, servicesRepository repository.Repository) {
 	api := Api{
 		servicesRepository: servicesRepository,
 	}
@@ -75,26 +76,20 @@ func optionsContext(options Options) func(http.Handler) http.Handler {
 
 func (api Api) serviceRouteContext(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		opts, ok := r.Context().Value("options").(Options)
-		if !ok {
-			w.WriteHeader(http.StatusInternalServerError)
-			return
-		}
-
 		serviceName := chi.URLParam(r, "serviceName")
 		if serviceName == "" {
 			logging.Debugf("Missing Service Name")
 			http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
 		}
 
-		service, err := api.servicesRepository.GetByName(serviceName, opts.ServiceType)
+		service, err := api.servicesRepository.GetService(serviceName)
 		if err != nil {
 			internalServerError(w, fmt.Errorf("retrieving service %q: %+v", serviceName, err))
 			return
 		}
 
+		// NOTE: we need to ensure a pointer is passed to the context
 		ctx := context.WithValue(r.Context(), "service", service)
-
 		next.ServeHTTP(w, r.WithContext(ctx))
 	})
 }
@@ -108,19 +103,20 @@ func serviceApiVersionRouteContext(next http.Handler) http.Handler {
 		}
 
 		ctx := r.Context()
-		service, ok := ctx.Value("service").(*repositories.ServiceDetails)
+		service, ok := ctx.Value("service").(*sdkModels.Service)
 		if !ok {
 			internalServerError(w, fmt.Errorf("service not found in request"))
 			return
 		}
 
-		apiVersion, ok := service.ApiVersions[serviceApiVersion]
+		apiVersion, ok := service.APIVersions[serviceApiVersion]
 		if !ok {
 			http.Error(w, http.StatusText(http.StatusNotFound), http.StatusNotFound)
 			return
 		}
 
-		ctx = context.WithValue(ctx, "serviceApiVersion", apiVersion)
+		// NOTE: we need to ensure a pointer is passed to the context
+		ctx = context.WithValue(ctx, "serviceApiVersion", &apiVersion)
 		next.ServeHTTP(w, r.WithContext(ctx))
 	})
 }
@@ -135,7 +131,7 @@ func apiResourceNameRouteContext(next http.Handler) http.Handler {
 
 		ctx := r.Context()
 
-		apiVersion, ok := ctx.Value("serviceApiVersion").(*repositories.ServiceApiVersionDetails)
+		apiVersion, ok := ctx.Value("serviceApiVersion").(*sdkModels.APIVersion)
 		if !ok {
 			internalServerError(w, fmt.Errorf("service api version not found in request"))
 			return
@@ -147,7 +143,8 @@ func apiResourceNameRouteContext(next http.Handler) http.Handler {
 			return
 		}
 
-		ctx = context.WithValue(ctx, "resourceName", resource)
+		// NOTE: we need to ensure a pointer is passed to the context
+		ctx = context.WithValue(ctx, "resourceName", &resource)
 		next.ServeHTTP(w, r.WithContext(ctx))
 	})
 }

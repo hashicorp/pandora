@@ -5,8 +5,10 @@ package commands
 
 import (
 	"flag"
+	"fmt"
 	"log"
 	"os"
+	"path/filepath"
 	"strconv"
 	"strings"
 
@@ -54,6 +56,12 @@ func (a *Arguments) Parse(input []string) error {
 			log.Fatalf("expected PANDORA_API_PORT to be an int: %+v", err)
 		}
 	}
+
+	abs, err := filepath.Abs(a.DataDirectory)
+	if err != nil {
+		return fmt.Errorf("determining the absolute path for %q: %+v", a.DataDirectory, err)
+	}
+	a.DataDirectory = abs
 
 	return nil
 }

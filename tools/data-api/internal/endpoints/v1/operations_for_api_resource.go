@@ -9,27 +9,20 @@ import (
 
 	"github.com/go-chi/render"
 	v1 "github.com/hashicorp/pandora/tools/data-api-sdk/v1"
-	"github.com/hashicorp/pandora/tools/data-api/internal/endpoints/v1/transforms"
-	"github.com/hashicorp/pandora/tools/data-api/internal/repositories"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 func (api Api) operationsForApiResource(w http.ResponseWriter, r *http.Request) {
 	ctx := r.Context()
 
-	resource, ok := ctx.Value("resourceName").(*repositories.ServiceApiVersionResourceDetails)
+	resource, ok := ctx.Value("resourceName").(*sdkModels.APIResource)
 	if !ok {
 		internalServerError(w, fmt.Errorf("missing resourceName"))
 		return
 	}
 
-	operations, err := transforms.MapSDKOperations(resource.Operations)
-	if err != nil {
-		internalServerError(w, fmt.Errorf("mapping SDK Operations: %+v", err))
-		return
-	}
-
 	payload := v1.GetSDKOperationsForAPIResource{
-		Operations: *operations,
+		Operations: resource.Operations,
 	}
 	render.JSON(w, r, payload)
 }
