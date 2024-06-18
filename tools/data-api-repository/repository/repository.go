@@ -18,7 +18,17 @@ func NewRepository(workingDirectory string, sourceDataType sdkModels.SourceDataT
 		return nil, fmt.Errorf("discovering the available data sources within %q: %+v", workingDirectory, err)
 	}
 
-	// TODO: make use of serviceNamesToLimitTo
+	if serviceNamesToLimitTo != nil && len(*serviceNamesToLimitTo) > 0 {
+		filtered := make(map[string]availableService)
+
+		for _, serviceName := range *serviceNamesToLimitTo {
+			if v, ok := (*availableDataSources)[serviceName]; ok {
+				filtered[serviceName] = v
+			}
+		}
+
+		availableDataSources = &filtered
+	}
 
 	return &repositoryImpl{
 		availableDataSources: *availableDataSources,
