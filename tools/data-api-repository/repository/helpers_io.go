@@ -3,11 +3,12 @@ package repository
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/hashicorp/pandora/tools/data-api-repository/repository/internal/helpers"
-	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"os"
 	"path"
 	"strings"
+
+	"github.com/hashicorp/pandora/tools/data-api-repository/repository/internal/helpers"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 func listSubDirectories(workingDirectory string) (*[]string, error) {

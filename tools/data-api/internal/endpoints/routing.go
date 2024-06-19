@@ -8,7 +8,6 @@ import (
 	"github.com/hashicorp/pandora/tools/data-api-repository/repository"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/data-api/internal/endpoints/infrastructure"
-	"github.com/hashicorp/pandora/tools/data-api/internal/endpoints/v1"
 	"github.com/hashicorp/pandora/tools/data-api/internal/logging"
 )
 

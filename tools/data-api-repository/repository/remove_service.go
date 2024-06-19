@@ -5,8 +5,9 @@ package repository
 
 import (
 	"fmt"
-	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"os"
+
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 type RemoveServiceOptions struct {

@@ -5,10 +5,10 @@ package transforms
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/data-api-repository/repository/internal/helpers"
 	"sort"
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/data-api-repository/repository/internal/helpers"
 	repositoryModels "github.com/hashicorp/pandora/tools/data-api-repository/repository/internal/models"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )

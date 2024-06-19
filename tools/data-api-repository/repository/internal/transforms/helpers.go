@@ -5,8 +5,9 @@ package transforms
 
 import (
 	"fmt"
-	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"sort"
+
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 )
 
 func determineExampleValue(input map[string]string) (*string, error) {

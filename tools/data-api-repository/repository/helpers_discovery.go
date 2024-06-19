@@ -2,10 +2,11 @@ package repository
 
 import (
 	"fmt"
+	"path/filepath"
+
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/data-api-repository/repository/internal/helpers"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"path/filepath"
 )
 
 type availableService struct {
