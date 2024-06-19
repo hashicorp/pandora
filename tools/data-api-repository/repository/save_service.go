@@ -41,11 +41,6 @@ func (r *repositoryImpl) SaveService(opts SaveServiceOptions) error {
 	defer r.cacheLock.Unlock()
 
 	items := []stages.Stage{
-		&stages.MetaDataStage{
-			GitRevision:      opts.SourceCommitSHA,
-			SourceDataOrigin: opts.SourceDataOrigin,
-			SourceDataType:   r.sourceDataType,
-		},
 		&stages.ServiceDefinitionStage{
 			Service: opts.Service,
 		},
@@ -54,15 +49,13 @@ func (r *repositoryImpl) SaveService(opts SaveServiceOptions) error {
 	for apiVersion, apiVersionDetails := range opts.Service.APIVersions {
 		r.logger.Info(fmt.Sprintf("Processing Service %q / API Version %q..", opts.ServiceName, apiVersion))
 		items = append(items, stages.APIVersionStage{
-			APIVersion:  apiVersionDetails,
-			ServiceName: opts.ServiceName,
+			APIVersion: apiVersionDetails,
 		})
 
 		for apiResourceName, apiResourceDetails := range apiVersionDetails.Resources {
 			// Output the API Definitions for this APIResource
 
 			items = append(items, stages.ConstantStage{
-				ServiceName: opts.ServiceName,
 				APIVersion:  apiVersion,
 				APIResource: apiResourceName,
 				Constants:   apiResourceDetails.Constants,
@@ -70,7 +63,6 @@ func (r *repositoryImpl) SaveService(opts SaveServiceOptions) error {
 			})
 
 			items = append(items, stages.ModelsStage{
-				ServiceName: opts.ServiceName,
 				APIVersion:  apiVersion,
 				APIResource: apiResourceName,
 				Constants:   apiResourceDetails.Constants,
@@ -78,7 +70,6 @@ func (r *repositoryImpl) SaveService(opts SaveServiceOptions) error {
 			})
 
 			items = append(items, stages.OperationsStage{
-				ServiceName: opts.ServiceName,
 				APIVersion:  apiVersion,
 				APIResource: apiResourceName,
 				Constants:   apiResourceDetails.Constants,
@@ -87,7 +78,6 @@ func (r *repositoryImpl) SaveService(opts SaveServiceOptions) error {
 			})
 
 			items = append(items, stages.ResourceIDsStage{
-				ServiceName: opts.ServiceName,
 				APIVersion:  apiVersion,
 				APIResource: apiResourceName,
 				ResourceIDs: apiResourceDetails.ResourceIDs,
@@ -99,23 +89,19 @@ func (r *repositoryImpl) SaveService(opts SaveServiceOptions) error {
 	if opts.Service.TerraformDefinition != nil {
 		for terraformResourceLabel, terraformResourceDefinition := range opts.Service.TerraformDefinition.Resources {
 			items = append(items, stages.TerraformResourceDefinitionStage{
-				ServiceName:     opts.ServiceName,
 				ResourceLabel:   terraformResourceLabel,
 				ResourceDetails: terraformResourceDefinition,
 			})
 
 			items = append(items, stages.TerraformSchemaModelsStage{
-				ServiceName:     opts.ServiceName,
 				ResourceDetails: terraformResourceDefinition,
 			})
 
 			items = append(items, stages.TerraformMappingsDefinitionStage{
-				ServiceName:     opts.ServiceName,
 				ResourceDetails: terraformResourceDefinition,
 			})
 
 			items = append(items, stages.TerraformResourceTestsStage{
-				ServiceName:     opts.ServiceName,
 				ResourceDetails: terraformResourceDefinition,
 			})
 		}
@@ -131,11 +117,19 @@ func (r *repositoryImpl) SaveService(opts SaveServiceOptions) error {
 		}
 	}
 
-	// TODO: ensure that any existing directory for this service is removed
+	serviceDirectory, err := r.directoryForService(opts.ServiceName, opts.SourceDataOrigin)
+	if err != nil {
+		return fmt.Errorf("determining the directory for Service %q: %+v", opts.ServiceName, err)
+	}
 
-	r.logger.Debug("Persisting files to disk..")
-	if err := helpers.PersistFileSystem(r.workingDirectory, r.sourceDataType, opts.ServiceName, fs, r.logger); err != nil {
-		return fmt.Errorf("persisting files: %+v", err)
+	r.logger.Debug(fmt.Sprintf("Persisting the Service API Definitions into %q..", *serviceDirectory))
+	if err := helpers.PersistFileSystem(*serviceDirectory, fs, r.logger); err != nil {
+		return fmt.Errorf("persisting Service API Definitions into %q: %+v", *serviceDirectory, err)
+	}
+
+	// then populate the source data information into the metadata file
+	if err := r.writeSourceDataInformation(opts.SourceDataOrigin, opts.SourceCommitSHA); err != nil {
+		return fmt.Errorf("populating the Source Data Information into %q: %+v", r.workingDirectory, err)
 	}
 
 	return nil

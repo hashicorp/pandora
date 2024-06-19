@@ -22,9 +22,6 @@ type TerraformResourceDefinitionStage struct {
 	// ResourceLabel specifies the Label for this Terraform Resource without the Provider Prefix.
 	// Example: `container_service` rather than `azurerm_container_service`.
 	ResourceLabel string
-
-	// ServiceName specifies the name of the Service.
-	ServiceName string
 }
 
 func (g TerraformResourceDefinitionStage) Generate(input *helpers.FileSystem, logger hclog.Logger) error {
@@ -34,7 +31,7 @@ func (g TerraformResourceDefinitionStage) Generate(input *helpers.FileSystem, lo
 		return fmt.Errorf("building Terraform Resource Definition: %+v", err)
 	}
 
-	path := filepath.Join(g.ServiceName, "Terraform", fmt.Sprintf("%s-Resource.json", g.ResourceDetails.ResourceName))
+	path := filepath.Join("Terraform", fmt.Sprintf("%s-Resource.json", g.ResourceDetails.ResourceName))
 	logger.Trace(fmt.Sprintf("Staging Terraform Resource Definition at %q", path))
 	if err := input.Stage(path, mapped); err != nil {
 		return fmt.Errorf("staging Terraform Resource Definition at %q: %+v", path, err)

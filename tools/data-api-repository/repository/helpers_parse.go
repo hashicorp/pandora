@@ -24,6 +24,10 @@ func parseMetaDataForSourceDataType(workingDirectory string, logger hclog.Logger
 	if err != nil {
 		return nil, err
 	}
+	if config == nil {
+		// if the file doesn't exist this'll be a new/cleared-out set of data
+		return nil, nil
+	}
 
 	transformed, err := transforms.MapMetaDataFromRepository(*config)
 	if err != nil {

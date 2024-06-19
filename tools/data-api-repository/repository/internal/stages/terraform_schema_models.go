@@ -17,9 +17,6 @@ import (
 var _ Stage = TerraformSchemaModelsStage{}
 
 type TerraformSchemaModelsStage struct {
-	// ServiceName specifies the name of the Service.
-	ServiceName string
-
 	// ResourceDetails specifies the Terraform Resource Definition.
 	ResourceDetails sdkModels.TerraformResourceDefinition
 }
@@ -38,7 +35,7 @@ func (g TerraformSchemaModelsStage) Generate(input *helpers.FileSystem, logger h
 			// Special-case the Resources Model so that it's easier to find the Resource's Schema quickly
 			fileName = fmt.Sprintf("%s-Resource-Schema.json", g.ResourceDetails.ResourceName)
 		}
-		path := filepath.Join(g.ServiceName, "Terraform", fileName)
+		path := filepath.Join("Terraform", fileName)
 		if err := input.Stage(path, *mapped); err != nil {
 			return fmt.Errorf("staging Terraform Schema Model %q at %q: %+v", schemaModelName, path, err)
 		}

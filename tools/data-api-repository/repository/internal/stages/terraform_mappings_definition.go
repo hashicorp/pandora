@@ -18,9 +18,6 @@ var _ Stage = TerraformMappingsDefinitionStage{}
 type TerraformMappingsDefinitionStage struct {
 	// ResourceDetails specifies the Terraform Resource Definition.
 	ResourceDetails sdkModels.TerraformResourceDefinition
-
-	// ServiceName specifies the name of the Service.
-	ServiceName string
 }
 
 func (g TerraformMappingsDefinitionStage) Generate(input *helpers.FileSystem, logger hclog.Logger) error {
@@ -29,7 +26,7 @@ func (g TerraformMappingsDefinitionStage) Generate(input *helpers.FileSystem, lo
 		return fmt.Errorf("building Mappings for the Terraform Resource %q: %+v", g.ResourceDetails.ResourceName, err)
 	}
 
-	path := filepath.Join(g.ServiceName, "Terraform", fmt.Sprintf("%s-Resource-Mappings.json", g.ResourceDetails.ResourceName))
+	path := filepath.Join("Terraform", fmt.Sprintf("%s-Resource-Mappings.json", g.ResourceDetails.ResourceName))
 	logger.Trace(fmt.Sprintf("Staging Terraform Mappings to %q", path))
 	if err := input.Stage(path, *mapped); err != nil {
 		return fmt.Errorf("staging Terraform Mappings to %q: %+v", path, err)

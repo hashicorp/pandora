@@ -33,9 +33,6 @@ type OperationsStage struct {
 	// Operations specifies the map of Operation Name (key) to SDKOperation (value) which should be
 	// persisted.
 	Operations map[string]sdkModels.SDKOperation
-
-	// ServiceName specifies the name of the Service within which the Operations exist.
-	ServiceName string
 }
 
 func (g OperationsStage) Generate(input *helpers.FileSystem, logger hclog.Logger) error {
@@ -49,8 +46,8 @@ func (g OperationsStage) Generate(input *helpers.FileSystem, logger hclog.Logger
 			return fmt.Errorf("mapping Operation %q: %+v", operationName, err)
 		}
 
-		// {workingDirectory}/Service/APIVersion/APIResource/Operation-{Name}.json
-		path := filepath.Join(g.ServiceName, g.APIVersion, g.APIResource, fmt.Sprintf("Operation-%s.json", operationName))
+		// {ServiceDirectory}/APIVersion/APIResource/Operation-{Name}.json
+		path := filepath.Join(g.APIVersion, g.APIResource, fmt.Sprintf("Operation-%s.json", operationName))
 		logger.Trace(fmt.Sprintf("Staging to %s", path))
 		if err := input.Stage(path, *mapped); err != nil {
 			return fmt.Errorf("staging Operation %q: %+v", operationName, err)

@@ -25,9 +25,6 @@ type ResourceIDsStage struct {
 	// ResourceIDs specifies a map of Resource ID Name (key) to ResourceID (value) that should
 	// be persisted.
 	ResourceIDs map[string]sdkModels.ResourceID
-
-	// ServiceName specifies the name of the Service within which the Resource IDs exist.
-	ServiceName string
 }
 
 func (g ResourceIDsStage) Generate(input *helpers.FileSystem, logger hclog.Logger) error {
@@ -39,8 +36,8 @@ func (g ResourceIDsStage) Generate(input *helpers.FileSystem, logger hclog.Logge
 			return fmt.Errorf("mapping Resource ID %q: %+v", resourceIDName, err)
 		}
 
-		// {workingDirectory}/Service/APIVersion/APIResource/ResourceId-{Name}.json
-		path := filepath.Join(g.ServiceName, g.APIVersion, g.APIResource, fmt.Sprintf("ResourceId-%s.json", resourceIDName))
+		// {ServiceDirectory}/APIVersion/APIResource/ResourceId-{Name}.json
+		path := filepath.Join(g.APIVersion, g.APIResource, fmt.Sprintf("ResourceId-%s.json", resourceIDName))
 		logger.Trace(fmt.Sprintf("Staging to %s", path))
 		if err := input.Stage(path, *mapped); err != nil {
 			return fmt.Errorf("staging Resource ID %q: %+v", resourceIDName, err)

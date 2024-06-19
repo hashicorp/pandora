@@ -17,9 +17,6 @@ var _ Stage = TerraformResourceTestsStage{}
 type TerraformResourceTestsStage struct {
 	// ResourceDetails specifies the Terraform Resource Definition.
 	ResourceDetails sdkModels.TerraformResourceDefinition
-
-	// ServiceName specifies the name of the Service.
-	ServiceName string
 }
 
 func (g TerraformResourceTestsStage) Generate(input *helpers.FileSystem, logger hclog.Logger) error {
@@ -28,7 +25,7 @@ func (g TerraformResourceTestsStage) Generate(input *helpers.FileSystem, logger 
 		return nil
 	}
 
-	workingDirectory := filepath.Join(g.ServiceName, "Terraform", "Tests")
+	workingDirectory := filepath.Join("Terraform", "Tests")
 
 	basicPath := filepath.Join(workingDirectory, fmt.Sprintf("%s-Resource-Basic-Test.hcl", g.ResourceDetails.ResourceName))
 	logger.Trace(fmt.Sprintf("Staging Basic Test Configuration to %q", basicPath))

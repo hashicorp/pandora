@@ -29,9 +29,6 @@ type ModelsStage struct {
 	// Models specifies the map of Model Name (key) to SDKModel (value) which should be
 	// persisted.
 	Models map[string]sdkModels.SDKModel
-
-	// ServiceName specifies the name of the Service within which the Models exist.
-	ServiceName string
 }
 
 func (g ModelsStage) Generate(input *helpers.FileSystem, logger hclog.Logger) error {
@@ -54,8 +51,8 @@ func (g ModelsStage) Generate(input *helpers.FileSystem, logger hclog.Logger) er
 			return fmt.Errorf("mapping model %q: %+v", modelName, err)
 		}
 
-		// {workingDirectory}/Service/APIVersion/APIResource/Model-{Name}.json
-		path := filepath.Join(g.ServiceName, g.APIVersion, g.APIResource, fmt.Sprintf("Model-%s.json", modelName))
+		// {ServiceDirectory}/APIVersion/APIResource/Model-{Name}.json
+		path := filepath.Join(g.APIVersion, g.APIResource, fmt.Sprintf("Model-%s.json", modelName))
 		logger.Trace(fmt.Sprintf("Staging to %s", path))
 		if err := input.Stage(path, *mapped); err != nil {
 			return fmt.Errorf("staging Model %q: %+v", modelName, err)

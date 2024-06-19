@@ -5,6 +5,8 @@ import (
 )
 
 // Repository is an interface defining how to load and save API Definitions from disk.
+// Each Repository instance should be scoped to a single SourceDataType (which may in turn support
+// multiple SourceDataOrigins).
 // This interface is designed to allow the implementation to be switched out for testing purposes if needed.
 type Repository interface {
 	// GetService returns the specified Service by its `name` if it exists.
@@ -15,7 +17,8 @@ type Repository interface {
 	// Service Name (key) to Service (value).
 	GetAllServices() (*map[string]sdkModels.Service, error)
 
-	// TODO: integrate `func PurgeExistingData() error`
+	// PurgeExistingData purges the existing Source Data for this SourceDataOrigin.
+	PurgeExistingData(sourceDataOrigin sdkModels.SourceDataOrigin) error
 
 	// RemoveService removes any existing API Definitions for the Service specified in opts.
 	RemoveService(opts RemoveServiceOptions) error

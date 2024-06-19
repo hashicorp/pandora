@@ -18,9 +18,6 @@ var _ Stage = APIVersionStage{}
 type APIVersionStage struct {
 	// APIVersion specifies the APIVersion for the current Service.
 	APIVersion sdkModels.APIVersion
-
-	// ServiceName specifies the name of the Service within which this API Version exists.
-	ServiceName string
 }
 
 func (g APIVersionStage) Generate(input *helpers.FileSystem, logger hclog.Logger) error {
@@ -30,7 +27,7 @@ func (g APIVersionStage) Generate(input *helpers.FileSystem, logger hclog.Logger
 		return fmt.Errorf("building Api Version Definition: %+v", err)
 	}
 
-	path := filepath.Join(g.ServiceName, g.APIVersion.APIVersion, "ApiVersionDefinition.json")
+	path := filepath.Join(g.APIVersion.APIVersion, "ApiVersionDefinition.json")
 	logger.Trace(fmt.Sprintf("Staging API Version Definition to %q", path))
 	if err := input.Stage(path, *mapped); err != nil {
 		return fmt.Errorf("staging API Version Definition to %q: %+v", path, err)

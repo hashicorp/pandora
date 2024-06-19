@@ -26,7 +26,7 @@ func (g *ServiceDefinitionStage) Generate(input *helpers.FileSystem, logger hclo
 		return fmt.Errorf("mapping Service Definition for %q: %+v", g.Service.Name, err)
 	}
 
-	path := filepath.Join(g.Service.Name, "ServiceDefinition.json")
+	path := filepath.Join("ServiceDefinition.json")
 	if err := input.Stage(path, *serviceDefinition); err != nil {
 		return fmt.Errorf("staging ServiceDefinition to %q: %+v", path, err)
 	}

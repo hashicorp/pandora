@@ -5,10 +5,8 @@ package repository
 
 import (
 	"fmt"
-	"os"
-	"path"
-
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"os"
 )
 
 type RemoveServiceOptions struct {
@@ -21,14 +19,16 @@ type RemoveServiceOptions struct {
 
 // RemoveService removes any existing API Definitions for the Service specified in opts.
 func (r *repositoryImpl) RemoveService(opts RemoveServiceOptions) error {
-	// TODO: note this is going to need to take SourceDataOrigin into account too
-
 	r.cacheLock.Lock()
 	defer r.cacheLock.Unlock()
 
-	serviceDirectory := path.Join(r.workingDirectory, string(r.sourceDataType), opts.ServiceName)
-	if err := os.RemoveAll(serviceDirectory); err != nil && os.IsNotExist(err) {
-		return fmt.Errorf("removing any existing directory at %q: %+v", serviceDirectory, err)
+	serviceDirectory, err := r.directoryForService(opts.ServiceName, opts.SourceDataOrigin)
+	if err != nil {
+		return fmt.Errorf("determining the directory for Service %q: %+v", opts.ServiceName, err)
+	}
+
+	if err := os.RemoveAll(*serviceDirectory); err != nil && os.IsNotExist(err) {
+		return fmt.Errorf("removing any existing directory at %q: %+v", *serviceDirectory, err)
 	}
 
 	return nil

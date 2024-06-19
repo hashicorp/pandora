@@ -29,9 +29,6 @@ type ConstantStage struct {
 	// ResourceIDs specifies a map of Resource ID Name (key) to ResourceID (value) that should
 	// be persisted.
 	ResourceIDs map[string]sdkModels.ResourceID
-
-	// ServiceName specifies the name of the Service within which the Constants exist.
-	ServiceName string
 }
 
 func (g ConstantStage) Name() string {
@@ -49,8 +46,8 @@ func (g ConstantStage) Generate(input *helpers.FileSystem, logger hclog.Logger) 
 			return fmt.Errorf("mapping SDKConstant %q: %+v", constantName, err)
 		}
 
-		// {workingDirectory}/Service/APIVersion/APIResource/Constant-{Name}.json
-		path := filepath.Join(g.ServiceName, g.APIVersion, g.APIResource, fmt.Sprintf("Constant-%s.json", constantName))
+		// {ServiceDirectory}/APIVersion/APIResource/Constant-{Name}.json
+		path := filepath.Join(g.APIVersion, g.APIResource, fmt.Sprintf("Constant-%s.json", constantName))
 		logger.Trace(fmt.Sprintf("Staging to %s", path))
 		if err := input.Stage(path, *mapped); err != nil {
 			return fmt.Errorf("staging Constant %q: %+v", constantName, err)
@@ -69,8 +66,8 @@ func (g ConstantStage) Generate(input *helpers.FileSystem, logger hclog.Logger) 
 				return fmt.Errorf("mapping SDKConstant %q: %+v", constantName, err)
 			}
 
-			// {workingDirectory}/Service/APIVersion/APIResource/Constant-{Name}.json
-			path := filepath.Join(g.ServiceName, g.APIVersion, g.APIResource, fmt.Sprintf("Constant-%s.json", constantName))
+			// {ServiceDirectory}/APIVersion/APIResource/Constant-{Name}.json
+			path := filepath.Join(g.APIVersion, g.APIResource, fmt.Sprintf("Constant-%s.json", constantName))
 			logger.Trace(fmt.Sprintf("Staging to %s", path))
 			if err := input.Stage(path, *mapped); err != nil {
 				return fmt.Errorf("staging Constant %q: %+v", constantName, err)

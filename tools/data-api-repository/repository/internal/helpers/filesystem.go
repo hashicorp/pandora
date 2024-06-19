@@ -13,10 +13,9 @@ import (
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/go-hclog"
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
-var directoryPermissions = os.FileMode(0755)
+var DirectoryPermissions = os.FileMode(0755)
 
 // FilePath is a typealias to make it clearer what's being returned from this generationStage.
 // This represents the path to a file on disk
@@ -74,34 +73,25 @@ func (f *FileSystem) Stage(path FilePath, body any) error {
 	return fmt.Errorf("internal-error: unexpected file extension %q for %q", fileExtension, path)
 }
 
-func PersistFileSystem(workingDirectory string, dataType models.SourceDataType, serviceName string, input *FileSystem, logger hclog.Logger) error {
-	// TODO: note this is going to need to take SourceDataOrigin into account too
+func PersistFileSystem(workingDirectory string, input *FileSystem, logger hclog.Logger) error {
+	logger.Trace(fmt.Sprintf("Persisting files into %q", workingDirectory))
 
-	rootDir := filepath.Join(workingDirectory, string(dataType))
-	logger.Trace(fmt.Sprintf("Persisting files into %q", rootDir))
-
-	// Delete any existing directory with this service name
-	serviceDir := filepath.Join(rootDir, serviceName)
-	logger.Debug(fmt.Sprintf("Removing any existing Directory for Service %q", serviceName))
-	_ = os.RemoveAll(serviceDir)
-	if err := os.MkdirAll(serviceDir, directoryPermissions); err != nil {
-		return fmt.Errorf("recreating directory %q: %+v", serviceDir, err)
-	}
+	// ensure it exists
+	_ = os.MkdirAll(workingDirectory, DirectoryPermissions)
 
 	// pull out a list of directories
 	directories := uniqueDirectories(input.f)
-	logger.Debug(fmt.Sprintf("Creating directories for Service %q", serviceName))
 	for _, dir := range directories {
-		dirPath := filepath.Join(rootDir, dir)
-		if err := os.MkdirAll(dirPath, directoryPermissions); err != nil {
-			return fmt.Errorf("creating directory %q: %+v", dirPath, err)
+		dirPath := filepath.Join(workingDirectory, dir)
+		if err := os.MkdirAll(dirPath, DirectoryPermissions); err != nil {
+			return fmt.Errorf("creating directory at %q: %+v", dirPath, err)
 		}
 	}
 
 	// write the files
 	for path, body := range input.f {
-		fileFullPath := filepath.Join(rootDir, path)
-		logger.Trace(fmt.Sprintf("Writing file %q", fileFullPath))
+		fileFullPath := filepath.Join(workingDirectory, path)
+		logger.Trace(fmt.Sprintf("Writing file to %q", fileFullPath))
 		file, err := os.Create(fileFullPath)
 		if err != nil {
 			return fmt.Errorf("opening %q: %+v", fileFullPath, err)
