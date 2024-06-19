@@ -4,7 +4,6 @@
 package repository
 
 import (
-	"fmt"
 	"sync"
 
 	"github.com/hashicorp/go-hclog"
@@ -13,30 +12,19 @@ import (
 
 // NewRepository returns an instance of Repository configured for the working directory.
 func NewRepository(workingDirectory string, sourceDataType sdkModels.SourceDataType, serviceNamesToLimitTo *[]string, logger hclog.Logger) (Repository, error) {
-	availableDataSources, err := discoverAvailableSourceDataWithin(workingDirectory, sourceDataType, logger)
+	availableDataSources, err := populateAvailableServicesCache(workingDirectory, sourceDataType, serviceNamesToLimitTo, logger)
 	if err != nil {
-		return nil, fmt.Errorf("discovering the available data sources within %q: %+v", workingDirectory, err)
-	}
-
-	if serviceNamesToLimitTo != nil && len(*serviceNamesToLimitTo) > 0 {
-		filtered := make(map[string]availableService)
-
-		for _, serviceName := range *serviceNamesToLimitTo {
-			if v, ok := (*availableDataSources)[serviceName]; ok {
-				filtered[serviceName] = v
-			}
-		}
-
-		availableDataSources = &filtered
+		return nil, err
 	}
 
 	return &repositoryImpl{
-		availableDataSources: *availableDataSources,
-		cacheLock:            &sync.Mutex{},
-		cachedServices:       make(map[string]sdkModels.Service),
-		logger:               logger,
-		sourceDataType:       sourceDataType,
-		workingDirectory:     workingDirectory,
+		availableDataSources:  *availableDataSources,
+		cacheLock:             &sync.Mutex{},
+		cachedServices:        make(map[string]sdkModels.Service),
+		logger:                logger,
+		serviceNamesToLimitTo: serviceNamesToLimitTo,
+		sourceDataType:        sourceDataType,
+		workingDirectory:      workingDirectory,
 	}, nil
 }
 
@@ -57,6 +45,10 @@ type repositoryImpl struct {
 
 	// logger is an instance of the logger which should be used for logging purposes.
 	logger hclog.Logger
+
+	// serviceNamesToLimitTo specifies the names of the only Services which we should load, this is used
+	// when populating the cache of available Services
+	serviceNamesToLimitTo *[]string
 
 	// sourceDataType specifies the Source Data Type that this Repository instance is related to.
 	sourceDataType sdkModels.SourceDataType

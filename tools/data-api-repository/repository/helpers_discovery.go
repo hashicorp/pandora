@@ -98,3 +98,24 @@ func discoveryAvailableServicesWithin(workingDirectory string, logger hclog.Logg
 
 	return &output, nil
 }
+
+func populateAvailableServicesCache(workingDirectory string, sourceDataType sdkModels.SourceDataType, serviceNamesToLimitTo *[]string, logger hclog.Logger) (*map[string]availableService, error) {
+	availableDataSources, err := discoverAvailableSourceDataWithin(workingDirectory, sourceDataType, logger)
+	if err != nil {
+		return nil, fmt.Errorf("discovering the available data sources within %q: %+v", workingDirectory, err)
+	}
+
+	if serviceNamesToLimitTo != nil && len(*serviceNamesToLimitTo) > 0 {
+		filtered := make(map[string]availableService)
+
+		for _, serviceName := range *serviceNamesToLimitTo {
+			if v, ok := (*availableDataSources)[serviceName]; ok {
+				filtered[serviceName] = v
+			}
+		}
+
+		availableDataSources = &filtered
+	}
+
+	return availableDataSources, nil
+}

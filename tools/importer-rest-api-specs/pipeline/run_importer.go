@@ -27,6 +27,12 @@ func runImporter(input RunInput, generationData []discovery.ServiceInput, swagge
 		return fmt.Errorf("building repository: %+v", err)
 	}
 
+	// Clear any existing data
+	input.Logger.Info(fmt.Sprintf("Purging all existing Source Data for Source Data Type %q / Source Data Origin %q..", sourceDataType, sourceDataOrigin))
+	if err := repo.PurgeExistingData(sourceDataOrigin); err != nil {
+		return fmt.Errorf("purging the existing Source Data for the Source Data Type %q / Source Data Origin %q: %+v", sourceDataType, sourceDataOrigin, err)
+	}
+
 	// group the API Versions by Service
 	dataByServices := make(map[string][]discovery.ServiceInput)
 	for _, v := range generationData {
