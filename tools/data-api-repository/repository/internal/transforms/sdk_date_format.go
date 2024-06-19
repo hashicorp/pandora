@@ -8,7 +8,7 @@ import (
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
-func mapSDKDateFormatFromRepository(input repositoryModels.DateFormat) (*sdkModels.DateFormat, error) {
+func mapSDKDateFormatFromRepository(input repositoryModels.DateFormat) (*sdkModels.SDKDateFormat, error) {
 	if input == repositoryModels.RFC3339DateFormat {
 		return pointer.To(sdkModels.RFC3339SDKDateFormat), nil
 	}
@@ -16,7 +16,7 @@ func mapSDKDateFormatFromRepository(input repositoryModels.DateFormat) (*sdkMode
 	return nil, fmt.Errorf("missing mapping for SDKDateFormat %q", string(input))
 }
 
-func mapSDKDateFormatToRepository(input sdkModels.DateFormat) (*repositoryModels.DateFormat, error) {
+func mapSDKDateFormatToRepository(input sdkModels.SDKDateFormat) (*repositoryModels.DateFormat, error) {
 	if input == sdkModels.RFC3339SDKDateFormat {
 		return pointer.To(repositoryModels.RFC3339DateFormat), nil
 	}

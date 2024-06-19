@@ -70,7 +70,7 @@ func (tb TestBuilder) getBlockValueForField(field resourcemanager.TerraformSchem
 
 type blockValueFunction func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix string) *hclwrite.Block
 
-var blocksToCommonSchemaFunctions = map[models.TerraformSchemaFieldType]blockValueFunction{
+var blocksToCommonSchemaFunctions = map[models.TerraformSchemaObjectDefinitionType]blockValueFunction{
 	models.SystemAssignedIdentityTerraformSchemaObjectDefinitionType: func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix string) *hclwrite.Block {
 		block := hclwrite.NewBlock(field.HclName, []string{})
 		block.Body().SetAttributeValue("type", cty.StringVal("SystemAssigned"))

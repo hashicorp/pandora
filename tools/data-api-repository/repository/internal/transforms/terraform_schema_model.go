@@ -25,7 +25,7 @@ func MapTerraformSchemaModelFromRepository(input *repositoryModels.TerraformSche
 	}, nil
 }
 
-func MapTerraformSchemaModelToRepository(modelName string, schemaModel sdkModels.TerraformSchemaModelDefinition) (*repositoryModels.TerraformSchemaModel, error) {
+func MapTerraformSchemaModelToRepository(modelName string, schemaModel sdkModels.TerraformSchemaModel) (*repositoryModels.TerraformSchemaModel, error) {
 	fieldList := make([]string, 0)
 	for f := range schemaModel.Fields {
 		fieldList = append(fieldList, f)
