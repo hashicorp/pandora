@@ -4,6 +4,7 @@
 package repository
 
 import (
+	"fmt"
 	"sync"
 
 	"github.com/hashicorp/go-hclog"
@@ -12,20 +13,22 @@ import (
 
 // NewRepository returns an instance of Repository configured for the working directory.
 func NewRepository(workingDirectory string, sourceDataType sdkModels.SourceDataType, serviceNamesToLimitTo *[]string, logger hclog.Logger) (Repository, error) {
-	availableDataSources, err := populateAvailableServicesCache(workingDirectory, sourceDataType, serviceNamesToLimitTo, logger)
-	if err != nil {
-		return nil, err
-	}
-
-	return &repositoryImpl{
-		availableDataSources:  *availableDataSources,
+	repo := &repositoryImpl{
+		availableDataSources:  make(map[string]availableService),
 		cacheLock:             &sync.Mutex{},
 		cachedServices:        make(map[string]sdkModels.Service),
 		logger:                logger,
 		serviceNamesToLimitTo: serviceNamesToLimitTo,
 		sourceDataType:        sourceDataType,
 		workingDirectory:      workingDirectory,
-	}, nil
+	}
+
+	repo.logger.Trace("Building the cache..")
+	if err := repo.populateCacheInternal(); err != nil {
+		return nil, fmt.Errorf("building the cache: %+v", err)
+	}
+
+	return repo, nil
 }
 
 var _ Repository = &repositoryImpl{}
@@ -37,6 +40,10 @@ type repositoryImpl struct {
 
 	// cacheLock is a mutex used for populating items into the cache (cachedServices).
 	cacheLock *sync.Mutex
+
+	// cachedCommonTypes is a cache containing the cached common types for this SourceDataType.
+	// This is a map of APIVersion (Key) to CommonTypes (value) and is Optional
+	cachedCommonTypes map[string]sdkModels.CommonTypes
 
 	// cachedServices is a cache containing the cached information for this SourceDataType.
 	// This is a map of Service Name (Key, which must be unique across all SourceDataOrigins

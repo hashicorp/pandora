@@ -17,6 +17,12 @@ func (r *repositoryImpl) loadService(name string) (*sdkModels.Service, error) {
 		return nil, nil
 	}
 
+	r.logger.Trace("Retrieving the Common Types..")
+	commonTypes, err := r.GetCommonTypes()
+	if err != nil {
+		return nil, fmt.Errorf("retrieving the Common Types in order to load Service %q: %+v", name, err)
+	}
+
 	r.logger.Trace(fmt.Sprintf("Parsing the Service Definition within %q..", info.workingDirectory))
 	serviceDefinition, err := parseServiceDefinitionWithin(info.workingDirectory, r.logger)
 	if err != nil {
@@ -24,7 +30,7 @@ func (r *repositoryImpl) loadService(name string) (*sdkModels.Service, error) {
 	}
 
 	r.logger.Trace(fmt.Sprintf("Parsing the Service within %q..", info.workingDirectory))
-	service, err := parseServiceWithin(info.workingDirectory, *serviceDefinition, r.logger)
+	service, err := parseServiceWithin(info.workingDirectory, *serviceDefinition, *commonTypes, r.logger)
 	if err != nil {
 		return nil, fmt.Errorf("parsing the Service within %q: %+v", info.workingDirectory, err)
 	}

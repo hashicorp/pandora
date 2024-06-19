@@ -5,6 +5,7 @@ package transforms
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/data-api-repository/repository/internal/helpers"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	repositoryModels "github.com/hashicorp/pandora/tools/data-api-repository/repository/internal/models"
@@ -41,9 +42,9 @@ func mapSDKFieldFromRepository(input repositoryModels.ModelField) (*sdkModels.SD
 	return &output, nil
 }
 
-func mapSDKFieldToRepository(fieldName string, input sdkModels.SDKField, isTypeHint bool, constants map[string]sdkModels.SDKConstant, knownModels map[string]sdkModels.SDKModel) (*repositoryModels.ModelField, error) {
+func mapSDKFieldToRepository(fieldName string, input sdkModels.SDKField, isTypeHint bool, knownData helpers.KnownData) (*repositoryModels.ModelField, error) {
 	// TODO: thread through logging
-	objectDefinition, err := mapSDKFieldObjectDefinitionToRepository(input.ObjectDefinition, constants, knownModels)
+	objectDefinition, err := mapSDKFieldObjectDefinitionToRepository(input.ObjectDefinition, knownData)
 	if err != nil {
 		return nil, fmt.Errorf("mapping the ObjectDefinition for field %q: %+v", fieldName, err)
 	}

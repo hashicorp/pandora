@@ -20,9 +20,6 @@ type Options struct {
 
 	// UriPrefix specifies the URI which should be prefixed on any Operation URIs.
 	UriPrefix string
-
-	// UsesCommonTypes specifies whether this endpoint supports Common Types or not.
-	UsesCommonTypes bool
 }
 
 type Api struct {
@@ -36,7 +33,15 @@ func Router(router chi.Router, options Options, servicesRepository repository.Re
 
 	router.Use(optionsContext(options))
 
-	router.Get("/commonTypes", api.commonTypes)
+	router.Route("/common-types", func(r chi.Router) {
+		r.Route("/{commonTypesApiVersion}", func(r chi.Router) {
+			r.Use(api.commonTypesApiVersionRouteContext)
+
+			r.Get("/", api.commonTypesForApiVersion)
+		})
+
+		r.Get("/", api.commonTypes)
+	})
 
 	router.Route("/services", func(r chi.Router) {
 		r.Route("/{serviceName}", func(r chi.Router) {
@@ -80,6 +85,7 @@ func (api Api) serviceRouteContext(next http.Handler) http.Handler {
 		if serviceName == "" {
 			logging.Debugf("Missing Service Name")
 			http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
+			return
 		}
 
 		service, err := api.servicesRepository.GetService(serviceName)
@@ -94,12 +100,46 @@ func (api Api) serviceRouteContext(next http.Handler) http.Handler {
 	})
 }
 
+func (api Api) commonTypesApiVersionRouteContext(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		commonTypesApiVersion := chi.URLParam(r, "commonTypesApiVersion")
+		if commonTypesApiVersion == "" {
+			logging.Debugf("Missing Common Types API Version")
+			http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
+			return
+		}
+
+		ctx := r.Context()
+		commonTypes, err := api.servicesRepository.GetCommonTypes()
+		if err != nil {
+			logging.Debugf("Missing Common Types API Version")
+			http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
+			return
+		}
+		if commonTypes == nil {
+			http.Error(w, http.StatusText(http.StatusNotFound), http.StatusNotFound)
+			return
+		}
+
+		commonTypesForThisApiVersion, ok := (*commonTypes)[commonTypesApiVersion]
+		if !ok {
+			http.Error(w, http.StatusText(http.StatusNotFound), http.StatusNotFound)
+			return
+		}
+
+		// NOTE: we need to ensure a pointer is passed to the context
+		ctx = context.WithValue(ctx, "commonTypesForApiVersion", &commonTypesForThisApiVersion)
+		next.ServeHTTP(w, r.WithContext(ctx))
+	})
+}
+
 func serviceApiVersionRouteContext(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		serviceApiVersion := chi.URLParam(r, "serviceApiVersion")
 		if serviceApiVersion == "" {
 			logging.Debugf("Missing Service API Version")
 			http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
+			return
 		}
 
 		ctx := r.Context()
@@ -127,6 +167,7 @@ func apiResourceNameRouteContext(next http.Handler) http.Handler {
 		if resourceName == "" {
 			logging.Debugf("Missing Resource Name")
 			http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
+			return
 		}
 
 		ctx := r.Context()

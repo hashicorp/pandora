@@ -40,7 +40,10 @@ func (r *repositoryImpl) defaultDirectoryForSourceDataOrigin(sourceDataOrigin sd
 }
 
 var defaultDataDirectories = map[sdkModels.SourceDataType]map[sdkModels.SourceDataOrigin]string{
-	// NOTE: a `metadata.json` file must exist in the directory for this to be used.
+	// NOTE: the ordering matters here, we want to load the imported data before any handwritten data
+	// This is to ensure that if the imported data contains a Discriminated Parent Type that we can add
+	// additional Implementations within the HandWritten Data which inherits from that, so this is automatically
+	// unmarshalled as required.
 	sdkModels.MicrosoftGraphSourceDataType: {
 		sdkModels.MicrosoftGraphMetaDataSourceDataOrigin: "microsoft-graph",
 	},

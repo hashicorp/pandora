@@ -2,6 +2,7 @@ package repository
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/data-api-repository/repository/internal/helpers"
 	"path/filepath"
 	"strings"
 
@@ -37,9 +38,53 @@ func parseMetaDataForSourceDataType(workingDirectory string, logger hclog.Logger
 	return transformed, nil
 }
 
-// TODO: common types
+func parseCommonTypesWithin(workingDirectory string, logger hclog.Logger) (*map[string]sdkModels.CommonTypes, error) {
+	logger.Trace(fmt.Sprintf("Discovering sub-directories within %q..", workingDirectory))
+	subDirectories, err := listSubDirectories(workingDirectory)
+	if err != nil {
+		return nil, fmt.Errorf("listing the sub-directories within %q: %+v", workingDirectory, err)
+	}
+	if subDirectories == nil {
+		return nil, nil
+	}
 
-func parseServiceWithin(workingDirectory string, service repositoryModels.ServiceDefinition, logger hclog.Logger) (*sdkModels.Service, error) {
+	output := make(map[string]sdkModels.CommonTypes)
+	for _, subDirectory := range *subDirectories {
+		apiVersion := strings.TrimPrefix(subDirectory, workingDirectory)
+		apiVersion = strings.TrimPrefix(apiVersion, "/")
+
+		commonTypes := sdkModels.CommonTypes{
+			Constants: map[string]sdkModels.SDKConstant{},
+			Models:    map[string]sdkModels.SDKModel{},
+		}
+
+		logger.Trace(fmt.Sprintf("Discovering the Common Type Constants within %q..", subDirectory))
+		constants, err := parseConstantsWithin(subDirectory, logger)
+		if err != nil {
+			return nil, fmt.Errorf("parsing the Common Type Constants within %q: %+v", subDirectory, err)
+		}
+		commonTypes.Constants = *constants
+
+		logger.Trace(fmt.Sprintf("Discovering the Common Type Models within %q..", subDirectory))
+		models, err := parseModelsWithin(subDirectory, logger)
+		if err != nil {
+			return nil, fmt.Errorf("parsing the Common Type Models within %q: %+v", subDirectory, err)
+		}
+		commonTypes.Models = *models
+
+		if len(commonTypes.Constants) > 0 || len(commonTypes.Models) > 0 {
+			output[apiVersion] = commonTypes
+		}
+	}
+
+	if len(output) == 0 {
+		return nil, nil
+	}
+
+	return &output, nil
+}
+
+func parseServiceWithin(workingDirectory string, service repositoryModels.ServiceDefinition, commonTypes map[string]sdkModels.CommonTypes, logger hclog.Logger) (*sdkModels.Service, error) {
 	// discover the API Versions available for this Service and load those in-turn
 	apiVersions := make(map[string]sdkModels.APIVersion)
 	subDirectories, err := listSubDirectories(workingDirectory)
@@ -48,7 +93,7 @@ func parseServiceWithin(workingDirectory string, service repositoryModels.Servic
 	}
 	for _, subDirectory := range *subDirectories {
 		logger.Trace(fmt.Sprintf("Processing API Version within %q..", subDirectory))
-		apiVersion, err := parseAPIVersionWithin(subDirectory, logger)
+		apiVersion, err := parseAPIVersionWithin(subDirectory, commonTypes, logger)
 		if err != nil {
 			return nil, fmt.Errorf("parsing the API Version within %q: %+v", subDirectory, err)
 		}
@@ -73,7 +118,7 @@ func parseServiceWithin(workingDirectory string, service repositoryModels.Servic
 	return transformed, nil
 }
 
-func parseAPIVersionWithin(workingDirectory string, logger hclog.Logger) (*sdkModels.APIVersion, error) {
+func parseAPIVersionWithin(workingDirectory string, commonTypes map[string]sdkModels.CommonTypes, logger hclog.Logger) (*sdkModels.APIVersion, error) {
 	filePath := filepath.Join(workingDirectory, "ApiVersionDefinition.json")
 	logger.Trace(fmt.Sprintf("Parsing the API Version Definition in %q..", filePath))
 	config, err := parseConfig[repositoryModels.ApiVersionDefinition](filePath)
@@ -85,12 +130,17 @@ func parseAPIVersionWithin(workingDirectory string, logger hclog.Logger) (*sdkMo
 		return nil, nil
 	}
 
+	var commonTypesForThisAPIVersion *sdkModels.CommonTypes
+	if v, ok := commonTypes[config.ApiVersion]; ok {
+		commonTypesForThisAPIVersion = &v
+	}
+
 	apiResources := make(map[string]sdkModels.APIResource)
 	for _, resourceName := range config.Resources {
 		// we need to find the config
 		subDirectory := filepath.Join(workingDirectory, resourceName)
 		logger.Trace(fmt.Sprintf("Processing the API Resource within %q..", subDirectory))
-		apiResource, err := parseAPIResourceWithin(subDirectory, resourceName, logger)
+		apiResource, err := parseAPIResourceWithin(subDirectory, resourceName, commonTypesForThisAPIVersion, logger)
 		if err != nil {
 			return nil, fmt.Errorf("parsing the API Resource within %q: %+v", subDirectory, err)
 		}
@@ -110,7 +160,7 @@ func parseAPIVersionWithin(workingDirectory string, logger hclog.Logger) (*sdkMo
 	return transformedConfig, nil
 }
 
-func parseAPIResourceWithin(workingDirectory, resourceName string, logger hclog.Logger) (*sdkModels.APIResource, error) {
+func parseAPIResourceWithin(workingDirectory, resourceName string, commonTypesForThisAPIVersion *sdkModels.CommonTypes, logger hclog.Logger) (*sdkModels.APIResource, error) {
 	logger.Trace(fmt.Sprintf("Parsing the Constants within %q..", workingDirectory))
 	constants, err := parseConstantsWithin(workingDirectory, logger)
 	if err != nil {
@@ -129,8 +179,20 @@ func parseAPIResourceWithin(workingDirectory, resourceName string, logger hclog.
 		return nil, fmt.Errorf("parsing the Resource IDs within %q: %+v", workingDirectory, err)
 	}
 
+	knownData := helpers.KnownData{
+		Constants:           *constants,
+		Models:              *models,
+		ResourceIds:         *resourceIds,
+		CommonTypeConstants: make(map[string]sdkModels.SDKConstant),
+		CommonTypeModels:    make(map[string]sdkModels.SDKModel),
+	}
+	if commonTypesForThisAPIVersion != nil {
+		knownData.CommonTypeConstants = commonTypesForThisAPIVersion.Constants
+		knownData.CommonTypeModels = commonTypesForThisAPIVersion.Models
+	}
+
 	logger.Trace(fmt.Sprintf("Parsing the Operations within %q..", workingDirectory))
-	operations, err := parseOperationsWithin(workingDirectory, *constants, *models, *resourceIds, logger)
+	operations, err := parseOperationsWithin(workingDirectory, knownData, logger)
 	if err != nil {
 		return nil, fmt.Errorf("parsing the Operations within %q: %+v", workingDirectory, err)
 	}
@@ -200,7 +262,7 @@ func parseModelsWithin(workingDirectory string, logger hclog.Logger) (*map[strin
 	return &output, nil
 }
 
-func parseOperationsWithin(workingDirectory string, knownConstants map[string]sdkModels.SDKConstant, knownModels map[string]sdkModels.SDKModel, knownResourceIds map[string]sdkModels.ResourceID, logger hclog.Logger) (*map[string]sdkModels.SDKOperation, error) {
+func parseOperationsWithin(workingDirectory string, knownData helpers.KnownData, logger hclog.Logger) (*map[string]sdkModels.SDKOperation, error) {
 	operationFiles, err := listFilesMatching(workingDirectory, "Operation-", "json")
 	if err != nil {
 		return nil, fmt.Errorf("listing Operations: %+v", err)
@@ -213,7 +275,7 @@ func parseOperationsWithin(workingDirectory string, knownConstants map[string]sd
 		if err != nil {
 			return nil, fmt.Errorf("parsing the Operation within %q: %+v", filePath, err)
 		}
-		transformed, err := transforms.MapSDKOperationFromRepository(*operation, knownConstants, knownModels, knownResourceIds)
+		transformed, err := transforms.MapSDKOperationFromRepository(*operation, knownData)
 		if err != nil {
 			return nil, fmt.Errorf("transforming the Operation from %q: %+v", filePath, err)
 		}

@@ -15,6 +15,9 @@ func listSubDirectories(workingDirectory string) (*[]string, error) {
 
 	contents, err := os.ReadDir(workingDirectory)
 	if err != nil {
+		if os.IsNotExist(err) {
+			return nil, nil
+		}
 		return nil, fmt.Errorf("retrieving list of items within %q: %+v", workingDirectory, err)
 	}
 

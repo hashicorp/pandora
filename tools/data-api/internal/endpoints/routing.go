@@ -17,9 +17,8 @@ func Router(workingDirectory string, serviceNames *[]string) func(chi.Router) {
 		router.Route("/v1", infrastructure.Router)
 		router.Route("/v1/microsoft-graph", func(r chi.Router) {
 			opts := v1.Options{
-				ServiceType:     sdkModels.MicrosoftGraphSourceDataType,
-				UriPrefix:       "/v1/microsoft-graph",
-				UsesCommonTypes: true,
+				ServiceType: sdkModels.MicrosoftGraphSourceDataType,
+				UriPrefix:   "/v1/microsoft-graph",
 			}
 			serviceRepo, err := repository.NewRepository(workingDirectory, opts.ServiceType, serviceNames, logging.Log)
 			if err != nil {
@@ -29,9 +28,8 @@ func Router(workingDirectory string, serviceNames *[]string) func(chi.Router) {
 		})
 		router.Route("/v1/resource-manager", func(r chi.Router) {
 			opts := v1.Options{
-				ServiceType:     sdkModels.ResourceManagerSourceDataType,
-				UriPrefix:       "/v1/resource-manager",
-				UsesCommonTypes: false,
+				ServiceType: sdkModels.ResourceManagerSourceDataType,
+				UriPrefix:   "/v1/resource-manager",
 			}
 			serviceRepo, err := repository.NewRepository(workingDirectory, opts.ServiceType, serviceNames, logging.Log)
 			if err != nil {

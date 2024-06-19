@@ -5,12 +5,13 @@ package transforms
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/data-api-repository/repository/internal/helpers"
 
 	repositoryModels "github.com/hashicorp/pandora/tools/data-api-repository/repository/internal/models"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
-func mapSDKOperationOptionObjectDefinitionFromRepository(input repositoryModels.OptionObjectDefinition, knownConstants map[string]sdkModels.SDKConstant, knownModels map[string]sdkModels.SDKModel) (*sdkModels.SDKOperationOptionObjectDefinition, error) {
+func mapSDKOperationOptionObjectDefinitionFromRepository(input repositoryModels.OptionObjectDefinition, knownData helpers.KnownData) (*sdkModels.SDKOperationOptionObjectDefinition, error) {
 	typeVal, ok := sdkOperationOptionsFromRepository[input.Type]
 	if !ok {
 		return nil, fmt.Errorf("internal-error: missing mapping for the SDKOperationOptionType %q", string(input.Type))
@@ -23,8 +24,8 @@ func mapSDKOperationOptionObjectDefinitionFromRepository(input repositoryModels.
 	}
 
 	if input.ReferenceName != nil {
-		_, isConstant := knownConstants[*input.ReferenceName]
-		_, isModel := knownModels[*input.ReferenceName]
+		isConstant := knownData.ConstantExists(*input.ReferenceName)
+		isModel := knownData.ModelExists(*input.ReferenceName)
 		if !isConstant && !isModel {
 			return nil, fmt.Errorf("the Reference %q was not found as either a Constant or a Model", *input.ReferenceName)
 		}
@@ -36,7 +37,7 @@ func mapSDKOperationOptionObjectDefinitionFromRepository(input repositoryModels.
 	}
 
 	if input.NestedItem != nil {
-		nestedItem, err := mapSDKOperationOptionObjectDefinitionFromRepository(*input.NestedItem, knownConstants, knownModels)
+		nestedItem, err := mapSDKOperationOptionObjectDefinitionFromRepository(*input.NestedItem, knownData)
 		if err != nil {
 			return nil, fmt.Errorf("mapping nested option object definition: %+v", err)
 		}
@@ -46,7 +47,7 @@ func mapSDKOperationOptionObjectDefinitionFromRepository(input repositoryModels.
 	return &output, nil
 }
 
-func mapSDKOperationOptionObjectDefinitionToRepository(input sdkModels.SDKOperationOptionObjectDefinition, knownConstants map[string]sdkModels.SDKConstant, knownModels map[string]sdkModels.SDKModel) (*repositoryModels.OptionObjectDefinition, error) {
+func mapSDKOperationOptionObjectDefinitionToRepository(input sdkModels.SDKOperationOptionObjectDefinition, knownData helpers.KnownData) (*repositoryModels.OptionObjectDefinition, error) {
 	typeVal, ok := sdkOperationOptionsToRepository[input.Type]
 	if !ok {
 		return nil, fmt.Errorf("internal-error: missing mapping for the SDKOperationOptionType %q", string(input.Type))
@@ -63,7 +64,7 @@ func mapSDKOperationOptionObjectDefinitionToRepository(input sdkModels.SDKOperat
 	}
 
 	if input.NestedItem != nil {
-		nestedItem, err := mapSDKOperationOptionObjectDefinitionToRepository(*input.NestedItem, knownConstants, knownModels)
+		nestedItem, err := mapSDKOperationOptionObjectDefinitionToRepository(*input.NestedItem, knownData)
 		if err != nil {
 			return nil, fmt.Errorf("mapping nested option object definition: %+v", err)
 		}
@@ -71,14 +72,14 @@ func mapSDKOperationOptionObjectDefinitionToRepository(input sdkModels.SDKOperat
 	}
 
 	// let's do some sanity-checking to ensure the data being output looks legit
-	if err := validateSDKOperationOptionObjectDefinition(output, knownConstants, knownModels); err != nil {
+	if err := validateSDKOperationOptionObjectDefinition(output, knownData); err != nil {
 		return nil, fmt.Errorf("validating mapped OptionObjectDefinition: %+v", err)
 	}
 
 	return &output, nil
 }
 
-func validateSDKOperationOptionObjectDefinition(input repositoryModels.OptionObjectDefinition, constants map[string]sdkModels.SDKConstant, models map[string]sdkModels.SDKModel) error {
+func validateSDKOperationOptionObjectDefinition(input repositoryModels.OptionObjectDefinition, knownData helpers.KnownData) error {
 	requiresNestedItem := input.Type == repositoryModels.CsvOptionObjectDefinitionType || input.Type == repositoryModels.ListOptionObjectDefinitionType
 	requiresReference := input.Type == repositoryModels.ReferenceOptionObjectDefinitionType
 	if requiresNestedItem && input.NestedItem == nil {
@@ -92,8 +93,8 @@ func validateSDKOperationOptionObjectDefinition(input repositoryModels.OptionObj
 			return fmt.Errorf("a Reference must be specified for a %q type but didn't get one", string(input.Type))
 		}
 
-		_, isConstant := constants[*input.ReferenceName]
-		_, isModel := models[*input.ReferenceName]
+		isConstant := knownData.ConstantExists(*input.ReferenceName)
+		isModel := knownData.ModelExists(*input.ReferenceName)
 		if !isConstant && !isModel {
 			return fmt.Errorf("reference %q was not found as a constant or a model", *input.ReferenceName)
 		}

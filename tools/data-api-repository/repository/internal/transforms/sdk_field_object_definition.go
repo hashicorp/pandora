@@ -5,6 +5,7 @@ package transforms
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/data-api-repository/repository/internal/helpers"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	repositoryModels "github.com/hashicorp/pandora/tools/data-api-repository/repository/internal/models"
@@ -31,7 +32,7 @@ func mapSDKFieldObjectDefinitionFromRepository(input repositoryModels.ObjectDefi
 	return &output, nil
 }
 
-func mapSDKFieldObjectDefinitionToRepository(input sdkModels.SDKObjectDefinition, constants map[string]sdkModels.SDKConstant, models map[string]sdkModels.SDKModel) (*repositoryModels.ObjectDefinition, error) {
+func mapSDKFieldObjectDefinitionToRepository(input sdkModels.SDKObjectDefinition, knownData helpers.KnownData) (*repositoryModels.ObjectDefinition, error) {
 	typeVal, ok := repositoryToSDKObjectDefinitionTypes[input.Type]
 	if !ok {
 		return nil, fmt.Errorf("internal-error: missing a mapping for the ObjectDefinitionType %q", string(input.Type))
@@ -48,7 +49,7 @@ func mapSDKFieldObjectDefinitionToRepository(input sdkModels.SDKObjectDefinition
 	}
 
 	if input.NestedItem != nil {
-		nestedItem, err := mapSDKFieldObjectDefinitionToRepository(*input.NestedItem, constants, models)
+		nestedItem, err := mapSDKFieldObjectDefinitionToRepository(*input.NestedItem, knownData)
 		if err != nil {
 			return nil, fmt.Errorf("mapping nested object definition: %+v", err)
 		}
@@ -68,14 +69,14 @@ func mapSDKFieldObjectDefinitionToRepository(input sdkModels.SDKObjectDefinition
 	}
 
 	// finally let's do some sanity-checking to ensure the data being output looks legit
-	if err := validateObjectDefinition(output, constants, models); err != nil {
+	if err := validateObjectDefinition(output, knownData); err != nil {
 		return nil, fmt.Errorf("validating mapped ObjectDefinition: %+v", err)
 	}
 
 	return &output, nil
 }
 
-func validateObjectDefinition(input repositoryModels.ObjectDefinition, constants map[string]sdkModels.SDKConstant, models map[string]sdkModels.SDKModel) error {
+func validateObjectDefinition(input repositoryModels.ObjectDefinition, knownData helpers.KnownData) error {
 	requiresNestedItem := input.Type == repositoryModels.CsvObjectDefinitionType ||
 		input.Type == repositoryModels.DictionaryObjectDefinitionType ||
 		input.Type == repositoryModels.ListObjectDefinitionType
@@ -91,8 +92,8 @@ func validateObjectDefinition(input repositoryModels.ObjectDefinition, constants
 			return fmt.Errorf("a Reference must be specified for a %q type but didn't get one", string(input.Type))
 		}
 
-		_, isConstant := constants[*input.ReferenceName]
-		_, isModel := models[*input.ReferenceName]
+		isConstant := knownData.ConstantExists(*input.ReferenceName)
+		isModel := knownData.ModelExists(*input.ReferenceName)
 		if !isConstant && !isModel {
 			return fmt.Errorf("reference %q was not found as a constant or a model", *input.ReferenceName)
 		}

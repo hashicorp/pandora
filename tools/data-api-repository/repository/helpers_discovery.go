@@ -2,11 +2,10 @@ package repository
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/data-api-repository/repository/internal/helpers"
-	"strings"
-
 	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/pandora/tools/data-api-repository/repository/internal/helpers"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"path/filepath"
 )
 
 type availableService struct {
@@ -25,11 +24,6 @@ func discoverAvailableSourceDataWithin(workingDirectory string, sourceDataType s
 
 	output := make(map[string]availableService)
 	for _, subDirectory := range *subDirectories {
-		if strings.HasPrefix(subDirectory, helpers.CommonTypesDirectoryName) {
-			logger.Trace(fmt.Sprintf("Skipping the `%s` directory at %q since it's not a Service directory", helpers.CommonTypesDirectoryName, subDirectory))
-			continue
-		}
-
 		logger.Trace(fmt.Sprintf("Processing %q", subDirectory))
 		dataSource, err := parseMetaDataForSourceDataType(subDirectory, logger)
 		if err != nil {
@@ -99,23 +93,56 @@ func discoveryAvailableServicesWithin(workingDirectory string, logger hclog.Logg
 	return &output, nil
 }
 
-func populateAvailableServicesCache(workingDirectory string, sourceDataType sdkModels.SourceDataType, serviceNamesToLimitTo *[]string, logger hclog.Logger) (*map[string]availableService, error) {
-	availableDataSources, err := discoverAvailableSourceDataWithin(workingDirectory, sourceDataType, logger)
+// discoverCommonTypesWithin discovers the Common Types available for the SourceDataType within the Data Directory
+// This returns a map of APIVersion (key) to CommonTypes (value) and will merge any CommonTypes from different SourceDataOrigins
+// allowing for HandWritten overrides/types to Imported types as needed.
+func discoverCommonTypesWithin(workingDirectory string, sourceDataType sdkModels.SourceDataType, logger hclog.Logger) (*map[string]sdkModels.CommonTypes, error) {
+	// for each set
+	logger.Debug(fmt.Sprintf("Listing the subdirectories within %q..", workingDirectory))
+	subDirectories, err := listSubDirectories(workingDirectory)
 	if err != nil {
-		return nil, fmt.Errorf("discovering the available data sources within %q: %+v", workingDirectory, err)
+		return nil, err
 	}
 
-	if serviceNamesToLimitTo != nil && len(*serviceNamesToLimitTo) > 0 {
-		filtered := make(map[string]availableService)
-
-		for _, serviceName := range *serviceNamesToLimitTo {
-			if v, ok := (*availableDataSources)[serviceName]; ok {
-				filtered[serviceName] = v
-			}
+	output := make(map[string]sdkModels.CommonTypes)
+	for _, subDirectory := range *subDirectories {
+		logger.Trace(fmt.Sprintf("Processing %q", subDirectory))
+		dataSource, err := parseMetaDataForSourceDataType(subDirectory, logger)
+		if err != nil {
+			return nil, fmt.Errorf("parsing information from %q: %+v", subDirectory, err)
+		}
+		if dataSource == nil {
+			logger.Debug(fmt.Sprintf("The directory %q didn't contain a data source - skipping", subDirectory))
+			continue
 		}
 
-		availableDataSources = &filtered
+		if dataSource.SourceDataType != sourceDataType {
+			logger.Trace(fmt.Sprintf("Skipping Data Source %q since it is for SourceDataType %q and we want %q", subDirectory, dataSource.SourceDataType, sourceDataType))
+			continue
+		}
+
+		commonTypesDirectory := filepath.Join(subDirectory, helpers.CommonTypesDirectoryName)
+		commonTypes, err := parseCommonTypesWithin(commonTypesDirectory, logger)
+		if err != nil {
+			return nil, fmt.Errorf("parsing the Common Types within %q: %+v", commonTypesDirectory, err)
+		}
+		if commonTypes == nil {
+			logger.Debug("The directory at %q contained no Common Types - skipping")
+			continue
+		}
+		for apiVersion, value := range *commonTypes {
+			existing, hasExisting := output[apiVersion]
+			if !hasExisting {
+				output[apiVersion] = value
+				continue
+			}
+			merged, err := helpers.MergeCommonTypes(existing, value)
+			if err != nil {
+				return nil, fmt.Errorf("merging the Common Types for API Version %q: %+v", apiVersion, err)
+			}
+			output[apiVersion] = *merged
+		}
 	}
 
-	return availableDataSources, nil
+	return &output, nil
 }

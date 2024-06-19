@@ -5,6 +5,7 @@ package transforms
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/data-api-repository/repository/internal/helpers"
 	"sort"
 	"strings"
 
@@ -13,11 +14,11 @@ import (
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
-func MapSDKOperationFromRepository(input repositoryModels.Operation, knownConstants map[string]sdkModels.SDKConstant, knownModels map[string]sdkModels.SDKModel, knownResourceIds map[string]sdkModels.ResourceID) (*sdkModels.SDKOperation, error) {
+func MapSDKOperationFromRepository(input repositoryModels.Operation, knownData helpers.KnownData) (*sdkModels.SDKOperation, error) {
 	options := make(map[string]sdkModels.SDKOperationOption)
 	if input.Options != nil {
 		for _, value := range *input.Options {
-			mapped, err := mapSDKOperationOptionFromRepository(value, knownConstants, knownModels)
+			mapped, err := mapSDKOperationOptionFromRepository(value, knownData)
 			if err != nil {
 				return nil, fmt.Errorf("mapping the SDKOperationOption %q: %+v", value.Field, err)
 			}
@@ -39,7 +40,7 @@ func MapSDKOperationFromRepository(input repositoryModels.Operation, knownConsta
 	}
 
 	if input.ResourceIdName != nil {
-		if _, known := knownResourceIds[*input.ResourceIdName]; !known {
+		if known := knownData.ResourceIDExists(*input.ResourceIdName); !known {
 			return nil, fmt.Errorf("the referenced Resource ID %q was not found", *input.ResourceIdName)
 		}
 		output.ResourceIDName = input.ResourceIdName
@@ -63,7 +64,7 @@ func MapSDKOperationFromRepository(input repositoryModels.Operation, knownConsta
 	return &output, nil
 }
 
-func MapSDKOperationToRepository(operationName string, input sdkModels.SDKOperation, knownConstants map[string]sdkModels.SDKConstant, knownModels map[string]sdkModels.SDKModel) (*repositoryModels.Operation, error) {
+func MapSDKOperationToRepository(operationName string, input sdkModels.SDKOperation, knownData helpers.KnownData) (*repositoryModels.Operation, error) {
 	contentType := input.ContentType
 	if strings.Contains(strings.ToLower(contentType), "application/json") {
 		contentType = fmt.Sprintf("%s; charset=utf-8", contentType)
@@ -81,7 +82,7 @@ func MapSDKOperationToRepository(operationName string, input sdkModels.SDKOperat
 	}
 
 	if input.RequestObject != nil {
-		requestObject, err := mapSDKFieldObjectDefinitionToRepository(*input.RequestObject, knownConstants, knownModels)
+		requestObject, err := mapSDKFieldObjectDefinitionToRepository(*input.RequestObject, knownData)
 		if err != nil {
 			return nil, fmt.Errorf("mapping the request object definition: %+v", err)
 		}
@@ -89,7 +90,7 @@ func MapSDKOperationToRepository(operationName string, input sdkModels.SDKOperat
 	}
 
 	if input.ResponseObject != nil {
-		responseObject, err := mapSDKFieldObjectDefinitionToRepository(*input.ResponseObject, knownConstants, knownModels)
+		responseObject, err := mapSDKFieldObjectDefinitionToRepository(*input.ResponseObject, knownData)
 		if err != nil {
 			return nil, fmt.Errorf("mapping the response object definition: %+v", err)
 		}
@@ -107,7 +108,7 @@ func MapSDKOperationToRepository(operationName string, input sdkModels.SDKOperat
 		for _, optionName := range sortedOptionsKeys {
 			optionDetails := input.Options[optionName]
 
-			mapped, err := mapSDKOperationOptionToRepository(optionName, optionDetails, knownConstants, knownModels)
+			mapped, err := mapSDKOperationOptionToRepository(optionName, optionDetails, knownData)
 			if err != nil {
 				return nil, fmt.Errorf("mapping SDKOperationOption: %+v", err)
 			}

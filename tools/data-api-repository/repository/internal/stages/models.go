@@ -46,7 +46,15 @@ func (g ModelsStage) Generate(input *helpers.FileSystem, logger hclog.Logger) er
 			}
 		}
 
-		mapped, err := transforms.MapSDKModelToRepository(modelName, modelValue, parent, g.Constants, g.Models)
+		knownData := helpers.KnownData{
+			Constants:           g.Constants,
+			Models:              g.Models,
+			ResourceIds:         map[string]sdkModels.ResourceID{},
+			CommonTypeConstants: make(map[string]sdkModels.SDKConstant),
+			CommonTypeModels:    make(map[string]sdkModels.SDKModel),
+		}
+
+		mapped, err := transforms.MapSDKModelToRepository(modelName, modelValue, parent, knownData)
 		if err != nil {
 			return fmt.Errorf("mapping model %q: %+v", modelName, err)
 		}

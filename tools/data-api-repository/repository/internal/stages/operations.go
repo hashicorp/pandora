@@ -22,6 +22,10 @@ type OperationsStage struct {
 	// APIVersion specifies the APIVersion within the Service where the Operations exist.
 	APIVersion string
 
+	// CommonTypesForThisAPIVersion specifies a map of API Version (key) to CommonTypes (value)
+	// which defines the known Common Types for this APIVersion.
+	CommonTypesForThisAPIVersion sdkModels.CommonTypes
+
 	// Constants specifies the map of Constant Name (key) to SDKConstant (value) which should be
 	// persisted.
 	Constants map[string]sdkModels.SDKConstant
@@ -40,8 +44,16 @@ func (g OperationsStage) Generate(input *helpers.FileSystem, logger hclog.Logger
 	for operationName := range g.Operations {
 		logger.Trace(fmt.Sprintf("Generating Operation %q..", operationName))
 
+		knownData := helpers.KnownData{
+			Constants:           g.Constants,
+			Models:              g.Models,
+			ResourceIds:         map[string]sdkModels.ResourceID{},
+			CommonTypeConstants: make(map[string]sdkModels.SDKConstant),
+			CommonTypeModels:    make(map[string]sdkModels.SDKModel),
+		}
+
 		operationDetails := g.Operations[operationName]
-		mapped, err := transforms.MapSDKOperationToRepository(operationName, operationDetails, g.Constants, g.Models)
+		mapped, err := transforms.MapSDKOperationToRepository(operationName, operationDetails, knownData)
 		if err != nil {
 			return fmt.Errorf("mapping Operation %q: %+v", operationName, err)
 		}
