@@ -1,0 +1,16 @@
+{
+  "name": "PublicIPAddressesListCloudServiceRoleInstancePublicIPAddresses",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "CloudServicesIPConfigurationId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "PublicIPAddress"
+  },
+  "uriSuffix": "/publicIPAddresses"
+}
