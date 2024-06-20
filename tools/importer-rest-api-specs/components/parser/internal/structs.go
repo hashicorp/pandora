@@ -107,7 +107,7 @@ func compareFields(first map[string]models.SDKField, second map[string]models.SD
 			return fmt.Errorf("first.Sensitive was %t but second.Sensitive was %t", firstVal.Sensitive, secondVal.Sensitive)
 		}
 		if err := objectDefinitionsMatch(firstVal.ObjectDefinition, secondVal.ObjectDefinition); err != nil {
-			return fmt.Errorf("object definitions differ: %+v.\n\nFirst %q\n\nSecond %q", err, firstVal.ObjectDefinition, secondVal.ObjectDefinition)
+			return fmt.Errorf("object definitions differ: %+v.\n\nFirst %+v\n\nSecond %+v", err, firstVal.ObjectDefinition, secondVal.ObjectDefinition)
 		}
 	}
 
