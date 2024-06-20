@@ -54,18 +54,11 @@ func (p *dataApiCmd) launchAndWait(ctx context.Context, client *v1.Client) error
 	log.Logger.Trace(fmt.Sprintf("Data API is launched at %q.", p.endpoint))
 
 	// then ensure it's accepting requests prior to hitting it (e.g. firewalls)
-	for attempts := 0; attempts < 30; attempts++ {
+	for attempts := 0; attempts < 50; attempts++ {
 		log.Logger.Trace(fmt.Sprintf("Checking the health of the Data API - attempt %d/30", attempts+1))
 
 		result, err := client.Health(ctx)
-		if err != nil {
-			if result != nil && result.HttpResponse != nil {
-				return fmt.Errorf("unexpected status code %d", result.HttpResponse.StatusCode)
-			}
-			return fmt.Errorf("connection failure")
-		}
-
-		if result.Available {
+		if result != nil && result.Available {
 			log.Logger.Trace("API available")
 			return nil
 		}
