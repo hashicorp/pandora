@@ -19,7 +19,7 @@ func TestDiff_APIVersionAdded_WithNestedDetails(t *testing.T) {
 		"2023-01-01": {
 			Resources: map[string]models.APIResource{
 				"Example": {
-					Constants: map[string]models.ConstantDetails{
+					Constants: map[string]models.SDKConstant{
 						"SomeConst": {
 							Type: models.StringSDKConstantType,
 							Values: map[string]string{
