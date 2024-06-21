@@ -57,7 +57,23 @@ func (p *dataApiCmd) launchAndWait(ctx context.Context, client *v1.Client) error
 	for attempts := 0; attempts < 50; attempts++ {
 		log.Logger.Trace(fmt.Sprintf("Checking the health of the Data API - attempt %d/50", attempts+1))
 
+		if (p.cmd.ProcessState != nil && p.cmd.ProcessState.Exited()) || p.cmd.Process == nil {
+			log.Logger.Warn("The Data API doesn't appear to be running, maybe it's crashed?")
+			if p.cmd.Err != nil {
+				return fmt.Errorf("running the Data API: %+v", p.cmd.Err)
+			}
+		}
+
 		result, err := client.Health(ctx)
+		if err != nil {
+			if result != nil && result.HttpResponse != nil {
+				return fmt.Errorf("unexpected status code %d", result.HttpResponse.StatusCode)
+			}
+
+			log.Logger.Trace(fmt.Sprintf("API not ready - waiting 1s to try again (%+v)", err))
+			time.Sleep(1 * time.Second)
+			continue
+		}
 		if result != nil && result.Available {
 			log.Logger.Trace("API available")
 			return nil
