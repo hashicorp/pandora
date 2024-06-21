@@ -27,8 +27,7 @@ func (r *repositoryImpl) RemoveCommonTypes(opts RemoveCommonTypesOptions) error 
 		return fmt.Errorf("determining the default data directory for the Source Data Origin %q: %+v", opts.SourceDataOrigin, err)
 	}
 
-	// For Common Types we can just recreate the data directory for all of these, since doing this for
-	// a single API Version feels not worthwhile?
+	// We'll remove all Common Types for now (i.e. all versions), but it might be worth revisiting this as needed
 	commonTypesDirectory := filepath.Join(*dataDirectory, helpers.CommonTypesDirectoryName)
 	r.logger.Info("Removing any existing Common Types Directory..")
 	_ = os.RemoveAll(commonTypesDirectory)
