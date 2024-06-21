@@ -5,8 +5,6 @@ package differ
 
 import (
 	"fmt"
-	"sort"
-
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/changes"
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/log"
@@ -16,7 +14,7 @@ import (
 // changesForModels determines the changes between the initial and updated Models within the specified API Resource.
 func (d differ) changesForModels(serviceName, apiVersion, apiResource string, initial, updated map[string]models.SDKModel) (*[]changes.Change, error) {
 	output := make([]changes.Change, 0)
-	modelNames := d.uniqueModelNames(initial, updated)
+	modelNames := uniqueKeys(initial, updated)
 	for _, modelName := range modelNames {
 		log.Logger.Trace(fmt.Sprintf("Detecting changes in Model %q..", modelName))
 		changesForModel, err := d.changesForModel(serviceName, apiVersion, apiResource, modelName, initial, updated)
@@ -143,23 +141,5 @@ func (d differ) discriminatorChangesForModel(serviceName, apiVersion, apiResourc
 		})
 	}
 
-	return output
-}
-
-// uniqueModelNames returns a unique, sorted list of Model Names from the keys of initial and updated.
-func (d differ) uniqueModelNames(initial, updated map[string]models.SDKModel) []string {
-	uniqueNames := make(map[string]struct{})
-	for name := range initial {
-		uniqueNames[name] = struct{}{}
-	}
-	for name := range updated {
-		uniqueNames[name] = struct{}{}
-	}
-
-	output := make([]string, 0)
-	for k := range uniqueNames {
-		output = append(output, k)
-	}
-	sort.Strings(output)
 	return output
 }

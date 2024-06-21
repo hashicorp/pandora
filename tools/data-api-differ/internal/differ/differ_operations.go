@@ -19,7 +19,7 @@ import (
 // changesForOperations determines the changes between the initial and updated Operations within the specified API Resource.
 func (d differ) changesForOperations(serviceName, apiVersion, apiResource string, initial, updated map[string]models.SDKOperation, initialResourceIds, updatedResourceIds map[string]models.ResourceID) (*[]changes.Change, error) {
 	output := make([]changes.Change, 0)
-	operationNames := d.uniqueOperationNames(initial, updated)
+	operationNames := uniqueKeys(initial, updated)
 	for _, operationName := range operationNames {
 		log.Logger.Trace(fmt.Sprintf("Detecting changes in Operation %q..", operationName))
 		changesForOperation, err := d.changesForOperation(serviceName, apiVersion, apiResource, operationName, initial, updated, initialResourceIds, updatedResourceIds)
@@ -486,8 +486,8 @@ func (d differ) optionsMatch(initial, updated map[string]models.SDKOperationOpti
 	if err != nil {
 		return nil, fmt.Errorf("stringifying the Updated Operation Options: %+v", err)
 	}
-	uniqueKeys := d.uniqueKeys(*initialStringified, *updatedStringified)
-	for _, key := range uniqueKeys {
+	uniqKeys := uniqueKeys(*initialStringified, *updatedStringified)
+	for _, key := range uniqKeys {
 		initialVal, isInInitial := (*initialStringified)[key]
 		if !isInInitial {
 			return pointer.To(false), nil
@@ -567,22 +567,4 @@ func (d differ) uriForOperation(input models.SDKOperation, resourceIds map[strin
 	}
 
 	return out
-}
-
-// uniqueOperationNames returns a unique, sorted list of Operation Names from the keys of initial and updated.
-func (d differ) uniqueOperationNames(initial, updated map[string]models.SDKOperation) []string {
-	uniqueNames := make(map[string]struct{})
-	for name := range initial {
-		uniqueNames[name] = struct{}{}
-	}
-	for name := range updated {
-		uniqueNames[name] = struct{}{}
-	}
-
-	output := make([]string, 0)
-	for k := range uniqueNames {
-		output = append(output, k)
-	}
-	sort.Strings(output)
-	return output
 }

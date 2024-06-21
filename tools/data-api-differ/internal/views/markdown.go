@@ -16,6 +16,69 @@ import (
 // renderChangeToMarkdown renders a summary of this change in Markdown
 func renderChangeToMarkdown(input changes.Change) (*string, error) {
 	switch input.(type) {
+	// CommonTypes
+	case changes.CommonTypesApiVersionAdded:
+		{
+			v := input.(changes.CommonTypesApiVersionAdded)
+			line := fmt.Sprintf("**New CommonTypes API Version:** `%s`.", v.ApiVersion)
+			return trimSpaceAround(line)
+		}
+	case changes.CommonTypesApiVersionRemoved:
+		{
+			v := input.(changes.CommonTypesApiVersionRemoved)
+			line := fmt.Sprintf("**Removed CommonTypes API Version:** `%s`.", v.ApiVersion)
+			return trimSpaceAround(line)
+		}
+	case changes.CommonTypesConstantAdded:
+		{
+			v := input.(changes.CommonTypesConstantAdded)
+			keysAndValues := strings.Join(sortConstantKeysAndValues(v.KeysAndValues), ", ")
+			line := fmt.Sprintf("**New CommonTypes Constant:** `%s` (Type `%s`) in `%s`. Possible Values: %s.", v.ConstantName, v.ConstantType, v.ApiVersion, keysAndValues)
+			return trimSpaceAround(line)
+		}
+	case changes.CommonTypesConstantKeyValueAdded:
+		{
+			v := input.(changes.CommonTypesConstantKeyValueAdded)
+			line := fmt.Sprintf("**New Key/Value for CommonTypes Constant:** `%s` - Key `%s` / Value `%s` in `%s`.", v.ConstantName, v.ConstantKey, v.ConstantValue, v.ApiVersion)
+			return trimSpaceAround(line)
+		}
+	case changes.CommonTypesConstantKeyValueChanged:
+		{
+			v := input.(changes.CommonTypesConstantKeyValueChanged)
+			line := fmt.Sprintf("**Updated Value for CommonTypes Constant Key:** Constant `%s` Key `%s` - Old Value `%s` / New Value `%s` in `%s`.", v.ConstantName, v.ConstantKey, v.OldConstantValue, v.NewConstantValue, v.ApiVersion)
+			return trimSpaceAround(line)
+		}
+	case changes.CommonTypesConstantKeyValueRemoved:
+		{
+			v := input.(changes.CommonTypesConstantKeyValueRemoved)
+			line := fmt.Sprintf("**Removed Key/Value for CommonTypes Constant:** `%s` - Key `%s` / Value `%s` in `%s`.", v.ConstantName, v.ConstantKey, v.ConstantValue, v.ApiVersion)
+			return trimSpaceAround(line)
+		}
+	case changes.CommonTypesConstantRemoved:
+		{
+			// intentionally not outputting the old values for now, but they're on the object if this is useful
+			v := input.(changes.CommonTypesConstantRemoved)
+			line := fmt.Sprintf("**Removed CommonTypes Constant:** `%s` (Type `%s`) in `%s`.", v.ConstantName, v.ConstantType, v.ApiVersion)
+			return trimSpaceAround(line)
+		}
+	case changes.CommonTypesConstantTypeChanged:
+		{
+			v := input.(changes.CommonTypesConstantTypeChanged)
+			line := fmt.Sprintf("**Updated Type for CommonTypes Constant:** `%s` - Old Type `%s` / New Type `%s` in `%s`.", v.ConstantName, v.OldType, v.NewType, v.ApiVersion)
+			return trimSpaceAround(line)
+		}
+	case changes.CommonTypesModelAdded:
+		{
+			v := input.(changes.CommonTypesModelAdded)
+			line := fmt.Sprintf("**CommonTypes Model Added:** `%s` in `%s`.", v.ModelName, v.ApiVersion)
+			return trimSpaceAround(line)
+		}
+	case changes.CommonTypesModelRemoved:
+		{
+			v := input.(changes.CommonTypesModelRemoved)
+			line := fmt.Sprintf("**CommonTypes Model Removed:** `%s` in `%s`.", v.ModelName, v.ApiVersion)
+			return trimSpaceAround(line)
+		}
 
 	// Services
 	case changes.ServiceAdded:
@@ -106,7 +169,6 @@ func renderChangeToMarkdown(input changes.Change) (*string, error) {
 			line := fmt.Sprintf("**Field Added:** `%s` to Model `%s` in `%s@%s/%s`.", v.FieldName, v.ModelName, v.ServiceName, v.ApiVersion, v.ResourceName)
 			return trimSpaceAround(line)
 		}
-
 	case changes.FieldIsNowOptional:
 		{
 			v := input.(changes.FieldIsNowOptional)
@@ -139,6 +201,8 @@ func renderChangeToMarkdown(input changes.Change) (*string, error) {
 		}
 
 		// Models
+
+	// Models
 	case changes.ModelAdded:
 		{
 			v := input.(changes.ModelAdded)
@@ -328,49 +392,45 @@ func renderChangeToMarkdown(input changes.Change) (*string, error) {
 			return trimSpaceAround(line)
 		}
 
-		// Resource IDs
+	// Resource IDs
+
+	// Resource IDs
 	case changes.ResourceIdAdded:
 		{
 			v := input.(changes.ResourceIdAdded)
 			line := fmt.Sprintf("**New Resource ID:** `%s` (ID `%s`) in `%s@%s/%s`.", v.ResourceIdName, v.ResourceIdValue, v.ServiceName, v.ApiVersion, v.ResourceName)
 			return trimSpaceAround(line)
 		}
-
 	case changes.ResourceIdCommonIdAdded:
 		{
 			v := input.(changes.ResourceIdCommonIdAdded)
 			line := fmt.Sprintf("**Resource ID is now a Common ID:** `%s` (Alias `%s` / ID `%s`) in `%s@%s/%s`.", v.ResourceIdName, v.CommonAliasName, v.ResourceIdValue, v.ServiceName, v.ApiVersion, v.ResourceName)
 			return trimSpaceAround(line)
 		}
-
 	case changes.ResourceIdCommonIdChanged:
 		{
 			v := input.(changes.ResourceIdCommonIdChanged)
 			line := fmt.Sprintf("**Resource ID has changed it's Common ID:** `%s` (was `%s` now `%s`) in `%s@%s/%s`.", v.ResourceIdName, v.OldCommonAliasName, v.NewCommonAliasName, v.ServiceName, v.ApiVersion, v.ResourceName)
 			return trimSpaceAround(line)
 		}
-
 	case changes.ResourceIdCommonIdRemoved:
 		{
 			v := input.(changes.ResourceIdCommonIdRemoved)
 			line := fmt.Sprintf("**Resource ID is no longer a Common ID:** `%s` (Alias `%s` / ID `%s`) in `%s@%s/%s`.", v.ResourceIdName, v.CommonAliasName, v.ResourceIdValue, v.ServiceName, v.ApiVersion, v.ResourceName)
 			return trimSpaceAround(line)
 		}
-
 	case changes.ResourceIdRemoved:
 		{
 			v := input.(changes.ResourceIdRemoved)
 			line := fmt.Sprintf("**Removed Resource ID:** `%s` (ID `%s`) in `%s@%s/%s`.", v.ResourceIdName, v.ResourceIdValue, v.ServiceName, v.ApiVersion, v.ResourceName)
 			return trimSpaceAround(line)
 		}
-
 	case changes.ResourceIdSegmentChangedValue:
 		{
 			v := input.(changes.ResourceIdSegmentChangedValue)
 			line := fmt.Sprintf("**Resource ID Segment (Index %d) Changed Value:** `%s` (was `%s` now `%s`) in `%s@%s/%s`.", v.SegmentIndex, v.ResourceIdName, v.OldValue, v.NewValue, v.ServiceName, v.ApiVersion, v.ResourceName)
 			return trimSpaceAround(line)
 		}
-
 	case changes.ResourceIdSegmentsChangedLength:
 		{
 			v := input.(changes.ResourceIdSegmentsChangedLength)

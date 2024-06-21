@@ -5,8 +5,6 @@ package differ
 
 import (
 	"fmt"
-	"sort"
-
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/changes"
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/log"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
@@ -17,7 +15,7 @@ func (d differ) changesForServices(initial, updated map[string]models.Service, i
 	output := make([]changes.Change, 0)
 	// first pull out a unique list of Service names
 	log.Logger.Info("Identifying a unique list of Service Names..")
-	serviceNames := d.uniqueServiceNames(initial, updated)
+	serviceNames := uniqueKeys(initial, updated)
 	for _, serviceName := range serviceNames {
 		log.Logger.Info(fmt.Sprintf("Detecting changes in Service %q..", serviceName))
 		changesForService, err := d.changesForService(serviceName, initial, updated, includeNestedChangesWhenNew)
@@ -68,22 +66,4 @@ func (d differ) changesForService(serviceName string, initial, updated map[strin
 	output = append(output, *changesForApiVersions...)
 
 	return &output, nil
-}
-
-// uniqueServiceNames returns a unique, ordered list of Service Names from the initial and updated set of Services.
-func (d differ) uniqueServiceNames(initial, updated map[string]models.Service) []string {
-	uniqueNames := make(map[string]struct{})
-	for name := range initial {
-		uniqueNames[name] = struct{}{}
-	}
-	for name := range updated {
-		uniqueNames[name] = struct{}{}
-	}
-
-	output := make([]string, 0)
-	for k := range uniqueNames {
-		output = append(output, k)
-	}
-	sort.Strings(output)
-	return output
 }

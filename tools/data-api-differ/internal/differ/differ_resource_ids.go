@@ -16,7 +16,7 @@ import (
 
 func (d differ) changesForResourceIds(serviceName, apiVersion, apiResource string, initial, updated map[string]models.ResourceID) []changes.Change {
 	output := make([]changes.Change, 0)
-	resourceIdNames := d.uniqueResourceIdNames(initial, updated)
+	resourceIdNames := uniqueKeys(initial, updated)
 	for _, resourceIdName := range resourceIdNames {
 		log.Logger.Trace(fmt.Sprintf("Detecting changes in Resource ID %q..", resourceIdName))
 		changesForResourceId := d.changesForResourceId(serviceName, apiVersion, apiResource, resourceIdName, initial, updated)
@@ -201,24 +201,6 @@ func (d differ) staticIdentifiersInResourceIdSegments(input []models.ResourceIDS
 	// then sort it
 	output := make([]string, 0)
 	for k := range segments {
-		output = append(output, k)
-	}
-	sort.Strings(output)
-	return output
-}
-
-// uniqueResourceIdNames returns a unique, sorted list of Resource ID Names from the keys of initial and updated.
-func (d differ) uniqueResourceIdNames(initial, updated map[string]models.ResourceID) []string {
-	uniqueNames := make(map[string]struct{})
-	for name := range initial {
-		uniqueNames[name] = struct{}{}
-	}
-	for name := range updated {
-		uniqueNames[name] = struct{}{}
-	}
-
-	output := make([]string, 0)
-	for k := range uniqueNames {
 		output = append(output, k)
 	}
 	sort.Strings(output)
