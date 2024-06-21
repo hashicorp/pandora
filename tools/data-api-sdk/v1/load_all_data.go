@@ -11,11 +11,13 @@ import (
 )
 
 type LoadAllDataResult struct {
-	// CommonTypes specifies the Common Types which exist across the entire API, rather than being scoped to an
-	// APIResource (within an APIVersion within a Service).
+	// CommonTypes specifies the Common Types used across an entire API Version, which is useful for when the
+	// same types are reused across the majority of Services/APIVersions/APIResources.
 	// This allows for Common Types which are defined in _every_ package to be sourced from a single location,
 	// reducing the size of each APIResource - particularly where circular references exist in the Types.
-	CommonTypes models.CommonTypes
+	// This is a map of APIVersion (key) to CommonTypes (value) representing the available Common Types for this
+	// API Version.
+	CommonTypes map[string]models.CommonTypes
 
 	// Services specifies a map of Service Name (key) to Service (value) representing the available Services for
 	// this SourceDataType.
@@ -37,11 +39,8 @@ func (c *Client) LoadAllData(ctx context.Context, serviceNamesToLimitTo []string
 	}
 
 	result := LoadAllDataResult{
-		CommonTypes: models.CommonTypes{
-			Constants: make(map[string]models.SDKConstant),
-			Models:    make(map[string]models.SDKModel),
-		},
-		Services: make(map[string]models.Service),
+		CommonTypes: make(map[string]models.CommonTypes),
+		Services:    make(map[string]models.Service),
 	}
 
 	c.logger.Debug("Retrieving any Common Types..")
@@ -49,8 +48,14 @@ func (c *Client) LoadAllData(ctx context.Context, serviceNamesToLimitTo []string
 	if err != nil {
 		return nil, fmt.Errorf("retrieving Common Types: %+v", err)
 	}
-	result.CommonTypes.Constants = commonTypes.Model.Constants
-	result.CommonTypes.Models = commonTypes.Model.Models
+	for apiVersion, metaData := range commonTypes.Model.CommonTypes {
+		c.logger.Trace("Retrieving the Common Types for API Version %q..", apiVersion)
+		commonTypesForThisVersion, err := c.GetCommonTypesForAPIVersion(ctx, metaData)
+		if err != nil {
+			return nil, fmt.Errorf("retrieving the Common Types for %q: %+v", apiVersion, err)
+		}
+		result.CommonTypes[apiVersion] = *commonTypesForThisVersion.Model
+	}
 
 	c.logger.Debug("Retrieving All Services..")
 	for serviceName, serviceSummary := range allServices.Model.Services {
@@ -60,7 +65,7 @@ func (c *Client) LoadAllData(ctx context.Context, serviceNamesToLimitTo []string
 		}
 
 		c.logger.Trace(fmt.Sprintf("Retrieving details for Service %q..", serviceName))
-		serviceDetails, err := c.loadAllDetailsForService(ctx, serviceSummary)
+		serviceDetails, err := c.loadAllDetailsForService(ctx, serviceName, serviceSummary)
 		if err != nil {
 			return nil, fmt.Errorf("retrieving details for Service %q: %+v", serviceName, err)
 		}
@@ -71,7 +76,7 @@ func (c *Client) LoadAllData(ctx context.Context, serviceNamesToLimitTo []string
 	return &result, nil
 }
 
-func (c *Client) loadAllDetailsForService(ctx context.Context, summary AvailableServiceSummary) (*models.Service, error) {
+func (c *Client) loadAllDetailsForService(ctx context.Context, serviceName string, summary AvailableServiceSummary) (*models.Service, error) {
 	serviceDetails, err := c.GetDetailsForServiceResponse(ctx, summary)
 	if err != nil {
 		return nil, fmt.Errorf("retrieving details : %+v", err)
@@ -80,7 +85,7 @@ func (c *Client) loadAllDetailsForService(ctx context.Context, summary Available
 	apiVersions := make(map[string]models.APIVersion)
 	for version, versionSummary := range serviceDetails.Model.Versions {
 		c.logger.Trace(fmt.Sprintf("Retrieving details for API Version %q..", version))
-		versionDetails, err := c.loadAllDetailsForAPIVersion(ctx, versionSummary)
+		versionDetails, err := c.loadAllDetailsForAPIVersion(ctx, version, versionSummary)
 		if err != nil {
 			return nil, fmt.Errorf("retrieving details for API Version: %+v", err)
 		}
@@ -97,12 +102,13 @@ func (c *Client) loadAllDetailsForService(ctx context.Context, summary Available
 	return &models.Service{
 		APIVersions:         apiVersions,
 		Generate:            summary.Generate,
+		Name:                serviceName,
 		ResourceProvider:    serviceDetails.Model.ResourceProvider,
 		TerraformDefinition: terraformDetails.Model,
 	}, nil
 }
 
-func (c *Client) loadAllDetailsForAPIVersion(ctx context.Context, summary ServiceAPIVersionSummary) (*models.APIVersion, error) {
+func (c *Client) loadAllDetailsForAPIVersion(ctx context.Context, version string, summary ServiceAPIVersionSummary) (*models.APIVersion, error) {
 	versionDetails, err := c.DetailsForAPIVersion(ctx, summary)
 	if err != nil {
 		return nil, fmt.Errorf("retrieving details: %+v", err)
@@ -131,10 +137,11 @@ func (c *Client) loadAllDetailsForAPIVersion(ctx context.Context, summary Servic
 	}
 
 	return &models.APIVersion{
-		Generate:  summary.Generate,
-		Preview:   summary.Preview,
-		Resources: apiResources,
-		Source:    versionDetails.Model.Source,
+		APIVersion: version,
+		Generate:   summary.Generate,
+		Preview:    summary.Preview,
+		Resources:  apiResources,
+		Source:     versionDetails.Model.Source,
 	}, nil
 }
 

@@ -6,9 +6,8 @@ package repository
 import (
 	"fmt"
 	"os"
-	"path"
 
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 type RemoveServiceOptions struct {
@@ -16,19 +15,21 @@ type RemoveServiceOptions struct {
 	ServiceName string
 
 	// SourceDataOrigin specifies the origin of this set of source data (e.g. AzureRestAPISpecsSourceDataOrigin).
-	SourceDataOrigin models.SourceDataOrigin
-
-	// SourceDataType specifies the type of the source data (e.g. ResourceManagerSourceDataType).
-	SourceDataType models.SourceDataType
+	SourceDataOrigin sdkModels.SourceDataOrigin
 }
 
 // RemoveService removes any existing API Definitions for the Service specified in opts.
-func (r repositoryImpl) RemoveService(opts RemoveServiceOptions) error {
-	// TODO: note this is going to need to take SourceDataOrigin into account too
+func (r *repositoryImpl) RemoveService(opts RemoveServiceOptions) error {
+	r.cacheLock.Lock()
+	defer r.cacheLock.Unlock()
 
-	serviceDirectory := path.Join(r.workingDirectory, string(opts.SourceDataType), opts.ServiceName)
-	if err := os.RemoveAll(serviceDirectory); err != nil && os.IsNotExist(err) {
-		return fmt.Errorf("removing any existing directory at %q: %+v", serviceDirectory, err)
+	serviceDirectory, err := r.directoryForService(opts.ServiceName, opts.SourceDataOrigin)
+	if err != nil {
+		return fmt.Errorf("determining the directory for Service %q: %+v", opts.ServiceName, err)
+	}
+
+	if err := os.RemoveAll(*serviceDirectory); err != nil && os.IsNotExist(err) {
+		return fmt.Errorf("removing any existing directory at %q: %+v", *serviceDirectory, err)
 	}
 
 	return nil

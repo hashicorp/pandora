@@ -952,7 +952,7 @@ func TestDiff_OperationResponseObjectChanged(t *testing.T) {
 	updated := map[string]models.SDKOperation{
 		"First": {
 			ResponseObject: &models.SDKObjectDefinition{
-				Type:          models.ReferenceApiObjectDefinitionType,
+				Type:          models.ReferenceSDKObjectDefinitionType,
 				ReferenceName: pointer.To("SomeConstant"),
 			},
 		},
