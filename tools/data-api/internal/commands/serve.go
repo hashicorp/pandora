@@ -5,6 +5,7 @@ package commands
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 
 	"github.com/go-chi/chi/v5"
@@ -17,14 +18,11 @@ import (
 var _ cli.Command = ServeCommand{}
 
 type ServeCommand struct {
-	args Arguments
 }
 
-func NewServeCommand(args Arguments) func() (cli.Command, error) {
+func NewServeCommand() func() (cli.Command, error) {
 	return func() (cli.Command, error) {
-		return ServeCommand{
-			args: args,
-		}, nil
+		return ServeCommand{}, nil
 	}
 }
 
@@ -32,13 +30,23 @@ func (ServeCommand) Help() string {
 	return "Launches the Server"
 }
 
-func (c ServeCommand) Run(_ []string) int {
-	logging.Debugf("Launching Server on port %d", c.args.Port)
+func (c ServeCommand) Run(inputArgs []string) int {
+	args := Arguments{
+		// defaults
+		DataDirectory: "../../api-definitions/",
+		Port:          8080,
+		ServiceNames:  nil,
+	}
+	if err := args.Parse(inputArgs); err != nil {
+		log.Fatalf(err.Error())
+	}
+
+	logging.Debugf("Launching Server on port %d", args.Port)
 	r := chi.NewRouter()
 	r.Use(middleware.Logger)
-	r.Route("/", endpoints.Router(c.args.DataDirectory, c.args.ServiceNames))
-	logging.Infof("Data API launched at http://localhost:%d", c.args.Port)
-	http.ListenAndServe(fmt.Sprintf(":%d", c.args.Port), r)
+	r.Route("/", endpoints.Router(args.DataDirectory, args.ServiceNames))
+	logging.Infof("Data API launched at http://localhost:%d", args.Port)
+	http.ListenAndServe(fmt.Sprintf(":%d", args.Port), r)
 	return 0
 }
 

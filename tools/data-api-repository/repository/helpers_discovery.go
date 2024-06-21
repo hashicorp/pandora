@@ -131,7 +131,7 @@ func discoverCommonTypesWithin(workingDirectory string, sourceDataType sdkModels
 			return nil, fmt.Errorf("parsing the Common Types within %q: %+v", commonTypesDirectory, err)
 		}
 		if commonTypes == nil {
-			logger.Debug("The directory at %q contained no Common Types - skipping")
+			logger.Debug(fmt.Sprintf("The directory at %q contained no Common Types - skipping", commonTypesDirectory))
 			continue
 		}
 		for apiVersion, value := range *commonTypes {
