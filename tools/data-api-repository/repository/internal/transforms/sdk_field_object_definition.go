@@ -6,7 +6,6 @@ package transforms
 import (
 	"fmt"
 
-	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/data-api-repository/repository/internal/helpers"
 	repositoryModels "github.com/hashicorp/pandora/tools/data-api-repository/repository/internal/models"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
@@ -56,17 +55,7 @@ func mapSDKFieldObjectDefinitionToRepository(input sdkModels.SDKObjectDefinition
 		output.NestedItem = nestedItem
 	}
 
-	// TODO: come back to these after the SDK switch
-	//if definition.Maximum != nil {
-	//	output.MaxItems = definition.Maximum
-	//}
-	//if definition.Minimum != nil {
-	//	output.MinItems = definition.Minimum
-	//}
-	if output.Type == repositoryModels.DateTimeObjectDefinitionType {
-		// TODO: support additional types of Date Formats (#8)
-		output.DateFormat = pointer.To(repositoryModels.RFC3339DateFormat)
-	}
+	// consider storing min/max here in the future
 
 	// finally let's do some sanity-checking to ensure the data being output looks legit
 	if err := validateObjectDefinition(output, knownData); err != nil {
