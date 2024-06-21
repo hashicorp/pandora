@@ -1,0 +1,22 @@
+{
+  "name": "VirtualApplianceNetworkInterfaceConfigurationProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "ipConfigurations",
+      "name": "IPConfigurations",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "VirtualApplianceIPConfiguration"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

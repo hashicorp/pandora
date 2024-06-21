@@ -1,0 +1,22 @@
+{
+  "name": "NetworkVirtualAppliancePropertiesFormatNetworkProfile",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "networkInterfaceConfigurations",
+      "name": "NetworkInterfaceConfigurations",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "VirtualApplianceNetworkInterfaceConfiguration"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}
