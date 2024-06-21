@@ -55,7 +55,7 @@ func (p *dataApiCmd) launchAndWait(ctx context.Context, client *v1.Client) error
 
 	// then ensure it's accepting requests prior to hitting it (e.g. firewalls)
 	for attempts := 0; attempts < 50; attempts++ {
-		log.Logger.Trace(fmt.Sprintf("Checking the health of the Data API - attempt %d/30", attempts+1))
+		log.Logger.Trace(fmt.Sprintf("Checking the health of the Data API - attempt %d/50", attempts+1))
 
 		result, err := client.Health(ctx)
 		if result != nil && result.Available {
