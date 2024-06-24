@@ -5,7 +5,6 @@ package parser
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/featureflags"
 	"strings"
 
 	"github.com/go-openapi/spec"
@@ -14,6 +13,7 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/constants"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/featureflags"
 )
 
 func (d *SwaggerDefinition) parseModel(name string, input spec.Schema) (*internal.ParseResult, error) {
@@ -725,7 +725,7 @@ func (d SwaggerDefinition) parseObjectDefinition(
 
 func (d SwaggerDefinition) parseDataFactoryCustomTypes(input *spec.Schema, known internal.ParseResult) (*models.SDKObjectDefinition, *internal.ParseResult, error) {
 	formatVal := ""
-	if featureflags.ParseDataFactoryCustomTypesAsRegularObjectDefinitionTypes && input.Type.Contains("object") {
+	if input.Type.Contains("object") {
 		formatVal, _ = input.Extensions.GetString("x-ms-format")
 	}
 	if formatVal == "" {
@@ -765,7 +765,7 @@ func (d SwaggerDefinition) parseDataFactoryCustomTypes(input *spec.Schema, known
 	}
 
 	// DataFactory has some specific reimplementations of List too..
-	if strings.EqualFold(formatVal, "dfe-list-generic") {
+	if strings.EqualFold(formatVal, "dfe-list-generic") && featureflags.ParseDataFactoryListsOfReferencesAsRegularObjectDefinitionTypes {
 		// NOTE: it's also possible to have
 		elementType, ok := input.Extensions.GetString("x-ms-format-element-type")
 		if !ok {
