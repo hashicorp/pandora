@@ -1,0 +1,139 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Example",
+    "description": "Example",
+    "version": "2020-01-01"
+  },
+  "host": "management.mysite.com",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "security": [],
+  "securityDefinitions": {},
+  "paths": {
+    "/example": {
+      "put": {
+        "tags": [
+          "Example"
+        ],
+        "operationId": "Example_Test",
+        "description": "Tests parsing of a simple model.",
+        "parameters": [
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Model"
+            },
+            "description": "Wrapper class."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/Model"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Model": {
+      "description": "The Resource definition.",
+      "properties": {
+        "booleanField": {
+          "type": "object",
+          "x-ms-format": "dfe-bool"
+        },
+        "doubleField": {
+          "type": "object",
+          "x-ms-format": "dfe-double"
+        },
+        "keyValuePairField": {
+          "type": "object",
+          "x-ms-format": "dfe-key-value-pairs"
+        },
+        "integerField": {
+          "type": "object",
+          "x-ms-format": "dfe-int"
+        },
+        "stringField": {
+          "type": "object",
+          "x-ms-format": "dfe-string"
+        },
+        "unknownField": {
+          "type": "object",
+          "x-ms-format": "dfe-somethingnew"
+        },
+
+        "dictionaryOfBooleanField": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "x-ms-format": "dfe-bool"
+          }
+        },
+        "dictionaryOfDoubleField": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "x-ms-format": "dfe-double"
+          }
+        },
+        "dictionaryOfIntegerField": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "x-ms-format": "dfe-int"
+          }
+        },
+        "dictionaryOfStringField": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "x-ms-format": "dfe-string"
+          }
+        },
+        "dictionaryOfUnknownField": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "x-ms-format": "dfe-somethingnew"
+          }
+        },
+
+        "dfeCustomListOfString": {
+          "type": "object",
+          "x-ms-format": "dfe-list-string"
+        },
+        "dfeCustomListOfAnotherObject": {
+          "type": "object",
+          "x-ms-format": "dfe-list-generic",
+          "x-ms-format-element-type": "SecondModel"
+        }
+      },
+      "required": [],
+      "title": "Example",
+      "type": "object",
+      "x-ms-azure-resource": true
+    },
+    "SecondModel": {
+      "properties": {
+        "example": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "parameters": {}
+}
