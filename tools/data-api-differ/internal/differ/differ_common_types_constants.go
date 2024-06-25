@@ -43,7 +43,7 @@ func (d differ) changesForCommonTypesConstant(apiVersion, constantName string, i
 			ConstantType:  string(updatedData.Type),
 			KeysAndValues: updatedData.Values,
 		})
-		// no point returning since `CommonTypesConstantAdded` contains the details
+		// return here since `CommonTypesConstantAdded` contains the details
 		return output
 	}
 
