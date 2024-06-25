@@ -21,7 +21,7 @@ func (d differ) changesForCommonTypes(initial, updated map[string]models.CommonT
 	apiVersions := uniqueKeys(initial, updated)
 	for _, apiVersion := range apiVersions {
 		log.Logger.Info(fmt.Sprintf("Detecting changes to the Common Types in API Version %q..", apiVersion))
-		changesForService, err := d.changesForCommonTypesInAPIVersion(apiVersion, initial, updated, includeNestedChangesWhenNew)
+		changesForCommonType, err := d.changesForCommonTypesInAPIVersion(apiVersion, initial, updated, includeNestedChangesWhenNew)
 		if err != nil {
 			return nil, fmt.Errorf("detecting changes to the Common Types in API Version %q: %+v", apiVersion, err)
 		}
