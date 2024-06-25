@@ -1,0 +1,52 @@
+{
+  "name": "ConfigurationId",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/flexibleServers/{flexibleServerName}/configurations/{configurationName}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticResourceGroups",
+      "type": "Static",
+      "value": "resourceGroups"
+    },
+    {
+      "name": "resourceGroupName",
+      "type": "ResourceGroup"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftDBforMySQL",
+      "type": "ResourceProvider",
+      "value": "Microsoft.DBforMySQL"
+    },
+    {
+      "name": "staticFlexibleServers",
+      "type": "Static",
+      "value": "flexibleServers"
+    },
+    {
+      "name": "flexibleServerName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticConfigurations",
+      "type": "Static",
+      "value": "configurations"
+    },
+    {
+      "name": "configurationName",
+      "type": "UserSpecified"
+    }
+  ]
+}
