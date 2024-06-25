@@ -10,8 +10,8 @@ import (
 	"unicode"
 
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/helpers"
 	terraformModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/schema/helpers"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/schema/processors"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )

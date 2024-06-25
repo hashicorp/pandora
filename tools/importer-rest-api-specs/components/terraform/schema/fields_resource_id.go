@@ -10,8 +10,8 @@ import (
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	terraformHelpers "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/helpers"
 	terraformModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/models"
+	terraformHelpers "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/schema/helpers"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
