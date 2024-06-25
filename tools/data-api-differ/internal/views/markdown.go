@@ -393,8 +393,6 @@ func renderChangeToMarkdown(input changes.Change) (*string, error) {
 		}
 
 	// Resource IDs
-
-	// Resource IDs
 	case changes.ResourceIdAdded:
 		{
 			v := input.(changes.ResourceIdAdded)
