@@ -2,6 +2,7 @@ package differ
 
 import (
 	"fmt"
+
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/changes"
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/log"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
