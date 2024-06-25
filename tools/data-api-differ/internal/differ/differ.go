@@ -27,7 +27,7 @@ func performDiff(initial, updated v1.LoadAllDataResult, includeNestedChangesWhen
 	log.Logger.Trace("Detecting changes to the Services..")
 	serviceChanges, err := diff.changesForServices(initial.Services, updated.Services, includeNestedChangesWhenNew)
 	if err != nil {
-		return nil, fmt.Errorf("determining changes for the Resource Manager: %+v", err)
+		return nil, fmt.Errorf("determining changes for the Services: %+v", err)
 	}
 	output = append(output, *serviceChanges...)
 
