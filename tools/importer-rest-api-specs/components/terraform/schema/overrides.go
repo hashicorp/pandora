@@ -18,8 +18,3 @@ var fieldsWhichShouldBeIgnoredIfContains = []string{
 	"ResourceState",
 	"Type",
 }
-
-var schemaFieldNameOverrides = map[string]string{
-	"etag": "etag",
-	"ip":   "ip_address",
-}
