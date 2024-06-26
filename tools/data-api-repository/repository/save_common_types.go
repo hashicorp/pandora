@@ -5,28 +5,22 @@ package repository
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/data-api-repository/repository/helpers"
-	"github.com/hashicorp/pandora/tools/data-api-repository/repository/stages"
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+
+	"github.com/hashicorp/pandora/tools/data-api-repository/repository/internal/helpers"
+	"github.com/hashicorp/pandora/tools/data-api-repository/repository/internal/stages"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 type SaveCommonTypesOptions struct {
-	// ResourceProvider optionally specifies the Azure Resource Provider associated with this Service.
-	// This is only present when SourceDataType is ResourceManagerSourceDataType.
-	ResourceProvider *string
+	// CommonTypes specifies a map of APIVersion (Key) to CommonTypes (Value)
+	CommonTypes map[string]sdkModels.CommonTypes
 
-	// CommonTypes specifies a map of API Version (key) to CommonTypes (value) to be saved.
-	CommonTypes map[string]models.CommonTypes
-
-	// SourceDataOrigin specifies the origin of this set of source data (e.g. AzureRestAPISpecsSourceDataOrigin).
-	SourceDataOrigin models.SourceDataOrigin
-
-	// SourceDataType specifies the type of the source data (e.g. ResourceManagerSourceDataType).
-	SourceDataType models.SourceDataType
+	// SourceDataOrigin specifies the SourceDataOrigin
+	SourceDataOrigin sdkModels.SourceDataOrigin
 }
 
-// SaveCommonTypes persists the Common Types Definitions for the specified version.
-func (r repositoryImpl) SaveCommonTypes(opts SaveCommonTypesOptions) error {
+// SaveCommonTypes persists the Common Types for the current SourceDataType/SourceDataOrigin combination.
+func (r *repositoryImpl) SaveCommonTypes(opts SaveCommonTypesOptions) error {
 	r.logger.Info("Processing Common Types")
 
 	items := make([]stages.Stage, 0)
@@ -34,15 +28,14 @@ func (r repositoryImpl) SaveCommonTypes(opts SaveCommonTypesOptions) error {
 	for apiVersion, commonTypes := range opts.CommonTypes {
 		r.logger.Info(fmt.Sprintf("Processing Common Types for API Version %q..", apiVersion))
 		items = append(items, stages.CommonTypesConstantStage{
-			APIVersion: apiVersion,
-			Constants:  commonTypes.Constants,
+			APIVersion:          apiVersion,
+			CommonTypeConstants: commonTypes.Constants,
 		})
 
 		items = append(items, stages.CommonTypesModelsStage{
-			APIVersion:  apiVersion,
-			CommonTypes: opts.CommonTypes,
-			Constants:   commonTypes.Constants,
-			Models:      commonTypes.Models,
+			APIVersion:          apiVersion,
+			CommonTypeConstants: commonTypes.Constants,
+			CommonTypeModels:    commonTypes.Models,
 		})
 	}
 
@@ -57,7 +50,7 @@ func (r repositoryImpl) SaveCommonTypes(opts SaveCommonTypesOptions) error {
 	}
 
 	r.logger.Debug("Persisting files to disk..")
-	if err := helpers.PersistFileSystem(r.workingDirectory, opts.SourceDataType, fs, r.logger); err != nil {
+	if err := helpers.PersistFileSystem(r.workingDirectory, fs, r.logger); err != nil {
 		return fmt.Errorf("persisting files: %+v", err)
 	}
 

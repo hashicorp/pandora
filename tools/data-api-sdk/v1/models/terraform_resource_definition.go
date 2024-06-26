@@ -56,6 +56,10 @@ type TerraformResourceDefinition struct {
 	// ResourceIDName specifies the name of the Resource ID used for this Terraform Resource.
 	ResourceIDName string `json:"resourceIdName"`
 
+	// ResourceLabel specifies the label for this Resource, without any Provider Prefix.
+	// Example: `resource_group` (to form `azurerm_resource_group`).
+	ResourceLabel string `json:"resourceLabel"`
+
 	// ResourceName specifies the name of this Resource.
 	// The Resource Name is an Identifier.
 	ResourceName string `json:"resourceName"`

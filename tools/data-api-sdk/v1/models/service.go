@@ -15,6 +15,9 @@ type Service struct {
 	// Generate specifies whether this Service should be generated or not.
 	Generate bool `json:"generate"`
 
+	// Name specifies the name of this Service.
+	Name string
+
 	// ResourceProvider optionally specifies the Azure Resource Provider
 	// that this Service is related to.
 	// Note that this only exists when the SourceDataType is ResourceManagerSourceDataType.

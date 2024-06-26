@@ -7,8 +7,9 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"net/http"
+
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 type GetSDKSchemaForAPIResourceResponse struct {

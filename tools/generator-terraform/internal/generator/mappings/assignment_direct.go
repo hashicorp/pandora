@@ -5,8 +5,8 @@ package mappings
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	generatorHelpers "github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/helpers"
 )

@@ -14,6 +14,10 @@ service "analysisservices" {
   name      = "AnalysisServices"
   available = ["2017-08-01"]
 }
+service "apicenter" {
+  name      = "ApiCenter"
+  available = ["2024-03-01", "2024-03-15-preview"]
+}
 service "apimanagement" {
   name      = "ApiManagement"
   available = ["2022-08-01", "2023-03-01-preview", "2023-05-01-preview"]
@@ -125,7 +129,7 @@ service "cosmos-db" {
 }
 service "cost-management" {
   name      = "CostManagement"
-  available = ["2021-10-01", "2022-06-01-preview", "2022-10-01", "2023-03-01", "2023-08-01", "2023-11-01"]
+  available = ["2021-10-01", "2022-06-01-preview", "2022-10-01", "2023-03-01", "2023-07-01-preview", "2023-08-01", "2023-11-01"]
 }
 service "customproviders" {
   name      = "CustomProviders"
@@ -219,7 +223,7 @@ service "elastic" {
 }
 service "elasticsan" {
   name      = "ElasticSan"
-  available = ["2023-01-01"]
+  available = ["2023-01-01", "2024-05-01"]
 }
 service "eventgrid" {
   name      = "EventGrid"
@@ -255,7 +259,7 @@ service "hardwaresecuritymodules" {
 }
 service "hdinsight" {
   name      = "HDInsight"
-  available = ["2021-06-01", "2024-05-01"]
+  available = ["2021-06-01"]
 }
 service "healthbot" {
   name      = "HealthBot"
@@ -372,7 +376,7 @@ service "netapp" {
 }
 service "network" {
   name      = "Network"
-  available = ["2022-07-01", "2023-09-01", "2023-11-01"]
+  available = ["2022-07-01", "2023-09-01", "2023-11-01", "2024-01-01"]
 }
 service "networkanalytics" {
   name      = "NetworkAnalytics"
@@ -457,7 +461,7 @@ service "recoveryservicesbackup" {
 }
 service "recoveryservicessiterecovery" {
   name      = "RecoveryServicesSiteRecovery"
-  available = ["2022-10-01", "2023-01-01", "2023-02-01", "2023-04-01", "2023-06-01", "2023-08-01", "2024-01-01", "2024-02-01"]
+  available = ["2022-10-01", "2023-01-01", "2023-02-01", "2023-04-01", "2023-06-01", "2023-08-01", "2024-01-01", "2024-02-01", "2024-04-01"]
 }
 service "redhatopenshift" {
   name      = "RedHatOpenShift"
@@ -551,7 +555,7 @@ service "storagecache" {
 }
 service "storagemover" {
   name      = "StorageMover"
-  available = ["2023-03-01", "2023-10-01"]
+  available = ["2023-03-01", "2023-10-01", "2024-07-01"]
 }
 service "storagepool" {
   name      = "StoragePool"

@@ -1,0 +1,16 @@
+{
+  "name": "ImportSpecification",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "DefinitionId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ApiSpecImportRequest"
+  },
+  "uriSuffix": "/importSpecification"
+}

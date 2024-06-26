@@ -1,0 +1,35 @@
+{
+  "name": "Onboarding",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "developerPortalUri",
+      "name": "DeveloperPortalUri",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "instructions",
+      "name": "Instructions",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

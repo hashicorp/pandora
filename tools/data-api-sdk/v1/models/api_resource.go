@@ -15,6 +15,9 @@ type APIResource struct {
 	// NOTE: the Model Name is a valid Identifier.
 	Models map[string]SDKModel
 
+	// Name specifies the name of this APIResource.
+	Name string
+
 	// Operations specifies a map of Operation Name (key) to SDKOperation (value)
 	// which contains information about the Operations used within this APIResource.
 	// NOTE: the Operation Name is a valid Identifier.

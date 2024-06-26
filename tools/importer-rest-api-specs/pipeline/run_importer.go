@@ -22,7 +22,16 @@ import (
 func runImporter(input RunInput, generationData []discovery.ServiceInput, swaggerGitSha string) error {
 	sourceDataType := models.ResourceManagerSourceDataType
 	sourceDataOrigin := models.AzureRestAPISpecsSourceDataOrigin
-	repo := repository.NewRepository(input.OutputDirectory, logging.Log)
+	repo, err := repository.NewRepository(input.OutputDirectory, sourceDataType, nil, logging.Log)
+	if err != nil {
+		return fmt.Errorf("building repository: %+v", err)
+	}
+
+	// Clear any existing data
+	input.Logger.Info(fmt.Sprintf("Purging all existing Source Data for Source Data Type %q / Source Data Origin %q..", sourceDataType, sourceDataOrigin))
+	if err := repo.PurgeExistingData(sourceDataOrigin); err != nil {
+		return fmt.Errorf("purging the existing Source Data for the Source Data Type %q / Source Data Origin %q: %+v", sourceDataType, sourceDataOrigin, err)
+	}
 
 	// group the API Versions by Service
 	dataByServices := make(map[string][]discovery.ServiceInput)
@@ -46,22 +55,21 @@ func runImporter(input RunInput, generationData []discovery.ServiceInput, swagge
 	}
 	sort.Strings(serviceNames)
 
-	// remove all API definitions for resource-manager
-	logging.Log.Debug("removing any existing API Definitions")
-	purgeDefinitionsOpts := repository.PurgeExistingDefinitionsOptions{
-		SourceDataOrigin: sourceDataOrigin,
-		SourceDataType:   sourceDataType,
-	}
-	if err := repo.PurgeExistingDefinitions(purgeDefinitionsOpts); err != nil {
-		return fmt.Errorf("removing existing API Definitions: %+v", err)
-	}
-
 	// then parse/process the data for each of the API Versions for each service
 	for _, serviceName := range serviceNames {
 		serviceDetails := dataByServices[serviceName]
 
+		logging.Log.Debug(fmt.Sprintf("Removing any existing API Definitions for the Service %q", serviceName))
+		removeServiceOpts := repository.RemoveServiceOptions{
+			ServiceName:      serviceName,
+			SourceDataOrigin: sourceDataOrigin,
+		}
+		if err := repo.RemoveService(removeServiceOpts); err != nil {
+			return fmt.Errorf("removing existing API Definitions for Service %q: %+v", serviceName, err)
+		}
+
 		logger := input.Logger.Named(fmt.Sprintf("Importer for Service %q", serviceName))
-		if err := runImportForService(input, serviceName, serviceDetails, sourceDataType, sourceDataOrigin, logger, swaggerGitSha, repo); err != nil {
+		if err := runImportForService(input, serviceName, serviceDetails, sourceDataOrigin, logger, swaggerGitSha, repo); err != nil {
 			return fmt.Errorf("parsing data for Service %q: %+v", serviceName, err)
 		}
 	}
@@ -69,7 +77,7 @@ func runImporter(input RunInput, generationData []discovery.ServiceInput, swagge
 	return nil
 }
 
-func runImportForService(input RunInput, serviceName string, apiVersionsForService []discovery.ServiceInput, sourceDataType models.SourceDataType, sourceDataOrigin models.SourceDataOrigin, logger hclog.Logger, swaggerGitSha string, repo repository.Repository) error {
+func runImportForService(input RunInput, serviceName string, apiVersionsForService []discovery.ServiceInput, sourceDataOrigin models.SourceDataOrigin, logger hclog.Logger, swaggerGitSha string, repo repository.Repository) error {
 	task := pipelineTask{}
 	var resourceProvider *string
 	var terraformPackageName *string
@@ -128,7 +136,7 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 		}
 	}
 
-	// Populate all the data for this API Version..
+	// Populate all of the data for this API Version..
 	dataForApiVersions := make([]importerModels.AzureApiDefinition, 0)
 	for apiVersion, api := range consolidatedApiVersions {
 		versionLogger := logger.Named(fmt.Sprintf("Importer for API Version %q", apiVersion))
@@ -155,7 +163,7 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 		dataForApiVersions = append(dataForApiVersions, *dataForApiVersion)
 	}
 
-	// Now that we've got all the API Versions, build up the Terraform Resources
+	// Now that we've got all of the API Versions, build up the Terraform Resources
 	// NOTE: in the near future this will be refactored to be for a Service, this is a stepping-stone refactor
 	// in that direction - as that requires more significant refactoring to the `terraform` package.
 	dataForApiVersionsWithTerraformDetails := make([]importerModels.AzureApiDefinition, 0)
@@ -169,7 +177,7 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 
 	// temporary glue to enable refactoring this tool piece-by-piece
 	logger.Info("Transforming to the Data API SDK types..")
-	service, err := transformer.MapInternalTypesToDataAPISDKTypes(dataForApiVersionsWithTerraformDetails, resourceProvider, terraformPackageName, logger)
+	service, err := transformer.MapInternalTypesToDataAPISDKTypes(serviceName, dataForApiVersionsWithTerraformDetails, resourceProvider, terraformPackageName, logger)
 	if err != nil {
 		return fmt.Errorf("transforming the internal types to the Data API SDK types: %+v", err)
 	}
@@ -178,14 +186,13 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 	logger.Info(fmt.Sprintf("Persisting API Definitions for Service %s..", serviceName))
 
 	opts := repository.SaveServiceOptions{
+		SourceCommitSHA:  pointer.To(swaggerGitSha),
 		ResourceProvider: resourceProvider,
 		Service:          *service,
 		ServiceName:      serviceName,
-		SourceCommitSHA:  pointer.To(swaggerGitSha),
 		SourceDataOrigin: sourceDataOrigin,
-		SourceDataType:   sourceDataType,
 	}
-	if err = repo.SaveService(opts); err != nil {
+	if err := repo.SaveService(opts); err != nil {
 		return fmt.Errorf("persisting Data API Definitions for Service %q: %+v", serviceName, err)
 	}
 

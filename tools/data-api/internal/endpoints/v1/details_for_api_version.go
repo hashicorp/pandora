@@ -9,8 +9,7 @@ import (
 
 	"github.com/go-chi/render"
 	v1 "github.com/hashicorp/pandora/tools/data-api-sdk/v1"
-	"github.com/hashicorp/pandora/tools/data-api/internal/endpoints/v1/transforms"
-	"github.com/hashicorp/pandora/tools/data-api/internal/repositories"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 func (api Api) detailsForApiVersion(w http.ResponseWriter, r *http.Request) {
@@ -22,32 +21,28 @@ func (api Api) detailsForApiVersion(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	service, ok := ctx.Value("service").(*repositories.ServiceDetails)
+	service, ok := ctx.Value("service").(*sdkModels.Service)
 	if !ok {
 		internalServerError(w, fmt.Errorf("missing service"))
 		return
 	}
-	apiVersion, ok := ctx.Value("serviceApiVersion").(*repositories.ServiceApiVersionDetails)
+	apiVersion, ok := ctx.Value("serviceApiVersion").(*sdkModels.APIVersion)
 	if !ok {
 		internalServerError(w, fmt.Errorf("missing serviceApiVersion"))
 		return
 	}
 
-	resources := make(map[string]v1.APIResourceSummary, 0)
+	resources := make(map[string]v1.APIResourceSummary)
 	for k := range apiVersion.Resources {
 		resources[k] = v1.APIResourceSummary{
-			OperationsURI: fmt.Sprintf("%s/services/%s/%s/%s/operations", opts.UriPrefix, service.Name, apiVersion.Name, k),
-			SchemaURI:     fmt.Sprintf("%s/services/%s/%s/%s/schema", opts.UriPrefix, service.Name, apiVersion.Name, k),
+			OperationsURI: fmt.Sprintf("%s/services/%s/%s/%s/operations", opts.UriPrefix, service.Name, apiVersion.APIVersion, k),
+			SchemaURI:     fmt.Sprintf("%s/services/%s/%s/%s/schema", opts.UriPrefix, service.Name, apiVersion.APIVersion, k),
 		}
-	}
-	source, err := transforms.MapSourceDataOrigin(apiVersion.Source)
-	if err != nil {
-		internalServerError(w, fmt.Errorf("mapping SourceDataOrigin: %+v", err))
 	}
 
 	payload := v1.DetailsForAPIVersionSummary{
 		Resources: resources,
-		Source:    *source,
+		Source:    apiVersion.Source,
 	}
 	render.JSON(w, r, payload)
 }

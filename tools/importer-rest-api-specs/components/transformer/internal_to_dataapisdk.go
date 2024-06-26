@@ -15,15 +15,20 @@ import (
 
 // NOTE: this file contains temporary glue code to enable refactoring this tool gradually, component-by-component.
 
-func MapInternalTypesToDataAPISDKTypes(inputApiVersions []importerModels.AzureApiDefinition, resourceProvider, terraformPackageName *string, logger hclog.Logger) (*models.Service, error) {
+func MapInternalTypesToDataAPISDKTypes(serviceName string, inputApiVersions []importerModels.AzureApiDefinition, resourceProvider, terraformPackageName *string, logger hclog.Logger) (*models.Service, error) {
 	apiVersions := make(map[string]models.APIVersion)
 
 	logger.Debug("Mapping API Versions..")
 	for _, item := range inputApiVersions {
 		logger.Trace(fmt.Sprintf("Mapping Service %q / API Version %q", item.ServiceName, item.ApiVersion))
-		mapped, err := mapInternalAPIVersionTypeToDataAPISDKType(item)
+		mapped, err := mapInternalAPIVersionTypeToDataAPISDKType(item.ApiVersion, item)
 		if err != nil {
 			return nil, fmt.Errorf("mapping API Version %q: %+v", item.ApiVersion, err)
+		}
+
+		if mapped == nil {
+			// handle there being only Constants and Models but no data
+			continue
 		}
 
 		apiVersions[item.ApiVersion] = *mapped
@@ -32,6 +37,7 @@ func MapInternalTypesToDataAPISDKTypes(inputApiVersions []importerModels.AzureAp
 	output := models.Service{
 		APIVersions:      apiVersions,
 		Generate:         true,
+		Name:             serviceName,
 		ResourceProvider: resourceProvider,
 	}
 
@@ -63,10 +69,16 @@ func MapInternalTypesToDataAPISDKTypes(inputApiVersions []importerModels.AzureAp
 	return &output, nil
 }
 
-func mapInternalAPIVersionTypeToDataAPISDKType(input importerModels.AzureApiDefinition) (*models.APIVersion, error) {
+func mapInternalAPIVersionTypeToDataAPISDKType(apiVersion string, input importerModels.AzureApiDefinition) (*models.APIVersion, error) {
 	resources := make(map[string]models.APIResource)
 
 	for apiResource, apiResourceDetails := range input.Resources {
+		// Skip outputting APIResources containing only Constants/Models
+		// since these aren't usable without Operations
+		if len(apiResourceDetails.Operations) == 0 {
+			continue
+		}
+
 		resources[apiResource] = models.APIResource{
 			Constants:   apiResourceDetails.Constants,
 			Models:      apiResourceDetails.Models,
@@ -75,11 +87,17 @@ func mapInternalAPIVersionTypeToDataAPISDKType(input importerModels.AzureApiDefi
 		}
 	}
 
+	// if all of the APIResources have been filtered out, let's ignore this APIVersion
+	if len(resources) == 0 {
+		return nil, nil
+	}
+
 	return &models.APIVersion{
-		Generate:  true,
-		Preview:   input.IsPreviewVersion(),
-		Resources: resources,
-		Source:    models.AzureRestAPISpecsSourceDataOrigin,
+		APIVersion: apiVersion,
+		Generate:   true,
+		Preview:    input.IsPreviewVersion(),
+		Resources:  resources,
+		Source:     models.AzureRestAPISpecsSourceDataOrigin,
 	}, nil
 }
 

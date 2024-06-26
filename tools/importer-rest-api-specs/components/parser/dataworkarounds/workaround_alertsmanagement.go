@@ -5,8 +5,8 @@ package dataworkarounds
 
 import (
 	"fmt"
-	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 

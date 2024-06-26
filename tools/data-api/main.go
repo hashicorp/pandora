@@ -4,7 +4,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"os"
 
@@ -20,22 +19,17 @@ func main() {
 		loggingOpts.Level = hclog.LevelFromString(v)
 	}
 	logging.Log = hclog.New(loggingOpts)
-
-	logging.Infof("Data API launched")
+	logging.Infof("Data API launched..")
 
 	c := cli.NewCLI("data-api", "1.0.0")
 	c.Args = os.Args[1:]
 	c.Commands = map[string]cli.CommandFactory{
 		"serve": commands.NewServeCommand(),
-		// TODO hook this up
-		"serve-watch": func() (cli.Command, error) {
-			return nil, fmt.Errorf("TODO: implement me")
-		},
 	}
 
 	exitStatus, err := c.Run()
 	if err != nil {
-		log.Println(err)
+		log.Fatalf(err.Error())
 	}
 
 	os.Exit(exitStatus)

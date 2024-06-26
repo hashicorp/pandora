@@ -1,0 +1,21 @@
+{
+  "name": "VMwareCbtEventDetails",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "migrationItemName",
+      "name": "MigrationItemName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "EventProviderSpecificDetails",
+  "discriminatedTypeValue": "VMwareCbt",
+  "typeHintIn": "InstanceType"
+}

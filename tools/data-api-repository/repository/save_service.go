@@ -5,22 +5,19 @@ package repository
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/data-api-repository/repository/helpers"
-	"github.com/hashicorp/pandora/tools/data-api-repository/repository/stages"
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+
+	"github.com/hashicorp/pandora/tools/data-api-repository/repository/internal/helpers"
+	"github.com/hashicorp/pandora/tools/data-api-repository/repository/internal/stages"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 type SaveServiceOptions struct {
-	// CommonTypes specifies a map of API Version (key) to CommonTypes (value)
-	// which defines the available Common Types for this Service.
-	CommonTypes map[string]models.CommonTypes
-
 	// ResourceProvider optionally specifies the Azure Resource Provider associated with this Service.
 	// This is only present when SourceDataType is ResourceManagerSourceDataType.
 	ResourceProvider *string
 
 	// Service specifies details about this Service, including the available APIVersions.
-	Service models.Service
+	Service sdkModels.Service
 
 	// ServiceName specifies the name of this Service (e.g. `Compute`).
 	ServiceName string
@@ -29,46 +26,36 @@ type SaveServiceOptions struct {
 	SourceCommitSHA *string
 
 	// SourceDataOrigin specifies the origin of this set of source data (e.g. AzureRestAPISpecsSourceDataOrigin).
-	SourceDataOrigin models.SourceDataOrigin
-
-	// SourceDataType specifies the type of the source data (e.g. ResourceManagerSourceDataType).
-	SourceDataType models.SourceDataType
+	SourceDataOrigin sdkModels.SourceDataOrigin
 }
 
 // SaveService persists the API Definitions for the Service specified in opts.
-func (r repositoryImpl) SaveService(opts SaveServiceOptions) error {
+func (r *repositoryImpl) SaveService(opts SaveServiceOptions) error {
 	r.logger.Info(fmt.Sprintf("Processing Service %q", opts.ServiceName))
 
+	if opts.ServiceName == helpers.CommonTypesDirectoryName {
+		return fmt.Errorf("`ServiceName` cannot be %q since that's reserved for storing Common Types", opts.ServiceName)
+	}
+
+	r.cacheLock.Lock()
+	defer r.cacheLock.Unlock()
+
 	items := []stages.Stage{
-		stages.MetaDataStage{
-			GitRevision:      opts.SourceCommitSHA,
-			SourceDataOrigin: opts.SourceDataOrigin,
-			SourceDataType:   opts.SourceDataType,
-		},
-		stages.ServiceDefinitionStage{
-			ServiceName:         opts.ServiceName,
-			ResourceProvider:    opts.ResourceProvider,
-			ShouldGenerate:      true,
-			TerraformDefinition: opts.Service.TerraformDefinition,
+		&stages.ServiceDefinitionStage{
+			Service: opts.Service,
 		},
 	}
 
 	for apiVersion, apiVersionDetails := range opts.Service.APIVersions {
 		r.logger.Info(fmt.Sprintf("Processing Service %q / API Version %q..", opts.ServiceName, apiVersion))
 		items = append(items, stages.APIVersionStage{
-			APIResources:     apiVersionDetails.Resources,
-			APIVersion:       apiVersion,
-			IsPreviewVersion: apiVersionDetails.Preview,
-			ServiceName:      opts.ServiceName,
-			SourceDataOrigin: apiVersionDetails.Source,
-			ShouldGenerate:   true,
+			APIVersion: apiVersionDetails,
 		})
 
 		for apiResourceName, apiResourceDetails := range apiVersionDetails.Resources {
 			// Output the API Definitions for this APIResource
 
 			items = append(items, stages.ConstantStage{
-				ServiceName: opts.ServiceName,
 				APIVersion:  apiVersion,
 				APIResource: apiResourceName,
 				Constants:   apiResourceDetails.Constants,
@@ -76,26 +63,21 @@ func (r repositoryImpl) SaveService(opts SaveServiceOptions) error {
 			})
 
 			items = append(items, stages.ModelsStage{
-				ServiceName: opts.ServiceName,
 				APIVersion:  apiVersion,
 				APIResource: apiResourceName,
 				Constants:   apiResourceDetails.Constants,
 				Models:      apiResourceDetails.Models,
-				CommonTypes: opts.CommonTypes,
 			})
 
 			items = append(items, stages.OperationsStage{
-				ServiceName: opts.ServiceName,
 				APIVersion:  apiVersion,
 				APIResource: apiResourceName,
-				CommonTypes: opts.CommonTypes,
 				Constants:   apiResourceDetails.Constants,
 				Models:      apiResourceDetails.Models,
 				Operations:  apiResourceDetails.Operations,
 			})
 
 			items = append(items, stages.ResourceIDsStage{
-				ServiceName: opts.ServiceName,
 				APIVersion:  apiVersion,
 				APIResource: apiResourceName,
 				ResourceIDs: apiResourceDetails.ResourceIDs,
@@ -107,23 +89,19 @@ func (r repositoryImpl) SaveService(opts SaveServiceOptions) error {
 	if opts.Service.TerraformDefinition != nil {
 		for terraformResourceLabel, terraformResourceDefinition := range opts.Service.TerraformDefinition.Resources {
 			items = append(items, stages.TerraformResourceDefinitionStage{
-				ServiceName:     opts.ServiceName,
 				ResourceLabel:   terraformResourceLabel,
 				ResourceDetails: terraformResourceDefinition,
 			})
 
 			items = append(items, stages.TerraformSchemaModelsStage{
-				ServiceName:     opts.ServiceName,
 				ResourceDetails: terraformResourceDefinition,
 			})
 
 			items = append(items, stages.TerraformMappingsDefinitionStage{
-				ServiceName:     opts.ServiceName,
 				ResourceDetails: terraformResourceDefinition,
 			})
 
 			items = append(items, stages.TerraformResourceTestsStage{
-				ServiceName:     opts.ServiceName,
 				ResourceDetails: terraformResourceDefinition,
 			})
 		}
@@ -139,9 +117,19 @@ func (r repositoryImpl) SaveService(opts SaveServiceOptions) error {
 		}
 	}
 
-	r.logger.Debug("Persisting files to disk..")
-	if err := helpers.PersistFileSystem(r.workingDirectory, opts.SourceDataType, fs, r.logger); err != nil {
-		return fmt.Errorf("persisting files: %+v", err)
+	serviceDirectory, err := r.directoryForService(opts.ServiceName, opts.SourceDataOrigin)
+	if err != nil {
+		return fmt.Errorf("determining the directory for Service %q: %+v", opts.ServiceName, err)
+	}
+
+	r.logger.Debug(fmt.Sprintf("Persisting the Service API Definitions into %q..", *serviceDirectory))
+	if err := helpers.PersistFileSystem(*serviceDirectory, fs, r.logger); err != nil {
+		return fmt.Errorf("persisting Service API Definitions into %q: %+v", *serviceDirectory, err)
+	}
+
+	// then populate the source data information into the metadata file
+	if err := r.writeSourceDataInformation(opts.SourceDataOrigin, opts.SourceCommitSHA); err != nil {
+		return fmt.Errorf("populating the Source Data Information into %q: %+v", r.workingDirectory, err)
 	}
 
 	return nil

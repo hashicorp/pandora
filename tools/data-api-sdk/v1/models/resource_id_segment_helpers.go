@@ -21,7 +21,7 @@ func NewConstantResourceIDSegment(name, constantReferenceName, exampleValue stri
 // the value of a Resource Group Name.
 func NewResourceGroupNameResourceIDSegment(name string) ResourceIDSegment {
 	return ResourceIDSegment{
-		ExampleValue: "example-resources",
+		ExampleValue: "example-resource-group",
 		Name:         name,
 		Type:         ResourceGroupResourceIDSegmentType,
 	}
@@ -42,7 +42,7 @@ func NewResourceProviderResourceIDSegment(name, resourceProviderName string) Res
 // the value of an Azure Resource Scope.
 func NewScopeResourceIDSegment(name string) ResourceIDSegment {
 	return ResourceIDSegment{
-		ExampleValue: "/subscriptions/11112222-3333-4444-555566667777/resourceGroups/example-resources",
+		ExampleValue: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/some-resource-group",
 		Name:         name,
 		Type:         ScopeResourceIDSegmentType,
 	}
@@ -63,7 +63,7 @@ func NewStaticValueResourceIDSegment(name, fixedValue string) ResourceIDSegment 
 // the value of a Subscription ID.
 func NewSubscriptionIDResourceIDSegment(name string) ResourceIDSegment {
 	return ResourceIDSegment{
-		ExampleValue: "11112222-3333-4444-555566667777",
+		ExampleValue: "12345678-1234-9876-4563-123456789012",
 		Name:         name,
 		Type:         SubscriptionIDResourceIDSegmentType,
 	}
