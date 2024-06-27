@@ -72,7 +72,7 @@ service "batch" {
 }
 service "billing" {
   name      = "Billing"
-  available = ["2019-10-01-preview", "2020-05-01", "2021-10-01"]
+  available = ["2019-10-01-preview", "2020-05-01", "2021-10-01", "2024-04-01"]
 }
 service "blueprint" {
   name      = "Blueprints"
