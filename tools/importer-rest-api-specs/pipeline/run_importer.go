@@ -162,7 +162,7 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 
 	// temporary glue to enable refactoring this tool piece-by-piece
 	logger.Info("Transforming to the Data API SDK types..")
-	service, err := transformer.MapInternalTypesToDataAPISDKTypes(serviceName, dataForApiVersions, resourceProvider, terraformPackageName, logger)
+	service, err := transformer.MapInternalTypesToDataAPISDKTypes(serviceName, dataForApiVersions, resourceProvider, logger)
 	if err != nil {
 		return fmt.Errorf("transforming the internal types to the Data API SDK types: %+v", err)
 	}
