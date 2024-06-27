@@ -1,39 +1,34 @@
-// Copyright (c) HashiCorp, Inc.
-// SPDX-License-Identifier: MPL-2.0
-
 package differ
 
 import (
 	"fmt"
+
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/changes"
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/log"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
-// changesForConstants determines the changes between the different Constants within the provided API Resource.
-func (d differ) changesForConstants(serviceName, apiVersion, apiResource string, initial, updated map[string]models.SDKConstant) []changes.Change {
+func (d differ) changesForCommonTypesConstants(apiVersion string, initial, updated map[string]models.SDKConstant) []changes.Change {
 	output := make([]changes.Change, 0)
 	constantNames := uniqueKeys(initial, updated)
 	for _, constantName := range constantNames {
-		log.Logger.Trace(fmt.Sprintf("Detecting changes in Constant %q..", constantName))
-		changesForConstant := d.changesForConstant(serviceName, apiVersion, apiResource, constantName, initial, updated)
+		log.Logger.Trace(fmt.Sprintf("Detecting changes in CommonTypes Constant %q..", constantName))
+		changesForConstant := d.changesForCommonTypesConstant(apiVersion, constantName, initial, updated)
 		output = append(output, changesForConstant...)
 	}
 	return output
 }
 
-// changesForConstant determines the changes between two different versions of the same Constant.
-func (d differ) changesForConstant(serviceName, apiVersion, apiResource, constantName string, initial, updated map[string]models.SDKConstant) []changes.Change {
+// changesForCommonTypesConstant determines the changes between two different versions of the same CommonTypes Constant.
+func (d differ) changesForCommonTypesConstant(apiVersion, constantName string, initial, updated map[string]models.SDKConstant) []changes.Change {
 	output := make([]changes.Change, 0)
 
 	oldData, inOldData := initial[constantName]
 	updatedData, inUpdatedData := updated[constantName]
 	if inOldData && !inUpdatedData {
-		log.Logger.Trace(fmt.Sprintf("Constant %q not present in the updated data", constantName))
-		output = append(output, changes.ConstantRemoved{
-			ServiceName:   serviceName,
+		log.Logger.Trace(fmt.Sprintf("CommonTypes Constant %q not present in the updated data", constantName))
+		output = append(output, changes.CommonTypesConstantRemoved{
 			ApiVersion:    apiVersion,
-			ResourceName:  apiResource,
 			ConstantName:  constantName,
 			ConstantType:  string(oldData.Type),
 			KeysAndValues: oldData.Values,
@@ -42,26 +37,22 @@ func (d differ) changesForConstant(serviceName, apiVersion, apiResource, constan
 		return output
 	}
 	if !inOldData && inUpdatedData {
-		log.Logger.Trace(fmt.Sprintf("Constant %q is new", constantName))
-		output = append(output, changes.ConstantAdded{
-			ServiceName:   serviceName,
+		log.Logger.Trace(fmt.Sprintf("CommonTypes Constant %q is new", constantName))
+		output = append(output, changes.CommonTypesConstantAdded{
 			ApiVersion:    apiVersion,
-			ResourceName:  apiResource,
 			ConstantName:  constantName,
 			ConstantType:  string(updatedData.Type),
 			KeysAndValues: updatedData.Values,
 		})
-		// no point returning since `ConstantAdded` contains the details
+		// return here since `CommonTypesConstantAdded` contains the details
 		return output
 	}
 
 	if inOldData && inUpdatedData {
 		// the Type changing would be problematic - so we should surface that
 		if oldData.Type != updatedData.Type {
-			output = append(output, changes.ConstantTypeChanged{
-				ServiceName:  serviceName,
+			output = append(output, changes.CommonTypesConstantTypeChanged{
 				ApiVersion:   apiVersion,
-				ResourceName: apiResource,
 				ConstantName: constantName,
 				OldType:      string(oldData.Type),
 				NewType:      string(updatedData.Type),
@@ -77,10 +68,8 @@ func (d differ) changesForConstant(serviceName, apiVersion, apiResource, constan
 
 		if oldContainsKey && !updatedContainsKey {
 			log.Logger.Trace("Key %q / Value %q has been removed", key, oldValue)
-			output = append(output, changes.ConstantKeyValueRemoved{
-				ServiceName:   serviceName,
+			output = append(output, changes.CommonTypesConstantKeyValueRemoved{
 				ApiVersion:    apiVersion,
-				ResourceName:  apiResource,
 				ConstantName:  constantName,
 				ConstantKey:   key,
 				ConstantValue: oldValue,
@@ -89,10 +78,8 @@ func (d differ) changesForConstant(serviceName, apiVersion, apiResource, constan
 		}
 		if !oldContainsKey && updatedContainsKey {
 			log.Logger.Trace("Key %q / Value %q has been added", key, updatedValue)
-			output = append(output, changes.ConstantKeyValueAdded{
-				ServiceName:   serviceName,
+			output = append(output, changes.CommonTypesConstantKeyValueAdded{
 				ApiVersion:    apiVersion,
-				ResourceName:  apiResource,
 				ConstantName:  constantName,
 				ConstantKey:   key,
 				ConstantValue: updatedValue,
@@ -103,10 +90,8 @@ func (d differ) changesForConstant(serviceName, apiVersion, apiResource, constan
 		// NOTE: if the casing of the Value changes this would be a breaking change too
 		if oldValue != updatedValue {
 			log.Logger.Trace("Key %q has changed value from %q to %q", key, oldValue, updatedValue)
-			output = append(output, changes.ConstantKeyValueChanged{
-				ServiceName:      serviceName,
+			output = append(output, changes.CommonTypesConstantKeyValueChanged{
 				ApiVersion:       apiVersion,
-				ResourceName:     apiResource,
 				ConstantName:     constantName,
 				ConstantKey:      key,
 				OldConstantValue: oldValue,

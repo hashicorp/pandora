@@ -5,8 +5,6 @@ package differ
 
 import (
 	"fmt"
-	"sort"
-
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/changes"
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/log"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
@@ -15,7 +13,7 @@ import (
 // changesForApiResources determines the changes between the API Resources within the specified API Version.
 func (d differ) changesForApiResources(serviceName, apiVersion string, initial, updated map[string]models.APIResource, includeNestedChangesWhenNew bool) (*[]changes.Change, error) {
 	output := make([]changes.Change, 0)
-	apiResources := d.uniqueApiResources(initial, updated)
+	apiResources := uniqueKeys(initial, updated)
 	for _, apiResource := range apiResources {
 		log.Logger.Trace(fmt.Sprintf("Detecting changes in API Resource %q..", apiResource))
 		changesForApiResource, err := d.changesForApiResource(serviceName, apiVersion, apiResource, initial, updated, includeNestedChangesWhenNew)
@@ -92,22 +90,4 @@ func (d differ) changesForApiResource(serviceName, apiVersion, apiResource strin
 	output = append(output, changesInResourceIds...)
 
 	return &output, nil
-}
-
-// uniqueApiResources returns a unique, sorted list of API Resources from the keys of initial and updated.
-func (d differ) uniqueApiResources(initial, updated map[string]models.APIResource) []string {
-	uniqueNames := make(map[string]struct{})
-	for name := range initial {
-		uniqueNames[name] = struct{}{}
-	}
-	for name := range updated {
-		uniqueNames[name] = struct{}{}
-	}
-
-	output := make([]string, 0)
-	for k := range uniqueNames {
-		output = append(output, k)
-	}
-	sort.Strings(output)
-	return output
 }
