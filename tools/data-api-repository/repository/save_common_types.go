@@ -49,8 +49,13 @@ func (r *repositoryImpl) SaveCommonTypes(opts SaveCommonTypesOptions) error {
 		}
 	}
 
+	dataDirectory, err := r.defaultDirectoryForSourceDataOrigin(opts.SourceDataOrigin)
+	if err != nil {
+		return fmt.Errorf("determining the default data directory for the Source Data Origin %q: %+v", opts.SourceDataOrigin, err)
+	}
+
 	r.logger.Debug("Persisting files to disk..")
-	if err := helpers.PersistFileSystem(r.workingDirectory, fs, r.logger); err != nil {
+	if err := helpers.PersistFileSystem(*dataDirectory, fs, r.logger); err != nil {
 		return fmt.Errorf("persisting files: %+v", err)
 	}
 
