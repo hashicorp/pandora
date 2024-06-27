@@ -6,8 +6,12 @@
       "jsonName": "authHeaders",
       "name": "AuthHeaders",
       "objectDefinition": {
-        "type": "RawObject",
-        "referenceName": null
+        "type": "Dictionary",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
       },
       "optional": true,
       "readOnly": false,
@@ -32,7 +36,7 @@
       "jsonName": "certThumbprint",
       "name": "CertThumbprint",
       "objectDefinition": {
-        "type": "RawObject",
+        "type": "String",
         "referenceName": null
       },
       "optional": true,
@@ -45,7 +49,7 @@
       "jsonName": "embeddedCertData",
       "name": "EmbeddedCertData",
       "objectDefinition": {
-        "type": "RawObject",
+        "type": "String",
         "referenceName": null
       },
       "optional": true,
@@ -58,7 +62,7 @@
       "jsonName": "enableServerCertificateValidation",
       "name": "EnableServerCertificateValidation",
       "objectDefinition": {
-        "type": "RawObject",
+        "type": "Boolean",
         "referenceName": null
       },
       "optional": true,
@@ -97,7 +101,7 @@
       "jsonName": "url",
       "name": "Url",
       "objectDefinition": {
-        "type": "RawObject",
+        "type": "String",
         "referenceName": null
       },
       "optional": false,
@@ -110,7 +114,7 @@
       "jsonName": "userName",
       "name": "UserName",
       "objectDefinition": {
-        "type": "RawObject",
+        "type": "String",
         "referenceName": null
       },
       "optional": true,

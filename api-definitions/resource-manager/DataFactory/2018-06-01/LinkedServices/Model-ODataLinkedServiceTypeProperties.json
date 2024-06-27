@@ -6,7 +6,7 @@
       "jsonName": "aadResourceId",
       "name": "AadResourceId",
       "objectDefinition": {
-        "type": "RawObject",
+        "type": "String",
         "referenceName": null
       },
       "optional": true,
@@ -32,8 +32,12 @@
       "jsonName": "authHeaders",
       "name": "AuthHeaders",
       "objectDefinition": {
-        "type": "RawObject",
-        "referenceName": null
+        "type": "Dictionary",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
       },
       "optional": true,
       "readOnly": false,
@@ -58,7 +62,7 @@
       "jsonName": "azureCloudType",
       "name": "AzureCloudType",
       "objectDefinition": {
-        "type": "RawObject",
+        "type": "String",
         "referenceName": null
       },
       "optional": true,
@@ -123,7 +127,7 @@
       "jsonName": "servicePrincipalId",
       "name": "ServicePrincipalId",
       "objectDefinition": {
-        "type": "RawObject",
+        "type": "String",
         "referenceName": null
       },
       "optional": true,
@@ -149,7 +153,7 @@
       "jsonName": "tenant",
       "name": "Tenant",
       "objectDefinition": {
-        "type": "RawObject",
+        "type": "String",
         "referenceName": null
       },
       "optional": true,
@@ -162,7 +166,7 @@
       "jsonName": "url",
       "name": "Url",
       "objectDefinition": {
-        "type": "RawObject",
+        "type": "String",
         "referenceName": null
       },
       "optional": false,
@@ -175,7 +179,7 @@
       "jsonName": "userName",
       "name": "UserName",
       "objectDefinition": {
-        "type": "RawObject",
+        "type": "String",
         "referenceName": null
       },
       "optional": true,

@@ -6,8 +6,12 @@
       "jsonName": "additionalColumns",
       "name": "AdditionalColumns",
       "objectDefinition": {
-        "type": "RawObject",
-        "referenceName": null
+        "type": "Dictionary",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
       },
       "optional": true,
       "readOnly": false,
@@ -19,7 +23,7 @@
       "jsonName": "additionalHeaders",
       "name": "AdditionalHeaders",
       "objectDefinition": {
-        "type": "RawObject",
+        "type": "String",
         "referenceName": null
       },
       "optional": true,
@@ -32,7 +36,7 @@
       "jsonName": "httpRequestTimeout",
       "name": "HTTPRequestTimeout",
       "objectDefinition": {
-        "type": "RawObject",
+        "type": "String",
         "referenceName": null
       },
       "optional": true,
@@ -45,7 +49,7 @@
       "jsonName": "paginationRules",
       "name": "PaginationRules",
       "objectDefinition": {
-        "type": "RawObject",
+        "type": "String",
         "referenceName": null
       },
       "optional": true,
@@ -58,7 +62,7 @@
       "jsonName": "requestBody",
       "name": "RequestBody",
       "objectDefinition": {
-        "type": "RawObject",
+        "type": "String",
         "referenceName": null
       },
       "optional": true,
@@ -84,7 +88,7 @@
       "jsonName": "requestMethod",
       "name": "RequestMethod",
       "objectDefinition": {
-        "type": "RawObject",
+        "type": "String",
         "referenceName": null
       },
       "optional": true,

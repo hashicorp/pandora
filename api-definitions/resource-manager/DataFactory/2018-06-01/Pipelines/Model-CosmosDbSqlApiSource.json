@@ -19,7 +19,7 @@
       "jsonName": "detectDatetime",
       "name": "DetectDatetime",
       "objectDefinition": {
-        "type": "RawObject",
+        "type": "Boolean",
         "referenceName": null
       },
       "optional": true,
@@ -32,7 +32,7 @@
       "jsonName": "pageSize",
       "name": "PageSize",
       "objectDefinition": {
-        "type": "RawObject",
+        "type": "Integer",
         "referenceName": null
       },
       "optional": true,
@@ -45,8 +45,12 @@
       "jsonName": "preferredRegions",
       "name": "PreferredRegions",
       "objectDefinition": {
-        "type": "RawObject",
-        "referenceName": null
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
       },
       "optional": true,
       "readOnly": false,
@@ -58,7 +62,7 @@
       "jsonName": "query",
       "name": "Query",
       "objectDefinition": {
-        "type": "RawObject",
+        "type": "String",
         "referenceName": null
       },
       "optional": true,
