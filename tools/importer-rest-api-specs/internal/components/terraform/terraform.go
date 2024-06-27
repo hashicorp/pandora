@@ -12,13 +12,11 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
 )
 
-func BuildForService(input sdkModels.Service, terraformConfig map[string]definitions.ResourceDefinition) (*sdkModels.Service, error) {
+func BuildForService(input sdkModels.Service, terraformConfig map[string]definitions.ResourceDefinition, providerPrefix string) (*sdkModels.Service, error) {
 	if input.TerraformDefinition == nil {
 		logging.Debugf("No Terraform Definition exists for the Service %q - skipping", input.Name)
 		return &input, nil
 	}
-
-	providerPrefix := "azurerm"
 
 	logging.Infof("Identifying the Terraform objects for the Service %q..", input.Name)
 	data, err := identification.WithinService(providerPrefix, input, terraformConfig)

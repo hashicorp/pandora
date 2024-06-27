@@ -10,18 +10,18 @@ import (
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/data-api-repository/repository"
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/discovery"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform"
-	terraformModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/transformer"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/terraform"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
 )
 
 func runImporter(input RunInput, generationData []discovery.ServiceInput, swaggerGitSha string) error {
-	sourceDataType := models.ResourceManagerSourceDataType
-	sourceDataOrigin := models.AzureRestAPISpecsSourceDataOrigin
+	sourceDataType := sdkModels.ResourceManagerSourceDataType
+	sourceDataOrigin := sdkModels.AzureRestAPISpecsSourceDataOrigin
 	repo, err := repository.NewRepository(input.OutputDirectory, sourceDataType, nil, logging.Log)
 	if err != nil {
 		return fmt.Errorf("building repository: %+v", err)
@@ -77,12 +77,13 @@ func runImporter(input RunInput, generationData []discovery.ServiceInput, swagge
 	return nil
 }
 
-func runImportForService(input RunInput, serviceName string, apiVersionsForService []discovery.ServiceInput, sourceDataOrigin models.SourceDataOrigin, logger hclog.Logger, swaggerGitSha string, repo repository.Repository) error {
+func runImportForService(input RunInput, serviceName string, apiVersionsForService []discovery.ServiceInput, sourceDataOrigin sdkModels.SourceDataOrigin, logger hclog.Logger, swaggerGitSha string, repo repository.Repository) error {
 	task := pipelineTask{}
 	var resourceProvider *string
 	var terraformPackageName *string
 
 	consolidatedApiVersions := make(map[string][]discovery.ServiceInput)
+	terraformResourceDefinitions := make(map[string]definitions.ResourceDefinition)
 
 	// scan for fragmented API - e.g. Compute 2021-07-01
 	for _, v := range apiVersionsForService {
@@ -91,49 +92,21 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 		} else {
 			consolidatedApiVersions[v.ApiVersion] = append(consolidatedApiVersions[v.ApiVersion], v)
 		}
-	}
 
-	// Pull out any overrides for the Terraform Resources from all API Versions
-	// Since a since Terraform Resource can only come from a single API Version - these are going to be
-	// unique so a map for all Terraform Resources across all API Versions for a single Service is fine.
-	resourceBuildInfo := make(map[string]terraformModels.ResourceBuildInfo)
-	for _, apiData := range consolidatedApiVersions {
-		for _, data := range apiData {
-			if resourceProvider == nil && data.ResourceProvider != nil {
-				rpName := *data.ResourceProvider
-				resourceProvider = &rpName
-			}
-
-			if data.TerraformServiceDefinition == nil {
-				continue
-			}
-
-			// populate the service information based on this api version
-			if terraformPackageName == nil && data.TerraformServiceDefinition != nil {
-				packageName := data.TerraformServiceDefinition.TerraformPackageName
-				terraformPackageName = &packageName
-			}
-
-			for _, versionDetails := range data.TerraformServiceDefinition.ApiVersions {
-				for _, pkgDetails := range versionDetails.Packages {
-					for resource, resourceDetails := range pkgDetails.Definitions {
-						if resourceDetails.Overrides != nil {
-							overrides := make([]terraformModels.Override, 0)
-							for _, o := range *resourceDetails.Overrides {
-								overrides = append(overrides, terraformModels.Override{
-									Name:        o.Name,
-									UpdatedName: o.UpdatedName,
-									Description: o.Description,
-								})
-							}
-							resourceBuildInfo[resource] = terraformModels.ResourceBuildInfo{
-								Overrides: overrides,
-							}
+		if v.TerraformServiceDefinition != nil {
+			for _, apiVersionDefinition := range v.TerraformServiceDefinition.ApiVersions {
+				for _, apiResourceDetails := range apiVersionDefinition.Packages {
+					for resourceLabel, resourceDefinition := range apiResourceDetails.Definitions {
+						if _, existing := terraformResourceDefinitions[resourceLabel]; existing {
+							return fmt.Errorf("a duplicate Terraform Resource Definition exists for %q", resourceLabel)
 						}
+						terraformResourceDefinitions[resourceLabel] = resourceDefinition
 					}
 				}
+
 			}
 		}
+		//v.TerraformServiceDefinition.ApiVersions[v.ApiVersion] =
 	}
 
 	// Populate all of the data for this API Version..
@@ -163,28 +136,22 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 		dataForApiVersions = append(dataForApiVersions, *dataForApiVersion)
 	}
 
-	// Now that we've got all of the API Versions, build up the Terraform Resources
-	// NOTE: in the near future this will be refactored to be for a Service, this is a stepping-stone refactor
-	// in that direction - as that requires more significant refactoring to the `terraform` package.
-	dataForApiVersionsWithTerraformDetails := make([]importerModels.AzureApiDefinition, 0)
-	for _, apiVersion := range dataForApiVersions {
-		dataForApiVersion, err := terraform.PopulateForResources(apiVersion, resourceBuildInfo, input.ProviderPrefix, logging.Log)
-		if err != nil {
-			return fmt.Errorf("populating Terraform Details for Service %q / Version %q: %+v", serviceName, apiVersion.ApiVersion, err)
-		}
-		dataForApiVersionsWithTerraformDetails = append(dataForApiVersionsWithTerraformDetails, *dataForApiVersion)
-	}
-
 	// temporary glue to enable refactoring this tool piece-by-piece
 	logger.Info("Transforming to the Data API SDK types..")
-	service, err := transformer.MapInternalTypesToDataAPISDKTypes(serviceName, dataForApiVersionsWithTerraformDetails, resourceProvider, terraformPackageName, logger)
+	service, err := transformer.MapInternalTypesToDataAPISDKTypes(serviceName, dataForApiVersions, resourceProvider, terraformPackageName, logger)
 	if err != nil {
 		return fmt.Errorf("transforming the internal types to the Data API SDK types: %+v", err)
 	}
 
+	// Now that we've got all of the API Versions, build up the Terraform Resources
+	logging.Log.Info(fmt.Sprintf("Building Terraform Resources for the Service %q..", service.Name))
+	service, err = terraform.BuildForService(*service, terraformResourceDefinitions, input.ProviderPrefix)
+	if err != nil {
+		return fmt.Errorf("building the Terraform Details: %+v", err)
+	}
+
 	// Now that we have the populated data, let's go ahead and output that..
 	logger.Info(fmt.Sprintf("Persisting API Definitions for Service %s..", serviceName))
-
 	opts := repository.SaveServiceOptions{
 		SourceCommitSHA:  pointer.To(swaggerGitSha),
 		ResourceProvider: resourceProvider,
