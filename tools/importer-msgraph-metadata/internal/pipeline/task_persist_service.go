@@ -10,7 +10,7 @@ import (
 
 func (p pipelineForService) persistApiDefinitions(sdkServices map[string]sdkModels.Service, commonTypes map[string]sdkModels.CommonTypes) error {
 	for serviceName, service := range sdkServices {
-		p.logger.Info(fmt.Sprintf("persisting API Definitions for Service %q..", serviceName))
+		p.logger.Info(fmt.Sprintf("Persisting API Definitions for Service %q..", serviceName))
 
 		opts := repository.SaveServiceOptions{
 			CommonTypes:      commonTypes,

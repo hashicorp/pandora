@@ -8,7 +8,7 @@ import (
 )
 
 func (p pipeline) PersistCommonTypesDefinitions() error {
-	p.logger.Info("persisting Common Types Definitions..")
+	p.logger.Info("Persisting Common Types Definitions..")
 
 	commonTypes := map[string]sdkModels.CommonTypes{
 		p.apiVersion: p.commonTypesForVersion,

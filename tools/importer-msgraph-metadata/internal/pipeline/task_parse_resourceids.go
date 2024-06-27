@@ -52,7 +52,7 @@ func (p pipelineForService) parseResourceIDs() (resourceIds parser.ResourceIds, 
 		}
 
 		if resourceIdName != "" {
-			p.logger.Info(fmt.Sprintf("found resource ID %q (service %q, version %q)", resourceIdName, p.service, p.apiVersion))
+			p.logger.Info(fmt.Sprintf("Found resource ID %q (service %q, version %q)", resourceIdName, p.service, p.apiVersion))
 
 			id.Name = resourceIdName
 			id.Service = normalize.CleanName(p.service)
