@@ -9,7 +9,7 @@ import (
 	"strings"
 
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/schema/helpers"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/terraform/schema/helpers"
 	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
 )
 

@@ -5,14 +5,14 @@ package schema
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
 	"regexp"
 	"strings"
 	"unicode"
 
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/schema/helpers"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/schema/processors"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/terraform/schema/helpers"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/terraform/schema/processors"
+	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
 )
 
 func fieldShouldBeIgnored(key string, definition sdkModels.SDKField, constants map[string]sdkModels.SDKConstant) bool {

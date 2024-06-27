@@ -28,9 +28,23 @@ func runImporter(input RunInput, generationData []discovery.ServiceInput, swagge
 	}
 
 	// Clear any existing data
-	input.Logger.Info(fmt.Sprintf("Purging all existing Source Data for Source Data Type %q / Source Data Origin %q..", sourceDataType, sourceDataOrigin))
-	if err := repo.PurgeExistingData(sourceDataOrigin); err != nil {
-		return fmt.Errorf("purging the existing Source Data for the Source Data Type %q / Source Data Origin %q: %+v", sourceDataType, sourceDataOrigin, err)
+	if len(input.Services) == 0 {
+		input.Logger.Info(fmt.Sprintf("Purging all existing Source Data for Source Data Type %q / Source Data Origin %q..", sourceDataType, sourceDataOrigin))
+		if err := repo.PurgeExistingData(sourceDataOrigin); err != nil {
+			return fmt.Errorf("purging the existing Source Data for the Source Data Type %q / Source Data Origin %q: %+v", sourceDataType, sourceDataOrigin, err)
+		}
+	} else {
+		input.Logger.Info(fmt.Sprintf("Purging the existing Source Data for the Services [%+v] for  for Source Data Type %q / Source Data Origin %q..", input.Services, sourceDataType, sourceDataOrigin))
+		for _, serviceName := range input.Services {
+			input.Logger.Debug(fmt.Sprintf("Removing the existing Data for Service %q..", serviceName))
+			opts := repository.RemoveServiceOptions{
+				ServiceName:      serviceName,
+				SourceDataOrigin: sourceDataOrigin,
+			}
+			if err := repo.RemoveService(opts); err != nil {
+				return fmt.Errorf("removing the existing Data for Service %q: %+v", serviceName, err)
+			}
+		}
 	}
 
 	// group the API Versions by Service
@@ -87,6 +101,11 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 
 	// scan for fragmented API - e.g. Compute 2021-07-01
 	for _, v := range apiVersionsForService {
+		if resourceProvider != nil && v.ResourceProvider != nil && *resourceProvider != *v.ResourceProvider {
+			return fmt.Errorf("multiple Resource Providers were found for the Service %q. First %q / Second %q", serviceName, *resourceProvider, *v.ResourceProvider)
+		}
+		resourceProvider = v.ResourceProvider
+
 		if _, ok := consolidatedApiVersions[v.ApiVersion]; !ok {
 			consolidatedApiVersions[v.ApiVersion] = []discovery.ServiceInput{v}
 		} else {
@@ -94,19 +113,24 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 		}
 
 		if v.TerraformServiceDefinition != nil {
+			if terraformPackageName != nil && *terraformPackageName != v.TerraformServiceDefinition.TerraformPackageName {
+				return fmt.Errorf("duplicate Terraform Package names for the Service %q. First %q / Second %q", serviceName, *terraformPackageName, v.TerraformServiceDefinition.TerraformPackageName)
+			}
+			terraformPackageName = pointer.To(v.TerraformServiceDefinition.TerraformPackageName)
+
 			for _, apiVersionDefinition := range v.TerraformServiceDefinition.ApiVersions {
 				for _, apiResourceDetails := range apiVersionDefinition.Packages {
 					for resourceLabel, resourceDefinition := range apiResourceDetails.Definitions {
-						if _, existing := terraformResourceDefinitions[resourceLabel]; existing {
-							return fmt.Errorf("a duplicate Terraform Resource Definition exists for %q", resourceLabel)
-						}
+						// TODO: until this is refactored this needs to stay as-is
+						//if _, existing := terraformResourceDefinitions[resourceLabel]; existing {
+						//	return fmt.Errorf("a duplicate Terraform Resource Definition exists for %q", resourceLabel)
+						//}
 						terraformResourceDefinitions[resourceLabel] = resourceDefinition
 					}
 				}
 
 			}
 		}
-		//v.TerraformServiceDefinition.ApiVersions[v.ApiVersion] =
 	}
 
 	// Populate all of the data for this API Version..
@@ -145,7 +169,7 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 
 	// Now that we've got all of the API Versions, build up the Terraform Resources
 	logging.Log.Info(fmt.Sprintf("Building Terraform Resources for the Service %q..", service.Name))
-	service, err = terraform.BuildForService(*service, terraformResourceDefinitions, input.ProviderPrefix)
+	service, err = terraform.BuildForService(*service, terraformResourceDefinitions, input.ProviderPrefix, terraformPackageName)
 	if err != nil {
 		return fmt.Errorf("building the Terraform Details: %+v", err)
 	}

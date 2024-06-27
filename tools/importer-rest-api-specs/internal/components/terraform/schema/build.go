@@ -12,14 +12,17 @@ func Build(input models.WorkInProgressData) (*models.WorkInProgressData, error) 
 		logging.Infof("Building the Schema for Terraform Resource %q..", resourceLabel)
 		resource := input.Resources[resourceLabel]
 
+		resource.Resource.SchemaModelName = fmt.Sprintf("%sResource", resource.Resource.ResourceName)
 		builder := NewBuilder(resource.APIResource)
 		schemaModels, mappings, err := builder.Build(resource.Resource, resource.InputData)
 		if err != nil {
 			return nil, fmt.Errorf("building the Terraform Schema: %+v", err)
 		}
 
+		logging.Tracef("The Resource %q has %d models", resourceLabel, len(*schemaModels))
 		resource.Resource.SchemaModels = *schemaModels
 		resource.Resource.Mappings = *mappings
+
 		input.Resources[resourceLabel] = resource
 	}
 

@@ -35,13 +35,26 @@ func WithinService(providerPrefix string, input sdkModels.Service, terraformConf
 			return nil, fmt.Errorf("the Resource %q referenced APIResource %q which was not found", resourceLabel, resourceMetaData.APIResource)
 		}
 
-		methods, err := identifyMethodsForAPIResource(apiResource, resourceMetaData, resourceLabel)
+		// find the name for this Resource ID
+		var resourceIDName string
+		for name, val := range apiResource.ResourceIDs {
+			if val.ExampleValue == resourceMetaData.ID {
+				resourceIDName = name
+				break
+			}
+		}
+		if resourceIDName == "" {
+			return nil, fmt.Errorf("unable to identify the Resource ID associated with %q", resourceMetaData.ID)
+		}
+
+		methods, err := identifyMethodsForAPIResource(apiResource, resourceMetaData, resourceIDName)
 		if err != nil {
 			return nil, fmt.Errorf("identifying the methods Reosurce %q from the APIResource: %+v", resourceMetaData.Name, err)
 		}
 
-		resourceDefinition := buildResource(resourceLabel, resourceMetaData, *methods)
+		resourceDefinition := buildResource(resourceIDName, resourceMetaData, *methods)
 		if resourceDefinition == nil {
+			logging.Tracef("Resource Definition was nil - skipping")
 			continue
 		}
 

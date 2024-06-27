@@ -5,6 +5,7 @@ package identification
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
@@ -23,11 +24,15 @@ func identifyMethodsForAPIResource(input sdkModels.APIResource, resourceMetaData
 	methods := methodsForResource{}
 
 	for operationName, operation := range input.Operations {
+		logging.Tracef("Processing Candidate Operation %q (%q)", operationName, operation.Method)
+
 		// if it's an operation on just a suffix we're not interested
 		if operation.ResourceIDName == nil {
+			logging.Tracef("ResourceIDName was nil for this Operation, skipping")
 			continue
 		}
 		if *operation.ResourceIDName != resourceIdName {
+			logging.Tracef("ResourceIDName differed for this Operation (%q vs %q), skipping", *operation.ResourceIDName, resourceIdName)
 			continue
 		}
 
