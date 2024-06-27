@@ -13,6 +13,9 @@ import (
 // NOTE: this should only be used within the `terraform` package - with the SDK Model `TerraformResourceDefinition`
 // used elsewhere.
 type WorkInProgressResource struct {
+	// APIResource contains the APIResource that's used for this Terraform Resource.
+	APIResource models.APIResource
+
 	// InputData contains the SourceData used to identify this Terraform Resource, alongside any defaults,
 	// documentation and test values.
 	InputData definitions.ResourceDefinition

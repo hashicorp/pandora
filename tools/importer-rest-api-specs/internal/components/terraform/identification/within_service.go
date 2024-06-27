@@ -59,8 +59,9 @@ func WithinService(providerPrefix string, input sdkModels.Service, terraformConf
 		}
 
 		output.Resources[resourceLabel] = terraformModels.WorkInProgressResource{
-			InputData: resourceMetaData,
-			Resource:  *resourceDefinition,
+			APIResource: apiResource,
+			InputData:   resourceMetaData,
+			Resource:    *resourceDefinition,
 		}
 	}
 
