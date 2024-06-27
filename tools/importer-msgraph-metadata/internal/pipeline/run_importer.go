@@ -8,7 +8,6 @@ import (
 	"path/filepath"
 
 	"github.com/getkin/kin-openapi/openapi3"
-	"github.com/hashicorp/pandora/tools/data-api-repository/repository"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/parser"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/tags"
@@ -25,11 +24,7 @@ func runImporter(input RunInput, metadataGitSha string) error {
 	}
 
 	logger.Debug("Removing any existing API Definitions")
-	purgeDefinitionsOpts := repository.PurgeExistingDefinitionsOptions{
-		SourceDataOrigin: sdkModels.MicrosoftGraphMetaDataSourceDataOrigin,
-		SourceDataType:   sdkModels.MicrosoftGraphSourceDataType,
-	}
-	if err = input.Repo.PurgeExistingDefinitions(purgeDefinitionsOpts); err != nil {
+	if err = input.Repo.PurgeExistingData(sdkModels.MicrosoftGraphMetaDataSourceDataOrigin); err != nil {
 		return fmt.Errorf("removing existing API Definitions: %+v", err)
 	}
 
@@ -112,7 +107,7 @@ func runImportForVersion(input RunInput, apiVersion, openApiFile, metadataGitSha
 
 				input.Logger.Info(fmt.Sprintf("Importing service %q for API version %q", service.Name, version))
 
-				if err = p.ForService(service.Directory).runImport(serviceTags[service.Directory], models, constants); err != nil {
+				if err = p.ForService(service.Directory).RunImport(serviceTags[service.Directory], models, constants); err != nil {
 					return err
 				}
 			}

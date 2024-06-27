@@ -17,6 +17,7 @@ func (p pipeline) translateServiceToDataApiSdkTypes(models parser.Models, consta
 			sdkServices[resource.Service] = sdkModels.Service{
 				APIVersions:         make(map[string]sdkModels.APIVersion),
 				Generate:            true,
+				Name:                resource.Service,
 				ResourceProvider:    nil,
 				TerraformDefinition: nil,
 			}
@@ -24,10 +25,11 @@ func (p pipeline) translateServiceToDataApiSdkTypes(models parser.Models, consta
 
 		if _, ok := sdkServices[resource.Service].APIVersions[resource.Version]; !ok {
 			sdkServices[resource.Service].APIVersions[resource.Version] = sdkModels.APIVersion{
-				Generate:  true,
-				Preview:   normalize.VersionIsPreview(resource.Version),
-				Resources: make(map[string]sdkModels.APIResource),
-				Source:    sdkModels.MicrosoftGraphMetaDataSourceDataOrigin,
+				APIVersion: resource.Version,
+				Generate:   true,
+				Preview:    normalize.VersionIsPreview(resource.Version),
+				Resources:  make(map[string]sdkModels.APIResource),
+				Source:     sdkModels.MicrosoftGraphMetaDataSourceDataOrigin,
 			}
 		}
 

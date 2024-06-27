@@ -18,7 +18,6 @@ func (p pipelineForService) persistApiDefinitions(sdkServices map[string]sdkMode
 			ServiceName:      serviceName,
 			SourceCommitSHA:  pointer.To(p.metadataGitSha),
 			SourceDataOrigin: sdkModels.MicrosoftGraphMetaDataSourceDataOrigin,
-			SourceDataType:   sdkModels.MicrosoftGraphSourceDataType,
 		}
 
 		if err := p.repo.SaveService(opts); err != nil {

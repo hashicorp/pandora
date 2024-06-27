@@ -9,6 +9,7 @@ import (
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/data-api-repository/repository"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/internal/logging"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/internal/pipeline"
 	"github.com/mitchellh/cli"
@@ -57,6 +58,11 @@ func (c ImportCommand) Run(args []string) int {
 		serviceNames = strings.Split(serviceNamesRaw, ",")
 	}
 
+	repo, err := repository.NewRepository(c.outputDirectory, sdkModels.MicrosoftGraphSourceDataType, &serviceNames, logging.Log)
+	if err != nil {
+		log.Fatalf("Error: %+v", err)
+	}
+
 	input := pipeline.RunInput{
 		ProviderPrefix: "azuread",
 		Logger:         logging.Log,
@@ -65,7 +71,7 @@ func (c ImportCommand) Run(args []string) int {
 		MetadataDirectory:  c.metadataDirectory,
 		OpenApiFilePattern: c.openApiFilePattern,
 		OutputDirectory:    c.outputDirectory,
-		Repo:               repository.NewRepository(c.outputDirectory, logging.Log),
+		Repo:               repo,
 		Services:           serviceNames,
 	}
 	if err := pipeline.Run(input); err != nil {

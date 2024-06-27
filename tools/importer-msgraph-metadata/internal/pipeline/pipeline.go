@@ -36,7 +36,7 @@ func (p pipeline) ForService(serviceName string) pipelineForService {
 	}
 }
 
-func (p pipelineForService) runImport(serviceTags []string, models parser.Models, constants parser.Constants) error {
+func (p pipelineForService) RunImport(serviceTags []string, models parser.Models, constants parser.Constants) error {
 	p.logger.Info(fmt.Sprintf("Parsing resource IDs for %q", p.service))
 	resourceIds, err := p.parseResourceIDs()
 	if err != nil {

@@ -17,7 +17,6 @@ func (p pipeline) PersistCommonTypesDefinitions() error {
 	opts := repository.SaveCommonTypesOptions{
 		CommonTypes:      commonTypes,
 		SourceDataOrigin: sdkModels.MicrosoftGraphMetaDataSourceDataOrigin,
-		SourceDataType:   sdkModels.MicrosoftGraphSourceDataType,
 	}
 
 	if err := p.repo.SaveCommonTypes(opts); err != nil {
