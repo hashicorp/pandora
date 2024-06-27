@@ -19,7 +19,7 @@
       "jsonName": "detectDataType",
       "name": "DetectDataType",
       "objectDefinition": {
-        "type": "RawObject",
+        "type": "Boolean",
         "referenceName": null
       },
       "optional": true,
@@ -32,8 +32,12 @@
       "jsonName": "namespacePrefixes",
       "name": "NamespacePrefixes",
       "objectDefinition": {
-        "type": "RawObject",
-        "referenceName": null
+        "type": "Dictionary",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
       },
       "optional": true,
       "readOnly": false,
@@ -45,7 +49,7 @@
       "jsonName": "namespaces",
       "name": "Namespaces",
       "objectDefinition": {
-        "type": "RawObject",
+        "type": "Boolean",
         "referenceName": null
       },
       "optional": true,
@@ -58,7 +62,7 @@
       "jsonName": "validationMode",
       "name": "ValidationMode",
       "objectDefinition": {
-        "type": "RawObject",
+        "type": "String",
         "referenceName": null
       },
       "optional": true,
