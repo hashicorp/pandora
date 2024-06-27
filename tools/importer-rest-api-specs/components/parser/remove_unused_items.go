@@ -59,7 +59,6 @@ func removeUnusedItems(resources map[string]importerModels.AzureApiResource) map
 			Models:      details.Models,
 			Operations:  details.Operations,
 			ResourceIds: resourceIdsForThisResource,
-			Terraform:   details.Terraform,
 		}
 	}
 
