@@ -1,0 +1,23 @@
+{
+  "name": "CheckAccessByDepartment",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "DepartmentId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "CheckAccessRequest"
+  },
+  "responseObject": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+      "type": "Reference",
+      "referenceName": "CheckAccessResponse"
+    }
+  },
+  "uriSuffix": "/checkAccess"
+}

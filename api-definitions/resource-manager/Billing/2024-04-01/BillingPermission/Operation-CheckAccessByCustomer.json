@@ -1,0 +1,23 @@
+{
+  "name": "CheckAccessByCustomer",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "BillingProfileCustomerId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "CheckAccessRequest"
+  },
+  "responseObject": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+      "type": "Reference",
+      "referenceName": "CheckAccessResponse"
+    }
+  },
+  "uriSuffix": "/checkAccess"
+}

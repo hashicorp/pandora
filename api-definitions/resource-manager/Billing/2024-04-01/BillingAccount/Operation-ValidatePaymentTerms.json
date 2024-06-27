@@ -1,0 +1,23 @@
+{
+  "name": "ValidatePaymentTerms",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "BillingAccountId",
+  "requestObject": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+      "type": "Reference",
+      "referenceName": "PaymentTerm"
+    }
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "PaymentTermsEligibilityResult"
+  },
+  "uriSuffix": "/validatePaymentTerms"
+}

@@ -1,0 +1,32 @@
+{
+  "name": "SystemOverrides",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "cancellation",
+      "name": "Cancellation",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Cancellation"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "dateFormat": "RFC3339",
+      "jsonName": "cancellationAllowedEndDate",
+      "name": "CancellationAllowedEndDate",
+      "objectDefinition": {
+        "type": "DateTime",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

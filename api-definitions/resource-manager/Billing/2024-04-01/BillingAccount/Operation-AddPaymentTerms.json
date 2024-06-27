@@ -1,0 +1,24 @@
+{
+  "name": "AddPaymentTerms",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "BillingAccountId",
+  "requestObject": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+      "type": "Reference",
+      "referenceName": "PaymentTerm"
+    }
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "BillingAccount"
+  },
+  "uriSuffix": "/addPaymentTerms"
+}

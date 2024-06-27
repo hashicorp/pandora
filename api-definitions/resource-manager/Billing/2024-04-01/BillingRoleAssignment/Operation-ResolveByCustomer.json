@@ -1,0 +1,39 @@
+{
+  "name": "ResolveByCustomer",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": true,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "filter",
+      "required": false,
+      "field": "Filter",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "resolveScopeDisplayNames",
+      "required": false,
+      "field": "ResolveScopeDisplayNames",
+      "optionsObjectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "BillingProfileCustomerId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "BillingRoleAssignment"
+  },
+  "uriSuffix": "/resolveBillingRoleAssignments"
+}

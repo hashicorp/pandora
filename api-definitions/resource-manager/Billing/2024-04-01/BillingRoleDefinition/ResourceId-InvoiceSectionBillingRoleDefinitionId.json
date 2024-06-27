@@ -1,0 +1,52 @@
+{
+  "name": "InvoiceSectionBillingRoleDefinitionId",
+  "id": "/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingProfiles/{billingProfileName}/invoiceSections/{invoiceSectionName}/billingRoleDefinitions/{billingRoleDefinitionName}",
+  "segments": [
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftBilling",
+      "type": "ResourceProvider",
+      "value": "Microsoft.Billing"
+    },
+    {
+      "name": "staticBillingAccounts",
+      "type": "Static",
+      "value": "billingAccounts"
+    },
+    {
+      "name": "billingAccountName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticBillingProfiles",
+      "type": "Static",
+      "value": "billingProfiles"
+    },
+    {
+      "name": "billingProfileName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticInvoiceSections",
+      "type": "Static",
+      "value": "invoiceSections"
+    },
+    {
+      "name": "invoiceSectionName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticBillingRoleDefinitions",
+      "type": "Static",
+      "value": "billingRoleDefinitions"
+    },
+    {
+      "name": "billingRoleDefinitionName",
+      "type": "UserSpecified"
+    }
+  ]
+}
