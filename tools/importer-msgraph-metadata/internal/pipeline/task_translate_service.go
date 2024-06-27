@@ -113,7 +113,7 @@ func (p pipeline) translateServiceToDataApiSdkTypes(models parser.Models, consta
 						Type:                      sdkModels.ReferenceSDKObjectDefinitionType,
 					}
 				} else if response.Type != nil {
-					requestObject = &sdkModels.SDKObjectDefinition{
+					responseObject = &sdkModels.SDKObjectDefinition{
 						Type: response.Type.DataApiSdkObjectDefinitionType(),
 					}
 				}
