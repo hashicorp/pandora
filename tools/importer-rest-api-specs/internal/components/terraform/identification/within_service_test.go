@@ -88,7 +88,7 @@ func TestIdentityWithinServiceCreateAndReadAndUpdateAndDelete(t *testing.T) {
 			Overrides:      &[]definitions.Override{},
 		},
 	}
-	result, err := WithinService(service, resources)
+	result, err := WithinService("azurerm", service, resources)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 	}
@@ -185,7 +185,7 @@ func TestIdentityWithinServiceCreateOrUpdateAndReadAndDelete(t *testing.T) {
 			Overrides:      &[]definitions.Override{},
 		},
 	}
-	result, err := WithinService(service, resources)
+	result, err := WithinService("azurerm", service, resources)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 	}
@@ -310,7 +310,7 @@ func TestIdentityWithinServiceCreateOrUpdateAndUpdateAndReadAndDelete(t *testing
 			Overrides:      &[]definitions.Override{},
 		},
 	}
-	result, err := WithinService(service, resources)
+	result, err := WithinService("azurerm", service, resources)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 	}
@@ -417,7 +417,7 @@ func TestIdentityWithinServiceCreateOrUpdateAndUpdateAndReadAndDelete_NoProperti
 			Overrides:      &[]definitions.Override{},
 		},
 	}
-	result, err := WithinService(service, resources)
+	result, err := WithinService("azurerm", service, resources)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 	}
@@ -449,7 +449,6 @@ func TestIdentityWithinServiceCreateOrUpdateAndUpdateAndReadAndDelete_NoProperti
 }
 
 func TestIdentityWithinServiceCreateReadDeleteAndUpdateTags(t *testing.T) {
-
 	service := sdkModels.Service{
 		Name:     "Networking",
 		Generate: true,
@@ -523,7 +522,7 @@ func TestIdentityWithinServiceCreateReadDeleteAndUpdateTags(t *testing.T) {
 			Overrides:      &[]definitions.Override{},
 		},
 	}
-	result, err := WithinService(service, resources)
+	result, err := WithinService("azurerm", service, resources)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 	}
