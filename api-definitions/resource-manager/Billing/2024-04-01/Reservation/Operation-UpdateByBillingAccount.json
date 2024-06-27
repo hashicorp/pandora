@@ -1,0 +1,19 @@
+{
+  "name": "UpdateByBillingAccount",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "ReservationId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "Patch"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "Reservation"
+  }
+}

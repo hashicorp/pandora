@@ -1,0 +1,15 @@
+{
+  "name": "PoliciesGetByBillingAccount",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "BillingAccountId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "BillingAccountPolicy"
+  },
+  "uriSuffix": "/policies/default"
+}

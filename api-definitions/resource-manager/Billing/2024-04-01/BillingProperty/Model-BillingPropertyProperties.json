@@ -1,0 +1,520 @@
+{
+  "name": "BillingPropertyProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "accountAdminNotificationEmailAddress",
+      "name": "AccountAdminNotificationEmailAddress",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "billingAccountAgreementType",
+      "name": "BillingAccountAgreementType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AgreementType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "billingAccountDisplayName",
+      "name": "BillingAccountDisplayName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "billingAccountId",
+      "name": "BillingAccountId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "billingAccountSoldToCountry",
+      "name": "BillingAccountSoldToCountry",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "billingAccountStatus",
+      "name": "BillingAccountStatus",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AccountStatus"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "billingAccountStatusReasonCode",
+      "name": "BillingAccountStatusReasonCode",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "BillingAccountStatusReasonCode"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "billingAccountSubType",
+      "name": "BillingAccountSubType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AccountSubType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "billingAccountType",
+      "name": "BillingAccountType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AccountType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "billingCurrency",
+      "name": "BillingCurrency",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "billingProfileDisplayName",
+      "name": "BillingProfileDisplayName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "billingProfileId",
+      "name": "BillingProfileId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "billingProfilePaymentMethodFamily",
+      "name": "BillingProfilePaymentMethodFamily",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PaymentMethodFamily"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "billingProfilePaymentMethodType",
+      "name": "BillingProfilePaymentMethodType",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "billingProfileSpendingLimit",
+      "name": "BillingProfileSpendingLimit",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SpendingLimit"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "billingProfileSpendingLimitDetails",
+      "name": "BillingProfileSpendingLimitDetails",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "SpendingLimitDetails"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "billingProfileStatus",
+      "name": "BillingProfileStatus",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "BillingProfileStatus"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "billingProfileStatusReasonCode",
+      "name": "BillingProfileStatusReasonCode",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "BillingProfileStatusReasonCode"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "billingTenantId",
+      "name": "BillingTenantId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "costCenter",
+      "name": "CostCenter",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "customerDisplayName",
+      "name": "CustomerDisplayName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "customerId",
+      "name": "CustomerId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "customerStatus",
+      "name": "CustomerStatus",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CustomerStatus"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "enrollmentDetails",
+      "name": "EnrollmentDetails",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SubscriptionEnrollmentDetails"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "invoiceSectionDisplayName",
+      "name": "InvoiceSectionDisplayName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "invoiceSectionId",
+      "name": "InvoiceSectionId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "invoiceSectionStatus",
+      "name": "InvoiceSectionStatus",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "InvoiceSectionState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "invoiceSectionStatusReasonCode",
+      "name": "InvoiceSectionStatusReasonCode",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "InvoiceSectionStateReasonCode"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "isAccountAdmin",
+      "name": "IsAccountAdmin",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "isTransitionedBillingAccount",
+      "name": "IsTransitionedBillingAccount",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "productId",
+      "name": "ProductId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "productName",
+      "name": "ProductName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "skuDescription",
+      "name": "SkuDescription",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "skuId",
+      "name": "SkuId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "subscriptionBillingStatus",
+      "name": "SubscriptionBillingStatus",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "BillingSubscriptionStatus"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "subscriptionBillingStatusDetails",
+      "name": "SubscriptionBillingStatusDetails",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "BillingSubscriptionStatusDetails"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "subscriptionBillingType",
+      "name": "SubscriptionBillingType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SubscriptionBillingType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "subscriptionServiceUsageAddress",
+      "name": "SubscriptionServiceUsageAddress",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AddressDetails"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "subscriptionWorkloadType",
+      "name": "SubscriptionWorkloadType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SubscriptionWorkloadType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

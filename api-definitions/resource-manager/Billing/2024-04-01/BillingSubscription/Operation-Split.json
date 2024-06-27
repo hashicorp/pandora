@@ -1,0 +1,20 @@
+{
+  "name": "Split",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "BillingAccountBillingSubscriptionId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "BillingSubscriptionSplitRequest"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "BillingSubscription"
+  },
+  "uriSuffix": "/split"
+}

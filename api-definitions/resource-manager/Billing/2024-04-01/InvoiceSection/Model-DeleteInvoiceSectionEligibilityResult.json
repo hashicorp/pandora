@@ -1,0 +1,35 @@
+{
+  "name": "DeleteInvoiceSectionEligibilityResult",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "eligibilityDetails",
+      "name": "EligibilityDetails",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "DeleteInvoiceSectionEligibilityDetail"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "eligibilityStatus",
+      "name": "EligibilityStatus",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DeleteInvoiceSectionEligibilityStatus"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "name": "AvailableBalanceProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "amount",
+      "name": "Amount",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Amount"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "paymentsOnAccount",
+      "name": "PaymentsOnAccount",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "PaymentOnAccount"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "totalPaymentsOnAccount",
+      "name": "TotalPaymentsOnAccount",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Amount"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

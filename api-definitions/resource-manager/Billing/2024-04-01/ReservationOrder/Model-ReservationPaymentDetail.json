@@ -1,0 +1,96 @@
+{
+  "name": "ReservationPaymentDetail",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "billingAccount",
+      "name": "BillingAccount",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "billingCurrencyTotal",
+      "name": "BillingCurrencyTotal",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Price"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "dueDate",
+      "name": "DueDate",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "extendedStatusInfo",
+      "name": "ExtendedStatusInfo",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ReservationExtendedStatusInfo"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "paymentDate",
+      "name": "PaymentDate",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "pricingCurrencyTotal",
+      "name": "PricingCurrencyTotal",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Price"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "status",
+      "name": "Status",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PaymentStatus"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

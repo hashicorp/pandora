@@ -1,0 +1,16 @@
+{
+  "name": "ListByReservationOrder",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "ReservationOrderId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "Reservation"
+  },
+  "uriSuffix": "/reservations"
+}

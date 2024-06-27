@@ -1,0 +1,19 @@
+{
+  "name": "ValidateMoveEligibility",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "BillingAccountBillingSubscriptionId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "MoveBillingSubscriptionRequest"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "MoveBillingSubscriptionEligibilityResult"
+  },
+  "uriSuffix": "/validateMoveEligibility"
+}

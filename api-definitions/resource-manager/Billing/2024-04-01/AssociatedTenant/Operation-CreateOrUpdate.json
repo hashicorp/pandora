@@ -1,0 +1,19 @@
+{
+  "name": "CreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "AssociatedTenantId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "AssociatedTenant"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "AssociatedTenant"
+  }
+}

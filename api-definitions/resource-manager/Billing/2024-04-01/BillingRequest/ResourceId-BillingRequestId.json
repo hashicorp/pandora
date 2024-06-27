@@ -1,0 +1,25 @@
+{
+  "name": "BillingRequestId",
+  "id": "/providers/Microsoft.Billing/billingRequests/{billingRequestName}",
+  "segments": [
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftBilling",
+      "type": "ResourceProvider",
+      "value": "Microsoft.Billing"
+    },
+    {
+      "name": "staticBillingRequests",
+      "type": "Static",
+      "value": "billingRequests"
+    },
+    {
+      "name": "billingRequestName",
+      "type": "UserSpecified"
+    }
+  ]
+}

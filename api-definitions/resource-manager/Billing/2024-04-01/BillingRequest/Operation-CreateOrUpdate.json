@@ -1,0 +1,19 @@
+{
+  "name": "CreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "BillingRequestId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "BillingRequest"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "BillingRequest"
+  }
+}

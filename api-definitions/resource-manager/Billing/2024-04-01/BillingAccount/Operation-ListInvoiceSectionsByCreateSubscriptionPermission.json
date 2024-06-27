@@ -1,0 +1,28 @@
+{
+  "name": "ListInvoiceSectionsByCreateSubscriptionPermission",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "filter",
+      "required": false,
+      "field": "Filter",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "BillingAccountId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "InvoiceSectionWithCreateSubPermission"
+  },
+  "uriSuffix": "/listInvoiceSectionsWithCreateSubscriptionPermission"
+}

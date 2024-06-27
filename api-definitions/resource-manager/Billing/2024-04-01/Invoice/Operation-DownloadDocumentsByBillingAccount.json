@@ -1,0 +1,24 @@
+{
+  "name": "DownloadDocumentsByBillingAccount",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "BillingAccountId",
+  "requestObject": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+      "type": "Reference",
+      "referenceName": "DocumentDownloadRequest"
+    }
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "DocumentDownloadResult"
+  },
+  "uriSuffix": "/downloadDocuments"
+}

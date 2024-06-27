@@ -1,0 +1,44 @@
+{
+  "name": "RefundTransactionDetails",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "amountRefunded",
+      "name": "AmountRefunded",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Amount"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "amountRequested",
+      "name": "AmountRequested",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Amount"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "refundOperationId",
+      "name": "RefundOperationId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

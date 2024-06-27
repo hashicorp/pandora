@@ -1,0 +1,19 @@
+{
+  "name": "ValidateUpdateByBillingAccount",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "SavingsPlanId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "SavingsPlanUpdateValidateRequest"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "SavingsPlanValidateResponse"
+  },
+  "uriSuffix": "/validate"
+}

@@ -1,0 +1,20 @@
+{
+  "name": "CancelPaymentTerms",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "BillingAccountId",
+  "requestObject": {
+    "type": "DateTime",
+    "referenceName": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "BillingAccount"
+  },
+  "uriSuffix": "/cancelPaymentTerms"
+}

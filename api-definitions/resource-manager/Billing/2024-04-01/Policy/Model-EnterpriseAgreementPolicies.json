@@ -1,0 +1,44 @@
+{
+  "name": "EnterpriseAgreementPolicies",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "accountOwnerViewCharges",
+      "name": "AccountOwnerViewCharges",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EnrollmentAccountOwnerViewCharges"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "authenticationType",
+      "name": "AuthenticationType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EnrollmentAuthLevelState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "departmentAdminViewCharges",
+      "name": "DepartmentAdminViewCharges",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EnrollmentDepartmentAdminViewCharges"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}
