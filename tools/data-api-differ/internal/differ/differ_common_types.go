@@ -25,7 +25,7 @@ func (d differ) changesForCommonTypes(initial, updated map[string]models.CommonT
 		if err != nil {
 			return nil, fmt.Errorf("detecting changes to the Common Types in API Version %q: %+v", apiVersion, err)
 		}
-		output = append(output, *changesForService...)
+		output = append(output, *changesForCommonType...)
 	}
 	return &output, nil
 }
