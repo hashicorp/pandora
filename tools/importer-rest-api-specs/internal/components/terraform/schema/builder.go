@@ -8,8 +8,8 @@ import (
 
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	terraformHelpers "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/schema/helpers"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/schema/processors"
+	terraformHelpers "github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/terraform/schema/helpers"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/terraform/schema/processors"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
 )

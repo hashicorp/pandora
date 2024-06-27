@@ -7,11 +7,21 @@ import (
 	"strings"
 
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
 )
 
 func buildResource(resourceIdName string, resourceMetaData definitions.ResourceDefinition, methods methodsForResource) *sdkModels.TerraformResourceDefinition {
-	if methods.createMethod == nil || methods.getMethod == nil || methods.deleteMethod == nil {
+	if methods.createMethod == nil {
+		logging.Tracef("Missing a method for POST/PUT - skipping")
+		return nil
+	}
+	if methods.deleteMethod == nil {
+		logging.Tracef("Missing a method for DELETE - skipping")
+		return nil
+	}
+	if methods.getMethod == nil {
+		logging.Tracef("Missing a method for GET - skipping")
 		return nil
 	}
 
