@@ -615,13 +615,18 @@ func Schemas(input flattenedSchema, name string, models Models, constants Consta
 	}
 
 	// Check if this is a constant
-	if input.Enum != nil && input.Schemas == nil {
+	if input.Schemas == nil && len(input.Enum) > 0 {
 		constant := Constant{
 			Enum: parseEnum(input.Enum),
 			Type: FieldType(input.Type, input.Format, false),
 		}
 
 		constants[name] = &constant
+		return models, constants
+	}
+
+	// If there are no schemas, this is not a valid model and is likely a custom type which we don't currently use, e.g. ODataCountResponse
+	if input.Schemas == nil {
 		return models, constants
 	}
 
