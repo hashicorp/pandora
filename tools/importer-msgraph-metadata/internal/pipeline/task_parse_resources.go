@@ -137,14 +137,6 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 						for t, m := range resp.Value.Content {
 							contentType = &t
 
-							unsupportedTypes := []string{"text/plain"}
-							for _, unsupportedType := range unsupportedTypes {
-								if strings.HasPrefix(strings.ToLower(t), unsupportedType) {
-									p.logger.Info(fmt.Sprintf("skipping response with unsupported content-type %q for %q: %v", unsupportedType, p.service, path))
-									continue
-								}
-							}
-
 							// Prefer model name from Ref
 							if strings.HasPrefix(m.Schema.Ref, parser.RefPrefix) {
 								modelName := normalize.CleanName(m.Schema.Ref[len(parser.RefPrefix):])
@@ -159,7 +151,7 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 										break
 									}
 
-									// Derive model and response type from title
+									// Derive model from schema title and/or and response type from schema type
 									if title := f.Title; title != "" || f.Type != "" {
 										if strings.HasPrefix(strings.ToLower(title), "collectionof") {
 											title = title[12:]
