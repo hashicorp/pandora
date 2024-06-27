@@ -13,6 +13,7 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/constants"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/featureflags"
 )
 
 func (d *SwaggerDefinition) parseModel(name string, input spec.Schema) (*internal.ParseResult, error) {
@@ -700,12 +701,110 @@ func (d SwaggerDefinition) parseObjectDefinition(
 		}, &result, nil
 	}
 
+	// Data Factory has a bunch of Custom Types, so we need to check for/handle those
+	dataFactoryObjectDefinition, parseResult, err := d.parseDataFactoryCustomTypes(input, known)
+	if err != nil {
+		return nil, nil, fmt.Errorf("parsing the Data Factory Object Definition: %+v", err)
+	}
+	if dataFactoryObjectDefinition != nil {
+		if parseResult != nil {
+			if err := result.Append(*parseResult); err != nil {
+				return nil, nil, fmt.Errorf("appending parseResult: %+v", err)
+			}
+		}
+		return dataFactoryObjectDefinition, &result, nil
+	}
+
 	// if it's a simple type, there'll be no other objects
 	if nativeType := d.parseNativeType(input); nativeType != nil {
 		return nativeType, &result, nil
 	}
 
 	return nil, nil, fmt.Errorf("unimplemented object definition")
+}
+
+func (d SwaggerDefinition) parseDataFactoryCustomTypes(input *spec.Schema, known internal.ParseResult) (*models.SDKObjectDefinition, *internal.ParseResult, error) {
+	formatVal := ""
+	if input.Type.Contains("object") {
+		formatVal, _ = input.Extensions.GetString("x-ms-format")
+	}
+	if formatVal == "" {
+		return nil, nil, nil
+	}
+
+	// DataFactory has a bunch of CustomTypes, which use `"type": "object" and "x-ms-format"` to describe the type
+	// as such we need to handle that here
+	// Simple Types
+	if strings.EqualFold(formatVal, "dfe-bool") {
+		return &models.SDKObjectDefinition{
+			Type: models.BooleanSDKObjectDefinitionType,
+		}, nil, nil
+	}
+	if strings.EqualFold(formatVal, "dfe-double") {
+		return &models.SDKObjectDefinition{
+			Type: models.FloatSDKObjectDefinitionType,
+		}, nil, nil
+	}
+	if strings.EqualFold(formatVal, "dfe-key-value-pairs") {
+		return &models.SDKObjectDefinition{
+			Type: models.DictionarySDKObjectDefinitionType,
+			NestedItem: &models.SDKObjectDefinition{
+				Type: models.StringSDKObjectDefinitionType,
+			},
+		}, nil, nil
+	}
+	if strings.EqualFold(formatVal, "dfe-int") {
+		return &models.SDKObjectDefinition{
+			Type: models.IntegerSDKObjectDefinitionType,
+		}, nil, nil
+	}
+	if strings.EqualFold(formatVal, "dfe-string") {
+		return &models.SDKObjectDefinition{
+			Type: models.StringSDKObjectDefinitionType,
+		}, nil, nil
+	}
+
+	// DataFactory has some specific reimplementations of List too..
+	if strings.EqualFold(formatVal, "dfe-list-generic") && featureflags.ParseDataFactoryListsOfReferencesAsRegularObjectDefinitionTypes {
+		// NOTE: it's also possible to have
+		elementType, ok := input.Extensions.GetString("x-ms-format-element-type")
+		if !ok {
+			return nil, nil, fmt.Errorf("when `x-ms-format` is set to `dfe-list-generic` a `x-ms-format-element-type` must be set - but was not found")
+		}
+		referencedModel, err := d.findTopLevelObject(elementType)
+		if err != nil {
+			return nil, nil, fmt.Errorf("finding the top-level-object %q: %+v", elementType, err)
+		}
+		parseResult, err := d.parseModel(elementType, *referencedModel)
+		if err != nil {
+			return nil, nil, fmt.Errorf("parsing the Model %q: %+v", elementType, err)
+		}
+		if err := known.Append(*parseResult); err != nil {
+			return nil, nil, fmt.Errorf("appending `parseResult`: %+v", err)
+		}
+		return &models.SDKObjectDefinition{
+			Type: models.ListSDKObjectDefinitionType,
+			NestedItem: &models.SDKObjectDefinition{
+				Type:          models.ReferenceSDKObjectDefinitionType,
+				ReferenceName: pointer.To(elementType),
+			},
+		}, &known, nil
+	}
+
+	if strings.EqualFold(formatVal, "dfe-list-string") {
+		return &models.SDKObjectDefinition{
+			Type: models.ListSDKObjectDefinitionType,
+			NestedItem: &models.SDKObjectDefinition{
+				Type: models.StringSDKObjectDefinitionType,
+			},
+		}, nil, nil
+	}
+
+	// otherwise let this fall through, since the "least bad" thing to do here is to mark this as an object
+
+	return &models.SDKObjectDefinition{
+		Type: models.RawObjectSDKObjectDefinitionType,
+	}, nil, nil
 }
 
 func (d SwaggerDefinition) parseNativeType(input *spec.Schema) *models.SDKObjectDefinition {
@@ -743,6 +842,7 @@ func (d SwaggerDefinition) parseNativeType(input *spec.Schema) *models.SDKObject
 				Type: models.RawFileSDKObjectDefinitionType,
 			}
 		}
+
 		return &models.SDKObjectDefinition{
 			Type: models.RawObjectSDKObjectDefinitionType,
 		}
