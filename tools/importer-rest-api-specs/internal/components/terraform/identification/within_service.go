@@ -13,9 +13,10 @@ import (
 )
 
 // WithinService identifies the Terraform Resources available within this Service, based on the terraformConfig
-func WithinService(input sdkModels.Service, terraformConfig map[string]definitions.ResourceDefinition) (*terraformModels.WorkInProgressData, error) {
+func WithinService(providerPrefix string, input sdkModels.Service, terraformConfig map[string]definitions.ResourceDefinition) (*terraformModels.WorkInProgressData, error) {
 	output := terraformModels.WorkInProgressData{
-		Resources: make(map[string]terraformModels.WorkInProgressResource),
+		ProviderPrefix: providerPrefix,
+		Resources:      make(map[string]terraformModels.WorkInProgressResource),
 	}
 
 	for resourceLabel, resourceMetaData := range terraformConfig {

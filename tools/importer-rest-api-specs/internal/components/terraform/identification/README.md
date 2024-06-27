@@ -25,7 +25,7 @@ service "DevCenter" {
 
 We iterate over the Resources defined within the configuration files, and assuming the Resource is for the current Service, we load information for the APIVersion/APIResource.
 
-Based on that, we then try and determine how this Resource could be built, by looking at the Operations which work on the Resource iD, ultimately we're looking for:
+Based on that, we then try and determine how this Resource could be built, by looking at the Operations which work on the Resource ID, ultimately we're looking for:
 
 1. A `GET` method which can be used for the `Read` functionality within Terraform.
 2. A `DELETE` method which can be used for the `Delete` functionality within Terraform.
