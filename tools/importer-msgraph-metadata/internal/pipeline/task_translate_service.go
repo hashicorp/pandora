@@ -4,8 +4,8 @@ import (
 	"fmt"
 
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/normalize"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/parser"
+	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/versions"
 )
 
 func (p pipeline) translateServiceToDataApiSdkTypes(models parser.Models, constants parser.Constants, resources parser.Resources) (*map[string]sdkModels.Service, error) {
@@ -27,7 +27,7 @@ func (p pipeline) translateServiceToDataApiSdkTypes(models parser.Models, consta
 			sdkServices[resource.Service].APIVersions[resource.Version] = sdkModels.APIVersion{
 				APIVersion: resource.Version,
 				Generate:   true,
-				Preview:    normalize.VersionIsPreview(resource.Version),
+				Preview:    versions.IsPreview(resource.Version),
 				Resources:  make(map[string]sdkModels.APIResource),
 				Source:     sdkModels.MicrosoftGraphMetaDataSourceDataOrigin,
 			}

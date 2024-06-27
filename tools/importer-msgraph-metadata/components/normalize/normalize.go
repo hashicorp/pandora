@@ -8,7 +8,6 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/versions"
 	"golang.org/x/text/cases"
 	"golang.org/x/text/language"
 )
@@ -85,10 +84,6 @@ func CleanName(name string) string {
 func CleanNameCamel(name string) string {
 	name = CleanName(name)
 	return strings.ToLower(name[0:1]) + name[1:]
-}
-
-func VersionIsPreview(version string) bool {
-	return version != versions.ApiVersion1_0
 }
 
 type operationVerbs []string

@@ -29,7 +29,7 @@ func runImporter(input RunInput, metadataGitSha string) error {
 	}
 
 	for _, apiVersion := range versions.Supported {
-		openApiFile := fmt.Sprintf(input.OpenApiFilePattern, apiVersion)
+		openApiFile := fmt.Sprintf(input.OpenApiFilePattern, versions.Upstream(apiVersion))
 		if err := runImportForVersion(input, apiVersion, openApiFile, metadataGitSha, config); err != nil {
 			return err
 		}
