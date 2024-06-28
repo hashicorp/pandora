@@ -130,7 +130,7 @@ var _ resourceids.ResourceId = &BasicTestId{}
 	func (id BasicTestId) Segments() []resourceids.Segment {
 		return []resourceids.Segment{
 			resourceids.StaticSegment("staticSubscriptions", "subscriptions", "subscriptions"),
-			resourceids.SubscriptionIdSegment("subscriptionId", "11112222-3333-4444-555566667777"),
+			resourceids.SubscriptionIdSegment("subscriptionId", "12345678-1234-9876-4563-123456789012"),
 		}
 	}
 

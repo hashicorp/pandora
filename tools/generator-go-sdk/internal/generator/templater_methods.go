@@ -528,29 +528,27 @@ func (c methodsPandoraTemplater) requestOptions() (*string, error) {
 			path = "id.ID()"
 		}
 	}
-	options := ""
+
+	items := []string{
+		fmt.Sprintf("ContentType: %q", c.operation.ContentType),
+		fmt.Sprintf(`ExpectedStatusCodes: []int{
+			%s,
+}`, strings.Join(expectedStatusCodes, ",\n\t\t\t")),
+		fmt.Sprintf("HttpMethod: http.Method%s", method),
+		fmt.Sprintf("Path: %s", path),
+	}
 	if len(c.operation.Options) > 0 {
-		options = "OptionsObject: options,"
+		items = append(items, "OptionsObject: options")
 	}
-
-	customPagerOption := ""
 	if c.operation.FieldContainingPaginationDetails != nil {
-		customPagerOption = fmt.Sprintf("Pager: &%sCustomPager{},", c.operationName)
+		items = append(items, fmt.Sprintf("Pager: &%sCustomPager{}", c.operationName))
 	}
-
-	contentType := c.operation.ContentType
+	sort.Strings(items)
 
 	out := fmt.Sprintf(`client.RequestOptions{
-		ContentType: %[1]q,
-		ExpectedStatusCodes: []int{
-			%[2]s,
-		},
-		HttpMethod: http.Method%[3]s,
-		%[6]s
-		Path: %[4]s,
-		%[5]s
+		%s,
 	}
-`, contentType, strings.Join(expectedStatusCodes, ",\n\t\t\t"), method, path, options, customPagerOption)
+`, strings.Join(items, ",\n\t\t"))
 	return &out, nil
 }
 
