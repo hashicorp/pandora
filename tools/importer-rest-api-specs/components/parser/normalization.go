@@ -4,6 +4,7 @@
 package parser
 
 import (
+	"fmt"
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
@@ -17,11 +18,18 @@ func normalizeOperationName(operationId string, tag *string) string {
 		// to account for the casing of the tag being different
 		if strings.HasPrefix(strings.ToLower(operationName), strings.ToLower(*tag)) {
 			operationName = operationName[len(*tag):]
+
+			// however if the Tag is `ManagementGroupsSubscriptions`, then we need to keep the extra `S` around
+			if *tag == "ManagementGroups" && !strings.HasPrefix(operationName, "_") {
+				operationName = fmt.Sprintf("S%s", operationName)
+			}
 		}
 	}
 	operationName = strings.ReplaceAll(operationName, "_", "")
 	operationName = strings.TrimPrefix(operationName, "Operations") // sanity checking
-	operationName = strings.TrimPrefix(operationName, "s")          // plurals
+	if !strings.HasPrefix(strings.ToLower(operationName), "subscriptions") {
+		operationName = strings.TrimPrefix(operationName, "s") // plurals
+	}
 	operationName = strings.TrimPrefix(operationName, "_")
 	operationName = cleanup.NormalizeName(operationName)
 	return operationName
