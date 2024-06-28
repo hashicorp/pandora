@@ -55,7 +55,6 @@ func TestTemplateMethods_Discriminator_ResponseObjectIsImplementation_Get(t *tes
 		},
 		operationName: "Get",
 	}.template(input)
-
 	if err != nil {
 		t.Fatalf("err %+v", err)
 	}
@@ -157,7 +156,6 @@ func TestTemplateMethods_Discriminator_ResponseObjectIsParent_Get(t *testing.T) 
 		},
 		operationName: "Get",
 	}.template(input)
-
 	if err != nil {
 		t.Fatalf("err %+v", err)
 	}
@@ -267,7 +265,6 @@ func TestTemplateMethods_Discriminator_ResponseObjectIsImplementation_List(t *te
 		},
 		operationName: "List",
 	}.template(input)
-
 	if err != nil {
 		t.Fatalf("err %+v", err)
 	}
@@ -299,6 +296,18 @@ type ListCompleteResult struct {
 	Items []PandaPop
 }
 
+type ListCustomPager struct {
+	NextLink *odata.Link %[2]s
+}
+
+func (p *ListCustomPager) NextPageLink() *odata.Link {
+	defer func() {
+		p.NextLink = nil
+	}()
+
+	return p.NextLink
+}
+
 // List ...
 func (c pandaClient) List(ctx context.Context ) (result ListOperationResponse, err error) {
 	opts := client.RequestOptions{
@@ -307,6 +316,7 @@ func (c pandaClient) List(ctx context.Context ) (result ListOperationResponse, e
 			http.StatusOK,
 		},
 		HttpMethod: http.MethodGet,
+		Pager: &ListCustomPager{},
 		Path: "/thing",
 	}
 
@@ -364,7 +374,7 @@ func (c pandaClient) ListCompleteMatchingPredicate(ctx context.Context, predicat
 	}
 	return
 }
-`, "`json:\"value\"`")
+`, "`json:\"value\"`", "`json:\"someField\"`")
 
 	assertTemplatedCodeMatches(t, expected, *actual)
 }
@@ -410,7 +420,6 @@ func TestTemplateMethods_Discriminator_ResponseObjectIsParent_List(t *testing.T)
 		},
 		operationName: "List",
 	}.template(input)
-
 	if err != nil {
 		t.Fatalf("err %+v", err)
 	}
@@ -442,6 +451,18 @@ type ListCompleteResult struct {
 	Items []FizzyDrink
 }
 
+type ListCustomPager struct {
+	NextLink *odata.Link %[2]s
+}
+
+func (p *ListCustomPager) NextPageLink() *odata.Link {
+	defer func() {
+		p.NextLink = nil
+	}()
+
+	return p.NextLink
+}
+
 // List ...
 func (c pandaClient) List(ctx context.Context ) (result ListOperationResponse, err error) {
 	opts := client.RequestOptions{
@@ -450,6 +471,7 @@ func (c pandaClient) List(ctx context.Context ) (result ListOperationResponse, e
 			http.StatusOK,
 		},
 		HttpMethod: http.MethodGet,
+		Pager: &ListCustomPager{},
 		Path: "/thing",
 	}
 
@@ -516,7 +538,7 @@ func (c pandaClient) ListCompleteMatchingPredicate(ctx context.Context, predicat
 	}
 	return
 }
-`, "`json:\"value\"`")
+`, "`json:\"value\"`", "`json:\"SomeField\"`")
 
 	assertTemplatedCodeMatches(t, expected, *actual)
 }
