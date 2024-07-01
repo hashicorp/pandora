@@ -1,0 +1,52 @@
+{
+  "name": "UpdateStrategyId",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/updateStrategies/{updateStrategyName}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticResourceGroups",
+      "type": "Static",
+      "value": "resourceGroups"
+    },
+    {
+      "name": "resourceGroupName",
+      "type": "ResourceGroup"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftContainerService",
+      "type": "ResourceProvider",
+      "value": "Microsoft.ContainerService"
+    },
+    {
+      "name": "staticFleets",
+      "type": "Static",
+      "value": "fleets"
+    },
+    {
+      "name": "fleetName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticUpdateStrategies",
+      "type": "Static",
+      "value": "updateStrategies"
+    },
+    {
+      "name": "updateStrategyName",
+      "type": "UserSpecified"
+    }
+  ]
+}

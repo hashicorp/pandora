@@ -1,0 +1,31 @@
+{
+  "name": "FleetUpdateStrategyProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "provisioningState",
+      "name": "ProvisioningState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "FleetUpdateStrategyProvisioningState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "strategy",
+      "name": "Strategy",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "UpdateRunStrategy"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ]
+}

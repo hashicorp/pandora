@@ -1,0 +1,31 @@
+{
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "options": [
+    {
+      "headerName": "If-Match",
+      "optional": true,
+      "required": false,
+      "field": "IfMatch",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "MemberId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "FleetMemberUpdate"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "FleetMember"
+  }
+}
