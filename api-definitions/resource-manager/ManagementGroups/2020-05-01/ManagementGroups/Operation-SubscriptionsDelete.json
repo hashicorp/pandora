@@ -1,11 +1,12 @@
 {
-  "name": "UbscriptionsCreate",
+  "name": "SubscriptionsDelete",
   "contentType": "application/json; charset=utf-8",
   "expectedStatusCodes": [
-    200
+    200,
+    204
   ],
   "longRunning": false,
-  "httpMethod": "PUT",
+  "httpMethod": "DELETE",
   "options": [
     {
       "headerName": "Cache-Control",
@@ -18,9 +19,5 @@
       }
     }
   ],
-  "resourceIdName": "SubscriptionId",
-  "responseObject": {
-    "type": "Reference",
-    "referenceName": "SubscriptionUnderManagementGroup"
-  }
+  "resourceIdName": "SubscriptionId"
 }
