@@ -22,8 +22,7 @@ type OperationsStage struct {
 	// APIVersion specifies the APIVersion within the Service where the Operations exist.
 	APIVersion string
 
-	// CommonTypesForThisAPIVersion specifies a map of API Version (key) to CommonTypes (value)
-	// which defines the known Common Types for this APIVersion.
+	// CommonTypesForThisAPIVersion specifies the known CommonTypes for this APIVersion.
 	CommonTypesForThisAPIVersion sdkModels.CommonTypes
 
 	// Constants specifies the map of Constant Name (key) to SDKConstant (value) which should be
@@ -48,8 +47,8 @@ func (g OperationsStage) Generate(input *helpers.FileSystem, logger hclog.Logger
 			Constants:           g.Constants,
 			Models:              g.Models,
 			ResourceIds:         map[string]sdkModels.ResourceID{},
-			CommonTypeConstants: make(map[string]sdkModels.SDKConstant),
-			CommonTypeModels:    make(map[string]sdkModels.SDKModel),
+			CommonTypeConstants: g.CommonTypesForThisAPIVersion.Constants,
+			CommonTypeModels:    g.CommonTypesForThisAPIVersion.Models,
 		}
 
 		operationDetails := g.Operations[operationName]

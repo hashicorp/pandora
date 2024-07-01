@@ -13,9 +13,8 @@ import: build
 		./importer-msgraph-metadata import -services=$(SERVICES); \
 	fi
 
-import-all-clean: build
-	rm -r ../../data/Pandora.Definitions.MicrosoftGraph.*/[A-Z]*/
-	./importer-msgraph-metadata import
+lint:
+	golangci-lint run ./...
 
 test: build
 	go test -v ./...

@@ -1,7 +1,7 @@
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
 
-package pipeline
+package supported_services
 
 import (
 	"fmt"
@@ -11,12 +11,21 @@ import (
 	"strings"
 
 	"github.com/getkin/kin-openapi/openapi3"
+	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/tags"
+	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/versions"
 	"github.com/jedib0t/go-pretty/v6/table"
 	"github.com/jedib0t/go-pretty/v6/text"
 )
 
-func OutputSupportedServices(input RunInput) error {
-	for _, apiVersion := range input.SupportedVersions {
+type SupportedServicesInput struct {
+	Logger             hclog.Logger
+	MetadataDirectory  string
+	OpenApiFilePattern string
+}
+
+func OutputSupportedServices(input SupportedServicesInput) error {
+	for _, apiVersion := range versions.Supported {
 		openApiFile := fmt.Sprintf(input.OpenApiFilePattern, apiVersion)
 
 		spec, err := openapi3.NewLoader().LoadFromFile(filepath.Join(input.MetadataDirectory, openApiFile))
@@ -24,7 +33,7 @@ func OutputSupportedServices(input RunInput) error {
 			return err
 		}
 
-		serviceTags, err := parseTags(spec.Tags)
+		serviceTags, err := tags.Parse(spec.Tags)
 		if err != nil {
 			return err
 		}

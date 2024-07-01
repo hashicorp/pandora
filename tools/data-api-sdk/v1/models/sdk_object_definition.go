@@ -21,6 +21,9 @@ type SDKObjectDefinition struct {
 	// is set to `ReferenceSDKObjectDefinitionType`.
 	ReferenceName *string `json:"referenceName,omitempty"`
 
+	// ReferenceNameIsCommonType specifies whether the referenced Constant or Model is a common type
+	ReferenceNameIsCommonType *bool `json:"referenceNameIsCommonType,omitempty"`
+
 	// Type specifies the Type that represents this SDK Object Definition. This can be either a
 	// Simple type (e.g. a String/Integer), a Reference to a Constant/Model or a more complex object
 	// (e.g. a CommonSchema type [such as a SystemAssignedIdentity] - or a List/Dictionary).

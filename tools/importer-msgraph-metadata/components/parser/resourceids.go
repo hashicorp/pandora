@@ -1,17 +1,22 @@
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
 
-package pipeline
+package parser
 
 import (
 	"fmt"
-	"regexp"
 	"sort"
 	"strings"
+
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/normalize"
 )
 
-var resourceSuffix = "ById"
-var resourceIdSuffix = "Id"
+const (
+	ResourceSuffix   = "ById"
+	ResourceIdSuffix = "Id"
+)
 
 type ResourceIds []*ResourceId
 
@@ -69,6 +74,29 @@ func (r ResourceId) ID() string {
 	return "/" + strings.Join(segments, "/")
 }
 
+func (r ResourceId) DataApiSdkResourceId() (*sdkModels.ResourceID, error) {
+	sdkSegments := make([]sdkModels.ResourceIDSegment, 0, len(r.Segments))
+
+	for i, segment := range r.Segments {
+		switch segment.Type {
+		case SegmentAction, SegmentCast, SegmentFunction, SegmentLabel, SegmentODataReference:
+			sdkSegments = append(sdkSegments, sdkModels.NewStaticValueResourceIDSegment(segment.Value, segment.Value))
+		case SegmentUserValue:
+			sdkSegments = append(sdkSegments, sdkModels.NewUserSpecifiedResourceIDSegment(*segment.Field, segment.Value))
+		default:
+			return nil, fmt.Errorf("unknown segment type %q at index %d for resource ID: %q", segment.Type, i, r.Name)
+		}
+	}
+
+	return &sdkModels.ResourceID{
+		CommonIDAlias: nil,
+		ConstantNames: nil,
+		Constants:     nil,
+		ExampleValue:  r.ID(),
+		Segments:      sdkSegments,
+	}, nil
+}
+
 // IsMatchOrAncestor compares the provided ResourceId (r2) against the current ResourceId and returns true if the
 // two resource IDs match, or if this ResourceId is an ancestor of the provided ResourceId.
 func (r ResourceId) IsMatchOrAncestor(r2 ResourceId) (ResourceId, bool) {
@@ -109,7 +137,7 @@ func (r ResourceId) FullyQualifiedResourceName(suffixQualification *string) (*st
 	verb := ""
 	for i, segment := range r.Segments {
 		if segment.Type == SegmentAction || segment.Type == SegmentLabel || segment.Type == SegmentODataReference {
-			newName := cleanName(segment.Value)
+			newName := normalize.CleanName(segment.Value)
 			shouldSingularize := false
 
 			if segment.Type == SegmentLabel {
@@ -124,7 +152,7 @@ func (r ResourceId) FullyQualifiedResourceName(suffixQualification *string) (*st
 					// Look for a verb match in the next segment, if it exists and is not a SegmentUserValue
 					// Example: in the following ID, we want to _not_ singularize the `jobs` label
 					//          /applications/{applicationId}/synchronization/jobs/validateCredentials
-					if _, ok := verbs.match(cleanName(r.Segments[i+1].Value)); ok {
+					if _, ok := normalize.Verbs.Match(normalize.CleanName(r.Segments[i+1].Value)); ok {
 						shouldSingularize = false
 					}
 
@@ -136,14 +164,14 @@ func (r ResourceId) FullyQualifiedResourceName(suffixQualification *string) (*st
 			}
 
 			// Note we intentionally match verbs on any segment type, not just SegmentTypeAction
-			if v, ok := verbs.match(newName); ok && verb == "" {
+			if v, ok := normalize.Verbs.Match(newName); ok && verb == "" {
 				verb = *v
 				newName = newName[len(verb):]
 				shouldSingularize = false
 			}
 
 			if shouldSingularize {
-				newName = singularize(newName)
+				newName = normalize.Singularize(newName)
 			}
 
 			name = name + newName
@@ -161,7 +189,7 @@ func (r ResourceId) FullyQualifiedResourceName(suffixQualification *string) (*st
 	}
 
 	// TODO: it would be nice to do this but it's causing some clobbering issues
-	//name = deDuplicateName(name)
+	//name = normalize.DeDuplicateName(name)
 
 	return &name, true
 }
@@ -227,13 +255,13 @@ func (r ResourceId) FindResourceName() (*string, bool) {
 		break
 	}
 
-	return r2.FullyQualifiedResourceName(&resourceSuffix)
+	return r2.FullyQualifiedResourceName(pointer.To(ResourceSuffix))
 }
 
 // FindResourceIdName returns a short name for the ResourceId. This currently has the same behavior as FindResourceName
 // but may be changed in future if the ResourceId needs to be distinctly named.
 func (r ResourceId) FindResourceIdName() (*string, bool) {
-	name, ok := r.FullyQualifiedResourceName(&resourceIdSuffix)
+	name, ok := r.FullyQualifiedResourceName(pointer.To(ResourceIdSuffix))
 	return name, ok
 }
 
@@ -304,15 +332,15 @@ type ResourceIdSegment struct {
 	Field *string
 }
 
-type ResourceIdSegmentType uint
+type ResourceIdSegmentType string
 
 const (
-	SegmentLabel ResourceIdSegmentType = iota
-	SegmentUserValue
-	SegmentODataReference
-	SegmentAction
-	SegmentCast
-	SegmentFunction
+	SegmentLabel          ResourceIdSegmentType = "Label"
+	SegmentUserValue      ResourceIdSegmentType = "UserValue"
+	SegmentODataReference ResourceIdSegmentType = "ODataReference"
+	SegmentAction         ResourceIdSegmentType = "Action"
+	SegmentCast           ResourceIdSegmentType = "Cast"
+	SegmentFunction       ResourceIdSegmentType = "Function"
 )
 
 func NewResourceId(path string, tags []string) (id ResourceId) {
@@ -329,14 +357,13 @@ func NewResourceId(path string, tags []string) (id ResourceId) {
 	id.Segments = make([]ResourceIdSegment, 0, len(segments))
 
 	for i, s := range segments {
-		segment := ResourceIdSegment{}
+		var segment ResourceIdSegment
 
 		if strings.HasPrefix(s, "{") && strings.HasSuffix(s, "}") {
 			value := s[1 : len(s)-1]
-			value = strings.Title(strings.ReplaceAll(value, "-", " "))
-			value = regexp.MustCompile("([^A-Za-z0-9])").ReplaceAllString(value, "")
+			value = normalize.CleanName(value)
+			field := value
 			value = strings.ToLower(value[0:1]) + value[1:]
-			field := strings.Title(value)
 			segment = ResourceIdSegment{
 				Type:  SegmentUserValue,
 				Value: fmt.Sprintf("{%s}", value),

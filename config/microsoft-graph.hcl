@@ -13,70 +13,70 @@ service "appRoleAssignments" {
 
 service "applications" {
   name      = "Applications"
-  available = ["v1.0", "beta"]
+  available = ["stable", "beta"]
 }
 
 service "applicationTemplates" {
   name      = "ApplicationTemplates"
-  available = ["v1.0", "beta"]
+  available = ["stable", "beta"]
 }
 
 service "directory" {
   name      = "Directory"
-  available = ["v1.0", "beta"]
+  available = ["stable", "beta"]
 }
 
 service "directoryObjects" {
   name      = "DirectoryObjects"
-  available = ["v1.0", "beta"]
+  available = ["stable", "beta"]
 }
 
 service "domains" {
   name      = "Domains"
-  available = ["v1.0", "beta"]
+  available = ["stable", "beta"]
 }
 
 service "groups" {
   name      = "Groups"
-  available = ["v1.0", "beta"]
+  available = ["stable", "beta"]
 }
 
 service "identity" {
   name      = "Identity"
-  available = ["v1.0"]
+  available = ["stable"]
 }
 
 service "invitations" {
   name      = "Invitations"
-  available = ["v1.0", "beta"]
+  available = ["stable", "beta"]
 }
 
 service "me" {
   name      = "Me"
-  available = ["v1.0", "beta"]
+  available = ["stable", "beta"]
 }
 
 service "oauth2PermissionGrants" {
   name      = "OAuth2PermissionGrants"
-  available = ["v1.0", "beta"]
+  available = ["stable", "beta"]
 }
 
 service "policies" {
   name      = "Policies"
-  available = ["v1.0", "beta"]
+  available = ["stable", "beta"]
 }
 
 service "roleManagement" {
   name      = "RoleManagement"
-  available = ["v1.0", "beta"]
+  available = ["stable", "beta"]
 }
 
 service "servicePrincipals" {
   name      = "ServicePrincipals"
-  available = ["v1.0", "beta"]
+  available = ["stable", "beta"]
 }
 
 service "users" {
   name      = "Users"
-  available = ["v1.0", "beta"]
+  available = ["stable", "beta"]
 }
