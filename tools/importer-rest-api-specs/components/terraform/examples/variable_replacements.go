@@ -75,6 +75,5 @@ func updatedValueForAttribute(resourceKey, fieldKey string, value string) (*hclw
 		return &updatedValue, nil
 	}
 
-	out := hclwrite.TokensForValue(cty.StringVal("example-value"))
-	return &out, nil
+	return nil, nil
 }
