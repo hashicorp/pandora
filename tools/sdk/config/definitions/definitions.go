@@ -181,19 +181,23 @@ func consolidateIntoASingleDefinition(input []definition) (*Config, error) {
 						}
 
 						definitions[def.ResourceType] = ResourceDefinition{
+							ServiceName:        service.Name,
+							APIVersion:         api.Version,
+							APIResource:        pkg.Name,
+							ResourceLabel:      def.ResourceType,
 							ID:                 def.Id,
 							Name:               def.DisplayName,
+							GenerateCreate:     generateCreate,
+							GenerateDelete:     generateDelete,
+							GenerateRead:       generateRead,
+							GenerateUpdate:     generateUpdate,
 							WebsiteSubcategory: def.WebsiteSubcategory,
 							Description:        def.Description,
 							TestData: ResourceTestDataDefinition{
 								BasicVariables:    basicVariables,
 								CompleteVariables: completeVariables,
 							},
-							Overrides:      &overrides,
-							GenerateCreate: generateCreate,
-							GenerateDelete: generateDelete,
-							GenerateRead:   generateRead,
-							GenerateUpdate: generateUpdate,
+							Overrides: &overrides,
 						}
 					}
 

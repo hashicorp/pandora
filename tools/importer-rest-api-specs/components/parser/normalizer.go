@@ -103,10 +103,6 @@ func normalizeAzureApiResource(input importerModels.AzureApiResource) importerMo
 		Models:      normalizedModels,
 		Operations:  normalizedOperations,
 		ResourceIds: normalizedResourceIds,
-
-		// TF Processing is handled elsewhere, so this should be nil in `input`
-		// but let's be explicit here since it's another packages responsibility.
-		Terraform: nil,
 	}
 }
 
