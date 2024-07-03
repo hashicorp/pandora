@@ -14,12 +14,14 @@ import (
 func TestDetermineResourceProviderForService(t *testing.T) {
 	testData := []struct {
 		serviceDirectory string
+		serviceName      string
 		filePaths        []string
 		expected         *string
 	}{
 		{
 			// Basic
 			serviceDirectory: "/path/specification/addons",
+			serviceName:      "addons",
 			filePaths: []string{
 				"/path/specification/addons/resource-manager/Microsoft.Addons/preview/2017-05-15/Addons.json",
 				"/path/specification/addons/resource-manager/Microsoft.Addons/preview/2017-05-15/examples/CanonicalSupportPlanTypes_Get.json",
@@ -33,6 +35,7 @@ func TestDetermineResourceProviderForService(t *testing.T) {
 		{
 			// Legacy - Service Group
 			serviceDirectory: "/path/specification/mediaservices",
+			serviceName:      "mediaservices",
 			filePaths: []string{
 				"/path/specification/mediaservices/resource-manager/Microsoft.Media/Accounts/stable/2023-01-01/Accounts.json",
 				"/path/specification/mediaservices/resource-manager/Microsoft.Media/Encoding/stable/2023-01-01/Encoding.json",
@@ -42,12 +45,25 @@ func TestDetermineResourceProviderForService(t *testing.T) {
 			expected: pointer.To("Microsoft.Media"),
 		},
 		{
-			// Multiple Resource Providers
-			// In this scenario this method shouldn't be called, the RP in question should be provided in the config
+			// Multiple Resource Providers with one that looks like a default
+			// In this scenario since there's an RP matching the Service Name, we can infer that's the default Resource Provider
+			// for this Service. If this is wrong, this can be overridden in the Configuration file.
 			serviceDirectory: "/path/specification/compute",
+			serviceName:      "compute",
 			filePaths: []string{
 				"/path/specification/compute/resource-manager/Microsoft.Compute/CloudserviceRP/stable/2022-09-04/SomeFile.json",
 				"/path/specification/compute/resource-manager/Microsoft.ContainerService/stable/2020-01-01/SomeFile.json",
+			},
+			expected: pointer.To("Microsoft.Compute"), // inferrable from the Service Name
+		},
+		{
+			// Multiple Resource Providers with totally different names
+			// In this scenario this method shouldn't be called, the RP in question should be provided in the config
+			serviceDirectory: "/path/specification/containers",
+			serviceName:      "containers",
+			filePaths: []string{
+				"/path/specification/compute/resource-manager/Microsoft.ContainerApps/stable/2020-01-01/SomeFile.json",
+				"/path/specification/compute/resource-manager/Microsoft.ContainerService/stable/2022-09-04/SomeFile.json",
 			},
 			expected: nil, // should be an error
 		},
@@ -56,7 +72,7 @@ func TestDetermineResourceProviderForService(t *testing.T) {
 
 	for i, input := range testData {
 		t.Logf("Iteration %d..", i)
-		actual, err := determineResourceProviderForService(input.serviceDirectory, input.filePaths)
+		actual, err := determineDefaultResourceProviderForService(input.serviceDirectory, input.serviceName, input.filePaths)
 		if err != nil {
 			if input.expected == nil {
 				continue

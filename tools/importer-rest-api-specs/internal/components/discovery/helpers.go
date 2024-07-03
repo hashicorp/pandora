@@ -8,6 +8,7 @@ import (
 	"os"
 	"path/filepath"
 	"sort"
+	"strings"
 )
 
 func filesWithinDirectory(workingDirectory string) (*[]string, error) {
@@ -20,7 +21,10 @@ func filesWithinDirectory(workingDirectory string) (*[]string, error) {
 
 			// no point pulling empty directories along, just the files will be fine
 			if !info.IsDir() {
-				filePaths = append(filePaths, fullPath)
+				// simplicity for now
+				if strings.HasSuffix(strings.ToLower(fullPath), ".json") {
+					filePaths = append(filePaths, fullPath)
+				}
 			}
 			return nil
 		})

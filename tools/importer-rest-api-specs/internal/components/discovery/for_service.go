@@ -34,7 +34,7 @@ func DiscoverForService(workingDirectory string, service services.Service) (*mod
 	resourceProvider := pointer.From(service.ResourceProvider)
 	if service.ResourceProvider == nil {
 		logging.Debugf("Determining the Resource Provider for Service %q in %q..", service.Name, serviceDirectory)
-		resourceProviderName, err := determineResourceProviderForService(serviceDirectory, *filePaths)
+		resourceProviderName, err := determineDefaultResourceProviderForService(serviceDirectory, service.Name, *filePaths)
 		if err != nil {
 			return nil, fmt.Errorf("determining the Resource Provider for Service %q in %q: %+v", service.Name, serviceDirectory, err)
 		}
