@@ -1,22 +1,18 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package models
 
+// AvailableDataSet defines the available Data Sets for a Service - including the API Definitions
+// for each API Version and any additional files.
 type AvailableDataSet struct {
-	// TODO: docs
-	ServiceName            string
+	// ServiceName is the name of the Service (e.g. `Compute`).
+	ServiceName string
+
+	// DataSetsForAPIVersions contains a map of API Version (key) to AvailableDataSetForAPIVersion (value)
+	// which outlines the available Data Set for this API Version.
 	DataSetsForAPIVersions map[string]AvailableDataSetForAPIVersion
-	ResourceProvider       *string
-}
 
-type AvailableDataSetForAPIVersion struct {
-	// APIVersion specifies the APIVersion which this DataSet is related to.
-	APIVersion string
-
-	// FilePathsContainingAPIDefinitions is a slice of the absolute file paths which contain the APIDefinitions
-	// for the Service/API Version combination.
-	FilePathsContainingAPIDefinitions []string
-
-	// FilePathsContainingSupplementaryData is a slice of the absolute file paths which contain supplementary data
-	// related to the APIDefinitions for the Service/API Version combination. These should be parsed prior to
-	// parsing the files within FilePathsContainingAPIDefinitions - and typically contain Discriminated Models.
-	FilePathsContainingSupplementaryData []string
+	// ResourceProvider is the Resource Provider associated with this Data Set.
+	ResourceProvider *string
 }
