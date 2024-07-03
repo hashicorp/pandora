@@ -5,11 +5,11 @@ package identification
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
 )
 

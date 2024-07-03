@@ -6,9 +6,8 @@ package testing
 import (
 	"testing"
 
-	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-
 	"github.com/hashicorp/hcl/v2"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/zclconf/go-cty/cty"
 )
 

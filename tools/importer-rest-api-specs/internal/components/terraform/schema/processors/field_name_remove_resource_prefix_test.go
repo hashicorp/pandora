@@ -4,8 +4,9 @@
 package processors
 
 import (
-	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"testing"
+
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 func TestProcessField_RemoveResourcePrefix(t *testing.T) {

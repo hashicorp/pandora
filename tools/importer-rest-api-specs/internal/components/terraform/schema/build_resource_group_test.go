@@ -4,11 +4,11 @@
 package schema
 
 import (
-	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
 	"testing"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
 )
 
 func TestBuildForResourceGroupHappyPathAllModelsTheSame(t *testing.T) {
