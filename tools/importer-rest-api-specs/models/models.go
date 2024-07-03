@@ -7,7 +7,6 @@ import (
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 type AzureApiDefinition struct {
@@ -37,7 +36,6 @@ type AzureApiResource struct {
 	Models      map[string]models.SDKModel
 	Operations  map[string]models.SDKOperation
 	ResourceIds map[string]models.ResourceID
-	Terraform   *resourcemanager.TerraformDetails
 }
 
 func MergeResourcesForTag(base AzureApiResource, merge AzureApiResource) AzureApiResource {

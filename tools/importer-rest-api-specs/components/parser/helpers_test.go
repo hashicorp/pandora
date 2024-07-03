@@ -12,7 +12,6 @@ import (
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 func ParseSwaggerFileForTesting(t *testing.T, file string, serviceName *string) (*importerModels.AzureApiDefinition, error) {
@@ -66,7 +65,6 @@ func validateParsedApiResourceMatches(t *testing.T, expected importerModels.Azur
 	validateMapsMatch(t, expected.Models, actual.Models, "Models", validateParsedSDKModelsMatch)
 	validateMapsMatch(t, expected.Operations, actual.Operations, "Operations", validateParsedOperationsMatch)
 	validateMapsMatch(t, expected.ResourceIds, actual.ResourceIds, "Resource IDs", validateParsedResourceIDsMatch)
-	validateObjectsMatch(t, expected.Terraform, actual.Terraform, "Terraform", validateParsedTerraformDetailsMatch)
 }
 
 func validateParsedConstantsMatch(t *testing.T, expected, actual models.SDKConstant, constantName string) {
@@ -210,14 +208,6 @@ func validateParsedResourceIDSegmentsMatch(t *testing.T, expected, actual models
 	}
 	if string(expected.Type) != string(actual.Type) {
 		t.Errorf("expected `Type` to be %q but got %q for %s", string(expected.Type), string(actual.Type), segmentName)
-	}
-}
-
-func validateParsedTerraformDetailsMatch(t *testing.T, expected, actual resourcemanager.TerraformDetails, _ string) {
-	if len(expected.Resources) > 0 || len(actual.Resources) > 0 {
-		// At this time we don't implement Terraform Resource comparisons since we're not expecting
-		// these to be present as a result of the Swagger Parser (these are the next stage).
-		t.Fatalf("unimplemented: Terraform Resource comparisons")
 	}
 }
 
