@@ -5,25 +5,24 @@ package parser
 
 import (
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
-	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 // normalizeAzureApiResource works through the parsed AzureApiResource and ensures
 // that all the Names and References are consistent (TitleCase) as a final effort
 // to ensure the Swagger Data is normalized.
-func normalizeAzureApiResource(input importerModels.AzureApiResource) importerModels.AzureApiResource {
-	normalizedConstants := make(map[string]models.SDKConstant)
+func normalizeAzureApiResource(input sdkModels.APIResource) sdkModels.APIResource {
+	normalizedConstants := make(map[string]sdkModels.SDKConstant)
 	for k, v := range input.Constants {
 		name := cleanup.NormalizeName(k)
 		normalizedConstants[name] = v
 	}
 
-	normalizedModels := make(map[string]models.SDKModel)
+	normalizedModels := make(map[string]sdkModels.SDKModel)
 	for k, v := range input.Models {
 		modelName := cleanup.NormalizeName(k)
-		fields := make(map[string]models.SDKField)
+		fields := make(map[string]sdkModels.SDKField)
 		for fieldName, fieldVal := range v.Fields {
 			normalizedFieldName := cleanup.NormalizeName(fieldName)
 			fieldVal.ObjectDefinition = normalizeSDKObjectDefinition(fieldVal.ObjectDefinition)
@@ -45,7 +44,7 @@ func normalizeAzureApiResource(input importerModels.AzureApiResource) importerMo
 		normalizedModels[modelName] = v
 	}
 
-	normalizedOperations := make(map[string]models.SDKOperation)
+	normalizedOperations := make(map[string]sdkModels.SDKOperation)
 	for k, v := range input.Operations {
 		if v.ResourceIDName != nil {
 			normalized := cleanup.NormalizeName(*v.ResourceIDName)
@@ -62,7 +61,7 @@ func normalizeAzureApiResource(input importerModels.AzureApiResource) importerMo
 			v.ResponseObject = pointer.To(response)
 		}
 
-		normalizedOptions := make(map[string]models.SDKOperationOption, 0)
+		normalizedOptions := make(map[string]sdkModels.SDKOperationOption, 0)
 		for optionKey, optionVal := range v.Options {
 			optionKey = cleanup.NormalizeName(optionKey)
 
@@ -75,9 +74,9 @@ func normalizeAzureApiResource(input importerModels.AzureApiResource) importerMo
 		normalizedOperations[k] = v
 	}
 
-	normalizedResourceIds := make(map[string]models.ResourceID)
-	for k, v := range input.ResourceIds {
-		segments := make([]models.ResourceIDSegment, 0)
+	normalizedResourceIds := make(map[string]sdkModels.ResourceID)
+	for k, v := range input.ResourceIDs {
+		segments := make([]sdkModels.ResourceIDSegment, 0)
 
 		normalizedConstantNames := make([]string, 0)
 		for _, cn := range v.ConstantNames {
@@ -98,15 +97,15 @@ func normalizeAzureApiResource(input importerModels.AzureApiResource) importerMo
 		normalizedResourceIds[k] = v
 	}
 
-	return importerModels.AzureApiResource{
+	return sdkModels.APIResource{
 		Constants:   normalizedConstants,
 		Models:      normalizedModels,
 		Operations:  normalizedOperations,
-		ResourceIds: normalizedResourceIds,
+		ResourceIDs: normalizedResourceIds,
 	}
 }
 
-func normalizeSDKObjectDefinition(input models.SDKObjectDefinition) models.SDKObjectDefinition {
+func normalizeSDKObjectDefinition(input sdkModels.SDKObjectDefinition) sdkModels.SDKObjectDefinition {
 	if input.ReferenceName != nil {
 		normalized := cleanup.NormalizeName(*input.ReferenceName)
 		input.ReferenceName = &normalized
@@ -120,7 +119,7 @@ func normalizeSDKObjectDefinition(input models.SDKObjectDefinition) models.SDKOb
 	return input
 }
 
-func normalizeOptionsObjectDefinition(input models.SDKOperationOptionObjectDefinition) models.SDKOperationOptionObjectDefinition {
+func normalizeOptionsObjectDefinition(input sdkModels.SDKOperationOptionObjectDefinition) sdkModels.SDKOperationOptionObjectDefinition {
 	if input.ReferenceName != nil {
 		normalized := cleanup.NormalizeName(*input.ReferenceName)
 		input.ReferenceName = &normalized

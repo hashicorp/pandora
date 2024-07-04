@@ -10,7 +10,7 @@ import (
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/go-hclog"
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
@@ -58,23 +58,23 @@ func validateParsedSwaggerResultMatches(t *testing.T, expected importerModels.Az
 	validateMapsMatch(t, expected.Resources, actual.Resources, "API Resource", validateParsedApiResourceMatches)
 }
 
-func validateParsedApiResourceMatches(t *testing.T, expected importerModels.AzureApiResource, actual importerModels.AzureApiResource, apiResourceName string) {
+func validateParsedApiResourceMatches(t *testing.T, expected, actual sdkModels.APIResource, apiResourceName string) {
 	t.Logf("Validating API Resource %q..", apiResourceName)
 	// Validate each of the maps matches what we're expecting
 	validateMapsMatch(t, expected.Constants, actual.Constants, "Constants", validateParsedConstantsMatch)
 	validateMapsMatch(t, expected.Models, actual.Models, "Models", validateParsedSDKModelsMatch)
 	validateMapsMatch(t, expected.Operations, actual.Operations, "Operations", validateParsedOperationsMatch)
-	validateMapsMatch(t, expected.ResourceIds, actual.ResourceIds, "Resource IDs", validateParsedResourceIDsMatch)
+	validateMapsMatch(t, expected.ResourceIDs, actual.ResourceIDs, "Resource IDs", validateParsedResourceIDsMatch)
 }
 
-func validateParsedConstantsMatch(t *testing.T, expected, actual models.SDKConstant, constantName string) {
+func validateParsedConstantsMatch(t *testing.T, expected, actual sdkModels.SDKConstant, constantName string) {
 	if expected.Type != actual.Type {
 		t.Fatalf("expected Type to be %q but got %q for Constant %q", string(expected.Type), string(actual.Type), constantName)
 	}
 	validateMapsMatch(t, expected.Values, actual.Values, "Values", validateStringsMatch)
 }
 
-func validateParsedSDKFieldsMatch(t *testing.T, expected, actual models.SDKField, fieldName string) {
+func validateParsedSDKFieldsMatch(t *testing.T, expected, actual sdkModels.SDKField, fieldName string) {
 	if expected.JsonName != actual.JsonName {
 		t.Fatalf("expected `JsonName` to be %q but got %q for Field %q", expected.JsonName, actual.JsonName, fieldName)
 	}
@@ -92,7 +92,7 @@ func validateParsedSDKFieldsMatch(t *testing.T, expected, actual models.SDKField
 	validateParsedObjectDefinitionsMatch(t, expected.ObjectDefinition, actual.ObjectDefinition, fieldName)
 }
 
-func validateParsedSDKModelsMatch(t *testing.T, expected, actual models.SDKModel, modelName string) {
+func validateParsedSDKModelsMatch(t *testing.T, expected, actual sdkModels.SDKModel, modelName string) {
 	t.Logf("Validating Model %q...", modelName)
 	if pointer.From(expected.ParentTypeName) != pointer.From(actual.ParentTypeName) {
 		// NOTE: this should be nil when unset, otherwise a value
@@ -113,7 +113,7 @@ func validateParsedSDKModelsMatch(t *testing.T, expected, actual models.SDKModel
 	validateMapsMatch(t, expected.Fields, actual.Fields, "Fields", validateParsedSDKFieldsMatch)
 }
 
-func validateParsedObjectDefinitionsMatch(t *testing.T, expected, actual models.SDKObjectDefinition, fieldName string) {
+func validateParsedObjectDefinitionsMatch(t *testing.T, expected, actual sdkModels.SDKObjectDefinition, fieldName string) {
 	if expected.Type != actual.Type {
 		t.Fatalf("expected `Type` to be %q but got %q for Field %q", string(expected.Type), string(actual.Type), fieldName)
 	}
@@ -134,7 +134,7 @@ func validateParsedObjectDefinitionsMatch(t *testing.T, expected, actual models.
 	validateObjectsMatch(t, expected.NestedItem, actual.NestedItem, "NestedItem", validateParsedObjectDefinitionsMatch)
 }
 
-func validateParsedOperationsMatch(t *testing.T, expected, actual models.SDKOperation, operationName string) {
+func validateParsedOperationsMatch(t *testing.T, expected, actual sdkModels.SDKOperation, operationName string) {
 	t.Logf("Validating Operation %q..", operationName)
 	if expected.ContentType != actual.ContentType {
 		t.Fatalf("expected `ContentType` to be %q but got %q for Operation %q", expected.ContentType, actual.ContentType, operationName)
@@ -160,7 +160,7 @@ func validateParsedOperationsMatch(t *testing.T, expected, actual models.SDKOper
 	}
 }
 
-func validateParsedOptionsMatch(t *testing.T, expected, actual models.SDKOperationOption, optionName string) {
+func validateParsedOptionsMatch(t *testing.T, expected, actual sdkModels.SDKOperationOption, optionName string) {
 	if pointer.From(expected.HeaderName) != pointer.From(actual.HeaderName) {
 		t.Errorf("expected `HeaderName` to be %q but got %q for Option %q", pointer.From(expected.HeaderName), pointer.From(actual.HeaderName), optionName)
 	}
@@ -173,7 +173,7 @@ func validateParsedOptionsMatch(t *testing.T, expected, actual models.SDKOperati
 	validateParsedOptionsObjectDefinitionsMatch(t, expected.ObjectDefinition, actual.ObjectDefinition, "OptionObjectDefinition")
 }
 
-func validateParsedOptionsObjectDefinitionsMatch(t *testing.T, expected, actual models.SDKOperationOptionObjectDefinition, fieldName string) {
+func validateParsedOptionsObjectDefinitionsMatch(t *testing.T, expected, actual sdkModels.SDKOperationOptionObjectDefinition, fieldName string) {
 	if expected.Type != actual.Type {
 		t.Fatalf("expected `Type` to be %q but got %q for Field %q", string(expected.Type), string(actual.Type), fieldName)
 	}
@@ -184,7 +184,7 @@ func validateParsedOptionsObjectDefinitionsMatch(t *testing.T, expected, actual 
 	validateObjectsMatch(t, expected.NestedItem, actual.NestedItem, "NestedItem", validateParsedOptionsObjectDefinitionsMatch)
 }
 
-func validateParsedResourceIDsMatch(t *testing.T, expected, actual models.ResourceID, resourceIdName string) {
+func validateParsedResourceIDsMatch(t *testing.T, expected, actual sdkModels.ResourceID, resourceIdName string) {
 	if pointer.From(expected.CommonIDAlias) != pointer.From(actual.CommonIDAlias) {
 		t.Errorf("expected `CommonIDAlias` to be %q but got %q for Resource ID %q", pointer.From(expected.CommonIDAlias), pointer.From(actual.CommonIDAlias), resourceIdName)
 	}
@@ -192,7 +192,7 @@ func validateParsedResourceIDsMatch(t *testing.T, expected, actual models.Resour
 	validateSlicesMatch(t, expected.Segments, actual.Segments, "Segments", validateParsedResourceIDSegmentsMatch)
 }
 
-func validateParsedResourceIDSegmentsMatch(t *testing.T, expected, actual models.ResourceIDSegment, segmentName string) {
+func validateParsedResourceIDSegmentsMatch(t *testing.T, expected, actual sdkModels.ResourceIDSegment, segmentName string) {
 	if pointer.From(expected.ConstantReference) != pointer.From(actual.ConstantReference) {
 		t.Errorf("expected `ConstantReference` to be %q but got %q for %s", pointer.From(expected.ConstantReference), pointer.From(actual.ConstantReference), segmentName)
 	}

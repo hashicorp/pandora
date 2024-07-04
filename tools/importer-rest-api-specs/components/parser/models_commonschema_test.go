@@ -7,7 +7,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
@@ -26,36 +26,36 @@ func TestParseModel_CommonSchema_IdentityLegacySystemAndUserAssignedList(t *test
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Resource": {
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"Model": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"Identity": {
 								JsonName: "identity",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.LegacySystemAndUserAssignedIdentityListSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.LegacySystemAndUserAssignedIdentityListSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.StringSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
+						ResponseObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/example"),
 					},
@@ -75,36 +75,36 @@ func TestParseModel_CommonSchema_IdentityLegacySystemAndUserAssignedMap(t *testi
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Resource": {
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"Model": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"Identity": {
 								JsonName: "identity",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.LegacySystemAndUserAssignedIdentityMapSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.LegacySystemAndUserAssignedIdentityMapSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.StringSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
+						ResponseObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/example"),
 					},
@@ -126,36 +126,36 @@ func TestParseModel_CommonSchema_IdentityLegacySystemAndUserAssignedMap_ExtraFie
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Resource": {
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"Model": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"Identity": {
 								JsonName: "identity",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.LegacySystemAndUserAssignedIdentityMapSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.LegacySystemAndUserAssignedIdentityMapSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.StringSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
+						ResponseObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/example"),
 					},
@@ -175,36 +175,36 @@ func TestParseModel_CommonSchema_IdentityLegacySystemAndUserAssignedMap_GenericD
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Resource": {
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"Model": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"Identity": {
 								JsonName: "identity",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.LegacySystemAndUserAssignedIdentityMapSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.LegacySystemAndUserAssignedIdentityMapSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.StringSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
+						ResponseObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/example"),
 					},
@@ -224,36 +224,36 @@ func TestParseModel_CommonSchema_IdentitySystemAssigned(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Resource": {
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"Model": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"Identity": {
 								JsonName: "identity",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.SystemAssignedIdentitySDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.SystemAssignedIdentitySDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.StringSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
+						ResponseObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/example"),
 					},
@@ -273,36 +273,36 @@ func TestParseModel_CommonSchema_IdentitySystemAndUserAssignedList(t *testing.T)
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Resource": {
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"Model": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"Identity": {
 								JsonName: "identity",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.SystemAndUserAssignedIdentityListSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.SystemAndUserAssignedIdentityListSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.StringSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
+						ResponseObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/example"),
 					},
@@ -322,36 +322,36 @@ func TestParseModel_CommonSchema_IdentitySystemAndUserAssignedMap(t *testing.T) 
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Resource": {
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"Model": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"Identity": {
 								JsonName: "identity",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.SystemAndUserAssignedIdentityMapSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.SystemAndUserAssignedIdentityMapSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.StringSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
+						ResponseObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/example"),
 					},
@@ -373,36 +373,36 @@ func TestParseModel_CommonSchema_IdentitySystemAndUserAssignedMap_ExtraFields(t 
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Resource": {
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"Model": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"Identity": {
 								JsonName: "identity",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.SystemAndUserAssignedIdentityMapSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.SystemAndUserAssignedIdentityMapSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.StringSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
+						ResponseObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/example"),
 					},
@@ -422,36 +422,36 @@ func TestParseModel_CommonSchema_IdentitySystemOrUserAssignedList(t *testing.T) 
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Resource": {
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"Model": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"Identity": {
 								JsonName: "identity",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.SystemOrUserAssignedIdentityListSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.SystemOrUserAssignedIdentityListSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.StringSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
+						ResponseObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/example"),
 					},
@@ -471,36 +471,36 @@ func TestParseModel_CommonSchema_IdentitySystemOrUserAssignedMap(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Resource": {
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"Model": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"Identity": {
 								JsonName: "identity",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.SystemOrUserAssignedIdentityMapSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.SystemOrUserAssignedIdentityMapSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.StringSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
+						ResponseObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/example"),
 					},
@@ -522,36 +522,36 @@ func TestParseModel_CommonSchema_IdentitySystemOrUserAssignedMap_DelegatedResour
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Resource": {
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"Model": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"Identity": {
 								JsonName: "identity",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.SystemOrUserAssignedIdentityMapSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.SystemOrUserAssignedIdentityMapSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.StringSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
+						ResponseObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/example"),
 					},
@@ -573,36 +573,36 @@ func TestParseModel_CommonSchema_IdentitySystemOrUserAssignedMap_ExtraFields(t *
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Resource": {
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"Model": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"Identity": {
 								JsonName: "identity",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.SystemOrUserAssignedIdentityMapSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.SystemOrUserAssignedIdentityMapSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.StringSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
+						ResponseObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/example"),
 					},
@@ -622,36 +622,36 @@ func TestParseModel_CommonSchema_IdentityUserAssignedList(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Resource": {
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"Model": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"Identity": {
 								JsonName: "identity",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.UserAssignedIdentityListSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.UserAssignedIdentityListSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.StringSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
+						ResponseObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/example"),
 					},
@@ -671,36 +671,36 @@ func TestParseModel_CommonSchema_IdentityUserAssignedMap(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Resource": {
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"Model": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"Identity": {
 								JsonName: "identity",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.UserAssignedIdentityMapSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.UserAssignedIdentityMapSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.StringSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
+						ResponseObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/example"),
 					},
@@ -720,36 +720,36 @@ func TestParseModel_CommonSchema_IdentityUserAssignedMap_PrincipalID(t *testing.
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Resource": {
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"Model": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"Identity": {
 								JsonName: "identity",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.UserAssignedIdentityMapSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.UserAssignedIdentityMapSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.StringSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
+						ResponseObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/example"),
 					},
@@ -769,36 +769,36 @@ func TestParseModel_CommonSchema_IdentityUserAssignedMap_TenantID(t *testing.T) 
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Resource": {
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"Model": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"Identity": {
 								JsonName: "identity",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.UserAssignedIdentityMapSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.UserAssignedIdentityMapSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.StringSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
+						ResponseObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/example"),
 					},
@@ -818,36 +818,36 @@ func TestParseModel_CommonSchema_Location(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Resource": {
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"Model": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"Location": {
 								JsonName: "location",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.LocationSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.LocationSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.StringSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
+						ResponseObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/example"),
 					},

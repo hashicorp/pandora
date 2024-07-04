@@ -12,18 +12,17 @@ import (
 
 	"github.com/go-openapi/spec"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/commonschema"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/constants"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/resourceids"
-	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resourceProvider *string, resourceIds resourceids.ParseResult) (*importerModels.AzureApiResource, error) {
+func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resourceProvider *string, resourceIds resourceids.ParseResult) (*sdkModels.APIResource, error) {
 	result := internal.ParseResult{
-		Constants: map[string]models.SDKConstant{},
-		Models:    map[string]models.SDKModel{},
+		Constants: map[string]sdkModels.SDKConstant{},
+		Models:    map[string]sdkModels.SDKModel{},
 	}
 
 	// note that Resource ID's can contain Constants (used as segments)
@@ -63,11 +62,11 @@ func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resource
 		return nil, nil
 	}
 
-	resource := importerModels.AzureApiResource{
+	resource := sdkModels.APIResource{
 		Constants:   result.Constants,
 		Models:      result.Models,
 		Operations:  *operations,
-		ResourceIds: resourceIds.NamesToResourceIDs,
+		ResourceIDs: resourceIds.NamesToResourceIDs,
 	}
 
 	// first Normalize the names, meaning `foo` -> `Foo` for consistency
@@ -78,10 +77,10 @@ func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resource
 
 type listOperationDetails struct {
 	fieldContainingPaginationDetails *string
-	valueObjectDefinition            *models.SDKObjectDefinition
+	valueObjectDefinition            *sdkModels.SDKObjectDefinition
 }
 
-func listOperationDetailsForOperation(input models.SDKOperation, known internal.ParseResult) *listOperationDetails {
+func listOperationDetailsForOperation(input sdkModels.SDKOperation, known internal.ParseResult) *listOperationDetails {
 	if !strings.EqualFold(input.Method, http.MethodGet) && !strings.EqualFold(input.Method, http.MethodPost) {
 		return nil
 	}
@@ -90,7 +89,7 @@ func listOperationDetailsForOperation(input models.SDKOperation, known internal.
 	if input.ResponseObject == nil {
 		return nil
 	}
-	if input.ResponseObject.Type == models.ReferenceSDKObjectDefinitionType {
+	if input.ResponseObject.Type == sdkModels.ReferenceSDKObjectDefinitionType {
 		responseModel, isModel := known.Models[*input.ResponseObject.ReferenceName]
 		if !isModel {
 			// a constant wouldn't be listable
@@ -123,11 +122,11 @@ func listOperationDetailsForOperation(input models.SDKOperation, known internal.
 	return nil
 }
 
-func pullOutModelForListOperations(input map[string]models.SDKOperation, known internal.ParseResult) (*map[string]models.SDKOperation, error) {
+func pullOutModelForListOperations(input map[string]sdkModels.SDKOperation, known internal.ParseResult) (*map[string]sdkModels.SDKOperation, error) {
 	// List Operations return an object which contains a NextLink and a Value (which is the actual Object
 	// being paginated on) - so we want to replace the wrapper object with the Value so that these can be
 	// paginated correctly as needed.
-	output := make(map[string]models.SDKOperation)
+	output := make(map[string]sdkModels.SDKOperation)
 
 	for operationName := range input {
 		operation := input[operationName]
@@ -147,8 +146,8 @@ func pullOutModelForListOperations(input map[string]models.SDKOperation, known i
 
 func switchOutCustomTypesAsNeeded(input internal.ParseResult) internal.ParseResult {
 	result := internal.ParseResult{
-		Constants: map[string]models.SDKConstant{},
-		Models:    map[string]models.SDKModel{},
+		Constants: map[string]sdkModels.SDKConstant{},
+		Models:    map[string]sdkModels.SDKModel{},
 	}
 	result.Append(input)
 
@@ -174,10 +173,10 @@ func switchOutCustomTypesAsNeeded(input internal.ParseResult) internal.ParseResu
 	return input
 }
 
-func (d *SwaggerDefinition) findNestedItemsYetToBeParsed(operations map[string]models.SDKOperation, known internal.ParseResult) (*internal.ParseResult, error) {
+func (d *SwaggerDefinition) findNestedItemsYetToBeParsed(operations map[string]sdkModels.SDKOperation, known internal.ParseResult) (*internal.ParseResult, error) {
 	result := internal.ParseResult{
-		Constants: map[string]models.SDKConstant{},
-		Models:    map[string]models.SDKModel{},
+		Constants: map[string]sdkModels.SDKConstant{},
+		Models:    map[string]sdkModels.SDKModel{},
 	}
 	result.Append(known)
 
@@ -245,10 +244,10 @@ func referencesAreTheSame(first []string, second []string) bool {
 	return true
 }
 
-func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations map[string]models.SDKOperation, known internal.ParseResult) (*[]string, error) {
+func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations map[string]sdkModels.SDKOperation, known internal.ParseResult) (*[]string, error) {
 	referencesToFind := make(map[string]struct{}, 0)
 
-	var objectsRequiredByModel = func(modelName string, model models.SDKModel) (*[]string, error) {
+	var objectsRequiredByModel = func(modelName string, model sdkModels.SDKModel) (*[]string, error) {
 		result := make(map[string]struct{}, 0)
 		// if it's a model, we need to check all of the fields for this to find any constant or models
 		// that we don't know about
@@ -274,7 +273,7 @@ func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations map[
 	for _, operation := range operations {
 		if operation.RequestObject != nil {
 			topLevelRef := helpers.InnerMostSDKObjectDefinition(*operation.RequestObject)
-			if topLevelRef.Type == models.ReferenceSDKObjectDefinitionType {
+			if topLevelRef.Type == sdkModels.ReferenceSDKObjectDefinitionType {
 				isKnownConstant, isKnownModel := isObjectKnown(*topLevelRef.ReferenceName, known)
 				if !isKnownConstant && !isKnownModel {
 					referencesToFind[*topLevelRef.ReferenceName] = struct{}{}
@@ -296,7 +295,7 @@ func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations map[
 
 		if operation.ResponseObject != nil {
 			topLevelRef := helpers.InnerMostSDKObjectDefinition(*operation.ResponseObject)
-			if topLevelRef.Type == models.ReferenceSDKObjectDefinitionType {
+			if topLevelRef.Type == sdkModels.ReferenceSDKObjectDefinitionType {
 				isKnownConstant, isKnownModel := isObjectKnown(*topLevelRef.ReferenceName, known)
 				if !isKnownConstant && !isKnownModel {
 					referencesToFind[*topLevelRef.ReferenceName] = struct{}{}
@@ -320,7 +319,7 @@ func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations map[
 
 		for _, value := range operation.Options {
 			topLevelRef := topLevelOptionsObjectDefinition(value.ObjectDefinition)
-			if topLevelRef.Type != models.ReferenceSDKOperationOptionObjectDefinitionType {
+			if topLevelRef.Type != sdkModels.ReferenceSDKOperationOptionObjectDefinitionType {
 				continue
 			}
 
@@ -356,7 +355,7 @@ func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations map[
 	return &out, nil
 }
 
-func (d *SwaggerDefinition) objectsUsedByModel(modelName string, model models.SDKModel) (*[]string, error) {
+func (d *SwaggerDefinition) objectsUsedByModel(modelName string, model sdkModels.SDKModel) (*[]string, error) {
 	typeNames := make(map[string]struct{}, 0)
 
 	for _, field := range model.Fields {

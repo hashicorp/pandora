@@ -142,7 +142,7 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 		dataForApiVersion := &importerModels.AzureApiDefinition{
 			ServiceName: serviceName,
 			ApiVersion:  apiVersion,
-			Resources:   map[string]importerModels.AzureApiResource{},
+			Resources:   map[string]sdkModels.APIResource{},
 		}
 		for _, v := range api {
 			tempDataForApiVersion, err := task.parseDataForApiVersion(v, versionLogger)

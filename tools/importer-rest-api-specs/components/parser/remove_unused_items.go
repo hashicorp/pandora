@@ -7,19 +7,18 @@ import (
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
-func removeUnusedItems(resources map[string]importerModels.AzureApiResource) map[string]importerModels.AzureApiResource {
+func removeUnusedItems(resources map[string]sdkModels.APIResource) map[string]sdkModels.APIResource {
 	// The ordering matters here, we need to remove the ResourceIDs first since
 	// they contain references to Constants - as do Models, so remove unused
 	// Resource IDs, then Models, then Constants else we can have orphaned
 	// constants within a package
 
 	for resource, details := range resources {
-		resourceIdsForThisResource := make(map[string]models.ResourceID)
-		for k, v := range details.ResourceIds {
+		resourceIdsForThisResource := make(map[string]sdkModels.ResourceID)
+		for k, v := range details.ResourceIDs {
 			resourceIdsForThisResource[k] = v
 		}
 		unusedResourceIds := findUnusedResourceIds(details.Operations, resourceIdsForThisResource)
@@ -54,26 +53,26 @@ func removeUnusedItems(resources map[string]importerModels.AzureApiResource) map
 			unusedConstants = findUnusedConstants(details.Operations, resourceIdsForThisResource, details.Models, details.Constants)
 		}
 
-		resources[resource] = importerModels.AzureApiResource{
+		resources[resource] = sdkModels.APIResource{
 			Constants:   details.Constants,
 			Models:      details.Models,
 			Operations:  details.Operations,
-			ResourceIds: resourceIdsForThisResource,
+			ResourceIDs: resourceIdsForThisResource,
 		}
 	}
 
 	return resources
 }
 
-func findUnusedConstants(operations map[string]models.SDKOperation, resourceIds map[string]models.ResourceID, resourceModels map[string]models.SDKModel, resourceConstants map[string]models.SDKConstant) []string {
-	unusedConstants := make(map[string]struct{}, 0)
+func findUnusedConstants(operations map[string]sdkModels.SDKOperation, resourceIds map[string]sdkModels.ResourceID, resourceModels map[string]sdkModels.SDKModel, resourceConstants map[string]sdkModels.SDKConstant) []string {
+	unusedConstants := make(map[string]struct{})
 	for constantName := range resourceConstants {
 		// constants are either housed inside a Model
 		usedInAModel := false
 		for _, model := range resourceModels {
 			for _, field := range model.Fields {
 				definition := helpers.InnerMostSDKObjectDefinition(field.ObjectDefinition)
-				if definition.Type != models.ReferenceSDKObjectDefinitionType {
+				if definition.Type != sdkModels.ReferenceSDKObjectDefinitionType {
 					continue
 				}
 				if *definition.ReferenceName == constantName {
@@ -94,7 +93,7 @@ func findUnusedConstants(operations map[string]models.SDKOperation, resourceIds 
 		for _, operation := range operations {
 			if operation.RequestObject != nil {
 				definition := helpers.InnerMostSDKObjectDefinition(*operation.RequestObject)
-				if definition.Type == models.ReferenceSDKObjectDefinitionType && *definition.ReferenceName == constantName {
+				if definition.Type == sdkModels.ReferenceSDKObjectDefinitionType && *definition.ReferenceName == constantName {
 					usedInAnOperation = true
 					break
 				}
@@ -102,7 +101,7 @@ func findUnusedConstants(operations map[string]models.SDKOperation, resourceIds 
 
 			if operation.ResponseObject != nil {
 				definition := helpers.InnerMostSDKObjectDefinition(*operation.ResponseObject)
-				if definition.Type == models.ReferenceSDKObjectDefinitionType && *definition.ReferenceName == constantName {
+				if definition.Type == sdkModels.ReferenceSDKObjectDefinitionType && *definition.ReferenceName == constantName {
 					usedInAnOperation = true
 					break
 				}
@@ -110,7 +109,7 @@ func findUnusedConstants(operations map[string]models.SDKOperation, resourceIds 
 
 			for _, v := range operation.Options {
 				definition := topLevelOptionsObjectDefinition(v.ObjectDefinition)
-				if definition.Type != models.ReferenceSDKOperationOptionObjectDefinitionType {
+				if definition.Type != sdkModels.ReferenceSDKOperationOptionObjectDefinitionType {
 					continue
 				}
 				if *definition.ReferenceName == constantName {
@@ -155,7 +154,7 @@ func findUnusedConstants(operations map[string]models.SDKOperation, resourceIds 
 	return out
 }
 
-func topLevelOptionsObjectDefinition(input models.SDKOperationOptionObjectDefinition) models.SDKOperationOptionObjectDefinition {
+func topLevelOptionsObjectDefinition(input sdkModels.SDKOperationOptionObjectDefinition) sdkModels.SDKOperationOptionObjectDefinition {
 	if input.NestedItem != nil {
 		return topLevelOptionsObjectDefinition(*input.NestedItem)
 	}
@@ -163,7 +162,7 @@ func topLevelOptionsObjectDefinition(input models.SDKOperationOptionObjectDefini
 	return input
 }
 
-func findUnusedModels(operations map[string]models.SDKOperation, resourceModels map[string]models.SDKModel) []string {
+func findUnusedModels(operations map[string]sdkModels.SDKOperation, resourceModels map[string]sdkModels.SDKModel) []string {
 	unusedModels := make(map[string]struct{})
 	for modelName, model := range resourceModels {
 		if modelName == "" {
@@ -178,7 +177,7 @@ func findUnusedModels(operations map[string]models.SDKOperation, resourceModels 
 		for _, operation := range operations {
 			if operation.RequestObject != nil {
 				definition := helpers.InnerMostSDKObjectDefinition(*operation.RequestObject)
-				if definition.Type == models.ReferenceSDKObjectDefinitionType && *definition.ReferenceName == modelName {
+				if definition.Type == sdkModels.ReferenceSDKObjectDefinitionType && *definition.ReferenceName == modelName {
 					usedInAnOperation = true
 					break
 				}
@@ -186,7 +185,7 @@ func findUnusedModels(operations map[string]models.SDKOperation, resourceModels 
 
 			if operation.ResponseObject != nil {
 				definition := helpers.InnerMostSDKObjectDefinition(*operation.ResponseObject)
-				if definition.Type == models.ReferenceSDKObjectDefinitionType && *definition.ReferenceName == modelName {
+				if definition.Type == sdkModels.ReferenceSDKObjectDefinitionType && *definition.ReferenceName == modelName {
 					usedInAnOperation = true
 					break
 				}
@@ -195,7 +194,7 @@ func findUnusedModels(operations map[string]models.SDKOperation, resourceModels 
 			// @tombuildsstuff: whilst I don't _think_ there are any examples of this today, checking it because it's an option
 			for _, v := range operation.Options {
 				definition := topLevelOptionsObjectDefinition(v.ObjectDefinition)
-				if definition.Type != models.ReferenceSDKOperationOptionObjectDefinitionType {
+				if definition.Type != sdkModels.ReferenceSDKOperationOptionObjectDefinitionType {
 					continue
 				}
 				if *definition.ReferenceName == modelName {
@@ -217,7 +216,7 @@ func findUnusedModels(operations map[string]models.SDKOperation, resourceModels 
 
 			for _, field := range thisModel.Fields {
 				definition := helpers.InnerMostSDKObjectDefinition(field.ObjectDefinition)
-				if definition.Type != models.ReferenceSDKObjectDefinitionType {
+				if definition.Type != sdkModels.ReferenceSDKObjectDefinitionType {
 					continue
 				}
 				if *definition.ReferenceName == modelName {
@@ -253,7 +252,7 @@ func findUnusedModels(operations map[string]models.SDKOperation, resourceModels 
 	return out
 }
 
-func findUnusedResourceIds(operations map[string]models.SDKOperation, resourceIds map[string]models.ResourceID) []string {
+func findUnusedResourceIds(operations map[string]sdkModels.SDKOperation, resourceIds map[string]sdkModels.ResourceID) []string {
 	unusedResourceIds := make(map[string]struct{}, 0)
 
 	// first add everything

@@ -7,7 +7,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/featureflags"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
@@ -19,45 +19,45 @@ func TestParseModelWithDataFactoryCustomTypes(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expectedModels := map[string]models.SDKModel{
+	expectedModels := map[string]sdkModels.SDKModel{
 		"Model": {
-			Fields: map[string]models.SDKField{
+			Fields: map[string]sdkModels.SDKField{
 				// Simple Types
 				"BooleanField": {
 					JsonName: "booleanField",
-					ObjectDefinition: models.SDKObjectDefinition{
-						Type: models.BooleanSDKObjectDefinitionType,
+					ObjectDefinition: sdkModels.SDKObjectDefinition{
+						Type: sdkModels.BooleanSDKObjectDefinitionType,
 					},
 					Required: false,
 				},
 				"DoubleField": {
 					JsonName: "doubleField",
-					ObjectDefinition: models.SDKObjectDefinition{
-						Type: models.FloatSDKObjectDefinitionType,
+					ObjectDefinition: sdkModels.SDKObjectDefinition{
+						Type: sdkModels.FloatSDKObjectDefinitionType,
 					},
 					Required: false,
 				},
 				"KeyValuePairField": {
 					JsonName: "keyValuePairField",
-					ObjectDefinition: models.SDKObjectDefinition{
-						Type: models.DictionarySDKObjectDefinitionType,
-						NestedItem: &models.SDKObjectDefinition{
-							Type: models.StringSDKObjectDefinitionType,
+					ObjectDefinition: sdkModels.SDKObjectDefinition{
+						Type: sdkModels.DictionarySDKObjectDefinitionType,
+						NestedItem: &sdkModels.SDKObjectDefinition{
+							Type: sdkModels.StringSDKObjectDefinitionType,
 						},
 					},
 					Required: false,
 				},
 				"IntegerField": {
 					JsonName: "integerField",
-					ObjectDefinition: models.SDKObjectDefinition{
-						Type: models.IntegerSDKObjectDefinitionType,
+					ObjectDefinition: sdkModels.SDKObjectDefinition{
+						Type: sdkModels.IntegerSDKObjectDefinitionType,
 					},
 					Required: false,
 				},
 				"StringField": {
 					JsonName: "stringField",
-					ObjectDefinition: models.SDKObjectDefinition{
-						Type: models.StringSDKObjectDefinitionType,
+					ObjectDefinition: sdkModels.SDKObjectDefinition{
+						Type: sdkModels.StringSDKObjectDefinitionType,
 					},
 					Required: false,
 				},
@@ -65,8 +65,8 @@ func TestParseModelWithDataFactoryCustomTypes(t *testing.T) {
 					// In this case, the `dfe-*` value is unknown, so we should return an object
 					// this is the default behaviour, mostly for sanity-checking
 					JsonName: "unknownField",
-					ObjectDefinition: models.SDKObjectDefinition{
-						Type: models.RawObjectSDKObjectDefinitionType,
+					ObjectDefinition: sdkModels.SDKObjectDefinition{
+						Type: sdkModels.RawObjectSDKObjectDefinitionType,
 					},
 					Required: false,
 				},
@@ -74,40 +74,40 @@ func TestParseModelWithDataFactoryCustomTypes(t *testing.T) {
 				// Dictionaries of a Simple Type (using the regular Swagger/OpenAPI syntax)
 				"DictionaryOfBooleanField": {
 					JsonName: "dictionaryOfBooleanField",
-					ObjectDefinition: models.SDKObjectDefinition{
-						Type: models.DictionarySDKObjectDefinitionType,
-						NestedItem: &models.SDKObjectDefinition{
-							Type: models.BooleanSDKObjectDefinitionType,
+					ObjectDefinition: sdkModels.SDKObjectDefinition{
+						Type: sdkModels.DictionarySDKObjectDefinitionType,
+						NestedItem: &sdkModels.SDKObjectDefinition{
+							Type: sdkModels.BooleanSDKObjectDefinitionType,
 						},
 					},
 					Required: false,
 				},
 				"DictionaryOfDoubleField": {
 					JsonName: "dictionaryOfDoubleField",
-					ObjectDefinition: models.SDKObjectDefinition{
-						Type: models.DictionarySDKObjectDefinitionType,
-						NestedItem: &models.SDKObjectDefinition{
-							Type: models.FloatSDKObjectDefinitionType,
+					ObjectDefinition: sdkModels.SDKObjectDefinition{
+						Type: sdkModels.DictionarySDKObjectDefinitionType,
+						NestedItem: &sdkModels.SDKObjectDefinition{
+							Type: sdkModels.FloatSDKObjectDefinitionType,
 						},
 					},
 					Required: false,
 				},
 				"DictionaryOfIntegerField": {
 					JsonName: "dictionaryOfIntegerField",
-					ObjectDefinition: models.SDKObjectDefinition{
-						Type: models.DictionarySDKObjectDefinitionType,
-						NestedItem: &models.SDKObjectDefinition{
-							Type: models.IntegerSDKObjectDefinitionType,
+					ObjectDefinition: sdkModels.SDKObjectDefinition{
+						Type: sdkModels.DictionarySDKObjectDefinitionType,
+						NestedItem: &sdkModels.SDKObjectDefinition{
+							Type: sdkModels.IntegerSDKObjectDefinitionType,
 						},
 					},
 					Required: false,
 				},
 				"DictionaryOfStringField": {
 					JsonName: "dictionaryOfStringField",
-					ObjectDefinition: models.SDKObjectDefinition{
-						Type: models.DictionarySDKObjectDefinitionType,
-						NestedItem: &models.SDKObjectDefinition{
-							Type: models.StringSDKObjectDefinitionType,
+					ObjectDefinition: sdkModels.SDKObjectDefinition{
+						Type: sdkModels.DictionarySDKObjectDefinitionType,
+						NestedItem: &sdkModels.SDKObjectDefinition{
+							Type: sdkModels.StringSDKObjectDefinitionType,
 						},
 					},
 					Required: false,
@@ -116,10 +116,10 @@ func TestParseModelWithDataFactoryCustomTypes(t *testing.T) {
 					// In this case, the `dfe-*` value is unknown, so we should return an object
 					// this is the default behaviour, mostly for sanity-checking
 					JsonName: "dictionaryOfUnknownField",
-					ObjectDefinition: models.SDKObjectDefinition{
-						Type: models.DictionarySDKObjectDefinitionType,
-						NestedItem: &models.SDKObjectDefinition{
-							Type: models.RawObjectSDKObjectDefinitionType,
+					ObjectDefinition: sdkModels.SDKObjectDefinition{
+						Type: sdkModels.DictionarySDKObjectDefinitionType,
+						NestedItem: &sdkModels.SDKObjectDefinition{
+							Type: sdkModels.RawObjectSDKObjectDefinitionType,
 						},
 					},
 					Required: false,
@@ -128,20 +128,20 @@ func TestParseModelWithDataFactoryCustomTypes(t *testing.T) {
 				// DFE specific List implementations
 				"DfeCustomListOfString": {
 					JsonName: "dfeCustomListOfString",
-					ObjectDefinition: models.SDKObjectDefinition{
-						Type: models.ListSDKObjectDefinitionType,
-						NestedItem: &models.SDKObjectDefinition{
-							Type: models.StringSDKObjectDefinitionType,
+					ObjectDefinition: sdkModels.SDKObjectDefinition{
+						Type: sdkModels.ListSDKObjectDefinitionType,
+						NestedItem: &sdkModels.SDKObjectDefinition{
+							Type: sdkModels.StringSDKObjectDefinitionType,
 						},
 					},
 					Required: false,
 				},
 				"DfeCustomListOfAnotherObject": {
 					JsonName: "dfeCustomListOfAnotherObject",
-					ObjectDefinition: models.SDKObjectDefinition{
-						Type: models.ListSDKObjectDefinitionType,
-						NestedItem: &models.SDKObjectDefinition{
-							Type:          models.ReferenceSDKObjectDefinitionType,
+					ObjectDefinition: sdkModels.SDKObjectDefinition{
+						Type: sdkModels.ListSDKObjectDefinitionType,
+						NestedItem: &sdkModels.SDKObjectDefinition{
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("SecondModel"),
 						},
 					},
@@ -150,11 +150,11 @@ func TestParseModelWithDataFactoryCustomTypes(t *testing.T) {
 			},
 		},
 		"SecondModel": {
-			Fields: map[string]models.SDKField{
+			Fields: map[string]sdkModels.SDKField{
 				"Example": {
 					JsonName: "example",
-					ObjectDefinition: models.SDKObjectDefinition{
-						Type: models.StringSDKObjectDefinitionType,
+					ObjectDefinition: sdkModels.SDKObjectDefinition{
+						Type: sdkModels.StringSDKObjectDefinitionType,
 					},
 				},
 			},
@@ -163,10 +163,10 @@ func TestParseModelWithDataFactoryCustomTypes(t *testing.T) {
 
 	if !featureflags.ParseDataFactoryListsOfReferencesAsRegularObjectDefinitionTypes {
 		delete(expectedModels, "SecondModel")
-		expectedModels["Model"].Fields["DfeCustomListOfAnotherObject"] = models.SDKField{
+		expectedModels["Model"].Fields["DfeCustomListOfAnotherObject"] = sdkModels.SDKField{
 			JsonName: "dfeCustomListOfAnotherObject",
-			ObjectDefinition: models.SDKObjectDefinition{
-				Type: models.RawObjectSDKObjectDefinitionType,
+			ObjectDefinition: sdkModels.SDKObjectDefinition{
+				Type: sdkModels.RawObjectSDKObjectDefinitionType,
 			},
 			Required: false,
 		}
@@ -175,21 +175,21 @@ func TestParseModelWithDataFactoryCustomTypes(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Example": {
 				Models: expectedModels,
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						RequestObject: &models.SDKObjectDefinition{
+						RequestObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
-						ResponseObject: &models.SDKObjectDefinition{
+						ResponseObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/example"),
 					},
