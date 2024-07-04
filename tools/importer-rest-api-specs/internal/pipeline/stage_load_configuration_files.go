@@ -3,6 +3,7 @@ package pipeline
 import (
 	"fmt"
 
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
 	"github.com/hashicorp/pandora/tools/sdk/config/services"
@@ -25,7 +26,7 @@ func (p *Pipeline) loadConfigurationFiles() error {
 
 	// NOTE: when the `definitions` package is refactored, this can be cleaned up
 	// part of https://github.com/hashicorp/pandora/issues/3754
-	servicesToTerraformResourceDefinitions := make(map[string]map[string]definitions.ResourceDefinition)
+	servicesToTerraformDetails := make(map[string]terraformDetailsForService)
 	for serviceName, serviceData := range terraformResourceDefinitions.Services {
 		terraformResourceDefinition := make(map[string]definitions.ResourceDefinition)
 		for _, apiVersionData := range serviceData.ApiVersions {
@@ -35,9 +36,12 @@ func (p *Pipeline) loadConfigurationFiles() error {
 				}
 			}
 		}
-		servicesToTerraformResourceDefinitions[serviceName] = terraformResourceDefinition
+		servicesToTerraformDetails[serviceName] = terraformDetailsForService{
+			resourceLabelToResourceDefinitions: terraformResourceDefinition,
+			terraformPackageName:               pointer.To(serviceData.TerraformPackageName),
+		}
 	}
-	p.servicesToTerraformResourceDefinitions = servicesToTerraformResourceDefinitions
+	p.servicesToTerraformDetails = servicesToTerraformDetails
 	logging.Debugf("Completed - Parsing the Terraform Resource Definitions.")
 	return nil
 }

@@ -54,10 +54,10 @@ func RunImporter(opts Options) error {
 		}
 		logging.Debugf("Completed - Discovering the Data for Service %q.", service.Name)
 
-		terraformResourceDefinitions, ok := p.servicesToTerraformResourceDefinitions[service.Name]
+		terraformDetails, ok := p.servicesToTerraformDetails[service.Name]
 		if ok {
 			logging.Infof("Building the Terraform Data for the Service %q..", service.Name)
-			data, err = terraform.BuildForService(*data, terraformResourceDefinitions, p.opts.ProviderPrefix, service.TerraformPackageName)
+			data, err = terraform.BuildForService(*data, terraformDetails.resourceLabelToResourceDefinitions, p.opts.ProviderPrefix, terraformDetails.terraformPackageName)
 			if err != nil {
 				return fmt.Errorf("building the Terraform Data for Service %q: %+v", service.Name, err)
 			}

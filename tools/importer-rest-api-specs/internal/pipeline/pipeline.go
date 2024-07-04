@@ -10,8 +10,13 @@ import (
 )
 
 type Pipeline struct {
-	opts                                   Options
-	repository                             repository.Repository
-	servicesFromConfigurationFiles         []services.Service
-	servicesToTerraformResourceDefinitions map[string]map[string]definitions.ResourceDefinition
+	opts                           Options
+	repository                     repository.Repository
+	servicesFromConfigurationFiles []services.Service
+	servicesToTerraformDetails     map[string]terraformDetailsForService
+}
+
+type terraformDetailsForService struct {
+	resourceLabelToResourceDefinitions map[string]definitions.ResourceDefinition
+	terraformPackageName               *string
 }
