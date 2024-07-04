@@ -5,7 +5,6 @@ package parser
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/commonschema"
 	"net/http"
 	"strings"
 
@@ -13,9 +12,10 @@ import (
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/constants"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/resourceids"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/commonschema"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/constants"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )
 
@@ -189,7 +189,7 @@ func (d *SwaggerDefinition) findNestedItemsYetToBeParsed(operations map[string]s
 				return nil, fmt.Errorf("finding top level object named %q: %+v", referenceName, err)
 			}
 
-			parsedAsAConstant, constErr := constants.MapConstant(topLevelObject.Type, referenceName, nil, topLevelObject.Enum, topLevelObject.Extensions)
+			parsedAsAConstant, constErr := constants.Parse(topLevelObject.Type, referenceName, nil, topLevelObject.Enum, topLevelObject.Extensions)
 			parsedAsAModel, modelErr := d.parseModel(referenceName, *topLevelObject)
 			if (constErr != nil && modelErr != nil) || (parsedAsAConstant == nil && parsedAsAModel == nil) {
 				return nil, fmt.Errorf("reference %q didn't parse as a Model or a Constant.\n\nConstant Error: %+v\n\nModel Error: %+v", referenceName, constErr, modelErr)

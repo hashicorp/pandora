@@ -12,9 +12,9 @@ import (
 	"github.com/go-openapi/spec"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/constants"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/resourceids"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/constants"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )
 
@@ -380,7 +380,7 @@ func (p operationsParser) optionsForOperation(input parsedOperation) (*map[strin
 				types := []string{
 					param.Type,
 				}
-				constant, err := constants.MapConstant(types, param.Name, nil, param.Enum, param.Extensions)
+				constant, err := constants.Parse(types, param.Name, nil, param.Enum, param.Extensions)
 				if err != nil {
 					return nil, nil, fmt.Errorf("mapping %q: %+v", param.Name, err)
 				}

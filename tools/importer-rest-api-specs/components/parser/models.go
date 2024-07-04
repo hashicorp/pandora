@@ -11,8 +11,8 @@ import (
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/constants"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/constants"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/featureflags"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )
@@ -67,7 +67,7 @@ func (d *SwaggerDefinition) findConstantsWithinModel(fieldName string, modelName
 	result.Append(known)
 
 	if len(input.Enum) > 0 {
-		constant, err := constants.MapConstant(input.Type, fieldName, modelName, input.Enum, input.Extensions)
+		constant, err := constants.Parse(input.Type, fieldName, modelName, input.Enum, input.Extensions)
 		if err != nil {
 			return nil, fmt.Errorf("parsing constant: %+v", err)
 		}
@@ -528,7 +528,7 @@ func (d SwaggerDefinition) parseObjectDefinition(
 
 	// if it's an enum then parse that out
 	if len(input.Enum) > 0 {
-		constant, err := constants.MapConstant(input.Type, propertyName, &modelName, input.Enum, input.Extensions)
+		constant, err := constants.Parse(input.Type, propertyName, &modelName, input.Enum, input.Extensions)
 		if err != nil {
 			return nil, nil, fmt.Errorf("parsing constant: %+v", err)
 		}

@@ -11,8 +11,8 @@ import (
 	"github.com/go-openapi/spec"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/constants"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/constants"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )
 
@@ -132,7 +132,7 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 
 					if param.Enum != nil {
 						// then find the constant itself
-						constant, err := constants.MapConstant([]string{param.Type}, param.Name, nil, param.Enum, param.Extensions)
+						constant, err := constants.Parse([]string{param.Type}, param.Name, nil, param.Enum, param.Extensions)
 						if err != nil {
 							return nil, fmt.Errorf("parsing constant from %q: %+v", uriSegment, err)
 						}
