@@ -183,7 +183,7 @@ func validateDirectory(serviceName, apiVersion, versionDirectory string) error {
 		fileNames = append(fileNames, fileName)
 	}
 
-	if _, err := LoadAndParseFiles(versionDirectory, *swaggerFiles, serviceName, apiVersion, nil, hclog.New(hclog.DefaultOptions)); err != nil {
+	if _, err := LoadAndParseFiles(versionDirectory, *swaggerFiles, serviceName, apiVersion, nil); err != nil {
 		return err
 	}
 

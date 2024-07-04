@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
@@ -33,9 +33,9 @@ func (workaroundAuthorization25080) Process(apiDefinition importerModels.AzureAp
 	if !ok {
 		return nil, fmt.Errorf("expected an Operation named `ListForScope` but didn't get one")
 	}
-	operation.Options["Filter"] = models.SDKOperationOption{
-		ObjectDefinition: models.SDKOperationOptionObjectDefinition{
-			Type: models.StringSDKOperationOptionObjectDefinitionType,
+	operation.Options["Filter"] = sdkModels.SDKOperationOption{
+		ObjectDefinition: sdkModels.SDKOperationOptionObjectDefinition{
+			Type: sdkModels.StringSDKOperationOptionObjectDefinitionType,
 		},
 		QueryStringName: pointer.To("$filter"),
 		Required:        false,

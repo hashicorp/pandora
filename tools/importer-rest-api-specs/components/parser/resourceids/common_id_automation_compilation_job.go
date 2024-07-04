@@ -4,29 +4,29 @@
 package resourceids
 
 import (
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 var _ commonIdMatcher = commonIdAutomationCompilationJob{}
 
 type commonIdAutomationCompilationJob struct{}
 
-func (c commonIdAutomationCompilationJob) id() models.ResourceID {
+func (c commonIdAutomationCompilationJob) id() sdkModels.ResourceID {
 	name := "AutomationCompilationJob"
-	return models.ResourceID{
+	return sdkModels.ResourceID{
 		CommonIDAlias: &name,
 		ConstantNames: []string{},
-		Segments: []models.ResourceIDSegment{
-			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
-			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-			models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
-			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-			models.NewStaticValueResourceIDSegment("providers", "providers"),
-			models.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Automation"),
-			models.NewStaticValueResourceIDSegment("automationAccounts", "automationAccounts"),
-			models.NewUserSpecifiedResourceIDSegment("automationAccountName", "automationAccountName"),
-			models.NewStaticValueResourceIDSegment("compilationJobs", "compilationJobs"),
-			models.NewUserSpecifiedResourceIDSegment("compilationJobId", "compilationJobId"),
+		Segments: []sdkModels.ResourceIDSegment{
+			sdkModels.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+			sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			sdkModels.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+			sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			sdkModels.NewStaticValueResourceIDSegment("providers", "providers"),
+			sdkModels.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Automation"),
+			sdkModels.NewStaticValueResourceIDSegment("automationAccounts", "automationAccounts"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("automationAccountName", "automationAccountName"),
+			sdkModels.NewStaticValueResourceIDSegment("compilationJobs", "compilationJobs"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("compilationJobId", "compilationJobId"),
 		},
 	}
 }

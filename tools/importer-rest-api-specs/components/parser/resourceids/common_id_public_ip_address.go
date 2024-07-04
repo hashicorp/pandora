@@ -4,27 +4,27 @@
 package resourceids
 
 import (
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 var _ commonIdMatcher = commonIdPublicIPAddress{}
 
 type commonIdPublicIPAddress struct{}
 
-func (c commonIdPublicIPAddress) id() models.ResourceID {
+func (c commonIdPublicIPAddress) id() sdkModels.ResourceID {
 	name := "PublicIPAddress"
-	return models.ResourceID{
+	return sdkModels.ResourceID{
 		CommonIDAlias: &name,
 		ConstantNames: []string{},
-		Segments: []models.ResourceIDSegment{
-			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
-			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-			models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
-			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-			models.NewStaticValueResourceIDSegment("providers", "providers"),
-			models.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Network"),
-			models.NewStaticValueResourceIDSegment("publicIPAddresses", "publicIPAddresses"),
-			models.NewUserSpecifiedResourceIDSegment("publicIPAddressesName", "publicIPAddressesName"),
+		Segments: []sdkModels.ResourceIDSegment{
+			sdkModels.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+			sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			sdkModels.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+			sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			sdkModels.NewStaticValueResourceIDSegment("providers", "providers"),
+			sdkModels.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Network"),
+			sdkModels.NewStaticValueResourceIDSegment("publicIPAddresses", "publicIPAddresses"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("publicIPAddressesName", "publicIPAddressesName"),
 		},
 	}
 }

@@ -4,27 +4,27 @@
 package resourceids
 
 import (
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 var _ commonIdMatcher = commonIdSqlManagedInstance{}
 
 type commonIdSqlManagedInstance struct{}
 
-func (c commonIdSqlManagedInstance) id() models.ResourceID {
+func (c commonIdSqlManagedInstance) id() sdkModels.ResourceID {
 	name := "SqlManagedInstance"
-	return models.ResourceID{
+	return sdkModels.ResourceID{
 		CommonIDAlias: &name,
 		ConstantNames: []string{},
-		Segments: []models.ResourceIDSegment{
-			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
-			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-			models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
-			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-			models.NewStaticValueResourceIDSegment("providers", "providers"),
-			models.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Sql"),
-			models.NewStaticValueResourceIDSegment("managedInstances", "managedInstances"),
-			models.NewUserSpecifiedResourceIDSegment("managedInstanceName", "managedInstanceName"),
+		Segments: []sdkModels.ResourceIDSegment{
+			sdkModels.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+			sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			sdkModels.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+			sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			sdkModels.NewStaticValueResourceIDSegment("providers", "providers"),
+			sdkModels.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Sql"),
+			sdkModels.NewStaticValueResourceIDSegment("managedInstances", "managedInstances"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("managedInstanceName", "managedInstanceName"),
 		},
 	}
 }

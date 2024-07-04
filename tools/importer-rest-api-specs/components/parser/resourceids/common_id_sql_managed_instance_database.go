@@ -4,29 +4,29 @@
 package resourceids
 
 import (
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 var _ commonIdMatcher = commonIdSqlManagedInstanceDatabase{}
 
 type commonIdSqlManagedInstanceDatabase struct{}
 
-func (c commonIdSqlManagedInstanceDatabase) id() models.ResourceID {
+func (c commonIdSqlManagedInstanceDatabase) id() sdkModels.ResourceID {
 	name := "SqlManagedInstanceDatabase"
-	return models.ResourceID{
+	return sdkModels.ResourceID{
 		CommonIDAlias: &name,
 		ConstantNames: []string{},
-		Segments: []models.ResourceIDSegment{
-			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
-			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-			models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
-			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-			models.NewStaticValueResourceIDSegment("providers", "providers"),
-			models.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Sql"),
-			models.NewStaticValueResourceIDSegment("managedInstances", "managedInstances"),
-			models.NewUserSpecifiedResourceIDSegment("managedInstanceName", "managedInstanceName"),
-			models.NewStaticValueResourceIDSegment("databases", "databases"),
-			models.NewUserSpecifiedResourceIDSegment("databaseName", "databaseName"),
+		Segments: []sdkModels.ResourceIDSegment{
+			sdkModels.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+			sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			sdkModels.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+			sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			sdkModels.NewStaticValueResourceIDSegment("providers", "providers"),
+			sdkModels.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Sql"),
+			sdkModels.NewStaticValueResourceIDSegment("managedInstances", "managedInstances"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("managedInstanceName", "managedInstanceName"),
+			sdkModels.NewStaticValueResourceIDSegment("databases", "databases"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("databaseName", "databaseName"),
 		},
 	}
 }

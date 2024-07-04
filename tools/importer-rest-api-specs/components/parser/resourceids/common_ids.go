@@ -5,12 +5,12 @@ package resourceids
 
 import (
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 type commonIdMatcher interface {
 	// id returns the Resource ID for this Common ID
-	id() models.ResourceID
+	id() sdkModels.ResourceID
 }
 
 var commonIdTypes = []commonIdMatcher{
@@ -107,8 +107,8 @@ var commonIdTypes = []commonIdMatcher{
 	commonIdAppServicePlan{},
 }
 
-func switchOutCommonResourceIDsAsNeeded(input []models.ResourceID) []models.ResourceID {
-	output := make([]models.ResourceID, 0)
+func switchOutCommonResourceIDsAsNeeded(input []sdkModels.ResourceID) []sdkModels.ResourceID {
+	output := make([]sdkModels.ResourceID, 0)
 
 	for _, value := range input {
 		// TODO: we should expose a `[]CommonIDs` function from `hashicorp/go-azure-helpers` so that we can reuse these

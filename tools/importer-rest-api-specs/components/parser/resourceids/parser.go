@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"sort"
 
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )
 
@@ -51,7 +51,7 @@ func (p *Parser) Parse() (*ParseResult, error) {
 	}, nil
 }
 
-func (p *Parser) updateParsedOperationsWithProcessedResourceIds(operationIdsToSegments map[string]processedResourceId, namesToResourceIds map[string]models.ResourceID) (*map[string]ParsedOperation, error) {
+func (p *Parser) updateParsedOperationsWithProcessedResourceIds(operationIdsToSegments map[string]processedResourceId, namesToResourceIds map[string]sdkModels.ResourceID) (*map[string]ParsedOperation, error) {
 	output := make(map[string]ParsedOperation)
 
 	for operationId, operation := range operationIdsToSegments {
@@ -73,7 +73,7 @@ func (p *Parser) updateParsedOperationsWithProcessedResourceIds(operationIdsToSe
 		}
 		sort.Strings(constantNames)
 
-		placeholder := models.ResourceID{
+		placeholder := sdkModels.ResourceID{
 			ConstantNames: constantNames,
 			Segments:      *operation.segments,
 		}
@@ -81,7 +81,7 @@ func (p *Parser) updateParsedOperationsWithProcessedResourceIds(operationIdsToSe
 		found := false
 		for name, resourceId := range namesToResourceIds {
 			// NOTE: we intentionally use an empty `id` here to avoid comparing on the Alias
-			other := models.ResourceID{
+			other := sdkModels.ResourceID{
 				ConstantNames: resourceId.ConstantNames,
 				Segments:      resourceId.Segments,
 			}

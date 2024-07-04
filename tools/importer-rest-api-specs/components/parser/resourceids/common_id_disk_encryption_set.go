@@ -4,27 +4,27 @@
 package resourceids
 
 import (
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 var _ commonIdMatcher = commonIdDiskEncryptionSet{}
 
 type commonIdDiskEncryptionSet struct{}
 
-func (c commonIdDiskEncryptionSet) id() models.ResourceID {
+func (c commonIdDiskEncryptionSet) id() sdkModels.ResourceID {
 	name := "DiskEncryptionSet"
-	return models.ResourceID{
+	return sdkModels.ResourceID{
 		CommonIDAlias: &name,
 		ConstantNames: []string{},
-		Segments: []models.ResourceIDSegment{
-			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
-			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-			models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
-			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-			models.NewStaticValueResourceIDSegment("providers", "providers"),
-			models.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Compute"),
-			models.NewStaticValueResourceIDSegment("diskEncryptionSets", "diskEncryptionSets"),
-			models.NewUserSpecifiedResourceIDSegment("diskEncryptionSetName", "diskEncryptionSetName"),
+		Segments: []sdkModels.ResourceIDSegment{
+			sdkModels.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+			sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			sdkModels.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+			sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			sdkModels.NewStaticValueResourceIDSegment("providers", "providers"),
+			sdkModels.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Compute"),
+			sdkModels.NewStaticValueResourceIDSegment("diskEncryptionSets", "diskEncryptionSets"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("diskEncryptionSetName", "diskEncryptionSetName"),
 		},
 	}
 }

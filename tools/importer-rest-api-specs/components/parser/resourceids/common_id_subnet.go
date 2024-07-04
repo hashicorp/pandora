@@ -4,29 +4,29 @@
 package resourceids
 
 import (
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 var _ commonIdMatcher = commonIdSubnet{}
 
 type commonIdSubnet struct{}
 
-func (c commonIdSubnet) id() models.ResourceID {
+func (c commonIdSubnet) id() sdkModels.ResourceID {
 	name := "Subnet"
-	return models.ResourceID{
+	return sdkModels.ResourceID{
 		CommonIDAlias: &name,
 		ConstantNames: []string{},
-		Segments: []models.ResourceIDSegment{
-			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
-			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-			models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
-			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-			models.NewStaticValueResourceIDSegment("providers", "providers"),
-			models.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Network"),
-			models.NewStaticValueResourceIDSegment("virtualNetworks", "virtualNetworks"),
-			models.NewUserSpecifiedResourceIDSegment("virtualNetworkName", "virtualNetworkName"),
-			models.NewStaticValueResourceIDSegment("subnets", "subnets"),
-			models.NewUserSpecifiedResourceIDSegment("subnetName", "subnetName"),
+		Segments: []sdkModels.ResourceIDSegment{
+			sdkModels.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+			sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			sdkModels.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+			sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			sdkModels.NewStaticValueResourceIDSegment("providers", "providers"),
+			sdkModels.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Network"),
+			sdkModels.NewStaticValueResourceIDSegment("virtualNetworks", "virtualNetworks"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("virtualNetworkName", "virtualNetworkName"),
+			sdkModels.NewStaticValueResourceIDSegment("subnets", "subnets"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("subnetName", "subnetName"),
 		},
 	}
 }

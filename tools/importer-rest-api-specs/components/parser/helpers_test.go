@@ -9,14 +9,13 @@ import (
 	"testing"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/go-hclog"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 func ParseSwaggerFileForTesting(t *testing.T, file string, serviceName *string) (*importerModels.AzureApiDefinition, error) {
 	// TODO: make this function private
-	parsed, err := load("testdata/", file, hclog.New(hclog.DefaultOptions))
+	parsed, err := load("testdata/", file)
 	if err != nil {
 		t.Fatalf("loading: %+v", err)
 	}

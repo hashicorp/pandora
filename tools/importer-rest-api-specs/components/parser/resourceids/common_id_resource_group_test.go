@@ -6,31 +6,31 @@ package resourceids
 import (
 	"testing"
 
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 func TestCommonResourceID_ResourceGroup(t *testing.T) {
-	valid := models.ResourceID{
+	valid := sdkModels.ResourceID{
 		ConstantNames: []string{},
-		Segments: []models.ResourceIDSegment{
-			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
-			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-			models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
-			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+		Segments: []sdkModels.ResourceIDSegment{
+			sdkModels.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+			sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			sdkModels.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+			sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
 		},
 	}
-	invalid := models.ResourceID{
+	invalid := sdkModels.ResourceID{
 		ConstantNames: []string{},
-		Segments: []models.ResourceIDSegment{
-			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
-			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-			models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
-			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-			models.NewStaticValueResourceIDSegment("someResource", "someResource"),
-			models.NewUserSpecifiedResourceIDSegment("resourceName", "resourceName"),
+		Segments: []sdkModels.ResourceIDSegment{
+			sdkModels.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+			sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			sdkModels.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+			sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			sdkModels.NewStaticValueResourceIDSegment("someResource", "someResource"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("resourceName", "resourceName"),
 		},
 	}
-	input := []models.ResourceID{
+	input := []sdkModels.ResourceID{
 		valid,
 		invalid,
 	}
@@ -59,23 +59,23 @@ func TestCommonResourceID_ResourceGroup(t *testing.T) {
 }
 
 func TestCommonResourceID_ResourceGroupIncorrectSegment(t *testing.T) {
-	input := []models.ResourceID{
+	input := []sdkModels.ResourceID{
 		{
 			ConstantNames: []string{},
-			Segments: []models.ResourceIDSegment{
-				models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
-				models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-				models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
-				models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			Segments: []sdkModels.ResourceIDSegment{
+				sdkModels.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+				sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+				sdkModels.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+				sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
 			},
 		},
 		{
 			ConstantNames: []string{},
-			Segments: []models.ResourceIDSegment{
-				models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
-				models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-				models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
-				models.NewResourceGroupNameResourceIDSegment("sourceResourceGroupName"),
+			Segments: []sdkModels.ResourceIDSegment{
+				sdkModels.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+				sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+				sdkModels.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+				sdkModels.NewResourceGroupNameResourceIDSegment("sourceResourceGroupName"),
 			},
 		},
 	}

@@ -4,24 +4,24 @@
 package resourceids
 
 import (
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 var _ commonIdMatcher = commonIdChaosStudioTarget{}
 
 type commonIdChaosStudioTarget struct{}
 
-func (commonIdChaosStudioTarget) id() models.ResourceID {
+func (commonIdChaosStudioTarget) id() sdkModels.ResourceID {
 	name := "ChaosStudioTarget"
-	return models.ResourceID{
+	return sdkModels.ResourceID{
 		CommonIDAlias: &name,
 		ConstantNames: []string{},
-		Segments: []models.ResourceIDSegment{
-			models.NewScopeResourceIDSegment("scope"),
-			models.NewStaticValueResourceIDSegment("staticProviders", "providers"),
-			models.NewResourceProviderResourceIDSegment("staticMicrosoftChaos", "Microsoft.Chaos"),
-			models.NewStaticValueResourceIDSegment("staticTargets", "targets"),
-			models.NewUserSpecifiedResourceIDSegment("targetName", "targetName"),
+		Segments: []sdkModels.ResourceIDSegment{
+			sdkModels.NewScopeResourceIDSegment("scope"),
+			sdkModels.NewStaticValueResourceIDSegment("staticProviders", "providers"),
+			sdkModels.NewResourceProviderResourceIDSegment("staticMicrosoftChaos", "Microsoft.Chaos"),
+			sdkModels.NewStaticValueResourceIDSegment("staticTargets", "targets"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("targetName", "targetName"),
 		},
 	}
 }

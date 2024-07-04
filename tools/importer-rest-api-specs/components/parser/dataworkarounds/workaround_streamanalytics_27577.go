@@ -6,7 +6,7 @@ package dataworkarounds
 import (
 	"fmt"
 
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
@@ -54,12 +54,12 @@ func (w workaroundStreamAnalytics27577) Process(apiDefinition importerModels.Azu
 		}
 
 		// update the reference to be a System OR UserAssigned identity
-		field.ObjectDefinition = models.SDKObjectDefinition{
-			Type: models.SystemOrUserAssignedIdentityMapSDKObjectDefinitionType,
+		field.ObjectDefinition = sdkModels.SDKObjectDefinition{
+			Type: sdkModels.SystemOrUserAssignedIdentityMapSDKObjectDefinitionType,
 		}
 		if apiDefinition.ApiVersion == "2020-03-01" {
 			// however API version 2020-03-01 only supports SystemAssigned
-			field.ObjectDefinition.Type = models.SystemAssignedIdentitySDKObjectDefinitionType
+			field.ObjectDefinition.Type = sdkModels.SystemAssignedIdentitySDKObjectDefinitionType
 		}
 
 		model.Fields["Identity"] = field

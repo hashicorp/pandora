@@ -4,31 +4,31 @@
 package resourceids
 
 import (
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 var _ commonIdMatcher = commonIdStorageContainer{}
 
 type commonIdStorageContainer struct{}
 
-func (c commonIdStorageContainer) id() models.ResourceID {
+func (c commonIdStorageContainer) id() sdkModels.ResourceID {
 	name := "StorageContainer"
-	return models.ResourceID{
+	return sdkModels.ResourceID{
 		CommonIDAlias: &name,
 		ConstantNames: []string{},
-		Segments: []models.ResourceIDSegment{
-			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
-			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-			models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
-			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-			models.NewStaticValueResourceIDSegment("providers", "providers"),
-			models.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Storage"),
-			models.NewStaticValueResourceIDSegment("storageAccounts", "storageAccounts"),
-			models.NewUserSpecifiedResourceIDSegment("storageAccountName", "storageAccountName"),
-			models.NewStaticValueResourceIDSegment("blobServices", "blobServices"),
-			models.NewStaticValueResourceIDSegment("default", "default"),
-			models.NewStaticValueResourceIDSegment("containers", "containers"),
-			models.NewUserSpecifiedResourceIDSegment("containerName", "containerName"),
+		Segments: []sdkModels.ResourceIDSegment{
+			sdkModels.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+			sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			sdkModels.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+			sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			sdkModels.NewStaticValueResourceIDSegment("providers", "providers"),
+			sdkModels.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Storage"),
+			sdkModels.NewStaticValueResourceIDSegment("storageAccounts", "storageAccounts"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("storageAccountName", "storageAccountName"),
+			sdkModels.NewStaticValueResourceIDSegment("blobServices", "blobServices"),
+			sdkModels.NewStaticValueResourceIDSegment("default", "default"),
+			sdkModels.NewStaticValueResourceIDSegment("containers", "containers"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("containerName", "containerName"),
 		},
 	}
 }

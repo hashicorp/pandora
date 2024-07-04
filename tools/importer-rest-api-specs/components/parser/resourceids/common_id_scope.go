@@ -4,20 +4,20 @@
 package resourceids
 
 import (
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 var _ commonIdMatcher = commonIdScopeMatcher{}
 
 type commonIdScopeMatcher struct{}
 
-func (commonIdScopeMatcher) id() models.ResourceID {
+func (commonIdScopeMatcher) id() sdkModels.ResourceID {
 	name := "Scope"
-	return models.ResourceID{
+	return sdkModels.ResourceID{
 		CommonIDAlias: &name,
 		ConstantNames: []string{},
-		Segments: []models.ResourceIDSegment{
-			models.NewScopeResourceIDSegment("scope"),
+		Segments: []sdkModels.ResourceIDSegment{
+			sdkModels.NewScopeResourceIDSegment("scope"),
 		},
 	}
 }

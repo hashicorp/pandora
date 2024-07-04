@@ -6,7 +6,7 @@ package dataworkarounds
 import (
 	"fmt"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 var _ workaround = workaroundTempReadOnlyFields{}
@@ -14,7 +14,7 @@ var _ workaround = workaroundTempReadOnlyFields{}
 type workaroundTempReadOnlyFields struct {
 }
 
-func (w workaroundTempReadOnlyFields) IsApplicable(apiDefinition *models.AzureApiDefinition) bool {
+func (w workaroundTempReadOnlyFields) IsApplicable(apiDefinition *importerModels.AzureApiDefinition) bool {
 	if apiDefinition.ServiceName == "ContainerService" && apiDefinition.ApiVersion == "2022-09-02-preview" {
 		return true
 	}
@@ -38,7 +38,7 @@ func (w workaroundTempReadOnlyFields) Name() string {
 	return "Temp - Mark readonly fields as readonly"
 }
 
-func (w workaroundTempReadOnlyFields) Process(apiDefinition models.AzureApiDefinition) (*models.AzureApiDefinition, error) {
+func (w workaroundTempReadOnlyFields) Process(apiDefinition importerModels.AzureApiDefinition) (*importerModels.AzureApiDefinition, error) {
 	if apiDefinition.ServiceName == "ContainerService" && apiDefinition.ApiVersion == "2022-09-02-preview" {
 		definition, err := w.markFieldAsComputed(apiDefinition, "Fleets", "FleetHubProfile", "Fqdn")
 		if err != nil {
@@ -98,7 +98,7 @@ func (w workaroundTempReadOnlyFields) Process(apiDefinition models.AzureApiDefin
 	return nil, fmt.Errorf("unexpected Service %q / API Version %q", apiDefinition.ServiceName, apiDefinition.ApiVersion)
 }
 
-func (w workaroundTempReadOnlyFields) markFieldAsComputed(input models.AzureApiDefinition, apiResourceName, modelName, fieldName string) (*models.AzureApiDefinition, error) {
+func (w workaroundTempReadOnlyFields) markFieldAsComputed(input importerModels.AzureApiDefinition, apiResourceName, modelName, fieldName string) (*importerModels.AzureApiDefinition, error) {
 	resource, ok := input.Resources[apiResourceName]
 	if !ok {
 		return nil, fmt.Errorf("expected an APIResource %q but didn't get one", apiResourceName)

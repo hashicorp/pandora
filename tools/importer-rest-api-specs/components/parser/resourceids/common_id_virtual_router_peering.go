@@ -3,30 +3,28 @@
 
 package resourceids
 
-import (
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-)
+import sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 
 var _ commonIdMatcher = commonIdVirtualRouterPeering{}
 
 type commonIdVirtualRouterPeering struct{}
 
-func (c commonIdVirtualRouterPeering) id() models.ResourceID {
+func (c commonIdVirtualRouterPeering) id() sdkModels.ResourceID {
 	name := "VirtualRouterPeering"
-	return models.ResourceID{
+	return sdkModels.ResourceID{
 		CommonIDAlias: &name,
 		ConstantNames: []string{},
-		Segments: []models.ResourceIDSegment{
-			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
-			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-			models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
-			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-			models.NewStaticValueResourceIDSegment("providers", "providers"),
-			models.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Network"),
-			models.NewStaticValueResourceIDSegment("virtualRouters", "virtualRouters"),
-			models.NewUserSpecifiedResourceIDSegment("virtualRouterName", "virtualRouterName"),
-			models.NewStaticValueResourceIDSegment("peerings", "peerings"),
-			models.NewUserSpecifiedResourceIDSegment("peeringName", "peeringName"),
+		Segments: []sdkModels.ResourceIDSegment{
+			sdkModels.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+			sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			sdkModels.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+			sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			sdkModels.NewStaticValueResourceIDSegment("providers", "providers"),
+			sdkModels.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Network"),
+			sdkModels.NewStaticValueResourceIDSegment("virtualRouters", "virtualRouters"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("virtualRouterName", "virtualRouterName"),
+			sdkModels.NewStaticValueResourceIDSegment("peerings", "peerings"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("peeringName", "peeringName"),
 		},
 	}
 }

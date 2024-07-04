@@ -9,149 +9,149 @@ import (
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
-var subscriptionResourceId = models.ResourceID{
+var subscriptionResourceId = sdkModels.ResourceID{
 	ConstantNames: []string{},
-	Segments: []models.ResourceIDSegment{
-		models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
-		models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+	Segments: []sdkModels.ResourceIDSegment{
+		sdkModels.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
+		sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
 	},
 }
-var resourceGroupResourceId = models.ResourceID{
+var resourceGroupResourceId = sdkModels.ResourceID{
 	ConstantNames: []string{},
-	Segments: []models.ResourceIDSegment{
-		models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
-		models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-		models.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
-		models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+	Segments: []sdkModels.ResourceIDSegment{
+		sdkModels.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
+		sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+		sdkModels.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
+		sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
 	},
 }
-var managementGroupResourceId = models.ResourceID{
+var managementGroupResourceId = sdkModels.ResourceID{
 	ConstantNames: []string{},
-	Segments: []models.ResourceIDSegment{
-		models.NewStaticValueResourceIDSegment("staticProviders", "providers"),
-		models.NewResourceProviderResourceIDSegment("staticMicrosoftManagement", "Microsoft.Management"),
-		models.NewStaticValueResourceIDSegment("staticManagementGroups", "managementGroups"),
-		models.NewUserSpecifiedResourceIDSegment("name", "name"),
+	Segments: []sdkModels.ResourceIDSegment{
+		sdkModels.NewStaticValueResourceIDSegment("staticProviders", "providers"),
+		sdkModels.NewResourceProviderResourceIDSegment("staticMicrosoftManagement", "Microsoft.Management"),
+		sdkModels.NewStaticValueResourceIDSegment("staticManagementGroups", "managementGroups"),
+		sdkModels.NewUserSpecifiedResourceIDSegment("name", "name"),
 	},
 }
-var virtualMachineResourceId = models.ResourceID{
+var virtualMachineResourceId = sdkModels.ResourceID{
 	ConstantNames: []string{},
-	Segments: []models.ResourceIDSegment{
-		models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
-		models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-		models.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
-		models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-		models.NewStaticValueResourceIDSegment("staticProviders", "providers"),
-		models.NewResourceProviderResourceIDSegment("staticMicrosoftCompute", "Microsoft.Compute"),
-		models.NewStaticValueResourceIDSegment("staticVirtualMachines", "virtualMachines"),
-		models.NewUserSpecifiedResourceIDSegment("virtualMachineName", "virtualMachineValue"),
+	Segments: []sdkModels.ResourceIDSegment{
+		sdkModels.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
+		sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+		sdkModels.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
+		sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+		sdkModels.NewStaticValueResourceIDSegment("staticProviders", "providers"),
+		sdkModels.NewResourceProviderResourceIDSegment("staticMicrosoftCompute", "Microsoft.Compute"),
+		sdkModels.NewStaticValueResourceIDSegment("staticVirtualMachines", "virtualMachines"),
+		sdkModels.NewUserSpecifiedResourceIDSegment("virtualMachineName", "virtualMachineValue"),
 	},
 }
-var virtualMachineExtensionResourceId = models.ResourceID{
+var virtualMachineExtensionResourceId = sdkModels.ResourceID{
 	ConstantNames: []string{},
-	Segments: []models.ResourceIDSegment{
-		models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
-		models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-		models.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
-		models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-		models.NewStaticValueResourceIDSegment("staticProviders", "providers"),
-		models.NewResourceProviderResourceIDSegment("staticMicrosoftCompute", "Microsoft.Compute"),
-		models.NewStaticValueResourceIDSegment("staticVirtualMachines", "virtualMachines"),
-		models.NewUserSpecifiedResourceIDSegment("virtualMachineName", "virtualMachineValue"),
-		models.NewStaticValueResourceIDSegment("staticExtensions", "extensions"),
-		models.NewUserSpecifiedResourceIDSegment("extensionName", "extensionValue"),
+	Segments: []sdkModels.ResourceIDSegment{
+		sdkModels.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
+		sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+		sdkModels.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
+		sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+		sdkModels.NewStaticValueResourceIDSegment("staticProviders", "providers"),
+		sdkModels.NewResourceProviderResourceIDSegment("staticMicrosoftCompute", "Microsoft.Compute"),
+		sdkModels.NewStaticValueResourceIDSegment("staticVirtualMachines", "virtualMachines"),
+		sdkModels.NewUserSpecifiedResourceIDSegment("virtualMachineName", "virtualMachineValue"),
+		sdkModels.NewStaticValueResourceIDSegment("staticExtensions", "extensions"),
+		sdkModels.NewUserSpecifiedResourceIDSegment("extensionName", "extensionValue"),
 	},
 }
-var virtualNetworkExtensionResourceId = models.ResourceID{
+var virtualNetworkExtensionResourceId = sdkModels.ResourceID{
 	ConstantNames: []string{},
-	Segments: []models.ResourceIDSegment{
-		models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
-		models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-		models.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
-		models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-		models.NewStaticValueResourceIDSegment("staticProviders", "providers"),
-		models.NewResourceProviderResourceIDSegment("staticMicrosoftNetwork", "Microsoft.Network"),
-		models.NewStaticValueResourceIDSegment("staticExtensions", "extensions"),
-		models.NewUserSpecifiedResourceIDSegment("extensionName", "extensionValue"),
+	Segments: []sdkModels.ResourceIDSegment{
+		sdkModels.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
+		sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+		sdkModels.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
+		sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+		sdkModels.NewStaticValueResourceIDSegment("staticProviders", "providers"),
+		sdkModels.NewResourceProviderResourceIDSegment("staticMicrosoftNetwork", "Microsoft.Network"),
+		sdkModels.NewStaticValueResourceIDSegment("staticExtensions", "extensions"),
+		sdkModels.NewUserSpecifiedResourceIDSegment("extensionName", "extensionValue"),
 	},
 }
-var scopedMonitorResourceId = models.ResourceID{
+var scopedMonitorResourceId = sdkModels.ResourceID{
 	ConstantNames: []string{},
-	Segments: []models.ResourceIDSegment{
-		models.NewScopeResourceIDSegment("scope"),
-		models.NewStaticValueResourceIDSegment("staticProviders", "providers"),
-		models.NewResourceProviderResourceIDSegment("staticMicrosoftMonitor", "Microsoft.Monitor"),
-		models.NewStaticValueResourceIDSegment("staticExtensions", "extensions"),
-		models.NewUserSpecifiedResourceIDSegment("extensionName", "extensionValue"),
+	Segments: []sdkModels.ResourceIDSegment{
+		sdkModels.NewScopeResourceIDSegment("scope"),
+		sdkModels.NewStaticValueResourceIDSegment("staticProviders", "providers"),
+		sdkModels.NewResourceProviderResourceIDSegment("staticMicrosoftMonitor", "Microsoft.Monitor"),
+		sdkModels.NewStaticValueResourceIDSegment("staticExtensions", "extensions"),
+		sdkModels.NewUserSpecifiedResourceIDSegment("extensionName", "extensionValue"),
 	},
 }
-var signalRResourceId = models.ResourceID{
+var signalRResourceId = sdkModels.ResourceID{
 	ConstantNames: []string{},
-	Segments: []models.ResourceIDSegment{
-		models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
-		models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-		models.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
-		models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-		models.NewStaticValueResourceIDSegment("staticProviders", "providers"),
-		models.NewResourceProviderResourceIDSegment("staticMicrosoftSignalRService", "Microsoft.SignalRService"),
-		models.NewStaticValueResourceIDSegment("staticSignalR", "SignalR"),
-		models.NewUserSpecifiedResourceIDSegment("resourceName", "resourceValue"),
+	Segments: []sdkModels.ResourceIDSegment{
+		sdkModels.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
+		sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+		sdkModels.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
+		sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+		sdkModels.NewStaticValueResourceIDSegment("staticProviders", "providers"),
+		sdkModels.NewResourceProviderResourceIDSegment("staticMicrosoftSignalRService", "Microsoft.SignalRService"),
+		sdkModels.NewStaticValueResourceIDSegment("staticSignalR", "SignalR"),
+		sdkModels.NewUserSpecifiedResourceIDSegment("resourceName", "resourceValue"),
 	},
 }
-var eventHubSkuResourceId = models.ResourceID{
+var eventHubSkuResourceId = sdkModels.ResourceID{
 	ConstantNames: []string{},
-	Segments: []models.ResourceIDSegment{
-		models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
-		models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-		models.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
-		models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-		models.NewStaticValueResourceIDSegment("staticProviders", "providers"),
-		models.NewResourceProviderResourceIDSegment("staticMicrosoftEventHub", "Microsoft.EventHub"),
-		models.NewStaticValueResourceIDSegment("staticSku", "sku"),
-		models.NewUserSpecifiedResourceIDSegment("sku", "sku"),
+	Segments: []sdkModels.ResourceIDSegment{
+		sdkModels.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
+		sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+		sdkModels.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
+		sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+		sdkModels.NewStaticValueResourceIDSegment("staticProviders", "providers"),
+		sdkModels.NewResourceProviderResourceIDSegment("staticMicrosoftEventHub", "Microsoft.EventHub"),
+		sdkModels.NewStaticValueResourceIDSegment("staticSku", "sku"),
+		sdkModels.NewUserSpecifiedResourceIDSegment("sku", "sku"),
 	},
 }
-var trafficManagerProfileResourceId = models.ResourceID{
+var trafficManagerProfileResourceId = sdkModels.ResourceID{
 	ConstantNames: []string{
 		"EndpointType",
 	},
-	Segments: []models.ResourceIDSegment{
-		models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
-		models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-		models.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
-		models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-		models.NewStaticValueResourceIDSegment("staticProviders", "providers"),
-		models.NewResourceProviderResourceIDSegment("staticMicrosoftNetwork", "Microsoft.Network"),
-		models.NewStaticValueResourceIDSegment("staticTrafficManagerProfiles", "trafficManagerProfiles"),
-		models.NewUserSpecifiedResourceIDSegment("profileName", "profileValue"),
-		models.NewConstantResourceIDSegment("endpointType", "EndpointType", "nestedEndpoints"),
-		models.NewUserSpecifiedResourceIDSegment("endpointName", "endpointValue"),
+	Segments: []sdkModels.ResourceIDSegment{
+		sdkModels.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
+		sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+		sdkModels.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
+		sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+		sdkModels.NewStaticValueResourceIDSegment("staticProviders", "providers"),
+		sdkModels.NewResourceProviderResourceIDSegment("staticMicrosoftNetwork", "Microsoft.Network"),
+		sdkModels.NewStaticValueResourceIDSegment("staticTrafficManagerProfiles", "trafficManagerProfiles"),
+		sdkModels.NewUserSpecifiedResourceIDSegment("profileName", "profileValue"),
+		sdkModels.NewConstantResourceIDSegment("endpointType", "EndpointType", "nestedEndpoints"),
+		sdkModels.NewUserSpecifiedResourceIDSegment("endpointName", "endpointValue"),
 	},
 }
-var redisPatchSchedulesResourceId = models.ResourceID{
+var redisPatchSchedulesResourceId = sdkModels.ResourceID{
 	ConstantNames: []string{
 		"Default",
 	},
-	Segments: []models.ResourceIDSegment{
-		models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
-		models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-		models.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
-		models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-		models.NewStaticValueResourceIDSegment("staticProviders", "providers"),
-		models.NewResourceProviderResourceIDSegment("staticMicrosoftCache", "Microsoft.Cache"),
-		models.NewStaticValueResourceIDSegment("staticRedis", "redis"),
-		models.NewUserSpecifiedResourceIDSegment("name", "name"),
-		models.NewStaticValueResourceIDSegment("staticPatchSchedules", "patchSchedules"),
-		models.NewConstantResourceIDSegment("default", "Default", "first"),
+	Segments: []sdkModels.ResourceIDSegment{
+		sdkModels.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
+		sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+		sdkModels.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
+		sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+		sdkModels.NewStaticValueResourceIDSegment("staticProviders", "providers"),
+		sdkModels.NewResourceProviderResourceIDSegment("staticMicrosoftCache", "Microsoft.Cache"),
+		sdkModels.NewStaticValueResourceIDSegment("staticRedis", "redis"),
+		sdkModels.NewUserSpecifiedResourceIDSegment("name", "name"),
+		sdkModels.NewStaticValueResourceIDSegment("staticPatchSchedules", "patchSchedules"),
+		sdkModels.NewConstantResourceIDSegment("default", "Default", "first"),
 	},
 }
 
 func TestResourceIDNamingEmpty(t *testing.T) {
 	uriToParsedOperation := map[string]ParsedOperation{}
-	actualNamesToIds, err := generateNamesForResourceIds([]models.ResourceID{}, uriToParsedOperation)
+	actualNamesToIds, err := generateNamesForResourceIds([]sdkModels.ResourceID{}, uriToParsedOperation)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 		return
@@ -163,10 +163,10 @@ func TestResourceIDNamingEmpty(t *testing.T) {
 }
 
 func TestResourceIDNamingSubscriptionId(t *testing.T) {
-	input := []models.ResourceID{
+	input := []sdkModels.ResourceID{
 		subscriptionResourceId,
 	}
-	expectedNamesToIds := map[string]models.ResourceID{
+	expectedNamesToIds := map[string]sdkModels.ResourceID{
 		"SubscriptionId": subscriptionResourceId,
 	}
 
@@ -183,12 +183,12 @@ func TestResourceIDNamingSubscriptionId(t *testing.T) {
 }
 
 func TestResourceIDNamingSubscriptionIdAndSuffix(t *testing.T) {
-	input := []models.ResourceID{
+	input := []sdkModels.ResourceID{
 		// intentionally here twice
 		subscriptionResourceId,
 		subscriptionResourceId,
 	}
-	expectedNamesToIds := map[string]models.ResourceID{
+	expectedNamesToIds := map[string]sdkModels.ResourceID{
 		"SubscriptionId": subscriptionResourceId,
 	}
 
@@ -205,10 +205,10 @@ func TestResourceIDNamingSubscriptionIdAndSuffix(t *testing.T) {
 }
 
 func TestResourceIDNamingResourceGroupId(t *testing.T) {
-	input := []models.ResourceID{
+	input := []sdkModels.ResourceID{
 		resourceGroupResourceId,
 	}
-	expectedNamesToIds := map[string]models.ResourceID{
+	expectedNamesToIds := map[string]sdkModels.ResourceID{
 		"ResourceGroupId": resourceGroupResourceId,
 	}
 
@@ -225,12 +225,12 @@ func TestResourceIDNamingResourceGroupId(t *testing.T) {
 }
 
 func TestResourceIDNamingResourceGroupIdAndSuffix(t *testing.T) {
-	input := []models.ResourceID{
+	input := []sdkModels.ResourceID{
 		// intentionally in here twice
 		resourceGroupResourceId,
 		resourceGroupResourceId,
 	}
-	expectedNamesToIds := map[string]models.ResourceID{
+	expectedNamesToIds := map[string]sdkModels.ResourceID{
 		"ResourceGroupId": resourceGroupResourceId,
 	}
 
@@ -247,10 +247,10 @@ func TestResourceIDNamingResourceGroupIdAndSuffix(t *testing.T) {
 }
 
 func TestResourceIDNamingManagementGroupId(t *testing.T) {
-	input := []models.ResourceID{
+	input := []sdkModels.ResourceID{
 		managementGroupResourceId,
 	}
-	expectedNamesToIds := map[string]models.ResourceID{
+	expectedNamesToIds := map[string]sdkModels.ResourceID{
 		"ManagementGroupId": managementGroupResourceId,
 	}
 
@@ -267,12 +267,12 @@ func TestResourceIDNamingManagementGroupId(t *testing.T) {
 }
 
 func TestResourceIDNamingManagementGroupIdAndSuffix(t *testing.T) {
-	input := []models.ResourceID{
+	input := []sdkModels.ResourceID{
 		// intentionally here twice
 		managementGroupResourceId,
 		managementGroupResourceId,
 	}
-	expectedNamesToIds := map[string]models.ResourceID{
+	expectedNamesToIds := map[string]sdkModels.ResourceID{
 		"ManagementGroupId": managementGroupResourceId,
 	}
 
@@ -289,10 +289,10 @@ func TestResourceIDNamingManagementGroupIdAndSuffix(t *testing.T) {
 }
 
 func TestResourceIDNamingEventHubSkuId(t *testing.T) {
-	input := []models.ResourceID{
+	input := []sdkModels.ResourceID{
 		eventHubSkuResourceId,
 	}
-	expectedNamesToIds := map[string]models.ResourceID{
+	expectedNamesToIds := map[string]sdkModels.ResourceID{
 		"SkuId": eventHubSkuResourceId,
 	}
 
@@ -309,17 +309,17 @@ func TestResourceIDNamingEventHubSkuId(t *testing.T) {
 }
 
 func TestResourceIDNamingTopLevelScope(t *testing.T) {
-	scopeResourceId := models.ResourceID{
+	scopeResourceId := sdkModels.ResourceID{
 		ConstantNames: []string{},
-		Segments: []models.ResourceIDSegment{
-			models.NewScopeResourceIDSegment("scope"),
+		Segments: []sdkModels.ResourceIDSegment{
+			sdkModels.NewScopeResourceIDSegment("scope"),
 		},
 	}
 
-	input := []models.ResourceID{
+	input := []sdkModels.ResourceID{
 		scopeResourceId,
 	}
-	expectedNamesToIds := map[string]models.ResourceID{
+	expectedNamesToIds := map[string]sdkModels.ResourceID{
 		"ScopeId": scopeResourceId,
 	}
 
@@ -336,26 +336,26 @@ func TestResourceIDNamingTopLevelScope(t *testing.T) {
 }
 
 func TestResourceIDNamingContainingAConstant(t *testing.T) {
-	dnsResourceId := models.ResourceID{
+	dnsResourceId := sdkModels.ResourceID{
 		ConstantNames: []string{
 			"DnsRecordType",
 		},
-		Segments: []models.ResourceIDSegment{
-			models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
-			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-			models.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
-			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-			models.NewStaticValueResourceIDSegment("staticProviders", "providers"),
-			models.NewResourceProviderResourceIDSegment("staticMicrosoftNetwork", "Microsoft.Network"),
-			models.NewConstantResourceIDSegment("recordType", "DnsRecordType", "A"),
-			models.NewUserSpecifiedResourceIDSegment("recordName", "recordValue"),
+		Segments: []sdkModels.ResourceIDSegment{
+			sdkModels.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
+			sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			sdkModels.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
+			sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			sdkModels.NewStaticValueResourceIDSegment("staticProviders", "providers"),
+			sdkModels.NewResourceProviderResourceIDSegment("staticMicrosoftNetwork", "Microsoft.Network"),
+			sdkModels.NewConstantResourceIDSegment("recordType", "DnsRecordType", "A"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("recordName", "recordValue"),
 		},
 	}
 
-	input := []models.ResourceID{
+	input := []sdkModels.ResourceID{
 		dnsResourceId,
 	}
-	expectedNamesToIds := map[string]models.ResourceID{
+	expectedNamesToIds := map[string]sdkModels.ResourceID{
 		"RecordTypeId": dnsResourceId,
 	}
 
@@ -372,28 +372,28 @@ func TestResourceIDNamingContainingAConstant(t *testing.T) {
 }
 
 func TestResourceIDNamingContainingAConstantAndSuffix(t *testing.T) {
-	dnsResourceId := models.ResourceID{
+	dnsResourceId := sdkModels.ResourceID{
 		ConstantNames: []string{
 			"DnsRecordType",
 		},
-		Segments: []models.ResourceIDSegment{
-			models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
-			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-			models.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
-			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-			models.NewStaticValueResourceIDSegment("staticProviders", "providers"),
-			models.NewResourceProviderResourceIDSegment("staticMicrosoftNetwork", "Microsoft.Network"),
-			models.NewConstantResourceIDSegment("recordType", "DnsRecordType", "AAAA"),
-			models.NewUserSpecifiedResourceIDSegment("recordName", "recordValue"),
+		Segments: []sdkModels.ResourceIDSegment{
+			sdkModels.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
+			sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			sdkModels.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
+			sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			sdkModels.NewStaticValueResourceIDSegment("staticProviders", "providers"),
+			sdkModels.NewResourceProviderResourceIDSegment("staticMicrosoftNetwork", "Microsoft.Network"),
+			sdkModels.NewConstantResourceIDSegment("recordType", "DnsRecordType", "AAAA"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("recordName", "recordValue"),
 		},
 	}
 
-	input := []models.ResourceID{
+	input := []sdkModels.ResourceID{
 		// intentionally in here twice
 		dnsResourceId,
 		dnsResourceId,
 	}
-	expectedNamesToIds := map[string]models.ResourceID{
+	expectedNamesToIds := map[string]sdkModels.ResourceID{
 		"RecordTypeId": dnsResourceId,
 	}
 
@@ -410,10 +410,10 @@ func TestResourceIDNamingContainingAConstantAndSuffix(t *testing.T) {
 }
 
 func TestResourceIdNamingTopLevelResourceId(t *testing.T) {
-	input := []models.ResourceID{
+	input := []sdkModels.ResourceID{
 		virtualMachineResourceId,
 	}
-	expectedNamesToIds := map[string]models.ResourceID{
+	expectedNamesToIds := map[string]sdkModels.ResourceID{
 		"VirtualMachineId": virtualMachineResourceId,
 	}
 
@@ -430,11 +430,11 @@ func TestResourceIdNamingTopLevelResourceId(t *testing.T) {
 }
 
 func TestResourceIdNamingTopLevelAndNestedResourceId(t *testing.T) {
-	input := []models.ResourceID{
+	input := []sdkModels.ResourceID{
 		virtualMachineResourceId,
 		virtualMachineExtensionResourceId,
 	}
-	expectedNamesToIds := map[string]models.ResourceID{
+	expectedNamesToIds := map[string]sdkModels.ResourceID{
 		"VirtualMachineId": virtualMachineResourceId,
 		"ExtensionId":      virtualMachineExtensionResourceId,
 	}
@@ -452,10 +452,10 @@ func TestResourceIdNamingTopLevelAndNestedResourceId(t *testing.T) {
 }
 
 func TestResourceIdNamingNestedResourceId(t *testing.T) {
-	input := []models.ResourceID{
+	input := []sdkModels.ResourceID{
 		virtualMachineExtensionResourceId,
 	}
-	expectedNamesToIds := map[string]models.ResourceID{
+	expectedNamesToIds := map[string]sdkModels.ResourceID{
 		"ExtensionId": virtualMachineExtensionResourceId,
 	}
 
@@ -472,10 +472,10 @@ func TestResourceIdNamingNestedResourceId(t *testing.T) {
 }
 
 func TestResourceIdNamingResourceUnderScope(t *testing.T) {
-	input := []models.ResourceID{
+	input := []sdkModels.ResourceID{
 		scopedMonitorResourceId,
 	}
-	expectedNamesToIds := map[string]models.ResourceID{
+	expectedNamesToIds := map[string]sdkModels.ResourceID{
 		"ScopedExtensionId": scopedMonitorResourceId,
 	}
 
@@ -492,11 +492,11 @@ func TestResourceIdNamingResourceUnderScope(t *testing.T) {
 }
 
 func TestResourceIdNamingConflictingTwoLevels(t *testing.T) {
-	input := []models.ResourceID{
+	input := []sdkModels.ResourceID{
 		virtualNetworkExtensionResourceId,
 		virtualMachineExtensionResourceId,
 	}
-	expectedNamesToIds := map[string]models.ResourceID{
+	expectedNamesToIds := map[string]sdkModels.ResourceID{
 		"VirtualMachineExtensionId": virtualMachineExtensionResourceId,
 		"ExtensionId":               virtualNetworkExtensionResourceId,
 	}
@@ -514,11 +514,11 @@ func TestResourceIdNamingConflictingTwoLevels(t *testing.T) {
 }
 
 func TestResourceIdNamingConflictingWithUpdatingOperation(t *testing.T) {
-	input := []models.ResourceID{
+	input := []sdkModels.ResourceID{
 		virtualNetworkExtensionResourceId,
 		virtualMachineExtensionResourceId,
 	}
-	expectedNamesToIds := map[string]models.ResourceID{
+	expectedNamesToIds := map[string]sdkModels.ResourceID{
 		"VirtualMachineExtensionId": virtualMachineExtensionResourceId,
 		"ExtensionId":               virtualNetworkExtensionResourceId,
 	}
@@ -553,88 +553,88 @@ func TestResourceIdNamingConflictingWithUpdatingOperation(t *testing.T) {
 }
 
 func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
-	workerPoolInstanceResourceId := models.ResourceID{
+	workerPoolInstanceResourceId := sdkModels.ResourceID{
 		ConstantNames: []string{},
-		Segments: []models.ResourceIDSegment{
-			models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
-			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-			models.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
-			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-			models.NewStaticValueResourceIDSegment("staticProviders", "providers"),
-			models.NewResourceProviderResourceIDSegment("staticMicrosoftWeb", "Microsoft.Web"),
-			models.NewStaticValueResourceIDSegment("hostingEnvironments", "hostingEnvironments"),
-			models.NewUserSpecifiedResourceIDSegment("name", "name"),
-			models.NewStaticValueResourceIDSegment("staticWorkerPools", "workerPools"),
-			models.NewUserSpecifiedResourceIDSegment("workerPoolName", "workerPoolValue"),
-			models.NewStaticValueResourceIDSegment("instances", "instances"),
-			models.NewUserSpecifiedResourceIDSegment("instance", "instanceValue"),
+		Segments: []sdkModels.ResourceIDSegment{
+			sdkModels.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
+			sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			sdkModels.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
+			sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			sdkModels.NewStaticValueResourceIDSegment("staticProviders", "providers"),
+			sdkModels.NewResourceProviderResourceIDSegment("staticMicrosoftWeb", "Microsoft.Web"),
+			sdkModels.NewStaticValueResourceIDSegment("hostingEnvironments", "hostingEnvironments"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("name", "name"),
+			sdkModels.NewStaticValueResourceIDSegment("staticWorkerPools", "workerPools"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("workerPoolName", "workerPoolValue"),
+			sdkModels.NewStaticValueResourceIDSegment("instances", "instances"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("instance", "instanceValue"),
 		},
 	}
-	multiRolePoolInstanceResourceId := models.ResourceID{
+	multiRolePoolInstanceResourceId := sdkModels.ResourceID{
 		ConstantNames: []string{},
-		Segments: []models.ResourceIDSegment{
-			models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
-			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-			models.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
-			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-			models.NewStaticValueResourceIDSegment("staticProviders", "providers"),
-			models.NewResourceProviderResourceIDSegment("staticMicrosoftWeb", "Microsoft.Web"),
-			models.NewStaticValueResourceIDSegment("hostingEnvironments", "hostingEnvironments"),
-			models.NewUserSpecifiedResourceIDSegment("name", "name"),
-			models.NewStaticValueResourceIDSegment("multiRolePools", "multiRolePools"),
-			models.NewStaticValueResourceIDSegment("default", "default"),
-			models.NewStaticValueResourceIDSegment("instances", "instances"),
-			models.NewUserSpecifiedResourceIDSegment("instance", "instance"),
+		Segments: []sdkModels.ResourceIDSegment{
+			sdkModels.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
+			sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			sdkModels.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
+			sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			sdkModels.NewStaticValueResourceIDSegment("staticProviders", "providers"),
+			sdkModels.NewResourceProviderResourceIDSegment("staticMicrosoftWeb", "Microsoft.Web"),
+			sdkModels.NewStaticValueResourceIDSegment("hostingEnvironments", "hostingEnvironments"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("name", "name"),
+			sdkModels.NewStaticValueResourceIDSegment("multiRolePools", "multiRolePools"),
+			sdkModels.NewStaticValueResourceIDSegment("default", "default"),
+			sdkModels.NewStaticValueResourceIDSegment("instances", "instances"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("instance", "instance"),
 		},
 	}
-	slotInstanceProcessModuleResourceId := models.ResourceID{
+	slotInstanceProcessModuleResourceId := sdkModels.ResourceID{
 		ConstantNames: []string{},
-		Segments: []models.ResourceIDSegment{
-			models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
-			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-			models.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
-			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-			models.NewStaticValueResourceIDSegment("staticProviders", "providers"),
-			models.NewResourceProviderResourceIDSegment("staticMicrosoftWeb", "Microsoft.Web"),
-			models.NewStaticValueResourceIDSegment("sites", "sites"),
-			models.NewUserSpecifiedResourceIDSegment("name", "name"),
-			models.NewStaticValueResourceIDSegment("slots", "slots"),
-			models.NewUserSpecifiedResourceIDSegment("slot", "slot"),
-			models.NewStaticValueResourceIDSegment("instances", "instances"),
-			models.NewUserSpecifiedResourceIDSegment("instanceId", "instanceId"),
-			models.NewStaticValueResourceIDSegment("processes", "processes"),
-			models.NewUserSpecifiedResourceIDSegment("processId", "processId"),
-			models.NewStaticValueResourceIDSegment("modules", "modules"),
-			models.NewUserSpecifiedResourceIDSegment("baseAddress", "baseAddress"),
+		Segments: []sdkModels.ResourceIDSegment{
+			sdkModels.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
+			sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			sdkModels.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
+			sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			sdkModels.NewStaticValueResourceIDSegment("staticProviders", "providers"),
+			sdkModels.NewResourceProviderResourceIDSegment("staticMicrosoftWeb", "Microsoft.Web"),
+			sdkModels.NewStaticValueResourceIDSegment("sites", "sites"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("name", "name"),
+			sdkModels.NewStaticValueResourceIDSegment("slots", "slots"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("slot", "slot"),
+			sdkModels.NewStaticValueResourceIDSegment("instances", "instances"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("instanceId", "instanceId"),
+			sdkModels.NewStaticValueResourceIDSegment("processes", "processes"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("processId", "processId"),
+			sdkModels.NewStaticValueResourceIDSegment("modules", "modules"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("baseAddress", "baseAddress"),
 		},
 	}
-	instanceProcessModuleResourceId := models.ResourceID{
+	instanceProcessModuleResourceId := sdkModels.ResourceID{
 		ConstantNames: []string{},
-		Segments: []models.ResourceIDSegment{
-			models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
-			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-			models.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
-			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-			models.NewStaticValueResourceIDSegment("staticProviders", "providers"),
-			models.NewResourceProviderResourceIDSegment("staticMicrosoftWeb", "Microsoft.Web"),
-			models.NewStaticValueResourceIDSegment("sites", "sites"),
-			models.NewUserSpecifiedResourceIDSegment("name", "name"),
-			models.NewStaticValueResourceIDSegment("instances", "instances"),
-			models.NewUserSpecifiedResourceIDSegment("instanceId", "instanceId"),
-			models.NewStaticValueResourceIDSegment("processes", "processes"),
-			models.NewUserSpecifiedResourceIDSegment("processId", "processId"),
-			models.NewStaticValueResourceIDSegment("modules", "modules"),
-			models.NewUserSpecifiedResourceIDSegment("baseAddress", "baseAddress"),
+		Segments: []sdkModels.ResourceIDSegment{
+			sdkModels.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
+			sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			sdkModels.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
+			sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			sdkModels.NewStaticValueResourceIDSegment("staticProviders", "providers"),
+			sdkModels.NewResourceProviderResourceIDSegment("staticMicrosoftWeb", "Microsoft.Web"),
+			sdkModels.NewStaticValueResourceIDSegment("sites", "sites"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("name", "name"),
+			sdkModels.NewStaticValueResourceIDSegment("instances", "instances"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("instanceId", "instanceId"),
+			sdkModels.NewStaticValueResourceIDSegment("processes", "processes"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("processId", "processId"),
+			sdkModels.NewStaticValueResourceIDSegment("modules", "modules"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("baseAddress", "baseAddress"),
 		},
 	}
 
-	input := []models.ResourceID{
+	input := []sdkModels.ResourceID{
 		workerPoolInstanceResourceId,
 		multiRolePoolInstanceResourceId,
 		slotInstanceProcessModuleResourceId,
 		instanceProcessModuleResourceId,
 	}
-	expectedNamesToIds := map[string]models.ResourceID{
+	expectedNamesToIds := map[string]sdkModels.ResourceID{
 		"WorkerPoolInstanceId": workerPoolInstanceResourceId,
 		"InstanceId":           multiRolePoolInstanceResourceId,
 		"ProcessModuleId":      slotInstanceProcessModuleResourceId,
@@ -654,10 +654,10 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 }
 
 func TestResourceIdNamingSignalRId(t *testing.T) {
-	input := []models.ResourceID{
+	input := []sdkModels.ResourceID{
 		signalRResourceId,
 	}
-	expectedNamesToIds := map[string]models.ResourceID{
+	expectedNamesToIds := map[string]sdkModels.ResourceID{
 		"SignalRId": signalRResourceId,
 	}
 
@@ -674,10 +674,10 @@ func TestResourceIdNamingSignalRId(t *testing.T) {
 }
 
 func TestResourceIdNamingTrafficManagerEndpoint(t *testing.T) {
-	input := []models.ResourceID{
+	input := []sdkModels.ResourceID{
 		trafficManagerProfileResourceId,
 	}
-	expectedNamesToIds := map[string]models.ResourceID{
+	expectedNamesToIds := map[string]sdkModels.ResourceID{
 		"EndpointTypeId": trafficManagerProfileResourceId,
 	}
 
@@ -694,10 +694,10 @@ func TestResourceIdNamingTrafficManagerEndpoint(t *testing.T) {
 }
 
 func TestResourceIDNamingRedisDefaultId(t *testing.T) {
-	input := []models.ResourceID{
+	input := []sdkModels.ResourceID{
 		redisPatchSchedulesResourceId,
 	}
-	expectedNamesToIds := map[string]models.ResourceID{
+	expectedNamesToIds := map[string]sdkModels.ResourceID{
 		"DefaultId": redisPatchSchedulesResourceId,
 	}
 

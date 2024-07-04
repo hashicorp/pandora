@@ -4,33 +4,33 @@
 package resourceids
 
 import (
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 var _ commonIdMatcher = commonIdCloudServicesIPConfiguration{}
 
 type commonIdCloudServicesIPConfiguration struct{}
 
-func (c commonIdCloudServicesIPConfiguration) id() models.ResourceID {
+func (c commonIdCloudServicesIPConfiguration) id() sdkModels.ResourceID {
 	name := "CloudServicesIPConfiguration"
-	return models.ResourceID{
+	return sdkModels.ResourceID{
 		CommonIDAlias: &name,
 		ConstantNames: []string{},
-		Segments: []models.ResourceIDSegment{
-			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
-			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-			models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
-			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-			models.NewStaticValueResourceIDSegment("providers", "providers"),
-			models.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Compute"),
-			models.NewStaticValueResourceIDSegment("cloudServices", "cloudServices"),
-			models.NewUserSpecifiedResourceIDSegment("cloudServiceName", "cloudServiceName"),
-			models.NewStaticValueResourceIDSegment("roleInstances", "roleInstances"),
-			models.NewUserSpecifiedResourceIDSegment("roleInstanceName", "roleInstanceName"),
-			models.NewStaticValueResourceIDSegment("networkInterfaces", "networkInterfaces"),
-			models.NewUserSpecifiedResourceIDSegment("networkInterfaceName", "networkInterfaceName"),
-			models.NewStaticValueResourceIDSegment("ipConfigurations", "ipConfigurations"),
-			models.NewUserSpecifiedResourceIDSegment("ipConfigurationName", "ipConfigurationName"),
+		Segments: []sdkModels.ResourceIDSegment{
+			sdkModels.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+			sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			sdkModels.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+			sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			sdkModels.NewStaticValueResourceIDSegment("providers", "providers"),
+			sdkModels.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Compute"),
+			sdkModels.NewStaticValueResourceIDSegment("cloudServices", "cloudServices"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("cloudServiceName", "cloudServiceName"),
+			sdkModels.NewStaticValueResourceIDSegment("roleInstances", "roleInstances"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("roleInstanceName", "roleInstanceName"),
+			sdkModels.NewStaticValueResourceIDSegment("networkInterfaces", "networkInterfaces"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("networkInterfaceName", "networkInterfaceName"),
+			sdkModels.NewStaticValueResourceIDSegment("ipConfigurations", "ipConfigurations"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("ipConfigurationName", "ipConfigurationName"),
 		},
 	}
 }

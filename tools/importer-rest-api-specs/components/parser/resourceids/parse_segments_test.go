@@ -7,7 +7,7 @@ import (
 	"testing"
 
 	"github.com/go-openapi/spec"
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 func TestParseResourceIDFromOperation_ConstantSingle(t *testing.T) {
@@ -65,9 +65,9 @@ func TestParseResourceIDFromOperation_ConstantMultiple(t *testing.T) {
 	if resourceId.segments == nil {
 		t.Fatalf("expected 2 segments but got 0")
 	}
-	expectedSegments := []models.ResourceIDSegment{
-		models.NewStaticValueResourceIDSegment("planets", "planets"),
-		models.NewConstantResourceIDSegment("planetName", "NameOfPlanet", "Earth"),
+	expectedSegments := []sdkModels.ResourceIDSegment{
+		sdkModels.NewStaticValueResourceIDSegment("planets", "planets"),
+		sdkModels.NewConstantResourceIDSegment("planetName", "NameOfPlanet", "Earth"),
 	}
 	validateSegmentsMatch(t, *resourceId.segments, expectedSegments)
 
@@ -108,9 +108,9 @@ func TestParseResourceIDFromOperation_InvalidSegmentDefaultGetsTransformed(t *te
 	if resourceId.segments == nil {
 		t.Fatalf("expected 2 segments but got 0")
 	}
-	expectedSegments := []models.ResourceIDSegment{
-		models.NewStaticValueResourceIDSegment("defaults", "defaults"),
-		models.NewUserSpecifiedResourceIDSegment("defaultName", "defaultName"),
+	expectedSegments := []sdkModels.ResourceIDSegment{
+		sdkModels.NewStaticValueResourceIDSegment("defaults", "defaults"),
+		sdkModels.NewUserSpecifiedResourceIDSegment("defaultName", "defaultName"),
 	}
 	validateSegmentsMatch(t, *resourceId.segments, expectedSegments)
 
@@ -170,9 +170,9 @@ func TestParseResourceIDFromOperation_InvalidSegmentTypeGetsTransformed(t *testi
 	if resourceId.segments == nil {
 		t.Fatalf("expected 2 segments but got 0")
 	}
-	expectedSegments := []models.ResourceIDSegment{
-		models.NewStaticValueResourceIDSegment("things", "things"),
-		models.NewUserSpecifiedResourceIDSegment("typeName", "typeName"),
+	expectedSegments := []sdkModels.ResourceIDSegment{
+		sdkModels.NewStaticValueResourceIDSegment("things", "things"),
+		sdkModels.NewUserSpecifiedResourceIDSegment("typeName", "typeName"),
 	}
 	validateSegmentsMatch(t, *resourceId.segments, expectedSegments)
 
@@ -203,11 +203,11 @@ func TestParseResourceIDFromOperation_ManagementGroupId(t *testing.T) {
 	if resourceId.segments == nil {
 		t.Fatalf("expected 4 segments but got 0")
 	}
-	expectedSegments := []models.ResourceIDSegment{
-		models.NewStaticValueResourceIDSegment("providers", "providers"),
-		models.NewResourceProviderResourceIDSegment("resourceProviders", "Microsoft.Management"),
-		models.NewStaticValueResourceIDSegment("managementGroups", "managementGroups"),
-		models.NewUserSpecifiedResourceIDSegment("groupId", "groupId"),
+	expectedSegments := []sdkModels.ResourceIDSegment{
+		sdkModels.NewStaticValueResourceIDSegment("providers", "providers"),
+		sdkModels.NewResourceProviderResourceIDSegment("resourceProviders", "Microsoft.Management"),
+		sdkModels.NewStaticValueResourceIDSegment("managementGroups", "managementGroups"),
+		sdkModels.NewUserSpecifiedResourceIDSegment("groupId", "groupId"),
 	}
 	validateSegmentsMatch(t, *resourceId.segments, expectedSegments)
 }
@@ -231,11 +231,11 @@ func TestParseResourceIDFromOperation_ResourceGroupId(t *testing.T) {
 	if resourceId.segments == nil {
 		t.Fatalf("expected 4 segments but got 0")
 	}
-	expectedSegments := []models.ResourceIDSegment{
-		models.NewStaticValueResourceIDSegment("providers", "providers"),
-		models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-		models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
-		models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+	expectedSegments := []sdkModels.ResourceIDSegment{
+		sdkModels.NewStaticValueResourceIDSegment("providers", "providers"),
+		sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+		sdkModels.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+		sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
 	}
 	validateSegmentsMatch(t, *resourceId.segments, expectedSegments)
 }
@@ -259,11 +259,11 @@ func TestParseResourceIDFromOperation_ResourceGroupId_IncorrectSegment(t *testin
 	if resourceId.segments == nil {
 		t.Fatalf("expected 4 segments but got 0")
 	}
-	expectedSegments := []models.ResourceIDSegment{
-		models.NewStaticValueResourceIDSegment("providers", "providers"),
-		models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-		models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
-		models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+	expectedSegments := []sdkModels.ResourceIDSegment{
+		sdkModels.NewStaticValueResourceIDSegment("providers", "providers"),
+		sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+		sdkModels.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+		sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
 	}
 	validateSegmentsMatch(t, *resourceId.segments, expectedSegments)
 }
@@ -287,8 +287,8 @@ func TestParseResourceIDFromOperation_Scope(t *testing.T) {
 	if resourceId.segments == nil {
 		t.Fatalf("expected 1 segments but got 0")
 	}
-	expectedSegments := []models.ResourceIDSegment{
-		models.NewScopeResourceIDSegment("resourceId"),
+	expectedSegments := []sdkModels.ResourceIDSegment{
+		sdkModels.NewScopeResourceIDSegment("resourceId"),
 	}
 	validateSegmentsMatch(t, *resourceId.segments, expectedSegments)
 }
@@ -312,9 +312,9 @@ func TestParseResourceIDFromOperation_SubscriptionId(t *testing.T) {
 	if resourceId.segments == nil {
 		t.Fatalf("expected 2 segments but got 0")
 	}
-	expectedSegments := []models.ResourceIDSegment{
-		models.NewStaticValueResourceIDSegment("providers", "providers"),
-		models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+	expectedSegments := []sdkModels.ResourceIDSegment{
+		sdkModels.NewStaticValueResourceIDSegment("providers", "providers"),
+		sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
 	}
 	validateSegmentsMatch(t, *resourceId.segments, expectedSegments)
 }
@@ -356,20 +356,20 @@ func TestParseResourceIDFromOperation_UserAssignedIdentityId(t *testing.T) {
 	if resourceId.segments == nil {
 		t.Fatalf("expected 8 segments but got 0")
 	}
-	expectedSegments := []models.ResourceIDSegment{
-		models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
-		models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-		models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
-		models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-		models.NewStaticValueResourceIDSegment("providers", "providers"),
-		models.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.ManagedIdentity"),
-		models.NewStaticValueResourceIDSegment("userAssignedIdentities", "userAssignedIdentities"),
-		models.NewUserSpecifiedResourceIDSegment("resourceName", "resourceName"),
+	expectedSegments := []sdkModels.ResourceIDSegment{
+		sdkModels.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+		sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+		sdkModels.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+		sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+		sdkModels.NewStaticValueResourceIDSegment("providers", "providers"),
+		sdkModels.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.ManagedIdentity"),
+		sdkModels.NewStaticValueResourceIDSegment("userAssignedIdentities", "userAssignedIdentities"),
+		sdkModels.NewUserSpecifiedResourceIDSegment("resourceName", "resourceName"),
 	}
 	validateSegmentsMatch(t, *resourceId.segments, expectedSegments)
 }
 
-func validateSegmentsMatch(t *testing.T, actual []models.ResourceIDSegment, expected []models.ResourceIDSegment) {
+func validateSegmentsMatch(t *testing.T, actual []sdkModels.ResourceIDSegment, expected []sdkModels.ResourceIDSegment) {
 	if len(actual) != len(expected) {
 		t.Fatalf("expected there to be %d segments but got %d", len(expected), len(actual))
 	}

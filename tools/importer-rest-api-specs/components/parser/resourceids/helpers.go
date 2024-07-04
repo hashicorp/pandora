@@ -7,21 +7,21 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
 )
 
-func normalizedResourceManagerResourceId(pri models.ResourceID) string {
+func normalizedResourceManagerResourceId(pri sdkModels.ResourceID) string {
 	segments := segmentsWithoutUriSuffix(pri)
 	return normalizedResourceId(segments)
 }
 
-func segmentsWithoutUriSuffix(pri models.ResourceID) []models.ResourceIDSegment {
+func segmentsWithoutUriSuffix(pri sdkModels.ResourceID) []sdkModels.ResourceIDSegment {
 	segments := pri.Segments
 	lastUserValueSegment := -1
 	for i, segment := range segments {
 		// everything else technically is a user configurable component
-		if segment.Type != models.StaticResourceIDSegmentType && segment.Type != models.ResourceProviderResourceIDSegmentType {
+		if segment.Type != sdkModels.StaticResourceIDSegmentType && segment.Type != sdkModels.ResourceProviderResourceIDSegmentType {
 			lastUserValueSegment = i
 		}
 	}
@@ -32,25 +32,25 @@ func segmentsWithoutUriSuffix(pri models.ResourceID) []models.ResourceIDSegment 
 	return segments
 }
 
-func normalizedResourceId(segments []models.ResourceIDSegment) string {
+func normalizedResourceId(segments []sdkModels.ResourceIDSegment) string {
 	components := make([]string, 0)
 	for _, segment := range segments {
 		switch segment.Type {
-		case models.ResourceProviderResourceIDSegmentType:
+		case sdkModels.ResourceProviderResourceIDSegmentType:
 			{
 				normalizedSegment := cleanup.NormalizeResourceProviderName(*segment.FixedValue)
 				components = append(components, normalizedSegment)
 				continue
 			}
 
-		case models.StaticResourceIDSegmentType:
+		case sdkModels.StaticResourceIDSegmentType:
 			{
 				normalizedSegment := cleanup.NormalizeSegment(*segment.FixedValue, true)
 				components = append(components, normalizedSegment)
 				continue
 			}
 
-		case models.ConstantResourceIDSegmentType, models.ResourceGroupResourceIDSegmentType, models.ScopeResourceIDSegmentType, models.SubscriptionIDResourceIDSegmentType, models.UserSpecifiedResourceIDSegmentType:
+		case sdkModels.ConstantResourceIDSegmentType, sdkModels.ResourceGroupResourceIDSegmentType, sdkModels.ScopeResourceIDSegmentType, sdkModels.SubscriptionIDResourceIDSegmentType, sdkModels.UserSpecifiedResourceIDSegmentType:
 			// e.g. {example}
 			normalizedSegment := segment.Name
 			normalizedSegment = cleanup.NormalizeReservedKeywords(segment.Name)
@@ -65,7 +65,7 @@ func normalizedResourceId(segments []models.ResourceIDSegment) string {
 	return fmt.Sprintf("/%s", strings.Join(components, "/"))
 }
 
-func ResourceIdsMatch(first, second models.ResourceID) bool {
+func ResourceIdsMatch(first, second sdkModels.ResourceID) bool {
 	if len(first.Segments) != len(second.Segments) {
 		return false
 	}
@@ -80,16 +80,16 @@ func ResourceIdsMatch(first, second models.ResourceID) bool {
 		// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/provisioningServices/{resourceName}
 		// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/provisioningServices/{provisioningServiceName}
 		// as such providing they're both user specified segments (and the rest is the same) then they're the same
-		if first.Type == models.ResourceGroupResourceIDSegmentType || first.Type == models.SubscriptionIDResourceIDSegmentType || first.Type == models.UserSpecifiedResourceIDSegmentType {
+		if first.Type == sdkModels.ResourceGroupResourceIDSegmentType || first.Type == sdkModels.SubscriptionIDResourceIDSegmentType || first.Type == sdkModels.UserSpecifiedResourceIDSegmentType {
 			continue
 		}
 
 		// With a Scope the key doesn't matter as much as that it's a Scope, so presuming the types match (above) we're good.
-		if first.Type == models.ScopeResourceIDSegmentType {
+		if first.Type == sdkModels.ScopeResourceIDSegmentType {
 			continue
 		}
 
-		if first.Type == models.ConstantResourceIDSegmentType {
+		if first.Type == sdkModels.ConstantResourceIDSegmentType {
 			if first.ConstantReference != nil && second.ConstantReference == nil {
 				return false
 			}
@@ -104,7 +104,7 @@ func ResourceIdsMatch(first, second models.ResourceID) bool {
 			continue
 		}
 
-		if first.Type == models.ResourceProviderResourceIDSegmentType || first.Type == models.StaticResourceIDSegmentType {
+		if first.Type == sdkModels.ResourceProviderResourceIDSegmentType || first.Type == sdkModels.StaticResourceIDSegmentType {
 			if first.FixedValue != nil && second.FixedValue == nil {
 				return false
 			}

@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
@@ -55,13 +55,13 @@ func (w workaroundRecoveryServicesSiteRecovery26680) Process(apiDefinition impor
 	}
 
 	// 1. Add the missing model
-	resource.Models["CertificateCreateOptions"] = models.SDKModel{
-		Fields: map[string]models.SDKField{
+	resource.Models["CertificateCreateOptions"] = sdkModels.SDKModel{
+		Fields: map[string]sdkModels.SDKField{
 			"ValidityInHours": {
 				Required: false,
 				JsonName: "validityInHours",
-				ObjectDefinition: models.SDKObjectDefinition{
-					Type: models.IntegerSDKObjectDefinitionType,
+				ObjectDefinition: sdkModels.SDKObjectDefinition{
+					Type: sdkModels.IntegerSDKObjectDefinitionType,
 				},
 			},
 		},
@@ -72,15 +72,15 @@ func (w workaroundRecoveryServicesSiteRecovery26680) Process(apiDefinition impor
 	if !ok {
 		return nil, fmt.Errorf("expected a Model named `CertificateRequest` but didn't get one")
 	}
-	model.Fields["CertificateCreateOptions"] = models.SDKField{
+	model.Fields["CertificateCreateOptions"] = sdkModels.SDKField{
 		Required:    false,
 		ReadOnly:    false,
 		Sensitive:   false,
 		JsonName:    "certificateCreateOptions",
 		Description: "",
-		ObjectDefinition: models.SDKObjectDefinition{
+		ObjectDefinition: sdkModels.SDKObjectDefinition{
 			ReferenceName: pointer.To("CertificateCreateOptions"),
-			Type:          models.ReferenceSDKObjectDefinitionType,
+			Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 		},
 	}
 	resource.Models["CertificateRequest"] = model

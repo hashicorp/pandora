@@ -5,16 +5,16 @@ package constants
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 	"reflect"
 	"regexp"
 	"strconv"
 	"strings"
 
 	"github.com/go-openapi/spec"
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/featureflags"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )
 
 type constantExtension struct {
@@ -29,7 +29,7 @@ type constantExtension struct {
 
 type ParsedConstant struct {
 	Name    string
-	Details models.SDKConstant
+	Details sdkModels.SDKConstant
 }
 
 func MapConstant(typeVal spec.StringOrArray, fieldName string, modelName *string, values []interface{}, extensions spec.Extensions) (*ParsedConstant, error) {
@@ -61,16 +61,16 @@ func MapConstant(typeVal spec.StringOrArray, fieldName string, modelName *string
 		constantName = constExtension.name
 	}
 
-	constantType := models.StringSDKConstantType
+	constantType := sdkModels.StringSDKConstantType
 	if typeVal.Contains("integer") {
-		constantType = models.IntegerSDKConstantType
+		constantType = sdkModels.IntegerSDKConstantType
 	} else if typeVal.Contains("number") {
-		constantType = models.FloatSDKConstantType
+		constantType = sdkModels.FloatSDKConstantType
 	}
 
 	keysAndValues := make(map[string]string)
 	for i, raw := range values {
-		if constantType == models.StringSDKConstantType {
+		if constantType == sdkModels.StringSDKConstantType {
 			value, ok := raw.(string)
 			if !ok {
 				return nil, fmt.Errorf("expected a string but got %+v for the %d value for %q", raw, i, constExtension.name)
@@ -94,7 +94,7 @@ func MapConstant(typeVal spec.StringOrArray, fieldName string, modelName *string
 			continue
 		}
 
-		if constantType == models.IntegerSDKConstantType {
+		if constantType == sdkModels.IntegerSDKConstantType {
 			// This gets parsed out as a float64 even though it's an Integer :upside_down_smile:
 			value, ok := raw.(float64)
 			if !ok {
@@ -128,7 +128,7 @@ func MapConstant(typeVal spec.StringOrArray, fieldName string, modelName *string
 			continue
 		}
 
-		if constantType == models.FloatSDKConstantType {
+		if constantType == sdkModels.FloatSDKConstantType {
 			value, ok := raw.(float64)
 			if !ok {
 				return nil, fmt.Errorf("expected an float but got %+v for the %d value for %q", raw, i, constExtension.name)
@@ -146,12 +146,12 @@ func MapConstant(typeVal spec.StringOrArray, fieldName string, modelName *string
 
 	// allows us to parse out the actual types above then force a string here if needed
 	if constExtension == nil {
-		constantType = models.StringSDKConstantType
+		constantType = sdkModels.StringSDKConstantType
 	}
 
 	return &ParsedConstant{
 		Name: constantName,
-		Details: models.SDKConstant{
+		Details: sdkModels.SDKConstant{
 			Values: keysAndValues,
 			Type:   constantType,
 		},

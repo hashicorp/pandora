@@ -6,31 +6,31 @@ package resourceids
 import (
 	"testing"
 
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 func TestCommonResourceID_ManagementGroup(t *testing.T) {
-	valid := models.ResourceID{
+	valid := sdkModels.ResourceID{
 		ConstantNames: []string{},
-		Segments: []models.ResourceIDSegment{
-			models.NewStaticValueResourceIDSegment("providers", "providers"),
-			models.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Management"),
-			models.NewStaticValueResourceIDSegment("managementGroups", "managementGroups"),
-			models.NewUserSpecifiedResourceIDSegment("groupId", "groupId"),
+		Segments: []sdkModels.ResourceIDSegment{
+			sdkModels.NewStaticValueResourceIDSegment("providers", "providers"),
+			sdkModels.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Management"),
+			sdkModels.NewStaticValueResourceIDSegment("managementGroups", "managementGroups"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("groupId", "groupId"),
 		},
 	}
-	invalid := models.ResourceID{
+	invalid := sdkModels.ResourceID{
 		ConstantNames: []string{},
-		Segments: []models.ResourceIDSegment{
-			models.NewStaticValueResourceIDSegment("providers", "providers"),
-			models.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Management"),
-			models.NewStaticValueResourceIDSegment("managementGroups", "managementGroups"),
-			models.NewUserSpecifiedResourceIDSegment("groupId", "groupId"),
-			models.NewStaticValueResourceIDSegment("someResource", "someResource"),
-			models.NewUserSpecifiedResourceIDSegment("resourceName", "resourceName"),
+		Segments: []sdkModels.ResourceIDSegment{
+			sdkModels.NewStaticValueResourceIDSegment("providers", "providers"),
+			sdkModels.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Management"),
+			sdkModels.NewStaticValueResourceIDSegment("managementGroups", "managementGroups"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("groupId", "groupId"),
+			sdkModels.NewStaticValueResourceIDSegment("someResource", "someResource"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("resourceName", "resourceName"),
 		},
 	}
-	input := []models.ResourceID{
+	input := []sdkModels.ResourceID{
 		valid,
 		invalid,
 	}

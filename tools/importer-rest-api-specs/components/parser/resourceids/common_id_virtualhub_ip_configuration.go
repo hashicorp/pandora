@@ -3,30 +3,28 @@
 
 package resourceids
 
-import (
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-)
+import sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 
 var _ commonIdMatcher = commonIdVirtualHubIPConfiguration{}
 
 type commonIdVirtualHubIPConfiguration struct{}
 
-func (c commonIdVirtualHubIPConfiguration) id() models.ResourceID {
+func (c commonIdVirtualHubIPConfiguration) id() sdkModels.ResourceID {
 	name := "VirtualHubIPConfiguration"
-	return models.ResourceID{
+	return sdkModels.ResourceID{
 		CommonIDAlias: &name,
 		ConstantNames: []string{},
-		Segments: []models.ResourceIDSegment{
-			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
-			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-			models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
-			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-			models.NewStaticValueResourceIDSegment("providers", "providers"),
-			models.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Network"),
-			models.NewStaticValueResourceIDSegment("virtualHubs", "virtualHubs"),
-			models.NewUserSpecifiedResourceIDSegment("virtualHubName", "virtualHubName"),
-			models.NewStaticValueResourceIDSegment("ipConfigurations", "ipConfigurations"),
-			models.NewUserSpecifiedResourceIDSegment("ipConfigName", "ipConfigName"),
+		Segments: []sdkModels.ResourceIDSegment{
+			sdkModels.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+			sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			sdkModels.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+			sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			sdkModels.NewStaticValueResourceIDSegment("providers", "providers"),
+			sdkModels.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Network"),
+			sdkModels.NewStaticValueResourceIDSegment("virtualHubs", "virtualHubs"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("virtualHubName", "virtualHubName"),
+			sdkModels.NewStaticValueResourceIDSegment("ipConfigurations", "ipConfigurations"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("ipConfigName", "ipConfigName"),
 		},
 	}
 }

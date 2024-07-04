@@ -4,29 +4,29 @@
 package resourceids
 
 import (
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 var _ commonIdMatcher = commonIdSqlDatabase{}
 
 type commonIdSqlDatabase struct{}
 
-func (c commonIdSqlDatabase) id() models.ResourceID {
+func (c commonIdSqlDatabase) id() sdkModels.ResourceID {
 	name := "SqlDatabase"
-	return models.ResourceID{
+	return sdkModels.ResourceID{
 		CommonIDAlias: &name,
 		ConstantNames: []string{},
-		Segments: []models.ResourceIDSegment{
-			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
-			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-			models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
-			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-			models.NewStaticValueResourceIDSegment("providers", "providers"),
-			models.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Sql"),
-			models.NewStaticValueResourceIDSegment("servers", "servers"),
-			models.NewUserSpecifiedResourceIDSegment("serverName", "serverName"),
-			models.NewStaticValueResourceIDSegment("databases", "databases"),
-			models.NewUserSpecifiedResourceIDSegment("databaseName", "databaseName"),
+		Segments: []sdkModels.ResourceIDSegment{
+			sdkModels.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+			sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			sdkModels.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+			sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			sdkModels.NewStaticValueResourceIDSegment("providers", "providers"),
+			sdkModels.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Sql"),
+			sdkModels.NewStaticValueResourceIDSegment("servers", "servers"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("serverName", "serverName"),
+			sdkModels.NewStaticValueResourceIDSegment("databases", "databases"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("databaseName", "databaseName"),
 		},
 	}
 }

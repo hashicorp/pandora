@@ -4,27 +4,27 @@
 package resourceids
 
 import (
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 var _ commonIdMatcher = commonIdAppServiceEnvironment{}
 
 type commonIdAppServiceEnvironment struct{}
 
-func (c commonIdAppServiceEnvironment) id() models.ResourceID {
+func (c commonIdAppServiceEnvironment) id() sdkModels.ResourceID {
 	name := "AppServiceEnvironment"
-	return models.ResourceID{
+	return sdkModels.ResourceID{
 		CommonIDAlias: &name,
 		ConstantNames: []string{},
-		Segments: []models.ResourceIDSegment{
-			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
-			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-			models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
-			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-			models.NewStaticValueResourceIDSegment("providers", "providers"),
-			models.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Web"),
-			models.NewStaticValueResourceIDSegment("hostingEnvironments", "hostingEnvironments"),
-			models.NewUserSpecifiedResourceIDSegment("hostingEnvironmentName", "hostingEnvironmentName"),
+		Segments: []sdkModels.ResourceIDSegment{
+			sdkModels.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+			sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			sdkModels.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+			sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			sdkModels.NewStaticValueResourceIDSegment("providers", "providers"),
+			sdkModels.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Web"),
+			sdkModels.NewStaticValueResourceIDSegment("hostingEnvironments", "hostingEnvironments"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("hostingEnvironmentName", "hostingEnvironmentName"),
 		},
 	}
 }
