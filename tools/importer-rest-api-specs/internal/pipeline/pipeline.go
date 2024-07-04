@@ -3,12 +3,15 @@
 
 package pipeline
 
-import "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+import (
+	"github.com/hashicorp/pandora/tools/data-api-repository/repository"
+	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
+	"github.com/hashicorp/pandora/tools/sdk/config/services"
+)
 
 type Pipeline struct {
-}
-
-type Options struct {
-	sourceDataType   models.SourceDataType
-	sourceDataOrigin models.SourceDataOrigin
+	opts                                   Options
+	repository                             repository.Repository
+	servicesFromConfigurationFiles         []services.Service
+	servicesToTerraformResourceDefinitions map[string]map[string]definitions.ResourceDefinition
 }

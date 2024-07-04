@@ -9,28 +9,28 @@ import (
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/pipeline"
+	legacyPipeline "github.com/hashicorp/pandora/tools/importer-rest-api-specs/pipeline"
 	"github.com/mitchellh/cli"
 )
 
 var _ cli.Command = ImportCommand{}
 
-func NewImportCommand(swaggerDirectory, resourceManagerConfigPath, terraformDefinitionsPath, outputDirectory string) func() (cli.Command, error) {
+func NewImportCommand(restAPISpecsRepositoryDirectoryPath, resourceManagerConfigPath, terraformDefinitionsPath, outputDirectory string) func() (cli.Command, error) {
 	return func() (cli.Command, error) {
 		return ImportCommand{
-			outputDirectory:           outputDirectory,
-			resourceManagerConfigPath: resourceManagerConfigPath,
-			swaggerDirectory:          swaggerDirectory,
-			terraformDefinitionsPath:  terraformDefinitionsPath,
+			outputDirectory:                     outputDirectory,
+			resourceManagerConfigPath:           resourceManagerConfigPath,
+			restAPISpecsRepositoryDirectoryPath: restAPISpecsRepositoryDirectoryPath,
+			terraformDefinitionsPath:            terraformDefinitionsPath,
 		}, nil
 	}
 }
 
 type ImportCommand struct {
-	outputDirectory           string
-	resourceManagerConfigPath string
-	swaggerDirectory          string
-	terraformDefinitionsPath  string
+	outputDirectory                     string
+	resourceManagerConfigPath           string
+	restAPISpecsRepositoryDirectoryPath string
+	terraformDefinitionsPath            string
 }
 
 func (ImportCommand) Help() string {
@@ -54,16 +54,34 @@ func (c ImportCommand) Run(args []string) int {
 		serviceNames = strings.Split(serviceNamesRaw, ",")
 	}
 
-	input := pipeline.RunInput{
+	// TODO: can't enable this until the Parser is refactored
+	//opts := pipeline.Options{
+	//	APIDefinitionsDirectory:       c.outputDirectory,
+	//	ConfigFilePath:                c.resourceManagerConfigPath,
+	//	ProviderPrefix:                "azurerm",
+	//	RestAPISpecsDirectory:         c.restAPISpecsRepositoryDirectoryPath,
+	//	ServiceNamesToLimitTo:         serviceNames,
+	//	SourceDataOrigin:              sdkModels.AzureRestAPISpecsSourceDataOrigin,
+	//	SourceDataType:                sdkModels.ResourceManagerSourceDataType,
+	//	TerraformDefinitionsDirectory: c.terraformDefinitionsPath,
+	//}
+	//if err := pipeline.RunImporter(opts); err != nil {
+	//	log.Printf("Error: %+v", err)
+	//	return 1
+	//}
+	//
+	//return 0
+
+	input := legacyPipeline.RunInput{
 		ConfigFilePath:           c.resourceManagerConfigPath,
 		Logger:                   logging.Log,
 		OutputDirectory:          c.outputDirectory,
 		ProviderPrefix:           "azurerm",
 		Services:                 serviceNames,
-		SwaggerDirectory:         c.swaggerDirectory,
+		SwaggerDirectory:         c.restAPISpecsRepositoryDirectoryPath,
 		TerraformDefinitionsPath: c.terraformDefinitionsPath,
 	}
-	if err := pipeline.Run(input); err != nil {
+	if err := legacyPipeline.Run(input); err != nil {
 		log.Printf("Error: %+v", err)
 		return 1
 	}
