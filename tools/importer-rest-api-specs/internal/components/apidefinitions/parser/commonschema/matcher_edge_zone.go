@@ -7,27 +7,20 @@ import (
 	"strings"
 
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
 )
 
-var _ customFieldMatcher = edgeZoneFieldMatcher{}
+var _ Matcher = edgeZoneFieldMatcher{}
 
 type edgeZoneFieldMatcher struct {
 }
 
-func (e edgeZoneFieldMatcher) ReplacementObjectDefinition() sdkModels.SDKObjectDefinition {
-	return sdkModels.SDKObjectDefinition{
-		Type: sdkModels.EdgeZoneSDKObjectDefinitionType,
-	}
-}
-
-func (e edgeZoneFieldMatcher) IsMatch(field sdkModels.SDKField, known internal.ParseResult) bool {
+func (edgeZoneFieldMatcher) IsMatch(field sdkModels.SDKField, resource sdkModels.APIResource) bool {
 	if field.ObjectDefinition.Type != sdkModels.ReferenceSDKObjectDefinitionType {
 		return false
 	}
 
 	// retrieve the model from the reference
-	model, ok := known.Models[*field.ObjectDefinition.ReferenceName]
+	model, ok := resource.Models[*field.ObjectDefinition.ReferenceName]
 	if !ok {
 		return false
 	}
@@ -45,7 +38,7 @@ func (e edgeZoneFieldMatcher) IsMatch(field sdkModels.SDKField, known internal.P
 			if fieldVal.ObjectDefinition.Type != sdkModels.ReferenceSDKObjectDefinitionType {
 				continue
 			}
-			constant, ok := known.Constants[*fieldVal.ObjectDefinition.ReferenceName]
+			constant, ok := resource.Constants[*fieldVal.ObjectDefinition.ReferenceName]
 			if !ok || len(constant.Values) != 1 {
 				continue
 			}
@@ -62,4 +55,10 @@ func (e edgeZoneFieldMatcher) IsMatch(field sdkModels.SDKField, known internal.P
 	}
 
 	return hasName && hasMatchingType
+}
+
+func (edgeZoneFieldMatcher) ReplacementObjectDefinition() sdkModels.SDKObjectDefinition {
+	return sdkModels.SDKObjectDefinition{
+		Type: sdkModels.EdgeZoneSDKObjectDefinitionType,
+	}
 }

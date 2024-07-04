@@ -7,46 +7,27 @@ import (
 	"strings"
 
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
 )
 
-var _ customFieldMatcher = systemOrUserAssignedIdentityMapMatcher{}
+var _ Matcher = userAssignedIdentityMapMatcher{}
 
-type systemOrUserAssignedIdentityMapMatcher struct{}
+type userAssignedIdentityMapMatcher struct{}
 
-func (systemOrUserAssignedIdentityMapMatcher) ReplacementObjectDefinition() sdkModels.SDKObjectDefinition {
-	return sdkModels.SDKObjectDefinition{
-		Type: sdkModels.SystemOrUserAssignedIdentityMapSDKObjectDefinitionType,
-	}
-}
-
-func (systemOrUserAssignedIdentityMapMatcher) IsMatch(field sdkModels.SDKField, known internal.ParseResult) bool {
+func (userAssignedIdentityMapMatcher) IsMatch(field sdkModels.SDKField, resource sdkModels.APIResource) bool {
 	if field.ObjectDefinition.Type != sdkModels.ReferenceSDKObjectDefinitionType {
 		return false
 	}
 
 	// retrieve the model from the reference
-	model, ok := known.Models[*field.ObjectDefinition.ReferenceName]
+	model, ok := resource.Models[*field.ObjectDefinition.ReferenceName]
 	if !ok {
 		return false
 	}
 
 	hasUserAssignedIdentities := false
-	hasMatchingType := false
-	hasPrincipalId := false
-	hasTenantId := false
+	hasTypeMatch := false
 
 	for fieldName, fieldVal := range model.Fields {
-		if strings.EqualFold(fieldName, "PrincipalId") {
-			hasPrincipalId = true
-			continue
-		}
-
-		if strings.EqualFold(fieldName, "TenantId") {
-			hasTenantId = true
-			continue
-		}
-
 		if strings.EqualFold(fieldName, "UserAssignedIdentities") {
 			// this should be a Map of an Object containing ClientId/PrincipalId
 			if fieldVal.ObjectDefinition.Type != sdkModels.DictionarySDKObjectDefinitionType {
@@ -56,7 +37,7 @@ func (systemOrUserAssignedIdentityMapMatcher) IsMatch(field sdkModels.SDKField, 
 				continue
 			}
 
-			inlinedModel, ok := known.Models[*fieldVal.ObjectDefinition.NestedItem.ReferenceName]
+			inlinedModel, ok := resource.Models[*fieldVal.ObjectDefinition.NestedItem.ReferenceName]
 			if !ok {
 				continue
 			}
@@ -82,7 +63,8 @@ func (systemOrUserAssignedIdentityMapMatcher) IsMatch(field sdkModels.SDKField, 
 					continue
 				}
 
-				// if extra fields are returned within the UAI properties block then we ignore them for now
+				// if extra fields this can't be a match
+				return false
 			}
 
 			hasUserAssignedIdentities = innerHasClientId && innerHasPrincipalId
@@ -93,20 +75,21 @@ func (systemOrUserAssignedIdentityMapMatcher) IsMatch(field sdkModels.SDKField, 
 			if fieldVal.ObjectDefinition.Type != sdkModels.ReferenceSDKObjectDefinitionType {
 				continue
 			}
-			constant, ok := known.Constants[*fieldVal.ObjectDefinition.ReferenceName]
+			constant, ok := resource.Constants[*fieldVal.ObjectDefinition.ReferenceName]
 			if !ok {
 				continue
 			}
 			expected := map[string]string{
-				"SystemAssigned": "SystemAssigned",
-				"UserAssigned":   "UserAssigned",
+				"UserAssigned": "UserAssigned",
 			}
-			hasMatchingType = validateIdentityConstantValues(constant, expected)
+			hasTypeMatch = validateIdentityConstantValues(constant, expected)
 			continue
 		}
 
-		// Per the API Definition, the `DelegatedResources` field is for `internal use only` - therefore we should ignore this if it's present
-		if strings.EqualFold(fieldName, "DelegatedResources") {
+		// some services expose tenant ID or/and principal ID in the definition for a user assigned identity - we should recognise it as a user assigned identity but ignore the field
+		// This model exposed "tenantId": https://github.com/Azure/azure-rest-api-specs/blob/5a9afce8360020c46b38841e04179447a28118b2/specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/stable/2022-12-01/FlexibleServers.json#L812-L834
+		// This model exposed both "tenantId" and "principalId": https://github.com/Azure/azure-rest-api-specs/blob/14d24d17491d8c2bde24532cb8cc2d663c0ffd9f/specification/storagecache/resource-manager/Microsoft.StorageCache/stable/2023-05-01/amlfilesystem.json#L565
+		if strings.EqualFold(fieldName, "TenantId") || strings.EqualFold(fieldName, "PrincipalId") {
 			continue
 		}
 
@@ -114,5 +97,11 @@ func (systemOrUserAssignedIdentityMapMatcher) IsMatch(field sdkModels.SDKField, 
 		return false
 	}
 
-	return hasUserAssignedIdentities && hasMatchingType && hasPrincipalId && hasTenantId
+	return hasUserAssignedIdentities && hasTypeMatch
+}
+
+func (userAssignedIdentityMapMatcher) ReplacementObjectDefinition() sdkModels.SDKObjectDefinition {
+	return sdkModels.SDKObjectDefinition{
+		Type: sdkModels.UserAssignedIdentityMapSDKObjectDefinitionType,
+	}
 }

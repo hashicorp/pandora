@@ -7,26 +7,19 @@ import (
 	"strings"
 
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
 )
 
-var _ customFieldMatcher = legacySystemAndUserAssignedIdentityListMatcher{}
+var _ Matcher = systemOrUserAssignedIdentityListMatcher{}
 
-type legacySystemAndUserAssignedIdentityListMatcher struct{}
+type systemOrUserAssignedIdentityListMatcher struct{}
 
-func (legacySystemAndUserAssignedIdentityListMatcher) ReplacementObjectDefinition() sdkModels.SDKObjectDefinition {
-	return sdkModels.SDKObjectDefinition{
-		Type: sdkModels.LegacySystemAndUserAssignedIdentityListSDKObjectDefinitionType,
-	}
-}
-
-func (legacySystemAndUserAssignedIdentityListMatcher) IsMatch(field sdkModels.SDKField, known internal.ParseResult) bool {
+func (systemOrUserAssignedIdentityListMatcher) IsMatch(field sdkModels.SDKField, resource sdkModels.APIResource) bool {
 	if field.ObjectDefinition.Type != sdkModels.ReferenceSDKObjectDefinitionType {
 		return false
 	}
 
 	// retrieve the model from the reference
-	model, ok := known.Models[*field.ObjectDefinition.ReferenceName]
+	model, ok := resource.Models[*field.ObjectDefinition.ReferenceName]
 	if !ok {
 		return false
 	}
@@ -64,14 +57,13 @@ func (legacySystemAndUserAssignedIdentityListMatcher) IsMatch(field sdkModels.SD
 			if fieldVal.ObjectDefinition.Type != sdkModels.ReferenceSDKObjectDefinitionType {
 				continue
 			}
-			constant, ok := known.Constants[*fieldVal.ObjectDefinition.ReferenceName]
+			constant, ok := resource.Constants[*fieldVal.ObjectDefinition.ReferenceName]
 			if !ok {
 				continue
 			}
 			expected := map[string]string{
-				"SystemAssigned":             "SystemAssigned",
-				"SystemAssignedUserAssigned": "SystemAssigned,UserAssigned",
-				"UserAssigned":               "UserAssigned",
+				"SystemAssigned": "SystemAssigned",
+				"UserAssigned":   "UserAssigned",
 			}
 			hasMatchingType = validateIdentityConstantValues(constant, expected)
 			continue
@@ -82,4 +74,10 @@ func (legacySystemAndUserAssignedIdentityListMatcher) IsMatch(field sdkModels.SD
 	}
 
 	return hasUserAssignedIdentities && hasMatchingType && hasPrincipalId && hasTenantId
+}
+
+func (systemOrUserAssignedIdentityListMatcher) ReplacementObjectDefinition() sdkModels.SDKObjectDefinition {
+	return sdkModels.SDKObjectDefinition{
+		Type: sdkModels.SystemOrUserAssignedIdentityListSDKObjectDefinitionType,
+	}
 }

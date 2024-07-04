@@ -8,26 +8,19 @@ import (
 	"strings"
 
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
 )
 
-var _ customFieldMatcher = systemDataMatcher{}
+var _ Matcher = systemDataMatcher{}
 
 type systemDataMatcher struct{}
 
-func (systemDataMatcher) ReplacementObjectDefinition() sdkModels.SDKObjectDefinition {
-	return sdkModels.SDKObjectDefinition{
-		Type: sdkModels.SystemDataSDKObjectDefinitionType,
-	}
-}
-
-func (systemDataMatcher) IsMatch(field sdkModels.SDKField, known internal.ParseResult) bool {
+func (systemDataMatcher) IsMatch(field sdkModels.SDKField, resource sdkModels.APIResource) bool {
 	if field.ObjectDefinition.Type != sdkModels.ReferenceSDKObjectDefinitionType {
 		return false
 	}
 
 	// retrieve the model from the reference
-	model, ok := known.Models[*field.ObjectDefinition.ReferenceName]
+	model, ok := resource.Models[*field.ObjectDefinition.ReferenceName]
 	if !ok {
 		return false
 	}
@@ -80,7 +73,7 @@ func (systemDataMatcher) IsMatch(field sdkModels.SDKField, known internal.ParseR
 					"ManagedIdentity": "ManagedIdentity",
 					"Key":             "Key",
 				}
-				constant, ok := known.Constants[*fieldVal.ObjectDefinition.ReferenceName]
+				constant, ok := resource.Constants[*fieldVal.ObjectDefinition.ReferenceName]
 				if !ok {
 					continue
 				}
@@ -108,7 +101,7 @@ func (systemDataMatcher) IsMatch(field sdkModels.SDKField, known internal.ParseR
 					"ManagedIdentity": "ManagedIdentity",
 					"Key":             "Key",
 				}
-				constant, ok := known.Constants[*fieldVal.ObjectDefinition.ReferenceName]
+				constant, ok := resource.Constants[*fieldVal.ObjectDefinition.ReferenceName]
 				if !ok {
 					continue
 				}
@@ -122,6 +115,12 @@ func (systemDataMatcher) IsMatch(field sdkModels.SDKField, known internal.ParseR
 	}
 
 	return hasCreatedByType && hasCreatedBy && hasLastModifiedbyType && hasLastModifiedAt && hasLastModifiedBy && hasCreatedAt
+}
+
+func (systemDataMatcher) ReplacementObjectDefinition() sdkModels.SDKObjectDefinition {
+	return sdkModels.SDKObjectDefinition{
+		Type: sdkModels.SystemDataSDKObjectDefinitionType,
+	}
 }
 
 func validateSystemDataConstantValues(input sdkModels.SDKConstant, expected map[string]string) bool {

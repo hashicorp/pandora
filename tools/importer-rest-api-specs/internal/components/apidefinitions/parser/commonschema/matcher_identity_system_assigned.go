@@ -8,26 +8,19 @@ import (
 	"strings"
 
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
 )
 
-var _ customFieldMatcher = systemAssignedIdentityMatcher{}
+var _ Matcher = systemAssignedIdentityMatcher{}
 
 type systemAssignedIdentityMatcher struct{}
 
-func (systemAssignedIdentityMatcher) ReplacementObjectDefinition() sdkModels.SDKObjectDefinition {
-	return sdkModels.SDKObjectDefinition{
-		Type: sdkModels.SystemAssignedIdentitySDKObjectDefinitionType,
-	}
-}
-
-func (systemAssignedIdentityMatcher) IsMatch(field sdkModels.SDKField, known internal.ParseResult) bool {
+func (systemAssignedIdentityMatcher) IsMatch(field sdkModels.SDKField, resource sdkModels.APIResource) bool {
 	if field.ObjectDefinition.Type != sdkModels.ReferenceSDKObjectDefinitionType {
 		return false
 	}
 
 	// retrieve the model from the reference
-	model, ok := known.Models[*field.ObjectDefinition.ReferenceName]
+	model, ok := resource.Models[*field.ObjectDefinition.ReferenceName]
 	if !ok {
 		return false
 	}
@@ -51,7 +44,7 @@ func (systemAssignedIdentityMatcher) IsMatch(field sdkModels.SDKField, known int
 			if fieldVal.ObjectDefinition.Type != sdkModels.ReferenceSDKObjectDefinitionType {
 				continue
 			}
-			constant, ok := known.Constants[*fieldVal.ObjectDefinition.ReferenceName]
+			constant, ok := resource.Constants[*fieldVal.ObjectDefinition.ReferenceName]
 			if !ok {
 				continue
 			}
@@ -67,6 +60,12 @@ func (systemAssignedIdentityMatcher) IsMatch(field sdkModels.SDKField, known int
 	}
 
 	return hasMatchingType && hasPrincipalId && hasTenantId
+}
+
+func (systemAssignedIdentityMatcher) ReplacementObjectDefinition() sdkModels.SDKObjectDefinition {
+	return sdkModels.SDKObjectDefinition{
+		Type: sdkModels.SystemAssignedIdentitySDKObjectDefinitionType,
+	}
 }
 
 func validateIdentityConstantValues(input sdkModels.SDKConstant, expected map[string]string) bool {

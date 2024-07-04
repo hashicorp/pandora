@@ -7,26 +7,19 @@ import (
 	"strings"
 
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
 )
 
-var _ customFieldMatcher = systemAndUserAssignedIdentityMapMatcher{}
+var _ Matcher = systemOrUserAssignedIdentityMapMatcher{}
 
-type systemAndUserAssignedIdentityMapMatcher struct{}
+type systemOrUserAssignedIdentityMapMatcher struct{}
 
-func (systemAndUserAssignedIdentityMapMatcher) ReplacementObjectDefinition() sdkModels.SDKObjectDefinition {
-	return sdkModels.SDKObjectDefinition{
-		Type: sdkModels.SystemAndUserAssignedIdentityMapSDKObjectDefinitionType,
-	}
-}
-
-func (systemAndUserAssignedIdentityMapMatcher) IsMatch(field sdkModels.SDKField, known internal.ParseResult) bool {
+func (systemOrUserAssignedIdentityMapMatcher) IsMatch(field sdkModels.SDKField, resource sdkModels.APIResource) bool {
 	if field.ObjectDefinition.Type != sdkModels.ReferenceSDKObjectDefinitionType {
 		return false
 	}
 
 	// retrieve the model from the reference
-	model, ok := known.Models[*field.ObjectDefinition.ReferenceName]
+	model, ok := resource.Models[*field.ObjectDefinition.ReferenceName]
 	if !ok {
 		return false
 	}
@@ -56,7 +49,7 @@ func (systemAndUserAssignedIdentityMapMatcher) IsMatch(field sdkModels.SDKField,
 				continue
 			}
 
-			inlinedModel, ok := known.Models[*fieldVal.ObjectDefinition.NestedItem.ReferenceName]
+			inlinedModel, ok := resource.Models[*fieldVal.ObjectDefinition.NestedItem.ReferenceName]
 			if !ok {
 				continue
 			}
@@ -93,16 +86,20 @@ func (systemAndUserAssignedIdentityMapMatcher) IsMatch(field sdkModels.SDKField,
 			if fieldVal.ObjectDefinition.Type != sdkModels.ReferenceSDKObjectDefinitionType {
 				continue
 			}
-			constant, ok := known.Constants[*fieldVal.ObjectDefinition.ReferenceName]
+			constant, ok := resource.Constants[*fieldVal.ObjectDefinition.ReferenceName]
 			if !ok {
 				continue
 			}
 			expected := map[string]string{
-				"SystemAssigned":             "SystemAssigned",
-				"SystemAssignedUserAssigned": "SystemAssigned, UserAssigned",
-				"UserAssigned":               "UserAssigned",
+				"SystemAssigned": "SystemAssigned",
+				"UserAssigned":   "UserAssigned",
 			}
 			hasMatchingType = validateIdentityConstantValues(constant, expected)
+			continue
+		}
+
+		// Per the API Definition, the `DelegatedResources` field is for `internal use only` - therefore we should ignore this if it's present
+		if strings.EqualFold(fieldName, "DelegatedResources") {
 			continue
 		}
 
@@ -111,4 +108,10 @@ func (systemAndUserAssignedIdentityMapMatcher) IsMatch(field sdkModels.SDKField,
 	}
 
 	return hasUserAssignedIdentities && hasMatchingType && hasPrincipalId && hasTenantId
+}
+
+func (systemOrUserAssignedIdentityMapMatcher) ReplacementObjectDefinition() sdkModels.SDKObjectDefinition {
+	return sdkModels.SDKObjectDefinition{
+		Type: sdkModels.SystemOrUserAssignedIdentityMapSDKObjectDefinitionType,
+	}
 }

@@ -5,6 +5,7 @@ package parser
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/commonschema"
 	"net/http"
 	"strings"
 
@@ -12,7 +13,6 @@ import (
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/commonschema"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/constants"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/resourceids"
@@ -54,9 +54,6 @@ func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resource
 		return nil, fmt.Errorf("pulling out model from list operations: %+v", err)
 	}
 
-	// then switch out any custom types (e.g. Identity)
-	result = switchOutCustomTypesAsNeeded(result)
-
 	// if there's nothing here, there's no point generating a package
 	if len(*operations) == 0 {
 		return nil, nil
@@ -68,6 +65,9 @@ func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resource
 		Operations:  *operations,
 		ResourceIDs: resourceIds.NamesToResourceIDs,
 	}
+
+	// then switch out any custom types (e.g. Identity)
+	resource = switchOutCustomTypesAsNeeded(resource)
 
 	// first Normalize the names, meaning `foo` -> `Foo` for consistency
 	resource = normalizeAzureApiResource(resource)
@@ -144,21 +144,16 @@ func pullOutModelForListOperations(input map[string]sdkModels.SDKOperation, know
 	return &output, nil
 }
 
-func switchOutCustomTypesAsNeeded(input internal.ParseResult) internal.ParseResult {
-	result := internal.ParseResult{
-		Constants: map[string]sdkModels.SDKConstant{},
-		Models:    map[string]sdkModels.SDKModel{},
-	}
-	result.Append(input)
-
-	for modelName, model := range result.Models {
+func switchOutCustomTypesAsNeeded(input sdkModels.APIResource) sdkModels.APIResource {
+	output := input
+	for modelName, model := range input.Models {
 		fields := model.Fields
 		for fieldName := range model.Fields {
 			field := model.Fields[fieldName]
 
 			// switch out the Object Definition for this field if needed
-			for _, matcher := range commonschema.CustomFieldMatchers {
-				if matcher.IsMatch(field, result) {
+			for _, matcher := range commonschema.Matchers {
+				if matcher.IsMatch(field, input) {
 					field.ObjectDefinition = matcher.ReplacementObjectDefinition()
 					break
 				}
@@ -167,10 +162,10 @@ func switchOutCustomTypesAsNeeded(input internal.ParseResult) internal.ParseResu
 			fields[fieldName] = field
 		}
 		model.Fields = fields
-		result.Models[modelName] = model
+		output.Models[modelName] = model
 	}
 
-	return input
+	return output
 }
 
 func (d *SwaggerDefinition) findNestedItemsYetToBeParsed(operations map[string]sdkModels.SDKOperation, known internal.ParseResult) (*internal.ParseResult, error) {
