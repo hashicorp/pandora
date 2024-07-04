@@ -5,13 +5,13 @@ package constants
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 	"reflect"
 	"regexp"
 	"strconv"
 	"strings"
 
 	"github.com/go-openapi/spec"
-	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/featureflags"
@@ -32,7 +32,7 @@ type ParsedConstant struct {
 	Details models.SDKConstant
 }
 
-func MapConstant(typeVal spec.StringOrArray, fieldName string, modelName *string, values []interface{}, extensions spec.Extensions, logger hclog.Logger) (*ParsedConstant, error) {
+func MapConstant(typeVal spec.StringOrArray, fieldName string, modelName *string, values []interface{}, extensions spec.Extensions) (*ParsedConstant, error) {
 	if len(values) == 0 {
 		return nil, fmt.Errorf("Enum in %q has no values", fieldName)
 	}
@@ -43,14 +43,14 @@ func MapConstant(typeVal spec.StringOrArray, fieldName string, modelName *string
 	constExtension, err := parseConstantExtensionFromExtension(extensions)
 	if err != nil {
 		if featureflags.AllowConstantsWithoutXMSEnum {
-			logger.Debug(fmt.Sprintf("Field %q had an invalid `x-ms-enum`: %+v", fieldName, err))
+			logging.Debugf("Field %q had an invalid `x-ms-enum`: %+v", fieldName, err)
 			// this attempts to construct a unique name for a constant out of the model name and field name
 			// to prevent duplicate definitions of constants, specifically constants called `type`
 			// of which there are several in data factory (#3725)
 			if strings.EqualFold(fieldName, "type") && modelName != nil {
 				constantPrefix := strings.TrimSuffix(*modelName, "Type")
 				constantName = constantPrefix + strings.Title(fieldName)
-				logger.Debug(fmt.Sprintf("Field %q renamed to %q", fieldName, constantName))
+				logging.Debugf("Field %q renamed to %q", fieldName, constantName)
 			}
 
 		} else {

@@ -6,19 +6,19 @@ package transformer
 import (
 	"fmt"
 
-	"github.com/hashicorp/go-hclog"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 // NOTE: this file contains temporary glue code to enable refactoring this tool gradually, component-by-component.
 
-func MapInternalTypesToDataAPISDKTypes(serviceName string, inputApiVersions []importerModels.AzureApiDefinition, resourceProvider *string, logger hclog.Logger) (*sdkModels.Service, error) {
+func MapInternalTypesToDataAPISDKTypes(serviceName string, inputApiVersions []importerModels.AzureApiDefinition, resourceProvider *string) (*sdkModels.Service, error) {
 	apiVersions := make(map[string]sdkModels.APIVersion)
 
-	logger.Debug("Mapping API Versions..")
+	logging.Debugf("Mapping API Versions..")
 	for _, item := range inputApiVersions {
-		logger.Trace(fmt.Sprintf("Mapping Service %q / API Version %q", item.ServiceName, item.ApiVersion))
+		logging.Tracef("Mapping Service %q / API Version %q", item.ServiceName, item.ApiVersion)
 		mapped, err := mapInternalAPIVersionTypeToDataAPISDKType(item.ApiVersion, item)
 		if err != nil {
 			return nil, fmt.Errorf("mapping API Version %q: %+v", item.ApiVersion, err)

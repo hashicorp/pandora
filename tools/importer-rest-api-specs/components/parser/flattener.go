@@ -11,13 +11,12 @@ import (
 	"github.com/go-openapi/analysis"
 	"github.com/go-openapi/loads"
 	"github.com/go-openapi/spec"
-	"github.com/hashicorp/go-hclog"
 )
 
 // load loads the swagger document and flattens it to ensure this contains
 // all of the properties within a single file, which makes this easier to parse-out
 // This can then be used with the Parser
-func load(directory string, fileName string, logger hclog.Logger) (*SwaggerDefinition, error) {
+func load(directory string, fileName string) (*SwaggerDefinition, error) {
 	filePath := filepath.Join(directory, fileName)
 
 	// parsing this twice looks silly, so why are we doing this?
@@ -79,7 +78,6 @@ func load(directory string, fileName string, logger hclog.Logger) (*SwaggerDefin
 
 	return &SwaggerDefinition{
 		Name:                      serviceName,
-		logger:                    logger,
 		swaggerSpecExpanded:       swaggerSpecExpanded,
 		swaggerSpecWithReferences: swaggerSpecWithReferences,
 		swaggerSpecRaw:            swaggerSpecWithReferencesRaw,

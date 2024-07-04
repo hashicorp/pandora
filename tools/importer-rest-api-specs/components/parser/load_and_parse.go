@@ -7,17 +7,16 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/dataworkarounds"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/resourceids"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVersion string, resourceProvider *string, logger hclog.Logger) (*importerModels.AzureApiDefinition, error) {
+func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVersion string, resourceProvider *string) (*importerModels.AzureApiDefinition, error) {
 	// Some Services have been deprecated or should otherwise be ignored - check before proceeding
 	if serviceShouldBeIgnored(serviceName) {
-		logger.Debug(fmt.Sprintf("Service %q should be ignored - skipping", serviceName))
-
+		logging.Debugf("Service %q should be ignored - skipping", serviceName)
 		return &importerModels.AzureApiDefinition{}, nil
 	}
 
@@ -28,7 +27,7 @@ func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVer
 	resourceIdResult := &resourceids.ParseResult{}
 	var file2Swagger = make(map[string]*SwaggerDefinition, len(fileNames))
 	for _, file := range fileNames {
-		swaggerFile, err := load(directory, file, logger)
+		swaggerFile, err := load(directory, file)
 		if err != nil {
 			return nil, fmt.Errorf("parsing file %q: %+v", file, err)
 		}
@@ -38,7 +37,7 @@ func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVer
 		if err != nil {
 			return nil, fmt.Errorf("parsing Resource Ids from %q (Service %q / Api Version %q): %+v", file, serviceName, apiVersion, err)
 		}
-		if err := resourceIdResult.Append(*parsedResourceIds, logger); err != nil {
+		if err := resourceIdResult.Append(*parsedResourceIds); err != nil {
 			return nil, fmt.Errorf("appending Resource Ids: %+v", err)
 		}
 	}
@@ -77,15 +76,15 @@ func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVer
 	for _, v := range parsed {
 		// the Data API expects that an API Version will contain at least 1 Resource - avoid bad data here
 		if len(v.Resources) == 0 {
-			logger.Info(fmt.Sprintf("Service %q / Api Version %q contains no resources, skipping.", v.ServiceName, v.ApiVersion))
+			logging.Infof("Service %q / Api Version %q contains no resources, skipping.", v.ServiceName, v.ApiVersion)
 			continue
 		}
 
 		out = append(out, v)
 	}
 
-	logger.Trace("Applying overrides to workaround invalid Swagger Definitions..")
-	output, err := dataworkarounds.ApplyWorkarounds(out, logger.Named("Swagger Data Override"))
+	logging.Tracef("Applying overrides to workaround invalid Swagger Definitions..")
+	output, err := dataworkarounds.ApplyWorkarounds(out)
 	if err != nil {
 		return nil, fmt.Errorf("applying Swagger overrides: %+v", err)
 	}

@@ -12,6 +12,7 @@ import (
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/resourceids"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
@@ -31,7 +32,7 @@ func (d *SwaggerDefinition) parse(serviceName, apiVersion string, resourceProvid
 		}
 
 		if resource != nil {
-			d.logger.Trace(fmt.Sprintf("The Tag %q has %d API Operations", tag, len(resource.Operations)))
+			logging.Tracef("The Tag %q has %d API Operations", tag, len(resource.Operations))
 			normalizedTag := normalizeTag(tag)
 			normalizedTag = cleanup.NormalizeResourceName(normalizedTag)
 			resources[normalizedTag] = *resource
@@ -82,7 +83,7 @@ func (d *SwaggerDefinition) parse(serviceName, apiVersion string, resourceProvid
 	// now that we have a canonical list of resources, can we simplify the Operation names at all?
 	resourcesOut := make(map[string]sdkModels.APIResource)
 	for resourceName, resource := range resources {
-		d.logger.Trace(fmt.Sprintf("Simplifying operation names for resource %q", resourceName))
+		logging.Tracef("Simplifying operation names for resource %q", resourceName)
 		updated := d.simplifyOperationNamesForResource(resource, resourceName)
 		resourcesOut[resourceName] = updated
 	}
@@ -136,7 +137,7 @@ func (d *SwaggerDefinition) simplifyOperationNamesForResource(resource sdkModels
 	}
 
 	if !allOperationsStartWithPrefix {
-		d.logger.Trace(fmt.Sprintf("Skipping simplifying operation names for resource %q", resourceName))
+		logging.Tracef("Skipping simplifying operation names for resource %q", resourceName)
 		return resource
 	}
 
@@ -156,7 +157,7 @@ func (d *SwaggerDefinition) simplifyOperationNamesForResource(resource sdkModels
 			updatedKey = updatedKey[1:]
 		}
 
-		d.logger.Trace(fmt.Sprintf("Simplifying Operation %q to %q", key, updatedKey))
+		logging.Tracef("Simplifying Operation %q to %q", key, updatedKey)
 		output[updatedKey] = value
 	}
 
@@ -165,7 +166,7 @@ func (d *SwaggerDefinition) simplifyOperationNamesForResource(resource sdkModels
 }
 
 func (d *SwaggerDefinition) ParseResourceIds(resourceProvider *string) (*resourceids.ParseResult, error) {
-	parser := resourceids.NewParser(d.logger.Named("ResourceID Parser"), d.swaggerSpecExpanded)
+	parser := resourceids.NewParser(d.swaggerSpecExpanded)
 
 	resourceIds, err := parser.Parse()
 	if err != nil {
@@ -185,7 +186,7 @@ func (d *SwaggerDefinition) filterResourceIdsToResourceProvider(input resourceid
 	for name := range input.NamesToResourceIDs {
 		value := input.NamesToResourceIDs[name]
 
-		d.logger.Trace(fmt.Sprintf("Processing ID %q (%q)", name, helpers.DisplayValueForResourceID(value)))
+		logging.Tracef("Processing ID %q (%q)", name, helpers.DisplayValueForResourceID(value))
 		usesADifferentResourceProvider, err := resourceIdUsesAResourceProviderOtherThan(pointer.To(value), pointer.To(resourceProvider))
 		if err != nil {
 			return nil, err

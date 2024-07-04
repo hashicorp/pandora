@@ -7,7 +7,6 @@ import (
 	"testing"
 
 	"github.com/go-openapi/spec"
-	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
@@ -23,7 +22,7 @@ func TestParseResourceIDFromOperation_ConstantSingle(t *testing.T) {
 	swagger := spec.NewOperation("Example_Operation").AddParam(param)
 	uri := "/planets/{planetName}"
 
-	parser := NewParser(hclog.NewNullLogger(), nil)
+	parser := NewParser(nil)
 	resourceId, err := parser.parseResourceIdFromOperation(uri, swagger)
 	if err != nil {
 		t.Fatalf("parsing Resource ID from %q: %+v", uri, err)
@@ -51,7 +50,7 @@ func TestParseResourceIDFromOperation_ConstantMultiple(t *testing.T) {
 	swagger := spec.NewOperation("Example_Operation").AddParam(param)
 	uri := "/planets/{planetName}"
 
-	parser := NewParser(hclog.NewNullLogger(), nil)
+	parser := NewParser(nil)
 	resourceId, err := parser.parseResourceIdFromOperation(uri, swagger)
 	if err != nil {
 		t.Fatalf("parsing Resource ID from %q: %+v", uri, err)
@@ -94,7 +93,7 @@ func TestParseResourceIDFromOperation_InvalidSegmentDefaultGetsTransformed(t *te
 	swagger := spec.NewOperation("Example_Operation")
 	uri := "/defaults/{default}"
 
-	parser := NewParser(hclog.NewNullLogger(), nil)
+	parser := NewParser(nil)
 	resourceId, err := parser.parseResourceIdFromOperation(uri, swagger)
 	if err != nil {
 		t.Fatalf("parsing Resource ID from %q: %+v", uri, err)
@@ -129,7 +128,7 @@ func TestParseResourceIDFromOperation_InvalidSegmentDefaultAsStaticValueGetsLeft
 	swagger := spec.NewOperation("Example_Operation")
 	uri := "/default"
 
-	parser := NewParser(hclog.NewNullLogger(), nil)
+	parser := NewParser(nil)
 	resourceId, err := parser.parseResourceIdFromOperation(uri, swagger)
 	if err != nil {
 		t.Fatalf("parsing Resource ID from %q: %+v", uri, err)
@@ -156,7 +155,7 @@ func TestParseResourceIDFromOperation_InvalidSegmentTypeGetsTransformed(t *testi
 	swagger := spec.NewOperation("Example_Operation")
 	uri := "/things/{type}"
 
-	parser := NewParser(hclog.NewNullLogger(), nil)
+	parser := NewParser(nil)
 	resourceId, err := parser.parseResourceIdFromOperation(uri, swagger)
 	if err != nil {
 		t.Fatalf("parsing Resource ID from %q: %+v", uri, err)
@@ -189,7 +188,7 @@ func TestParseResourceIDFromOperation_ManagementGroupId(t *testing.T) {
 	swagger := spec.NewOperation("Example_Operation")
 	uri := "/providers/Microsoft.Management/managementGroups/{groupId}"
 
-	parser := NewParser(hclog.NewNullLogger(), nil)
+	parser := NewParser(nil)
 	resourceId, err := parser.parseResourceIdFromOperation(uri, swagger)
 	if err != nil {
 		t.Fatalf("parsing Resource ID from %q: %+v", uri, err)
@@ -217,7 +216,7 @@ func TestParseResourceIDFromOperation_ResourceGroupId(t *testing.T) {
 	swagger := spec.NewOperation("Example_Operation")
 	uri := "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
 
-	parser := NewParser(hclog.NewNullLogger(), nil)
+	parser := NewParser(nil)
 	resourceId, err := parser.parseResourceIdFromOperation(uri, swagger)
 	if err != nil {
 		t.Fatalf("parsing Resource ID from %q: %+v", uri, err)
@@ -245,7 +244,7 @@ func TestParseResourceIDFromOperation_ResourceGroupId_IncorrectSegment(t *testin
 	swagger := spec.NewOperation("Example_Operation")
 	uri := "/subscriptions/{subscriptionId}/resourceGroups/{sourceResourceGroupName}"
 
-	parser := NewParser(hclog.NewNullLogger(), nil)
+	parser := NewParser(nil)
 	resourceId, err := parser.parseResourceIdFromOperation(uri, swagger)
 	if err != nil {
 		t.Fatalf("parsing Resource ID from %q: %+v", uri, err)
@@ -273,7 +272,7 @@ func TestParseResourceIDFromOperation_Scope(t *testing.T) {
 	swagger := spec.NewOperation("Example_Operation")
 	uri := "/{resourceId}"
 
-	parser := NewParser(hclog.NewNullLogger(), nil)
+	parser := NewParser(nil)
 	resourceId, err := parser.parseResourceIdFromOperation(uri, swagger)
 	if err != nil {
 		t.Fatalf("parsing Resource ID from %q: %+v", uri, err)
@@ -298,7 +297,7 @@ func TestParseResourceIDFromOperation_SubscriptionId(t *testing.T) {
 	swagger := spec.NewOperation("Example_Operation")
 	uri := "/subscriptions/{subscriptionId}"
 
-	parser := NewParser(hclog.NewNullLogger(), nil)
+	parser := NewParser(nil)
 	resourceId, err := parser.parseResourceIdFromOperation(uri, swagger)
 	if err != nil {
 		t.Fatalf("parsing Resource ID from %q: %+v", uri, err)
@@ -324,7 +323,7 @@ func TestParseResourceIDFromOperation_UriSuffixOnly(t *testing.T) {
 	swagger := spec.NewOperation("Example_Operation")
 	uri := "/someUri"
 
-	parser := NewParser(hclog.NewNullLogger(), nil)
+	parser := NewParser(nil)
 	resourceId, err := parser.parseResourceIdFromOperation(uri, swagger)
 	if err != nil {
 		t.Fatalf("parsing Resource ID from %q: %+v", uri, err)
@@ -342,7 +341,7 @@ func TestParseResourceIDFromOperation_UserAssignedIdentityId(t *testing.T) {
 	swagger := spec.NewOperation("Example_Operation")
 	uri := "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{resourceName}"
 
-	parser := NewParser(hclog.NewNullLogger(), nil)
+	parser := NewParser(nil)
 	resourceId, err := parser.parseResourceIdFromOperation(uri, swagger)
 	if err != nil {
 		t.Fatalf("parsing Resource ID from %q: %+v", uri, err)

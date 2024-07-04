@@ -13,6 +13,7 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/constants"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )
 
 var knownSegmentsUsedForScope = []string{
@@ -41,11 +42,11 @@ func (p *Parser) parseSegmentsForEachOperation() (*map[string]processedResourceI
 	for _, operation := range p.swaggerSpecExpanded.Operations() {
 		for uri, operationDetails := range operation {
 			if internal.OperationShouldBeIgnored(uri) {
-				p.logger.Debug(fmt.Sprintf("Ignoring %q", uri))
+				logging.Debugf("Ignoring %q", uri)
 				continue
 			}
 
-			p.logger.Trace(fmt.Sprintf("Parsing Segments for %q..", uri))
+			logging.Tracef("Parsing Segments for %q..", uri)
 			resourceId, err := p.parseResourceIdFromOperation(uri, operationDetails)
 			if err != nil {
 				return nil, fmt.Errorf("parsing Resource ID from Operation for %q: %+v", uri, err)
@@ -131,12 +132,12 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 
 					if param.Enum != nil {
 						// then find the constant itself
-						constant, err := constants.MapConstant([]string{param.Type}, param.Name, nil, param.Enum, param.Extensions, p.logger.Named("Constant Parser"))
+						constant, err := constants.MapConstant([]string{param.Type}, param.Name, nil, param.Enum, param.Extensions)
 						if err != nil {
 							return nil, fmt.Errorf("parsing constant from %q: %+v", uriSegment, err)
 						}
 
-						p.logger.Trace(fmt.Sprintf("Found Constant %q with values `%+v`", constant.Name, constant.Details.Values))
+						logging.Tracef("Found Constant %q with values `%+v`", constant.Name, constant.Details.Values)
 						if len(constant.Details.Values) == 1 {
 							constantValue := ""
 							for _, v := range constant.Details.Values {
@@ -264,7 +265,7 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 		uniqueNames[segment.Name] = struct{}{}
 	}
 	if len(uniqueNames) != len(segments) && out.segments != nil {
-		p.logger.Trace("[DEBUG] Determining Unique Names for Segments..")
+		logging.Tracef("Determining Unique Names for Segments..")
 		uniquelyNamedSegments, err := determineUniqueNamesForSegments(segments)
 		if err != nil {
 			return nil, fmt.Errorf("determining unique names for the segments as multiple have the same key: %+v", err)

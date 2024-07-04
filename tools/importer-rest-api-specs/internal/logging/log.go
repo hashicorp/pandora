@@ -19,6 +19,10 @@ func Debugf(msg string, args ...interface{}) {
 	Log.Debug(fmt.Sprintf(msg, args...))
 }
 
+func Errorf(msg string, args ...interface{}) {
+	Log.Error(fmt.Sprintf(msg, args...))
+}
+
 func Infof(msg string, args ...interface{}) {
 	Log.Info(fmt.Sprintf(msg, args...))
 }

@@ -14,6 +14,7 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/constants"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/featureflags"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )
 
 func (d *SwaggerDefinition) parseModel(name string, input spec.Schema) (*internal.ParseResult, error) {
@@ -66,7 +67,7 @@ func (d *SwaggerDefinition) findConstantsWithinModel(fieldName string, modelName
 	result.Append(known)
 
 	if len(input.Enum) > 0 {
-		constant, err := constants.MapConstant(input.Type, fieldName, modelName, input.Enum, input.Extensions, d.logger.Named("Constant Parser"))
+		constant, err := constants.MapConstant(input.Type, fieldName, modelName, input.Enum, input.Extensions)
 		if err != nil {
 			return nil, fmt.Errorf("parsing constant: %+v", err)
 		}
@@ -103,7 +104,7 @@ func (d *SwaggerDefinition) findConstantsWithinModel(fieldName string, modelName
 	}
 
 	for propName, propVal := range input.Properties {
-		d.logger.Trace(fmt.Sprintf("Processing Property %q..", propName))
+		logging.Tracef("Processing Property %q..", propName)
 		// models can contain nested models - either can contain constants, so around we go..
 		nestedResult, err := d.findConstantsWithinModel(propName, &fieldName, propVal, result)
 		if err != nil {
@@ -116,7 +117,7 @@ func (d *SwaggerDefinition) findConstantsWithinModel(fieldName string, modelName
 
 	if input.AdditionalProperties != nil && input.AdditionalProperties.Schema != nil {
 		for propName, propVal := range input.AdditionalProperties.Schema.Properties {
-			d.logger.Trace(fmt.Sprintf("Processing Additional Property %q..", propName))
+			logging.Tracef("Processing Additional Property %q..", propName)
 			// models can contain nested models - either can contain constants, so around we go..
 			nestedConstants, err := d.findConstantsWithinModel(propName, &fieldName, propVal, result)
 			if err != nil {
@@ -133,7 +134,7 @@ func (d *SwaggerDefinition) findConstantsWithinModel(fieldName string, modelName
 }
 
 func (d *SwaggerDefinition) detailsForField(modelName string, propertyName string, value spec.Schema, isRequired bool, known internal.ParseResult) (*models.SDKField, *internal.ParseResult, error) {
-	d.logger.Trace(fmt.Sprintf("Parsing details for field %q in %q..", propertyName, modelName))
+	logging.Tracef("Parsing details for field %q in %q..", propertyName, modelName)
 
 	result := internal.ParseResult{
 		Constants: map[string]models.SDKConstant{},
@@ -527,7 +528,7 @@ func (d SwaggerDefinition) parseObjectDefinition(
 
 	// if it's an enum then parse that out
 	if len(input.Enum) > 0 {
-		constant, err := constants.MapConstant(input.Type, propertyName, &modelName, input.Enum, input.Extensions, d.logger.Named("Constant Parser"))
+		constant, err := constants.MapConstant(input.Type, propertyName, &modelName, input.Enum, input.Extensions)
 		if err != nil {
 			return nil, nil, fmt.Errorf("parsing constant: %+v", err)
 		}

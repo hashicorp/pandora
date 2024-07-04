@@ -51,13 +51,13 @@ func Run(input RunInput) error {
 		return fmt.Errorf("loading data: %+v", err)
 	}
 
-	swaggerGitSha, err := determineGitSha(input.SwaggerDirectory, input.Logger)
+	swaggerGitSha, err := determineGitSha(input.SwaggerDirectory)
 	if err != nil {
 		return fmt.Errorf("determining Git SHA at %q: %+v", input.SwaggerDirectory, err)
 	}
 
 	if input.JustParseData {
-		return validateCanParseData(input, *generationData)
+		return validateCanParseData(*generationData)
 	}
 
 	return runImporter(input, *generationData, *swaggerGitSha)

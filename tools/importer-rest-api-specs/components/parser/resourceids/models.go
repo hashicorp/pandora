@@ -6,7 +6,6 @@ package resourceids
 import (
 	"fmt"
 
-	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
 )
@@ -36,7 +35,7 @@ type ParseResult struct {
 	Constants map[string]models.SDKConstant
 }
 
-func (r *ParseResult) Append(other ParseResult, logger hclog.Logger) error {
+func (r *ParseResult) Append(other ParseResult) error {
 	intermediate := internal.ParseResult{
 		Constants: map[string]models.SDKConstant{},
 	}
