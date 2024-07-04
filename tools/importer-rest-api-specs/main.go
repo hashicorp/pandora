@@ -14,10 +14,10 @@ import (
 )
 
 const (
-	outputDirectoryJson      = "../../api-definitions"
-	swaggerDirectory         = "../../submodules/rest-api-specs"
-	resourceManagerConfig    = "../../config/resource-manager.hcl"
-	terraformDefinitionsPath = "../../config/resources/"
+	outputDirectoryJson                 = "../../api-definitions"
+	restAPISpecsRepositoryDirectoryPath = "../../submodules/rest-api-specs"
+	resourceManagerConfig               = "../../config/resource-manager.hcl"
+	terraformDefinitionsPath            = "../../config/resources/"
 )
 
 func main() {
@@ -39,8 +39,8 @@ func run() error {
 	c := cli.NewCLI("importer-rest-api-specs", "1.0.0")
 	c.Args = os.Args[1:]
 	c.Commands = map[string]cli.CommandFactory{
-		"import":   cmd.NewImportCommand(swaggerDirectory, resourceManagerConfig, terraformDefinitionsPath, outputDirectoryJson),
-		"validate": cmd.NewValidateCommand(swaggerDirectory, resourceManagerConfig, terraformDefinitionsPath),
+		"import":   cmd.NewImportCommand(restAPISpecsRepositoryDirectoryPath, resourceManagerConfig, terraformDefinitionsPath, outputDirectoryJson),
+		"validate": cmd.NewValidateCommand(restAPISpecsRepositoryDirectoryPath, resourceManagerConfig, terraformDefinitionsPath),
 	}
 
 	exitStatus, err := c.Run()
