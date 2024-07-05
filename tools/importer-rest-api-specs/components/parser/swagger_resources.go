@@ -14,6 +14,7 @@ import (
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/resourceids"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/commonschema"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/constants"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
@@ -70,7 +71,7 @@ func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resource
 	resource = switchOutCustomTypesAsNeeded(resource)
 
 	// first Normalize the names, meaning `foo` -> `Foo` for consistency
-	resource = normalizeAzureApiResource(resource)
+	resource = cleanup.NormalizeAPIResource(resource)
 
 	return &resource, nil
 }

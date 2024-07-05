@@ -11,9 +11,10 @@ import (
 
 	"github.com/go-openapi/spec"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
+	legacyCleanup "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/resourceids"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/constants"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )
@@ -350,7 +351,7 @@ func (p operationsParser) optionsForOperation(input parsedOperation) (*map[strin
 
 		if strings.EqualFold(param.In, "header") || strings.EqualFold(param.In, "query") {
 			val := param.Name
-			name := cleanup.NormalizeName(val)
+			name := legacyCleanup.NormalizeName(val)
 
 			option := sdkModels.SDKOperationOption{
 				Required: param.Required,
@@ -537,7 +538,7 @@ func (d *SwaggerDefinition) findOperationsMatchingTag(tag *string) *[]parsedOper
 				continue
 			}
 
-			operationName := normalizeOperationName(operationDetails.ID, tag)
+			operationName := cleanup.NormalizeOperationName(operationDetails.ID, tag)
 			result = append(result, parsedOperation{
 				name:       operationName,
 				uri:        uri,

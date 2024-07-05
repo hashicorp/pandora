@@ -7,8 +7,10 @@ import (
 	"fmt"
 	"strings"
 
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/dataworkarounds"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/resourceids"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
@@ -92,7 +94,16 @@ func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVer
 	out = *output
 
 	for _, service := range out {
-		service.Resources = removeUnusedItems(service.Resources)
+		// temporary shim to enable using the new logic
+		version := sdkModels.APIVersion{
+			APIVersion: service.ApiVersion,
+			Generate:   true,
+			Preview:    service.IsPreviewVersion(),
+			Resources:  service.Resources,
+			Source:     sdkModels.AzureRestAPISpecsSourceDataOrigin,
+		}
+		version = cleanup.RemoveUnusedItems(version)
+		service.Resources = version.Resources
 	}
 
 	if len(out) > 1 {

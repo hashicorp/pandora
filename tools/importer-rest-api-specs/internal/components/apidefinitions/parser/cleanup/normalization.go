@@ -1,18 +1,21 @@
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
 
-package parser
+package cleanup
 
 import (
+	"fmt"
+	"strings"
+
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
 )
 
-// normalizeAzureApiResource works through the parsed AzureApiResource and ensures
+// NormalizeAPIResource works through the parsed AzureApiResource and ensures
 // that all the Names and References are consistent (TitleCase) as a final effort
 // to ensure the Swagger Data is normalized.
-func normalizeAzureApiResource(input sdkModels.APIResource) sdkModels.APIResource {
+func NormalizeAPIResource(input sdkModels.APIResource) sdkModels.APIResource {
 	normalizedConstants := make(map[string]sdkModels.SDKConstant)
 	for k, v := range input.Constants {
 		name := cleanup.NormalizeName(k)
@@ -65,7 +68,7 @@ func normalizeAzureApiResource(input sdkModels.APIResource) sdkModels.APIResourc
 		for optionKey, optionVal := range v.Options {
 			optionKey = cleanup.NormalizeName(optionKey)
 
-			optionVal.ObjectDefinition = normalizeOptionsObjectDefinition(optionVal.ObjectDefinition)
+			optionVal.ObjectDefinition = normalizeSDKOptionsObjectDefinition(optionVal.ObjectDefinition)
 
 			normalizedOptions[optionKey] = optionVal
 		}
@@ -119,16 +122,54 @@ func normalizeSDKObjectDefinition(input sdkModels.SDKObjectDefinition) sdkModels
 	return input
 }
 
-func normalizeOptionsObjectDefinition(input sdkModels.SDKOperationOptionObjectDefinition) sdkModels.SDKOperationOptionObjectDefinition {
+func normalizeSDKOptionsObjectDefinition(input sdkModels.SDKOperationOptionObjectDefinition) sdkModels.SDKOperationOptionObjectDefinition {
 	if input.ReferenceName != nil {
 		normalized := cleanup.NormalizeName(*input.ReferenceName)
 		input.ReferenceName = &normalized
 	}
 
 	if input.NestedItem != nil {
-		nestedItem := normalizeOptionsObjectDefinition(*input.NestedItem)
+		nestedItem := normalizeSDKOptionsObjectDefinition(*input.NestedItem)
 		input.NestedItem = pointer.To(nestedItem)
 	}
 
 	return input
+}
+
+func NormalizeOperationName(operationId string, tag *string) string {
+	operationName := operationId
+	// in some cases the OperationId *is* the Tag, in this instance I guess we take that as ok?
+	if tag != nil && !strings.EqualFold(operationName, *tag) {
+		// we're intentionally not using `strings.TrimPrefix` here since we want
+		// to account for the casing of the tag being different
+		if strings.HasPrefix(strings.ToLower(operationName), strings.ToLower(*tag)) {
+			operationName = operationName[len(*tag):]
+
+			// however if the Tag is `ManagementGroupsSubscriptions`, then we need to keep the extra `S` around
+			if *tag == "ManagementGroups" && !strings.HasPrefix(operationName, "_") {
+				operationName = fmt.Sprintf("S%s", operationName)
+			}
+		}
+	}
+	operationName = strings.ReplaceAll(operationName, "_", "")
+	operationName = strings.TrimPrefix(operationName, "Operations") // sanity checking
+	if !strings.HasPrefix(strings.ToLower(operationName), "subscriptions") {
+		operationName = strings.TrimPrefix(operationName, "s") // plurals
+	}
+	operationName = strings.TrimPrefix(operationName, "_")
+	operationName = cleanup.NormalizeName(operationName)
+	return operationName
+}
+
+func NormalizeTag(input string) string {
+	// NOTE: we could be smarter here, but given this is a handful of cases it's
+	// probably prudent to hard-code these for now (and fix the swaggers as we
+	// come across them?)
+	output := input
+	output = strings.ReplaceAll(output, "EndPoint", "Endpoint")
+	output = strings.ReplaceAll(output, "NetWork", "Network")
+	output = strings.ReplaceAll(output, "Baremetalinfrastructure", "BareMetalInfrastructure")
+	output = strings.ReplaceAll(output, "VirtualWans", "VirtualWANs")
+
+	return output
 }

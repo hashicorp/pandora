@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package cleanup
 
 import (
@@ -7,7 +10,7 @@ import (
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
-func RemoveUnusedItems(input sdkModels.APIVersion) (*sdkModels.APIVersion, error) {
+func RemoveUnusedItems(input sdkModels.APIVersion) sdkModels.APIVersion {
 	// The ordering matters here, we need to remove the ResourceIDs first since
 	// they contain references to Constants - as do Models, so remove unused
 	// Resource IDs, then Models, then Constants else we can have orphaned
@@ -59,7 +62,7 @@ func RemoveUnusedItems(input sdkModels.APIVersion) (*sdkModels.APIVersion, error
 	}
 
 	input.Resources = outputResources
-	return &input, nil
+	return input
 }
 
 func findUnusedConstants(operations map[string]sdkModels.SDKOperation, resourceIds map[string]sdkModels.ResourceID, resourceModels map[string]sdkModels.SDKModel, resourceConstants map[string]sdkModels.SDKConstant) []string {
