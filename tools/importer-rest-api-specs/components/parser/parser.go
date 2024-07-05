@@ -39,24 +39,6 @@ func (d *SwaggerDefinition) parse(serviceName, apiVersion string, resourceProvid
 		}
 	}
 
-	// The swagger for PrivateLinkService in Network associates the CreateOrUpdate method with the tag
-	// `PrivateLinkService` instead of `PrivateLinkServices` like the rest of the operations do. This consolidates
-	// the two resources that Pandora identifies into one.
-	// Can be removed when https://github.com/Azure/azure-rest-api-specs/pull/29303 has been merged.
-	if strings.EqualFold(serviceName, "network") && strings.Contains(d.Name, "PrivateLinkService") {
-		privateLinkService, ok := resources["PrivateLinkService"]
-		if !ok {
-			return nil, fmt.Errorf("resource `PrivateLinkService` was not found")
-		}
-		privateLinkServices, ok := resources["PrivateLinkServices"]
-		if !ok {
-			return nil, fmt.Errorf("resource `PrivateLinkServices` was not found")
-		}
-
-		resources["PrivateLinkServices"] = importerModels.MergeResourcesForTag(privateLinkServices, privateLinkService)
-		delete(resources, "PrivateLinkService")
-	}
-
 	// however some things don't, so we then need to iterate over any without them
 	if _, shouldIgnore := tagsToIgnore[strings.ToLower(serviceName)]; !shouldIgnore {
 		resource, err := d.parseResourcesWithinSwaggerTag(nil, resourceProvider, resourceIds)
