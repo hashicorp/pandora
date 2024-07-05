@@ -5,6 +5,7 @@ package resourceids
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/resourceids/commonids"
 	"sort"
 	"strings"
 
@@ -47,8 +48,8 @@ func generateNamesForResourceIds(input []sdkModels.ResourceID, uriToResourceId m
 	urisThatAreCommonIds := make(map[string]struct{})
 	for _, uri := range sortedUris {
 		resourceId := uniqueUris[uri]
-		for i, commonIdType := range commonIdTypes {
-			commonId := commonIdType.id()
+		for i, commonIdType := range commonids.CommonIDTypes {
+			commonId := commonIdType.ID()
 			if ResourceIdsMatch(commonId, resourceId) {
 				if commonId.CommonIDAlias == nil {
 					return nil, fmt.Errorf("the Common ID %d had no Alias: %+v", i, commonId)

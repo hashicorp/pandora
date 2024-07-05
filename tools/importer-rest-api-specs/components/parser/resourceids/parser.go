@@ -27,7 +27,7 @@ func (p *Parser) Parse() (*ParseResult, error) {
 	uniqueResourceIds, distinctConstants := p.distinctResourceIds(*operationIdsToSegments)
 
 	// 3. Then we need to find any Common Resource IDs and switch those references out
-	logging.Tracef("Generating Names for Resource IDs..")
+	logging.Tracef("Switching out Common IDs as needed..")
 	resourceIds := switchOutCommonResourceIDsAsNeeded(uniqueResourceIds)
 
 	// 4. We then need to generate a unique Resource ID name for each of the Resource IDs

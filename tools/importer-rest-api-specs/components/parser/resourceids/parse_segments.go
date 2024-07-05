@@ -13,6 +13,7 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/constants"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/ignore"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )
 
@@ -41,7 +42,7 @@ func (p *Parser) parseSegmentsForEachOperation() (*map[string]processedResourceI
 	operationIdsToProcessedResourceIds := make(map[string]processedResourceId, 0)
 	for _, operation := range p.swaggerSpecExpanded.Operations() {
 		for uri, operationDetails := range operation {
-			if internal.OperationShouldBeIgnored(uri) {
+			if ignore.Operation(uri) {
 				logging.Debugf("Ignoring %q", uri)
 				continue
 			}
