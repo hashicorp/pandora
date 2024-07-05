@@ -5,20 +5,19 @@ package parser
 
 import (
 	"fmt"
-	"strings"
-
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/dataworkarounds"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/resourceids"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/combine"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/ignore"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVersion string, resourceProvider *string) (*importerModels.AzureApiDefinition, error) {
 	// Some Services have been deprecated or should otherwise be ignored - check before proceeding
-	if serviceShouldBeIgnored(serviceName) {
+	if ignore.Services(serviceName) {
 		logging.Debugf("Service %q should be ignored - skipping", serviceName)
 		return &importerModels.AzureApiDefinition{}, nil
 	}
@@ -116,23 +115,6 @@ func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVer
 	}
 
 	return nil, nil
-}
-
-func serviceShouldBeIgnored(name string) bool {
-	servicesToIgnore := []string{
-		"ADHybridHealthService", // TODO: is this EOL? Contains a Constant of an empty string: https://github.com/Azure/azure-rest-api-specs/blob/3eaa729b3686f20817145e771a8ab707c739dbbd/specification/adhybridhealthservice/resource-manager/Microsoft.ADHybridHealthService/stable/2014-01-01/ADHybridHealthService.json#L460-L471
-		"Blockchain",            // EOL - https://github.com/Azure-Samples/blockchain/blob/1b712d6d05cca8da17bdd1894de8c3d25905685d/abs/migration-guide.md
-		"DevSpaces",             // EOL - https://azure.microsoft.com/en-us/updates/azure-dev-spaces-is-retiring-on-31-october-2023/
-		"DynamicsTelemetry",     // Fake RP - https://github.com/Azure/azure-rest-api-specs/pull/5161#issuecomment-486705231
-		"IoTSpaces",             // EOL - https://github.com/Azure/azure-rest-api-specs/pull/13993
-		"ServiceFabricMesh",     // EOL - https://azure.microsoft.com/en-us/updates/azure-service-fabric-mesh-preview-retirement/
-	}
-	for _, v := range servicesToIgnore {
-		if strings.EqualFold(name, v) {
-			return true
-		}
-	}
-	return false
 }
 
 func keyForAzureApiDefinition(input importerModels.AzureApiDefinition) string {
