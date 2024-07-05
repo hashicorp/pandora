@@ -74,7 +74,7 @@ func TestExistingDataCanBeGenerated(t *testing.T) {
 			generationData := data
 
 			task := pipelineTask{}
-			if _, err := task.parseDataForApiVersion(generationData, hclog.New(hclog.DefaultOptions)); err != nil {
+			if _, err := task.parseDataForApiVersion(generationData); err != nil {
 				t.Fatalf("error: %+v", err)
 			}
 		})
