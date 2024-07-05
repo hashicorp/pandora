@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/cleanup"
 )
 
 func keyValueForFloat(input float64) string {

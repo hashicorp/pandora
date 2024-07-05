@@ -11,7 +11,6 @@ import (
 
 	"github.com/go-openapi/spec"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	legacyCleanup "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/resourceids"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/cleanup"
@@ -351,7 +350,7 @@ func (p operationsParser) optionsForOperation(input parsedOperation) (*map[strin
 
 		if strings.EqualFold(param.In, "header") || strings.EqualFold(param.In, "query") {
 			val := param.Name
-			name := legacyCleanup.NormalizeName(val)
+			name := cleanup.NormalizeName(val)
 
 			option := sdkModels.SDKOperationOption{
 				Required: param.Required,

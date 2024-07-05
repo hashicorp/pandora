@@ -10,7 +10,6 @@ import (
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	legacyCleanup "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/resourceids"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
@@ -35,7 +34,7 @@ func (d *SwaggerDefinition) parse(serviceName, apiVersion string, resourceProvid
 		if resource != nil {
 			logging.Tracef("The Tag %q has %d API Operations", tag, len(resource.Operations))
 			normalizedTag := cleanup.NormalizeTag(tag)
-			normalizedTag = legacyCleanup.NormalizeResourceName(normalizedTag)
+			normalizedTag = cleanup.NormalizeResourceName(normalizedTag)
 			resources[normalizedTag] = *resource
 		}
 	}
@@ -49,11 +48,11 @@ func (d *SwaggerDefinition) parse(serviceName, apiVersion string, resourceProvid
 
 		// Since we're dealing with missing tag data in the swagger, we'll assume the proper tag name here is the file name
 		// This is less than ideal, but _should_ be fine.
-		inferredTag := legacyCleanup.PluraliseName(d.Name)
+		inferredTag := cleanup.PluraliseName(d.Name)
 
 		if resource != nil {
 			normalizedTag := cleanup.NormalizeTag(inferredTag)
-			normalizedTag = legacyCleanup.NormalizeResourceName(normalizedTag)
+			normalizedTag = cleanup.NormalizeResourceName(normalizedTag)
 
 			if mergeResources, ok := resources[normalizedTag]; ok {
 				resources[normalizedTag] = importerModels.MergeResourcesForTag(mergeResources, *resource)
@@ -77,8 +76,8 @@ func (d *SwaggerDefinition) parse(serviceName, apiVersion string, resourceProvid
 	swaggerFileName := strings.Split(d.Name, "/")
 	if len(resources) == 0 && len(swaggerFileName) > 2 {
 		// if we're here then there is no tag in this file, so we'll use the file name
-		inferredTag := legacyCleanup.PluraliseName(swaggerFileName[len(swaggerFileName)-1])
-		normalizedTag := legacyCleanup.NormalizeResourceName(inferredTag)
+		inferredTag := cleanup.PluraliseName(swaggerFileName[len(swaggerFileName)-1])
+		normalizedTag := cleanup.NormalizeResourceName(inferredTag)
 
 		result, err := d.findOrphanedDiscriminatedModels(serviceName)
 		if err != nil {
@@ -102,7 +101,7 @@ func (d *SwaggerDefinition) parse(serviceName, apiVersion string, resourceProvid
 	}
 
 	return &importerModels.AzureApiDefinition{
-		ServiceName: legacyCleanup.NormalizeServiceName(serviceName),
+		ServiceName: cleanup.NormalizeServiceName(serviceName),
 		ApiVersion:  apiVersion,
 		Resources:   resourcesOut,
 	}, nil

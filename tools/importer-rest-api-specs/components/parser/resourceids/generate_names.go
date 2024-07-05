@@ -10,7 +10,7 @@ import (
 
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/cleanup"
 )
 
 func (p *Parser) generateNamesForResourceIds(input []sdkModels.ResourceID, uriToResourceId map[string]ParsedOperation) (*map[string]sdkModels.ResourceID, error) {

@@ -4,12 +4,8 @@
 package cleanup
 
 import (
-	"fmt"
-	"strings"
-
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
 )
 
 // NormalizeAPIResource works through the parsed AzureApiResource and ensures
@@ -18,29 +14,29 @@ import (
 func NormalizeAPIResource(input sdkModels.APIResource) sdkModels.APIResource {
 	normalizedConstants := make(map[string]sdkModels.SDKConstant)
 	for k, v := range input.Constants {
-		name := cleanup.NormalizeName(k)
+		name := NormalizeName(k)
 		normalizedConstants[name] = v
 	}
 
 	normalizedModels := make(map[string]sdkModels.SDKModel)
 	for k, v := range input.Models {
-		modelName := cleanup.NormalizeName(k)
+		modelName := NormalizeName(k)
 		fields := make(map[string]sdkModels.SDKField)
 		for fieldName, fieldVal := range v.Fields {
-			normalizedFieldName := cleanup.NormalizeName(fieldName)
+			normalizedFieldName := NormalizeName(fieldName)
 			fieldVal.ObjectDefinition = normalizeSDKObjectDefinition(fieldVal.ObjectDefinition)
 			fields[normalizedFieldName] = fieldVal
 		}
 		v.Fields = fields
 
 		if v.ParentTypeName != nil {
-			val := cleanup.NormalizeName(*v.ParentTypeName)
+			val := NormalizeName(*v.ParentTypeName)
 			v.ParentTypeName = &val
 		}
 
 		// Discriminators can be `@type` which get normalized to `Type` so we need to normalize the field name here
 		if v.FieldNameContainingDiscriminatedValue != nil {
-			val := cleanup.NormalizeName(*v.FieldNameContainingDiscriminatedValue)
+			val := NormalizeName(*v.FieldNameContainingDiscriminatedValue)
 			v.FieldNameContainingDiscriminatedValue = &val
 		}
 
@@ -50,7 +46,7 @@ func NormalizeAPIResource(input sdkModels.APIResource) sdkModels.APIResource {
 	normalizedOperations := make(map[string]sdkModels.SDKOperation)
 	for k, v := range input.Operations {
 		if v.ResourceIDName != nil {
-			normalized := cleanup.NormalizeName(*v.ResourceIDName)
+			normalized := NormalizeName(*v.ResourceIDName)
 			v.ResourceIDName = &normalized
 		}
 
@@ -66,7 +62,7 @@ func NormalizeAPIResource(input sdkModels.APIResource) sdkModels.APIResource {
 
 		normalizedOptions := make(map[string]sdkModels.SDKOperationOption, 0)
 		for optionKey, optionVal := range v.Options {
-			optionKey = cleanup.NormalizeName(optionKey)
+			optionKey = NormalizeName(optionKey)
 
 			optionVal.ObjectDefinition = normalizeSDKOptionsObjectDefinition(optionVal.ObjectDefinition)
 
@@ -83,14 +79,14 @@ func NormalizeAPIResource(input sdkModels.APIResource) sdkModels.APIResource {
 
 		normalizedConstantNames := make([]string, 0)
 		for _, cn := range v.ConstantNames {
-			name := cleanup.NormalizeName(cn)
+			name := NormalizeName(cn)
 			normalizedConstantNames = append(normalizedConstantNames, name)
 		}
 		v.ConstantNames = normalizedConstantNames
 
 		for _, segment := range v.Segments {
 			if segment.ConstantReference != nil {
-				normalized := cleanup.NormalizeName(*segment.ConstantReference)
+				normalized := NormalizeName(*segment.ConstantReference)
 				segment.ConstantReference = &normalized
 			}
 			segments = append(segments, segment)
@@ -110,7 +106,7 @@ func NormalizeAPIResource(input sdkModels.APIResource) sdkModels.APIResource {
 
 func normalizeSDKObjectDefinition(input sdkModels.SDKObjectDefinition) sdkModels.SDKObjectDefinition {
 	if input.ReferenceName != nil {
-		normalized := cleanup.NormalizeName(*input.ReferenceName)
+		normalized := NormalizeName(*input.ReferenceName)
 		input.ReferenceName = &normalized
 	}
 
@@ -124,7 +120,7 @@ func normalizeSDKObjectDefinition(input sdkModels.SDKObjectDefinition) sdkModels
 
 func normalizeSDKOptionsObjectDefinition(input sdkModels.SDKOperationOptionObjectDefinition) sdkModels.SDKOperationOptionObjectDefinition {
 	if input.ReferenceName != nil {
-		normalized := cleanup.NormalizeName(*input.ReferenceName)
+		normalized := NormalizeName(*input.ReferenceName)
 		input.ReferenceName = &normalized
 	}
 
@@ -134,42 +130,4 @@ func normalizeSDKOptionsObjectDefinition(input sdkModels.SDKOperationOptionObjec
 	}
 
 	return input
-}
-
-func NormalizeOperationName(operationId string, tag *string) string {
-	operationName := operationId
-	// in some cases the OperationId *is* the Tag, in this instance I guess we take that as ok?
-	if tag != nil && !strings.EqualFold(operationName, *tag) {
-		// we're intentionally not using `strings.TrimPrefix` here since we want
-		// to account for the casing of the tag being different
-		if strings.HasPrefix(strings.ToLower(operationName), strings.ToLower(*tag)) {
-			operationName = operationName[len(*tag):]
-
-			// however if the Tag is `ManagementGroupsSubscriptions`, then we need to keep the extra `S` around
-			if *tag == "ManagementGroups" && !strings.HasPrefix(operationName, "_") {
-				operationName = fmt.Sprintf("S%s", operationName)
-			}
-		}
-	}
-	operationName = strings.ReplaceAll(operationName, "_", "")
-	operationName = strings.TrimPrefix(operationName, "Operations") // sanity checking
-	if !strings.HasPrefix(strings.ToLower(operationName), "subscriptions") {
-		operationName = strings.TrimPrefix(operationName, "s") // plurals
-	}
-	operationName = strings.TrimPrefix(operationName, "_")
-	operationName = cleanup.NormalizeName(operationName)
-	return operationName
-}
-
-func NormalizeTag(input string) string {
-	// NOTE: we could be smarter here, but given this is a handful of cases it's
-	// probably prudent to hard-code these for now (and fix the swaggers as we
-	// come across them?)
-	output := input
-	output = strings.ReplaceAll(output, "EndPoint", "Endpoint")
-	output = strings.ReplaceAll(output, "NetWork", "Network")
-	output = strings.ReplaceAll(output, "Baremetalinfrastructure", "BareMetalInfrastructure")
-	output = strings.ReplaceAll(output, "VirtualWans", "VirtualWANs")
-
-	return output
 }

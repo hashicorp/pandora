@@ -5,7 +5,7 @@ import (
 	"strings"
 
 	"github.com/go-openapi/spec"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/cleanup"
 )
 
 type constantExtension struct {
