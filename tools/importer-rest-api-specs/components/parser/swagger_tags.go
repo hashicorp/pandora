@@ -8,11 +8,6 @@ import (
 	"strings"
 )
 
-var tagsToIgnore = map[string]struct{}{
-	"azurefirewallfqdntags": {},
-	"usage":                 {},
-}
-
 func (d *SwaggerDefinition) findTags() []string {
 	tags := make(map[string]struct{})
 
@@ -31,26 +26,4 @@ func (d *SwaggerDefinition) findTags() []string {
 	}
 	sort.Strings(out)
 	return out
-}
-
-func tagShouldBeIgnored(tag string) bool {
-	lowered := strings.ToLower(tag)
-	for key := range tagsToIgnore {
-		// exact matches e.g. Usage
-		if strings.EqualFold(tag, key) {
-			return true
-		}
-
-		// suffixes e.g. `ComputeUsage`
-		if strings.HasSuffix(lowered, strings.ToLower(key)) {
-			return true
-		}
-	}
-
-	// there's a handful of these (e.g. `FluxConfigurationOperationStatus`)
-	if strings.Contains(lowered, "operationstatus") {
-		return true
-	}
-
-	return false
 }

@@ -11,6 +11,7 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/dataworkarounds"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/resourceids"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/cleanup"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/combine"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
@@ -64,7 +65,7 @@ func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVer
 			// it's possible for Swagger tags to exist in multiple files, as EventHubs has DeleteAuthorizationRule which
 			// lives in the AuthorizationRule json, but is technically part of the EventHubs namespace - as such we need
 			// to combine the items rather than overwriting the key
-			resources, err := combineResourcesWith(data, existing.Resources)
+			resources, err := combine.ResourcesWith(data.Resources, existing.Resources)
 			if err != nil {
 				return nil, fmt.Errorf("combining resources for %q: %+v", key, err)
 			}

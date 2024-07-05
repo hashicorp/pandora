@@ -16,11 +16,13 @@ func ParseAPIVersion(serviceName string, input discoveryModels.AvailableDataSetF
 	// Firstly let's go through and process each of the Supplementary Files
 	for _, filePath := range input.FilePathsContainingSupplementaryData {
 		logging.Tracef("Processing Supplementary Data from file %q..", filePath)
+		// TODO: parse the file
 	}
 
 	// Next let's go through and process each of the API Definitions
 	for _, filePath := range input.FilePathsContainingAPIDefinitions {
 		logging.Tracef("Processing API Definitions from file %q..", filePath)
+		// TODO: parse the file
 	}
 
 	apiVersion := sdkModels.APIVersion{

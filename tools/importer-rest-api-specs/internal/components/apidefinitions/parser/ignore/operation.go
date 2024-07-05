@@ -1,11 +1,11 @@
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
 
-package internal
+package ignore
 
 import "strings"
 
-func OperationShouldBeIgnored(operationUri string) bool {
+func Operation(operationUri string) bool {
 	loweredOperationUri := strings.ToLower(operationUri)
 
 	// we're not concerned with exposing the "operations" API's at this time - e.g.

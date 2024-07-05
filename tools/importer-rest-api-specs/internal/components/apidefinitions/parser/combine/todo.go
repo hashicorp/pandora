@@ -1,7 +1,7 @@
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
 
-package parser
+package combine
 
 import (
 	"fmt"
@@ -9,12 +9,11 @@ import (
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/resourceids"
-	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func combineResourcesWith(first importerModels.AzureApiDefinition, other map[string]sdkModels.APIResource) (*map[string]sdkModels.APIResource, error) {
+func ResourcesWith(first, other map[string]sdkModels.APIResource) (*map[string]sdkModels.APIResource, error) {
 	resources := make(map[string]sdkModels.APIResource)
-	for k, v := range first.Resources {
+	for k, v := range first {
 		resources[k] = v
 	}
 
@@ -25,25 +24,25 @@ func combineResourcesWith(first importerModels.AzureApiDefinition, other map[str
 			continue
 		}
 
-		constants, err := combineConstants(existing.Constants, v.Constants)
+		constants, err := constants(existing.Constants, v.Constants)
 		if err != nil {
 			return nil, fmt.Errorf("combining constants: %+v", err)
 		}
 		existing.Constants = *constants
 
-		models, err := combineModels(existing.Models, v.Models)
+		models, err := models(existing.Models, v.Models)
 		if err != nil {
 			return nil, fmt.Errorf("combining models: %+v", err)
 		}
 		existing.Models = *models
 
-		operations, err := combineOperations(existing.Operations, v.Operations)
+		operations, err := operations(existing.Operations, v.Operations)
 		if err != nil {
 			return nil, fmt.Errorf("combining operations: %+v", err)
 		}
 		existing.Operations = *operations
 
-		resourceIds, err := combineResourceIds(existing.ResourceIDs, v.ResourceIDs)
+		resourceIds, err := resourceIds(existing.ResourceIDs, v.ResourceIDs)
 		if err != nil {
 			return nil, fmt.Errorf("combining resource ids: %+v", err)
 		}
@@ -55,7 +54,7 @@ func combineResourcesWith(first importerModels.AzureApiDefinition, other map[str
 	return &resources, nil
 }
 
-func combineConstants(first, second map[string]sdkModels.SDKConstant) (*map[string]sdkModels.SDKConstant, error) {
+func constants(first, second map[string]sdkModels.SDKConstant) (*map[string]sdkModels.SDKConstant, error) {
 	constants := make(map[string]sdkModels.SDKConstant)
 	for k, v := range first {
 		constants[k] = v
@@ -72,7 +71,7 @@ func combineConstants(first, second map[string]sdkModels.SDKConstant) (*map[stri
 			return nil, fmt.Errorf("combining constant %q - multiple field types defined as %q and %q", k, string(existingConst.Type), string(v.Type))
 		}
 
-		vals, err := combineMaps(existingConst.Values, v.Values)
+		vals, err := maps(existingConst.Values, v.Values)
 		if err != nil {
 			return nil, fmt.Errorf("combining maps: %+v", err)
 		}
@@ -83,7 +82,7 @@ func combineConstants(first, second map[string]sdkModels.SDKConstant) (*map[stri
 	return &constants, nil
 }
 
-func combineModels(first map[string]sdkModels.SDKModel, second map[string]sdkModels.SDKModel) (*map[string]sdkModels.SDKModel, error) {
+func models(first map[string]sdkModels.SDKModel, second map[string]sdkModels.SDKModel) (*map[string]sdkModels.SDKModel, error) {
 	output := make(map[string]sdkModels.SDKModel)
 
 	for k, v := range first {
@@ -120,7 +119,7 @@ func combineModels(first map[string]sdkModels.SDKModel, second map[string]sdkMod
 	return &output, nil
 }
 
-func combineOperations(first map[string]sdkModels.SDKOperation, second map[string]sdkModels.SDKOperation) (*map[string]sdkModels.SDKOperation, error) {
+func operations(first map[string]sdkModels.SDKOperation, second map[string]sdkModels.SDKOperation) (*map[string]sdkModels.SDKOperation, error) {
 	output := make(map[string]sdkModels.SDKOperation, 0)
 
 	for k, v := range first {
@@ -140,7 +139,7 @@ func combineOperations(first map[string]sdkModels.SDKOperation, second map[strin
 	return &output, nil
 }
 
-func combineResourceIds(first map[string]sdkModels.ResourceID, second map[string]sdkModels.ResourceID) (*map[string]sdkModels.ResourceID, error) {
+func resourceIds(first map[string]sdkModels.ResourceID, second map[string]sdkModels.ResourceID) (*map[string]sdkModels.ResourceID, error) {
 	output := make(map[string]sdkModels.ResourceID)
 
 	for k, v := range first {
@@ -160,7 +159,7 @@ func combineResourceIds(first map[string]sdkModels.ResourceID, second map[string
 	return &output, nil
 }
 
-func combineMaps(first map[string]string, second map[string]string) (*map[string]string, error) {
+func maps(first map[string]string, second map[string]string) (*map[string]string, error) {
 	vals := make(map[string]string, 0)
 	for k, v := range first {
 		vals[k] = v

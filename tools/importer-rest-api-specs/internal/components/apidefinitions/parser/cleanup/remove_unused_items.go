@@ -6,7 +6,7 @@ package cleanup
 import (
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
+	sdkHelpers "github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
@@ -72,7 +72,7 @@ func findUnusedConstants(operations map[string]sdkModels.SDKOperation, resourceI
 		usedInAModel := false
 		for _, model := range resourceModels {
 			for _, field := range model.Fields {
-				definition := helpers.InnerMostSDKObjectDefinition(field.ObjectDefinition)
+				definition := sdkHelpers.InnerMostSDKObjectDefinition(field.ObjectDefinition)
 				if definition.Type != sdkModels.ReferenceSDKObjectDefinitionType {
 					continue
 				}
@@ -93,7 +93,7 @@ func findUnusedConstants(operations map[string]sdkModels.SDKOperation, resourceI
 		usedInAnOperation := false
 		for _, operation := range operations {
 			if operation.RequestObject != nil {
-				definition := helpers.InnerMostSDKObjectDefinition(*operation.RequestObject)
+				definition := sdkHelpers.InnerMostSDKObjectDefinition(*operation.RequestObject)
 				if definition.Type == sdkModels.ReferenceSDKObjectDefinitionType && *definition.ReferenceName == constantName {
 					usedInAnOperation = true
 					break
@@ -101,7 +101,7 @@ func findUnusedConstants(operations map[string]sdkModels.SDKOperation, resourceI
 			}
 
 			if operation.ResponseObject != nil {
-				definition := helpers.InnerMostSDKObjectDefinition(*operation.ResponseObject)
+				definition := sdkHelpers.InnerMostSDKObjectDefinition(*operation.ResponseObject)
 				if definition.Type == sdkModels.ReferenceSDKObjectDefinitionType && *definition.ReferenceName == constantName {
 					usedInAnOperation = true
 					break
@@ -109,7 +109,7 @@ func findUnusedConstants(operations map[string]sdkModels.SDKOperation, resourceI
 			}
 
 			for _, v := range operation.Options {
-				definition := topLevelOptionsObjectDefinition(v.ObjectDefinition)
+				definition := sdkHelpers.InnerMostSDKOperationOptionObjectDefinition(v.ObjectDefinition)
 				if definition.Type != sdkModels.ReferenceSDKOperationOptionObjectDefinitionType {
 					continue
 				}
@@ -155,14 +155,6 @@ func findUnusedConstants(operations map[string]sdkModels.SDKOperation, resourceI
 	return out
 }
 
-func topLevelOptionsObjectDefinition(input sdkModels.SDKOperationOptionObjectDefinition) sdkModels.SDKOperationOptionObjectDefinition {
-	if input.NestedItem != nil {
-		return topLevelOptionsObjectDefinition(*input.NestedItem)
-	}
-
-	return input
-}
-
 func findUnusedModels(operations map[string]sdkModels.SDKOperation, resourceModels map[string]sdkModels.SDKModel) []string {
 	unusedModels := make(map[string]struct{})
 	for modelName, model := range resourceModels {
@@ -177,7 +169,7 @@ func findUnusedModels(operations map[string]sdkModels.SDKOperation, resourceMode
 		usedInAnOperation := false
 		for _, operation := range operations {
 			if operation.RequestObject != nil {
-				definition := helpers.InnerMostSDKObjectDefinition(*operation.RequestObject)
+				definition := sdkHelpers.InnerMostSDKObjectDefinition(*operation.RequestObject)
 				if definition.Type == sdkModels.ReferenceSDKObjectDefinitionType && *definition.ReferenceName == modelName {
 					usedInAnOperation = true
 					break
@@ -185,7 +177,7 @@ func findUnusedModels(operations map[string]sdkModels.SDKOperation, resourceMode
 			}
 
 			if operation.ResponseObject != nil {
-				definition := helpers.InnerMostSDKObjectDefinition(*operation.ResponseObject)
+				definition := sdkHelpers.InnerMostSDKObjectDefinition(*operation.ResponseObject)
 				if definition.Type == sdkModels.ReferenceSDKObjectDefinitionType && *definition.ReferenceName == modelName {
 					usedInAnOperation = true
 					break
@@ -194,7 +186,7 @@ func findUnusedModels(operations map[string]sdkModels.SDKOperation, resourceMode
 
 			// @tombuildsstuff: whilst I don't _think_ there are any examples of this today, checking it because it's an option
 			for _, v := range operation.Options {
-				definition := topLevelOptionsObjectDefinition(v.ObjectDefinition)
+				definition := sdkHelpers.InnerMostSDKOperationOptionObjectDefinition(v.ObjectDefinition)
 				if definition.Type != sdkModels.ReferenceSDKOperationOptionObjectDefinitionType {
 					continue
 				}
@@ -216,7 +208,7 @@ func findUnusedModels(operations map[string]sdkModels.SDKOperation, resourceMode
 			}
 
 			for _, field := range thisModel.Fields {
-				definition := helpers.InnerMostSDKObjectDefinition(field.ObjectDefinition)
+				definition := sdkHelpers.InnerMostSDKObjectDefinition(field.ObjectDefinition)
 				if definition.Type != sdkModels.ReferenceSDKObjectDefinitionType {
 					continue
 				}

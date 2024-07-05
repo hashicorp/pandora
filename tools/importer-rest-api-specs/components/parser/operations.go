@@ -5,6 +5,7 @@ package parser
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/ignore"
 	"net/http"
 	"sort"
 	"strings"
@@ -42,7 +43,7 @@ func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, operationIdsTo
 	for _, operation := range *operationsForThisTag {
 		logging.Debugf("Operation - %s %q..", operation.httpMethod, operation.uri)
 
-		if internal.OperationShouldBeIgnored(operation.uri) {
+		if ignore.Operation(operation.uri) {
 			logging.Debugf("Operation should be ignored - skipping..")
 			continue
 		}

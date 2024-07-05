@@ -8,6 +8,7 @@ import (
 	"strings"
 
 	"github.com/go-openapi/spec"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/cleanup"
 )
 
@@ -32,6 +33,12 @@ func inlinedModelName(parentModelName, fieldName string) string {
 	return cleanup.NormalizeName(val)
 }
 
+func isObjectKnown(name string, known internal.ParseResult) (bool, bool) {
+	_, isConstant := known.Constants[name]
+	_, isModel := known.Models[name]
+	return isConstant, isModel
+}
+
 func operationMatchesTag(operation *spec.Operation, tag *string) bool {
 	// if there's no tags defined, we should capture it when the tag matched
 	if tag == nil {
@@ -45,4 +52,25 @@ func operationMatchesTag(operation *spec.Operation, tag *string) bool {
 	}
 
 	return false
+}
+
+func referencesAreTheSame(first []string, second []string) bool {
+	if len(first) != len(second) {
+		return false
+	}
+
+	// first load the existing keys
+	keys := make(map[string]struct{}, 0)
+	for _, key := range first {
+		keys[key] = struct{}{}
+	}
+
+	// then check the remaining ones
+	for _, key := range second {
+		if _, exists := keys[key]; !exists {
+			return false
+		}
+	}
+
+	return true
 }

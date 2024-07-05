@@ -12,6 +12,7 @@ import (
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/resourceids"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/cleanup"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/ignore"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
@@ -22,7 +23,7 @@ func (d *SwaggerDefinition) parse(serviceName, apiVersion string, resourceProvid
 	tags := d.findTags()
 	// first we assume everything has a tag
 	for _, tag := range tags {
-		if tagShouldBeIgnored(tag) {
+		if ignore.SwaggerTag(tag) {
 			continue
 		}
 
@@ -40,7 +41,7 @@ func (d *SwaggerDefinition) parse(serviceName, apiVersion string, resourceProvid
 	}
 
 	// however some things don't, so we then need to iterate over any without them
-	if _, shouldIgnore := tagsToIgnore[strings.ToLower(serviceName)]; !shouldIgnore {
+	if !ignore.SwaggerTag(serviceName) {
 		resource, err := d.parseResourcesWithinSwaggerTag(nil, resourceProvider, resourceIds)
 		if err != nil {
 			return nil, fmt.Errorf("finding resources for tag %q: %+v", serviceName, err)

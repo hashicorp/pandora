@@ -5,17 +5,15 @@ package parser
 
 import (
 	"fmt"
-	"net/http"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/commonschema"
 	"strings"
 
 	"github.com/go-openapi/spec"
-	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
+	sdkHelpers "github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/resourceids"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/cleanup"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/commonschema"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/constants"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )
@@ -67,106 +65,13 @@ func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resource
 		ResourceIDs: resourceIds.NamesToResourceIDs,
 	}
 
-	// then switch out any custom types (e.g. Identity)
-	resource = switchOutCustomTypesAsNeeded(resource)
+	// then switch out any Common Schema Types (e.g. Identity)
+	resource = commonschema.ReplaceSDKObjectDefinitionsAsNeeded(resource)
 
 	// first Normalize the names, meaning `foo` -> `Foo` for consistency
 	resource = cleanup.NormalizeAPIResource(resource)
 
 	return &resource, nil
-}
-
-type listOperationDetails struct {
-	fieldContainingPaginationDetails *string
-	valueObjectDefinition            *sdkModels.SDKObjectDefinition
-}
-
-func listOperationDetailsForOperation(input sdkModels.SDKOperation, known internal.ParseResult) *listOperationDetails {
-	if !strings.EqualFold(input.Method, http.MethodGet) && !strings.EqualFold(input.Method, http.MethodPost) {
-		return nil
-	}
-
-	// an operation without a response object isn't going to be listable
-	if input.ResponseObject == nil {
-		return nil
-	}
-	if input.ResponseObject.Type == sdkModels.ReferenceSDKObjectDefinitionType {
-		responseModel, isModel := known.Models[*input.ResponseObject.ReferenceName]
-		if !isModel {
-			// a constant wouldn't be listable
-			return nil
-		}
-
-		out := listOperationDetails{}
-		if input.FieldContainingPaginationDetails != nil {
-			out.fieldContainingPaginationDetails = input.FieldContainingPaginationDetails
-		}
-		for fieldName, v := range responseModel.Fields {
-			if strings.EqualFold(fieldName, "nextLink") {
-				out.fieldContainingPaginationDetails = pointer.To(fieldName)
-				continue
-			}
-
-			if strings.EqualFold(fieldName, "Value") {
-				// switch out the reference to be the SDKObjectDefinition for the `Value` field, rather than
-				// the wrapper type
-				definition := helpers.InnerMostSDKObjectDefinition(v.ObjectDefinition)
-				out.valueObjectDefinition = pointer.To(definition)
-				continue
-			}
-		}
-		if out.fieldContainingPaginationDetails != nil && out.valueObjectDefinition != nil {
-			return &out
-		}
-	}
-
-	return nil
-}
-
-func pullOutModelForListOperations(input map[string]sdkModels.SDKOperation, known internal.ParseResult) (*map[string]sdkModels.SDKOperation, error) {
-	// List Operations return an object which contains a NextLink and a Value (which is the actual Object
-	// being paginated on) - so we want to replace the wrapper object with the Value so that these can be
-	// paginated correctly as needed.
-	output := make(map[string]sdkModels.SDKOperation)
-
-	for operationName := range input {
-		operation := input[operationName]
-
-		// if the Response Object is a List Operation (identifiable via
-		listDetails := listOperationDetailsForOperation(operation, known)
-		if listDetails != nil {
-			operation.FieldContainingPaginationDetails = listDetails.fieldContainingPaginationDetails
-			operation.ResponseObject = listDetails.valueObjectDefinition
-		}
-
-		output[operationName] = operation
-	}
-
-	return &output, nil
-}
-
-func switchOutCustomTypesAsNeeded(input sdkModels.APIResource) sdkModels.APIResource {
-	output := input
-	for modelName, model := range input.Models {
-		fields := model.Fields
-		for fieldName := range model.Fields {
-			field := model.Fields[fieldName]
-
-			// switch out the Object Definition for this field if needed
-			for _, matcher := range commonschema.Matchers {
-				if matcher.IsMatch(field, input) {
-					field.ObjectDefinition = matcher.ReplacementObjectDefinition()
-					break
-				}
-			}
-
-			fields[fieldName] = field
-		}
-		model.Fields = fields
-		output.Models[modelName] = model
-	}
-
-	return output
 }
 
 func (d *SwaggerDefinition) findNestedItemsYetToBeParsed(operations map[string]sdkModels.SDKOperation, known internal.ParseResult) (*internal.ParseResult, error) {
@@ -219,27 +124,6 @@ func (d *SwaggerDefinition) findNestedItemsYetToBeParsed(operations map[string]s
 	return &result, nil
 }
 
-func referencesAreTheSame(first []string, second []string) bool {
-	if len(first) != len(second) {
-		return false
-	}
-
-	// first load the existing keys
-	keys := make(map[string]struct{}, 0)
-	for _, key := range first {
-		keys[key] = struct{}{}
-	}
-
-	// then check the remaining ones
-	for _, key := range second {
-		if _, exists := keys[key]; !exists {
-			return false
-		}
-	}
-
-	return true
-}
-
 func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations map[string]sdkModels.SDKOperation, known internal.ParseResult) (*[]string, error) {
 	referencesToFind := make(map[string]struct{}, 0)
 
@@ -268,7 +152,7 @@ func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations map[
 
 	for _, operation := range operations {
 		if operation.RequestObject != nil {
-			topLevelRef := helpers.InnerMostSDKObjectDefinition(*operation.RequestObject)
+			topLevelRef := sdkHelpers.InnerMostSDKObjectDefinition(*operation.RequestObject)
 			if topLevelRef.Type == sdkModels.ReferenceSDKObjectDefinitionType {
 				isKnownConstant, isKnownModel := isObjectKnown(*topLevelRef.ReferenceName, known)
 				if !isKnownConstant && !isKnownModel {
@@ -290,7 +174,7 @@ func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations map[
 		}
 
 		if operation.ResponseObject != nil {
-			topLevelRef := helpers.InnerMostSDKObjectDefinition(*operation.ResponseObject)
+			topLevelRef := sdkHelpers.InnerMostSDKObjectDefinition(*operation.ResponseObject)
 			if topLevelRef.Type == sdkModels.ReferenceSDKObjectDefinitionType {
 				isKnownConstant, isKnownModel := isObjectKnown(*topLevelRef.ReferenceName, known)
 				if !isKnownConstant && !isKnownModel {
@@ -314,7 +198,7 @@ func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations map[
 		}
 
 		for _, value := range operation.Options {
-			topLevelRef := topLevelOptionsObjectDefinition(value.ObjectDefinition)
+			topLevelRef := sdkHelpers.InnerMostSDKOperationOptionObjectDefinition(value.ObjectDefinition)
 			if topLevelRef.Type != sdkModels.ReferenceSDKOperationOptionObjectDefinitionType {
 				continue
 			}
@@ -355,7 +239,7 @@ func (d *SwaggerDefinition) objectsUsedByModel(modelName string, model sdkModels
 	typeNames := make(map[string]struct{}, 0)
 
 	for _, field := range model.Fields {
-		definition := helpers.InnerMostSDKObjectDefinition(field.ObjectDefinition)
+		definition := sdkHelpers.InnerMostSDKObjectDefinition(field.ObjectDefinition)
 		if definition.ReferenceName != nil {
 			typeNames[*definition.ReferenceName] = struct{}{}
 		}
@@ -436,10 +320,4 @@ func (d *SwaggerDefinition) doesModelImplement(modelName string, value spec.Sche
 	}
 
 	return &implementsParent, nil
-}
-
-func isObjectKnown(name string, known internal.ParseResult) (bool, bool) {
-	_, isConstant := known.Constants[name]
-	_, isModel := known.Models[name]
-	return isConstant, isModel
 }

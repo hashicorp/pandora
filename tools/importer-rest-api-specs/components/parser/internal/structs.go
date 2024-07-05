@@ -6,7 +6,6 @@ package internal
 import (
 	"fmt"
 	"reflect"
-	"strings"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
@@ -147,27 +146,11 @@ func objectDefinitionsMatch(first, second sdkModels.SDKObjectDefinition) error {
 	return nil
 }
 
-func compareNilableString(first *string, second *string) error {
-	if first != nil {
-		if second == nil {
-			return fmt.Errorf("first value was %q but second value was nil", *first)
-		}
-
-		// @tombuildsstuff: the Azure API Definitions are wholy inconsistent here, so we'll case-insensitively
-		// compare the references as they're normalized at the final stage
-		//  * first value was "daprMetadata" but second value was "DaprMetadata"
-		//  * first value was "status" but second value was "Status"
-		//  * first value was "status" but second value was "Status"
-		//  * first value was "DataProviderMetadata" but second value was "dataProviderMetadata"
-		if !strings.EqualFold(*first, *second) {
-			return fmt.Errorf("first value was %q but second value was %q", *first, *second)
-		}
-
-		return nil
-	}
-
-	if second != nil {
-		return fmt.Errorf("first value was nil but second value was %q", *second)
+func compareNilableString(first, second *string) error {
+	firstVal := pointer.From(first)
+	secondValue := pointer.From(second)
+	if firstVal != secondValue {
+		return fmt.Errorf("the first value %q didn't match the second value %q", firstVal, secondValue)
 	}
 
 	return nil
