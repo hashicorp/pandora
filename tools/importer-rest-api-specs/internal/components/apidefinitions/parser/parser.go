@@ -2,6 +2,7 @@ package parser
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/cleanup"
 
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/dataworkarounds"
@@ -30,13 +31,21 @@ func ParseAPIVersion(serviceName string, input discoveryModels.AvailableDataSetF
 		Source:     sdkModels.AzureRestAPISpecsSourceDataOrigin,
 	}
 
-	// Finally let's apply any data workarounds
+	// Next let's apply any data workarounds
 	logging.Debugf("Applying Data Workarounds..")
 	output, err := dataworkarounds.Apply(serviceName, apiVersion)
 	if err != nil {
 		return nil, fmt.Errorf("applying Data Workarounds for Service %q / API Version %q: %+v", serviceName, input.APIVersion, err)
 	}
 	logging.Debugf("Applying Data Workarounds - Complete.")
+
+	// Finally let's remove any unused items
+	logging.Debugf("Removing unused items..")
+	output, err = cleanup.RemoveUnusedItems(*output)
+	if err != nil {
+		return nil, fmt.Errorf("removing unused items from Service %q / API Version %q: %+v", serviceName, input.APIVersion, err)
+	}
+	logging.Debugf("Removing unused items - Complete.")
 
 	return output, nil
 }
