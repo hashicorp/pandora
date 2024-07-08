@@ -1,0 +1,20 @@
+{
+  "name": "AliasesCreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "BillingSubscriptionAliasId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "BillingSubscriptionAlias"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "BillingSubscriptionAlias"
+  }
+}

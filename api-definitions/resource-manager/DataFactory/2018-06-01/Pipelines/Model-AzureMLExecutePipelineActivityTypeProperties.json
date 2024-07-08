@@ -6,7 +6,7 @@
       "jsonName": "continueOnStepFailure",
       "name": "ContinueOnStepFailure",
       "objectDefinition": {
-        "type": "RawObject",
+        "type": "Boolean",
         "referenceName": null
       },
       "optional": true,
@@ -32,7 +32,7 @@
       "jsonName": "experimentName",
       "name": "ExperimentName",
       "objectDefinition": {
-        "type": "RawObject",
+        "type": "String",
         "referenceName": null
       },
       "optional": true,
@@ -45,7 +45,7 @@
       "jsonName": "mlParentRunId",
       "name": "MlParentRunId",
       "objectDefinition": {
-        "type": "RawObject",
+        "type": "String",
         "referenceName": null
       },
       "optional": true,
@@ -58,7 +58,7 @@
       "jsonName": "mlPipelineEndpointId",
       "name": "MlPipelineEndpointId",
       "objectDefinition": {
-        "type": "RawObject",
+        "type": "String",
         "referenceName": null
       },
       "optional": true,
@@ -71,7 +71,7 @@
       "jsonName": "mlPipelineId",
       "name": "MlPipelineId",
       "objectDefinition": {
-        "type": "RawObject",
+        "type": "String",
         "referenceName": null
       },
       "optional": true,
@@ -84,8 +84,12 @@
       "jsonName": "mlPipelineParameters",
       "name": "MlPipelineParameters",
       "objectDefinition": {
-        "type": "RawObject",
-        "referenceName": null
+        "type": "Dictionary",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
       },
       "optional": true,
       "readOnly": false,
@@ -97,7 +101,7 @@
       "jsonName": "version",
       "name": "Version",
       "objectDefinition": {
-        "type": "RawObject",
+        "type": "String",
         "referenceName": null
       },
       "optional": true,

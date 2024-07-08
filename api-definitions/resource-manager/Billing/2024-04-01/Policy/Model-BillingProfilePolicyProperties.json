@@ -1,0 +1,113 @@
+{
+  "name": "BillingProfilePolicyProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "enterpriseAgreementPolicies",
+      "name": "EnterpriseAgreementPolicies",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EnterpriseAgreementPolicies"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "invoiceSectionLabelManagement",
+      "name": "InvoiceSectionLabelManagement",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "InvoiceSectionLabelManagementPolicy"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "marketplacePurchases",
+      "name": "MarketplacePurchases",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MarketplacePurchasesPolicy"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "policies",
+      "name": "Policies",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "PolicySummary"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "provisioningState",
+      "name": "ProvisioningState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ProvisioningState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "reservationPurchases",
+      "name": "ReservationPurchases",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ReservationPurchasesPolicy"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "savingsPlanPurchases",
+      "name": "SavingsPlanPurchases",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SavingsPlanPurchasesPolicy"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "viewCharges",
+      "name": "ViewCharges",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ViewChargesPolicy"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

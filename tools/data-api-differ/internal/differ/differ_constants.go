@@ -5,8 +5,6 @@ package differ
 
 import (
 	"fmt"
-	"sort"
-
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/changes"
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/log"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
@@ -15,7 +13,7 @@ import (
 // changesForConstants determines the changes between the different Constants within the provided API Resource.
 func (d differ) changesForConstants(serviceName, apiVersion, apiResource string, initial, updated map[string]models.SDKConstant) []changes.Change {
 	output := make([]changes.Change, 0)
-	constantNames := d.uniqueConstantNames(initial, updated)
+	constantNames := uniqueKeys(initial, updated)
 	for _, constantName := range constantNames {
 		log.Logger.Trace(fmt.Sprintf("Detecting changes in Constant %q..", constantName))
 		changesForConstant := d.changesForConstant(serviceName, apiVersion, apiResource, constantName, initial, updated)
@@ -71,7 +69,7 @@ func (d differ) changesForConstant(serviceName, apiVersion, apiResource, constan
 		}
 	}
 
-	keys := d.uniqueKeys(oldData.Values, updatedData.Values)
+	keys := uniqueKeys(oldData.Values, updatedData.Values)
 	for _, key := range keys {
 		log.Logger.Trace(fmt.Sprintf("Detecting changes in Constant Key %q..", key))
 		oldValue, oldContainsKey := oldData.Values[key]
@@ -118,23 +116,5 @@ func (d differ) changesForConstant(serviceName, apiVersion, apiResource, constan
 		}
 	}
 
-	return output
-}
-
-// uniqueConstantNames returns a unique, sorted list of Constant Names from the keys of initial and updated.
-func (d differ) uniqueConstantNames(initial, updated map[string]models.SDKConstant) []string {
-	uniqueNames := make(map[string]struct{})
-	for name := range initial {
-		uniqueNames[name] = struct{}{}
-	}
-	for name := range updated {
-		uniqueNames[name] = struct{}{}
-	}
-
-	output := make([]string, 0)
-	for k := range uniqueNames {
-		output = append(output, k)
-	}
-	sort.Strings(output)
 	return output
 }

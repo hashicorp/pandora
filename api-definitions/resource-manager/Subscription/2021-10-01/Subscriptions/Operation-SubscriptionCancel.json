@@ -6,6 +6,18 @@
   ],
   "longRunning": false,
   "httpMethod": "POST",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "IgnoreResourceCheck",
+      "required": false,
+      "field": "IgnoreResourceCheck",
+      "optionsObjectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      }
+    }
+  ],
   "resourceIdName": "SubscriptionId",
   "responseObject": {
     "type": "Reference",

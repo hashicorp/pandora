@@ -27,7 +27,6 @@ type ConstantTypeChanged struct {
 }
 
 // IsBreaking returns whether this Change is considered a Breaking Change.
-
 func (c ConstantTypeChanged) IsBreaking() bool {
 	// If a constant changes type, this is going to require code changes to account for this
 	return true

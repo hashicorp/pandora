@@ -59,7 +59,7 @@ By default, the generated Go SDK will be output to your desktop (`~/Desktop/gene
 
 The `generator-go-sdk` tool supports a number of command-line arguments:
 
-* `--data-api=http://some-uri:2022` - specifies the URI for the Data API (defaults to `http://localhost:5000`).
+* `--data-api=http://some-uri:2022` - specifies the URI for the Data API (defaults to `http://localhost:8080`).
 * `--output-dir=/some/custom/path` - specifies the directory where the Go SDK should be generated (defaults to `~/Desktop/generated-sdk-dev`).
 * `--services=Service1,Service2` - generates the Go SDK for only the specified Services for expediency - the Service Names coming from the `name` field [within the Configuration File that defines which Service should be imported](`../../config/resource-manager.hcl`).
 

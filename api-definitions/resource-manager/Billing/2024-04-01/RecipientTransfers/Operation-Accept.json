@@ -1,0 +1,19 @@
+{
+  "name": "Accept",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "TransferId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "AcceptTransferRequest"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "RecipientTransferDetails"
+  },
+  "uriSuffix": "/accept"
+}

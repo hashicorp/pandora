@@ -1,0 +1,44 @@
+{
+  "name": "RenewPropertiesResponse",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "billingCurrencyTotal",
+      "name": "BillingCurrencyTotal",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Price"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "pricingCurrencyTotal",
+      "name": "PricingCurrencyTotal",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Price"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "purchaseProperties",
+      "name": "PurchaseProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ReservationPurchaseRequest"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

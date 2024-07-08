@@ -6,7 +6,7 @@
       "jsonName": "interimSchemaName",
       "name": "InterimSchemaName",
       "objectDefinition": {
-        "type": "RawObject",
+        "type": "String",
         "referenceName": null
       },
       "optional": true,
@@ -19,8 +19,12 @@
       "jsonName": "keys",
       "name": "Keys",
       "objectDefinition": {
-        "type": "RawObject",
-        "referenceName": null
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
       },
       "optional": true,
       "readOnly": false,
@@ -32,7 +36,7 @@
       "jsonName": "useTempDB",
       "name": "UseTempDB",
       "objectDefinition": {
-        "type": "RawObject",
+        "type": "Boolean",
         "referenceName": null
       },
       "optional": true,

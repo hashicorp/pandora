@@ -1,0 +1,19 @@
+{
+  "name": "Initiate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": false,
+  "httpMethod": "PUT",
+  "resourceIdName": "InvoiceSectionTransferId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "InitiateTransferRequest"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "TransferDetails"
+  }
+}

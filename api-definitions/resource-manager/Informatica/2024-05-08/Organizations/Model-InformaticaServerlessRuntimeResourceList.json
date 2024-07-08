@@ -1,0 +1,22 @@
+{
+  "name": "InformaticaServerlessRuntimeResourceList",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "informaticaRuntimeResources",
+      "name": "InformaticaRuntimeResources",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "InfaRuntimeResourceFetchMetaData"
+        }
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ]
+}

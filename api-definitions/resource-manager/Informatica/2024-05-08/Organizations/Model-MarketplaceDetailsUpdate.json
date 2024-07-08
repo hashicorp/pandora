@@ -1,0 +1,31 @@
+{
+  "name": "MarketplaceDetailsUpdate",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "marketplaceSubscriptionId",
+      "name": "MarketplaceSubscriptionId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "offerDetails",
+      "name": "OfferDetails",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "OfferDetailsUpdate"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

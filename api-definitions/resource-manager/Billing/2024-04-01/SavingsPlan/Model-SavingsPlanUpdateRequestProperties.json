@@ -1,0 +1,70 @@
+{
+  "name": "SavingsPlanUpdateRequestProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "appliedScopeProperties",
+      "name": "AppliedScopeProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AppliedScopeProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "appliedScopeType",
+      "name": "AppliedScopeType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AppliedScopeType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "displayName",
+      "name": "DisplayName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "renew",
+      "name": "Renew",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "renewProperties",
+      "name": "RenewProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RenewProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

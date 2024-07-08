@@ -134,6 +134,7 @@ func (c methodsPandoraTemplater) immediateOperationTemplate(data ServiceGenerato
 	if err != nil {
 		return nil, fmt.Errorf("building arguments for immediate operation: %+v", err)
 	}
+	requestOptionStruct := c.requestOptionStruct()
 	requestOptions, err := c.requestOptions()
 	if err != nil {
 		return nil, fmt.Errorf("building request config: %+v", err)
@@ -158,6 +159,7 @@ func (c methodsPandoraTemplater) immediateOperationTemplate(data ServiceGenerato
 	templated := fmt.Sprintf(`
 %[7]s
 %[8]s
+%[9]s
 
 // %[2]s ...
 func (c %[1]s) %[2]s(ctx context.Context %[3]s) (result %[2]sOperationResponse, err error) {
@@ -185,7 +187,7 @@ func (c %[1]s) %[2]s(ctx context.Context %[3]s) (result %[2]sOperationResponse, 
 	return
 }
 
-`, data.serviceClientName, c.operationName, *methodArguments, *requestOptions, *marshalerCode, *unmarshalerCode, *responseStruct, *optionsStruct)
+`, data.serviceClientName, c.operationName, *methodArguments, *requestOptions, *marshalerCode, *unmarshalerCode, *responseStruct, *optionsStruct, requestOptionStruct)
 	return &templated, nil
 }
 
@@ -194,6 +196,7 @@ func (c methodsPandoraTemplater) longRunningOperationTemplate(data ServiceGenera
 	if err != nil {
 		return nil, fmt.Errorf("building arguments for long running template: %+v", err)
 	}
+	requestOptionStruct := c.requestOptionStruct()
 	requestOptions, err := c.requestOptions()
 	if err != nil {
 		return nil, fmt.Errorf("building request config: %+v", err)
@@ -219,6 +222,7 @@ func (c methodsPandoraTemplater) longRunningOperationTemplate(data ServiceGenera
 	templated := fmt.Sprintf(`
 %[8]s
 %[9]s
+%[10]s
 
 // %[2]s ...
 func (c %[1]s) %[2]s(ctx context.Context %[3]s) (result %[2]sOperationResponse, err error) {
@@ -264,7 +268,7 @@ func (c %[1]s) %[2]sThenPoll(ctx context.Context %[3]s) error {
 
 	return nil
 }
-`, data.serviceClientName, c.operationName, *methodArguments, *requestOptions, *marshalerCode, *unmarshalerCode, argumentsCode, *responseStruct, *optionsStruct)
+`, data.serviceClientName, c.operationName, *methodArguments, *requestOptions, *marshalerCode, *unmarshalerCode, argumentsCode, *responseStruct, *optionsStruct, requestOptionStruct)
 	return &templated, nil
 }
 
@@ -273,6 +277,7 @@ func (c methodsPandoraTemplater) listOperationTemplate(data ServiceGeneratorData
 	if err != nil {
 		return nil, fmt.Errorf("building arguments for list operation: %+v", err)
 	}
+	requestOptionStruct := c.requestOptionStruct()
 	requestOptions, err := c.requestOptions()
 	if err != nil {
 		return nil, fmt.Errorf("building request config: %+v", err)
@@ -298,6 +303,7 @@ func (c methodsPandoraTemplater) listOperationTemplate(data ServiceGeneratorData
 	templated := fmt.Sprintf(`
 %[6]s
 %[7]s
+%[8]s
 
 // %[2]s ...
 func (c %[1]s) %[2]s(ctx context.Context %[3]s) (result %[2]sOperationResponse, err error) {
@@ -322,7 +328,7 @@ func (c %[1]s) %[2]s(ctx context.Context %[3]s) (result %[2]sOperationResponse, 
 
 	return
 }
-`, data.serviceClientName, c.operationName, *methodArguments, *requestOptions, *unmarshalerCode, *responseStruct, *optionsStruct)
+`, data.serviceClientName, c.operationName, *methodArguments, *requestOptions, *unmarshalerCode, *responseStruct, *optionsStruct, requestOptionStruct)
 
 	// Only output predicate functions for models and not for base types like string, int etc.
 	if c.operation.ResponseObject.Type == models.ReferenceSDKObjectDefinitionType || c.operation.ResponseObject.Type == models.ListSDKObjectDefinitionType {
@@ -476,6 +482,31 @@ func (c methodsPandoraTemplater) argumentsTemplateForMethod(data ServiceGenerato
 	return &out, nil
 }
 
+// define struct used in requestOptions
+func (c methodsPandoraTemplater) requestOptionStruct() string {
+	var output string
+
+	if c.operation.FieldContainingPaginationDetails != nil {
+		jsonTag := fmt.Sprintf("`json:%q`", *c.operation.FieldContainingPaginationDetails)
+
+		output = fmt.Sprintf(`
+type %[2]sCustomPager struct {
+	NextLink *odata.Link %[1]s
+}
+
+func (p *%[2]sCustomPager) NextPageLink() *odata.Link {
+	defer func() {
+		p.NextLink = nil
+	}()
+
+	return p.NextLink
+}
+`, jsonTag, c.operationName)
+	}
+
+	return output
+}
+
 func (c methodsPandoraTemplater) requestOptions() (*string, error) {
 	method := capitalizeFirstLetter(c.operation.Method)
 	expectedStatusCodes := make([]string, 0)
@@ -497,23 +528,27 @@ func (c methodsPandoraTemplater) requestOptions() (*string, error) {
 			path = "id.ID()"
 		}
 	}
-	options := ""
-	if len(c.operation.Options) > 0 {
-		options = "OptionsObject: options,"
-	}
 
-	contentType := c.operation.ContentType
+	items := []string{
+		fmt.Sprintf("ContentType: %q", c.operation.ContentType),
+		fmt.Sprintf(`ExpectedStatusCodes: []int{
+			%s,
+}`, strings.Join(expectedStatusCodes, ",\n\t\t\t")),
+		fmt.Sprintf("HttpMethod: http.Method%s", method),
+		fmt.Sprintf("Path: %s", path),
+	}
+	if len(c.operation.Options) > 0 {
+		items = append(items, "OptionsObject: options")
+	}
+	if c.operation.FieldContainingPaginationDetails != nil {
+		items = append(items, fmt.Sprintf("Pager: &%sCustomPager{}", c.operationName))
+	}
+	sort.Strings(items)
 
 	out := fmt.Sprintf(`client.RequestOptions{
-		ContentType: %[1]q,
-		ExpectedStatusCodes: []int{
-			%[2]s,
-		},
-		HttpMethod: http.Method%[3]s,
-		Path: %[4]s,
-		%[5]s
+		%s,
 	}
-`, contentType, strings.Join(expectedStatusCodes, ",\n\t\t\t"), method, path, options)
+`, strings.Join(items, ",\n\t\t"))
 	return &out, nil
 }
 

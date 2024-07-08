@@ -1,0 +1,20 @@
+{
+  "name": "PoliciesCreateOrUpdateByBillingProfile",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "BillingProfileId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "BillingProfilePolicy"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "BillingProfilePolicy"
+  },
+  "uriSuffix": "/policies/default"
+}

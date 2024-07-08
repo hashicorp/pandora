@@ -1,0 +1,19 @@
+{
+  "name": "CreateOrUpdateByEnrollmentAccount",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "EnrollmentAccountBillingRoleAssignmentId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "BillingRoleAssignment"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "BillingRoleAssignment"
+  }
+}

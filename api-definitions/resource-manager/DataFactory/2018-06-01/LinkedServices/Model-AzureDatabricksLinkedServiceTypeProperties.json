@@ -19,7 +19,7 @@
       "jsonName": "authentication",
       "name": "Authentication",
       "objectDefinition": {
-        "type": "RawObject",
+        "type": "String",
         "referenceName": null
       },
       "optional": true,
@@ -45,7 +45,7 @@
       "jsonName": "domain",
       "name": "Domain",
       "objectDefinition": {
-        "type": "RawObject",
+        "type": "String",
         "referenceName": null
       },
       "optional": false,
@@ -71,7 +71,7 @@
       "jsonName": "existingClusterId",
       "name": "ExistingClusterId",
       "objectDefinition": {
-        "type": "RawObject",
+        "type": "String",
         "referenceName": null
       },
       "optional": true,
@@ -84,7 +84,7 @@
       "jsonName": "instancePoolId",
       "name": "InstancePoolId",
       "objectDefinition": {
-        "type": "RawObject",
+        "type": "String",
         "referenceName": null
       },
       "optional": true,
@@ -100,7 +100,7 @@
         "type": "Dictionary",
         "referenceName": null,
         "nestedItem": {
-          "type": "RawObject",
+          "type": "String",
           "referenceName": null
         }
       },
@@ -114,7 +114,7 @@
       "jsonName": "newClusterDriverNodeType",
       "name": "NewClusterDriverNodeType",
       "objectDefinition": {
-        "type": "RawObject",
+        "type": "String",
         "referenceName": null
       },
       "optional": true,
@@ -127,7 +127,7 @@
       "jsonName": "newClusterEnableElasticDisk",
       "name": "NewClusterEnableElasticDisk",
       "objectDefinition": {
-        "type": "RawObject",
+        "type": "Boolean",
         "referenceName": null
       },
       "optional": true,
@@ -140,8 +140,12 @@
       "jsonName": "newClusterInitScripts",
       "name": "NewClusterInitScripts",
       "objectDefinition": {
-        "type": "RawObject",
-        "referenceName": null
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
       },
       "optional": true,
       "readOnly": false,
@@ -153,7 +157,7 @@
       "jsonName": "newClusterLogDestination",
       "name": "NewClusterLogDestination",
       "objectDefinition": {
-        "type": "RawObject",
+        "type": "String",
         "referenceName": null
       },
       "optional": true,
@@ -166,7 +170,7 @@
       "jsonName": "newClusterNodeType",
       "name": "NewClusterNodeType",
       "objectDefinition": {
-        "type": "RawObject",
+        "type": "String",
         "referenceName": null
       },
       "optional": true,
@@ -179,7 +183,7 @@
       "jsonName": "newClusterNumOfWorker",
       "name": "NewClusterNumOfWorker",
       "objectDefinition": {
-        "type": "RawObject",
+        "type": "String",
         "referenceName": null
       },
       "optional": true,
@@ -195,7 +199,7 @@
         "type": "Dictionary",
         "referenceName": null,
         "nestedItem": {
-          "type": "RawObject",
+          "type": "String",
           "referenceName": null
         }
       },
@@ -212,7 +216,7 @@
         "type": "Dictionary",
         "referenceName": null,
         "nestedItem": {
-          "type": "RawObject",
+          "type": "String",
           "referenceName": null
         }
       },
@@ -226,7 +230,7 @@
       "jsonName": "newClusterVersion",
       "name": "NewClusterVersion",
       "objectDefinition": {
-        "type": "RawObject",
+        "type": "String",
         "referenceName": null
       },
       "optional": true,
@@ -239,7 +243,7 @@
       "jsonName": "policyId",
       "name": "PolicyId",
       "objectDefinition": {
-        "type": "RawObject",
+        "type": "String",
         "referenceName": null
       },
       "optional": true,
@@ -252,7 +256,7 @@
       "jsonName": "workspaceResourceId",
       "name": "WorkspaceResourceId",
       "objectDefinition": {
-        "type": "RawObject",
+        "type": "String",
         "referenceName": null
       },
       "optional": true,

@@ -12,6 +12,7 @@ service "ChaosStudio" {
         website_subcategory = "Chaos Studio"
         description         = "Manages a Chaos Studio Target"
         generate_create     = false
+        generate_update     = false
         overrides "name" {
           updated_name = "target_type"
           description = "The name of the Chaos Studio Target. This has the format of [publisher]-[targetType] e.g. `Microsoft-StorageAccount`. For supported values please see this Target Type column in [this table](https://learn.microsoft.com/azure/chaos-studio/chaos-studio-fault-providers)."

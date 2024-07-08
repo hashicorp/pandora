@@ -27,6 +27,12 @@ type PackageDefinition struct {
 }
 
 type ResourceDefinition struct {
+	// TODO: this wants moving elsewhere and documenting, but for simplicity for now:
+	ServiceName   string
+	APIVersion    string
+	APIResource   string
+	ResourceLabel string
+
 	// ID is the Resource ID which defines this Resource
 	ID string
 

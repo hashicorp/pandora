@@ -20,8 +20,8 @@ func (d differ) stringifySDKOperationOptionObjectDefinition(input models.SDKOper
 	return helpers.GolangTypeForSDKOperationOptionObjectDefinition(input)
 }
 
-// uniqueConstantNames returns a unique, sorted list of Keys from initial and updated.
-func (d differ) uniqueKeys(initial, updated map[string]string) []string {
+// uniqueKeys returns a unique, sorted list of Keys from initial and updated.
+func uniqueKeys[T any](initial, updated map[string]T) []string {
 	uniqueNames := make(map[string]struct{})
 	for name := range initial {
 		uniqueNames[name] = struct{}{}

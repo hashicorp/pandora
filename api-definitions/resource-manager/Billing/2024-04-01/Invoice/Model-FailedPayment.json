@@ -1,0 +1,32 @@
+{
+  "name": "FailedPayment",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "dateFormat": "RFC3339",
+      "jsonName": "date",
+      "name": "Date",
+      "objectDefinition": {
+        "type": "DateTime",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "failedPaymentReason",
+      "name": "FailedPaymentReason",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "FailedPaymentReason"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

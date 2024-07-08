@@ -6,8 +6,12 @@
       "jsonName": "arguments",
       "name": "Arguments",
       "objectDefinition": {
-        "type": "RawObject",
-        "referenceName": null
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
       },
       "optional": true,
       "readOnly": false,
@@ -22,7 +26,7 @@
         "type": "Dictionary",
         "referenceName": null,
         "nestedItem": {
-          "type": "RawObject",
+          "type": "String",
           "referenceName": null
         }
       },
@@ -62,7 +66,7 @@
       "jsonName": "scriptPath",
       "name": "ScriptPath",
       "objectDefinition": {
-        "type": "RawObject",
+        "type": "String",
         "referenceName": null
       },
       "optional": true,

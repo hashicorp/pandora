@@ -1,0 +1,98 @@
+{
+  "name": "ListByCustomerAtBillingAccount",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "count",
+      "required": false,
+      "field": "Count",
+      "optionsObjectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "expand",
+      "required": false,
+      "field": "Expand",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "filter",
+      "required": false,
+      "field": "Filter",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "includeDeleted",
+      "required": false,
+      "field": "IncludeDeleted",
+      "optionsObjectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "orderBy",
+      "required": false,
+      "field": "OrderBy",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "search",
+      "required": false,
+      "field": "Search",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "skip",
+      "required": false,
+      "field": "Skip",
+      "optionsObjectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "top",
+      "required": false,
+      "field": "Top",
+      "optionsObjectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "CustomerId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "BillingSubscription"
+  },
+  "uriSuffix": "/billingSubscriptions"
+}

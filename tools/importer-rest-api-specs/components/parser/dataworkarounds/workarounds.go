@@ -25,9 +25,11 @@ var workarounds = []workaround{
 	workaroundLoadTest20961{},
 	workaroundRedis22407{},
 	workaroundMachineLearning25142{},
+	workaroundNewRelic29256{},
 	workaroundOperationalinsights27524{},
 	workaroundRecoveryServicesSiteRecovery26680{},
 	workaroundStreamAnalytics27577{},
+	workaroundSubscriptions20254{},
 
 	// These workarounds relate to Terraform specific overrides we want to apply (for example for Resource Generation)
 	workaroundDevCenterIdToRequired{},
