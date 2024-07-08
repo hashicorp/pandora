@@ -189,9 +189,12 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 				}
 			}
 
+			var paginationField *string
+
 			operationType := parser.NewOperationType(method)
 			if listOperation {
 				operationType = parser.OperationTypeList
+				paginationField = pointer.To("@odata.nextLink")
 			}
 
 			// Skip unknown operations
@@ -283,15 +286,16 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 			}
 
 			resources[resourceName].Operations = append(resources[resourceName].Operations, parser.Operation{
-				Name:         operationName,
-				Type:         operationType,
-				Method:       method,
-				ResourceId:   resourceId,
-				UriSuffix:    uriSuffix,
-				RequestModel: requestModel,
-				RequestType:  requestType,
-				Responses:    responses,
-				Tags:         operation.Tags,
+				Name:            operationName,
+				Type:            operationType,
+				Method:          method,
+				ResourceId:      resourceId,
+				UriSuffix:       uriSuffix,
+				RequestModel:    requestModel,
+				RequestType:     requestType,
+				Responses:       responses,
+				PaginationField: paginationField,
+				Tags:            operation.Tags,
 			})
 		}
 	}

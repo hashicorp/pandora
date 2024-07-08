@@ -133,13 +133,10 @@ func (p pipeline) translateServiceToDataApiSdkTypes(models parser.Models, consta
 				return nil, fmt.Errorf("unknown content type")
 			}
 
-			// TODO probably don't hardcode this, but it'll work fine for now
-			paginationField := "@odata.nextLink"
-
 			sdkServices[resource.Service].APIVersions[resource.Version].Resources[resource.Category].Operations[operation.Name] = sdkModels.SDKOperation{
 				ContentType:                      contentType,
 				ExpectedStatusCodes:              expectedStatusCodes,
-				FieldContainingPaginationDetails: &paginationField,
+				FieldContainingPaginationDetails: operation.PaginationField,
 				LongRunning:                      false,
 				Method:                           operation.Method,
 				Options:                          nil, // TODO request options for odata queries etc
