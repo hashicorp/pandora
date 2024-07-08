@@ -1,0 +1,52 @@
+{
+  "name": "ServerlessRuntimeId",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Informatica.DataManagement/organizations/{organizationName}/serverlessRuntimes/{serverlessRuntimeName}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticResourceGroups",
+      "type": "Static",
+      "value": "resourceGroups"
+    },
+    {
+      "name": "resourceGroupName",
+      "type": "ResourceGroup"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticInformaticaDataManagement",
+      "type": "ResourceProvider",
+      "value": "Informatica.DataManagement"
+    },
+    {
+      "name": "staticOrganizations",
+      "type": "Static",
+      "value": "organizations"
+    },
+    {
+      "name": "organizationName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticServerlessRuntimes",
+      "type": "Static",
+      "value": "serverlessRuntimes"
+    },
+    {
+      "name": "serverlessRuntimeName",
+      "type": "UserSpecified"
+    }
+  ]
+}

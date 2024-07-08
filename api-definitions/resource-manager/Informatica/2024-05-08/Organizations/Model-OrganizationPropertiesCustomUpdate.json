@@ -1,0 +1,70 @@
+{
+  "name": "OrganizationPropertiesCustomUpdate",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "companyDetails",
+      "name": "CompanyDetails",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CompanyDetailsUpdate"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "existingResourceId",
+      "name": "ExistingResourceId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "informaticaOrganizationProperties",
+      "name": "InformaticaOrganizationProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "InformaticaOrganizationResourceUpdate"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "marketplaceDetails",
+      "name": "MarketplaceDetails",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MarketplaceDetailsUpdate"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "userDetails",
+      "name": "UserDetails",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "UserDetailsUpdate"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}
