@@ -1,7 +1,7 @@
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
 
-package pipeline
+package parser
 
 import (
 	"net/http"
@@ -17,15 +17,16 @@ type Resource struct {
 }
 
 type Operation struct {
-	Name         string
-	Type         OperationType
-	Method       string
-	ResourceId   *ResourceId
-	UriSuffix    *string
-	RequestModel *string
-	RequestType  *DataType
-	Responses    Responses
-	Tags         []string
+	Name            string
+	Type            OperationType
+	Method          string
+	ResourceId      *ResourceId
+	UriSuffix       *string
+	RequestModel    *string
+	RequestType     *DataType
+	Responses       Responses
+	PaginationField *string
+	Tags            []string
 }
 
 type Response struct {

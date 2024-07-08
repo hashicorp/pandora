@@ -16,6 +16,9 @@ type SaveServiceOptions struct {
 	// This is only present when SourceDataType is ResourceManagerSourceDataType.
 	ResourceProvider *string
 
+	// CommonTypes specifies a map of API Version (key) to CommonTypes (value), which defines the known Common Types.
+	CommonTypes map[string]sdkModels.CommonTypes
+
 	// Service specifies details about this Service, including the available APIVersions.
 	Service sdkModels.Service
 
@@ -52,6 +55,11 @@ func (r *repositoryImpl) SaveService(opts SaveServiceOptions) error {
 			APIVersion: apiVersionDetails,
 		})
 
+		commonTypesForThisApiVersion := sdkModels.CommonTypes{}
+		if opts.CommonTypes != nil {
+			commonTypesForThisApiVersion, _ = opts.CommonTypes[apiVersion]
+		}
+
 		for apiResourceName, apiResourceDetails := range apiVersionDetails.Resources {
 			// Output the API Definitions for this APIResource
 
@@ -70,11 +78,12 @@ func (r *repositoryImpl) SaveService(opts SaveServiceOptions) error {
 			})
 
 			items = append(items, stages.OperationsStage{
-				APIVersion:  apiVersion,
-				APIResource: apiResourceName,
-				Constants:   apiResourceDetails.Constants,
-				Models:      apiResourceDetails.Models,
-				Operations:  apiResourceDetails.Operations,
+				APIVersion:                   apiVersion,
+				APIResource:                  apiResourceName,
+				CommonTypesForThisAPIVersion: commonTypesForThisApiVersion,
+				Constants:                    apiResourceDetails.Constants,
+				Models:                       apiResourceDetails.Models,
+				Operations:                   apiResourceDetails.Operations,
 			})
 
 			items = append(items, stages.ResourceIDsStage{
@@ -129,7 +138,7 @@ func (r *repositoryImpl) SaveService(opts SaveServiceOptions) error {
 
 	// then populate the source data information into the metadata file
 	if err := r.writeSourceDataInformation(opts.SourceDataOrigin, opts.SourceCommitSHA); err != nil {
-		return fmt.Errorf("populating the Source Data Information into %q: %+v", r.workingDirectory, err)
+		return fmt.Errorf("populating the Source Data Information into %q: %+v", *serviceDirectory, err)
 	}
 
 	return nil

@@ -5,9 +5,14 @@ package pipeline
 
 import (
 	"fmt"
-	"github.com/getkin/kin-openapi/openapi3"
-	"github.com/hashicorp/pandora/tools/sdk/config/services"
 	"path/filepath"
+
+	"github.com/getkin/kin-openapi/openapi3"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/parser"
+	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/tags"
+	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/versions"
+	"github.com/hashicorp/pandora/tools/sdk/config/services"
 )
 
 func runImporter(input RunInput, metadataGitSha string) error {
@@ -18,8 +23,13 @@ func runImporter(input RunInput, metadataGitSha string) error {
 		return fmt.Errorf("loading config: %+v", err)
 	}
 
-	for _, apiVersion := range input.SupportedVersions {
-		openApiFile := fmt.Sprintf(input.OpenApiFilePattern, apiVersion)
+	logger.Debug("Removing any existing API Definitions")
+	if err = input.Repo.PurgeExistingData(sdkModels.MicrosoftGraphMetaDataSourceDataOrigin); err != nil {
+		return fmt.Errorf("removing existing API Definitions: %+v", err)
+	}
+
+	for _, apiVersion := range versions.Supported {
+		openApiFile := fmt.Sprintf(input.OpenApiFilePattern, versions.Upstream(apiVersion))
 		if err := runImportForVersion(input, apiVersion, openApiFile, metadataGitSha, config); err != nil {
 			return err
 		}
@@ -36,13 +46,32 @@ func runImportForVersion(input RunInput, apiVersion, openApiFile, metadataGitSha
 		return err
 	}
 
-	models, err := parseCommonModels(spec.Components.Schemas)
+	models, constants, err := parser.Common(spec.Components.Schemas)
 	if err != nil {
 		return err
 	}
 
-	serviceTags, err := parseTags(spec.Tags)
+	commonTypesForApiVersion, err := translateModelsToDataApiSdkTypes(models, constants)
 	if err != nil {
+		return err
+	}
+
+	serviceTags, err := tags.Parse(spec.Tags)
+	if err != nil {
+		return err
+	}
+
+	p := &pipeline{
+		apiVersion:            apiVersion,
+		commonTypesForVersion: *commonTypesForApiVersion,
+		logger:                input.Logger,
+		metadataGitSha:        metadataGitSha,
+		outputDirectory:       input.OutputDirectory,
+		repo:                  input.Repo,
+		spec:                  spec,
+	}
+
+	if err = p.PersistCommonTypesDefinitions(); err != nil {
 		return err
 	}
 
@@ -78,38 +107,11 @@ func runImportForVersion(input RunInput, apiVersion, openApiFile, metadataGitSha
 
 				input.Logger.Info(fmt.Sprintf("Importing service %q for API version %q", service.Name, version))
 
-				task := &pipelineTask{
-					apiVersion:               apiVersion,
-					commonTypesDirectoryName: input.CommonTypesDirectoryName,
-					files:                    newTree(),
-					logger:                   input.Logger,
-					metadataGitSha:           metadataGitSha,
-					outputDirectory:          input.OutputDirectory,
-					service:                  service.Directory,
-					spec:                     spec,
-				}
-
-				if err = task.runImportForService(serviceTags[service.Directory], models); err != nil {
+				if err = p.ForService(service.Directory).RunImport(serviceTags[service.Directory], models, constants); err != nil {
 					return err
 				}
 			}
 		}
-	}
-
-	files := newTree()
-
-	input.Logger.Info(fmt.Sprintf("Templating models for API version %q", apiVersion))
-	if err = templateCommonModels(files, input.CommonTypesDirectoryName, apiVersion, models); err != nil {
-		return err
-	}
-
-	input.Logger.Info(fmt.Sprintf("Templating constants for API version %q", apiVersion))
-	if err = templateCommonConstants(files, input.CommonTypesDirectoryName, apiVersion, models); err != nil {
-		return err
-	}
-
-	if err = files.write(input.OutputDirectory, input.Logger); err != nil {
-		return err
 	}
 
 	return nil
