@@ -124,13 +124,9 @@ func (p pipeline) translateServiceToDataApiSdkTypes(models parser.Models, consta
 			for _, response := range operation.Responses {
 				expectedStatusCodes = append(expectedStatusCodes, response.Status)
 
-				if response.ContentType != nil {
+				if response.ContentType != nil && *response.ContentType != "" {
 					contentType = *response.ContentType
 				}
-			}
-
-			if contentType == "" {
-				return nil, fmt.Errorf("unknown content type")
 			}
 
 			sdkServices[resource.Service].APIVersions[resource.Version].Resources[resource.Category].Operations[operation.Name] = sdkModels.SDKOperation{
