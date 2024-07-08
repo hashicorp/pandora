@@ -1,0 +1,182 @@
+{
+  "name": "InformaticaServerlessRuntimeProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "advancedCustomProperties",
+      "name": "AdvancedCustomProperties",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "AdvancedCustomProperties"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "applicationType",
+      "name": "ApplicationType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ApplicationType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "computeUnits",
+      "name": "ComputeUnits",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "description",
+      "name": "Description",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "executionTimeout",
+      "name": "ExecutionTimeout",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "platform",
+      "name": "Platform",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PlatformType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "provisioningState",
+      "name": "ProvisioningState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ProvisioningState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "serverlessAccountLocation",
+      "name": "ServerlessAccountLocation",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "serverlessRuntimeConfig",
+      "name": "ServerlessRuntimeConfig",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ServerlessRuntimeConfigProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "serverlessRuntimeNetworkProfile",
+      "name": "ServerlessRuntimeNetworkProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ServerlessRuntimeNetworkProfile"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "serverlessRuntimeTags",
+      "name": "ServerlessRuntimeTags",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "ServerlessRuntimeTag"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "serverlessRuntimeUserContextProperties",
+      "name": "ServerlessRuntimeUserContextProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ServerlessRuntimeUserContextProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "supplementaryFileLocation",
+      "name": "SupplementaryFileLocation",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

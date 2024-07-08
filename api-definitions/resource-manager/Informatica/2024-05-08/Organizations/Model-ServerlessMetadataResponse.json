@@ -1,0 +1,44 @@
+{
+  "name": "ServerlessMetadataResponse",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "serverlessConfigProperties",
+      "name": "ServerlessConfigProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ServerlessConfigProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "serverlessRuntimeConfigProperties",
+      "name": "ServerlessRuntimeConfigProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ServerlessRuntimeConfigProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "type",
+      "name": "Type",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RuntimeType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}
