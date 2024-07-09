@@ -303,7 +303,7 @@ service "labservices" {
 }
 service "liftrqumulo" {
   name      = "QumuloStorage"
-  available = ["2022-10-12"]
+  available = ["2022-10-12", "2024-06-19"]
 }
 service "loadtestservice" {
   name      = "LoadTestService"
