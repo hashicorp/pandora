@@ -35,7 +35,7 @@ func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVer
 		}
 		file2Swagger[file] = swaggerFile
 
-		parsedResourceIds, err := swaggerFile.ParseResourceIds(resourceProvider)
+		parsedResourceIds, err := swaggerFile.ParseResourceIds()
 		if err != nil {
 			return nil, fmt.Errorf("parsing Resource Ids from %q (Service %q / Api Version %q): %+v", file, serviceName, apiVersion, err)
 		}

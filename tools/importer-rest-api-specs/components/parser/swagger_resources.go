@@ -154,7 +154,7 @@ func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations map[
 		if operation.RequestObject != nil {
 			topLevelRef := sdkHelpers.InnerMostSDKObjectDefinition(*operation.RequestObject)
 			if topLevelRef.Type == sdkModels.ReferenceSDKObjectDefinitionType {
-				isKnownConstant, isKnownModel := isObjectKnown(*topLevelRef.ReferenceName, known)
+				isKnownConstant, isKnownModel := known.IsObjectKnown(*topLevelRef.ReferenceName)
 				if !isKnownConstant && !isKnownModel {
 					referencesToFind[*topLevelRef.ReferenceName] = struct{}{}
 				}
@@ -176,7 +176,7 @@ func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations map[
 		if operation.ResponseObject != nil {
 			topLevelRef := sdkHelpers.InnerMostSDKObjectDefinition(*operation.ResponseObject)
 			if topLevelRef.Type == sdkModels.ReferenceSDKObjectDefinitionType {
-				isKnownConstant, isKnownModel := isObjectKnown(*topLevelRef.ReferenceName, known)
+				isKnownConstant, isKnownModel := known.IsObjectKnown(*topLevelRef.ReferenceName)
 				if !isKnownConstant && !isKnownModel {
 					referencesToFind[*topLevelRef.ReferenceName] = struct{}{}
 				}

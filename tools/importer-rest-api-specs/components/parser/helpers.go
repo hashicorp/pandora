@@ -8,7 +8,6 @@ import (
 	"strings"
 
 	"github.com/go-openapi/spec"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/cleanup"
 )
 
@@ -31,12 +30,6 @@ func inlinedModelName(parentModelName, fieldName string) string {
 	// intentionally split out for consistency
 	val := fmt.Sprintf("%s%s", strings.Title(parentModelName), strings.Title(fieldName))
 	return cleanup.NormalizeName(val)
-}
-
-func isObjectKnown(name string, known internal.ParseResult) (bool, bool) {
-	_, isConstant := known.Constants[name]
-	_, isModel := known.Models[name]
-	return isConstant, isModel
 }
 
 func operationMatchesTag(operation *spec.Operation, tag *string) bool {

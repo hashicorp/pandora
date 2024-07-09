@@ -21,7 +21,7 @@ func ParseSwaggerFileForTesting(t *testing.T, file string, serviceName *string) 
 	}
 
 	var resourceProvider *string = nil // we're not filtering to just this RP, so it's fine
-	resourceIds, err := parsed.ParseResourceIds(resourceProvider)
+	resourceIds, err := parsed.ParseResourceIds()
 	if err != nil {
 		t.Fatalf("parsing Resource Ids: %+v", err)
 	}
