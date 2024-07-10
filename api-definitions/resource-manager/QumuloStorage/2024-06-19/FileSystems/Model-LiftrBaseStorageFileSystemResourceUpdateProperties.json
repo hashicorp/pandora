@@ -1,0 +1,44 @@
+{
+  "name": "LiftrBaseStorageFileSystemResourceUpdateProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "delegatedSubnetId",
+      "name": "DelegatedSubnetId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "marketplaceDetails",
+      "name": "MarketplaceDetails",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "LiftrBaseMarketplaceDetails"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "userDetails",
+      "name": "UserDetails",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "LiftrBaseUserDetails"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}
