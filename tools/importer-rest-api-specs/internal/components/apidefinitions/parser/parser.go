@@ -10,26 +10,41 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )
 
+// ParseAPIVersion parses the information for this APIVersion from the AvailableDataSetForAPIVersion.
 func ParseAPIVersion(serviceName string, input discoveryModels.AvailableDataSetForAPIVersion) (*sdkModels.APIVersion, error) {
-	apiResource := make(map[string]sdkModels.APIResource)
+	apiResources := make(map[string]sdkModels.APIResource)
 
 	// Firstly let's go through and process each of the Supplementary Files
 	for _, filePath := range input.FilePathsContainingSupplementaryData {
 		logging.Tracef("Processing Supplementary Data from file %q..", filePath)
-		// TODO: parse the file
+		resources, err := parseAPIResourcesWithin(filePath, apiResources)
+		if err != nil {
+			return nil, fmt.Errorf("parsing the APIResources from the Supplementary Data within %q: %+v", filePath, err)
+		}
+
+		logging.Tracef("There are now %d APIResources", len(*resources))
+		apiResources = *resources
+		logging.Tracef("Processing Supplementary Data from file %q - Completed.", filePath)
 	}
 
 	// Next let's go through and process each of the API Definitions
 	for _, filePath := range input.FilePathsContainingAPIDefinitions {
 		logging.Tracef("Processing API Definitions from file %q..", filePath)
-		// TODO: parse the file
+		resources, err := parseAPIResourcesWithin(filePath, apiResources)
+		if err != nil {
+			return nil, fmt.Errorf("parsing the APIResources from the Supplementary Data within %q: %+v", filePath, err)
+		}
+
+		logging.Tracef("There are now %d APIResources", len(*resources))
+		apiResources = *resources
+		logging.Tracef("Processing API Definitions from file %q - Completed.", filePath)
 	}
 
 	apiVersion := sdkModels.APIVersion{
 		APIVersion: input.APIVersion,
 		Generate:   true,
 		Preview:    !input.ContainsStableAPIVersion,
-		Resources:  apiResource,
+		Resources:  apiResources,
 		Source:     sdkModels.AzureRestAPISpecsSourceDataOrigin,
 	}
 
