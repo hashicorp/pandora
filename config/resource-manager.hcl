@@ -445,7 +445,7 @@ service "powerbidedicated" {
 }
 service "privatedns" {
   name      = "PrivateDNS"
-  available = ["2020-06-01"]
+  available = ["2020-06-01", "2024-06-01"]
 }
 service "purview" {
   name      = "Purview"
