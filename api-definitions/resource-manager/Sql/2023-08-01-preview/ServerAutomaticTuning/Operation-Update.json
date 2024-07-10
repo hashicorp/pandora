@@ -1,0 +1,19 @@
+{
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "resourceIdName": "SqlServerId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ServerAutomaticTuning"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ServerAutomaticTuning"
+  },
+  "uriSuffix": "/automaticTuning/current"
+}
