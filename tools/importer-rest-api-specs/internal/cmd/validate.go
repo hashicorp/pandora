@@ -4,20 +4,20 @@
 package cmd
 
 import (
+	legacyPipeline "github.com/hashicorp/pandora/tools/importer-rest-api-specs/pipeline"
 	"log"
 	"os"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/pipeline"
 	"github.com/mitchellh/cli"
 )
 
-func NewValidateCommand(swaggerDirectory, resourceManagerConfigPath, terraformDefinitionsPath string) func() (cli.Command, error) {
+func NewValidateCommand(restAPISpecsRepositoryDirectoryPath, resourceManagerConfigPath, terraformDefinitionsPath string) func() (cli.Command, error) {
 	return func() (cli.Command, error) {
 		return ValidateCommand{
-			resourceManagerConfigPath: resourceManagerConfigPath,
-			terraformDefinitionsPath:  terraformDefinitionsPath,
-			swaggerDirectory:          swaggerDirectory,
+			resourceManagerConfigPath:           resourceManagerConfigPath,
+			restAPISpecsRepositoryDirectoryPath: restAPISpecsRepositoryDirectoryPath,
+			terraformDefinitionsPath:            terraformDefinitionsPath,
 		}, nil
 	}
 }
@@ -25,9 +25,9 @@ func NewValidateCommand(swaggerDirectory, resourceManagerConfigPath, terraformDe
 var _ cli.Command = ValidateCommand{}
 
 type ValidateCommand struct {
-	resourceManagerConfigPath string
-	terraformDefinitionsPath  string
-	swaggerDirectory          string
+	resourceManagerConfigPath           string
+	restAPISpecsRepositoryDirectoryPath string
+	terraformDefinitionsPath            string
 }
 
 func (ValidateCommand) Help() string {
@@ -35,16 +35,34 @@ func (ValidateCommand) Help() string {
 }
 
 func (c ValidateCommand) Run(args []string) int {
-	input := pipeline.RunInput{
+	// TODO: can't enable this until the Parser is refactored
+	//opts := pipeline.Options{
+	//	APIDefinitionsDirectory:       "", // not used for this
+	//	ConfigFilePath:                c.resourceManagerConfigPath,
+	//	ProviderPrefix:                "azurerm",
+	//	RestAPISpecsDirectory:         c.restAPISpecsRepositoryDirectoryPath,
+	//	ServiceNamesToLimitTo:         nil, // not used for this
+	//	SourceDataOrigin:              sdkModels.AzureRestAPISpecsSourceDataOrigin,
+	//	SourceDataType:                sdkModels.ResourceManagerSourceDataType,
+	//	TerraformDefinitionsDirectory: c.terraformDefinitionsPath,
+	//}
+	//if err := pipeline.RunValidate(opts); err != nil {
+	//	log.Printf("Error: %+v", err)
+	//	return 1
+	//}
+	//
+	//return 0
+
+	input := legacyPipeline.RunInput{
 		ConfigFilePath:           c.resourceManagerConfigPath,
 		JustParseData:            true,
 		Logger:                   logging.Log,
 		OutputDirectory:          os.DevNull,
 		ProviderPrefix:           "azurerm",
-		SwaggerDirectory:         c.swaggerDirectory,
+		SwaggerDirectory:         c.restAPISpecsRepositoryDirectoryPath,
 		TerraformDefinitionsPath: c.terraformDefinitionsPath,
 	}
-	if err := pipeline.Run(input); err != nil {
+	if err := legacyPipeline.Run(input); err != nil {
 		log.Printf("Error: %+v", err)
 		return 1
 	}

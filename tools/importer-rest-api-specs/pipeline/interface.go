@@ -8,7 +8,7 @@ import (
 	"strings"
 
 	"github.com/hashicorp/go-hclog"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/discovery"
+	legacyDiscovery "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/discovery"
 	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
 )
 
@@ -30,21 +30,21 @@ func Run(input RunInput) error {
 		return fmt.Errorf("loading terraform definitions from %q: %+v", input.TerraformDefinitionsPath, err)
 	}
 
-	findInput := discovery.FindServiceInput{
+	findInput := legacyDiscovery.FindServiceInput{
 		SwaggerDirectory: input.SwaggerDirectory,
 		ConfigFilePath:   input.ConfigFilePath,
 		OutputDirectory:  input.OutputDirectory,
 		Logger:           input.Logger.Named("Discovery"),
 	}
 
-	var generationData *[]discovery.ServiceInput
+	var generationData *[]legacyDiscovery.ServiceInput
 
 	if len(input.Services) > 0 {
 		logger.Info(fmt.Sprintf("Finding only the Services %q", strings.Join(input.Services, ", ")))
-		generationData, err = discovery.FindServicesByName(findInput, *resources, input.Services)
+		generationData, err = legacyDiscovery.FindServicesByName(findInput, *resources, input.Services)
 	} else {
 		logger.Info("Finding all services.. this may take a while..")
-		generationData, err = discovery.FindServices(findInput, *resources)
+		generationData, err = legacyDiscovery.FindServices(findInput, *resources)
 	}
 
 	if err != nil {
