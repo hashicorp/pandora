@@ -115,7 +115,7 @@ func MapConstant(typeVal spec.StringOrArray, fieldName string, modelName *string
 
 			key := keyValueForInteger(int64(value))
 			// if an override name is defined for this Constant then we should use it
-			if constExtension.valuesToDisplayNames != nil {
+			if constExtension != nil && constExtension.valuesToDisplayNames != nil {
 				overrideName, hasOverride := (*constExtension.valuesToDisplayNames)[value]
 				if hasOverride {
 					key = overrideName
