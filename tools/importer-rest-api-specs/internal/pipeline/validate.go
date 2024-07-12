@@ -16,7 +16,7 @@ func RunValidate(opts Options) error {
 	logging.Infof("Validating Data..")
 
 	logging.Debugf("Building the repository..")
-	repo, err := repository.NewRepository(opts.APIDefinitionsDirectory, opts.SourceDataType, &opts.ServiceNamesToLimitTo, logging.Log)
+	repo, err := repository.NewRepository(opts.RestAPISpecsDirectory, opts.SourceDataType, &opts.ServiceNamesToLimitTo, logging.Log)
 	if err != nil {
 		return fmt.Errorf("building repository: %+v", err)
 	}
