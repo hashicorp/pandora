@@ -2,6 +2,7 @@ package parsingcontext
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 	"strings"
 
 	"github.com/go-openapi/spec"
@@ -133,29 +134,6 @@ func (c *Context) FindNestedItemsYetToBeParsed(operations map[string]sdkModels.S
 func (c *Context) determineObjectsRequiredButNotParsed(operations map[string]sdkModels.SDKOperation, known parserModels.ParseResult) (*[]string, error) {
 	referencesToFind := make(map[string]struct{}, 0)
 
-	var objectsRequiredByModel = func(modelName string, model sdkModels.SDKModel) (*[]string, error) {
-		result := make(map[string]struct{}, 0)
-		// if it's a model, we need to check all of the fields for this to find any constant or models
-		// that we don't know about
-		typesToFind, err := c.objectsUsedByModel(modelName, model)
-		if err != nil {
-			return nil, fmt.Errorf("determining objects used by model %q: %+v", modelName, err)
-		}
-		for _, typeName := range *typesToFind {
-			_, existingConstant := known.Constants[typeName]
-			_, existingModel := known.Models[typeName]
-			if !existingConstant && !existingModel {
-				result[typeName] = struct{}{}
-			}
-		}
-
-		out := make([]string, 0)
-		for k := range result {
-			out = append(out, k)
-		}
-		return &out, nil
-	}
-
 	for _, operation := range operations {
 		if operation.RequestObject != nil {
 			topLevelRef := sdkHelpers.InnerMostSDKObjectDefinition(*operation.RequestObject)
@@ -168,7 +146,7 @@ func (c *Context) determineObjectsRequiredButNotParsed(operations map[string]sdk
 				if isKnownModel {
 					modelName := *topLevelRef.ReferenceName
 					model := known.Models[modelName]
-					missingReferencesInModel, err := objectsRequiredByModel(modelName, model)
+					missingReferencesInModel, err := c.objectsRequiredByModel(modelName, model, known)
 					if err != nil {
 						return nil, fmt.Errorf("determining objects required by model %q: %+v", modelName, err)
 					}
@@ -192,7 +170,7 @@ func (c *Context) determineObjectsRequiredButNotParsed(operations map[string]sdk
 					// that we don't know about
 					modelName := *topLevelRef.ReferenceName
 					model := known.Models[modelName]
-					missingReferencesInModel, err := objectsRequiredByModel(modelName, model)
+					missingReferencesInModel, err := c.objectsRequiredByModel(modelName, model, known)
 					if err != nil {
 						return nil, fmt.Errorf("determining objects required by model %q: %+v", modelName, err)
 					}
@@ -215,9 +193,9 @@ func (c *Context) determineObjectsRequiredButNotParsed(operations map[string]sdk
 		}
 	}
 
-	// then verify we have all of the models for the current models we know about
+	// then verify we have each of the models for the current models we know about
 	for modelName, model := range known.Models {
-		missingReferencesInModel, err := objectsRequiredByModel(modelName, model)
+		missingReferencesInModel, err := c.objectsRequiredByModel(modelName, model, known)
 		if err != nil {
 			return nil, fmt.Errorf("determining objects required by model %q: %+v", modelName, err)
 		}
@@ -244,7 +222,8 @@ func (c *Context) determineObjectsRequiredButNotParsed(operations map[string]sdk
 func (c *Context) objectsUsedByModel(modelName string, model sdkModels.SDKModel) (*[]string, error) {
 	typeNames := make(map[string]struct{}, 0)
 
-	for _, field := range model.Fields {
+	for fieldName, field := range model.Fields {
+		logging.Log.Trace("Determining objects used by field %q..", fieldName)
 		definition := sdkHelpers.InnerMostSDKObjectDefinition(field.ObjectDefinition)
 		if definition.ReferenceName != nil {
 			typeNames[*definition.ReferenceName] = struct{}{}
@@ -268,6 +247,31 @@ func (c *Context) objectsUsedByModel(modelName string, model sdkModels.SDKModel)
 
 	out := make([]string, 0)
 	for k := range typeNames {
+		out = append(out, k)
+	}
+	return &out, nil
+}
+
+func (c *Context) objectsRequiredByModel(modelName string, model sdkModels.SDKModel, known parserModels.ParseResult) (*[]string, error) {
+	result := make(map[string]struct{})
+	// if it's a model, we need to check each of the fields for this to find any constant or models
+	// that we don't know about
+	logging.Tracef("Determining the Objects used by the Model %q..", modelName)
+	typesToFind, err := c.objectsUsedByModel(modelName, model)
+	if err != nil {
+		return nil, fmt.Errorf("determining objects used by model %q: %+v", modelName, err)
+	}
+	logging.Tracef("Found %d items: %+v", len(*typesToFind), *typesToFind)
+	for _, typeName := range *typesToFind {
+		_, existingConstant := known.Constants[typeName]
+		_, existingModel := known.Models[typeName]
+		if !existingConstant && !existingModel {
+			result[typeName] = struct{}{}
+		}
+	}
+
+	out := make([]string, 0)
+	for k := range result {
 		out = append(out, k)
 	}
 	return &out, nil

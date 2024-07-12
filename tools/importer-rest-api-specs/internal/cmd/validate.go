@@ -4,7 +4,9 @@
 package cmd
 
 import (
+	"flag"
 	"log"
+	"strings"
 
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/pipeline"
@@ -34,12 +36,23 @@ func (ValidateCommand) Help() string {
 }
 
 func (c ValidateCommand) Run(args []string) int {
+	var serviceNamesRaw string
+
+	f := flag.NewFlagSet("importer-rest-api-specs", flag.ExitOnError)
+	f.StringVar(&serviceNamesRaw, "services", "", "A list of comma separated Service named from the Data API to validate")
+	f.Parse(args)
+
+	var serviceNames []string
+	if serviceNamesRaw != "" {
+		serviceNames = strings.Split(serviceNamesRaw, ",")
+	}
+
 	opts := pipeline.Options{
 		APIDefinitionsDirectory:       "", // not used for this
 		ConfigFilePath:                c.resourceManagerConfigPath,
 		ProviderPrefix:                "azurerm",
 		RestAPISpecsDirectory:         c.restAPISpecsRepositoryDirectoryPath,
-		ServiceNamesToLimitTo:         nil, // not used for this
+		ServiceNamesToLimitTo:         serviceNames,
 		SourceDataOrigin:              sdkModels.AzureRestAPISpecsSourceDataOrigin,
 		SourceDataType:                sdkModels.ResourceManagerSourceDataType,
 		TerraformDefinitionsDirectory: c.terraformDefinitionsPath,

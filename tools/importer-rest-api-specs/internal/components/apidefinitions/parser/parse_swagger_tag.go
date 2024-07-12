@@ -11,10 +11,10 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/resourceids"
 )
 
-func (p *apiDefinitionsParser) ParseAPIResourceWithinSwaggerTag(tag, resourceProvider *string, resourceIds resourceids.ParseResult) (*sdkModels.APIResource, error) {
+func (p *apiDefinitionsParser) ParseAPIResourceWithinSwaggerTag(tag, resourceProvider *string, resourceIds resourceids.ParseResult, existingAPIResource sdkModels.APIResource) (*sdkModels.APIResource, error) {
 	result := parserModels.ParseResult{
-		Constants: map[string]sdkModels.SDKConstant{},
-		Models:    map[string]sdkModels.SDKModel{},
+		Constants: existingAPIResource.Constants,
+		Models:    existingAPIResource.Models,
 	}
 
 	// note that Resource ID's can contain Constants (used as segments)

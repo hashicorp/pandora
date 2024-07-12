@@ -31,15 +31,28 @@ func parseAPIResourcesFromFile(filePath, serviceName string, resourceProvider *s
 			continue
 		}
 
-		resource, err := parser.ParseAPIResourceWithinSwaggerTag(&tag, resourceProvider, resourceIds)
+		normalizedTag := cleanup.NormalizeTag(tag)
+		normalizedTag = cleanup.NormalizeResourceName(normalizedTag)
+
+		// pass in any existing/known data so that we can reuse the models/references
+		existing := sdkModels.APIResource{
+			Constants:   make(map[string]sdkModels.SDKConstant),
+			Models:      make(map[string]sdkModels.SDKModel),
+			Name:        normalizedTag,
+			Operations:  make(map[string]sdkModels.SDKOperation),
+			ResourceIDs: make(map[string]sdkModels.ResourceID),
+		}
+		if v, ok := parsedAPIResources[normalizedTag]; ok {
+			existing = v
+		}
+
+		resource, err := parser.ParseAPIResourceWithinSwaggerTag(&tag, resourceProvider, resourceIds, existing)
 		if err != nil {
 			return nil, fmt.Errorf("finding resources for tag %q: %+v", tag, err)
 		}
 
 		if resource != nil {
 			logging.Tracef("The Tag %q has %d API Operations", tag, len(resource.Operations))
-			normalizedTag := cleanup.NormalizeTag(tag)
-			normalizedTag = cleanup.NormalizeResourceName(normalizedTag)
 			discoveredResources := map[string]sdkModels.APIResource{
 				normalizedTag: *resource,
 			}
@@ -53,11 +66,6 @@ func parseAPIResourcesFromFile(filePath, serviceName string, resourceProvider *s
 
 	// 3. Then parse over any Swagger Operations which DON'T have a Tag
 	if !ignore.SwaggerTag(serviceName) {
-		resource, err := parser.ParseAPIResourceWithinSwaggerTag(nil, resourceProvider, resourceIds)
-		if err != nil {
-			return nil, fmt.Errorf("finding resources for tag %q: %+v", serviceName, err)
-		}
-
 		// Since we're dealing with missing tag data in the swagger, we'll assume the proper tag name here is the file name
 		// This is less than ideal, but _should_ be fine.
 		directory := filepath.Dir(filePath)
@@ -65,11 +73,27 @@ func parseAPIResourcesFromFile(filePath, serviceName string, resourceProvider *s
 		fileName = strings.TrimPrefix(fileName, fmt.Sprintf("%c", filepath.Separator))
 		fileName = strings.TrimSuffix(fileName, ".json")
 		inferredTag := cleanup.PluraliseName(fileName)
+		normalizedTag := cleanup.NormalizeTag(inferredTag)
+		normalizedTag = cleanup.NormalizeResourceName(normalizedTag)
+
+		// pass in any existing/known data so that we can reuse the models/references
+		existing := sdkModels.APIResource{
+			Constants:   make(map[string]sdkModels.SDKConstant),
+			Models:      make(map[string]sdkModels.SDKModel),
+			Name:        normalizedTag,
+			Operations:  make(map[string]sdkModels.SDKOperation),
+			ResourceIDs: make(map[string]sdkModels.ResourceID),
+		}
+		if v, ok := parsedAPIResources[normalizedTag]; ok {
+			existing = v
+		}
+
+		resource, err := parser.ParseAPIResourceWithinSwaggerTag(nil, resourceProvider, resourceIds, existing)
+		if err != nil {
+			return nil, fmt.Errorf("finding resources for tag %q: %+v", serviceName, err)
+		}
 
 		if resource != nil {
-			normalizedTag := cleanup.NormalizeTag(inferredTag)
-			normalizedTag = cleanup.NormalizeResourceName(normalizedTag)
-
 			discoveredResources := map[string]sdkModels.APIResource{
 				normalizedTag: *resource,
 			}

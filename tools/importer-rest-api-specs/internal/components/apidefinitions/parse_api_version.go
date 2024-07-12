@@ -20,17 +20,17 @@ func parseAPIVersion(serviceName string, input discoveryModels.AvailableDataSetF
 		Constants: map[string]sdkModels.SDKConstant{},
 		Models:    map[string]sdkModels.SDKModel{},
 	}
-	for _, filePath := range input.FilePathsContainingSupplementaryData {
-		logging.Tracef("Processing Supplementary Data from file %q..", filePath)
-		updatedSupplementaryData, err := parseSupplementaryDataFromFile(filePath, supplementaryData)
-		if err != nil {
-			return nil, fmt.Errorf("parsing the Supplementary Data within %q: %+v", filePath, err)
-		}
-		logging.Tracef("Processing Supplementary Data from file %q - Completed.", filePath)
-
-		supplementaryData = *updatedSupplementaryData
-		logging.Tracef("The Supplementary Data now contains %d Constants and %d Models", len(supplementaryData.Constants), len(supplementaryData.Models))
-	}
+	//for _, filePath := range input.FilePathsContainingSupplementaryData {
+	//	logging.Tracef("Processing Supplementary Data from file %q..", filePath)
+	//	updatedSupplementaryData, err := parseSupplementaryDataFromFile(filePath, supplementaryData)
+	//	if err != nil {
+	//		return nil, fmt.Errorf("parsing the Supplementary Data within %q: %+v", filePath, err)
+	//	}
+	//	logging.Tracef("Processing Supplementary Data from file %q - Completed.", filePath)
+	//
+	//	supplementaryData = *updatedSupplementaryData
+	//	logging.Tracef("The Supplementary Data now contains %d Constants and %d Models", len(supplementaryData.Constants), len(supplementaryData.Models))
+	//}
 
 	// Next we need to pull out a list of each of the Resource IDs within this API Version
 	// This is required to ensure we have consistent naming of these across the API Version which

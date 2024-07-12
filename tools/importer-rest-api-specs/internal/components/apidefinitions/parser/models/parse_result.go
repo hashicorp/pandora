@@ -3,6 +3,7 @@ package models
 import (
 	"fmt"
 	"reflect"
+	"strings"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
@@ -90,7 +91,8 @@ func compareFields(first map[string]sdkModels.SDKField, second map[string]sdkMod
 
 	for k := range first {
 		firstVal := first[k]
-		secondVal, ok := second[k]
+		// Keys aren't normalised until processing is completed, so we need to insensitively look for this
+		secondVal, ok := itemForKeyInsensitively(second, k)
 		if !ok {
 			return fmt.Errorf("second didn't contain the key %q", k)
 		}
@@ -116,6 +118,22 @@ func compareFields(first map[string]sdkModels.SDKField, second map[string]sdkMod
 	return nil
 }
 
+func itemForKeyInsensitively[T any](input map[string]T, key string) (*T, bool) {
+	// if we've got it case-sensitively then save the effort of iterating over all the keys
+	val, ok := input[key]
+	if ok {
+		return &val, true
+	}
+
+	for k, v := range input {
+		if strings.EqualFold(k, key) {
+			return &v, true
+		}
+	}
+
+	return nil, false
+}
+
 func objectDefinitionsMatch(first, second sdkModels.SDKObjectDefinition) error {
 	if first.NestedItem != nil && second.NestedItem == nil {
 		return fmt.Errorf("`first` had a nested item but `second` didn't. First: %+v. Second: %+v", first, second)
@@ -131,8 +149,8 @@ func objectDefinitionsMatch(first, second sdkModels.SDKObjectDefinition) error {
 	if first.Type != second.Type {
 		return fmt.Errorf("first.Type was %q but second.Type was %q", string(first.Type), string(second.Type))
 	}
-	if err := compareNilableString(first.ReferenceName, second.ReferenceName); err != nil {
-		return fmt.Errorf("value for ReferenceName differs: %+v\n\nFirst was %q but second was %q", err, pointer.From(first.ReferenceName), pointer.From(second.ReferenceName))
+	if !strings.EqualFold(pointer.From(first.ReferenceName), pointer.From(second.ReferenceName)) {
+		return fmt.Errorf("value for ReferenceName differs.\n\nFirst was %q but second was %q", pointer.From(first.ReferenceName), pointer.From(second.ReferenceName))
 	}
 
 	// TODO: re-enable minimum/maximum/unique on Object Definition

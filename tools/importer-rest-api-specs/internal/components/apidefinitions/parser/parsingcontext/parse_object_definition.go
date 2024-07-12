@@ -34,7 +34,7 @@ func (c *Context) ParseObjectDefinition(modelName, propertyName string, input *s
 
 		definition := sdkModels.SDKObjectDefinition{
 			Type:          sdkModels.ReferenceSDKObjectDefinitionType,
-			ReferenceName: pointer.To(strings.Title(constant.Name)),
+			ReferenceName: pointer.To(constant.Name),
 		}
 
 		//TODO: re-enable min/max/unique
@@ -124,7 +124,7 @@ func (c *Context) ParseObjectDefinition(modelName, propertyName string, input *s
 
 		definition := sdkModels.SDKObjectDefinition{
 			Type:          sdkModels.ReferenceSDKObjectDefinitionType,
-			ReferenceName: pointer.To(strings.Title(modelName)),
+			ReferenceName: pointer.To(modelName),
 		}
 		// TODO: re-enable min/max/unique
 		//if input.MaxItems != nil {

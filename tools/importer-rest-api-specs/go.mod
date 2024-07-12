@@ -3,6 +3,7 @@ module github.com/hashicorp/pandora/tools/importer-rest-api-specs
 go 1.22.1
 
 require (
+	github.com/davecgh/go-spew v1.1.1
 	github.com/gertd/go-pluralize v0.2.1
 	github.com/go-git/go-git/v5 v5.11.0
 	github.com/go-openapi/analysis v0.20.1

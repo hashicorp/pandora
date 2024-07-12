@@ -30,6 +30,11 @@ func discoverDataSetForAPIVersion(apiVersion string, filePaths []string) (*model
 			// So just handling the directory name here is fine
 			shouldIgnore := false
 			for _, item := range strings.Split(filePath, fmt.Sprintf("%c", filepath.Separator)) {
+				if strings.EqualFold(item, "data-plane") {
+					logging.Tracef("File contains `data-plane`, skipping..")
+					shouldIgnore = true
+					break
+				}
 				if strings.EqualFold(item, "examples") {
 					logging.Tracef("File contains examples, skipping..")
 					shouldIgnore = true

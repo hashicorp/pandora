@@ -67,7 +67,7 @@ func Parse(typeVal spec.StringOrArray, fieldName string, modelName *string, valu
 	}
 
 	return &ParsedConstant{
-		Name: constantName,
+		Name: strings.Title(constantName),
 		Details: sdkModels.SDKConstant{
 			Values: *keysAndValues,
 			Type:   constantType,

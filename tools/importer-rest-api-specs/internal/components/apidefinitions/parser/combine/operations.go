@@ -5,8 +5,8 @@ package combine
 
 import (
 	"fmt"
-
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/comparison"
 )
 
 func operations(first map[string]sdkModels.SDKOperation, second map[string]sdkModels.SDKOperation) (*map[string]sdkModels.SDKOperation, error) {
@@ -18,12 +18,15 @@ func operations(first map[string]sdkModels.SDKOperation, second map[string]sdkMo
 
 	for k, v := range second {
 		// if there's duplicate operations named the same thing in different Swaggers, this is likely a data issue
-		_, ok := output[k]
-		if ok {
-			return nil, fmt.Errorf("duplicate operations named %q", k)
+		other, ok := output[k]
+		if !ok {
+			output[k] = v
+			continue
 		}
 
-		output[k] = v
+		if ok, err := comparison.OperationsMatch(v, other); !ok {
+			return nil, fmt.Errorf("differing Operations named %q. First: %+v / Second %+v / Error: %+v", k, v, other, err)
+		}
 	}
 
 	return &output, nil
