@@ -20,6 +20,7 @@ func parseAPIVersion(serviceName string, input discoveryModels.AvailableDataSetF
 		Constants: map[string]sdkModels.SDKConstant{},
 		Models:    map[string]sdkModels.SDKModel{},
 	}
+	// TODO: re-enable this
 	//for _, filePath := range input.FilePathsContainingSupplementaryData {
 	//	logging.Tracef("Processing Supplementary Data from file %q..", filePath)
 	//	updatedSupplementaryData, err := parseSupplementaryDataFromFile(filePath, supplementaryData)

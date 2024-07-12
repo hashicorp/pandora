@@ -1,18 +1,18 @@
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
 
-package parser
+package parser_test
 
 import (
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/testhelpers"
 	"testing"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/testhelpers"
 )
 
 func TestParsingOperationsUsingTheSameSwaggerTagInDifferentCasings(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "operations_single_tag_different_casing.json", nil)
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "operations_single_tag_different_casing.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -86,7 +86,7 @@ func TestParsingOperationsUsingTheSameSwaggerTagInDifferentCasings(t *testing.T)
 }
 
 func TestParsingOperationsOnResources(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "operations_on_resources.json", nil)
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "operations_on_resources.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}

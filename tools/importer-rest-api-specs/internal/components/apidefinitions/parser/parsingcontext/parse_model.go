@@ -485,13 +485,13 @@ func (c *Context) findOrphanedDiscriminatedModels(serviceName string) (*parserMo
 
 	// this will also pull out the parent model in the file which will already have been parsed, but that's ok
 	// since they will be de-duplicated when we call combineResourcesWith
-	//nestedResult, err := c.FindNestedItemsYetToBeParsed(map[string]sdkModels.SDKOperation{}, result)
-	//if err != nil {
-	//	return nil, fmt.Errorf("finding nested items yet to be parsed: %+v", err)
-	//}
-	//if err := result.Append(*nestedResult); err != nil {
-	//	return nil, fmt.Errorf("appending nestedResult from Models used by existing Items: %+v", err)
-	//}
+	nestedResult, err := c.FindNestedItemsYetToBeParsed(map[string]sdkModels.SDKOperation{}, result)
+	if err != nil {
+		return nil, fmt.Errorf("finding nested items yet to be parsed: %+v", err)
+	}
+	if err := result.Append(*nestedResult); err != nil {
+		return nil, fmt.Errorf("appending nestedResult from Models used by existing Items: %+v", err)
+	}
 
 	return &result, nil
 }

@@ -1,19 +1,20 @@
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
 
-package parser
+package parser_test
 
 import (
 	"testing"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/testhelpers"
 )
 
 // TODO: tests for the different types of Object Definition
 
 func TestParseModelTopLevel(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "model_top_level.json", nil)
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_top_level.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -89,11 +90,11 @@ func TestParseModelTopLevel(t *testing.T) {
 			},
 		},
 	}
-	validateParsedSwaggerResultMatches(t, expected, actual)
+	testhelpers.ValidateParsedSwaggerResultMatches(t, expected, actual)
 }
 
 func TestParseModelTopLevelWithRawFile(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "model_top_level_with_rawfile.json", nil)
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_top_level_with_rawfile.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -119,11 +120,11 @@ func TestParseModelTopLevelWithRawFile(t *testing.T) {
 			},
 		},
 	}
-	validateParsedSwaggerResultMatches(t, expected, actual)
+	testhelpers.ValidateParsedSwaggerResultMatches(t, expected, actual)
 }
 
 func TestParseModelTopLevelWithInlinedModel(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "model_top_level_with_inlined_model.json", nil)
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_top_level_with_inlined_model.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -218,11 +219,11 @@ func TestParseModelTopLevelWithInlinedModel(t *testing.T) {
 			},
 		},
 	}
-	validateParsedSwaggerResultMatches(t, expected, actual)
+	testhelpers.ValidateParsedSwaggerResultMatches(t, expected, actual)
 }
 
 func TestParseModelWithDateTimeNoType(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "model_with_datetime_no_type.json", nil)
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_with_datetime_no_type.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -263,11 +264,11 @@ func TestParseModelWithDateTimeNoType(t *testing.T) {
 			},
 		},
 	}
-	validateParsedSwaggerResultMatches(t, expected, actual)
+	testhelpers.ValidateParsedSwaggerResultMatches(t, expected, actual)
 }
 
 func TestParseModelWithInlinedObject(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "model_with_inlined_object.json", nil)
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_with_inlined_object.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -357,11 +358,11 @@ func TestParseModelWithInlinedObject(t *testing.T) {
 			},
 		},
 	}
-	validateParsedSwaggerResultMatches(t, expected, actual)
+	testhelpers.ValidateParsedSwaggerResultMatches(t, expected, actual)
 }
 
 func TestParseModelWithNumberPrefixedField(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "model_with_number_prefixed_field.json", nil)
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_with_number_prefixed_field.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -405,11 +406,11 @@ func TestParseModelWithNumberPrefixedField(t *testing.T) {
 			},
 		},
 	}
-	validateParsedSwaggerResultMatches(t, expected, actual)
+	testhelpers.ValidateParsedSwaggerResultMatches(t, expected, actual)
 }
 
 func TestParseModelWithReference(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "model_with_reference.json", nil)
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_with_reference.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -487,11 +488,11 @@ func TestParseModelWithReference(t *testing.T) {
 			},
 		},
 	}
-	validateParsedSwaggerResultMatches(t, expected, actual)
+	testhelpers.ValidateParsedSwaggerResultMatches(t, expected, actual)
 }
 
 func TestParseModelWithReferenceToArray(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "model_with_reference_array.json", nil)
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_with_reference_array.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -555,11 +556,11 @@ func TestParseModelWithReferenceToArray(t *testing.T) {
 			},
 		},
 	}
-	validateParsedSwaggerResultMatches(t, expected, actual)
+	testhelpers.ValidateParsedSwaggerResultMatches(t, expected, actual)
 }
 
 func TestParseModelWithReferenceToConstant(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "model_with_reference_constant.json", nil)
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_with_reference_constant.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -635,11 +636,11 @@ func TestParseModelWithReferenceToConstant(t *testing.T) {
 			},
 		},
 	}
-	validateParsedSwaggerResultMatches(t, expected, actual)
+	testhelpers.ValidateParsedSwaggerResultMatches(t, expected, actual)
 }
 
 func TestParseModelWithReferenceToString(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "model_with_reference_string.json", nil)
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_with_reference_string.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -705,11 +706,11 @@ func TestParseModelWithReferenceToString(t *testing.T) {
 			},
 		},
 	}
-	validateParsedSwaggerResultMatches(t, expected, actual)
+	testhelpers.ValidateParsedSwaggerResultMatches(t, expected, actual)
 }
 
 func TestParseModelWithCircularReferences(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "model_with_circular_reference.json", nil)
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_with_circular_reference.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -806,11 +807,11 @@ func TestParseModelWithCircularReferences(t *testing.T) {
 			},
 		},
 	}
-	validateParsedSwaggerResultMatches(t, expected, actual)
+	testhelpers.ValidateParsedSwaggerResultMatches(t, expected, actual)
 }
 
 func TestParseModelInheritingFromObjectWithNoExtraFields(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "model_inheriting_from_other_model_no_new_fields.json", nil)
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_inheriting_from_other_model_no_new_fields.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -849,11 +850,11 @@ func TestParseModelInheritingFromObjectWithNoExtraFields(t *testing.T) {
 			},
 		},
 	}
-	validateParsedSwaggerResultMatches(t, expected, actual)
+	testhelpers.ValidateParsedSwaggerResultMatches(t, expected, actual)
 }
 
 func TestParseModelInheritingFromObjectWithNoExtraFieldsInlined(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "model_inheriting_from_other_model_no_new_fields_inlined.json", nil)
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_inheriting_from_other_model_no_new_fields_inlined.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -909,11 +910,11 @@ func TestParseModelInheritingFromObjectWithNoExtraFieldsInlined(t *testing.T) {
 			},
 		},
 	}
-	validateParsedSwaggerResultMatches(t, expected, actual)
+	testhelpers.ValidateParsedSwaggerResultMatches(t, expected, actual)
 }
 
 func TestParseModelInheritingFromObjectWithOnlyDescription(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "model_inheriting_from_other_model_with_only_description.json", nil)
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_inheriting_from_other_model_with_only_description.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -952,7 +953,7 @@ func TestParseModelInheritingFromObjectWithOnlyDescription(t *testing.T) {
 			},
 		},
 	}
-	validateParsedSwaggerResultMatches(t, expected, actual)
+	testhelpers.ValidateParsedSwaggerResultMatches(t, expected, actual)
 }
 
 func TestParseModelInheritingFromObjectWithPropertiesWithinAllOf(t *testing.T) {
@@ -961,7 +962,7 @@ func TestParseModelInheritingFromObjectWithPropertiesWithinAllOf(t *testing.T) {
 	// This covers a regression from https://github.com/hashicorp/pandora/pull/3720
 	// which surfaced in https://github.com/hashicorp/pandora/pull/3726 for the model `AgentPool`
 	// within `ContainerService@2019-08-01/AgentPools` which was renamed `SubResource`.
-	actual, err := ParseSwaggerFileForTesting(t, "model_inheriting_from_other_model_with_properties_within_allof.json", nil)
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_inheriting_from_other_model_with_properties_within_allof.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1001,11 +1002,11 @@ func TestParseModelInheritingFromObjectWithPropertiesWithinAllOf(t *testing.T) {
 			},
 		},
 	}
-	validateParsedSwaggerResultMatches(t, expected, actual)
+	testhelpers.ValidateParsedSwaggerResultMatches(t, expected, actual)
 }
 
 func TestParseModelContainingAllOfToTypeObject(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "model_containing_allof_object_type.json", nil)
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_containing_allof_object_type.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1053,11 +1054,11 @@ func TestParseModelContainingAllOfToTypeObject(t *testing.T) {
 			},
 		},
 	}
-	validateParsedSwaggerResultMatches(t, expected, actual)
+	testhelpers.ValidateParsedSwaggerResultMatches(t, expected, actual)
 }
 
 func TestParseModelContainingAllOfToTypeObjectWithProperties(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "model_containing_allof_object_type_with_properties.json", nil)
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_containing_allof_object_type_with_properties.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1105,11 +1106,11 @@ func TestParseModelContainingAllOfToTypeObjectWithProperties(t *testing.T) {
 			},
 		},
 	}
-	validateParsedSwaggerResultMatches(t, expected, actual)
+	testhelpers.ValidateParsedSwaggerResultMatches(t, expected, actual)
 }
 
 func TestParseModelContainingAllOfWithinProperties(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "model_containing_allof_within_properties.json", nil)
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_containing_allof_within_properties.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1183,11 +1184,11 @@ func TestParseModelContainingAllOfWithinProperties(t *testing.T) {
 			},
 		},
 	}
-	validateParsedSwaggerResultMatches(t, expected, actual)
+	testhelpers.ValidateParsedSwaggerResultMatches(t, expected, actual)
 }
 
 func TestParseModelContainingMultipleAllOfWithinProperties(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "model_containing_allof_within_properties_multiple.json", nil)
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_containing_allof_within_properties_multiple.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1273,11 +1274,11 @@ func TestParseModelContainingMultipleAllOfWithinProperties(t *testing.T) {
 			},
 		},
 	}
-	validateParsedSwaggerResultMatches(t, expected, actual)
+	testhelpers.ValidateParsedSwaggerResultMatches(t, expected, actual)
 }
 
 func TestParseModelContainingLists(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "model_containing_lists.json", nil)
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_containing_lists.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1358,11 +1359,11 @@ func TestParseModelContainingLists(t *testing.T) {
 			},
 		},
 	}
-	validateParsedSwaggerResultMatches(t, expected, actual)
+	testhelpers.ValidateParsedSwaggerResultMatches(t, expected, actual)
 }
 
 func TestParseModelInlinedWithNoName(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "model_inlined_with_no_name.json", nil)
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_inlined_with_no_name.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1414,11 +1415,11 @@ func TestParseModelInlinedWithNoName(t *testing.T) {
 			},
 		},
 	}
-	validateParsedSwaggerResultMatches(t, expected, actual)
+	testhelpers.ValidateParsedSwaggerResultMatches(t, expected, actual)
 }
 
 func TestParseModelInheritingFromParent(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "model_inheriting_from_parent.json", nil)
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_inheriting_from_parent.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1487,11 +1488,11 @@ func TestParseModelInheritingFromParent(t *testing.T) {
 			},
 		},
 	}
-	validateParsedSwaggerResultMatches(t, expected, actual)
+	testhelpers.ValidateParsedSwaggerResultMatches(t, expected, actual)
 }
 
 func TestParseModelMultipleTopLevelModelsAndOperations(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "model_multiple_top_level_models_and_operations.json", nil)
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_multiple_top_level_models_and_operations.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1595,11 +1596,11 @@ func TestParseModelMultipleTopLevelModelsAndOperations(t *testing.T) {
 			},
 		},
 	}
-	validateParsedSwaggerResultMatches(t, expected, actual)
+	testhelpers.ValidateParsedSwaggerResultMatches(t, expected, actual)
 }
 
 func TestParseModelBug2675DuplicateModel(t *testing.T) {
-	actual, err := ParseSwaggerFileForTesting(t, "models_bug_2675_duplicate_model.json", nil)
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "models_bug_2675_duplicate_model.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1817,5 +1818,5 @@ func TestParseModelBug2675DuplicateModel(t *testing.T) {
 			},
 		},
 	}
-	validateParsedSwaggerResultMatches(t, expected, actual)
+	testhelpers.ValidateParsedSwaggerResultMatches(t, expected, actual)
 }

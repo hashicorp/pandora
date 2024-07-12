@@ -223,7 +223,7 @@ func (c *Context) objectsUsedByModel(modelName string, model sdkModels.SDKModel)
 	typeNames := make(map[string]struct{}, 0)
 
 	for fieldName, field := range model.Fields {
-		logging.Log.Trace("Determining objects used by field %q..", fieldName)
+		logging.Tracef("Determining objects used by field %q..", fieldName)
 		definition := sdkHelpers.InnerMostSDKObjectDefinition(field.ObjectDefinition)
 		if definition.ReferenceName != nil {
 			typeNames[*definition.ReferenceName] = struct{}{}
