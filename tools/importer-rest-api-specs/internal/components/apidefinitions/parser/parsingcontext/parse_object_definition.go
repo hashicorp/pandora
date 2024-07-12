@@ -34,7 +34,7 @@ func (c *Context) ParseObjectDefinition(modelName, propertyName string, input *s
 
 		definition := sdkModels.SDKObjectDefinition{
 			Type:          sdkModels.ReferenceSDKObjectDefinitionType,
-			ReferenceName: &constant.Name,
+			ReferenceName: pointer.To(strings.Title(constant.Name)),
 		}
 
 		//TODO: re-enable min/max/unique
@@ -124,7 +124,7 @@ func (c *Context) ParseObjectDefinition(modelName, propertyName string, input *s
 
 		definition := sdkModels.SDKObjectDefinition{
 			Type:          sdkModels.ReferenceSDKObjectDefinitionType,
-			ReferenceName: &modelName,
+			ReferenceName: pointer.To(strings.Title(modelName)),
 		}
 		// TODO: re-enable min/max/unique
 		//if input.MaxItems != nil {
@@ -285,7 +285,7 @@ func (c *Context) parseDataFactoryCustomTypes(input *spec.Schema, known parserMo
 			Type: sdkModels.ListSDKObjectDefinitionType,
 			NestedItem: &sdkModels.SDKObjectDefinition{
 				Type:          sdkModels.ReferenceSDKObjectDefinitionType,
-				ReferenceName: pointer.To(elementType),
+				ReferenceName: pointer.To(strings.Title(elementType)),
 			},
 		}, &known, nil
 	}

@@ -222,7 +222,7 @@ func (c *Context) detailsForField(modelName string, propertyName string, value s
 		result.Models[inlinedName] = *inlinedModelDetails
 		// then swap out the reference
 		objectDefinition.Type = sdkModels.ReferenceSDKObjectDefinitionType
-		objectDefinition.ReferenceName = &inlinedName
+		objectDefinition.ReferenceName = pointer.To(strings.Title(inlinedName))
 	}
 
 	// Custom Types are determined once all the models/constants have been pulled out at the end

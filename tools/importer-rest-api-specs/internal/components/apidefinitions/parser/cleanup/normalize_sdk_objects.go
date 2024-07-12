@@ -6,6 +6,7 @@ package cleanup
 import (
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"strings"
 )
 
 // NormalizeAPIResource works through the parsed AzureApiResource and ensures
@@ -107,7 +108,7 @@ func NormalizeAPIResource(input sdkModels.APIResource) sdkModels.APIResource {
 func normalizeSDKObjectDefinition(input sdkModels.SDKObjectDefinition) sdkModels.SDKObjectDefinition {
 	if input.ReferenceName != nil {
 		normalized := NormalizeName(*input.ReferenceName)
-		input.ReferenceName = &normalized
+		input.ReferenceName = pointer.To(strings.Title(normalized))
 	}
 
 	if input.NestedItem != nil {
