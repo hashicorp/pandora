@@ -5,6 +5,7 @@ package dataworkarounds
 
 import (
 	"fmt"
+	"sort"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
@@ -31,7 +32,12 @@ func (workaroundAlertsManagement) Name() string {
 func (workaroundAlertsManagement) Process(input sdkModels.APIVersion) (*sdkModels.APIVersion, error) {
 	resource, ok := input.Resources["ActionRules"]
 	if !ok {
-		return nil, fmt.Errorf("expected a Resource named `ActionRules`")
+		keys := make([]string, 0)
+		for k := range input.Resources {
+			keys = append(keys, k)
+		}
+		sort.Strings(keys)
+		return nil, fmt.Errorf("expected a Resource named `ActionRules` but got [%+v]", keys)
 	}
 	_, ok = resource.Models["ActionRuleProperties"]
 	if !ok {

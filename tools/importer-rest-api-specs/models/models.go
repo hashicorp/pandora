@@ -4,32 +4,8 @@
 package models
 
 import (
-	"strings"
-
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
-
-type AzureApiDefinition struct {
-	ServiceName string
-	ApiVersion  string
-	Resources   map[string]sdkModels.APIResource
-}
-
-func (d AzureApiDefinition) IsPreviewVersion() bool {
-	lower := strings.ToLower(d.ApiVersion)
-	// handles preview, privatepreview and publicpreview
-	if strings.Contains(lower, "preview") {
-		return true
-	}
-	if strings.Contains(lower, "beta") {
-		return true
-	}
-	if strings.Contains(lower, "alpha") {
-		return true
-	}
-
-	return false
-}
 
 func MergeResourcesForTag(base, merge sdkModels.APIResource) sdkModels.APIResource {
 	for k, v := range merge.Constants {

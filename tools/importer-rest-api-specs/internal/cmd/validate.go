@@ -4,11 +4,10 @@
 package cmd
 
 import (
-	legacyPipeline "github.com/hashicorp/pandora/tools/importer-rest-api-specs/pipeline"
 	"log"
-	"os"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/pipeline"
 	"github.com/mitchellh/cli"
 )
 
@@ -35,34 +34,17 @@ func (ValidateCommand) Help() string {
 }
 
 func (c ValidateCommand) Run(args []string) int {
-	// TODO: can't enable this until the Parser is refactored
-	//opts := pipeline.Options{
-	//	APIDefinitionsDirectory:       "", // not used for this
-	//	ConfigFilePath:                c.resourceManagerConfigPath,
-	//	ProviderPrefix:                "azurerm",
-	//	RestAPISpecsDirectory:         c.restAPISpecsRepositoryDirectoryPath,
-	//	ServiceNamesToLimitTo:         nil, // not used for this
-	//	SourceDataOrigin:              sdkModels.AzureRestAPISpecsSourceDataOrigin,
-	//	SourceDataType:                sdkModels.ResourceManagerSourceDataType,
-	//	TerraformDefinitionsDirectory: c.terraformDefinitionsPath,
-	//}
-	//if err := pipeline.RunValidate(opts); err != nil {
-	//	log.Printf("Error: %+v", err)
-	//	return 1
-	//}
-	//
-	//return 0
-
-	input := legacyPipeline.RunInput{
-		ConfigFilePath:           c.resourceManagerConfigPath,
-		JustParseData:            true,
-		Logger:                   logging.Log,
-		OutputDirectory:          os.DevNull,
-		ProviderPrefix:           "azurerm",
-		SwaggerDirectory:         c.restAPISpecsRepositoryDirectoryPath,
-		TerraformDefinitionsPath: c.terraformDefinitionsPath,
+	opts := pipeline.Options{
+		APIDefinitionsDirectory:       "", // not used for this
+		ConfigFilePath:                c.resourceManagerConfigPath,
+		ProviderPrefix:                "azurerm",
+		RestAPISpecsDirectory:         c.restAPISpecsRepositoryDirectoryPath,
+		ServiceNamesToLimitTo:         nil, // not used for this
+		SourceDataOrigin:              sdkModels.AzureRestAPISpecsSourceDataOrigin,
+		SourceDataType:                sdkModels.ResourceManagerSourceDataType,
+		TerraformDefinitionsDirectory: c.terraformDefinitionsPath,
 	}
-	if err := legacyPipeline.Run(input); err != nil {
+	if err := pipeline.RunValidate(opts); err != nil {
 		log.Printf("Error: %+v", err)
 		return 1
 	}
