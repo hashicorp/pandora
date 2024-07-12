@@ -1,0 +1,25 @@
+{
+  "name": "OsTypeId",
+  "id": "/providers/Microsoft.HybridCompute/osType/{osTypeName}",
+  "segments": [
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftHybridCompute",
+      "type": "ResourceProvider",
+      "value": "Microsoft.HybridCompute"
+    },
+    {
+      "name": "staticOsType",
+      "type": "Static",
+      "value": "osType"
+    },
+    {
+      "name": "osTypeName",
+      "type": "UserSpecified"
+    }
+  ]
+}

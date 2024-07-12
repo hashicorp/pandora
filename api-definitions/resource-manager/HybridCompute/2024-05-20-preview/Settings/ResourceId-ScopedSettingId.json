@@ -1,0 +1,29 @@
+{
+  "name": "ScopedSettingId",
+  "id": "/{scope}/providers/Microsoft.HybridCompute/settings/{settingName}",
+  "segments": [
+    {
+      "name": "scope",
+      "type": "Scope"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftHybridCompute",
+      "type": "ResourceProvider",
+      "value": "Microsoft.HybridCompute"
+    },
+    {
+      "name": "staticSettings",
+      "type": "Static",
+      "value": "settings"
+    },
+    {
+      "name": "settingName",
+      "type": "UserSpecified"
+    }
+  ]
+}

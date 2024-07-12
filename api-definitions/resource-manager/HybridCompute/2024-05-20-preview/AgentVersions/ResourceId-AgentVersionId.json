@@ -1,0 +1,34 @@
+{
+  "name": "AgentVersionId",
+  "id": "/providers/Microsoft.HybridCompute/osType/{osTypeName}/agentVersions/{agentVersionName}",
+  "segments": [
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftHybridCompute",
+      "type": "ResourceProvider",
+      "value": "Microsoft.HybridCompute"
+    },
+    {
+      "name": "staticOsType",
+      "type": "Static",
+      "value": "osType"
+    },
+    {
+      "name": "osTypeName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticAgentVersions",
+      "type": "Static",
+      "value": "agentVersions"
+    },
+    {
+      "name": "agentVersionName",
+      "type": "UserSpecified"
+    }
+  ]
+}

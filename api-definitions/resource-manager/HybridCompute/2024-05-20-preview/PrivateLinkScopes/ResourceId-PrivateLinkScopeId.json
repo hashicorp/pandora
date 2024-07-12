@@ -1,0 +1,43 @@
+{
+  "name": "PrivateLinkScopeId",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.HybridCompute/locations/{locationName}/privateLinkScopes/{privateLinkScopeId}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftHybridCompute",
+      "type": "ResourceProvider",
+      "value": "Microsoft.HybridCompute"
+    },
+    {
+      "name": "staticLocations",
+      "type": "Static",
+      "value": "locations"
+    },
+    {
+      "name": "locationName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticPrivateLinkScopes",
+      "type": "Static",
+      "value": "privateLinkScopes"
+    },
+    {
+      "name": "privateLinkScopeId",
+      "type": "UserSpecified"
+    }
+  ]
+}
