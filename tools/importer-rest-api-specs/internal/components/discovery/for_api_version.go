@@ -24,6 +24,22 @@ func discoverDataSetForAPIVersion(apiVersion string, filePaths []string) (*model
 	filePathsForThisAPIVersion := make([]string, 0)
 	for _, filePath := range filePaths {
 		if strings.Contains(filePath, apiVersionDirectory) {
+			// We need to ignore Examples at this point to handle both TypeSpec and Swagger examples
+			// TypeSpec examples live within `./{service}/{namespace}/examples/{apiVersion}/{fileName}`
+			// Swagger examples live within `./{service}/resource-manager/(stable|preview)/{apiVersion}/examples/{fileName}`
+			// So just handling the directory name here is fine
+			shouldIgnore := false
+			for _, item := range strings.Split(filePath, fmt.Sprintf("%c", filepath.Separator)) {
+				if strings.EqualFold(item, "examples") {
+					logging.Tracef("File contains examples, skipping..")
+					shouldIgnore = true
+					break
+				}
+			}
+			if shouldIgnore {
+				continue
+			}
+
 			filePathsForThisAPIVersion = append(filePathsForThisAPIVersion, filePath)
 		}
 	}
@@ -50,18 +66,6 @@ func discoverDataSetForAPIVersion(apiVersion string, filePaths []string) (*model
 		if !strings.HasSuffix(strings.ToLower(relativeFilePath), ".json") {
 			// non-JSON files aren't interesting at this time
 			logging.Tracef("File doesn't contain JSON - skipping..")
-			continue
-		}
-
-		shouldIgnore := false
-		for _, item := range components {
-			if strings.EqualFold(item, "examples") {
-				logging.Tracef("File contains examples, skipping..")
-				shouldIgnore = true
-				break
-			}
-		}
-		if shouldIgnore {
 			continue
 		}
 
