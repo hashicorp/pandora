@@ -9,22 +9,22 @@ import (
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
 )
 
-func (p *Parser) generateNamesForResourceIds(input []models.ResourceID, uriToResourceId map[string]ParsedOperation) (*map[string]models.ResourceID, error) {
+func (p *Parser) generateNamesForResourceIds(input []sdkModels.ResourceID, uriToResourceId map[string]ParsedOperation) (*map[string]sdkModels.ResourceID, error) {
 	return generateNamesForResourceIds(input, uriToResourceId)
 }
 
-func generateNamesForResourceIds(input []models.ResourceID, uriToResourceId map[string]ParsedOperation) (*map[string]models.ResourceID, error) {
+func generateNamesForResourceIds(input []sdkModels.ResourceID, uriToResourceId map[string]ParsedOperation) (*map[string]sdkModels.ResourceID, error) {
 	// now that we have all of the Resource ID's, we then need to go through and determine Unique ID's for those
 	// we need all of them here to avoid conflicts, e.g. AuthorizationRule which can be a NamespaceAuthorizationRule
 	// or an EventHubAuthorizationRule, but is named AuthorizationRule in both
 
 	// Before we do anything else, let's go through remove any containing uri suffixes (since these are duplicated without
 	// where they contain a Resource ID - and then sort them short -> long for consistency
-	uniqueUris := make(map[string]models.ResourceID, 0)
+	uniqueUris := make(map[string]sdkModels.ResourceID, 0)
 	sortedUris := make([]string, 0)
 	for i := range input {
 		resourceId := input[i]
@@ -40,8 +40,8 @@ func generateNamesForResourceIds(input []models.ResourceID, uriToResourceId map[
 		return len(sortedUris[x]) < len(sortedUris[y])
 	})
 
-	candidateNamesToUris := make(map[string]models.ResourceID, 0)
-	conflictingNamesToUris := make(map[string][]models.ResourceID, 0)
+	candidateNamesToUris := make(map[string]sdkModels.ResourceID, 0)
+	conflictingNamesToUris := make(map[string][]sdkModels.ResourceID, 0)
 
 	// first detect any CommonIDs and output those, to save the names
 	urisThatAreCommonIds := make(map[string]struct{})
@@ -75,7 +75,7 @@ func generateNamesForResourceIds(input []models.ResourceID, uriToResourceId map[
 		}
 
 		candidateSegmentName := segmentsAvailableForNaming[0]
-		if resourceId.Segments[0].Type == models.ScopeResourceIDSegmentType && len(resourceId.Segments) > 1 {
+		if resourceId.Segments[0].Type == sdkModels.ScopeResourceIDSegmentType && len(resourceId.Segments) > 1 {
 			candidateSegmentName = fmt.Sprintf("Scoped%s", candidateSegmentName)
 		}
 		candidateSegmentName = cleanup.NormalizeSegment(candidateSegmentName, false)
@@ -89,7 +89,7 @@ func generateNamesForResourceIds(input []models.ResourceID, uriToResourceId map[
 
 		// if there's an existing candidate name for this key, move both this URI and that one to the Conflicts
 		if existingUri, existing := candidateNamesToUris[candidateSegmentName]; existing {
-			conflictingNamesToUris[candidateSegmentName] = []models.ResourceID{existingUri, resourceId}
+			conflictingNamesToUris[candidateSegmentName] = []sdkModels.ResourceID{existingUri, resourceId}
 			delete(candidateNamesToUris, candidateSegmentName)
 			continue
 		}
@@ -119,7 +119,7 @@ func generateNamesForResourceIds(input []models.ResourceID, uriToResourceId map[
 	}
 
 	// now we have unique ID's, we should go through and suffix `Id` onto the end of each of them
-	outputNamesToUris := make(map[string]models.ResourceID)
+	outputNamesToUris := make(map[string]sdkModels.ResourceID)
 	for k, v := range candidateNamesToUris {
 		key := fmt.Sprintf("%sId", cleanup.NormalizeName(k))
 		outputNamesToUris[key] = v
@@ -137,8 +137,8 @@ func generateNamesForResourceIds(input []models.ResourceID, uriToResourceId map[
 	return &outputNamesToUris, nil
 }
 
-func determineUniqueNamesFor(conflictingUris []models.ResourceID, existingCandidateNames map[string]models.ResourceID) (*map[string]models.ResourceID, error) {
-	proposedNames := make(map[string]models.ResourceID)
+func determineUniqueNamesFor(conflictingUris []sdkModels.ResourceID, existingCandidateNames map[string]sdkModels.ResourceID) (*map[string]sdkModels.ResourceID, error) {
+	proposedNames := make(map[string]sdkModels.ResourceID)
 	for _, resourceId := range conflictingUris {
 		availableSegments := SegmentsAvailableForNaming(resourceId)
 
@@ -146,7 +146,7 @@ func determineUniqueNamesFor(conflictingUris []models.ResourceID, existingCandid
 		uniqueNameFound := false
 
 		// matches the behaviour above
-		if resourceId.Segments[0].Type == models.ScopeResourceIDSegmentType {
+		if resourceId.Segments[0].Type == sdkModels.ScopeResourceIDSegmentType {
 			proposedName += "Scoped"
 		}
 
@@ -190,17 +190,17 @@ func determineUniqueNamesFor(conflictingUris []models.ResourceID, existingCandid
 	return &proposedNames, nil
 }
 
-func SegmentsAvailableForNaming(pri models.ResourceID) []string {
+func SegmentsAvailableForNaming(pri sdkModels.ResourceID) []string {
 	// first reverse the segments, since we want to take from right -> left
-	reversedSegments := make([]models.ResourceIDSegment, 0)
+	reversedSegments := make([]sdkModels.ResourceIDSegment, 0)
 	for i := len(pri.Segments); i > 0; i-- {
 		segment := pri.Segments[i-1]
 		reversedSegments = append(reversedSegments, segment)
 	}
 
-	segmentsWithoutScope := make([]models.ResourceIDSegment, 0)
+	segmentsWithoutScope := make([]sdkModels.ResourceIDSegment, 0)
 	for _, segment := range reversedSegments {
-		if segment.Type == models.ScopeResourceIDSegmentType {
+		if segment.Type == sdkModels.ScopeResourceIDSegmentType {
 			continue
 		}
 
@@ -211,11 +211,11 @@ func SegmentsAvailableForNaming(pri models.ResourceID) []string {
 	if len(segmentsWithoutScope)%2 == 0 && len(segmentsWithoutScope) > 0 {
 		availableSegments := make([]string, 0)
 		for _, segment := range segmentsWithoutScope {
-			if segment.Type == models.ConstantResourceIDSegmentType || segment.Type == models.StaticResourceIDSegmentType {
+			if segment.Type == sdkModels.ConstantResourceIDSegmentType || segment.Type == sdkModels.StaticResourceIDSegmentType {
 				normalized := cleanup.NormalizeSegmentName(segment.Name)
 
 				// trim off the `Static` prefix if it's expected to be present
-				if segment.Type == models.ResourceProviderResourceIDSegmentType || segment.Type == models.StaticResourceIDSegmentType {
+				if segment.Type == sdkModels.ResourceProviderResourceIDSegmentType || segment.Type == sdkModels.StaticResourceIDSegmentType {
 					normalized = strings.TrimPrefix(normalized, "Static")
 				}
 
@@ -228,7 +228,7 @@ func SegmentsAvailableForNaming(pri models.ResourceID) []string {
 
 	availableSegments := make([]string, 0)
 	for _, segment := range reversedSegments {
-		if segment.Type != models.UserSpecifiedResourceIDSegmentType {
+		if segment.Type != sdkModels.UserSpecifiedResourceIDSegmentType {
 			continue
 		}
 
@@ -236,7 +236,7 @@ func SegmentsAvailableForNaming(pri models.ResourceID) []string {
 		normalized := cleanup.NormalizeSegmentName(segment.Name)
 
 		// trim off the `Static` prefix if it's expected to be present
-		if segment.Type == models.ResourceProviderResourceIDSegmentType || segment.Type == models.StaticResourceIDSegmentType {
+		if segment.Type == sdkModels.ResourceProviderResourceIDSegmentType || segment.Type == sdkModels.StaticResourceIDSegmentType {
 			normalized = strings.TrimPrefix(normalized, "Static")
 		}
 

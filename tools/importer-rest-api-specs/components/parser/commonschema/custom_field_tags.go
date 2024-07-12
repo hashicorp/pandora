@@ -6,7 +6,7 @@ package commonschema
 import (
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
 )
 
@@ -14,14 +14,14 @@ var _ customFieldMatcher = tagsMatcher{}
 
 type tagsMatcher struct{}
 
-func (tagsMatcher) ReplacementObjectDefinition() models.SDKObjectDefinition {
-	return models.SDKObjectDefinition{
-		Type: models.TagsSDKObjectDefinitionType,
+func (tagsMatcher) ReplacementObjectDefinition() sdkModels.SDKObjectDefinition {
+	return sdkModels.SDKObjectDefinition{
+		Type: sdkModels.TagsSDKObjectDefinitionType,
 	}
 }
 
-func (tagsMatcher) IsMatch(field models.SDKField, _ internal.ParseResult) bool {
+func (tagsMatcher) IsMatch(field sdkModels.SDKField, _ internal.ParseResult) bool {
 	nameMatches := strings.EqualFold(field.JsonName, "tags")
-	typeMatches := field.ObjectDefinition.Type == models.DictionarySDKObjectDefinitionType && field.ObjectDefinition.NestedItem.Type == models.StringSDKObjectDefinitionType
+	typeMatches := field.ObjectDefinition.Type == sdkModels.DictionarySDKObjectDefinitionType && field.ObjectDefinition.NestedItem.Type == sdkModels.StringSDKObjectDefinitionType
 	return nameMatches && typeMatches
 }

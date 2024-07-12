@@ -4,29 +4,29 @@
 package resourceids
 
 import (
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 var _ commonIdMatcher = commonIdExpressRouteCircuitPeering{}
 
 type commonIdExpressRouteCircuitPeering struct{}
 
-func (c commonIdExpressRouteCircuitPeering) id() models.ResourceID {
+func (c commonIdExpressRouteCircuitPeering) id() sdkModels.ResourceID {
 	name := "ExpressRouteCircuitPeering"
-	return models.ResourceID{
+	return sdkModels.ResourceID{
 		CommonIDAlias: &name,
 		ConstantNames: []string{},
-		Segments: []models.ResourceIDSegment{
-			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
-			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-			models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
-			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-			models.NewStaticValueResourceIDSegment("providers", "providers"),
-			models.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Network"),
-			models.NewStaticValueResourceIDSegment("expressRouteCircuits", "expressRouteCircuits"),
-			models.NewUserSpecifiedResourceIDSegment("circuitName", "circuitName"),
-			models.NewStaticValueResourceIDSegment("peerings", "peerings"),
-			models.NewUserSpecifiedResourceIDSegment("peeringName", "peeringName"),
+		Segments: []sdkModels.ResourceIDSegment{
+			sdkModels.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+			sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			sdkModels.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+			sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			sdkModels.NewStaticValueResourceIDSegment("providers", "providers"),
+			sdkModels.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Network"),
+			sdkModels.NewStaticValueResourceIDSegment("expressRouteCircuits", "expressRouteCircuits"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("circuitName", "circuitName"),
+			sdkModels.NewStaticValueResourceIDSegment("peerings", "peerings"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("peeringName", "peeringName"),
 		},
 	}
 }

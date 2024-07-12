@@ -6,13 +6,13 @@ package models
 import (
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 type AzureApiDefinition struct {
 	ServiceName string
 	ApiVersion  string
-	Resources   map[string]AzureApiResource
+	Resources   map[string]sdkModels.APIResource
 }
 
 func (d AzureApiDefinition) IsPreviewVersion() bool {
@@ -31,14 +31,7 @@ func (d AzureApiDefinition) IsPreviewVersion() bool {
 	return false
 }
 
-type AzureApiResource struct {
-	Constants   map[string]models.SDKConstant
-	Models      map[string]models.SDKModel
-	Operations  map[string]models.SDKOperation
-	ResourceIds map[string]models.ResourceID
-}
-
-func MergeResourcesForTag(base AzureApiResource, merge AzureApiResource) AzureApiResource {
+func MergeResourcesForTag(base, merge sdkModels.APIResource) sdkModels.APIResource {
 	for k, v := range merge.Constants {
 		if _, ok := base.Constants[k]; !ok {
 			base.Constants[k] = v
@@ -56,9 +49,9 @@ func MergeResourcesForTag(base AzureApiResource, merge AzureApiResource) AzureAp
 			base.Operations[k] = v
 		}
 	}
-	for k, v := range merge.ResourceIds {
-		if _, ok := base.ResourceIds[k]; !ok {
-			base.ResourceIds[k] = v
+	for k, v := range merge.ResourceIDs {
+		if _, ok := base.ResourceIDs[k]; !ok {
+			base.ResourceIDs[k] = v
 		}
 	}
 

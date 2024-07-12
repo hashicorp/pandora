@@ -8,7 +8,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
@@ -22,7 +22,7 @@ func TestParseOperationsEmpty(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources:   map[string]importerModels.AzureApiResource{},
+		Resources:   map[string]sdkModels.APIResource{},
 	}
 	validateParsedSwaggerResultMatches(t, expected, actual)
 }
@@ -35,9 +35,9 @@ func TestParseOperationSingleWithTag(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Hello": {
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"HeadWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{http.StatusOK},
@@ -61,9 +61,9 @@ func TestParseOperationSingleWithTagAndResourceId(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Hello": {
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"HeadWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -71,17 +71,17 @@ func TestParseOperationSingleWithTagAndResourceId(t *testing.T) {
 						ResourceIDName:      pointer.To("ThingId"),
 					},
 				},
-				ResourceIds: map[string]models.ResourceID{
+				ResourceIDs: map[string]sdkModels.ResourceID{
 					"ThingId": {
-						Segments: []models.ResourceIDSegment{
-							models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
-							models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-							models.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
-							models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-							models.NewStaticValueResourceIDSegment("staticProviders", "providers"),
-							models.NewResourceProviderResourceIDSegment("staticMicrosoftFooBar", "Microsoft.FooBar"),
-							models.NewStaticValueResourceIDSegment("staticThings", "things"),
-							models.NewUserSpecifiedResourceIDSegment("thing", "thing"),
+						Segments: []sdkModels.ResourceIDSegment{
+							sdkModels.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
+							sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+							sdkModels.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
+							sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+							sdkModels.NewStaticValueResourceIDSegment("staticProviders", "providers"),
+							sdkModels.NewResourceProviderResourceIDSegment("staticMicrosoftFooBar", "Microsoft.FooBar"),
+							sdkModels.NewStaticValueResourceIDSegment("staticThings", "things"),
+							sdkModels.NewUserSpecifiedResourceIDSegment("thing", "thing"),
 						},
 					},
 				},
@@ -100,9 +100,9 @@ func TestParseOperationSingleWithTagAndResourceIdSuffix(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Hello": {
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"HeadWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -111,17 +111,17 @@ func TestParseOperationSingleWithTagAndResourceIdSuffix(t *testing.T) {
 						URISuffix:           pointer.To("/restart"),
 					},
 				},
-				ResourceIds: map[string]models.ResourceID{
+				ResourceIDs: map[string]sdkModels.ResourceID{
 					"ThingId": {
-						Segments: []models.ResourceIDSegment{
-							models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
-							models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-							models.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
-							models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-							models.NewStaticValueResourceIDSegment("staticProviders", "providers"),
-							models.NewResourceProviderResourceIDSegment("staticMicrosoftFooBar", "Microsoft.FooBar"),
-							models.NewStaticValueResourceIDSegment("staticThings", "things"),
-							models.NewUserSpecifiedResourceIDSegment("thing", "thing"),
+						Segments: []sdkModels.ResourceIDSegment{
+							sdkModels.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
+							sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+							sdkModels.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
+							sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+							sdkModels.NewStaticValueResourceIDSegment("staticProviders", "providers"),
+							sdkModels.NewResourceProviderResourceIDSegment("staticMicrosoftFooBar", "Microsoft.FooBar"),
+							sdkModels.NewStaticValueResourceIDSegment("staticThings", "things"),
+							sdkModels.NewUserSpecifiedResourceIDSegment("thing", "thing"),
 						},
 					},
 				},
@@ -140,28 +140,28 @@ func TestParseOperationSingleWithRequestObject(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Hello": {
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"Example": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.StringSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"PutWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						RequestObject: &models.SDKObjectDefinition{
-							Type:          models.ReferenceSDKObjectDefinitionType,
+						RequestObject: &sdkModels.SDKObjectDefinition{
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("Example"),
 						},
 						URISuffix: pointer.To("/things"),
@@ -182,28 +182,28 @@ func TestParseOperationSingleWithRequestObjectInlined(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Hello": {
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"Example": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.StringSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"PutWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						RequestObject: &models.SDKObjectDefinition{
-							Type:          models.ReferenceSDKObjectDefinitionType,
+						RequestObject: &sdkModels.SDKObjectDefinition{
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("Example"),
 						},
 						URISuffix: pointer.To("/things"),
@@ -224,28 +224,28 @@ func TestParseOperationSingleWithResponseObject(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Hello": {
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"Example": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.StringSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"GetWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
-							Type:          models.ReferenceSDKObjectDefinitionType,
+						ResponseObject: &sdkModels.SDKObjectDefinition{
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("Example"),
 						},
 						URISuffix: pointer.To("/things"),
@@ -266,28 +266,28 @@ func TestParseOperationSingleWithResponseObjectInlined(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Hello": {
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"Example": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.StringSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"GetWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
-							Type:          models.ReferenceSDKObjectDefinitionType,
+						ResponseObject: &sdkModels.SDKObjectDefinition{
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("Example"),
 						},
 						URISuffix: pointer.To("/things"),
@@ -308,30 +308,30 @@ func TestParseOperationSingleWithResponseObjectInlinedList(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Hello": {
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"Example": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.StringSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"GetWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
-							Type: models.ListSDKObjectDefinitionType,
-							NestedItem: &models.SDKObjectDefinition{
-								Type:          models.ReferenceSDKObjectDefinitionType,
+						ResponseObject: &sdkModels.SDKObjectDefinition{
+							Type: sdkModels.ListSDKObjectDefinitionType,
+							NestedItem: &sdkModels.SDKObjectDefinition{
+								Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 								ReferenceName: pointer.To("Example"),
 							},
 						},
@@ -353,15 +353,15 @@ func TestParseOperationSingleRequestingWithABool(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Hello": {
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"PutWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						RequestObject: &models.SDKObjectDefinition{
-							Type: models.BooleanSDKObjectDefinitionType,
+						RequestObject: &sdkModels.SDKObjectDefinition{
+							Type: sdkModels.BooleanSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/things"),
 					},
@@ -381,15 +381,15 @@ func TestParseOperationSingleRequestingWithAInteger(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Hello": {
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"PutWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						RequestObject: &models.SDKObjectDefinition{
-							Type: models.IntegerSDKObjectDefinitionType,
+						RequestObject: &sdkModels.SDKObjectDefinition{
+							Type: sdkModels.IntegerSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/things"),
 					},
@@ -409,17 +409,17 @@ func TestParseOperationSingleRequestingWithADictionaryOfStrings(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Hello": {
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"PutWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						RequestObject: &models.SDKObjectDefinition{
-							Type: models.DictionarySDKObjectDefinitionType,
-							NestedItem: &models.SDKObjectDefinition{
-								Type: models.StringSDKObjectDefinitionType,
+						RequestObject: &sdkModels.SDKObjectDefinition{
+							Type: sdkModels.DictionarySDKObjectDefinitionType,
+							NestedItem: &sdkModels.SDKObjectDefinition{
+								Type: sdkModels.StringSDKObjectDefinitionType,
 							},
 						},
 						URISuffix: pointer.To("/things"),
@@ -440,17 +440,17 @@ func TestParseOperationSingleRequestingWithAListOfStrings(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Hello": {
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"PutWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						RequestObject: &models.SDKObjectDefinition{
-							Type: models.ListSDKObjectDefinitionType,
-							NestedItem: &models.SDKObjectDefinition{
-								Type: models.StringSDKObjectDefinitionType,
+						RequestObject: &sdkModels.SDKObjectDefinition{
+							Type: sdkModels.ListSDKObjectDefinitionType,
+							NestedItem: &sdkModels.SDKObjectDefinition{
+								Type: sdkModels.StringSDKObjectDefinitionType,
 							},
 						},
 						URISuffix: pointer.To("/things"),
@@ -473,15 +473,15 @@ func TestParseOperationSingleRequestingWithAString(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Hello": {
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"PutWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						RequestObject: &models.SDKObjectDefinition{
-							Type: models.StringSDKObjectDefinitionType,
+						RequestObject: &sdkModels.SDKObjectDefinition{
+							Type: sdkModels.StringSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/things"),
 					},
@@ -501,15 +501,15 @@ func TestParseOperationSingleReturningABool(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Hello": {
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"GimmeABoolean": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
-							Type: models.BooleanSDKObjectDefinitionType,
+						ResponseObject: &sdkModels.SDKObjectDefinition{
+							Type: sdkModels.BooleanSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/worlds/favourite"),
 					},
@@ -529,15 +529,15 @@ func TestParseOperationSingleReturningAFloat(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Hello": {
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"GimmeAFloat": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
-							Type: models.FloatSDKObjectDefinitionType,
+						ResponseObject: &sdkModels.SDKObjectDefinition{
+							Type: sdkModels.FloatSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/worlds/favourite"),
 					},
@@ -557,15 +557,15 @@ func TestParseOperationSingleReturningAFile(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Hello": {
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"GimmeAFile": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
-							Type: models.RawFileSDKObjectDefinitionType,
+						ResponseObject: &sdkModels.SDKObjectDefinition{
+							Type: sdkModels.RawFileSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/worlds/favourite"),
 					},
@@ -585,15 +585,15 @@ func TestParseOperationSingleReturningAnInteger(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Hello": {
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"GimmeAnInteger": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
-							Type: models.IntegerSDKObjectDefinitionType,
+						ResponseObject: &sdkModels.SDKObjectDefinition{
+							Type: sdkModels.IntegerSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/worlds/favourite"),
 					},
@@ -613,15 +613,15 @@ func TestParseOperationSingleReturningAString(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Hello": {
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"GimmeAString": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
-							Type: models.StringSDKObjectDefinitionType,
+						ResponseObject: &sdkModels.SDKObjectDefinition{
+							Type: sdkModels.StringSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/worlds/favourite"),
 					},
@@ -642,15 +642,15 @@ func TestParseOperationSingleReturningAnErrorStatusCode(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Hello": {
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"GimmeAString": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
-							Type: models.StringSDKObjectDefinitionType,
+						ResponseObject: &sdkModels.SDKObjectDefinition{
+							Type: sdkModels.StringSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/worlds/favourite"),
 					},
@@ -670,18 +670,18 @@ func TestParseOperationSingleReturningATopLevelRawObject(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Hello": {
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"RawObjectToMeToYou": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						RequestObject: &models.SDKObjectDefinition{
-							Type: models.RawObjectSDKObjectDefinitionType,
+						RequestObject: &sdkModels.SDKObjectDefinition{
+							Type: sdkModels.RawObjectSDKObjectDefinitionType,
 						},
-						ResponseObject: &models.SDKObjectDefinition{
-							Type: models.RawObjectSDKObjectDefinitionType,
+						ResponseObject: &sdkModels.SDKObjectDefinition{
+							Type: sdkModels.RawObjectSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/chuckle"),
 					},
@@ -701,31 +701,31 @@ func TestParseOperationSingleReturningADictionaryOfAModel(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Hello": {
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"Person": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.StringSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"GimmeADictionaryOfAModel": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
-							Type: models.DictionarySDKObjectDefinitionType,
-							NestedItem: &models.SDKObjectDefinition{
+						ResponseObject: &sdkModels.SDKObjectDefinition{
+							Type: sdkModels.DictionarySDKObjectDefinitionType,
+							NestedItem: &sdkModels.SDKObjectDefinition{
 								ReferenceName: pointer.To("Person"),
-								Type:          models.ReferenceSDKObjectDefinitionType,
+								Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 							},
 						},
 						URISuffix: pointer.To("/worlds/favourite"),
@@ -746,17 +746,17 @@ func TestParseOperationSingleReturningADictionaryOfStrings(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Hello": {
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"GimmeADictionaryOfStrings": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
-							Type: models.DictionarySDKObjectDefinitionType,
-							NestedItem: &models.SDKObjectDefinition{
-								Type: models.StringSDKObjectDefinitionType,
+						ResponseObject: &sdkModels.SDKObjectDefinition{
+							Type: sdkModels.DictionarySDKObjectDefinitionType,
+							NestedItem: &sdkModels.SDKObjectDefinition{
+								Type: sdkModels.StringSDKObjectDefinitionType,
 							},
 						},
 						URISuffix: pointer.To("/worlds/favourite"),
@@ -777,17 +777,17 @@ func TestParseOperationSingleReturningAListOfIntegers(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Hello": {
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"GimmeAListOfIntegers": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
-							Type: models.ListSDKObjectDefinitionType,
-							NestedItem: &models.SDKObjectDefinition{
-								Type: models.IntegerSDKObjectDefinitionType,
+						ResponseObject: &sdkModels.SDKObjectDefinition{
+							Type: sdkModels.ListSDKObjectDefinitionType,
+							NestedItem: &sdkModels.SDKObjectDefinition{
+								Type: sdkModels.IntegerSDKObjectDefinitionType,
 							},
 						},
 						URISuffix: pointer.To("/worlds/favourite"),
@@ -808,31 +808,31 @@ func TestParseOperationSingleReturningAListOfAModel(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Hello": {
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"Person": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.StringSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"GimmeAListOfModels": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
-							Type: models.ListSDKObjectDefinitionType,
-							NestedItem: &models.SDKObjectDefinition{
+						ResponseObject: &sdkModels.SDKObjectDefinition{
+							Type: sdkModels.ListSDKObjectDefinitionType,
+							NestedItem: &sdkModels.SDKObjectDefinition{
 								ReferenceName: pointer.To("Person"),
-								Type:          models.ReferenceSDKObjectDefinitionType,
+								Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 							},
 						},
 						URISuffix: pointer.To("/worlds/favourite"),
@@ -853,17 +853,17 @@ func TestParseOperationSingleReturningAListOfStrings(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Hello": {
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"GimmeAListOfStrings": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
-							Type: models.ListSDKObjectDefinitionType,
-							NestedItem: &models.SDKObjectDefinition{
-								Type: models.StringSDKObjectDefinitionType,
+						ResponseObject: &sdkModels.SDKObjectDefinition{
+							Type: sdkModels.ListSDKObjectDefinitionType,
+							NestedItem: &sdkModels.SDKObjectDefinition{
+								Type: sdkModels.StringSDKObjectDefinitionType,
 							},
 						},
 						URISuffix: pointer.To("/worlds/favourite"),
@@ -884,33 +884,33 @@ func TestParseOperationSingleReturningAListOfListOfAModel(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Hello": {
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"Person": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.StringSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"GimmeAListOfListOfModels": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
-							Type: models.ListSDKObjectDefinitionType,
-							NestedItem: &models.SDKObjectDefinition{
-								Type: models.ListSDKObjectDefinitionType,
-								NestedItem: &models.SDKObjectDefinition{
+						ResponseObject: &sdkModels.SDKObjectDefinition{
+							Type: sdkModels.ListSDKObjectDefinitionType,
+							NestedItem: &sdkModels.SDKObjectDefinition{
+								Type: sdkModels.ListSDKObjectDefinitionType,
+								NestedItem: &sdkModels.SDKObjectDefinition{
 									ReferenceName: pointer.To("Person"),
-									Type:          models.ReferenceSDKObjectDefinitionType,
+									Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 								},
 							},
 						},
@@ -932,19 +932,19 @@ func TestParseOperationSingleReturningAListOfListOfStrings(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Hello": {
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"GimmeAListOfListOfStrings": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
-							Type: models.ListSDKObjectDefinitionType,
-							NestedItem: &models.SDKObjectDefinition{
-								Type: models.ListSDKObjectDefinitionType,
-								NestedItem: &models.SDKObjectDefinition{
-									Type: models.StringSDKObjectDefinitionType,
+						ResponseObject: &sdkModels.SDKObjectDefinition{
+							Type: sdkModels.ListSDKObjectDefinitionType,
+							NestedItem: &sdkModels.SDKObjectDefinition{
+								Type: sdkModels.ListSDKObjectDefinitionType,
+								NestedItem: &sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
 								},
 							},
 						},
@@ -966,30 +966,30 @@ func TestParseOperationSingleWithList(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Hello": {
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"World": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.StringSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"ListWorlds": {
 						ContentType:                      "application/json",
 						ExpectedStatusCodes:              []int{200},
 						FieldContainingPaginationDetails: pointer.To("nextLink"),
 						Method:                           "GET",
-						ResponseObject: &models.SDKObjectDefinition{
+						ResponseObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("World"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/worlds"),
 					},
@@ -1011,22 +1011,22 @@ func TestParseOperationSingleWithListWhichIsNotAList(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Hello": {
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"World": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.StringSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"ListWorlds": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -1036,9 +1036,9 @@ func TestParseOperationSingleWithListWhichIsNotAList(t *testing.T) {
 						// a list operation, even if there's a `skipToken` present.
 						FieldContainingPaginationDetails: nil,
 						Method:                           "GET",
-						ResponseObject: &models.SDKObjectDefinition{
+						ResponseObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("World"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/worlds"),
 					},
@@ -1058,16 +1058,16 @@ func TestParseOperationSingleWithListReturningAListOfStrings(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Hello": {
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"ListWorlds": {
 						ContentType:                      "application/json",
 						ExpectedStatusCodes:              []int{200},
 						FieldContainingPaginationDetails: pointer.To("nextLink"),
 						Method:                           "GET",
-						ResponseObject: &models.SDKObjectDefinition{
-							Type: models.StringSDKObjectDefinitionType,
+						ResponseObject: &sdkModels.SDKObjectDefinition{
+							Type: sdkModels.StringSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/worlds"),
 					},
@@ -1089,30 +1089,30 @@ func TestParseOperationSingleWithListWithoutPageable(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Hello": {
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"World": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.StringSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"ListWorlds": {
 						ContentType:                      "application/json",
 						ExpectedStatusCodes:              []int{200},
 						FieldContainingPaginationDetails: pointer.To("nextLink"),
 						Method:                           "GET",
-						ResponseObject: &models.SDKObjectDefinition{
+						ResponseObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("World"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/worlds"),
 					},
@@ -1132,30 +1132,30 @@ func TestParseOperationSingleWithLongRunningOperation(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Hello": {
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"Example": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.StringSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"PutWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						LongRunning:         true,
 						Method:              "PUT",
-						RequestObject: &models.SDKObjectDefinition{
+						RequestObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/things"),
 					},
@@ -1175,33 +1175,33 @@ func TestParseOperationSingleWithRequestAndResponseObject(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Hello": {
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"Example": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.StringSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"PutWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						RequestObject: &models.SDKObjectDefinition{
+						RequestObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
-						ResponseObject: &models.SDKObjectDefinition{
+						ResponseObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/things"),
 					},
@@ -1221,9 +1221,9 @@ func TestParseOperationSingleWithMultipleTags(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Hello": {
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"HeadThings": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -1233,7 +1233,7 @@ func TestParseOperationSingleWithMultipleTags(t *testing.T) {
 				},
 			},
 			"Other": {
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					// Whilst the operation name should be `HeadThings`, since this is another Tag
 					// it's intentionally prefixed for when things cross boundaries (to avoid conflicts)
 					"HelloHeadThings": {
@@ -1258,10 +1258,10 @@ func TestParseOperationSingleWithInferredTag(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			// since there's no tags, the file name is used to infer the tag (in this case, 'OperationsSingleWithNoTags')
 			"OperationsSingleWithNoTags": {
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					// since the prefix doesn't match the Tag (since no tag) this gets a combined name
 					"HelloHeadWorld": {
 						ContentType:         "application/json",
@@ -1285,66 +1285,66 @@ func TestParseOperationSingleWithHeaderOptions(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Hello": {
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"HeadWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						Options: map[string]models.SDKOperationOption{
+						Options: map[string]sdkModels.SDKOperationOption{
 							"BoolValue": {
 								HeaderName: pointer.To("boolValue"),
-								ObjectDefinition: models.SDKOperationOptionObjectDefinition{
-									Type: models.BooleanSDKOperationOptionObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKOperationOptionObjectDefinition{
+									Type: sdkModels.BooleanSDKOperationOptionObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"CsvOfDoubleValue": {
 								HeaderName: pointer.To("csvOfDoubleValue"),
-								ObjectDefinition: models.SDKOperationOptionObjectDefinition{
-									Type: models.CSVSDKOperationOptionObjectDefinitionType,
-									NestedItem: &models.SDKOperationOptionObjectDefinition{
-										Type: models.FloatSDKOperationOptionObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKOperationOptionObjectDefinition{
+									Type: sdkModels.CSVSDKOperationOptionObjectDefinitionType,
+									NestedItem: &sdkModels.SDKOperationOptionObjectDefinition{
+										Type: sdkModels.FloatSDKOperationOptionObjectDefinitionType,
 									},
 								},
 								Required: true,
 							},
 							"CsvOfStringValue": {
 								HeaderName: pointer.To("csvOfStringValue"),
-								ObjectDefinition: models.SDKOperationOptionObjectDefinition{
-									Type: models.CSVSDKOperationOptionObjectDefinitionType,
-									NestedItem: &models.SDKOperationOptionObjectDefinition{
-										Type: models.StringSDKOperationOptionObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKOperationOptionObjectDefinition{
+									Type: sdkModels.CSVSDKOperationOptionObjectDefinitionType,
+									NestedItem: &sdkModels.SDKOperationOptionObjectDefinition{
+										Type: sdkModels.StringSDKOperationOptionObjectDefinitionType,
 									},
 								},
 								Required: true,
 							},
 							"DecimalValue": {
 								HeaderName: pointer.To("decimalValue"),
-								ObjectDefinition: models.SDKOperationOptionObjectDefinition{
-									Type: models.FloatSDKOperationOptionObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKOperationOptionObjectDefinition{
+									Type: sdkModels.FloatSDKOperationOptionObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"DoubleValue": {
 								HeaderName: pointer.To("doubleValue"),
-								ObjectDefinition: models.SDKOperationOptionObjectDefinition{
-									Type: models.FloatSDKOperationOptionObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKOperationOptionObjectDefinition{
+									Type: sdkModels.FloatSDKOperationOptionObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"IntValue": {
 								HeaderName: pointer.To("intValue"),
-								ObjectDefinition: models.SDKOperationOptionObjectDefinition{
-									Type: models.IntegerSDKOperationOptionObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKOperationOptionObjectDefinition{
+									Type: sdkModels.IntegerSDKOperationOptionObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"StringValue": {
 								HeaderName: pointer.To("stringValue"),
-								ObjectDefinition: models.SDKOperationOptionObjectDefinition{
-									Type: models.StringSDKOperationOptionObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKOperationOptionObjectDefinition{
+									Type: sdkModels.StringSDKOperationOptionObjectDefinitionType,
 								},
 								Required: true,
 							},
@@ -1367,66 +1367,66 @@ func TestParseOperationSingleWithQueryStringOptions(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Hello": {
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"HeadWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
-						Options: map[string]models.SDKOperationOption{
+						Options: map[string]sdkModels.SDKOperationOption{
 							"BoolValue": {
 								QueryStringName: pointer.To("boolValue"),
-								ObjectDefinition: models.SDKOperationOptionObjectDefinition{
-									Type: models.BooleanSDKOperationOptionObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKOperationOptionObjectDefinition{
+									Type: sdkModels.BooleanSDKOperationOptionObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"CsvOfDoubleValue": {
 								QueryStringName: pointer.To("csvOfDoubleValue"),
-								ObjectDefinition: models.SDKOperationOptionObjectDefinition{
-									Type: models.CSVSDKOperationOptionObjectDefinitionType,
-									NestedItem: &models.SDKOperationOptionObjectDefinition{
-										Type: models.FloatSDKOperationOptionObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKOperationOptionObjectDefinition{
+									Type: sdkModels.CSVSDKOperationOptionObjectDefinitionType,
+									NestedItem: &sdkModels.SDKOperationOptionObjectDefinition{
+										Type: sdkModels.FloatSDKOperationOptionObjectDefinitionType,
 									},
 								},
 								Required: true,
 							},
 							"CsvOfStringValue": {
 								QueryStringName: pointer.To("csvOfStringValue"),
-								ObjectDefinition: models.SDKOperationOptionObjectDefinition{
-									Type: models.CSVSDKOperationOptionObjectDefinitionType,
-									NestedItem: &models.SDKOperationOptionObjectDefinition{
-										Type: models.StringSDKOperationOptionObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKOperationOptionObjectDefinition{
+									Type: sdkModels.CSVSDKOperationOptionObjectDefinitionType,
+									NestedItem: &sdkModels.SDKOperationOptionObjectDefinition{
+										Type: sdkModels.StringSDKOperationOptionObjectDefinitionType,
 									},
 								},
 								Required: true,
 							},
 							"DecimalValue": {
 								QueryStringName: pointer.To("decimalValue"),
-								ObjectDefinition: models.SDKOperationOptionObjectDefinition{
-									Type: models.FloatSDKOperationOptionObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKOperationOptionObjectDefinition{
+									Type: sdkModels.FloatSDKOperationOptionObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"DoubleValue": {
 								QueryStringName: pointer.To("doubleValue"),
-								ObjectDefinition: models.SDKOperationOptionObjectDefinition{
-									Type: models.FloatSDKOperationOptionObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKOperationOptionObjectDefinition{
+									Type: sdkModels.FloatSDKOperationOptionObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"IntValue": {
 								QueryStringName: pointer.To("intValue"),
-								ObjectDefinition: models.SDKOperationOptionObjectDefinition{
-									Type: models.IntegerSDKOperationOptionObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKOperationOptionObjectDefinition{
+									Type: sdkModels.IntegerSDKOperationOptionObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"StringValue": {
 								QueryStringName: pointer.To("stringValue"),
-								ObjectDefinition: models.SDKOperationOptionObjectDefinition{
-									Type: models.StringSDKOperationOptionObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKOperationOptionObjectDefinition{
+									Type: sdkModels.StringSDKOperationOptionObjectDefinitionType,
 								},
 								Required: true,
 							},
@@ -1449,9 +1449,9 @@ func TestParseOperationMultipleBasedOnTheSameResourceId(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Hello": {
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"HeadWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -1466,17 +1466,17 @@ func TestParseOperationMultipleBasedOnTheSameResourceId(t *testing.T) {
 						URISuffix:           pointer.To("/restart"),
 					},
 				},
-				ResourceIds: map[string]models.ResourceID{
+				ResourceIDs: map[string]sdkModels.ResourceID{
 					"ThingId": {
-						Segments: []models.ResourceIDSegment{
-							models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
-							models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-							models.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
-							models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-							models.NewStaticValueResourceIDSegment("staticProviders", "providers"),
-							models.NewResourceProviderResourceIDSegment("staticMicrosoftFooBar", "Microsoft.FooBar"),
-							models.NewStaticValueResourceIDSegment("staticThings", "things"),
-							models.NewUserSpecifiedResourceIDSegment("thing", "thing"),
+						Segments: []sdkModels.ResourceIDSegment{
+							sdkModels.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
+							sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+							sdkModels.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
+							sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+							sdkModels.NewStaticValueResourceIDSegment("staticProviders", "providers"),
+							sdkModels.NewResourceProviderResourceIDSegment("staticMicrosoftFooBar", "Microsoft.FooBar"),
+							sdkModels.NewStaticValueResourceIDSegment("staticThings", "things"),
+							sdkModels.NewUserSpecifiedResourceIDSegment("thing", "thing"),
 						},
 					},
 				},
@@ -1495,9 +1495,9 @@ func TestParseOperationsContainingContentTypes(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Hello": {
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"Default": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -1508,8 +1508,8 @@ func TestParseOperationsContainingContentTypes(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						RequestObject: &models.SDKObjectDefinition{
-							Type: models.StringSDKObjectDefinitionType,
+						RequestObject: &sdkModels.SDKObjectDefinition{
+							Type: sdkModels.StringSDKObjectDefinitionType,
 						},
 						// this can become `/json-request` when https://github.com/hashicorp/pandora/issues/3807 is fixed
 						URISuffix: pointer.To("/jsonRequest"),
@@ -1518,8 +1518,8 @@ func TestParseOperationsContainingContentTypes(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						ResponseObject: &models.SDKObjectDefinition{
-							Type: models.StringSDKObjectDefinitionType,
+						ResponseObject: &sdkModels.SDKObjectDefinition{
+							Type: sdkModels.StringSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/jsonResponse"),
 					},
@@ -1527,8 +1527,8 @@ func TestParseOperationsContainingContentTypes(t *testing.T) {
 						ContentType:         "application/xml",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						RequestObject: &models.SDKObjectDefinition{
-							Type: models.StringSDKObjectDefinitionType,
+						RequestObject: &sdkModels.SDKObjectDefinition{
+							Type: sdkModels.StringSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/xmlRequest"),
 					},
@@ -1536,8 +1536,8 @@ func TestParseOperationsContainingContentTypes(t *testing.T) {
 						ContentType:         "application/xml",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						ResponseObject: &models.SDKObjectDefinition{
-							Type: models.StringSDKObjectDefinitionType,
+						ResponseObject: &sdkModels.SDKObjectDefinition{
+							Type: sdkModels.StringSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/xmlResponse"),
 					},
@@ -1557,29 +1557,29 @@ func TestParseOperationContainingMultipleReturnObjects(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Hello": {
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"FirstModel": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"Hello": {
 								JsonName: "hello",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.StringSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"HeadWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200, 202},
 						Method:              "PUT",
-						ResponseObject: &models.SDKObjectDefinition{
+						ResponseObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("FirstModel"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/things"),
 					},
@@ -1599,9 +1599,9 @@ func TestParseOperationsWithStutteringNames(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"ExampleTag": {
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"Mars": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},

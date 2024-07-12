@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
@@ -53,15 +53,15 @@ func (workaroundBotService27351) Process(input importerModels.AzureApiDefinition
 		return nil, fmt.Errorf("expected a Resource named `Channel` but didn't get one")
 	}
 	// ensure we've got the Resource ID we're going to switch over to
-	if _, ok := resource.ResourceIds["BotServiceChannelId"]; !ok {
+	if _, ok := resource.ResourceIDs["BotServiceChannelId"]; !ok {
 		return nil, fmt.Errorf("expected a Resource ID named `BotServiceChannelId` but didn't get one")
 	}
 
 	// ensure we've got the mismatched Resource ID in order to remove it
-	if _, ok := resource.ResourceIds["ChannelId"]; !ok {
+	if _, ok := resource.ResourceIDs["ChannelId"]; !ok {
 		return nil, fmt.Errorf("expected a Resource ID named `ChannelId` but didn't get one")
 	}
-	delete(resource.ResourceIds, "ChannelId")
+	delete(resource.ResourceIDs, "ChannelId")
 
 	for operationName, operation := range resource.Operations {
 		if operation.ResourceIDName != nil && *operation.ResourceIDName == "ChannelId" {
@@ -75,7 +75,7 @@ func (workaroundBotService27351) Process(input importerModels.AzureApiDefinition
 	if !ok {
 		return nil, fmt.Errorf("expected a Constant named `EmailChannelAuthMethod` but didn't get one")
 	}
-	constant.Type = models.IntegerSDKConstantType
+	constant.Type = sdkModels.IntegerSDKConstantType
 	resource.Constants["EmailChannelAuthMethod"] = constant
 
 	output.Resources["Channel"] = resource

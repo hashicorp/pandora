@@ -3,31 +3,29 @@
 
 package resourceids
 
-import (
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-)
+import sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 
 var _ commonIdMatcher = commonIdVMwareSiteMachine{}
 
 type commonIdVMwareSiteMachine struct {
 }
 
-func (c commonIdVMwareSiteMachine) id() models.ResourceID {
+func (c commonIdVMwareSiteMachine) id() sdkModels.ResourceID {
 	name := "VMwareSiteMachine"
-	return models.ResourceID{
+	return sdkModels.ResourceID{
 		CommonIDAlias: &name,
 		ConstantNames: []string{},
-		Segments: []models.ResourceIDSegment{
-			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
-			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-			models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
-			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-			models.NewStaticValueResourceIDSegment("providers", "providers"),
-			models.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.OffAzure"),
-			models.NewStaticValueResourceIDSegment("vmwareSites", "vmwareSites"),
-			models.NewUserSpecifiedResourceIDSegment("vmwareSiteName", "vmwareSiteName"),
-			models.NewStaticValueResourceIDSegment("machines", "machines"),
-			models.NewUserSpecifiedResourceIDSegment("machineName", "machineName"),
+		Segments: []sdkModels.ResourceIDSegment{
+			sdkModels.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+			sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			sdkModels.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+			sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			sdkModels.NewStaticValueResourceIDSegment("providers", "providers"),
+			sdkModels.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.OffAzure"),
+			sdkModels.NewStaticValueResourceIDSegment("vmwareSites", "vmwareSites"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("vmwareSiteName", "vmwareSiteName"),
+			sdkModels.NewStaticValueResourceIDSegment("machines", "machines"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("machineName", "machineName"),
 		},
 	}
 }

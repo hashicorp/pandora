@@ -7,7 +7,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
@@ -20,24 +20,24 @@ func TestParseModelWithADictionaryOfIntegers(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Hello": {
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"Example": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.StringSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"MapField": {
 								JsonName: "mapField",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.DictionarySDKObjectDefinitionType,
-									NestedItem: &models.SDKObjectDefinition{
-										Type: models.IntegerSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.DictionarySDKObjectDefinitionType,
+									NestedItem: &sdkModels.SDKObjectDefinition{
+										Type: sdkModels.IntegerSDKObjectDefinitionType,
 									},
 								},
 								Required: false,
@@ -45,14 +45,14 @@ func TestParseModelWithADictionaryOfIntegers(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"GetWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
+						ResponseObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/things"),
 					},
@@ -72,24 +72,24 @@ func TestParseModelWithADictionaryOfIntegersInlined(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Hello": {
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"Example": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.StringSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"MapField": {
 								JsonName: "mapField",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.DictionarySDKObjectDefinitionType,
-									NestedItem: &models.SDKObjectDefinition{
-										Type: models.IntegerSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.DictionarySDKObjectDefinitionType,
+									NestedItem: &sdkModels.SDKObjectDefinition{
+										Type: sdkModels.IntegerSDKObjectDefinitionType,
 									},
 								},
 								Required: false,
@@ -97,14 +97,14 @@ func TestParseModelWithADictionaryOfIntegersInlined(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"GetWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
+						ResponseObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/things"),
 					},
@@ -124,72 +124,72 @@ func TestParseModelWithADictionaryOfAnObject(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Hello": {
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"Example": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.StringSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"MapField": {
 								JsonName: "mapField",
-								ObjectDefinition: models.SDKObjectDefinition{
-									NestedItem: &models.SDKObjectDefinition{
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									NestedItem: &sdkModels.SDKObjectDefinition{
 										ReferenceName: pointer.To("MapFieldProperties"),
-										Type:          models.ReferenceSDKObjectDefinitionType,
+										Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 									},
-									Type: models.DictionarySDKObjectDefinitionType,
+									Type: sdkModels.DictionarySDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 					"MapFieldProperties": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"Line1": {
 								JsonName: "line1",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.StringSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Line2": {
 								JsonName: "line2",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.StringSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"City": {
 								JsonName: "city",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.StringSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Country": {
 								JsonName: "country",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.StringSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"GetWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
+						ResponseObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/things"),
 					},
@@ -209,72 +209,72 @@ func TestParseModelWithADictionaryOfAnObjectInlined(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Hello": {
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"Example": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.StringSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"MapField": {
 								JsonName: "mapField",
-								ObjectDefinition: models.SDKObjectDefinition{
-									NestedItem: &models.SDKObjectDefinition{
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									NestedItem: &sdkModels.SDKObjectDefinition{
 										ReferenceName: pointer.To("MapFieldProperties"),
-										Type:          models.ReferenceSDKObjectDefinitionType,
+										Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 									},
-									Type: models.DictionarySDKObjectDefinitionType,
+									Type: sdkModels.DictionarySDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 					"MapFieldProperties": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"Line1": {
 								JsonName: "line1",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.StringSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Line2": {
 								JsonName: "line2",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.StringSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"City": {
 								JsonName: "city",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.StringSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"Country": {
 								JsonName: "country",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.StringSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"GetWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
+						ResponseObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/things"),
 					},
@@ -294,24 +294,24 @@ func TestParseModelWithADictionaryOfString(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Hello": {
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"Example": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.StringSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"MapField": {
 								JsonName: "mapField",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.DictionarySDKObjectDefinitionType,
-									NestedItem: &models.SDKObjectDefinition{
-										Type: models.StringSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.DictionarySDKObjectDefinitionType,
+									NestedItem: &sdkModels.SDKObjectDefinition{
+										Type: sdkModels.StringSDKObjectDefinitionType,
 									},
 								},
 								Required: false,
@@ -319,14 +319,14 @@ func TestParseModelWithADictionaryOfString(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"GetWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
+						ResponseObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/things"),
 					},
@@ -346,24 +346,24 @@ func TestParseModelWithADictionaryOfStringInlined(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Hello": {
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"Example": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.StringSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 							"MapField": {
 								JsonName: "mapField",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.DictionarySDKObjectDefinitionType,
-									NestedItem: &models.SDKObjectDefinition{
-										Type: models.StringSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.DictionarySDKObjectDefinitionType,
+									NestedItem: &sdkModels.SDKObjectDefinition{
+										Type: sdkModels.StringSDKObjectDefinitionType,
 									},
 								},
 								Required: false,
@@ -371,14 +371,14 @@ func TestParseModelWithADictionaryOfStringInlined(t *testing.T) {
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"GetWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
+						ResponseObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/things"),
 					},

@@ -4,29 +4,29 @@
 package resourceids
 
 import (
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 var _ commonIdMatcher = commonIdSqlElasticPool{}
 
 type commonIdSqlElasticPool struct{}
 
-func (c commonIdSqlElasticPool) id() models.ResourceID {
+func (c commonIdSqlElasticPool) id() sdkModels.ResourceID {
 	name := "SqlElasticPool"
-	return models.ResourceID{
+	return sdkModels.ResourceID{
 		CommonIDAlias: &name,
 		ConstantNames: []string{},
-		Segments: []models.ResourceIDSegment{
-			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
-			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-			models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
-			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-			models.NewStaticValueResourceIDSegment("providers", "providers"),
-			models.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Sql"),
-			models.NewStaticValueResourceIDSegment("servers", "servers"),
-			models.NewUserSpecifiedResourceIDSegment("serverName", "serverName"),
-			models.NewStaticValueResourceIDSegment("elasticPools", "elasticPools"),
-			models.NewUserSpecifiedResourceIDSegment("elasticPoolName", "elasticPoolName"),
+		Segments: []sdkModels.ResourceIDSegment{
+			sdkModels.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+			sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			sdkModels.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+			sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			sdkModels.NewStaticValueResourceIDSegment("providers", "providers"),
+			sdkModels.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Sql"),
+			sdkModels.NewStaticValueResourceIDSegment("servers", "servers"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("serverName", "serverName"),
+			sdkModels.NewStaticValueResourceIDSegment("elasticPools", "elasticPools"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("elasticPoolName", "elasticPoolName"),
 		},
 	}
 }

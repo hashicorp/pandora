@@ -4,27 +4,27 @@
 package resourceids
 
 import (
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 var _ commonIdMatcher = commonIdBotService{}
 
 type commonIdBotService struct{}
 
-func (commonIdBotService) id() models.ResourceID {
+func (commonIdBotService) id() sdkModels.ResourceID {
 	name := "BotService"
-	return models.ResourceID{
+	return sdkModels.ResourceID{
 		CommonIDAlias: &name,
 		ConstantNames: []string{},
-		Segments: []models.ResourceIDSegment{
-			models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
-			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-			models.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
-			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-			models.NewStaticValueResourceIDSegment("staticProviders", "providers"),
-			models.NewResourceProviderResourceIDSegment("staticMicrosoftBotService", "Microsoft.BotService"),
-			models.NewStaticValueResourceIDSegment("staticBotServices", "botServices"),
-			models.NewUserSpecifiedResourceIDSegment("botServiceName", "botServiceName"),
+		Segments: []sdkModels.ResourceIDSegment{
+			sdkModels.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
+			sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			sdkModels.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
+			sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			sdkModels.NewStaticValueResourceIDSegment("staticProviders", "providers"),
+			sdkModels.NewResourceProviderResourceIDSegment("staticMicrosoftBotService", "Microsoft.BotService"),
+			sdkModels.NewStaticValueResourceIDSegment("staticBotServices", "botServices"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("botServiceName", "botServiceName"),
 		},
 	}
 }

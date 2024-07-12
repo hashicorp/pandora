@@ -4,21 +4,21 @@
 package resourceids
 
 import (
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 var _ commonIdMatcher = commonIdSubscriptionMatcher{}
 
 type commonIdSubscriptionMatcher struct{}
 
-func (commonIdSubscriptionMatcher) id() models.ResourceID {
+func (commonIdSubscriptionMatcher) id() sdkModels.ResourceID {
 	name := "Subscription"
-	return models.ResourceID{
+	return sdkModels.ResourceID{
 		CommonIDAlias: &name,
 		ConstantNames: []string{},
-		Segments: []models.ResourceIDSegment{
-			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
-			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+		Segments: []sdkModels.ResourceIDSegment{
+			sdkModels.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+			sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
 		},
 	}
 }

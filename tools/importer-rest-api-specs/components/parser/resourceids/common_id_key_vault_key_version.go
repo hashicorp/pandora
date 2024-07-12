@@ -4,31 +4,31 @@
 package resourceids
 
 import (
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 var _ commonIdMatcher = commonIdKeyVaultKeyVersion{}
 
 type commonIdKeyVaultKeyVersion struct{}
 
-func (c commonIdKeyVaultKeyVersion) id() models.ResourceID {
+func (c commonIdKeyVaultKeyVersion) id() sdkModels.ResourceID {
 	name := "KeyVaultKeyVersion"
-	return models.ResourceID{
+	return sdkModels.ResourceID{
 		CommonIDAlias: &name,
 		ConstantNames: []string{},
-		Segments: []models.ResourceIDSegment{
-			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
-			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-			models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
-			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-			models.NewStaticValueResourceIDSegment("providers", "providers"),
-			models.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.KeyVault"),
-			models.NewStaticValueResourceIDSegment("vaults", "vaults"),
-			models.NewUserSpecifiedResourceIDSegment("vaultName", "vaultName"),
-			models.NewStaticValueResourceIDSegment("keys", "keys"),
-			models.NewUserSpecifiedResourceIDSegment("keyName", "keyName"),
-			models.NewStaticValueResourceIDSegment("versions", "versions"),
-			models.NewUserSpecifiedResourceIDSegment("versionName", "versionName"),
+		Segments: []sdkModels.ResourceIDSegment{
+			sdkModels.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+			sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			sdkModels.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+			sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			sdkModels.NewStaticValueResourceIDSegment("providers", "providers"),
+			sdkModels.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.KeyVault"),
+			sdkModels.NewStaticValueResourceIDSegment("vaults", "vaults"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("vaultName", "vaultName"),
+			sdkModels.NewStaticValueResourceIDSegment("keys", "keys"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("keyName", "keyName"),
+			sdkModels.NewStaticValueResourceIDSegment("versions", "versions"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("versionName", "versionName"),
 		},
 	}
 }

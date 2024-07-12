@@ -7,7 +7,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
@@ -20,23 +20,23 @@ func TestParseResourceIdBasic(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Example": {
-				ResourceIds: map[string]models.ResourceID{
+				ResourceIDs: map[string]sdkModels.ResourceID{
 					"ServerId": {
-						Segments: []models.ResourceIDSegment{
-							models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
-							models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-							models.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
-							models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-							models.NewStaticValueResourceIDSegment("staticProviders", "providers"),
-							models.NewResourceProviderResourceIDSegment("staticMicrosoftSomeResourceProvider", "Microsoft.SomeResourceProvider"),
-							models.NewStaticValueResourceIDSegment("staticServers", "servers"),
-							models.NewUserSpecifiedResourceIDSegment("serverName", "serverName"),
+						Segments: []sdkModels.ResourceIDSegment{
+							sdkModels.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
+							sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+							sdkModels.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
+							sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+							sdkModels.NewStaticValueResourceIDSegment("staticProviders", "providers"),
+							sdkModels.NewResourceProviderResourceIDSegment("staticMicrosoftSomeResourceProvider", "Microsoft.SomeResourceProvider"),
+							sdkModels.NewStaticValueResourceIDSegment("staticServers", "servers"),
+							sdkModels.NewUserSpecifiedResourceIDSegment("serverName", "serverName"),
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -59,11 +59,11 @@ func TestParseResourceIdContainingAConstant(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Example": {
-				Constants: map[string]models.SDKConstant{
+				Constants: map[string]sdkModels.SDKConstant{
 					"Planet": {
-						Type: models.StringSDKConstantType,
+						Type: sdkModels.StringSDKConstantType,
 						Values: map[string]string{
 							"Earth":   "Earth",
 							"Jupiter": "Jupiter",
@@ -72,18 +72,18 @@ func TestParseResourceIdContainingAConstant(t *testing.T) {
 						},
 					},
 				},
-				ResourceIds: map[string]models.ResourceID{
+				ResourceIDs: map[string]sdkModels.ResourceID{
 					"PlanetId": {
 						ConstantNames: []string{
 							"Planet",
 						},
-						Segments: []models.ResourceIDSegment{
-							models.NewStaticValueResourceIDSegment("staticPlanets", "planets"),
-							models.NewConstantResourceIDSegment("planetName", "Planet", "Earth"),
+						Segments: []sdkModels.ResourceIDSegment{
+							sdkModels.NewStaticValueResourceIDSegment("staticPlanets", "planets"),
+							sdkModels.NewConstantResourceIDSegment("planetName", "Planet", "Earth"),
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"OperationContainingAConstant": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -106,20 +106,20 @@ func TestParseResourceIdContainingAScope(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Example": {
-				ResourceIds: map[string]models.ResourceID{
+				ResourceIDs: map[string]sdkModels.ResourceID{
 					"ScopedVirtualMachineId": {
-						Segments: []models.ResourceIDSegment{
-							models.NewScopeResourceIDSegment("scope"),
-							models.NewStaticValueResourceIDSegment("staticProviders", "providers"),
-							models.NewResourceProviderResourceIDSegment("staticMicrosoftFooBar", "Microsoft.FooBar"),
-							models.NewStaticValueResourceIDSegment("staticVirtualMachines", "virtualMachines"),
-							models.NewUserSpecifiedResourceIDSegment("virtualMachineName", "virtualMachinesName"),
+						Segments: []sdkModels.ResourceIDSegment{
+							sdkModels.NewScopeResourceIDSegment("scope"),
+							sdkModels.NewStaticValueResourceIDSegment("staticProviders", "providers"),
+							sdkModels.NewResourceProviderResourceIDSegment("staticMicrosoftFooBar", "Microsoft.FooBar"),
+							sdkModels.NewStaticValueResourceIDSegment("staticVirtualMachines", "virtualMachines"),
+							sdkModels.NewUserSpecifiedResourceIDSegment("virtualMachineName", "virtualMachinesName"),
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"OperationContainingAScope": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -151,17 +151,17 @@ func TestParseResourceIdContainingAHiddenScope(t *testing.T) {
 			expected := importerModels.AzureApiDefinition{
 				ServiceName: "Example",
 				ApiVersion:  "2020-01-01",
-				Resources: map[string]importerModels.AzureApiResource{
+				Resources: map[string]sdkModels.APIResource{
 					"Example": {
-						ResourceIds: map[string]models.ResourceID{
+						ResourceIDs: map[string]sdkModels.ResourceID{
 							"ScopeId": {
 								CommonIDAlias: pointer.To("Scope"),
-								Segments: []models.ResourceIDSegment{
-									models.NewScopeResourceIDSegment("scope"),
+								Segments: []sdkModels.ResourceIDSegment{
+									sdkModels.NewScopeResourceIDSegment("scope"),
 								},
 							},
 						},
-						Operations: map[string]models.SDKOperation{
+						Operations: map[string]sdkModels.SDKOperation{
 							"OperationContainingAHiddenScope": {
 								ContentType:         "application/json",
 								ExpectedStatusCodes: []int{200},
@@ -187,17 +187,17 @@ func TestParseResourceIdContainingAHiddenScopeWithExtraSegment(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Example": {
-				ResourceIds: map[string]models.ResourceID{
+				ResourceIDs: map[string]sdkModels.ResourceID{
 					"ScopeId": {
 						CommonIDAlias: pointer.To("Scope"),
-						Segments: []models.ResourceIDSegment{
-							models.NewScopeResourceIDSegment("scope"),
+						Segments: []sdkModels.ResourceIDSegment{
+							sdkModels.NewScopeResourceIDSegment("scope"),
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"OperationContainingAHiddenScope": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -220,17 +220,17 @@ func TestParseResourceIdContainingAHiddenScopeWithSuffix(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Example": {
-				ResourceIds: map[string]models.ResourceID{
+				ResourceIDs: map[string]sdkModels.ResourceID{
 					"ScopeId": {
 						CommonIDAlias: pointer.To("Scope"),
-						Segments: []models.ResourceIDSegment{
-							models.NewScopeResourceIDSegment("scope"),
+						Segments: []sdkModels.ResourceIDSegment{
+							sdkModels.NewScopeResourceIDSegment("scope"),
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"OperationContainingAHiddenScope": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -263,17 +263,17 @@ func TestParseResourceIdContainingAHiddenScopeNested(t *testing.T) {
 			expected := importerModels.AzureApiDefinition{
 				ServiceName: "Example",
 				ApiVersion:  "2020-01-01",
-				Resources: map[string]importerModels.AzureApiResource{
+				Resources: map[string]sdkModels.APIResource{
 					"Example": {
-						ResourceIds: map[string]models.ResourceID{
+						ResourceIDs: map[string]sdkModels.ResourceID{
 							"ScopeId": {
 								CommonIDAlias: pointer.To("Scope"),
-								Segments: []models.ResourceIDSegment{
-									models.NewScopeResourceIDSegment("scope"),
+								Segments: []sdkModels.ResourceIDSegment{
+									sdkModels.NewScopeResourceIDSegment("scope"),
 								},
 							},
 						},
-						Operations: map[string]models.SDKOperation{
+						Operations: map[string]sdkModels.SDKOperation{
 							"OperationContainingAHiddenScope": {
 								ContentType:         "application/json",
 								ExpectedStatusCodes: []int{200},
@@ -298,17 +298,17 @@ func TestParseResourceIdContainingAHiddenScopeNestedWithExtraSegment(t *testing.
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Example": {
-				ResourceIds: map[string]models.ResourceID{
+				ResourceIDs: map[string]sdkModels.ResourceID{
 					"ScopeId": {
 						CommonIDAlias: pointer.To("Scope"),
-						Segments: []models.ResourceIDSegment{
-							models.NewScopeResourceIDSegment("scope"),
+						Segments: []sdkModels.ResourceIDSegment{
+							sdkModels.NewScopeResourceIDSegment("scope"),
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"OperationContainingAHiddenScope": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -331,17 +331,17 @@ func TestParseResourceIdContainingAHiddenScopeNestedWithSuffix(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Example": {
-				ResourceIds: map[string]models.ResourceID{
+				ResourceIDs: map[string]sdkModels.ResourceID{
 					"ScopeId": {
 						CommonIDAlias: pointer.To("Scope"),
-						Segments: []models.ResourceIDSegment{
-							models.NewScopeResourceIDSegment("scope"),
+						Segments: []sdkModels.ResourceIDSegment{
+							sdkModels.NewScopeResourceIDSegment("scope"),
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"OperationContainingAHiddenScope": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -365,9 +365,9 @@ func TestParseResourceIdWithJustUriSuffix(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Example": {
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"JustSuffix": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -390,23 +390,23 @@ func TestParseResourceIdWithResourceIdAndUriSuffix(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Example": {
-				ResourceIds: map[string]models.ResourceID{
+				ResourceIDs: map[string]sdkModels.ResourceID{
 					"ServerId": {
-						Segments: []models.ResourceIDSegment{
-							models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
-							models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-							models.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
-							models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-							models.NewStaticValueResourceIDSegment("staticProviders", "providers"),
-							models.NewResourceProviderResourceIDSegment("staticMicrosoftSomeResourceProvider", "Microsoft.SomeResourceProvider"),
-							models.NewStaticValueResourceIDSegment("staticServers", "servers"),
-							models.NewUserSpecifiedResourceIDSegment("serverName", "serverName"),
+						Segments: []sdkModels.ResourceIDSegment{
+							sdkModels.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
+							sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+							sdkModels.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
+							sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+							sdkModels.NewStaticValueResourceIDSegment("staticProviders", "providers"),
+							sdkModels.NewResourceProviderResourceIDSegment("staticMicrosoftSomeResourceProvider", "Microsoft.SomeResourceProvider"),
+							sdkModels.NewStaticValueResourceIDSegment("staticServers", "servers"),
+							sdkModels.NewUserSpecifiedResourceIDSegment("serverName", "serverName"),
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -430,23 +430,23 @@ func TestParseResourceIdWithResourceIdAndUriSuffixForMultipleUris(t *testing.T) 
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Example": {
-				ResourceIds: map[string]models.ResourceID{
+				ResourceIDs: map[string]sdkModels.ResourceID{
 					"ServerId": {
-						Segments: []models.ResourceIDSegment{
-							models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
-							models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-							models.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
-							models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-							models.NewStaticValueResourceIDSegment("staticProviders", "providers"),
-							models.NewResourceProviderResourceIDSegment("staticMicrosoftSomeResourceProvider", "Microsoft.SomeResourceProvider"),
-							models.NewStaticValueResourceIDSegment("staticServers", "servers"),
-							models.NewUserSpecifiedResourceIDSegment("serverName", "serverName"),
+						Segments: []sdkModels.ResourceIDSegment{
+							sdkModels.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
+							sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+							sdkModels.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
+							sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+							sdkModels.NewStaticValueResourceIDSegment("staticProviders", "providers"),
+							sdkModels.NewResourceProviderResourceIDSegment("staticMicrosoftSomeResourceProvider", "Microsoft.SomeResourceProvider"),
+							sdkModels.NewStaticValueResourceIDSegment("staticServers", "servers"),
+							sdkModels.NewUserSpecifiedResourceIDSegment("serverName", "serverName"),
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"Restart": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -483,23 +483,23 @@ func TestParseResourceIdContainingResourceProviderShouldGetTitleCased(t *testing
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Example": {
-				ResourceIds: map[string]models.ResourceID{
+				ResourceIDs: map[string]sdkModels.ResourceID{
 					"ServerId": {
-						Segments: []models.ResourceIDSegment{
-							models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
-							models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-							models.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
-							models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-							models.NewStaticValueResourceIDSegment("staticProviders", "providers"),
-							models.NewResourceProviderResourceIDSegment("staticMicrosoftSomeResourceProvider", "Microsoft.SomeResourceProvider"),
-							models.NewStaticValueResourceIDSegment("staticServers", "servers"),
-							models.NewUserSpecifiedResourceIDSegment("serverName", "serverName"),
+						Segments: []sdkModels.ResourceIDSegment{
+							sdkModels.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
+							sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+							sdkModels.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
+							sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+							sdkModels.NewStaticValueResourceIDSegment("staticProviders", "providers"),
+							sdkModels.NewResourceProviderResourceIDSegment("staticMicrosoftSomeResourceProvider", "Microsoft.SomeResourceProvider"),
+							sdkModels.NewStaticValueResourceIDSegment("staticServers", "servers"),
+							sdkModels.NewUserSpecifiedResourceIDSegment("serverName", "serverName"),
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -522,23 +522,23 @@ func TestParseResourceIdContainingTheSameResourceIdWithDifferentSegments(t *test
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Example": {
-				ResourceIds: map[string]models.ResourceID{
+				ResourceIDs: map[string]sdkModels.ResourceID{
 					"VirtualMachineId": {
-						Segments: []models.ResourceIDSegment{
-							models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
-							models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-							models.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
-							models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-							models.NewStaticValueResourceIDSegment("staticProviders", "providers"),
-							models.NewResourceProviderResourceIDSegment("staticMicrosoftSomeResourceProvider", "Microsoft.SomeResourceProvider"),
-							models.NewStaticValueResourceIDSegment("staticVirtualMachines", "virtualMachines"),
-							models.NewUserSpecifiedResourceIDSegment("machineName", "machineName"),
+						Segments: []sdkModels.ResourceIDSegment{
+							sdkModels.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
+							sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+							sdkModels.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
+							sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+							sdkModels.NewStaticValueResourceIDSegment("staticProviders", "providers"),
+							sdkModels.NewResourceProviderResourceIDSegment("staticMicrosoftSomeResourceProvider", "Microsoft.SomeResourceProvider"),
+							sdkModels.NewStaticValueResourceIDSegment("staticVirtualMachines", "virtualMachines"),
+							sdkModels.NewUserSpecifiedResourceIDSegment("machineName", "machineName"),
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"Restart": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -568,23 +568,23 @@ func TestParseResourceIdContainingTheSegmentsNamedTheSame(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Example": {
-				ResourceIds: map[string]models.ResourceID{
+				ResourceIDs: map[string]sdkModels.ResourceID{
 					"BillingPeriodId": {
-						Segments: []models.ResourceIDSegment{
-							models.NewStaticValueResourceIDSegment("staticProviders", "providers"),
-							models.NewResourceProviderResourceIDSegment("staticMicrosoftManagement", "Microsoft.Management"),
-							models.NewStaticValueResourceIDSegment("staticManagementGroups", "managementGroups"),
-							models.NewUserSpecifiedResourceIDSegment("managementGroupId", "managementGroupId"),
-							models.NewStaticValueResourceIDSegment("staticProviders2", "providers"),
-							models.NewResourceProviderResourceIDSegment("staticMicrosoftBilling", "Microsoft.Billing"),
-							models.NewStaticValueResourceIDSegment("staticBillingPeriods", "billingPeriods"),
-							models.NewUserSpecifiedResourceIDSegment("billingPeriodName", "billingPeriodName"),
+						Segments: []sdkModels.ResourceIDSegment{
+							sdkModels.NewStaticValueResourceIDSegment("staticProviders", "providers"),
+							sdkModels.NewResourceProviderResourceIDSegment("staticMicrosoftManagement", "Microsoft.Management"),
+							sdkModels.NewStaticValueResourceIDSegment("staticManagementGroups", "managementGroups"),
+							sdkModels.NewUserSpecifiedResourceIDSegment("managementGroupId", "managementGroupId"),
+							sdkModels.NewStaticValueResourceIDSegment("staticProviders2", "providers"),
+							sdkModels.NewResourceProviderResourceIDSegment("staticMicrosoftBilling", "Microsoft.Billing"),
+							sdkModels.NewStaticValueResourceIDSegment("staticBillingPeriods", "billingPeriods"),
+							sdkModels.NewUserSpecifiedResourceIDSegment("billingPeriodName", "billingPeriodName"),
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -621,37 +621,37 @@ func TestParseResourceIdsWhereTheSameUriContainsDifferentConstantValuesPerOperat
 		expected := importerModels.AzureApiDefinition{
 			ServiceName: "Example",
 			ApiVersion:  "2020-01-01",
-			Resources: map[string]importerModels.AzureApiResource{
+			Resources: map[string]sdkModels.APIResource{
 				"Hello": {
-					Constants: map[string]models.SDKConstant{
+					Constants: map[string]sdkModels.SDKConstant{
 						"PlanetNames": {
-							Type: models.StringSDKConstantType,
+							Type: sdkModels.StringSDKConstantType,
 							Values: map[string]string{
 								"Earth": "Earth",
 								"Mars":  "Mars",
 							},
 						},
 					},
-					ResourceIds: map[string]models.ResourceID{
+					ResourceIDs: map[string]sdkModels.ResourceID{
 						"GalaxyId": {
-							Segments: []models.ResourceIDSegment{
-								models.NewStaticValueResourceIDSegment("staticGalaxies", "galaxies"),
-								models.NewUserSpecifiedResourceIDSegment("galaxyName", "galaxyName"),
+							Segments: []sdkModels.ResourceIDSegment{
+								sdkModels.NewStaticValueResourceIDSegment("staticGalaxies", "galaxies"),
+								sdkModels.NewUserSpecifiedResourceIDSegment("galaxyName", "galaxyName"),
 							},
 						},
 						"PlanetId": {
 							ConstantNames: []string{
 								"PlanetNames",
 							},
-							Segments: []models.ResourceIDSegment{
-								models.NewStaticValueResourceIDSegment("staticGalaxies", "galaxies"),
-								models.NewUserSpecifiedResourceIDSegment("galaxyName", "galaxyName"),
-								models.NewStaticValueResourceIDSegment("staticHello", "hello"),
-								models.NewConstantResourceIDSegment("planetName", "PlanetNames", "Earth"),
+							Segments: []sdkModels.ResourceIDSegment{
+								sdkModels.NewStaticValueResourceIDSegment("staticGalaxies", "galaxies"),
+								sdkModels.NewUserSpecifiedResourceIDSegment("galaxyName", "galaxyName"),
+								sdkModels.NewStaticValueResourceIDSegment("staticHello", "hello"),
+								sdkModels.NewConstantResourceIDSegment("planetName", "PlanetNames", "Earth"),
 							},
 						},
 					},
-					Operations: map[string]models.SDKOperation{
+					Operations: map[string]sdkModels.SDKOperation{
 						"Delete": {
 							ContentType:         "application/json",
 							ExpectedStatusCodes: []int{200},
@@ -682,55 +682,55 @@ func TestParseResourceIdsCommon(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Example": {
-				ResourceIds: map[string]models.ResourceID{
+				ResourceIDs: map[string]sdkModels.ResourceID{
 					"ManagementGroupId": {
 						CommonIDAlias: pointer.To("ManagementGroup"),
-						Segments: []models.ResourceIDSegment{
-							models.NewStaticValueResourceIDSegment("providers", "providers"),
-							models.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Management"),
-							models.NewStaticValueResourceIDSegment("managementGroups", "managementGroups"),
-							models.NewUserSpecifiedResourceIDSegment("groupId", "groupId"),
+						Segments: []sdkModels.ResourceIDSegment{
+							sdkModels.NewStaticValueResourceIDSegment("providers", "providers"),
+							sdkModels.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Management"),
+							sdkModels.NewStaticValueResourceIDSegment("managementGroups", "managementGroups"),
+							sdkModels.NewUserSpecifiedResourceIDSegment("groupId", "groupId"),
 						},
 					},
 					"ResourceGroupId": {
 						CommonIDAlias: pointer.To("ResourceGroup"),
-						Segments: []models.ResourceIDSegment{
-							models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
-							models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-							models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
-							models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+						Segments: []sdkModels.ResourceIDSegment{
+							sdkModels.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+							sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+							sdkModels.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+							sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
 						},
 					},
 					"ScopeId": {
 						CommonIDAlias: pointer.To("Scope"),
-						Segments: []models.ResourceIDSegment{
-							models.NewScopeResourceIDSegment("scope"),
+						Segments: []sdkModels.ResourceIDSegment{
+							sdkModels.NewScopeResourceIDSegment("scope"),
 						},
 					},
 					"SubscriptionId": {
 						CommonIDAlias: pointer.To("Subscription"),
-						Segments: []models.ResourceIDSegment{
-							models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
-							models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+						Segments: []sdkModels.ResourceIDSegment{
+							sdkModels.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+							sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
 						},
 					},
 					"UserAssignedIdentityId": {
 						CommonIDAlias: pointer.To("UserAssignedIdentity"),
-						Segments: []models.ResourceIDSegment{
-							models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
-							models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-							models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
-							models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-							models.NewStaticValueResourceIDSegment("providers", "providers"),
-							models.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.ManagedIdentity"),
-							models.NewStaticValueResourceIDSegment("userAssignedIdentities", "userAssignedIdentities"),
-							models.NewUserSpecifiedResourceIDSegment("userAssignedIdentityName", "userAssignedIdentityName"),
+						Segments: []sdkModels.ResourceIDSegment{
+							sdkModels.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+							sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+							sdkModels.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+							sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+							sdkModels.NewStaticValueResourceIDSegment("providers", "providers"),
+							sdkModels.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.ManagedIdentity"),
+							sdkModels.NewStaticValueResourceIDSegment("userAssignedIdentities", "userAssignedIdentities"),
+							sdkModels.NewUserSpecifiedResourceIDSegment("userAssignedIdentityName", "userAssignedIdentityName"),
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"GetManagementGroup": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},

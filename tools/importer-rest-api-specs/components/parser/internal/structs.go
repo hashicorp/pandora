@@ -9,24 +9,24 @@ import (
 	"strings"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 type ParseResult struct {
-	Constants map[string]models.SDKConstant
-	Models    map[string]models.SDKModel
+	Constants map[string]sdkModels.SDKConstant
+	Models    map[string]sdkModels.SDKModel
 }
 
 func (r *ParseResult) Append(other ParseResult) error {
 	if r.Constants == nil {
-		r.Constants = make(map[string]models.SDKConstant)
+		r.Constants = make(map[string]sdkModels.SDKConstant)
 	}
 	if err := r.AppendConstants(other.Constants); err != nil {
 		return fmt.Errorf("appending constants: %+v", err)
 	}
 
 	if r.Models == nil {
-		r.Models = make(map[string]models.SDKModel)
+		r.Models = make(map[string]sdkModels.SDKModel)
 	}
 	if err := r.AppendModels(other.Models); err != nil {
 		return fmt.Errorf("appending models: %+v", err)
@@ -35,7 +35,7 @@ func (r *ParseResult) Append(other ParseResult) error {
 	return nil
 }
 
-func (r *ParseResult) AppendConstants(other map[string]models.SDKConstant) error {
+func (r *ParseResult) AppendConstants(other map[string]sdkModels.SDKConstant) error {
 	for k, v := range other {
 		existing, hasExisting := r.Constants[k]
 		if !hasExisting {
@@ -55,7 +55,7 @@ func (r *ParseResult) AppendConstants(other map[string]models.SDKConstant) error
 	return nil
 }
 
-func (r *ParseResult) AppendModels(other map[string]models.SDKModel) error {
+func (r *ParseResult) AppendModels(other map[string]sdkModels.SDKModel) error {
 	for k, v := range other {
 		existing, hasExisting := r.Models[k]
 		if !hasExisting {
@@ -81,7 +81,7 @@ func (r *ParseResult) AppendModels(other map[string]models.SDKModel) error {
 	return nil
 }
 
-func compareFields(first map[string]models.SDKField, second map[string]models.SDKField) error {
+func compareFields(first map[string]sdkModels.SDKField, second map[string]sdkModels.SDKField) error {
 	if len(first) != len(second) {
 		return fmt.Errorf("first had %d fields but second had %d fields", len(first), len(second))
 	}
@@ -114,7 +114,7 @@ func compareFields(first map[string]models.SDKField, second map[string]models.SD
 	return nil
 }
 
-func objectDefinitionsMatch(first, second models.SDKObjectDefinition) error {
+func objectDefinitionsMatch(first, second sdkModels.SDKObjectDefinition) error {
 	if first.NestedItem != nil && second.NestedItem == nil {
 		return fmt.Errorf("`first` had a nested item but `second` didn't. First: %+v. Second: %+v", first, second)
 	}

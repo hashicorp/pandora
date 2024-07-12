@@ -3,9 +3,7 @@
 
 package dataworkarounds
 
-import (
-	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
-)
+import importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 
 type workaround interface {
 	// IsApplicable determines whether this workaround is applicable for this AzureApiDefinition

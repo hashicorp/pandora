@@ -4,29 +4,29 @@
 package resourceids
 
 import (
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 var _ commonIdMatcher = commonIdKustoDatabase{}
 
 type commonIdKustoDatabase struct{}
 
-func (c commonIdKustoDatabase) id() models.ResourceID {
+func (c commonIdKustoDatabase) id() sdkModels.ResourceID {
 	name := "KustoDatabase"
-	return models.ResourceID{
+	return sdkModels.ResourceID{
 		CommonIDAlias: &name,
 		ConstantNames: []string{},
-		Segments: []models.ResourceIDSegment{
-			models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
-			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-			models.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
-			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-			models.NewStaticValueResourceIDSegment("staticProviders", "providers"),
-			models.NewResourceProviderResourceIDSegment("staticMicrosoftKusto", "Microsoft.Kusto"),
-			models.NewStaticValueResourceIDSegment("staticClusters", "clusters"),
-			models.NewUserSpecifiedResourceIDSegment("kustoClusterName", "kustoClusterName"),
-			models.NewStaticValueResourceIDSegment("staticDatabases", "databases"),
-			models.NewUserSpecifiedResourceIDSegment("kustoDatabaseName", "kustoDatabaseName"),
+		Segments: []sdkModels.ResourceIDSegment{
+			sdkModels.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
+			sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			sdkModels.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
+			sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			sdkModels.NewStaticValueResourceIDSegment("staticProviders", "providers"),
+			sdkModels.NewResourceProviderResourceIDSegment("staticMicrosoftKusto", "Microsoft.Kusto"),
+			sdkModels.NewStaticValueResourceIDSegment("staticClusters", "clusters"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("kustoClusterName", "kustoClusterName"),
+			sdkModels.NewStaticValueResourceIDSegment("staticDatabases", "databases"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("kustoDatabaseName", "kustoDatabaseName"),
 		},
 	}
 }

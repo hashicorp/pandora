@@ -6,19 +6,19 @@ package transformer
 import (
 	"fmt"
 
-	"github.com/hashicorp/go-hclog"
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 // NOTE: this file contains temporary glue code to enable refactoring this tool gradually, component-by-component.
 
-func MapInternalTypesToDataAPISDKTypes(serviceName string, inputApiVersions []importerModels.AzureApiDefinition, resourceProvider *string, logger hclog.Logger) (*models.Service, error) {
-	apiVersions := make(map[string]models.APIVersion)
+func MapInternalTypesToDataAPISDKTypes(serviceName string, inputApiVersions []importerModels.AzureApiDefinition, resourceProvider *string) (*sdkModels.Service, error) {
+	apiVersions := make(map[string]sdkModels.APIVersion)
 
-	logger.Debug("Mapping API Versions..")
+	logging.Debugf("Mapping API Versions..")
 	for _, item := range inputApiVersions {
-		logger.Trace(fmt.Sprintf("Mapping Service %q / API Version %q", item.ServiceName, item.ApiVersion))
+		logging.Tracef("Mapping Service %q / API Version %q", item.ServiceName, item.ApiVersion)
 		mapped, err := mapInternalAPIVersionTypeToDataAPISDKType(item.ApiVersion, item)
 		if err != nil {
 			return nil, fmt.Errorf("mapping API Version %q: %+v", item.ApiVersion, err)
@@ -32,7 +32,7 @@ func MapInternalTypesToDataAPISDKTypes(serviceName string, inputApiVersions []im
 		apiVersions[item.ApiVersion] = *mapped
 	}
 
-	output := models.Service{
+	output := sdkModels.Service{
 		APIVersions:      apiVersions,
 		Generate:         true,
 		Name:             serviceName,
@@ -42,8 +42,8 @@ func MapInternalTypesToDataAPISDKTypes(serviceName string, inputApiVersions []im
 	return &output, nil
 }
 
-func mapInternalAPIVersionTypeToDataAPISDKType(apiVersion string, input importerModels.AzureApiDefinition) (*models.APIVersion, error) {
-	resources := make(map[string]models.APIResource)
+func mapInternalAPIVersionTypeToDataAPISDKType(apiVersion string, input importerModels.AzureApiDefinition) (*sdkModels.APIVersion, error) {
+	resources := make(map[string]sdkModels.APIResource)
 
 	for apiResource, apiResourceDetails := range input.Resources {
 		// Skip outputting APIResources containing only Constants/Models
@@ -52,11 +52,11 @@ func mapInternalAPIVersionTypeToDataAPISDKType(apiVersion string, input importer
 			continue
 		}
 
-		resources[apiResource] = models.APIResource{
+		resources[apiResource] = sdkModels.APIResource{
 			Constants:   apiResourceDetails.Constants,
 			Models:      apiResourceDetails.Models,
 			Operations:  apiResourceDetails.Operations,
-			ResourceIDs: apiResourceDetails.ResourceIds,
+			ResourceIDs: apiResourceDetails.ResourceIDs,
 		}
 	}
 
@@ -65,11 +65,11 @@ func mapInternalAPIVersionTypeToDataAPISDKType(apiVersion string, input importer
 		return nil, nil
 	}
 
-	return &models.APIVersion{
+	return &sdkModels.APIVersion{
 		APIVersion: apiVersion,
 		Generate:   true,
 		Preview:    input.IsPreviewVersion(),
 		Resources:  resources,
-		Source:     models.AzureRestAPISpecsSourceDataOrigin,
+		Source:     sdkModels.AzureRestAPISpecsSourceDataOrigin,
 	}, nil
 }

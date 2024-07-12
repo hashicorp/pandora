@@ -4,23 +4,23 @@
 package resourceids
 
 import (
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 var _ commonIdMatcher = commonIdManagementGroupMatcher{}
 
 type commonIdManagementGroupMatcher struct{}
 
-func (commonIdManagementGroupMatcher) id() models.ResourceID {
+func (commonIdManagementGroupMatcher) id() sdkModels.ResourceID {
 	name := "ManagementGroup"
-	return models.ResourceID{
+	return sdkModels.ResourceID{
 		CommonIDAlias: &name,
 		ConstantNames: []string{},
-		Segments: []models.ResourceIDSegment{
-			models.NewStaticValueResourceIDSegment("providers", "providers"),
-			models.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Management"),
-			models.NewStaticValueResourceIDSegment("managementGroups", "managementGroups"),
-			models.NewUserSpecifiedResourceIDSegment("groupId", "groupId"),
+		Segments: []sdkModels.ResourceIDSegment{
+			sdkModels.NewStaticValueResourceIDSegment("providers", "providers"),
+			sdkModels.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Management"),
+			sdkModels.NewStaticValueResourceIDSegment("managementGroups", "managementGroups"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("groupId", "groupId"),
 		},
 	}
 }

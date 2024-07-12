@@ -7,7 +7,7 @@ import (
 	"reflect"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
 )
 
@@ -15,14 +15,14 @@ var _ customFieldMatcher = systemAssignedIdentityMatcher{}
 
 type systemAssignedIdentityMatcher struct{}
 
-func (systemAssignedIdentityMatcher) ReplacementObjectDefinition() models.SDKObjectDefinition {
-	return models.SDKObjectDefinition{
-		Type: models.SystemAssignedIdentitySDKObjectDefinitionType,
+func (systemAssignedIdentityMatcher) ReplacementObjectDefinition() sdkModels.SDKObjectDefinition {
+	return sdkModels.SDKObjectDefinition{
+		Type: sdkModels.SystemAssignedIdentitySDKObjectDefinitionType,
 	}
 }
 
-func (systemAssignedIdentityMatcher) IsMatch(field models.SDKField, known internal.ParseResult) bool {
-	if field.ObjectDefinition.Type != models.ReferenceSDKObjectDefinitionType {
+func (systemAssignedIdentityMatcher) IsMatch(field sdkModels.SDKField, known internal.ParseResult) bool {
+	if field.ObjectDefinition.Type != sdkModels.ReferenceSDKObjectDefinitionType {
 		return false
 	}
 
@@ -48,7 +48,7 @@ func (systemAssignedIdentityMatcher) IsMatch(field models.SDKField, known intern
 		}
 
 		if strings.EqualFold(fieldName, "Type") {
-			if fieldVal.ObjectDefinition.Type != models.ReferenceSDKObjectDefinitionType {
+			if fieldVal.ObjectDefinition.Type != sdkModels.ReferenceSDKObjectDefinitionType {
 				continue
 			}
 			constant, ok := known.Constants[*fieldVal.ObjectDefinition.ReferenceName]
@@ -69,8 +69,8 @@ func (systemAssignedIdentityMatcher) IsMatch(field models.SDKField, known intern
 	return hasMatchingType && hasPrincipalId && hasTenantId
 }
 
-func validateIdentityConstantValues(input models.SDKConstant, expected map[string]string) bool {
-	if input.Type != models.StringSDKConstantType {
+func validateIdentityConstantValues(input sdkModels.SDKConstant, expected map[string]string) bool {
+	if input.Type != sdkModels.StringSDKConstantType {
 		return false
 	}
 

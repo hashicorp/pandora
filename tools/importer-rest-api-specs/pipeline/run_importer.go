@@ -8,7 +8,6 @@ import (
 	"sort"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/data-api-repository/repository"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/discovery"
@@ -29,14 +28,14 @@ func runImporter(input RunInput, generationData []discovery.ServiceInput, swagge
 
 	// Clear any existing data
 	if len(input.Services) == 0 {
-		input.Logger.Info(fmt.Sprintf("Purging all existing Source Data for Source Data Type %q / Source Data Origin %q..", sourceDataType, sourceDataOrigin))
+		logging.Infof("Purging all existing Source Data for Source Data Type %q / Source Data Origin %q..", sourceDataType, sourceDataOrigin)
 		if err := repo.PurgeExistingData(sourceDataOrigin); err != nil {
 			return fmt.Errorf("purging the existing Source Data for the Source Data Type %q / Source Data Origin %q: %+v", sourceDataType, sourceDataOrigin, err)
 		}
 	} else {
-		input.Logger.Info(fmt.Sprintf("Purging the existing Source Data for the Services [%+v] for  for Source Data Type %q / Source Data Origin %q..", input.Services, sourceDataType, sourceDataOrigin))
+		logging.Infof("Purging the existing Source Data for the Services [%+v] for  for Source Data Type %q / Source Data Origin %q..", input.Services, sourceDataType, sourceDataOrigin)
 		for _, serviceName := range input.Services {
-			input.Logger.Debug(fmt.Sprintf("Removing the existing Data for Service %q..", serviceName))
+			logging.Debugf("Removing the existing Data for Service %q..", serviceName)
 			opts := repository.RemoveServiceOptions{
 				ServiceName:      serviceName,
 				SourceDataOrigin: sourceDataOrigin,
@@ -82,8 +81,8 @@ func runImporter(input RunInput, generationData []discovery.ServiceInput, swagge
 			return fmt.Errorf("removing existing API Definitions for Service %q: %+v", serviceName, err)
 		}
 
-		logger := input.Logger.Named(fmt.Sprintf("Importer for Service %q", serviceName))
-		if err := runImportForService(input, serviceName, serviceDetails, sourceDataOrigin, logger, swaggerGitSha, repo); err != nil {
+		logging.Infof("Importer for Service %q", serviceName)
+		if err := runImportForService(input, serviceName, serviceDetails, sourceDataOrigin, swaggerGitSha, repo); err != nil {
 			return fmt.Errorf("parsing data for Service %q: %+v", serviceName, err)
 		}
 	}
@@ -91,7 +90,7 @@ func runImporter(input RunInput, generationData []discovery.ServiceInput, swagge
 	return nil
 }
 
-func runImportForService(input RunInput, serviceName string, apiVersionsForService []discovery.ServiceInput, sourceDataOrigin sdkModels.SourceDataOrigin, logger hclog.Logger, swaggerGitSha string, repo repository.Repository) error {
+func runImportForService(input RunInput, serviceName string, apiVersionsForService []discovery.ServiceInput, sourceDataOrigin sdkModels.SourceDataOrigin, swaggerGitSha string, repo repository.Repository) error {
 	task := pipelineTask{}
 	var resourceProvider *string
 	var terraformPackageName *string
@@ -136,16 +135,14 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 	// Populate all of the data for this API Version..
 	dataForApiVersions := make([]importerModels.AzureApiDefinition, 0)
 	for apiVersion, api := range consolidatedApiVersions {
-		versionLogger := logger.Named(fmt.Sprintf("Importer for API Version %q", apiVersion))
-
-		versionLogger.Trace("Task: Parsing Data..")
+		logging.Tracef("Task: Parsing Data for API Version %q..", apiVersion)
 		dataForApiVersion := &importerModels.AzureApiDefinition{
 			ServiceName: serviceName,
 			ApiVersion:  apiVersion,
-			Resources:   map[string]importerModels.AzureApiResource{},
+			Resources:   map[string]sdkModels.APIResource{},
 		}
 		for _, v := range api {
-			tempDataForApiVersion, err := task.parseDataForApiVersion(v, versionLogger)
+			tempDataForApiVersion, err := task.parseDataForApiVersion(v)
 			if err != nil {
 				return fmt.Errorf("parsing data for Service %q / Version %q: %+v", v.ServiceName, v.ApiVersion, err)
 			}
@@ -161,8 +158,8 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 	}
 
 	// temporary glue to enable refactoring this tool piece-by-piece
-	logger.Info("Transforming to the Data API SDK types..")
-	service, err := transformer.MapInternalTypesToDataAPISDKTypes(serviceName, dataForApiVersions, resourceProvider, logger)
+	logging.Infof("Transforming to the Data API SDK types..")
+	service, err := transformer.MapInternalTypesToDataAPISDKTypes(serviceName, dataForApiVersions, resourceProvider)
 	if err != nil {
 		return fmt.Errorf("transforming the internal types to the Data API SDK types: %+v", err)
 	}
@@ -175,7 +172,7 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 	}
 
 	// Now that we have the populated data, let's go ahead and output that..
-	logger.Info(fmt.Sprintf("Persisting API Definitions for Service %s..", serviceName))
+	logging.Infof("Persisting API Definitions for Service %s..", serviceName)
 	opts := repository.SaveServiceOptions{
 		SourceCommitSHA:  pointer.To(swaggerGitSha),
 		ResourceProvider: resourceProvider,

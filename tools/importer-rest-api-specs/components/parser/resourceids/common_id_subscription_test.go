@@ -6,27 +6,27 @@ package resourceids
 import (
 	"testing"
 
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 func TestCommonResourceID_Subscription(t *testing.T) {
-	valid := models.ResourceID{
+	valid := sdkModels.ResourceID{
 		ConstantNames: []string{},
-		Segments: []models.ResourceIDSegment{
-			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
-			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+		Segments: []sdkModels.ResourceIDSegment{
+			sdkModels.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+			sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
 		},
 	}
-	invalid := models.ResourceID{
+	invalid := sdkModels.ResourceID{
 		ConstantNames: []string{},
-		Segments: []models.ResourceIDSegment{
-			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
-			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-			models.NewStaticValueResourceIDSegment("someResource", "someResource"),
-			models.NewUserSpecifiedResourceIDSegment("resourceName", "resourceName"),
+		Segments: []sdkModels.ResourceIDSegment{
+			sdkModels.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+			sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			sdkModels.NewStaticValueResourceIDSegment("someResource", "someResource"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("resourceName", "resourceName"),
 		},
 	}
-	input := []models.ResourceID{
+	input := []sdkModels.ResourceID{
 		valid,
 		invalid,
 	}

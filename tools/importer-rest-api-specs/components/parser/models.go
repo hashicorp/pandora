@@ -9,17 +9,18 @@ import (
 
 	"github.com/go-openapi/spec"
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/constants"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/featureflags"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )
 
 func (d *SwaggerDefinition) parseModel(name string, input spec.Schema) (*internal.ParseResult, error) {
 	result := internal.ParseResult{
-		Constants: map[string]models.SDKConstant{},
-		Models:    map[string]models.SDKModel{},
+		Constants: map[string]sdkModels.SDKConstant{},
+		Models:    map[string]sdkModels.SDKModel{},
 	}
 
 	// 1. find any constants used within this model
@@ -60,13 +61,13 @@ func (d *SwaggerDefinition) parseModel(name string, input spec.Schema) (*interna
 func (d *SwaggerDefinition) findConstantsWithinModel(fieldName string, modelName *string, input spec.Schema, known internal.ParseResult) (*internal.ParseResult, error) {
 	// NOTE: both Models and Fields are passed in here
 	result := internal.ParseResult{
-		Constants: map[string]models.SDKConstant{},
-		Models:    map[string]models.SDKModel{},
+		Constants: map[string]sdkModels.SDKConstant{},
+		Models:    map[string]sdkModels.SDKModel{},
 	}
 	result.Append(known)
 
 	if len(input.Enum) > 0 {
-		constant, err := constants.MapConstant(input.Type, fieldName, modelName, input.Enum, input.Extensions, d.logger.Named("Constant Parser"))
+		constant, err := constants.MapConstant(input.Type, fieldName, modelName, input.Enum, input.Extensions)
 		if err != nil {
 			return nil, fmt.Errorf("parsing constant: %+v", err)
 		}
@@ -103,7 +104,7 @@ func (d *SwaggerDefinition) findConstantsWithinModel(fieldName string, modelName
 	}
 
 	for propName, propVal := range input.Properties {
-		d.logger.Trace(fmt.Sprintf("Processing Property %q..", propName))
+		logging.Tracef("Processing Property %q..", propName)
 		// models can contain nested models - either can contain constants, so around we go..
 		nestedResult, err := d.findConstantsWithinModel(propName, &fieldName, propVal, result)
 		if err != nil {
@@ -116,7 +117,7 @@ func (d *SwaggerDefinition) findConstantsWithinModel(fieldName string, modelName
 
 	if input.AdditionalProperties != nil && input.AdditionalProperties.Schema != nil {
 		for propName, propVal := range input.AdditionalProperties.Schema.Properties {
-			d.logger.Trace(fmt.Sprintf("Processing Additional Property %q..", propName))
+			logging.Tracef("Processing Additional Property %q..", propName)
 			// models can contain nested models - either can contain constants, so around we go..
 			nestedConstants, err := d.findConstantsWithinModel(propName, &fieldName, propVal, result)
 			if err != nil {
@@ -132,16 +133,16 @@ func (d *SwaggerDefinition) findConstantsWithinModel(fieldName string, modelName
 	return &result, nil
 }
 
-func (d *SwaggerDefinition) detailsForField(modelName string, propertyName string, value spec.Schema, isRequired bool, known internal.ParseResult) (*models.SDKField, *internal.ParseResult, error) {
-	d.logger.Trace(fmt.Sprintf("Parsing details for field %q in %q..", propertyName, modelName))
+func (d *SwaggerDefinition) detailsForField(modelName string, propertyName string, value spec.Schema, isRequired bool, known internal.ParseResult) (*sdkModels.SDKField, *internal.ParseResult, error) {
+	logging.Tracef("Parsing details for field %q in %q..", propertyName, modelName)
 
 	result := internal.ParseResult{
-		Constants: map[string]models.SDKConstant{},
-		Models:    map[string]models.SDKModel{},
+		Constants: map[string]sdkModels.SDKConstant{},
+		Models:    map[string]sdkModels.SDKModel{},
 	}
 	result.Append(known)
 
-	field := models.SDKField{
+	field := sdkModels.SDKField{
 		Required:    isRequired,
 		Optional:    !isRequired, //TODO: re-enable readonly && !value.ReadOnly,
 		ReadOnly:    false,       // TODO: re-enable readonly value.ReadOnly,
@@ -162,15 +163,15 @@ func (d *SwaggerDefinition) detailsForField(modelName string, propertyName strin
 
 	// TODO: support for other date formats (RFC3339Nano etc)
 	// https://github.com/hashicorp/pandora/issues/8
-	if objectDefinition.Type == models.DateTimeSDKObjectDefinitionType {
-		field.DateFormat = pointer.To(models.RFC3339SDKDateFormat)
+	if objectDefinition.Type == sdkModels.DateTimeSDKObjectDefinitionType {
+		field.DateFormat = pointer.To(sdkModels.RFC3339SDKDateFormat)
 	}
 
 	// if there are more than 1 allOf, it can not use a simple reference type, but a new definition
 	if len(value.Properties) > 0 || len(value.AllOf) > 1 {
 		// there's a nested model we need to pull out
 		inlinedName := inlinedModelName(modelName, propertyName)
-		nestedFields := make(map[string]models.SDKField, 0)
+		nestedFields := make(map[string]sdkModels.SDKField, 0)
 		for propName, propVal := range value.Properties {
 			nestedFieldRequired := false
 			for _, field := range value.Required {
@@ -225,7 +226,7 @@ func (d *SwaggerDefinition) detailsForField(modelName string, propertyName strin
 		}
 		result.Models[inlinedName] = *inlinedModelDetails
 		// then swap out the reference
-		objectDefinition.Type = models.ReferenceSDKObjectDefinitionType
+		objectDefinition.Type = sdkModels.ReferenceSDKObjectDefinitionType
 		objectDefinition.ReferenceName = &inlinedName
 	}
 
@@ -236,11 +237,11 @@ func (d *SwaggerDefinition) detailsForField(modelName string, propertyName strin
 	return &field, &result, err
 }
 
-func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, known internal.ParseResult) (*map[string]models.SDKField, *internal.ParseResult, error) {
-	fields := make(map[string]models.SDKField, 0)
+func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, known internal.ParseResult) (*map[string]sdkModels.SDKField, *internal.ParseResult, error) {
+	fields := make(map[string]sdkModels.SDKField, 0)
 	result := internal.ParseResult{
-		Constants: map[string]models.SDKConstant{},
-		Models:    map[string]models.SDKModel{},
+		Constants: map[string]sdkModels.SDKConstant{},
+		Models:    map[string]sdkModels.SDKModel{},
 	}
 	result.Append(known)
 
@@ -375,8 +376,8 @@ func (d *SwaggerDefinition) findTopLevelObject(name string) (*spec.Schema, error
 	return nil, fmt.Errorf("the top level object %q was not found", name)
 }
 
-func (d *SwaggerDefinition) modelDetailsFromObject(modelName string, input spec.Schema, fields map[string]models.SDKField) (*models.SDKModel, error) {
-	details := models.SDKModel{
+func (d *SwaggerDefinition) modelDetailsFromObject(modelName string, input spec.Schema, fields map[string]sdkModels.SDKField) (*sdkModels.SDKModel, error) {
+	details := sdkModels.SDKModel{
 		Fields: fields,
 	}
 
@@ -453,8 +454,8 @@ func (d *SwaggerDefinition) findAncestorType(input spec.Schema) (*string, *strin
 
 func (d *SwaggerDefinition) findOrphanedDiscriminatedModels(serviceName string) (*internal.ParseResult, error) {
 	result := internal.ParseResult{
-		Constants: map[string]models.SDKConstant{},
-		Models:    map[string]models.SDKModel{},
+		Constants: map[string]sdkModels.SDKConstant{},
+		Models:    map[string]sdkModels.SDKModel{},
 	}
 
 	for modelName, definition := range d.swaggerSpecRaw.Definitions {
@@ -499,7 +500,7 @@ func (d *SwaggerDefinition) findOrphanedDiscriminatedModels(serviceName string) 
 
 	// this will also pull out the parent model in the file which will already have been parsed, but that's ok
 	// since they will be de-duplicated when we call combineResourcesWith
-	nestedResult, err := d.findNestedItemsYetToBeParsed(map[string]models.SDKOperation{}, result)
+	nestedResult, err := d.findNestedItemsYetToBeParsed(map[string]sdkModels.SDKOperation{}, result)
 	if err != nil {
 		return nil, fmt.Errorf("finding nested items yet to be parsed: %+v", err)
 	}
@@ -516,25 +517,25 @@ func (d SwaggerDefinition) parseObjectDefinition(
 	input *spec.Schema,
 	known internal.ParseResult,
 	parsingModel bool,
-) (*models.SDKObjectDefinition, *internal.ParseResult, error) {
+) (*sdkModels.SDKObjectDefinition, *internal.ParseResult, error) {
 	// find the object and any models and constants etc we can find
 	// however _don't_ look for discriminator implementations - since that should be done when we're completely done
 	result := internal.ParseResult{
-		Constants: map[string]models.SDKConstant{},
-		Models:    map[string]models.SDKModel{},
+		Constants: map[string]sdkModels.SDKConstant{},
+		Models:    map[string]sdkModels.SDKModel{},
 	}
 	result.Append(known)
 
 	// if it's an enum then parse that out
 	if len(input.Enum) > 0 {
-		constant, err := constants.MapConstant(input.Type, propertyName, &modelName, input.Enum, input.Extensions, d.logger.Named("Constant Parser"))
+		constant, err := constants.MapConstant(input.Type, propertyName, &modelName, input.Enum, input.Extensions)
 		if err != nil {
 			return nil, nil, fmt.Errorf("parsing constant: %+v", err)
 		}
 		result.Constants[constant.Name] = constant.Details
 
-		definition := models.SDKObjectDefinition{
-			Type:          models.ReferenceSDKObjectDefinitionType,
+		definition := sdkModels.SDKObjectDefinition{
+			Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 			ReferenceName: &constant.Name,
 		}
 
@@ -562,15 +563,15 @@ func (d SwaggerDefinition) parseObjectDefinition(
 		}
 
 		knownIncludingPlaceholder := internal.ParseResult{
-			Constants: map[string]models.SDKConstant{},
-			Models:    map[string]models.SDKModel{},
+			Constants: map[string]sdkModels.SDKConstant{},
+			Models:    map[string]sdkModels.SDKModel{},
 		}
 
 		if err := knownIncludingPlaceholder.Append(result); err != nil {
 			return nil, nil, fmt.Errorf("appending nestedResult: %+v", err)
 		}
 		if *objectName != "" {
-			knownIncludingPlaceholder.Models[*objectName] = models.SDKModel{
+			knownIncludingPlaceholder.Models[*objectName] = sdkModels.SDKModel{
 				// add a placeholder to avoid circular references
 			}
 		}
@@ -623,8 +624,8 @@ func (d SwaggerDefinition) parseObjectDefinition(
 			}
 		}
 
-		definition := models.SDKObjectDefinition{
-			Type:          models.ReferenceSDKObjectDefinitionType,
+		definition := sdkModels.SDKObjectDefinition{
+			Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 			ReferenceName: &modelName,
 		}
 		// TODO: re-enable min/max/unique
@@ -659,8 +660,8 @@ func (d SwaggerDefinition) parseObjectDefinition(
 		if err := result.Append(*nestedResult); err != nil {
 			return nil, nil, fmt.Errorf("appending nestedResult: %+v", err)
 		}
-		return &models.SDKObjectDefinition{
-			Type:       models.DictionarySDKObjectDefinitionType,
+		return &sdkModels.SDKObjectDefinition{
+			Type:       sdkModels.DictionarySDKObjectDefinitionType,
 			NestedItem: nestedItem,
 		}, &result, nil
 	}
@@ -695,8 +696,8 @@ func (d SwaggerDefinition) parseObjectDefinition(
 		if err := result.Append(*nestedResult); err != nil {
 			return nil, nil, fmt.Errorf("appending nestedResult: %+v", err)
 		}
-		return &models.SDKObjectDefinition{
-			Type:       models.ListSDKObjectDefinitionType,
+		return &sdkModels.SDKObjectDefinition{
+			Type:       sdkModels.ListSDKObjectDefinitionType,
 			NestedItem: nestedItem,
 		}, &result, nil
 	}
@@ -723,7 +724,7 @@ func (d SwaggerDefinition) parseObjectDefinition(
 	return nil, nil, fmt.Errorf("unimplemented object definition")
 }
 
-func (d SwaggerDefinition) parseDataFactoryCustomTypes(input *spec.Schema, known internal.ParseResult) (*models.SDKObjectDefinition, *internal.ParseResult, error) {
+func (d SwaggerDefinition) parseDataFactoryCustomTypes(input *spec.Schema, known internal.ParseResult) (*sdkModels.SDKObjectDefinition, *internal.ParseResult, error) {
 	formatVal := ""
 	if input.Type.Contains("object") {
 		formatVal, _ = input.Extensions.GetString("x-ms-format")
@@ -736,31 +737,31 @@ func (d SwaggerDefinition) parseDataFactoryCustomTypes(input *spec.Schema, known
 	// as such we need to handle that here
 	// Simple Types
 	if strings.EqualFold(formatVal, "dfe-bool") {
-		return &models.SDKObjectDefinition{
-			Type: models.BooleanSDKObjectDefinitionType,
+		return &sdkModels.SDKObjectDefinition{
+			Type: sdkModels.BooleanSDKObjectDefinitionType,
 		}, nil, nil
 	}
 	if strings.EqualFold(formatVal, "dfe-double") {
-		return &models.SDKObjectDefinition{
-			Type: models.FloatSDKObjectDefinitionType,
+		return &sdkModels.SDKObjectDefinition{
+			Type: sdkModels.FloatSDKObjectDefinitionType,
 		}, nil, nil
 	}
 	if strings.EqualFold(formatVal, "dfe-key-value-pairs") {
-		return &models.SDKObjectDefinition{
-			Type: models.DictionarySDKObjectDefinitionType,
-			NestedItem: &models.SDKObjectDefinition{
-				Type: models.StringSDKObjectDefinitionType,
+		return &sdkModels.SDKObjectDefinition{
+			Type: sdkModels.DictionarySDKObjectDefinitionType,
+			NestedItem: &sdkModels.SDKObjectDefinition{
+				Type: sdkModels.StringSDKObjectDefinitionType,
 			},
 		}, nil, nil
 	}
 	if strings.EqualFold(formatVal, "dfe-int") {
-		return &models.SDKObjectDefinition{
-			Type: models.IntegerSDKObjectDefinitionType,
+		return &sdkModels.SDKObjectDefinition{
+			Type: sdkModels.IntegerSDKObjectDefinitionType,
 		}, nil, nil
 	}
 	if strings.EqualFold(formatVal, "dfe-string") {
-		return &models.SDKObjectDefinition{
-			Type: models.StringSDKObjectDefinitionType,
+		return &sdkModels.SDKObjectDefinition{
+			Type: sdkModels.StringSDKObjectDefinitionType,
 		}, nil, nil
 	}
 
@@ -782,69 +783,69 @@ func (d SwaggerDefinition) parseDataFactoryCustomTypes(input *spec.Schema, known
 		if err := known.Append(*parseResult); err != nil {
 			return nil, nil, fmt.Errorf("appending `parseResult`: %+v", err)
 		}
-		return &models.SDKObjectDefinition{
-			Type: models.ListSDKObjectDefinitionType,
-			NestedItem: &models.SDKObjectDefinition{
-				Type:          models.ReferenceSDKObjectDefinitionType,
+		return &sdkModels.SDKObjectDefinition{
+			Type: sdkModels.ListSDKObjectDefinitionType,
+			NestedItem: &sdkModels.SDKObjectDefinition{
+				Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 				ReferenceName: pointer.To(elementType),
 			},
 		}, &known, nil
 	}
 
 	if strings.EqualFold(formatVal, "dfe-list-string") {
-		return &models.SDKObjectDefinition{
-			Type: models.ListSDKObjectDefinitionType,
-			NestedItem: &models.SDKObjectDefinition{
-				Type: models.StringSDKObjectDefinitionType,
+		return &sdkModels.SDKObjectDefinition{
+			Type: sdkModels.ListSDKObjectDefinitionType,
+			NestedItem: &sdkModels.SDKObjectDefinition{
+				Type: sdkModels.StringSDKObjectDefinitionType,
 			},
 		}, nil, nil
 	}
 
 	// otherwise let this fall through, since the "least bad" thing to do here is to mark this as an object
 
-	return &models.SDKObjectDefinition{
-		Type: models.RawObjectSDKObjectDefinitionType,
+	return &sdkModels.SDKObjectDefinition{
+		Type: sdkModels.RawObjectSDKObjectDefinitionType,
 	}, nil, nil
 }
 
-func (d SwaggerDefinition) parseNativeType(input *spec.Schema) *models.SDKObjectDefinition {
+func (d SwaggerDefinition) parseNativeType(input *spec.Schema) *sdkModels.SDKObjectDefinition {
 	if input == nil {
 		return nil
 	}
 
 	if input.Type.Contains("bool") || input.Type.Contains("boolean") {
-		return &models.SDKObjectDefinition{
-			Type: models.BooleanSDKObjectDefinitionType,
+		return &sdkModels.SDKObjectDefinition{
+			Type: sdkModels.BooleanSDKObjectDefinitionType,
 		}
 	}
 
 	if input.Type.Contains("file") {
-		return &models.SDKObjectDefinition{
-			Type: models.RawFileSDKObjectDefinitionType,
+		return &sdkModels.SDKObjectDefinition{
+			Type: sdkModels.RawFileSDKObjectDefinitionType,
 		}
 	}
 
 	if input.Type.Contains("integer") {
-		return &models.SDKObjectDefinition{
-			Type: models.IntegerSDKObjectDefinitionType,
+		return &sdkModels.SDKObjectDefinition{
+			Type: sdkModels.IntegerSDKObjectDefinitionType,
 		}
 	}
 
 	if input.Type.Contains("number") {
-		return &models.SDKObjectDefinition{
-			Type: models.FloatSDKObjectDefinitionType,
+		return &sdkModels.SDKObjectDefinition{
+			Type: sdkModels.FloatSDKObjectDefinitionType,
 		}
 	}
 
 	if input.Type.Contains("object") {
 		if strings.EqualFold(input.Format, "file") {
-			return &models.SDKObjectDefinition{
-				Type: models.RawFileSDKObjectDefinitionType,
+			return &sdkModels.SDKObjectDefinition{
+				Type: sdkModels.RawFileSDKObjectDefinitionType,
 			}
 		}
 
-		return &models.SDKObjectDefinition{
-			Type: models.RawObjectSDKObjectDefinitionType,
+		return &sdkModels.SDKObjectDefinition{
+			Type: sdkModels.RawObjectSDKObjectDefinitionType,
 		}
 	}
 
@@ -852,23 +853,23 @@ func (d SwaggerDefinition) parseNativeType(input *spec.Schema) *models.SDKObject
 	// that this could have no Type value but a Format value, so we have to check this separately.
 	if strings.EqualFold(input.Format, "date-time") {
 		// TODO: handle there being a custom format - for now we assume these are all using RFC3339 (#8)
-		return &models.SDKObjectDefinition{
-			Type: models.DateTimeSDKObjectDefinitionType,
+		return &sdkModels.SDKObjectDefinition{
+			Type: sdkModels.DateTimeSDKObjectDefinitionType,
 		}
 	}
 
 	if input.Type.Contains("string") {
 		// TODO: handle the `format` of `arm-id` (#1289)
-		return &models.SDKObjectDefinition{
-			Type: models.StringSDKObjectDefinitionType,
+		return &sdkModels.SDKObjectDefinition{
+			Type: sdkModels.StringSDKObjectDefinitionType,
 		}
 	}
 
 	// whilst all fields _should_ have a Type field, it's not guaranteed that they do
 	// NOTE: this is _intentionally_ not part of the Object comparison above
 	if len(input.Type) == 0 {
-		return &models.SDKObjectDefinition{
-			Type: models.RawObjectSDKObjectDefinitionType,
+		return &sdkModels.SDKObjectDefinition{
+			Type: sdkModels.RawObjectSDKObjectDefinitionType,
 		}
 	}
 

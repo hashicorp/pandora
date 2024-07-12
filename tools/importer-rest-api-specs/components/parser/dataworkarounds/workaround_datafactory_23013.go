@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
@@ -33,12 +33,12 @@ func (workaroundDataFactory23013) Process(apiDefinition importerModels.AzureApiD
 	}
 
 	// add the new discriminated parent type
-	resource.Models["Reference"] = models.SDKModel{
+	resource.Models["Reference"] = sdkModels.SDKModel{
 		FieldNameContainingDiscriminatedValue: pointer.To("Type"),
-		Fields: map[string]models.SDKField{
+		Fields: map[string]sdkModels.SDKField{
 			"Type": {
-				ObjectDefinition: models.SDKObjectDefinition{
-					Type: models.StringSDKObjectDefinitionType,
+				ObjectDefinition: sdkModels.SDKObjectDefinition{
+					Type: sdkModels.StringSDKObjectDefinitionType,
 				},
 				Required: true,
 				JsonName: "type",

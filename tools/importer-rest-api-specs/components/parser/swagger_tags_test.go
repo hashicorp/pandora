@@ -7,7 +7,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
@@ -20,30 +20,30 @@ func TestParsingOperationsUsingTheSameSwaggerTagInDifferentCasings(t *testing.T)
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Hello": {
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"Example": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.StringSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 
 					"First": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						RequestObject: &models.SDKObjectDefinition{
+						RequestObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						// https://github.com/hashicorp/pandora/issues/3807
 						URISuffix: pointer.To("/someotheruri"),
@@ -52,9 +52,9 @@ func TestParsingOperationsUsingTheSameSwaggerTagInDifferentCasings(t *testing.T)
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						RequestObject: &models.SDKObjectDefinition{
+						RequestObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/bar"),
 					},
@@ -62,9 +62,9 @@ func TestParsingOperationsUsingTheSameSwaggerTagInDifferentCasings(t *testing.T)
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						RequestObject: &models.SDKObjectDefinition{
+						RequestObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/foo"),
 					},
@@ -72,9 +72,9 @@ func TestParsingOperationsUsingTheSameSwaggerTagInDifferentCasings(t *testing.T)
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PATCH",
-						RequestObject: &models.SDKObjectDefinition{
+						RequestObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						// https://github.com/hashicorp/pandora/issues/3807
 						URISuffix: pointer.To("/someotheruri"),
@@ -95,29 +95,29 @@ func TestParsingOperationsOnResources(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Hello": {
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"Example": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.StringSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"First": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						RequestObject: &models.SDKObjectDefinition{
+						RequestObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						// https://github.com/hashicorp/pandora/issues/3807
 						URISuffix: pointer.To("/someotheruri"),
@@ -126,9 +126,9 @@ func TestParsingOperationsOnResources(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
-						RequestObject: &models.SDKObjectDefinition{
+						RequestObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/bar"),
 					},
@@ -136,9 +136,9 @@ func TestParsingOperationsOnResources(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PATCH",
-						RequestObject: &models.SDKObjectDefinition{
+						RequestObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						// https://github.com/hashicorp/pandora/issues/3807
 						URISuffix: pointer.To("/someotheruri"),
@@ -146,27 +146,27 @@ func TestParsingOperationsOnResources(t *testing.T) {
 				},
 			},
 			"HelloOperations": {
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"Example": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: models.SDKObjectDefinition{
-									Type: models.StringSDKObjectDefinitionType,
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"HelloRestart": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "POST",
-						RequestObject: &models.SDKObjectDefinition{
+						RequestObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/foo"),
 					},

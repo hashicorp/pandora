@@ -7,7 +7,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
@@ -21,11 +21,11 @@ func TestParseConstantsIntegersTopLevelAsInts(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Example": {
-				Constants: map[string]models.SDKConstant{
+				Constants: map[string]sdkModels.SDKConstant{
 					"TableNumber": {
-						Type: models.IntegerSDKConstantType,
+						Type: sdkModels.IntegerSDKConstantType,
 						Values: map[string]string{
 							"One":              "1",
 							"Two":              "2",
@@ -34,28 +34,28 @@ func TestParseConstantsIntegersTopLevelAsInts(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
-								ObjectDefinition: models.SDKObjectDefinition{
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
 									ReferenceName: pointer.To("TableNumber"),
-									Type:          models.ReferenceSDKObjectDefinitionType,
+									Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
+						ResponseObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/example"),
 					},
@@ -77,11 +77,11 @@ func TestParseConstantsIntegersTopLevelAsIntsWithDisplayName(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Example": {
-				Constants: map[string]models.SDKConstant{
+				Constants: map[string]sdkModels.SDKConstant{
 					"TableNumber": {
-						Type: models.IntegerSDKConstantType,
+						Type: sdkModels.IntegerSDKConstantType,
 						Values: map[string]string{
 							"First":  "1",
 							"Second": "2",
@@ -89,28 +89,28 @@ func TestParseConstantsIntegersTopLevelAsIntsWithDisplayName(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
-								ObjectDefinition: models.SDKObjectDefinition{
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
 									ReferenceName: pointer.To("TableNumber"),
-									Type:          models.ReferenceSDKObjectDefinitionType,
+									Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
+						ResponseObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/example"),
 					},
@@ -131,11 +131,11 @@ func TestParseConstantsIntegersTopLevelAsStrings(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Example": {
-				Constants: map[string]models.SDKConstant{
+				Constants: map[string]sdkModels.SDKConstant{
 					"TableNumber": {
-						Type: models.IntegerSDKConstantType,
+						Type: sdkModels.IntegerSDKConstantType,
 						Values: map[string]string{
 							"One":   "1",
 							"Two":   "2",
@@ -143,28 +143,28 @@ func TestParseConstantsIntegersTopLevelAsStrings(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
-								ObjectDefinition: models.SDKObjectDefinition{
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
 									ReferenceName: pointer.To("TableNumber"),
-									Type:          models.ReferenceSDKObjectDefinitionType,
+									Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
+						ResponseObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/example"),
 					},
@@ -185,11 +185,11 @@ func TestParseConstantsIntegersInlinedAsInts(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Example": {
-				Constants: map[string]models.SDKConstant{
+				Constants: map[string]sdkModels.SDKConstant{
 					"TableNumber": {
-						Type: models.IntegerSDKConstantType,
+						Type: sdkModels.IntegerSDKConstantType,
 						Values: map[string]string{
 							"One":   "1",
 							"Two":   "2",
@@ -197,28 +197,28 @@ func TestParseConstantsIntegersInlinedAsInts(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
-								ObjectDefinition: models.SDKObjectDefinition{
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
 									ReferenceName: pointer.To("TableNumber"),
-									Type:          models.ReferenceSDKObjectDefinitionType,
+									Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
+						ResponseObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/example"),
 					},
@@ -240,11 +240,11 @@ func TestParseConstantsIntegersInlinedAsIntsWithDisplayName(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Example": {
-				Constants: map[string]models.SDKConstant{
+				Constants: map[string]sdkModels.SDKConstant{
 					"TableNumber": {
-						Type: models.IntegerSDKConstantType,
+						Type: sdkModels.IntegerSDKConstantType,
 						Values: map[string]string{
 							"First":  "1",
 							"Second": "2",
@@ -252,28 +252,28 @@ func TestParseConstantsIntegersInlinedAsIntsWithDisplayName(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
-								ObjectDefinition: models.SDKObjectDefinition{
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
 									ReferenceName: pointer.To("TableNumber"),
-									Type:          models.ReferenceSDKObjectDefinitionType,
+									Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
+						ResponseObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/example"),
 					},
@@ -293,11 +293,11 @@ func TestParseConstantsMultipleTypeEnums(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Example": {
-				Constants: map[string]models.SDKConstant{
+				Constants: map[string]sdkModels.SDKConstant{
 					"AnimalType": {
-						Type: models.StringSDKConstantType,
+						Type: sdkModels.StringSDKConstantType,
 						Values: map[string]string{
 							"Cat":   "cat",
 							"Dog":   "dog",
@@ -305,47 +305,47 @@ func TestParseConstantsMultipleTypeEnums(t *testing.T) {
 						},
 					},
 					"PlanetType": {
-						Type: models.StringSDKConstantType,
+						Type: sdkModels.StringSDKConstantType,
 						Values: map[string]string{
 							"Mercury": "mercury",
 							"Saturn":  "saturn",
 						},
 					},
 				},
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"Animal": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"Type": {
 								JsonName: "type",
-								ObjectDefinition: models.SDKObjectDefinition{
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
 									ReferenceName: pointer.To("AnimalType"),
-									Type:          models.ReferenceSDKObjectDefinitionType,
+									Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 					"Planet": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"Type": {
 								JsonName: "type",
-								ObjectDefinition: models.SDKObjectDefinition{
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
 									ReferenceName: pointer.To("PlanetType"),
-									Type:          models.ReferenceSDKObjectDefinitionType,
+									Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"Animal": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
+						ResponseObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("Animal"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/animal"),
 					},
@@ -353,9 +353,9 @@ func TestParseConstantsMultipleTypeEnums(t *testing.T) {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
+						ResponseObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("Planet"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/planet"),
 					},
@@ -376,11 +376,11 @@ func TestParseConstantsIntegersInlinedAsStrings(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Example": {
-				Constants: map[string]models.SDKConstant{
+				Constants: map[string]sdkModels.SDKConstant{
 					"TableNumber": {
-						Type: models.IntegerSDKConstantType,
+						Type: sdkModels.IntegerSDKConstantType,
 						Values: map[string]string{
 							"One":   "1",
 							"Two":   "2",
@@ -388,28 +388,28 @@ func TestParseConstantsIntegersInlinedAsStrings(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
-								ObjectDefinition: models.SDKObjectDefinition{
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
 									ReferenceName: pointer.To("TableNumber"),
-									Type:          models.ReferenceSDKObjectDefinitionType,
+									Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
+						ResponseObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/example"),
 					},
@@ -430,11 +430,11 @@ func TestParseConstantsFloatsTopLevelAsFloats(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Example": {
-				Constants: map[string]models.SDKConstant{
+				Constants: map[string]sdkModels.SDKConstant{
 					"TableNumber": {
-						Type: models.FloatSDKConstantType,
+						Type: sdkModels.FloatSDKConstantType,
 						Values: map[string]string{
 							"OnePointOne":                     "1.1",
 							"TwoPointTwo":                     "2.2",
@@ -442,28 +442,28 @@ func TestParseConstantsFloatsTopLevelAsFloats(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
-								ObjectDefinition: models.SDKObjectDefinition{
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
 									ReferenceName: pointer.To("TableNumber"),
-									Type:          models.ReferenceSDKObjectDefinitionType,
+									Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
+						ResponseObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/example"),
 					},
@@ -484,11 +484,11 @@ func TestParseConstantsFloatsTopLevelAsStrings(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Example": {
-				Constants: map[string]models.SDKConstant{
+				Constants: map[string]sdkModels.SDKConstant{
 					"TableNumber": {
-						Type: models.FloatSDKConstantType,
+						Type: sdkModels.FloatSDKConstantType,
 						Values: map[string]string{
 							"OnePointOne":                     "1.1",
 							"TwoPointTwo":                     "2.2",
@@ -496,28 +496,28 @@ func TestParseConstantsFloatsTopLevelAsStrings(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
-								ObjectDefinition: models.SDKObjectDefinition{
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
 									ReferenceName: pointer.To("TableNumber"),
-									Type:          models.ReferenceSDKObjectDefinitionType,
+									Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
+						ResponseObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/example"),
 					},
@@ -538,11 +538,11 @@ func TestParseConstantsFloatsInlinedAsFloats(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Example": {
-				Constants: map[string]models.SDKConstant{
+				Constants: map[string]sdkModels.SDKConstant{
 					"TableNumber": {
-						Type: models.FloatSDKConstantType,
+						Type: sdkModels.FloatSDKConstantType,
 						Values: map[string]string{
 							"OnePointOne":                     "1.1",
 							"TwoPointTwo":                     "2.2",
@@ -550,28 +550,28 @@ func TestParseConstantsFloatsInlinedAsFloats(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
-								ObjectDefinition: models.SDKObjectDefinition{
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
 									ReferenceName: pointer.To("TableNumber"),
-									Type:          models.ReferenceSDKObjectDefinitionType,
+									Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
+						ResponseObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/example"),
 					},
@@ -592,11 +592,11 @@ func TestParseConstantsFloatsInlinedAsStrings(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Example": {
-				Constants: map[string]models.SDKConstant{
+				Constants: map[string]sdkModels.SDKConstant{
 					"TableNumber": {
-						Type: models.FloatSDKConstantType,
+						Type: sdkModels.FloatSDKConstantType,
 						Values: map[string]string{
 							"OnePointOne":                     "1.1",
 							"TwoPointTwo":                     "2.2",
@@ -604,28 +604,28 @@ func TestParseConstantsFloatsInlinedAsStrings(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
-								ObjectDefinition: models.SDKObjectDefinition{
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
 									ReferenceName: pointer.To("TableNumber"),
-									Type:          models.ReferenceSDKObjectDefinitionType,
+									Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
+						ResponseObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/example"),
 					},
@@ -645,11 +645,11 @@ func TestParseConstantsStringsTopLevel(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Example": {
-				Constants: map[string]models.SDKConstant{
+				Constants: map[string]sdkModels.SDKConstant{
 					"AnimalType": {
-						Type: models.StringSDKConstantType,
+						Type: sdkModels.StringSDKConstantType,
 						Values: map[string]string{
 							"Cat":   "cat",
 							"Dog":   "dog",
@@ -658,28 +658,28 @@ func TestParseConstantsStringsTopLevel(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"Type": {
 								JsonName: "type",
-								ObjectDefinition: models.SDKObjectDefinition{
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
 									ReferenceName: pointer.To("AnimalType"),
-									Type:          models.ReferenceSDKObjectDefinitionType,
+									Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
+						ResponseObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/example"),
 					},
@@ -702,11 +702,11 @@ func TestParseConstantsStringsTopLevelAsNonStrings(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Example": {
-				Constants: map[string]models.SDKConstant{
+				Constants: map[string]sdkModels.SDKConstant{
 					"AnimalType": {
-						Type: models.StringSDKConstantType,
+						Type: sdkModels.StringSDKConstantType,
 						Values: map[string]string{
 							"Cat":   "cat",
 							"Dog":   "dog",
@@ -714,28 +714,28 @@ func TestParseConstantsStringsTopLevelAsNonStrings(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"Type": {
 								JsonName: "type",
-								ObjectDefinition: models.SDKObjectDefinition{
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
 									ReferenceName: pointer.To("AnimalType"),
-									Type:          models.ReferenceSDKObjectDefinitionType,
+									Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
+						ResponseObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/example"),
 					},
@@ -755,11 +755,11 @@ func TestParseConstantsStringsInlined(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Example": {
-				Constants: map[string]models.SDKConstant{
+				Constants: map[string]sdkModels.SDKConstant{
 					"AnimalType": {
-						Type: models.StringSDKConstantType,
+						Type: sdkModels.StringSDKConstantType,
 						Values: map[string]string{
 							"Cat":   "cat",
 							"Dog":   "dog",
@@ -767,28 +767,28 @@ func TestParseConstantsStringsInlined(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"Type": {
 								JsonName: "type",
-								ObjectDefinition: models.SDKObjectDefinition{
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
 									ReferenceName: pointer.To("AnimalType"),
-									Type:          models.ReferenceSDKObjectDefinitionType,
+									Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
+						ResponseObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/example"),
 					},
@@ -808,11 +808,11 @@ func TestParseConstantsStringsInlinedAsNonStrings(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Example": {
-				Constants: map[string]models.SDKConstant{
+				Constants: map[string]sdkModels.SDKConstant{
 					"AnimalType": {
-						Type: models.StringSDKConstantType,
+						Type: sdkModels.StringSDKConstantType,
 						Values: map[string]string{
 							"Cat":   "cat",
 							"Dog":   "dog",
@@ -820,28 +820,28 @@ func TestParseConstantsStringsInlinedAsNonStrings(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"Type": {
 								JsonName: "type",
-								ObjectDefinition: models.SDKObjectDefinition{
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
 									ReferenceName: pointer.To("AnimalType"),
-									Type:          models.ReferenceSDKObjectDefinitionType,
+									Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
+						ResponseObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/example"),
 					},
@@ -862,11 +862,11 @@ func TestParseConstantsStringsTopLevelContainingFloats(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Example": {
-				Constants: map[string]models.SDKConstant{
+				Constants: map[string]sdkModels.SDKConstant{
 					"TableNumber": {
-						Type: models.StringSDKConstantType,
+						Type: sdkModels.StringSDKConstantType,
 						Values: map[string]string{
 							"OnePointOne":                     "1.1",
 							"TwoPointTwo":                     "2.2",
@@ -874,28 +874,28 @@ func TestParseConstantsStringsTopLevelContainingFloats(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
-								ObjectDefinition: models.SDKObjectDefinition{
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
 									ReferenceName: pointer.To("TableNumber"),
-									Type:          models.ReferenceSDKObjectDefinitionType,
+									Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
+						ResponseObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/example"),
 					},
@@ -916,11 +916,11 @@ func TestParseConstantsStringsInlinedContainingFloats(t *testing.T) {
 	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]importerModels.AzureApiResource{
+		Resources: map[string]sdkModels.APIResource{
 			"Example": {
-				Constants: map[string]models.SDKConstant{
+				Constants: map[string]sdkModels.SDKConstant{
 					"TableNumber": {
-						Type: models.FloatSDKConstantType,
+						Type: sdkModels.FloatSDKConstantType,
 						Values: map[string]string{
 							"OnePointOne":                     "1.1",
 							"TwoPointTwo":                     "2.2",
@@ -928,28 +928,28 @@ func TestParseConstantsStringsInlinedContainingFloats(t *testing.T) {
 						},
 					},
 				},
-				Models: map[string]models.SDKModel{
+				Models: map[string]sdkModels.SDKModel{
 					"ExampleWrapper": {
-						Fields: map[string]models.SDKField{
+						Fields: map[string]sdkModels.SDKField{
 							"FavouriteTable": {
 								JsonName: "favouriteTable",
-								ObjectDefinition: models.SDKObjectDefinition{
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
 									ReferenceName: pointer.To("TableNumber"),
-									Type:          models.ReferenceSDKObjectDefinitionType,
+									Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.SDKOperation{
+				Operations: map[string]sdkModels.SDKOperation{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
-						ResponseObject: &models.SDKObjectDefinition{
+						ResponseObject: &sdkModels.SDKObjectDefinition{
 							ReferenceName: pointer.To("ExampleWrapper"),
-							Type:          models.ReferenceSDKObjectDefinitionType,
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 						},
 						URISuffix: pointer.To("/example"),
 					},
@@ -987,15 +987,15 @@ func TestParseConstantsFromParameters(t *testing.T) {
 	if len(resource.Operations) != 1 {
 		t.Fatalf("expected 1 operation but got %d", len(resource.Operations))
 	}
-	if len(resource.ResourceIds) != 1 {
-		t.Fatalf("expected 1 Resource ID but got %d", len(resource.ResourceIds))
+	if len(resource.ResourceIDs) != 1 {
+		t.Fatalf("expected 1 Resource ID but got %d", len(resource.ResourceIDs))
 	}
 
 	favouriteTable, ok := resource.Constants["MediaType"]
 	if !ok {
 		t.Fatalf("resource.Constants['TableNumber'] was not found")
 	}
-	if favouriteTable.Type != models.StringSDKConstantType {
+	if favouriteTable.Type != sdkModels.StringSDKConstantType {
 		t.Fatalf("expected resource.Constants['TableNumber'].Type to be 'String' but got %q", favouriteTable.Type)
 	}
 	if len(favouriteTable.Values) != 3 {

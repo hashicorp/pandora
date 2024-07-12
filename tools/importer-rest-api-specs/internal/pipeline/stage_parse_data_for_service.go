@@ -19,6 +19,7 @@ func (p *Pipeline) parseDataForService(service services.Service) (*sdkModels.Ser
 		return nil, fmt.Errorf("discovering for Service %q: %+v", service.Name, err)
 	}
 	logging.Tracef("Resource Provider is %q", *data.ResourceProvider)
+
 	for version, versionData := range data.DataSetsForAPIVersions {
 		logging.Debugf("API Version %q had %d and %d", version, len(versionData.FilePathsContainingAPIDefinitions), len(versionData.FilePathsContainingSupplementaryData))
 	}

@@ -6,7 +6,7 @@ package dataworkarounds
 import (
 	"fmt"
 
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
@@ -41,8 +41,8 @@ func (workaroundLoadTest20961) Process(apiDefinition importerModels.AzureApiDefi
 	if !ok {
 		return nil, fmt.Errorf("couldn't find field Tags within model LoadTestResourceUpdate")
 	}
-	field.ObjectDefinition = models.SDKObjectDefinition{
-		Type: models.TagsSDKObjectDefinitionType,
+	field.ObjectDefinition = sdkModels.SDKObjectDefinition{
+		Type: sdkModels.TagsSDKObjectDefinitionType,
 	}
 
 	model.Fields["Tags"] = field

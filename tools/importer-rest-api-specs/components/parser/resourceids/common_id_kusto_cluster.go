@@ -4,27 +4,27 @@
 package resourceids
 
 import (
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 var _ commonIdMatcher = commonIdKustoCluster{}
 
 type commonIdKustoCluster struct{}
 
-func (c commonIdKustoCluster) id() models.ResourceID {
+func (c commonIdKustoCluster) id() sdkModels.ResourceID {
 	name := "KustoCluster"
-	return models.ResourceID{
+	return sdkModels.ResourceID{
 		CommonIDAlias: &name,
 		ConstantNames: []string{},
-		Segments: []models.ResourceIDSegment{
-			models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
-			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-			models.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
-			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-			models.NewStaticValueResourceIDSegment("staticProviders", "providers"),
-			models.NewResourceProviderResourceIDSegment("staticMicrosoftKusto", "Microsoft.Kusto"),
-			models.NewStaticValueResourceIDSegment("staticClusters", "clusters"),
-			models.NewUserSpecifiedResourceIDSegment("kustoClusterName", "kustoClusterName"),
+		Segments: []sdkModels.ResourceIDSegment{
+			sdkModels.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
+			sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			sdkModels.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
+			sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			sdkModels.NewStaticValueResourceIDSegment("staticProviders", "providers"),
+			sdkModels.NewResourceProviderResourceIDSegment("staticMicrosoftKusto", "Microsoft.Kusto"),
+			sdkModels.NewStaticValueResourceIDSegment("staticClusters", "clusters"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("kustoClusterName", "kustoClusterName"),
 		},
 	}
 }

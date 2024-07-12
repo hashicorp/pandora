@@ -6,7 +6,7 @@ package commonschema
 import (
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
 )
 
@@ -14,14 +14,14 @@ var _ customFieldMatcher = systemOrUserAssignedIdentityMapMatcher{}
 
 type systemOrUserAssignedIdentityMapMatcher struct{}
 
-func (systemOrUserAssignedIdentityMapMatcher) ReplacementObjectDefinition() models.SDKObjectDefinition {
-	return models.SDKObjectDefinition{
-		Type: models.SystemOrUserAssignedIdentityMapSDKObjectDefinitionType,
+func (systemOrUserAssignedIdentityMapMatcher) ReplacementObjectDefinition() sdkModels.SDKObjectDefinition {
+	return sdkModels.SDKObjectDefinition{
+		Type: sdkModels.SystemOrUserAssignedIdentityMapSDKObjectDefinitionType,
 	}
 }
 
-func (systemOrUserAssignedIdentityMapMatcher) IsMatch(field models.SDKField, known internal.ParseResult) bool {
-	if field.ObjectDefinition.Type != models.ReferenceSDKObjectDefinitionType {
+func (systemOrUserAssignedIdentityMapMatcher) IsMatch(field sdkModels.SDKField, known internal.ParseResult) bool {
+	if field.ObjectDefinition.Type != sdkModels.ReferenceSDKObjectDefinitionType {
 		return false
 	}
 
@@ -49,10 +49,10 @@ func (systemOrUserAssignedIdentityMapMatcher) IsMatch(field models.SDKField, kno
 
 		if strings.EqualFold(fieldName, "UserAssignedIdentities") {
 			// this should be a Map of an Object containing ClientId/PrincipalId
-			if fieldVal.ObjectDefinition.Type != models.DictionarySDKObjectDefinitionType {
+			if fieldVal.ObjectDefinition.Type != sdkModels.DictionarySDKObjectDefinitionType {
 				continue
 			}
-			if fieldVal.ObjectDefinition.NestedItem == nil || fieldVal.ObjectDefinition.NestedItem.Type != models.ReferenceSDKObjectDefinitionType {
+			if fieldVal.ObjectDefinition.NestedItem == nil || fieldVal.ObjectDefinition.NestedItem.Type != sdkModels.ReferenceSDKObjectDefinitionType {
 				continue
 			}
 
@@ -65,7 +65,7 @@ func (systemOrUserAssignedIdentityMapMatcher) IsMatch(field models.SDKField, kno
 			innerHasPrincipalId := false
 			for innerName, innerVal := range inlinedModel.Fields {
 				if strings.EqualFold(innerName, "ClientId") {
-					if innerVal.ObjectDefinition.Type != models.StringSDKObjectDefinitionType {
+					if innerVal.ObjectDefinition.Type != sdkModels.StringSDKObjectDefinitionType {
 						continue
 					}
 
@@ -74,7 +74,7 @@ func (systemOrUserAssignedIdentityMapMatcher) IsMatch(field models.SDKField, kno
 				}
 
 				if strings.EqualFold(innerName, "PrincipalId") {
-					if innerVal.ObjectDefinition.Type != models.StringSDKObjectDefinitionType {
+					if innerVal.ObjectDefinition.Type != sdkModels.StringSDKObjectDefinitionType {
 						continue
 					}
 
@@ -90,7 +90,7 @@ func (systemOrUserAssignedIdentityMapMatcher) IsMatch(field models.SDKField, kno
 		}
 
 		if strings.EqualFold(fieldName, "Type") {
-			if fieldVal.ObjectDefinition.Type != models.ReferenceSDKObjectDefinitionType {
+			if fieldVal.ObjectDefinition.Type != sdkModels.ReferenceSDKObjectDefinitionType {
 				continue
 			}
 			constant, ok := known.Constants[*fieldVal.ObjectDefinition.ReferenceName]

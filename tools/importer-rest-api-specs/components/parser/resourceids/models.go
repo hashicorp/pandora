@@ -6,14 +6,13 @@ package resourceids
 import (
 	"fmt"
 
-	"github.com/hashicorp/go-hclog"
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
 )
 
 type ParsedOperation struct {
 	// ResourceId is the ParsedResourceId object for this Resource Id
-	ResourceId *models.ResourceID
+	ResourceId *sdkModels.ResourceID
 
 	// ResourceIdName is the name of the ResourceID
 	ResourceIdName *string
@@ -30,15 +29,15 @@ type ParseResult struct {
 	OperationIdsToParsedResourceIds map[string]ParsedOperation
 
 	// NamesToResourceIDs is a mapping of the ResourceID Names to the parsed Resource ID objects
-	NamesToResourceIDs map[string]models.ResourceID
+	NamesToResourceIDs map[string]sdkModels.ResourceID
 
 	// Constants is a map of Name - ConstantDetails found within the Resource IDs
-	Constants map[string]models.SDKConstant
+	Constants map[string]sdkModels.SDKConstant
 }
 
-func (r *ParseResult) Append(other ParseResult, logger hclog.Logger) error {
+func (r *ParseResult) Append(other ParseResult) error {
 	intermediate := internal.ParseResult{
-		Constants: map[string]models.SDKConstant{},
+		Constants: map[string]sdkModels.SDKConstant{},
 	}
 	intermediate.AppendConstants(r.Constants)
 	intermediate.AppendConstants(other.Constants)
@@ -75,7 +74,7 @@ func (r *ParseResult) Append(other ParseResult, logger hclog.Logger) error {
 
 		// since we have a new list of Resource IDs we also need to go through and regenerate the names
 		// as we may have conflicts etc
-		combinedResourceIds := make([]models.ResourceID, 0)
+		combinedResourceIds := make([]sdkModels.ResourceID, 0)
 		for _, v := range r.NamesToResourceIDs {
 			combinedResourceIds = append(combinedResourceIds, v)
 		}

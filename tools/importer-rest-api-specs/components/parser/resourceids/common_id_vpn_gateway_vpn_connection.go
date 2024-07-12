@@ -3,30 +3,28 @@
 
 package resourceids
 
-import (
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-)
+import sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 
 var _ commonIdMatcher = commonIdVPNConnection{}
 
 type commonIdVPNConnection struct{}
 
-func (c commonIdVPNConnection) id() models.ResourceID {
+func (c commonIdVPNConnection) id() sdkModels.ResourceID {
 	name := "VPNConnection"
-	return models.ResourceID{
+	return sdkModels.ResourceID{
 		CommonIDAlias: &name,
 		ConstantNames: []string{},
-		Segments: []models.ResourceIDSegment{
-			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
-			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-			models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
-			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-			models.NewStaticValueResourceIDSegment("providers", "providers"),
-			models.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Network"),
-			models.NewStaticValueResourceIDSegment("vpnGateways", "vpnGateways"),
-			models.NewUserSpecifiedResourceIDSegment("gatewayName", "gatewayName"),
-			models.NewStaticValueResourceIDSegment("vpnConnections", "vpnConnections"),
-			models.NewUserSpecifiedResourceIDSegment("connectionName", "connectionName"),
+		Segments: []sdkModels.ResourceIDSegment{
+			sdkModels.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+			sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			sdkModels.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+			sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			sdkModels.NewStaticValueResourceIDSegment("providers", "providers"),
+			sdkModels.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Network"),
+			sdkModels.NewStaticValueResourceIDSegment("vpnGateways", "vpnGateways"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("gatewayName", "gatewayName"),
+			sdkModels.NewStaticValueResourceIDSegment("vpnConnections", "vpnConnections"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("connectionName", "connectionName"),
 		},
 	}
 }

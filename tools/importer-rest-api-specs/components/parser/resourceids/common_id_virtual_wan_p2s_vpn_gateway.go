@@ -3,28 +3,26 @@
 
 package resourceids
 
-import (
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-)
+import sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 
 var _ commonIdMatcher = commonIdVirtualWANP2SVPNGateway{}
 
 type commonIdVirtualWANP2SVPNGateway struct{}
 
-func (c commonIdVirtualWANP2SVPNGateway) id() models.ResourceID {
+func (c commonIdVirtualWANP2SVPNGateway) id() sdkModels.ResourceID {
 	name := "VirtualWANP2SVPNGateway"
-	return models.ResourceID{
+	return sdkModels.ResourceID{
 		CommonIDAlias: &name,
 		ConstantNames: []string{},
-		Segments: []models.ResourceIDSegment{
-			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
-			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-			models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
-			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-			models.NewStaticValueResourceIDSegment("providers", "providers"),
-			models.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Network"),
-			models.NewStaticValueResourceIDSegment("p2sVpnGateways", "p2sVpnGateways"),
-			models.NewUserSpecifiedResourceIDSegment("gatewayName", "gatewayName"),
+		Segments: []sdkModels.ResourceIDSegment{
+			sdkModels.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+			sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			sdkModels.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+			sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			sdkModels.NewStaticValueResourceIDSegment("providers", "providers"),
+			sdkModels.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Network"),
+			sdkModels.NewStaticValueResourceIDSegment("p2sVpnGateways", "p2sVpnGateways"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("gatewayName", "gatewayName"),
 		},
 	}
 }

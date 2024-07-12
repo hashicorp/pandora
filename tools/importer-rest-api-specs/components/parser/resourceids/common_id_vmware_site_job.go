@@ -3,31 +3,29 @@
 
 package resourceids
 
-import (
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-)
+import sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 
 var _ commonIdMatcher = commonIdVMwareSiteJob{}
 
 type commonIdVMwareSiteJob struct {
 }
 
-func (c commonIdVMwareSiteJob) id() models.ResourceID {
+func (c commonIdVMwareSiteJob) id() sdkModels.ResourceID {
 	name := "VMwareSiteJob"
-	return models.ResourceID{
+	return sdkModels.ResourceID{
 		CommonIDAlias: &name,
 		ConstantNames: []string{},
-		Segments: []models.ResourceIDSegment{
-			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
-			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-			models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
-			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-			models.NewStaticValueResourceIDSegment("providers", "providers"),
-			models.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.OffAzure"),
-			models.NewStaticValueResourceIDSegment("vmwareSites", "vmwareSites"),
-			models.NewUserSpecifiedResourceIDSegment("vmwareSiteName", "vmwareSiteName"),
-			models.NewStaticValueResourceIDSegment("jobs", "jobs"),
-			models.NewUserSpecifiedResourceIDSegment("jobName", "jobName"),
+		Segments: []sdkModels.ResourceIDSegment{
+			sdkModels.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+			sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			sdkModels.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+			sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			sdkModels.NewStaticValueResourceIDSegment("providers", "providers"),
+			sdkModels.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.OffAzure"),
+			sdkModels.NewStaticValueResourceIDSegment("vmwareSites", "vmwareSites"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("vmwareSiteName", "vmwareSiteName"),
+			sdkModels.NewStaticValueResourceIDSegment("jobs", "jobs"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("jobName", "jobName"),
 		},
 	}
 }

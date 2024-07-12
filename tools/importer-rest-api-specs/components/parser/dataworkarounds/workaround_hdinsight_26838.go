@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
@@ -54,8 +54,8 @@ func (workaroundHDInsight26838) Process(apiDefinition importerModels.AzureApiDef
 	if !ok {
 		return nil, fmt.Errorf("expected a Field named `Kind`")
 	}
-	field.ObjectDefinition = models.SDKObjectDefinition{
-		Type:          models.ReferenceSDKObjectDefinitionType,
+	field.ObjectDefinition = sdkModels.SDKObjectDefinition{
+		Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 		ReferenceName: pointer.To("ClusterKind"),
 	}
 	model.Fields["Kind"] = field
@@ -65,8 +65,8 @@ func (workaroundHDInsight26838) Process(apiDefinition importerModels.AzureApiDef
 	if v, ok := resource.Constants["ClusterKind"]; ok {
 		return nil, fmt.Errorf("an existing Constant exists with the name `ClusterKind`: %+v", v)
 	}
-	resource.Constants["ClusterKind"] = models.SDKConstant{
-		Type: models.StringSDKConstantType,
+	resource.Constants["ClusterKind"] = sdkModels.SDKConstant{
+		Type: sdkModels.StringSDKConstantType,
 		Values: map[string]string{
 			"Hadoop":          "HADOOP",
 			"HBase":           "HBASE",

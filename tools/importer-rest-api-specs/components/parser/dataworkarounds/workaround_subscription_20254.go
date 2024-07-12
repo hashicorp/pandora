@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
@@ -37,12 +37,12 @@ func (w workaroundSubscriptions20254) Process(input importerModels.AzureApiDefin
 	if !ok {
 		return nil, fmt.Errorf("expected an Operation named `SubscriptionCancel` but didn't get one")
 	}
-	operation.Options = map[string]models.SDKOperationOption{
+	operation.Options = map[string]sdkModels.SDKOperationOption{
 		// IgnoreResourceCheck allows deleting a Subscription even if it contains nested Resources
 		"IgnoreResourceCheck": {
 			QueryStringName: pointer.To("IgnoreResourceCheck"),
-			ObjectDefinition: models.SDKOperationOptionObjectDefinition{
-				Type: models.BooleanSDKOperationOptionObjectDefinitionType,
+			ObjectDefinition: sdkModels.SDKOperationOptionObjectDefinition{
+				Type: sdkModels.BooleanSDKOperationOptionObjectDefinitionType,
 			},
 			Required: false,
 		},

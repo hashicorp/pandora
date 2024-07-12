@@ -6,7 +6,7 @@ package commonschema
 import (
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
 )
 
@@ -14,14 +14,14 @@ var _ customFieldMatcher = systemAndUserAssignedIdentityListMatcher{}
 
 type systemAndUserAssignedIdentityListMatcher struct{}
 
-func (systemAndUserAssignedIdentityListMatcher) ReplacementObjectDefinition() models.SDKObjectDefinition {
-	return models.SDKObjectDefinition{
-		Type: models.SystemAndUserAssignedIdentityListSDKObjectDefinitionType,
+func (systemAndUserAssignedIdentityListMatcher) ReplacementObjectDefinition() sdkModels.SDKObjectDefinition {
+	return sdkModels.SDKObjectDefinition{
+		Type: sdkModels.SystemAndUserAssignedIdentityListSDKObjectDefinitionType,
 	}
 }
 
-func (systemAndUserAssignedIdentityListMatcher) IsMatch(field models.SDKField, known internal.ParseResult) bool {
-	if field.ObjectDefinition.Type != models.ReferenceSDKObjectDefinitionType {
+func (systemAndUserAssignedIdentityListMatcher) IsMatch(field sdkModels.SDKField, known internal.ParseResult) bool {
+	if field.ObjectDefinition.Type != sdkModels.ReferenceSDKObjectDefinitionType {
 		return false
 	}
 
@@ -49,10 +49,10 @@ func (systemAndUserAssignedIdentityListMatcher) IsMatch(field models.SDKField, k
 
 		if strings.EqualFold(fieldName, "UserAssignedIdentities") {
 			// this should be a List of Strings
-			if fieldVal.ObjectDefinition.Type != models.ListSDKObjectDefinitionType {
+			if fieldVal.ObjectDefinition.Type != sdkModels.ListSDKObjectDefinitionType {
 				continue
 			}
-			if fieldVal.ObjectDefinition.NestedItem == nil || fieldVal.ObjectDefinition.NestedItem.Type != models.StringSDKObjectDefinitionType {
+			if fieldVal.ObjectDefinition.NestedItem == nil || fieldVal.ObjectDefinition.NestedItem.Type != sdkModels.StringSDKObjectDefinitionType {
 				continue
 			}
 
@@ -61,7 +61,7 @@ func (systemAndUserAssignedIdentityListMatcher) IsMatch(field models.SDKField, k
 		}
 
 		if strings.EqualFold(fieldName, "Type") {
-			if fieldVal.ObjectDefinition.Type != models.ReferenceSDKObjectDefinitionType {
+			if fieldVal.ObjectDefinition.Type != sdkModels.ReferenceSDKObjectDefinitionType {
 				continue
 			}
 			constant, ok := known.Constants[*fieldVal.ObjectDefinition.ReferenceName]

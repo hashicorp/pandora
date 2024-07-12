@@ -4,29 +4,29 @@
 package resourceids
 
 import (
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 var _ commonIdMatcher = commonIdHyperVSiteRunAsAccount{}
 
 type commonIdHyperVSiteRunAsAccount struct{}
 
-func (c commonIdHyperVSiteRunAsAccount) id() models.ResourceID {
+func (c commonIdHyperVSiteRunAsAccount) id() sdkModels.ResourceID {
 	name := "HyperVSiteRunAsAccount"
-	return models.ResourceID{
+	return sdkModels.ResourceID{
 		CommonIDAlias: &name,
 		ConstantNames: []string{},
-		Segments: []models.ResourceIDSegment{
-			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
-			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-			models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
-			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-			models.NewStaticValueResourceIDSegment("providers", "providers"),
-			models.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.OffAzure"),
-			models.NewStaticValueResourceIDSegment("hyperVSites", "hyperVSites"),
-			models.NewUserSpecifiedResourceIDSegment("hyperVSiteName", "hyperVSiteName"),
-			models.NewStaticValueResourceIDSegment("runAsAccounts", "runAsAccounts"),
-			models.NewUserSpecifiedResourceIDSegment("runAsAccountName", "runAsAccountName"),
+		Segments: []sdkModels.ResourceIDSegment{
+			sdkModels.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+			sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			sdkModels.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+			sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			sdkModels.NewStaticValueResourceIDSegment("providers", "providers"),
+			sdkModels.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.OffAzure"),
+			sdkModels.NewStaticValueResourceIDSegment("hyperVSites", "hyperVSites"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("hyperVSiteName", "hyperVSiteName"),
+			sdkModels.NewStaticValueResourceIDSegment("runAsAccounts", "runAsAccounts"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("runAsAccountName", "runAsAccountName"),
 		},
 	}
 }

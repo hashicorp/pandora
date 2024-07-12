@@ -4,29 +4,29 @@
 package resourceids
 
 import (
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 var _ commonIdMatcher = commonIdDedicatedHost{}
 
 type commonIdDedicatedHost struct{}
 
-func (c commonIdDedicatedHost) id() models.ResourceID {
+func (c commonIdDedicatedHost) id() sdkModels.ResourceID {
 	name := "DedicatedHost"
-	return models.ResourceID{
+	return sdkModels.ResourceID{
 		CommonIDAlias: &name,
 		ConstantNames: []string{},
-		Segments: []models.ResourceIDSegment{
-			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
-			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-			models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
-			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-			models.NewStaticValueResourceIDSegment("providers", "providers"),
-			models.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Compute"),
-			models.NewStaticValueResourceIDSegment("hostGroups", "hostGroups"),
-			models.NewUserSpecifiedResourceIDSegment("hostGroupName", "hostGroupName"),
-			models.NewStaticValueResourceIDSegment("hosts", "hosts"),
-			models.NewUserSpecifiedResourceIDSegment("hostName", "hostName"),
+		Segments: []sdkModels.ResourceIDSegment{
+			sdkModels.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+			sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			sdkModels.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+			sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			sdkModels.NewStaticValueResourceIDSegment("providers", "providers"),
+			sdkModels.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Compute"),
+			sdkModels.NewStaticValueResourceIDSegment("hostGroups", "hostGroups"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("hostGroupName", "hostGroupName"),
+			sdkModels.NewStaticValueResourceIDSegment("hosts", "hosts"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("hostName", "hostName"),
 		},
 	}
 }

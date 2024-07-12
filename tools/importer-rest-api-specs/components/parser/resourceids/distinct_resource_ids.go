@@ -7,13 +7,13 @@ import (
 	"sort"
 
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
-func (p *Parser) distinctResourceIds(input map[string]processedResourceId) ([]models.ResourceID, map[string]models.SDKConstant) {
-	out := make([]models.ResourceID, 0)
+func (p *Parser) distinctResourceIds(input map[string]processedResourceId) ([]sdkModels.ResourceID, map[string]sdkModels.SDKConstant) {
+	out := make([]sdkModels.ResourceID, 0)
 
-	allConstants := make(map[string]models.SDKConstant)
+	allConstants := make(map[string]sdkModels.SDKConstant)
 	for _, operation := range input {
 		if operation.segments == nil {
 			continue
@@ -31,7 +31,7 @@ func (p *Parser) distinctResourceIds(input map[string]processedResourceId) ([]mo
 		}
 		sort.Strings(constantNames)
 
-		item := models.ResourceID{
+		item := sdkModels.ResourceID{
 			CommonIDAlias: nil,
 			ConstantNames: constantNames,
 			Segments:      *operation.segments,

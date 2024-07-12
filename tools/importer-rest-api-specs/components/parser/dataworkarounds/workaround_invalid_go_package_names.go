@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"strings"
 
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
@@ -28,7 +29,7 @@ func (workaroundInvalidGoPackageNames) Name() string {
 }
 
 func (workaroundInvalidGoPackageNames) Process(apiDefinition importerModels.AzureApiDefinition) (*importerModels.AzureApiDefinition, error) {
-	resources := make(map[string]importerModels.AzureApiResource, 0)
+	resources := make(map[string]sdkModels.APIResource, 0)
 
 	for resourceName := range apiDefinition.Resources {
 		originalName := resourceName

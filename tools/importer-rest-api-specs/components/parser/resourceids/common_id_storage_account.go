@@ -4,27 +4,27 @@
 package resourceids
 
 import (
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 var _ commonIdMatcher = commonIdStorageAccount{}
 
 type commonIdStorageAccount struct{}
 
-func (c commonIdStorageAccount) id() models.ResourceID {
+func (c commonIdStorageAccount) id() sdkModels.ResourceID {
 	name := "StorageAccount"
-	return models.ResourceID{
+	return sdkModels.ResourceID{
 		CommonIDAlias: &name,
 		ConstantNames: []string{},
-		Segments: []models.ResourceIDSegment{
-			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
-			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-			models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
-			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-			models.NewStaticValueResourceIDSegment("providers", "providers"),
-			models.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Storage"),
-			models.NewStaticValueResourceIDSegment("storageAccounts", "storageAccounts"),
-			models.NewUserSpecifiedResourceIDSegment("storageAccountName", "storageAccountName"),
+		Segments: []sdkModels.ResourceIDSegment{
+			sdkModels.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+			sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			sdkModels.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+			sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			sdkModels.NewStaticValueResourceIDSegment("providers", "providers"),
+			sdkModels.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Storage"),
+			sdkModels.NewStaticValueResourceIDSegment("storageAccounts", "storageAccounts"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("storageAccountName", "storageAccountName"),
 		},
 	}
 }

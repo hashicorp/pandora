@@ -4,13 +4,11 @@
 package pipeline
 
 import (
-	"fmt"
-
 	"github.com/go-git/go-git/v5"
-	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )
 
-func determineGitSha(repositoryPath string, logger hclog.Logger) (*string, error) {
+func determineGitSha(repositoryPath string) (*string, error) {
 	repo, err := git.PlainOpen(repositoryPath)
 	if err != nil {
 		return nil, err
@@ -22,6 +20,6 @@ func determineGitSha(repositoryPath string, logger hclog.Logger) (*string, error
 	}
 
 	commit := ref.Hash().String()
-	logger.Debug(fmt.Sprintf("Swagger Repository Commit SHA is %q", commit))
+	logging.Debugf("Swagger Repository Commit SHA is %q", commit)
 	return &commit, nil
 }

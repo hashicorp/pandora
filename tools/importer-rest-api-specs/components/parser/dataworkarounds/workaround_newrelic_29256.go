@@ -6,7 +6,7 @@ package dataworkarounds
 import (
 	"fmt"
 
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
@@ -49,8 +49,8 @@ func (workaroundNewRelic29256) Process(apiDefinition importerModels.AzureApiDefi
 		if !ok {
 			return nil, fmt.Errorf("expected the Model `%s` to have a field `Identity` but it didn't exist", modelName)
 		}
-		field.ObjectDefinition = models.SDKObjectDefinition{
-			Type: models.SystemAssignedIdentitySDKObjectDefinitionType,
+		field.ObjectDefinition = sdkModels.SDKObjectDefinition{
+			Type: sdkModels.SystemAssignedIdentitySDKObjectDefinitionType,
 		}
 		model.Fields["Identity"] = field
 		resource.Models[modelName] = model

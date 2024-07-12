@@ -4,23 +4,23 @@
 package resourceids
 
 import (
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 var _ commonIdMatcher = commonIdBotServiceChannel{}
 
 type commonIdBotServiceChannel struct{}
 
-func (commonIdBotServiceChannel) id() models.ResourceID {
+func (commonIdBotServiceChannel) id() sdkModels.ResourceID {
 	name := "BotServiceChannel"
-	return models.ResourceID{
+	return sdkModels.ResourceID{
 		CommonIDAlias: &name,
 		ConstantNames: []string{
 			"BotServiceChannelType",
 		},
-		Constants: map[string]models.SDKConstant{
+		Constants: map[string]sdkModels.SDKConstant{
 			"BotServiceChannelType": {
-				Type: models.StringSDKConstantType,
+				Type: sdkModels.StringSDKConstantType,
 				Values: map[string]string{
 					"AcsChatChannel":          "AcsChatChannel",
 					"AlexaChannel":            "AlexaChannel",
@@ -44,17 +44,17 @@ func (commonIdBotServiceChannel) id() models.ResourceID {
 				},
 			},
 		},
-		Segments: []models.ResourceIDSegment{
-			models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
-			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
-			models.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
-			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
-			models.NewStaticValueResourceIDSegment("staticProviders", "providers"),
-			models.NewResourceProviderResourceIDSegment("staticMicrosoftBotService", "Microsoft.BotService"),
-			models.NewStaticValueResourceIDSegment("staticBotServices", "botServices"),
-			models.NewUserSpecifiedResourceIDSegment("botServiceName", "botServiceName"),
-			models.NewStaticValueResourceIDSegment("staticChannels", "channels"),
-			models.NewConstantResourceIDSegment("channelType", "BotServiceChannelType", "AcsChatChannel"),
+		Segments: []sdkModels.ResourceIDSegment{
+			sdkModels.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
+			sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			sdkModels.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
+			sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			sdkModels.NewStaticValueResourceIDSegment("staticProviders", "providers"),
+			sdkModels.NewResourceProviderResourceIDSegment("staticMicrosoftBotService", "Microsoft.BotService"),
+			sdkModels.NewStaticValueResourceIDSegment("staticBotServices", "botServices"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("botServiceName", "botServiceName"),
+			sdkModels.NewStaticValueResourceIDSegment("staticChannels", "channels"),
+			sdkModels.NewConstantResourceIDSegment("channelType", "BotServiceChannelType", "AcsChatChannel"),
 		},
 	}
 }

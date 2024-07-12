@@ -6,25 +6,25 @@ package resourceids
 import (
 	"testing"
 
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 func TestCommonResourceID_Scope(t *testing.T) {
-	valid := models.ResourceID{
+	valid := sdkModels.ResourceID{
 		ConstantNames: []string{},
-		Segments: []models.ResourceIDSegment{
-			models.NewScopeResourceIDSegment("resourcePath"),
+		Segments: []sdkModels.ResourceIDSegment{
+			sdkModels.NewScopeResourceIDSegment("resourcePath"),
 		},
 	}
-	invalid := models.ResourceID{
+	invalid := sdkModels.ResourceID{
 		ConstantNames: []string{},
-		Segments: []models.ResourceIDSegment{
-			models.NewScopeResourceIDSegment("scope"),
-			models.NewStaticValueResourceIDSegment("someResource", "someResource"),
-			models.NewUserSpecifiedResourceIDSegment("resourceName", "resourceName"),
+		Segments: []sdkModels.ResourceIDSegment{
+			sdkModels.NewScopeResourceIDSegment("scope"),
+			sdkModels.NewStaticValueResourceIDSegment("someResource", "someResource"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("resourceName", "resourceName"),
 		},
 	}
-	input := []models.ResourceID{
+	input := []sdkModels.ResourceID{
 		valid,
 		invalid,
 	}
