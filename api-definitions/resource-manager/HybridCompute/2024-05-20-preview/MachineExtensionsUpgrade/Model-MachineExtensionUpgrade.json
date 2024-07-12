@@ -1,0 +1,22 @@
+{
+  "name": "MachineExtensionUpgrade",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "extensionTargets",
+      "name": "ExtensionTargets",
+      "objectDefinition": {
+        "type": "Dictionary",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "ExtensionTargetProperties"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}
