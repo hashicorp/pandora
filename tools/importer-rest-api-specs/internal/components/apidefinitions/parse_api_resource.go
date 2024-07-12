@@ -63,6 +63,7 @@ func parseAPIResourcesFromFile(filePath, serviceName string, resourceProvider *s
 		directory := filepath.Dir(filePath)
 		fileName := strings.TrimPrefix(filePath, directory)
 		fileName = strings.TrimPrefix(fileName, fmt.Sprintf("%c", filepath.Separator))
+		fileName = strings.TrimSuffix(fileName, ".json")
 		inferredTag := cleanup.PluraliseName(fileName)
 
 		if resource != nil {
