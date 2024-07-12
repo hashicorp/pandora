@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
+	sdkHelpers "github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	terraformHelpers "github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/terraform/schema/helpers"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
@@ -152,7 +152,7 @@ func (b Builder) identifyTopLevelFieldsWithinResourceID(input sdkModels.Resource
 		}
 
 		if userConfigurableSegments == 0 {
-			return nil, nil, fmt.Errorf("no user-configurable segments were found in the Resource ID %q", helpers.DisplayValueForResourceID(input))
+			return nil, nil, fmt.Errorf("no user-configurable segments were found in the Resource ID %q", sdkHelpers.DisplayValueForResourceID(input))
 		}
 	}
 

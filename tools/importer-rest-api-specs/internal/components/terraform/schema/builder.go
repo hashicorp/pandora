@@ -6,7 +6,7 @@ package schema
 import (
 	"fmt"
 
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
+	sdkHelpers "github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	terraformHelpers "github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/terraform/schema/helpers"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/terraform/schema/processors"
@@ -98,7 +98,7 @@ func (b Builder) Build(input sdkModels.TerraformResourceDefinition, resourceDefi
 		for fieldName, field := range schemaModels[modelName].Fields {
 			field.HCLName = terraformHelpers.ConvertToSnakeCase(fieldName)
 			fieldsWithHclNames[fieldName] = field
-			objectDefinition := helpers.InnerMostTerraformSchemaObjectDefinition(field.ObjectDefinition)
+			objectDefinition := sdkHelpers.InnerMostTerraformSchemaObjectDefinition(field.ObjectDefinition)
 			if objectDefinition.Type == sdkModels.ReferenceTerraformSchemaObjectDefinitionType {
 				if objectDefinition.ReferenceName == nil {
 					return nil, nil, fmt.Errorf("the Field %q within Model %q was a Reference with no ReferenceName", fieldName, modelName)
@@ -134,7 +134,7 @@ func (b Builder) removeUnusedModelsAndMappings(input sdkModels.TerraformResource
 
 	for _, model := range schemaModels {
 		for _, field := range model.Fields {
-			objectDefinition := helpers.InnerMostTerraformSchemaObjectDefinition(field.ObjectDefinition)
+			objectDefinition := sdkHelpers.InnerMostTerraformSchemaObjectDefinition(field.ObjectDefinition)
 			if objectDefinition.Type == sdkModels.ReferenceTerraformSchemaObjectDefinitionType {
 				// TODO: we should check if this is a const too
 				delete(unusedModels, *objectDefinition.ReferenceName)
@@ -185,7 +185,7 @@ func (b Builder) removeUnusedModelToModelMappings(input sdkModels.TerraformMappi
 		if !ok {
 			return nil, fmt.Errorf("field %q was not found in SDK Model %q", v.ModelToModel.SDKFieldName, v.ModelToModel.SDKModelName)
 		}
-		objectDefinition := helpers.InnerMostSDKObjectDefinition(sdkField.ObjectDefinition)
+		objectDefinition := sdkHelpers.InnerMostSDKObjectDefinition(sdkField.ObjectDefinition)
 		if objectDefinition.Type != sdkModels.ReferenceSDKObjectDefinitionType {
 			// nothing to do here, move along now.
 			output.Fields = append(output.Fields, mapping)
@@ -265,7 +265,7 @@ func (b Builder) schemaFromTopLevelModel(input sdkModels.TerraformResourceDefini
 	}
 	fieldsWithinResourceId, mappings, err := b.identifyTopLevelFieldsWithinResourceID(resourceId, mappings, input.DisplayName, resourceDefinition)
 	if err != nil {
-		displayValueForResourceId := helpers.DisplayValueForResourceID(resourceId)
+		displayValueForResourceId := sdkHelpers.DisplayValueForResourceID(resourceId)
 		return nil, fmt.Errorf("identifying top level fields within Resource ID %q: %+v", displayValueForResourceId, err)
 	}
 	for k, v := range *fieldsWithinResourceId {
@@ -468,7 +468,7 @@ func (b Builder) buildNestedModelDefinition(schemaModelName, topLevelModelName, 
 func (b Builder) identifyModelsWithinField(field sdkModels.SDKField, knownModels map[string]sdkModels.SDKModel) (*map[string]sdkModels.SDKModel, error) {
 	out := make(map[string]sdkModels.SDKModel, 0)
 
-	objectDefinition := helpers.InnerMostSDKObjectDefinition(field.ObjectDefinition)
+	objectDefinition := sdkHelpers.InnerMostSDKObjectDefinition(field.ObjectDefinition)
 	if objectDefinition.ReferenceName != nil {
 		// we need to identify both this model and any models nested within it
 		allModels := make(map[string]sdkModels.SDKModel)

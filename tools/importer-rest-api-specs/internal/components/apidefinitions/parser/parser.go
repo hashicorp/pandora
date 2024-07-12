@@ -2,64 +2,22 @@ package parser
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/cleanup"
 
-	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/dataworkarounds"
-	discoveryModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/discovery/models"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
+	parserModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/parsingcontext"
 )
 
-// ParseAPIVersion parses the information for this APIVersion from the AvailableDataSetForAPIVersion.
-func ParseAPIVersion(serviceName string, input discoveryModels.AvailableDataSetForAPIVersion) (*sdkModels.APIVersion, error) {
-	apiResources := make(map[string]sdkModels.APIResource)
+type apiDefinitionsParser struct {
+	context *parsingcontext.Context
+}
 
-	// Firstly let's go through and process each of the Supplementary Files
-	for _, filePath := range input.FilePathsContainingSupplementaryData {
-		logging.Tracef("Processing Supplementary Data from file %q..", filePath)
-		resources, err := parseAPIResourcesWithin(filePath, apiResources)
-		if err != nil {
-			return nil, fmt.Errorf("parsing the APIResources from the Supplementary Data within %q: %+v", filePath, err)
-		}
-
-		logging.Tracef("There are now %d APIResources", len(*resources))
-		apiResources = *resources
-		logging.Tracef("Processing Supplementary Data from file %q - Completed.", filePath)
-	}
-
-	// Next let's go through and process each of the API Definitions
-	for _, filePath := range input.FilePathsContainingAPIDefinitions {
-		logging.Tracef("Processing API Definitions from file %q..", filePath)
-		resources, err := parseAPIResourcesWithin(filePath, apiResources)
-		if err != nil {
-			return nil, fmt.Errorf("parsing the APIResources from the Supplementary Data within %q: %+v", filePath, err)
-		}
-
-		logging.Tracef("There are now %d APIResources", len(*resources))
-		apiResources = *resources
-		logging.Tracef("Processing API Definitions from file %q - Completed.", filePath)
-	}
-
-	apiVersion := sdkModels.APIVersion{
-		APIVersion: input.APIVersion,
-		Generate:   true,
-		Preview:    !input.ContainsStableAPIVersion,
-		Resources:  apiResources,
-		Source:     sdkModels.AzureRestAPISpecsSourceDataOrigin,
-	}
-
-	// Next let's apply any data workarounds
-	logging.Debugf("Applying Data Workarounds..")
-	withFixesApplied, err := dataworkarounds.Apply(serviceName, apiVersion)
+func NewAPIDefinitionsParser(filePath string, supplementaryData parserModels.SupplementaryData) (*apiDefinitionsParser, error) {
+	paringContext, err := parsingcontext.BuildFromFile(filePath, supplementaryData)
 	if err != nil {
-		return nil, fmt.Errorf("applying Data Workarounds for Service %q / API Version %q: %+v", serviceName, input.APIVersion, err)
+		return nil, fmt.Errorf("building the parsing context: %+v", err)
 	}
-	logging.Debugf("Applying Data Workarounds - Complete.")
 
-	// Finally let's remove any unused items
-	logging.Debugf("Removing unused items..")
-	output := cleanup.RemoveUnusedItems(*withFixesApplied)
-	logging.Debugf("Removing unused items - Complete.")
-
-	return &output, nil
+	return &apiDefinitionsParser{
+		context: paringContext,
+	}, nil
 }

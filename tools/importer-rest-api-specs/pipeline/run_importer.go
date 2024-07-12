@@ -6,15 +6,14 @@ package pipeline
 import (
 	"fmt"
 	"sort"
+	"strings"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/data-api-repository/repository"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/discovery"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/transformer"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/terraform"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
-	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
 )
 
@@ -132,14 +131,17 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 		}
 	}
 
-	// Populate all of the data for this API Version..
-	dataForApiVersions := make([]importerModels.AzureApiDefinition, 0)
+	// Populate all the data for this API Version..
+	apiVersions := make(map[string]sdkModels.APIVersion, 0)
 	for apiVersion, api := range consolidatedApiVersions {
 		logging.Tracef("Task: Parsing Data for API Version %q..", apiVersion)
-		dataForApiVersion := &importerModels.AzureApiDefinition{
-			ServiceName: serviceName,
-			ApiVersion:  apiVersion,
-			Resources:   map[string]sdkModels.APIResource{},
+		isPreview := isPreviewVersion(apiVersion)
+		dataForApiVersion := &sdkModels.APIVersion{
+			APIVersion: apiVersion,
+			Generate:   true,
+			Preview:    isPreview,
+			Resources:  make(map[string]sdkModels.APIResource),
+			Source:     sdkModels.AzureRestAPISpecsSourceDataOrigin,
 		}
 		for _, v := range api {
 			tempDataForApiVersion, err := task.parseDataForApiVersion(v)
@@ -149,24 +151,24 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 			if tempDataForApiVersion == nil {
 				continue
 			}
-			for name, resource := range tempDataForApiVersion.Resources {
+			for name, resource := range *tempDataForApiVersion {
 				dataForApiVersion.Resources[name] = resource
 			}
 		}
 
-		dataForApiVersions = append(dataForApiVersions, *dataForApiVersion)
+		apiVersions[apiVersion] = *dataForApiVersion
 	}
 
-	// temporary glue to enable refactoring this tool piece-by-piece
-	logging.Infof("Transforming to the Data API SDK types..")
-	service, err := transformer.MapInternalTypesToDataAPISDKTypes(serviceName, dataForApiVersions, resourceProvider)
-	if err != nil {
-		return fmt.Errorf("transforming the internal types to the Data API SDK types: %+v", err)
+	service := &sdkModels.Service{
+		APIVersions:      apiVersions,
+		Generate:         true,
+		Name:             serviceName,
+		ResourceProvider: resourceProvider,
 	}
 
 	// Now that we've got all of the API Versions, build up the Terraform Resources
 	logging.Log.Info(fmt.Sprintf("Building Terraform Resources for the Service %q..", service.Name))
-	service, err = terraform.BuildForService(*service, terraformResourceDefinitions, input.ProviderPrefix, terraformPackageName)
+	service, err := terraform.BuildForService(*service, terraformResourceDefinitions, input.ProviderPrefix, terraformPackageName)
 	if err != nil {
 		return fmt.Errorf("building the Terraform Details: %+v", err)
 	}
@@ -185,4 +187,20 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 	}
 
 	return nil
+}
+
+func isPreviewVersion(input string) bool {
+	lower := strings.ToLower(input)
+	// handles preview, privatepreview and publicpreview
+	if strings.Contains(lower, "preview") {
+		return true
+	}
+	if strings.Contains(lower, "beta") {
+		return true
+	}
+	if strings.Contains(lower, "alpha") {
+		return true
+	}
+
+	return false
 }

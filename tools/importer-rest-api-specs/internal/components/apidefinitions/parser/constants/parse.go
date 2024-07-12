@@ -22,7 +22,7 @@ type ParsedConstant struct {
 
 func Parse(typeVal spec.StringOrArray, fieldName string, modelName *string, values []interface{}, extensions spec.Extensions) (*ParsedConstant, error) {
 	if len(values) == 0 {
-		return nil, fmt.Errorf("Enum in %q has no values", fieldName)
+		return nil, fmt.Errorf("the Enum in %q has no values", fieldName)
 	}
 
 	constantName := fieldName

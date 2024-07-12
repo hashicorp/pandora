@@ -9,3 +9,5 @@ This package intentionally uses a combination of terminology to reflect the diff
 * `TypeSpec` is used to refer to the API Definitions written using [TypeSpec](https://github.com/Microsoft/typespec) which are typically compiled to Swagger 2.x or OpenAPI 3.x - and the majority of the Azure Resource Manager related items are based upon [the `Azure/typespec-azure` package](https://github.com/Azure/typespec-azure). 
 
 Where possible we use the terminology `API Definition` since these are implementation details - but this more specific terminology will be used where necessary.
+
+TODO also mention Supplemental Data

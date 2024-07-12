@@ -9,7 +9,7 @@ import (
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
-func constants(first, second map[string]sdkModels.SDKConstant) (*map[string]sdkModels.SDKConstant, error) {
+func Constants(first, second map[string]sdkModels.SDKConstant) (*map[string]sdkModels.SDKConstant, error) {
 	output := make(map[string]sdkModels.SDKConstant)
 	for k, v := range first {
 		output[k] = v

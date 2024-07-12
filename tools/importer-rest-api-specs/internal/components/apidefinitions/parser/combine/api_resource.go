@@ -22,13 +22,13 @@ func ResourcesWith(first, other map[string]sdkModels.APIResource) (*map[string]s
 			continue
 		}
 
-		constants, err := constants(existing.Constants, v.Constants)
+		constants, err := Constants(existing.Constants, v.Constants)
 		if err != nil {
 			return nil, fmt.Errorf("combining constants: %+v", err)
 		}
 		existing.Constants = *constants
 
-		models, err := models(existing.Models, v.Models)
+		models, err := Models(existing.Models, v.Models)
 		if err != nil {
 			return nil, fmt.Errorf("combining models: %+v", err)
 		}

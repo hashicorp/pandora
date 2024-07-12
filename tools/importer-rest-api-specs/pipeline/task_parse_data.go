@@ -6,13 +6,13 @@ package pipeline
 import (
 	"fmt"
 
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/discovery"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
-	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func (pipelineTask) parseDataForApiVersion(input discovery.ServiceInput) (*importerModels.AzureApiDefinition, error) {
+func (pipelineTask) parseDataForApiVersion(input discovery.ServiceInput) (*map[string]sdkModels.APIResource, error) {
 	logging.Tracef("Parsing Swagger Files..")
 	data, err := parseSwaggerFiles(input)
 	if err != nil {
@@ -29,11 +29,15 @@ func (pipelineTask) parseDataForApiVersion(input discovery.ServiceInput) (*impor
 	return data, nil
 }
 
-func parseSwaggerFiles(input discovery.ServiceInput) (*importerModels.AzureApiDefinition, error) {
+func parseSwaggerFiles(input discovery.ServiceInput) (*map[string]sdkModels.APIResource, error) {
 	parseResult, err := parser.LoadAndParseFiles(input.SwaggerDirectory, input.SwaggerFiles, input.ServiceName, input.ApiVersion, input.ResourceProviderToFilterTo)
 	if err != nil {
 		return nil, fmt.Errorf("parsing files in %q: %+v", input.SwaggerDirectory, err)
 	}
 
-	return parseResult, nil
+	if parseResult == nil {
+		return nil, nil
+	}
+
+	return &parseResult.Resources, nil
 }
