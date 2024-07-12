@@ -251,7 +251,7 @@ service "graphservicesprod" {
 }
 service "guestconfiguration" {
   name      = "GuestConfiguration"
-  available = ["2020-06-25", "2022-01-25"]
+  available = ["2020-06-25", "2022-01-25", "2024-04-05"]
 }
 service "hardwaresecuritymodules" {
   name      = "HardwareSecurityModules"
