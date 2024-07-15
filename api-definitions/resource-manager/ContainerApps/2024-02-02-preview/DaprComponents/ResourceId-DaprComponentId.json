@@ -1,0 +1,52 @@
+{
+  "name": "DaprComponentId",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/managedEnvironments/{managedEnvironmentName}/daprComponents/{daprComponentName}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticResourceGroups",
+      "type": "Static",
+      "value": "resourceGroups"
+    },
+    {
+      "name": "resourceGroupName",
+      "type": "ResourceGroup"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftApp",
+      "type": "ResourceProvider",
+      "value": "Microsoft.App"
+    },
+    {
+      "name": "staticManagedEnvironments",
+      "type": "Static",
+      "value": "managedEnvironments"
+    },
+    {
+      "name": "managedEnvironmentName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticDaprComponents",
+      "type": "Static",
+      "value": "daprComponents"
+    },
+    {
+      "name": "daprComponentName",
+      "type": "UserSpecified"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "name": "OpenTelemetryConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "destinationsConfiguration",
+      "name": "DestinationsConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DestinationsConfiguration"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "logsConfiguration",
+      "name": "LogsConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "LogsConfiguration"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "metricsConfiguration",
+      "name": "MetricsConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MetricsConfiguration"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "tracesConfiguration",
+      "name": "TracesConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "TracesConfiguration"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

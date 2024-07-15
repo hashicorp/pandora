@@ -1,0 +1,31 @@
+{
+  "name": "RuntimeJava",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "enableMetrics",
+      "name": "EnableMetrics",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "javaAgent",
+      "name": "JavaAgent",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RuntimeJavaJavaAgent"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

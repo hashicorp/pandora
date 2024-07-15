@@ -1,0 +1,31 @@
+{
+  "name": "RuntimeJavaJavaAgent",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "enabled",
+      "name": "Enabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "logging",
+      "name": "Logging",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RuntimeJavaJavaAgentLogging"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

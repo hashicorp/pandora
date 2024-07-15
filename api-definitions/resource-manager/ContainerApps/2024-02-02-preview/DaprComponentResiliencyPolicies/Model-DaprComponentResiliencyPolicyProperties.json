@@ -1,0 +1,31 @@
+{
+  "name": "DaprComponentResiliencyPolicyProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "inboundPolicy",
+      "name": "InboundPolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DaprComponentResiliencyPolicyConfiguration"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "outboundPolicy",
+      "name": "OutboundPolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DaprComponentResiliencyPolicyConfiguration"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

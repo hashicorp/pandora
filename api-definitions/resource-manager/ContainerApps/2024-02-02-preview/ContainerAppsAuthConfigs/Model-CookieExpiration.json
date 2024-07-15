@@ -1,0 +1,31 @@
+{
+  "name": "CookieExpiration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "convention",
+      "name": "Convention",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CookieExpirationConvention"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "timeToExpiration",
+      "name": "TimeToExpiration",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

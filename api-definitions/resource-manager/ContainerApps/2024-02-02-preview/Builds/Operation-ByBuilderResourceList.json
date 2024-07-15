@@ -1,0 +1,16 @@
+{
+  "name": "ByBuilderResourceList",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "BuilderId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "BuildResource"
+  },
+  "uriSuffix": "/builds"
+}

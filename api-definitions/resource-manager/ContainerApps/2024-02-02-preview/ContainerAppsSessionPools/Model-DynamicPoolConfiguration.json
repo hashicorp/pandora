@@ -1,0 +1,31 @@
+{
+  "name": "DynamicPoolConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "cooldownPeriodInSeconds",
+      "name": "CooldownPeriodInSeconds",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "executionType",
+      "name": "ExecutionType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ExecutionType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

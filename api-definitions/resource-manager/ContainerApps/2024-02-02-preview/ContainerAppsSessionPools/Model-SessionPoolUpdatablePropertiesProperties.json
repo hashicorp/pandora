@@ -1,0 +1,74 @@
+{
+  "name": "SessionPoolUpdatablePropertiesProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "customContainerTemplate",
+      "name": "CustomContainerTemplate",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CustomContainerTemplate"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "dynamicPoolConfiguration",
+      "name": "DynamicPoolConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DynamicPoolConfiguration"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "scaleConfiguration",
+      "name": "ScaleConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ScaleConfiguration"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "secrets",
+      "name": "Secrets",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "SessionPoolSecret"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sessionNetworkConfiguration",
+      "name": "SessionNetworkConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SessionNetworkConfiguration"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

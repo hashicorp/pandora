@@ -1,0 +1,21 @@
+{
+  "name": "NacosComponent",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "ingress",
+      "name": "Ingress",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "JavaComponentIngress"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "JavaComponentProperties",
+  "discriminatedTypeValue": "Nacos",
+  "typeHintIn": "ComponentType"
+}
