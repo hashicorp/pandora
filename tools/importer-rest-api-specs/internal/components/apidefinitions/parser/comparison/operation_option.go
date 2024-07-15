@@ -8,11 +8,11 @@ import (
 
 func OperationOptionMatch(first, second sdkModels.SDKOperationOption) bool {
 	if pointer.From(first.HeaderName) != pointer.From(second.HeaderName) {
-		logging.Tracef("HeaderName differed - %q vs %q", first.HeaderName, second.HeaderName)
+		logging.Tracef("HeaderName differed - %q vs %q", pointer.From(first.HeaderName), pointer.From(second.HeaderName))
 		return false
 	}
 	if pointer.From(first.QueryStringName) != pointer.From(second.QueryStringName) {
-		logging.Tracef("QueryStringName differed - %q vs %q", first.QueryStringName, second.QueryStringName)
+		logging.Tracef("QueryStringName differed - %q vs %q", pointer.From(first.QueryStringName), pointer.From(second.QueryStringName))
 		return false
 	}
 	if !OperationOptionObjectDefinitionMatch(first.ObjectDefinition, second.ObjectDefinition) {
