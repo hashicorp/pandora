@@ -8,11 +8,12 @@ import (
 )
 
 func TestDebugSingleSwaggerFile(t *testing.T) {
+	t.Skipf("This is intended to be used for debugging a single API Definition")
 	input := discoveryModels.AvailableDataSetForAPIVersion{
 		APIVersion:               "2023-05-01",
 		ContainsStableAPIVersion: false,
 		FilePathsContainingAPIDefinitions: []string{
-			"/Users/tharvey/code/src/github.com/hashicorp/pandora/submodules/rest-api-specs/specification/storagecache/resource-manager/Microsoft.StorageCache/stable/2023-05-01/amlfilesystem.json",
+			"/path/to/submodules/rest-api-specs/specification/storagecache/resource-manager/Microsoft.StorageCache/stable/2023-05-01/amlfilesystem.json",
 		},
 		FilePathsContainingSupplementaryData: []string{},
 	}
