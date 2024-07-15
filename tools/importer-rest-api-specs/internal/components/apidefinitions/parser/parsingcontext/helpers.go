@@ -103,7 +103,7 @@ func (c *Context) FindNestedItemsYetToBeParsed(operations map[string]sdkModels.S
 			}
 
 			parsedAsAConstant, constErr := constants.Parse(topLevelObject.Type, referenceName, nil, topLevelObject.Enum, topLevelObject.Extensions)
-			parsedAsAModel, modelErr := c.ParseModel(referenceName, *topLevelObject, false)
+			parsedAsAModel, modelErr := c.ParseModel(referenceName, *topLevelObject)
 			if (constErr != nil && modelErr != nil) || (parsedAsAConstant == nil && parsedAsAModel == nil) {
 				return nil, fmt.Errorf("reference %q didn't parse as a Model or a Constant.\n\nConstant Error: %+v\n\nModel Error: %+v", referenceName, constErr, modelErr)
 			}

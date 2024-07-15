@@ -1,27 +1,57 @@
 package parser_test
 
 import (
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/testhelpers"
+	discoveryModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/discovery/models"
+	"path/filepath"
 	"testing"
 
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser"
-	parserModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/models"
 )
 
 func TestParseSupplementaryData(t *testing.T) {
-	filePath := "/Users/tharvey/code/src/github.com/hashicorp/pandora/submodules/rest-api-specs/specification/datafactory/resource-manager/Microsoft.DataFactory/stable/2018-06-01/entityTypes/LinkedService.json"
-	parser, err := parser.NewAPIDefinitionsParser(filePath, parserModels.SupplementaryData{
-		Constants: make(map[string]sdkModels.SDKConstant),
-		Models:    make(map[string]sdkModels.SDKModel),
-	})
+	dataSet := discoveryModels.AvailableDataSet{
+		ServiceName: "Example",
+		DataSetsForAPIVersions: map[string]discoveryModels.AvailableDataSetForAPIVersion{
+			"2020-01-01": {
+				APIVersion:               "2020-01-01",
+				ContainsStableAPIVersion: true,
+				FilePathsContainingAPIDefinitions: []string{
+					filepath.Join("testdata", "supplementary_data_parent.json"),
+				},
+				FilePathsContainingSupplementaryData: []string{
+					filepath.Join("testdata", "supplementary_data_implementations.json"),
+				},
+			},
+		},
+		ResourceProvider: nil,
+	}
+	actual, err := testhelpers.ParseDataSetForTesting(t, dataSet, "2020-01-01")
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
-	data, err := parser.SupplementaryData()
-	if err != nil {
-		t.Fatalf(err.Error())
+	expected := sdkModels.APIVersion{
+		APIVersion: "2020-01-01",
+		Resources: map[string]sdkModels.APIResource{
+			"Example": {
+				Constants: make(map[string]sdkModels.SDKConstant),
+				Models: map[string]sdkModels.SDKModel{
+					"Cat":        {},
+					"ParentType": {},
+				},
+				Name: "Example",
+				Operations: map[string]sdkModels.SDKOperation{
+					"Test": {
+						ResponseObject: &sdkModels.SDKObjectDefinition{
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
+							ReferenceName: pointer.To("ParentType"),
+						},
+					},
+				},
+				ResourceIDs: map[string]sdkModels.ResourceID{},
+			},
+		},
 	}
-
-	t.Logf("Got %d Constants", len(data.Constants))
-	t.Logf("Got %d Models", len(data.Models))
+	testhelpers.ValidateParsedSwaggerResultMatches(t, expected, actual)
 }

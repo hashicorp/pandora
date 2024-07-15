@@ -16,7 +16,7 @@ func (p *apiDefinitionsParser) SupplementaryData() (*parserModels.SupplementaryD
 
 	for objectName, definition := range p.context.SwaggerSpecRaw.Definitions {
 		var parsedConstant *constants.ParsedConstant
-		parsedModel, err := p.context.ParseModel(objectName, definition, false)
+		parsedModel, err := p.context.ParseModel(objectName, definition)
 		if err != nil {
 			var err2 error
 			parsedConstant, err2 = p.context.ParseConstant(objectName, definition)
@@ -37,19 +37,19 @@ func (p *apiDefinitionsParser) SupplementaryData() (*parserModels.SupplementaryD
 	}
 
 	// FindNestedItemsYetToBeParsed takes ParseResult and so we need to shim this across
-	//shim := parserModels.ParseResult{
-	//	Constants: result.Constants,
-	//	Models:    result.Models,
-	//}
-	//// this will also pull out the parent model in the file which will already have been parsed, but that's ok
-	//// since they will be de-duplicated when we call combineResourcesWith
-	//nestedResult, err := p.context.FindNestedItemsYetToBeParsed(map[string]sdkModels.SDKOperation{}, shim)
-	//if err != nil {
-	//	return nil, fmt.Errorf("finding nested items yet to be parsed: %+v", err)
-	//}
-	//if err := result.AppendParseResult(*nestedResult); err != nil {
-	//	return nil, fmt.Errorf("appending nestedResult from Models used by existing Items: %+v", err)
-	//}
+	shim := parserModels.ParseResult{
+		Constants: result.Constants,
+		Models:    result.Models,
+	}
+	// this will also pull out the parent model in the file which will already have been parsed, but that's ok
+	// since they will be de-duplicated when we call combineResourcesWith
+	nestedResult, err := p.context.FindNestedItemsYetToBeParsed(map[string]sdkModels.SDKOperation{}, shim)
+	if err != nil {
+		return nil, fmt.Errorf("finding nested items yet to be parsed: %+v", err)
+	}
+	if err := result.AppendParseResult(*nestedResult); err != nil {
+		return nil, fmt.Errorf("appending nestedResult from Models used by existing Items: %+v", err)
+	}
 
 	return &result, nil
 }

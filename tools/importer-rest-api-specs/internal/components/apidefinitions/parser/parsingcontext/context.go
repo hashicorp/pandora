@@ -3,16 +3,13 @@ package parsingcontext
 import (
 	"github.com/go-openapi/analysis"
 	"github.com/go-openapi/spec"
-	parserModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/models"
 )
 
 // Context contains a working set of information about the parsed API Definition.
 // This includes the interpretations of the files themselves
 type Context struct {
 	FilePath string
-
-	SupplementaryData parserModels.SupplementaryData
-
+	
 	// SwaggerSpecExpanded contains a flattened version of the Swagger spec into a single file
 	SwaggerSpecExpanded *analysis.Spec
 

@@ -7,7 +7,6 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/dataworkarounds"
-	parserModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/resourceids"
 	discoveryModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/discovery/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
@@ -15,25 +14,7 @@ import (
 
 // parseAPIVersion parses the information for this APIVersion from the AvailableDataSetForAPIVersion.
 func parseAPIVersion(serviceName string, input discoveryModels.AvailableDataSetForAPIVersion, resourceProvider *string) (*sdkModels.APIVersion, error) {
-	// Firstly let's go through and process each of the Supplementary Files
-	supplementaryData := parserModels.SupplementaryData{
-		Constants: map[string]sdkModels.SDKConstant{},
-		Models:    map[string]sdkModels.SDKModel{},
-	}
-	// TODO: re-enable this
-	//for _, filePath := range input.FilePathsContainingSupplementaryData {
-	//	logging.Tracef("Processing Supplementary Data from file %q..", filePath)
-	//	updatedSupplementaryData, err := parseSupplementaryDataFromFile(filePath, supplementaryData)
-	//	if err != nil {
-	//		return nil, fmt.Errorf("parsing the Supplementary Data within %q: %+v", filePath, err)
-	//	}
-	//	logging.Tracef("Processing Supplementary Data from file %q - Completed.", filePath)
-	//
-	//	supplementaryData = *updatedSupplementaryData
-	//	logging.Tracef("The Supplementary Data now contains %d Constants and %d Models", len(supplementaryData.Constants), len(supplementaryData.Models))
-	//}
-
-	// Next we need to pull out a list of each of the Resource IDs within this API Version
+	// First we need to pull out a list of each of the Resource IDs within this API Version
 	// This is required to ensure we have consistent naming of these across the API Version which
 	// makes for a better user experience
 	foundResourceIDs := resourceids.ParseResult{
@@ -43,7 +24,7 @@ func parseAPIVersion(serviceName string, input discoveryModels.AvailableDataSetF
 	}
 	for _, filePath := range input.FilePathsContainingAPIDefinitions {
 		logging.Tracef("Loading the Resource IDs from %q..", filePath)
-		parser, err := parser.NewAPIDefinitionsParser(filePath, supplementaryData)
+		parser, err := parser.NewAPIDefinitionsParser(filePath)
 		if err != nil {
 			return nil, fmt.Errorf("parsing the API Definitions within %q: %+v", filePath, err)
 		}
@@ -62,7 +43,7 @@ func parseAPIVersion(serviceName string, input discoveryModels.AvailableDataSetF
 	apiResources := make(map[string]sdkModels.APIResource)
 	for _, filePath := range input.FilePathsContainingAPIDefinitions {
 		logging.Tracef("Processing API Definitions from file %q..", filePath)
-		resources, err := parseAPIResourcesFromFile(filePath, serviceName, resourceProvider, apiResources, supplementaryData, foundResourceIDs)
+		resources, err := parseAPIResourcesFromFile(filePath, serviceName, resourceProvider, apiResources, foundResourceIDs)
 		if err != nil {
 			return nil, fmt.Errorf("parsing the APIResources from the Supplementary Data within %q: %+v", filePath, err)
 		}

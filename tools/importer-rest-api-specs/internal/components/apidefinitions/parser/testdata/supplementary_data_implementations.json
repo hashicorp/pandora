@@ -1,0 +1,45 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Example",
+    "description": "Example",
+    "version": "2020-01-01"
+  },
+  "host": "management.mysite.com",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "security": [],
+  "securityDefinitions": {},
+  "paths": {},
+  "definitions": {
+    "Cat": {
+      "description": "A cat is a kind of ParentType",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ParentType"
+        }
+      ],
+      "properties": {
+        "isFluffy": {
+          "type": "boolean",
+          "description": "Are cats fluffy?"
+        }
+      },
+      "required": [
+        "isFluffy",
+        "typeName"
+      ],
+      "title": "Cat",
+      "type": "object",
+      "x-ms-discriminator-value": "cat"
+    }
+  },
+  "parameters": {}
+}

@@ -10,13 +10,12 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/combine"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/ignore"
-	parserModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/resourceids"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )
 
-func parseAPIResourcesFromFile(filePath, serviceName string, resourceProvider *string, existingAPIResources map[string]sdkModels.APIResource, supplementaryData parserModels.SupplementaryData, resourceIds resourceids.ParseResult) (*map[string]sdkModels.APIResource, error) {
-	parser, err := parser.NewAPIDefinitionsParser(filePath, supplementaryData)
+func parseAPIResourcesFromFile(filePath, serviceName string, resourceProvider *string, existingAPIResources map[string]sdkModels.APIResource, resourceIds resourceids.ParseResult) (*map[string]sdkModels.APIResource, error) {
+	parser, err := parser.NewAPIDefinitionsParser(filePath)
 	if err != nil {
 		return nil, fmt.Errorf("parsing the API Definitions within %q: %+v", filePath, err)
 	}

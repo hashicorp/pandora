@@ -41,8 +41,7 @@ func responseObjectForOperation(parsingContext *parsingcontext.Context, input pa
 		}
 
 		parsingModel := true
-		loadParentType := true
-		objectDefinition, nestedResult, err := parsingContext.ParseObjectDefinition(details.ResponseProps.Schema.Title, details.ResponseProps.Schema.Title, details.ResponseProps.Schema, result, parsingModel, loadParentType)
+		objectDefinition, nestedResult, err := parsingContext.ParseObjectDefinition(details.ResponseProps.Schema.Title, details.ResponseProps.Schema.Title, details.ResponseProps.Schema, result, parsingModel)
 		if err != nil {
 			return nil, nil, fmt.Errorf("parsing response object from status code %d: %+v", statusCode, err)
 		}

@@ -21,8 +21,7 @@ func requestObjectForOperation(parsingContext *parsingcontext.Context, input par
 	for _, param := range unexpandedOperation.Parameters {
 		if strings.EqualFold(param.In, "body") {
 			parsingModel := true
-			loadParentType := true
-			objectDefinition, result, err := parsingContext.ParseObjectDefinition(param.Schema.Title, param.Schema.Title, param.Schema, known, parsingModel, loadParentType)
+			objectDefinition, result, err := parsingContext.ParseObjectDefinition(param.Schema.Title, param.Schema.Title, param.Schema, known, parsingModel)
 			if err != nil {
 				return nil, nil, fmt.Errorf("parsing request object for parameter %q: %+v", param.Name, err)
 			}

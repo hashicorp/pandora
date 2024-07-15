@@ -24,13 +24,17 @@ func ParseSwaggerFileForTesting(t *testing.T, filePath string) (*sdkModels.APIVe
 		},
 		ResourceProvider: nil,
 	}
+	return ParseDataSetForTesting(t, input, "2020-01-01")
+}
+
+func ParseDataSetForTesting(t *testing.T, input discoveryModels.AvailableDataSet, apiVersion string) (*sdkModels.APIVersion, error) {
 	result, err := apidefinitions.ParseService(input)
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
-	apiVersion, ok := result.APIVersions["2020-01-01"]
+	out, ok := result.APIVersions[apiVersion]
 	if !ok {
-		t.Fatalf("expected an API Version `2020-01-01` but didn't get one")
+		t.Fatalf("expected an API Version `%s` but didn't get one", apiVersion)
 	}
-	return &apiVersion, nil
+	return &out, nil
 }

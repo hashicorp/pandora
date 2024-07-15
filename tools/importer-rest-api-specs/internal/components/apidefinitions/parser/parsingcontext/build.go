@@ -8,10 +8,9 @@ import (
 	"github.com/go-openapi/analysis"
 	"github.com/go-openapi/loads"
 	"github.com/go-openapi/spec"
-	parserModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/models"
 )
 
-func BuildFromFile(filePath string, supplementaryData parserModels.SupplementaryData) (*Context, error) {
+func BuildFromFile(filePath string) (*Context, error) {
 	directory := filepath.Dir(filePath)
 
 	// parsing this twice looks silly, so why are we doing this?
@@ -70,7 +69,6 @@ func BuildFromFile(filePath string, supplementaryData parserModels.Supplementary
 	swaggerSpecExpandedRaw := expandedSwaggerDoc.Spec()
 	return &Context{
 		FilePath:                  filePath,
-		SupplementaryData:         supplementaryData,
 		SwaggerSpecExpanded:       swaggerSpecExpanded,
 		SwaggerSpecWithReferences: swaggerSpecWithReferences,
 		SwaggerSpecRaw:            swaggerSpecWithReferencesRaw,

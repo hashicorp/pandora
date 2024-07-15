@@ -12,8 +12,8 @@ import (
 	parserModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/models"
 )
 
-func (c *Context) ParseModel(name string, input spec.Schema, loadParentType bool) (*parserModels.ParseResult, error) {
-	logging.Tracef("Parsing details for Model %q (Load Parent Type %t)..", name, loadParentType)
+func (c *Context) ParseModel(name string, input spec.Schema) (*parserModels.ParseResult, error) {
+	logging.Tracef("Parsing details for Model %q..", name)
 	result := parserModels.ParseResult{
 		Constants: map[string]sdkModels.SDKConstant{},
 		Models:    map[string]sdkModels.SDKModel{},
@@ -28,8 +28,8 @@ func (c *Context) ParseModel(name string, input spec.Schema, loadParentType bool
 		return nil, fmt.Errorf("appending nestedResult from constants: %+v", err)
 	}
 
-	// 2. iterate over the fields and find all of the fields for this model
-	fields, nestedResult, err := c.fieldsForModel(name, input, result, loadParentType)
+	// 2. iterate over the fields and find each of the fields for this model
+	fields, nestedResult, err := c.fieldsForModel(name, input, result)
 	if err != nil {
 		return nil, fmt.Errorf("finding fields for model: %+v", err)
 	}
@@ -45,7 +45,7 @@ func (c *Context) ParseModel(name string, input spec.Schema, loadParentType bool
 	// 3. finally build this model directly
 	// Notably, we **DO NOT** load models used by this models here - this is handled once we
 	// know all the models which we want to load - to avoid infinite loops
-	model, err := c.modelDetailsFromObject(name, input, *fields, loadParentType)
+	model, err := c.modelDetailsFromObject(name, input, *fields)
 	if err != nil {
 		return nil, fmt.Errorf("populating model details for %q: %+v", name, err)
 	}
@@ -129,7 +129,7 @@ func (c *Context) findConstantsWithinModel(fieldName string, modelName *string, 
 	return &result, nil
 }
 
-func (c *Context) detailsForField(modelName string, propertyName string, value spec.Schema, isRequired bool, known parserModels.ParseResult, loadParentType bool) (*sdkModels.SDKField, *parserModels.ParseResult, error) {
+func (c *Context) detailsForField(modelName string, propertyName string, value spec.Schema, isRequired bool, known parserModels.ParseResult) (*sdkModels.SDKField, *parserModels.ParseResult, error) {
 	logging.Tracef("Parsing details for field %q in %q..", propertyName, modelName)
 
 	result := parserModels.ParseResult{
@@ -149,7 +149,7 @@ func (c *Context) detailsForField(modelName string, propertyName string, value s
 
 	// first get the object definition
 	parsingModel := false
-	objectDefinition, nestedResult, err := c.ParseObjectDefinition(modelName, propertyName, &value, result, parsingModel, loadParentType)
+	objectDefinition, nestedResult, err := c.ParseObjectDefinition(modelName, propertyName, &value, result, parsingModel)
 	if err != nil {
 		return nil, nil, fmt.Errorf("parsing object definition: %+v", err)
 	}
@@ -176,7 +176,7 @@ func (c *Context) detailsForField(modelName string, propertyName string, value s
 					break
 				}
 			}
-			nestedField, nestedResult, err := c.detailsForField(inlinedName, propName, propVal, nestedFieldRequired, result, loadParentType)
+			nestedField, nestedResult, err := c.detailsForField(inlinedName, propName, propVal, nestedFieldRequired, result)
 			if err != nil {
 				return nil, nil, fmt.Errorf("parsing inlined model %q: %+v", inlinedName, err)
 			}
@@ -205,7 +205,7 @@ func (c *Context) detailsForField(modelName string, propertyName string, value s
 						break
 					}
 				}
-				nestedField, nestedResult, err := c.detailsForField(inlinedName, propName, propVal, nestedFieldRequired, result, loadParentType)
+				nestedField, nestedResult, err := c.detailsForField(inlinedName, propName, propVal, nestedFieldRequired, result)
 				if err != nil {
 					return nil, nil, fmt.Errorf("parsing inlined model %q: %+v", inlinedName, err)
 				}
@@ -216,7 +216,7 @@ func (c *Context) detailsForField(modelName string, propertyName string, value s
 			}
 		}
 
-		inlinedModelDetails, err := c.modelDetailsFromObject(inlinedName, value, nestedFields, loadParentType)
+		inlinedModelDetails, err := c.modelDetailsFromObject(inlinedName, value, nestedFields)
 		if err != nil {
 			return nil, nil, fmt.Errorf("building model details for inlined model %q: %+v", inlinedName, err)
 		}
@@ -233,7 +233,7 @@ func (c *Context) detailsForField(modelName string, propertyName string, value s
 	return &field, &result, err
 }
 
-func (c *Context) fieldsForModel(modelName string, input spec.Schema, known parserModels.ParseResult, loadParentType bool) (*map[string]sdkModels.SDKField, *parserModels.ParseResult, error) {
+func (c *Context) fieldsForModel(modelName string, input spec.Schema, known parserModels.ParseResult) (*map[string]sdkModels.SDKField, *parserModels.ParseResult, error) {
 	fields := make(map[string]sdkModels.SDKField, 0)
 	result := parserModels.ParseResult{
 		Constants: map[string]sdkModels.SDKConstant{},
@@ -295,7 +295,7 @@ func (c *Context) fieldsForModel(modelName string, input spec.Schema, known pars
 				if parent.Title != "" {
 					innerModelName = parent.Title
 				}
-				parsedParent, nestedResult, err := c.fieldsForModel(innerModelName, parent, known, true)
+				parsedParent, nestedResult, err := c.fieldsForModel(innerModelName, parent, known)
 				if err != nil {
 					return nil, nil, fmt.Errorf("parsing fields within allOf model %q (index %d): %+v", innerModelName, i, err)
 				}
@@ -322,7 +322,7 @@ func (c *Context) fieldsForModel(modelName string, input spec.Schema, known pars
 			requiredFields[k] = struct{}{}
 		}
 
-		nestedFields, nestedResult, err := c.fieldsForModel(*fragmentName, *topLevelObject, result, loadParentType)
+		nestedFields, nestedResult, err := c.fieldsForModel(*fragmentName, *topLevelObject, result)
 		if err != nil {
 			return nil, nil, fmt.Errorf("finding fields for parent model %q: %+v", *fragmentName, err)
 		}
@@ -339,7 +339,7 @@ func (c *Context) fieldsForModel(modelName string, input spec.Schema, known pars
 	// then we get the simple thing of iterating over these fields
 	for propName, propVal := range input.Properties {
 		isRequired := isFieldRequired(propName, requiredFields)
-		field, nestedResult, err := c.detailsForField(modelName, propName, propVal, isRequired, result, loadParentType)
+		field, nestedResult, err := c.detailsForField(modelName, propName, propVal, isRequired, result)
 		if err != nil {
 			return nil, nil, fmt.Errorf("mapping field %q for %q: %+v", propName, modelName, err)
 		}
@@ -356,7 +356,7 @@ func (c *Context) fieldsForModel(modelName string, input spec.Schema, known pars
 	return &fields, &result, nil
 }
 
-func (c *Context) modelDetailsFromObject(modelName string, input spec.Schema, fields map[string]sdkModels.SDKField, loadParentType bool) (*sdkModels.SDKModel, error) {
+func (c *Context) modelDetailsFromObject(modelName string, input spec.Schema, fields map[string]sdkModels.SDKField) (*sdkModels.SDKModel, error) {
 	details := sdkModels.SDKModel{
 		Fields: fields,
 	}
@@ -381,25 +381,20 @@ func (c *Context) modelDetailsFromObject(modelName string, input spec.Schema, fi
 	if v, ok := input.Extensions.GetString("x-ms-discriminator-value"); ok {
 		details.DiscriminatedValue = &v
 
-		// NOTE: we want the option to conditionally load the parent type to be able to load the Supplementary Data
-		// first (since these may only contain the Discriminated Implementations and not the Parent Type).
-		if loadParentType {
-			// so we need to find the ancestor details
-			parentTypeName, discriminator, err := c.FindAncestorType(input)
-			if err != nil {
-				return nil, fmt.Errorf("finding ancestor type for %q: %+v", modelName, err)
-			}
-			if parentTypeName != nil && discriminator != nil {
-				details.ParentTypeName = parentTypeName
-				details.FieldNameContainingDiscriminatedValue = discriminator
-			}
-
-			// however if there's a Discriminator value defined but no parent type - this is bad data - so we should ignore it
-			if details.ParentTypeName == nil || details.FieldNameContainingDiscriminatedValue == nil {
-				details.DiscriminatedValue = nil
-			}
+		// so we need to find the ancestor details
+		parentTypeName, discriminator, err := c.FindAncestorType(input)
+		if err != nil {
+			return nil, fmt.Errorf("finding ancestor type for %q: %+v", modelName, err)
+		}
+		if parentTypeName != nil && discriminator != nil {
+			details.ParentTypeName = parentTypeName
+			details.FieldNameContainingDiscriminatedValue = discriminator
 		}
 
+		// however if there's a Discriminator value defined but no parent type - this is bad data - so we should ignore it
+		if details.ParentTypeName == nil || details.FieldNameContainingDiscriminatedValue == nil {
+			details.DiscriminatedValue = nil
+		}
 	}
 
 	return &details, nil
@@ -445,7 +440,7 @@ func (c *Context) findOrphanedDiscriminatedModels(serviceName string) (*parserMo
 
 	for modelName, definition := range c.SwaggerSpecRaw.Definitions {
 		if _, ok := definition.Extensions.GetString("x-ms-discriminator-value"); ok {
-			details, err := c.ParseModel(modelName, definition, false)
+			details, err := c.ParseModel(modelName, definition)
 			if err != nil {
 				return nil, fmt.Errorf("parsing model details for model %q: %+v", modelName, err)
 			}
@@ -465,7 +460,7 @@ func (c *Context) findOrphanedDiscriminatedModels(serviceName string) (*parserMo
 					return nil, fmt.Errorf("determining ancestor type for model %q: %+v", modelName, err)
 				}
 
-				details, err := c.ParseModel(modelName, definition, false)
+				details, err := c.ParseModel(modelName, definition)
 				if err != nil {
 					return nil, fmt.Errorf("parsing model details for model %q: %+v", modelName, err)
 				}

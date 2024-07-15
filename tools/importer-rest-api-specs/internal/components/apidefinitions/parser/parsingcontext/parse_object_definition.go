@@ -15,14 +15,14 @@ import (
 
 // ParseObjectDefinition ... TODO
 // if `parsingModel` is false, it means the `input` schema cannot be used to parse the model of `modelName`
-func (c *Context) ParseObjectDefinition(modelName, propertyName string, input *spec.Schema, known parserModels.ParseResult, parsingModel, loadParentType bool) (*sdkModels.SDKObjectDefinition, *parserModels.ParseResult, error) {
+func (c *Context) ParseObjectDefinition(modelName, propertyName string, input *spec.Schema, known parserModels.ParseResult, parsingModel bool) (*sdkModels.SDKObjectDefinition, *parserModels.ParseResult, error) {
 	// find the object and any models and constants etc we can find
 	// however _don't_ look for discriminator implementations - since that should be done when we're completely done
 	result := parserModels.ParseResult{
 		Constants: map[string]sdkModels.SDKConstant{},
 		Models:    map[string]sdkModels.SDKModel{},
 	}
-	result.Append(known)
+	_ = result.Append(known)
 
 	// if it's an enum then parse that out
 	if len(input.Enum) > 0 {
@@ -75,7 +75,8 @@ func (c *Context) ParseObjectDefinition(modelName, propertyName string, input *s
 		}
 
 		// then call ourselves to work out what to do with it
-		objectDefinition, nestedResult, err := c.ParseObjectDefinition(*objectName, propertyName, topLevelObject, knownIncludingPlaceholder, true, loadParentType)
+		const localParsingModel = true
+		objectDefinition, nestedResult, err := c.ParseObjectDefinition(*objectName, propertyName, topLevelObject, knownIncludingPlaceholder, localParsingModel)
 		if err != nil {
 			return nil, nil, err
 		}
@@ -103,14 +104,15 @@ func (c *Context) ParseObjectDefinition(modelName, propertyName string, input *s
 			}
 			if len(allOfFields) == 1 {
 				inheritedModel := allOfFields[0]
-				return c.ParseObjectDefinition(inheritedModel.Title, propertyName, &inheritedModel, result, true, loadParentType)
+				const localParsingModel = true
+				return c.ParseObjectDefinition(inheritedModel.Title, propertyName, &inheritedModel, result, localParsingModel)
 			}
 		}
 
 		// check for / avoid circular references,
 		// however, we should only do this when we're parsing a model (`parsingModel`) directly rather than when parsing a model from a field - and only if we haven't already parsed this model
 		if _, ok := result.Models[modelName]; !ok && parsingModel {
-			nestedResult, err := c.ParseModel(modelName, *input, loadParentType)
+			nestedResult, err := c.ParseModel(modelName, *input)
 			if err != nil {
 				return nil, nil, fmt.Errorf("parsing object from inlined model %q: %+v", modelName, err)
 			}
@@ -148,7 +150,7 @@ func (c *Context) ParseObjectDefinition(modelName, propertyName string, input *s
 			innerModelName = input.AdditionalProperties.Schema.Title
 		}
 
-		nestedItem, nestedResult, err := c.ParseObjectDefinition(innerModelName, propertyName, input.AdditionalProperties.Schema, result, true, loadParentType)
+		nestedItem, nestedResult, err := c.ParseObjectDefinition(innerModelName, propertyName, input.AdditionalProperties.Schema, result, true)
 		if err != nil {
 			return nil, nil, fmt.Errorf("parsing nested item for dictionary: %+v", err)
 		}
@@ -171,7 +173,7 @@ func (c *Context) ParseObjectDefinition(modelName, propertyName string, input *s
 			inlinedName = fmt.Sprintf("%s%sInlined", cleanup.NormalizeName(modelName), cleanup.NormalizeName(propertyName))
 		}
 
-		nestedItem, nestedResult, err := c.ParseObjectDefinition(inlinedName, propertyName, input.Items.Schema, result, true, loadParentType)
+		nestedItem, nestedResult, err := c.ParseObjectDefinition(inlinedName, propertyName, input.Items.Schema, result, true)
 		if err != nil {
 			return nil, nil, fmt.Errorf("parsing nested item for array: %+v", err)
 		}
@@ -274,7 +276,7 @@ func (c *Context) parseDataFactoryCustomTypes(input *spec.Schema, known parserMo
 		if err != nil {
 			return nil, nil, fmt.Errorf("finding the top-level-object %q: %+v", elementType, err)
 		}
-		parseResult, err := c.ParseModel(elementType, *referencedModel, true)
+		parseResult, err := c.ParseModel(elementType, *referencedModel)
 		if err != nil {
 			return nil, nil, fmt.Errorf("parsing the Model %q: %+v", elementType, err)
 		}
