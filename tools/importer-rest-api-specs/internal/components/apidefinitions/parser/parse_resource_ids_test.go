@@ -520,7 +520,7 @@ func TestParseResourceIdContainingTheSameResourceIdWithDifferentSegments(t *test
 							sdkModels.NewStaticValueResourceIDSegment("staticProviders", "providers"),
 							sdkModels.NewResourceProviderResourceIDSegment("staticMicrosoftSomeResourceProvider", "Microsoft.SomeResourceProvider"),
 							sdkModels.NewStaticValueResourceIDSegment("staticVirtualMachines", "virtualMachines"),
-							sdkModels.NewUserSpecifiedResourceIDSegment("machineName", "machineName"),
+							sdkModels.NewUserSpecifiedResourceIDSegment("virtualMachineName", "virtualMachineName"),
 						},
 					},
 				},
