@@ -9,45 +9,30 @@ import (
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
-func ResourcesWith(first, other map[string]sdkModels.APIResource) (*map[string]sdkModels.APIResource, error) {
-	resources := make(map[string]sdkModels.APIResource)
-	for k, v := range first {
-		resources[k] = v
+func APIResource(first, other sdkModels.APIResource) (*sdkModels.APIResource, error) {
+	constants, err := Constants(first.Constants, other.Constants)
+	if err != nil {
+		return nil, fmt.Errorf("combining constants: %+v", err)
 	}
+	first.Constants = *constants
 
-	for k, v := range other {
-		existing, ok := resources[k]
-		if !ok {
-			resources[k] = v
-			continue
-		}
-
-		constants, err := Constants(existing.Constants, v.Constants)
-		if err != nil {
-			return nil, fmt.Errorf("combining constants: %+v", err)
-		}
-		existing.Constants = *constants
-
-		models, err := Models(existing.Models, v.Models)
-		if err != nil {
-			return nil, fmt.Errorf("combining models: %+v", err)
-		}
-		existing.Models = *models
-
-		operations, err := operations(existing.Operations, v.Operations)
-		if err != nil {
-			return nil, fmt.Errorf("combining operations: %+v", err)
-		}
-		existing.Operations = *operations
-
-		resourceIds, err := resourceIds(existing.ResourceIDs, v.ResourceIDs)
-		if err != nil {
-			return nil, fmt.Errorf("combining resource ids: %+v", err)
-		}
-		existing.ResourceIDs = *resourceIds
-
-		resources[k] = existing
+	models, err := Models(first.Models, other.Models)
+	if err != nil {
+		return nil, fmt.Errorf("combining models: %+v", err)
 	}
+	first.Models = *models
 
-	return &resources, nil
+	combinedOperations, err := operations(first.Operations, other.Operations)
+	if err != nil {
+		return nil, fmt.Errorf("combining operations: %+v", err)
+	}
+	first.Operations = *combinedOperations
+
+	combinedResourceIDs, err := resourceIds(first.ResourceIDs, other.ResourceIDs)
+	if err != nil {
+		return nil, fmt.Errorf("combining resource ids: %+v", err)
+	}
+	first.ResourceIDs = *combinedResourceIDs
+
+	return &first, nil
 }

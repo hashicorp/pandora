@@ -56,7 +56,7 @@ func parseAPIResourcesFromFile(filePath, serviceName string, resourceProvider *s
 			discoveredResources := map[string]sdkModels.APIResource{
 				normalizedTag: *resource,
 			}
-			combined, err := combine.ResourcesWith(parsedAPIResources, discoveredResources)
+			combined, err := combine.APIResourcesWith(parsedAPIResources, discoveredResources)
 			if err != nil {
 				return nil, fmt.Errorf("combining the APIResources for the identified Swagger Tag %q: %+v", tag, err)
 			}
@@ -97,7 +97,7 @@ func parseAPIResourcesFromFile(filePath, serviceName string, resourceProvider *s
 			discoveredResources := map[string]sdkModels.APIResource{
 				normalizedTag: *resource,
 			}
-			combined, err := combine.ResourcesWith(parsedAPIResources, discoveredResources)
+			combined, err := combine.APIResourcesWith(parsedAPIResources, discoveredResources)
 			if err != nil {
 				return nil, fmt.Errorf("combining the APIResources for the inferred Swagger Tag %q: %+v", normalizedTag, err)
 			}

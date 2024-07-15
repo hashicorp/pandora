@@ -2,9 +2,9 @@ package dataworkarounds
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/combine"
 
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 var _ workaround = workaroundNetwork29303{}
@@ -37,7 +37,11 @@ func (workaroundNetwork29303) Process(input sdkModels.APIVersion) (*sdkModels.AP
 		return nil, fmt.Errorf("expected an APIResource named `PrivateLinkService` but didn't find one")
 	}
 
-	input.Resources["PrivateLinkServices"] = importerModels.MergeResourcesForTag(correctlyNamedAPIResource, misnamedAPIResource)
+	combined, err := combine.APIResource(correctlyNamedAPIResource, misnamedAPIResource)
+	if err != nil {
+		return nil, fmt.Errorf("combining the APIResource `PrivateLinkServices`: %+v", err)
+	}
+	input.Resources["PrivateLinkServices"] = *combined
 	delete(input.Resources, "PrivateLinkService")
 
 	return &input, nil

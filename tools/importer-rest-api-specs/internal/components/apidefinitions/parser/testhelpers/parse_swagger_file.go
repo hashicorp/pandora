@@ -9,13 +9,6 @@ import (
 	discoveryModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/discovery/models"
 )
 
-/*
-1. Enable the existing tests
-2. Re-enable the "validation" tests (these check we can import the RM services/api versions from the config)
-3. Re-enabling supplementary types
-4. Documentation/explaning what the packages are
-*/
-
 func ParseSwaggerFileForTesting(t *testing.T, filePath string) (*sdkModels.APIVersion, error) {
 	input := discoveryModels.AvailableDataSet{
 		ServiceName: "Example",
