@@ -1,0 +1,16 @@
+{
+  "name": "ByContainerAppList",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "ContainerAppId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ContainerAppsBuildResource"
+  },
+  "uriSuffix": "/builds"
+}

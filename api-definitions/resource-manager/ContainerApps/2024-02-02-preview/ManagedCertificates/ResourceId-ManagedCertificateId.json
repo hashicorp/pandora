@@ -1,0 +1,52 @@
+{
+  "name": "ManagedCertificateId",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/managedEnvironments/{managedEnvironmentName}/managedCertificates/{managedCertificateName}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticResourceGroups",
+      "type": "Static",
+      "value": "resourceGroups"
+    },
+    {
+      "name": "resourceGroupName",
+      "type": "ResourceGroup"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftApp",
+      "type": "ResourceProvider",
+      "value": "Microsoft.App"
+    },
+    {
+      "name": "staticManagedEnvironments",
+      "type": "Static",
+      "value": "managedEnvironments"
+    },
+    {
+      "name": "managedEnvironmentName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticManagedCertificates",
+      "type": "Static",
+      "value": "managedCertificates"
+    },
+    {
+      "name": "managedCertificateName",
+      "type": "UserSpecified"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "name": "ConnectedEnvironmentStorageProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "azureFile",
+      "name": "AzureFile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AzureFileProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "smb",
+      "name": "Smb",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SmbStorage"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

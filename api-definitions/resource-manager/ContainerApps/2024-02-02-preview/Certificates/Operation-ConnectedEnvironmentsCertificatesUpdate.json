@@ -1,0 +1,18 @@
+{
+  "name": "ConnectedEnvironmentsCertificatesUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "resourceIdName": "ConnectedEnvironmentCertificateId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "CertificatePatch"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "Certificate"
+  }
+}

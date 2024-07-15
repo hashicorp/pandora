@@ -1,0 +1,22 @@
+{
+  "name": "RuntimeJavaJavaAgentLogging",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "loggerSettings",
+      "name": "LoggerSettings",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "LoggerSetting"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "name": "AuthConfigProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "encryptionSettings",
+      "name": "EncryptionSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EncryptionSettings"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "globalValidation",
+      "name": "GlobalValidation",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "GlobalValidation"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "httpSettings",
+      "name": "HTTPSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "HTTPSettings"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "identityProviders",
+      "name": "IdentityProviders",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "IdentityProviders"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "login",
+      "name": "Login",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Login"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "platform",
+      "name": "Platform",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AuthPlatform"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "name": "HTTPRetryPolicy",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "matches",
+      "name": "Matches",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "HTTPRetryPolicyMatches"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "maxRetries",
+      "name": "MaxRetries",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "retryBackOff",
+      "name": "RetryBackOff",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "HTTPRetryPolicyRetryBackOff"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}
