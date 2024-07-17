@@ -19,11 +19,25 @@
   "securityDefinitions": {},
   "paths": {},
   "definitions": {
+    "Animal": {
+      "discriminator": "animalType",
+      "properties": {
+        "animalType": {
+          "type": "string",
+          "description": "The type of Animal this is, used as a Discriminator value."
+        }
+      },
+      "required": [
+        "animalType"
+      ],
+      "title": "Animal",
+      "type": "object"
+    },
     "Cat": {
       "description": "A cat is a kind of ParentType",
       "allOf": [
         {
-          "$ref": "#/definitions/ParentType"
+          "$ref": "#/definitions/Animal"
         }
       ],
       "properties": {
@@ -38,7 +52,7 @@
       ],
       "title": "Cat",
       "type": "object",
-      "x-ms-discriminator-value": "cat"
+      "x-ms-discriminator-value": "Cat"
     }
   },
   "parameters": {}

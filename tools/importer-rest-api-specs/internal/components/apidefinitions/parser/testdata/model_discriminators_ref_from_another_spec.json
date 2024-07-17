@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Example",
+    "title": "DataFactory",
     "description": "Example",
     "version": "2020-01-01"
   },
@@ -30,24 +30,13 @@
           "200": {
             "description": "Success.",
             "schema": {
-              "$ref": "#/definitions/ParentType"
+              "$ref": "./model_discriminators_ref_in_another_spec.json#/definitions/Animal"
             }
           }
         }
       }
     }
   },
-  "definitions": {
-    "ParentType": {
-      "discriminator": "typeName",
-      "properties": {
-        "typeName": {
-          "type": "string"
-        }
-      },
-      "type": "object",
-      "title": "ParentType"
-    }
-  },
+  "definitions": {},
   "parameters": {}
 }

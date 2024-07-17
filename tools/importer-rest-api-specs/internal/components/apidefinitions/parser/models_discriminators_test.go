@@ -1411,6 +1411,81 @@ func TestParseDiscriminatorsOrphanedChildWithoutDiscriminatorValue(t *testing.T)
 	testhelpers.ValidateParsedSwaggerResultMatches(t, expected, actual)
 }
 
+func TestParseDiscriminatorsReferenceInAnotherSpecFile(t *testing.T) {
+	// This tests whether Swagger Refs from another spec file are parsed correctly. The go-openapi module actually does
+	// the heaving lifting here (thankfully!), loading in another file transparently when an external Ref is encountered.
+	// An external Ref looks something like this:
+	//
+	//     "$ref": "./model_discriminators_ref_in_another_spec.json#/definitions/Animal"
+	//
+	// Where the anchor is preceded by a path to a neighboring spec. We don't need to code for this explicitly, nor
+	// do we _really_ need to test for this, but since DataFactory relies heavily on this, this helps ensure we don't
+	// break this in the future.
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_discriminators_ref_from_another_spec.json", pointer.To("DataFactory"))
+	if err != nil {
+		t.Fatalf("parsing: %+v", err)
+	}
+
+	expected := sdkModels.APIVersion{
+		APIVersion: "2020-01-01",
+		Resources: map[string]sdkModels.APIResource{
+			"Example": {
+				Constants: make(map[string]sdkModels.SDKConstant),
+				Models: map[string]sdkModels.SDKModel{
+					"Animal": {
+						Fields: map[string]sdkModels.SDKField{
+							"AnimalType": {
+								JsonName: "animalType",
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
+								},
+								Required: true,
+							},
+						},
+						FieldNameContainingDiscriminatedValue: pointer.To("AnimalType"),
+					},
+					"Cat": {
+						Fields: map[string]sdkModels.SDKField{
+							"AnimalType": {
+								JsonName: "animalType",
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
+								},
+								Required: true,
+							},
+							"IsFluffy": {
+								JsonName: "isFluffy",
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.BooleanSDKObjectDefinitionType,
+								},
+								Required: true,
+							},
+						},
+						ParentTypeName:                        pointer.To("Animal"),
+						FieldNameContainingDiscriminatedValue: pointer.To("AnimalType"),
+						DiscriminatedValue:                    pointer.To("Cat"),
+					},
+				},
+				Name: "Example",
+				Operations: map[string]sdkModels.SDKOperation{
+					"Test": {
+						ContentType:         "application/json",
+						ExpectedStatusCodes: []int{200},
+						Method:              "GET",
+						URISuffix:           pointer.To("/example"),
+						ResponseObject: &sdkModels.SDKObjectDefinition{
+							Type:          sdkModels.ReferenceSDKObjectDefinitionType,
+							ReferenceName: pointer.To("Animal"),
+						},
+					},
+				},
+				ResourceIDs: map[string]sdkModels.ResourceID{},
+			},
+		},
+	}
+	testhelpers.ValidateParsedSwaggerResultMatches(t, expected, actual)
+}
+
 func TestParseDiscriminatorsOrphanedChildWithoutDiscriminatorValueForDifferentService(t *testing.T) {
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "/nestedtestdata/model_discriminators_orphaned_child_without_discriminator_value.json", pointer.To("Compute"))
 	if err != nil {

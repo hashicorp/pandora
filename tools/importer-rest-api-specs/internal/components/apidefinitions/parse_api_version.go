@@ -45,7 +45,7 @@ func parseAPIVersion(serviceName string, input discoveryModels.AvailableDataSetF
 		logging.Tracef("Processing API Definitions from file %q..", filePath)
 		resources, err := parseAPIResourcesFromFile(filePath, serviceName, resourceProvider, apiResources, foundResourceIDs)
 		if err != nil {
-			return nil, fmt.Errorf("parsing the APIResources from the Supplementary Data within %q: %+v", filePath, err)
+			return nil, fmt.Errorf("parsing the APIResources from the API Definitions within %q: %+v", filePath, err)
 		}
 
 		logging.Tracef("There are now %d APIResources", len(*resources))

@@ -5,9 +5,9 @@ package apidefinitions
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/ignore"
 
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/ignore"
 	discoveryModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/discovery/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )

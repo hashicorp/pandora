@@ -8,6 +8,10 @@ import (
 	parserModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/models"
 )
 
+// Deprecated: SupplementaryData is unused at this time, but being left in as a potential requirement. Note that this
+// doesn't seem to be needed at this time for DataFactory, which uses external swagger refs - since support for this is
+// built into the go-openapi module.
+// TODO: @manicminer revisit and determine whether we'll implement this
 func (p *apiDefinitionsParser) SupplementaryData() (*parserModels.SupplementaryData, error) {
 	result := parserModels.SupplementaryData{
 		Constants: map[string]sdkModels.SDKConstant{},
@@ -36,7 +40,7 @@ func (p *apiDefinitionsParser) SupplementaryData() (*parserModels.SupplementaryD
 		}
 	}
 
-	// FindNestedItemsYetToBeParsed takes ParseResult and so we need to shim this across
+	// FindNestedItemsYetToBeParsed takes ParseResult, so we need to shim this across
 	shim := parserModels.ParseResult{
 		Constants: result.Constants,
 		Models:    result.Models,
