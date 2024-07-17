@@ -12,7 +12,7 @@ import (
 )
 
 func TestParsingOperationsUsingTheSameSwaggerTagInDifferentCasings(t *testing.T) {
-	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "operations_single_tag_different_casing.json")
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "operations_single_tag_different_casing.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -86,7 +86,7 @@ func TestParsingOperationsUsingTheSameSwaggerTagInDifferentCasings(t *testing.T)
 }
 
 func TestParsingOperationsOnResources(t *testing.T) {
-	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "operations_on_resources.json")
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "operations_on_resources.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}

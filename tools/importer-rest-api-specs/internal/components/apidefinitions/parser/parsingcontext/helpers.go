@@ -2,7 +2,6 @@ package parsingcontext
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 	"strings"
 
 	"github.com/go-openapi/spec"
@@ -11,6 +10,7 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/constants"
 	parserModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )
 
 func fragmentNameFromReference(input spec.Ref) *string {
@@ -88,7 +88,7 @@ func (c *Context) FindNestedItemsYetToBeParsed(operations map[string]sdkModels.S
 	}
 	result.Append(known)
 
-	// Now that we have a complete list of all of the nested items to find, loop around and find them
+	// Now that we have a complete list of all the nested items to find, loop around and find them
 	// this is intentionally not fetching nested models to avoid an infinite loop with Model1 referencing
 	// Model2 which references Model1 (they instead get picked up in the next iteration)
 	referencesToFind, err := c.determineObjectsRequiredButNotParsed(operations, result)

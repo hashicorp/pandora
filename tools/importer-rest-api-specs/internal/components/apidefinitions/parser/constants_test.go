@@ -13,7 +13,7 @@ import (
 
 func TestParseConstantsIntegersTopLevelAsInts(t *testing.T) {
 	// Enums can either be modelled as strings or not.. this is an Int that's output as an Integer.
-	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "constants_integers_as_ints.json")
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "constants_integers_as_ints.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -68,7 +68,7 @@ func TestParseConstantsIntegersTopLevelAsInts(t *testing.T) {
 func TestParseConstantsIntegersTopLevelAsIntsWithDisplayName(t *testing.T) {
 	// This is an Integer Enum where there's a (Display) Name listed for the integer
 	// so we should be using `Name (string): Value (integer`)
-	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "constants_integers_with_names.json")
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "constants_integers_with_names.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -121,7 +121,7 @@ func TestParseConstantsIntegersTopLevelAsIntsWithDisplayName(t *testing.T) {
 
 func TestParseConstantsIntegersTopLevelAsStrings(t *testing.T) {
 	// Tests an Integer Constant with modelAsString, which is bad data / should be ignored
-	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "constants_integers_as_strings.json")
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "constants_integers_as_strings.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -174,7 +174,7 @@ func TestParseConstantsIntegersTopLevelAsStrings(t *testing.T) {
 
 func TestParseConstantsIntegersInlinedAsInts(t *testing.T) {
 	// Enums can either be modelled as strings or not.. this is an Int that's output as an Integer.
-	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "constants_integers_as_ints_inlined.json")
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "constants_integers_as_ints_inlined.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -228,7 +228,7 @@ func TestParseConstantsIntegersInlinedAsInts(t *testing.T) {
 func TestParseConstantsIntegersInlinedAsIntsWithDisplayName(t *testing.T) {
 	// This is an Integer Enum where there's a (Display) Name listed for the integer
 	// so we should be using `Name (string): Value (integer`)
-	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "constants_integers_with_names_inlined.json")
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "constants_integers_with_names_inlined.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -280,7 +280,7 @@ func TestParseConstantsIntegersInlinedAsIntsWithDisplayName(t *testing.T) {
 }
 
 func TestParseConstantsMultipleTypeEnums(t *testing.T) {
-	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "constants_multiple_type_enums.json")
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "constants_multiple_type_enums.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -362,7 +362,7 @@ func TestParseConstantsMultipleTypeEnums(t *testing.T) {
 
 func TestParseConstantsIntegersInlinedAsStrings(t *testing.T) {
 	// Tests an Integer Constant defined Inline with modelAsString, which is bad data / should be ignored
-	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "constants_integers_as_strings_inlined.json")
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "constants_integers_as_strings_inlined.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -415,7 +415,7 @@ func TestParseConstantsIntegersInlinedAsStrings(t *testing.T) {
 
 func TestParseConstantsFloatsTopLevelAsFloats(t *testing.T) {
 	// Enums can either be modelled as strings or not.. this is an Float that's output as a Float.
-	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "constants_floats_as_floats.json")
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "constants_floats_as_floats.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -468,7 +468,7 @@ func TestParseConstantsFloatsTopLevelAsFloats(t *testing.T) {
 
 func TestParseConstantsFloatsTopLevelAsStrings(t *testing.T) {
 	// Tests an Float Constant with modelAsString, which is bad data / should be ignored
-	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "constants_floats_as_strings.json")
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "constants_floats_as_strings.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -521,7 +521,7 @@ func TestParseConstantsFloatsTopLevelAsStrings(t *testing.T) {
 
 func TestParseConstantsFloatsInlinedAsFloats(t *testing.T) {
 	// Enums can either be modelled as strings or not.. this is an Float that's output as a Float.
-	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "constants_floats_as_floats_inlined.json")
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "constants_floats_as_floats_inlined.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -574,7 +574,7 @@ func TestParseConstantsFloatsInlinedAsFloats(t *testing.T) {
 
 func TestParseConstantsFloatsInlinedAsStrings(t *testing.T) {
 	// Tests an Float Constant defined inline with modelAsString, which is bad data / should be ignored
-	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "constants_floats_as_strings_inlined.json")
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "constants_floats_as_strings_inlined.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -626,7 +626,7 @@ func TestParseConstantsFloatsInlinedAsStrings(t *testing.T) {
 }
 
 func TestParseConstantsStringsTopLevel(t *testing.T) {
-	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "constants_strings.json")
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "constants_strings.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -682,7 +682,7 @@ func TestParseConstantsStringsTopLevelAsNonStrings(t *testing.T) {
 	// whilst the value is "string", due to (what appears to be) bad data the
 	// "modelAsString" property can be set to false - as such we force it to
 	// a string either way, since that's what it is
-	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "constants_strings_as_non_strings.json")
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "constants_strings_as_non_strings.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -734,7 +734,7 @@ func TestParseConstantsStringsTopLevelAsNonStrings(t *testing.T) {
 }
 
 func TestParseConstantsStringsInlined(t *testing.T) {
-	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "constants_strings_inlined.json")
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "constants_strings_inlined.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -786,7 +786,7 @@ func TestParseConstantsStringsInlined(t *testing.T) {
 }
 
 func TestParseConstantsStringsInlinedAsNonStrings(t *testing.T) {
-	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "constants_strings_inlined_as_non_strings.json")
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "constants_strings_inlined_as_non_strings.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -839,7 +839,7 @@ func TestParseConstantsStringsInlinedAsNonStrings(t *testing.T) {
 
 func TestParseConstantsStringsTopLevelContainingFloats(t *testing.T) {
 	// Enums can either be modelled as strings or not.. this is a Float that's output as a String.
-	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "constants_strings_which_are_floats.json")
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "constants_strings_which_are_floats.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -892,7 +892,7 @@ func TestParseConstantsStringsTopLevelContainingFloats(t *testing.T) {
 
 func TestParseConstantsStringsInlinedContainingFloats(t *testing.T) {
 	// Enums can either be modelled as strings or not.. this is a Float that's output as a Float.
-	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "constants_floats_as_floats_inlined.json")
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "constants_floats_as_floats_inlined.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -944,7 +944,7 @@ func TestParseConstantsStringsInlinedContainingFloats(t *testing.T) {
 }
 
 func TestParseConstantsFromParameters(t *testing.T) {
-	result, err := testhelpers.ParseSwaggerFileForTesting(t, "constants_in_operation_parameters.json")
+	result, err := testhelpers.ParseSwaggerFileForTesting(t, "constants_in_operation_parameters.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}

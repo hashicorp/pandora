@@ -2,8 +2,6 @@ package apidefinitions
 
 import (
 	"fmt"
-	"path/filepath"
-	"strings"
 
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser"
@@ -65,25 +63,17 @@ func parseAPIResourcesFromFile(filePath, serviceName string, resourceProvider *s
 
 	// 3. Then parse over any Swagger Operations which DON'T have a Tag
 	if !ignore.SwaggerTag(serviceName) {
-		// Since we're dealing with missing tag data in the swagger, we'll assume the proper tag name here is the file name
-		// This is less than ideal, but _should_ be fine.
-		directory := filepath.Dir(filePath)
-		fileName := strings.TrimPrefix(filePath, directory)
-		fileName = strings.TrimPrefix(fileName, fmt.Sprintf("%c", filepath.Separator))
-		fileName = strings.TrimSuffix(fileName, ".json")
-		inferredTag := cleanup.PluraliseName(fileName)
-		normalizedTag := cleanup.NormalizeTag(inferredTag)
-		normalizedTag = cleanup.NormalizeResourceName(normalizedTag)
+		inferredTag := cleanup.InferTagFromFilename(filePath)
 
 		// pass in any existing/known data so that we can reuse the models/references
 		existing := sdkModels.APIResource{
 			Constants:   make(map[string]sdkModels.SDKConstant),
 			Models:      make(map[string]sdkModels.SDKModel),
-			Name:        normalizedTag,
+			Name:        inferredTag,
 			Operations:  make(map[string]sdkModels.SDKOperation),
 			ResourceIDs: make(map[string]sdkModels.ResourceID),
 		}
-		if v, ok := parsedAPIResources[normalizedTag]; ok {
+		if v, ok := parsedAPIResources[inferredTag]; ok {
 			existing = v
 		}
 
@@ -94,17 +84,48 @@ func parseAPIResourcesFromFile(filePath, serviceName string, resourceProvider *s
 
 		if resource != nil {
 			discoveredResources := map[string]sdkModels.APIResource{
-				normalizedTag: *resource,
+				inferredTag: *resource,
 			}
 			combined, err := combine.APIResourcesWith(parsedAPIResources, discoveredResources)
 			if err != nil {
-				return nil, fmt.Errorf("combining the APIResources for the inferred Swagger Tag %q: %+v", normalizedTag, err)
+				return nil, fmt.Errorf("combining the APIResources for the inferred Swagger Tag %q: %+v", inferredTag, err)
 			}
 			parsedAPIResources = *combined
 		}
 	}
 
-	// 3. Now that we have a canonical list of resources - can we simplify the Operation names at all?
+	// 3. Discriminator implementations that are defined in separate files with no link to a swagger tag
+	//    are not parsed. So far there are two known instances of this (Data Factory, Chaos Studio) where
+	//    the files are defined in a nested directory e.g. d.Name = /Types/Capabilities
+	if len(parsedAPIResources) == 0 {
+		// if we're here then there is no tag in this file, so we'll use the file name
+		inferredTag := cleanup.InferTagFromFilename(filePath)
+
+		result, err := parser.FindOrphanedDiscriminatedModels(serviceName)
+		if err != nil {
+			return nil, fmt.Errorf("finding orphaned discriminated models for the inferred Swagger Tag %q in %q: %+v", inferredTag, filePath, err)
+		}
+
+		// this is to avoid the creation of empty packages/directories in the api definitions
+		if len(result.Models) > 0 || len(result.Constants) > 0 {
+			resource := sdkModels.APIResource{
+				Constants: result.Constants,
+				Models:    result.Models,
+			}
+			resource = cleanup.NormalizeAPIResource(resource)
+
+			discoveredResources := map[string]sdkModels.APIResource{
+				inferredTag: resource,
+			}
+			combined, err := combine.APIResourcesWith(parsedAPIResources, discoveredResources)
+			if err != nil {
+				return nil, fmt.Errorf("combining the APIResources for the inferred Swagger Tag %q: %+v", inferredTag, err)
+			}
+			parsedAPIResources = *combined
+		}
+	}
+
+	// 4. Now that we have a canonical list of resources - can we simplify the Operation names at all?
 	simplifiedAPIDefinitions := make(map[string]sdkModels.APIResource)
 	for resourceName, resource := range parsedAPIResources {
 		logging.Tracef("Simplifying operation names for resource %q", resourceName)

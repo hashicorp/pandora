@@ -2,13 +2,13 @@ package components
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/terraform"
 	"os"
 	"testing"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/discovery"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/terraform"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
 	"github.com/hashicorp/pandora/tools/sdk/config/services"

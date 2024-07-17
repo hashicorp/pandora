@@ -18,7 +18,7 @@ import (
 // TODO: Zones
 
 func TestParseModel_CommonSchema_IdentityLegacySystemAndUserAssignedList(t *testing.T) {
-	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_commonschema_identitylegacysystemanduserassignedlist.json")
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_commonschema_identitylegacysystemanduserassignedlist.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -66,7 +66,7 @@ func TestParseModel_CommonSchema_IdentityLegacySystemAndUserAssignedList(t *test
 }
 
 func TestParseModel_CommonSchema_IdentityLegacySystemAndUserAssignedMap(t *testing.T) {
-	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_commonschema_identitylegacysystemanduserassignedmap.json")
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_commonschema_identitylegacysystemanduserassignedmap.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -116,7 +116,7 @@ func TestParseModel_CommonSchema_IdentityLegacySystemAndUserAssignedMap(t *testi
 func TestParseModel_CommonSchema_IdentityLegacySystemAndUserAssignedMap_ExtraFields(t *testing.T) {
 	// this handles the scenario of a System Assigned & User Assigned model having extra fields
 	// in the user assigned identity block (#1066) - for example an extra `appId`
-	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_commonschema_identitylegacysystemanduserassignedmap_extrafields.json")
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_commonschema_identitylegacysystemanduserassignedmap_extrafields.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -164,7 +164,7 @@ func TestParseModel_CommonSchema_IdentityLegacySystemAndUserAssignedMap_ExtraFie
 }
 
 func TestParseModel_CommonSchema_IdentityLegacySystemAndUserAssignedMap_GenericDictionary(t *testing.T) {
-	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_commonschema_identitylegacysystemanduserassignedmap_genericdictionary.json")
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_commonschema_identitylegacysystemanduserassignedmap_genericdictionary.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -212,7 +212,7 @@ func TestParseModel_CommonSchema_IdentityLegacySystemAndUserAssignedMap_GenericD
 }
 
 func TestParseModel_CommonSchema_IdentitySystemAssigned(t *testing.T) {
-	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_commonschema_identitysystemassigned.json")
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_commonschema_identitysystemassigned.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -260,7 +260,7 @@ func TestParseModel_CommonSchema_IdentitySystemAssigned(t *testing.T) {
 }
 
 func TestParseModel_CommonSchema_IdentitySystemAndUserAssignedList(t *testing.T) {
-	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_commonschema_identitysystemanduserassignedlist.json")
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_commonschema_identitysystemanduserassignedlist.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -308,7 +308,7 @@ func TestParseModel_CommonSchema_IdentitySystemAndUserAssignedList(t *testing.T)
 }
 
 func TestParseModel_CommonSchema_IdentitySystemAndUserAssignedMap(t *testing.T) {
-	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_commonschema_identitysystemanduserassignedmap.json")
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_commonschema_identitysystemanduserassignedmap.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -358,7 +358,7 @@ func TestParseModel_CommonSchema_IdentitySystemAndUserAssignedMap(t *testing.T) 
 func TestParseModel_CommonSchema_IdentitySystemAndUserAssignedMap_ExtraFields(t *testing.T) {
 	// this handles the scenario of a System Assigned & User Assigned model having extra fields
 	// in the user assigned identity block (#1066) - for example an extra `appId`
-	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_commonschema_identitysystemanduserassignedmap.json")
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_commonschema_identitysystemanduserassignedmap.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -406,7 +406,7 @@ func TestParseModel_CommonSchema_IdentitySystemAndUserAssignedMap_ExtraFields(t 
 }
 
 func TestParseModel_CommonSchema_IdentitySystemOrUserAssignedList(t *testing.T) {
-	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_commonschema_identitysystemoruserassignedlist.json")
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_commonschema_identitysystemoruserassignedlist.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -454,7 +454,7 @@ func TestParseModel_CommonSchema_IdentitySystemOrUserAssignedList(t *testing.T) 
 }
 
 func TestParseModel_CommonSchema_IdentitySystemOrUserAssignedMap(t *testing.T) {
-	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_commonschema_identitysystemoruserassignedmap.json")
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_commonschema_identitysystemoruserassignedmap.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -504,7 +504,7 @@ func TestParseModel_CommonSchema_IdentitySystemOrUserAssignedMap(t *testing.T) {
 func TestParseModel_CommonSchema_IdentitySystemOrUserAssignedMap_DelegatedResources(t *testing.T) {
 	// this handles the scenario of a System Assigned & User Assigned model having a DelegatedResources block
 	// this block isn't intended to be used by users of the API (and is for internal ARM usage only)
-	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_commonschema_identitysystemoruserassignedmap_delegatedresources.json")
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_commonschema_identitysystemoruserassignedmap_delegatedresources.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -554,7 +554,7 @@ func TestParseModel_CommonSchema_IdentitySystemOrUserAssignedMap_DelegatedResour
 func TestParseModel_CommonSchema_IdentitySystemOrUserAssignedMap_ExtraFields(t *testing.T) {
 	// this handles the scenario of a System Assigned & User Assigned model having extra fields
 	// in the user assigned identity block (#1066) - for example an extra `appId`
-	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_commonschema_identitysystemoruserassignedmap_extrafields.json")
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_commonschema_identitysystemoruserassignedmap_extrafields.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -602,7 +602,7 @@ func TestParseModel_CommonSchema_IdentitySystemOrUserAssignedMap_ExtraFields(t *
 }
 
 func TestParseModel_CommonSchema_IdentityUserAssignedList(t *testing.T) {
-	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_commonschema_identityuserassignedlist.json")
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_commonschema_identityuserassignedlist.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -650,7 +650,7 @@ func TestParseModel_CommonSchema_IdentityUserAssignedList(t *testing.T) {
 }
 
 func TestParseModel_CommonSchema_IdentityUserAssignedMap(t *testing.T) {
-	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_commonschema_identityuserassignedmap.json")
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_commonschema_identityuserassignedmap.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -698,7 +698,7 @@ func TestParseModel_CommonSchema_IdentityUserAssignedMap(t *testing.T) {
 }
 
 func TestParseModel_CommonSchema_IdentityUserAssignedMap_PrincipalID(t *testing.T) {
-	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_commonschema_identityuserassignedmap_principalid.json")
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_commonschema_identityuserassignedmap_principalid.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -746,7 +746,7 @@ func TestParseModel_CommonSchema_IdentityUserAssignedMap_PrincipalID(t *testing.
 }
 
 func TestParseModel_CommonSchema_IdentityUserAssignedMap_TenantID(t *testing.T) {
-	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_commonschema_identityuserassignedmap_tenantid.json")
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_commonschema_identityuserassignedmap_tenantid.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -794,7 +794,7 @@ func TestParseModel_CommonSchema_IdentityUserAssignedMap_TenantID(t *testing.T) 
 }
 
 func TestParseModel_CommonSchema_Location(t *testing.T) {
-	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_commonschema_location.json")
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_commonschema_location.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}

@@ -4,14 +4,18 @@ import (
 	"path/filepath"
 	"testing"
 
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions"
 	discoveryModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/discovery/models"
 )
 
-func ParseSwaggerFileForTesting(t *testing.T, filePath string) (*sdkModels.APIVersion, error) {
+func ParseSwaggerFileForTesting(t *testing.T, filePath string, serviceName *string) (*sdkModels.APIVersion, error) {
+	if serviceName == nil {
+		serviceName = pointer.To("Example")
+	}
 	input := discoveryModels.AvailableDataSet{
-		ServiceName: "Example",
+		ServiceName: *serviceName,
 		DataSetsForAPIVersions: map[string]discoveryModels.AvailableDataSetForAPIVersion{
 			"2020-01-01": {
 				APIVersion:               "2020-01-01",

@@ -2,6 +2,7 @@ package cleanup
 
 import (
 	"fmt"
+	"path/filepath"
 	"strings"
 )
 
@@ -41,4 +42,16 @@ func NormalizeTag(input string) string {
 	output = strings.ReplaceAll(output, "VirtualWans", "VirtualWANs")
 
 	return output
+}
+
+// InferTagFromFilename is a workaround for missing tag data in the swagger. We assume the proper tag name
+// is the file name. This is less than ideal, but _should_ be fine.
+func InferTagFromFilename(input string) string {
+	directory := filepath.Dir(input)
+	fileName := strings.TrimPrefix(input, directory)
+	fileName = strings.TrimPrefix(fileName, fmt.Sprintf("%c", filepath.Separator))
+	fileName = strings.TrimSuffix(fileName, ".json")
+	inferredTag := PluraliseName(fileName)
+	normalizedTag := NormalizeTag(inferredTag)
+	return NormalizeResourceName(normalizedTag)
 }

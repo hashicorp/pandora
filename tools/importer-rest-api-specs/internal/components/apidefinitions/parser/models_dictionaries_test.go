@@ -4,15 +4,15 @@
 package parser_test
 
 import (
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/testhelpers"
 	"testing"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/testhelpers"
 )
 
 func TestParseModelWithADictionaryOfIntegers(t *testing.T) {
-	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_dictionary_of_integers.json")
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_dictionary_of_integers.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -63,7 +63,7 @@ func TestParseModelWithADictionaryOfIntegers(t *testing.T) {
 }
 
 func TestParseModelWithADictionaryOfIntegersInlined(t *testing.T) {
-	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_dictionary_of_integers_inlined.json")
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_dictionary_of_integers_inlined.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -114,7 +114,7 @@ func TestParseModelWithADictionaryOfIntegersInlined(t *testing.T) {
 }
 
 func TestParseModelWithADictionaryOfAnObject(t *testing.T) {
-	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_dictionary_of_object.json")
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_dictionary_of_object.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -198,7 +198,7 @@ func TestParseModelWithADictionaryOfAnObject(t *testing.T) {
 }
 
 func TestParseModelWithADictionaryOfAnObjectInlined(t *testing.T) {
-	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_dictionary_of_object_inlined.json")
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_dictionary_of_object_inlined.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -282,7 +282,7 @@ func TestParseModelWithADictionaryOfAnObjectInlined(t *testing.T) {
 }
 
 func TestParseModelWithADictionaryOfString(t *testing.T) {
-	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_dictionary_of_string.json")
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_dictionary_of_string.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -333,7 +333,7 @@ func TestParseModelWithADictionaryOfString(t *testing.T) {
 }
 
 func TestParseModelWithADictionaryOfStringInlined(t *testing.T) {
-	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_dictionary_of_string_inlined.json")
+	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_dictionary_of_string_inlined.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
