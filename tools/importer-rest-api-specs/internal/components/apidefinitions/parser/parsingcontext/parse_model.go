@@ -2,14 +2,14 @@ package parsingcontext
 
 import (
 	"fmt"
-	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/constants"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 	"strings"
 
 	"github.com/go-openapi/spec"
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/constants"
 	parserModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )
 
 func (c *Context) ParseModel(name string, input spec.Schema) (*parserModels.ParseResult, error) {
@@ -43,7 +43,7 @@ func (c *Context) ParseModel(name string, input spec.Schema) (*parserModels.Pars
 	}
 
 	// 3. finally build this model directly
-	// Notably, we **DO NOT** load models used by this models here - this is handled once we
+	// Notably, we **DO NOT** load models used by this model here - this is handled once we
 	// know all the models which we want to load - to avoid infinite loops
 	model, err := c.modelDetailsFromObject(name, input, *fields)
 	if err != nil {

@@ -11,22 +11,16 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/comparison"
 )
 
-func resourceIds(first, second map[string]sdkModels.ResourceID) (*map[string]sdkModels.ResourceID, error) {
-	output := make(map[string]sdkModels.ResourceID)
-
-	for k, v := range first {
-		output[k] = v
-	}
-
-	for k, v := range second {
-		// if there's duplicate Resource ID's named the same thing in different Swaggers, this is likely a data issue
-		otherVal, ok := output[k]
-		if ok && !comparison.ResourceIDsMatch(v, otherVal) {
-			return nil, fmt.Errorf("duplicate Resource ID named %q (First %q / Second %q)", k, sdkHelpers.DisplayValueForResourceID(v), sdkHelpers.DisplayValueForResourceID(otherVal))
+func combineResourceIds(resourceIds, other map[string]sdkModels.ResourceID) error {
+	for k, v := range other {
+		// if there's duplicate Resource IDs named the same in different Swaggers, this is likely a data issue
+		resourceId, ok := resourceIds[k]
+		if ok && !comparison.ResourceIDsMatch(v, resourceId) {
+			return fmt.Errorf("duplicate Resource ID named %q (First %q / Second %q)", k, sdkHelpers.DisplayValueForResourceID(v), sdkHelpers.DisplayValueForResourceID(resourceId))
 		}
 
-		output[k] = v
+		resourceIds[k] = v
 	}
 
-	return &output, nil
+	return nil
 }

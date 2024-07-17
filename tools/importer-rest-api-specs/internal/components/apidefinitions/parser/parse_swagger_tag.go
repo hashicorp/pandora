@@ -61,7 +61,7 @@ func (p *apiDefinitionsParser) ParseAPIResourceWithinSwaggerTag(tag, resourcePro
 	// then switch out any Common Schema Types (e.g. Identity)
 	resource = commonschema.ReplaceSDKObjectDefinitionsAsNeeded(resource)
 
-	// first Normalize the names, meaning `foo` -> `Foo` for consistency
+	// Normalize the names, ensuring they are appropriately Pascal cased
 	resource = cleanup.NormalizeAPIResource(resource)
 
 	return &resource, nil

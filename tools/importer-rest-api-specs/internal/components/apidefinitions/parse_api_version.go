@@ -43,14 +43,20 @@ func parseAPIVersion(serviceName string, input discoveryModels.AvailableDataSetF
 	apiResources := make(map[string]sdkModels.APIResource)
 	for _, filePath := range input.FilePathsContainingAPIDefinitions {
 		logging.Tracef("Processing API Definitions from file %q..", filePath)
-		resources, err := parseAPIResourcesFromFile(filePath, serviceName, resourceProvider, apiResources, foundResourceIDs)
-		if err != nil {
+		var err error
+		if apiResources, err = parseAPIResourcesFromFile(filePath, serviceName, resourceProvider, apiResources, foundResourceIDs); err != nil {
 			return nil, fmt.Errorf("parsing the APIResources from the API Definitions within %q: %+v", filePath, err)
 		}
 
-		logging.Tracef("There are now %d APIResources", len(*resources))
-		apiResources = *resources
+		logging.Tracef("There are now %d APIResources", len(apiResources))
 		logging.Tracef("Processing API Definitions from file %q - Completed.", filePath)
+	}
+
+	// Now that we have a canonical list of resources - can we simplify the Operation names at all?
+	for resourceName, resource := range apiResources {
+		logging.Tracef("Simplifying operation names for resource %q", resourceName)
+		updated := cleanup.SimplifyOperationNamesForAPIResource(resourceName, resource)
+		apiResources[resourceName] = updated
 	}
 
 	apiVersion := sdkModels.APIVersion{

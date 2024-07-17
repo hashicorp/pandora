@@ -9,45 +9,36 @@ import (
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
-func APIResourcesWith(first, other map[string]sdkModels.APIResource) (*map[string]sdkModels.APIResource, error) {
-	resources := make(map[string]sdkModels.APIResource)
-	for k, v := range first {
-		resources[k] = v
-	}
-
+func APIResourcesWith(resources, other map[string]sdkModels.APIResource) error {
 	for k, v := range other {
-		existing, ok := resources[k]
+		resource, ok := resources[k]
 		if !ok {
 			resources[k] = v
 			continue
 		}
 
-		constants, err := Constants(existing.Constants, v.Constants)
+		constants, err := Constants(resource.Constants, v.Constants)
 		if err != nil {
-			return nil, fmt.Errorf("combining constants: %+v", err)
+			return fmt.Errorf("combining constants: %+v", err)
 		}
-		existing.Constants = *constants
+		resource.Constants = *constants
 
-		models, err := Models(existing.Models, v.Models)
+		models, err := Models(resource.Models, v.Models)
 		if err != nil {
-			return nil, fmt.Errorf("combining models: %+v", err)
+			return fmt.Errorf("combining models: %+v", err)
 		}
-		existing.Models = *models
+		resource.Models = *models
 
-		operations, err := operations(existing.Operations, v.Operations)
-		if err != nil {
-			return nil, fmt.Errorf("combining operations: %+v", err)
+		if err = combineOperations(resource.Operations, v.Operations); err != nil {
+			return fmt.Errorf("combining operations: %+v", err)
 		}
-		existing.Operations = *operations
 
-		resourceIds, err := resourceIds(existing.ResourceIDs, v.ResourceIDs)
-		if err != nil {
-			return nil, fmt.Errorf("combining resource ids: %+v", err)
+		if err = combineResourceIds(resource.ResourceIDs, v.ResourceIDs); err != nil {
+			return fmt.Errorf("combining resource ids: %+v", err)
 		}
-		existing.ResourceIDs = *resourceIds
 
-		resources[k] = existing
+		resources[k] = resource
 	}
 
-	return &resources, nil
+	return nil
 }

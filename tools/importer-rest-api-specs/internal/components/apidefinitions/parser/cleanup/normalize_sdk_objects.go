@@ -4,9 +4,10 @@
 package cleanup
 
 import (
+	"strings"
+
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"strings"
 )
 
 // NormalizeAPIResource works through the parsed AzureApiResource and ensures

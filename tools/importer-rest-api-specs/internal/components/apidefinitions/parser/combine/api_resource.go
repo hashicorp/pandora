@@ -22,17 +22,13 @@ func APIResource(first, other sdkModels.APIResource) (*sdkModels.APIResource, er
 	}
 	first.Models = *models
 
-	combinedOperations, err := operations(first.Operations, other.Operations)
-	if err != nil {
+	if err = combineOperations(first.Operations, other.Operations); err != nil {
 		return nil, fmt.Errorf("combining operations: %+v", err)
 	}
-	first.Operations = *combinedOperations
 
-	combinedResourceIDs, err := resourceIds(first.ResourceIDs, other.ResourceIDs)
-	if err != nil {
+	if err = combineResourceIds(first.ResourceIDs, other.ResourceIDs); err != nil {
 		return nil, fmt.Errorf("combining resource ids: %+v", err)
 	}
-	first.ResourceIDs = *combinedResourceIDs
 
 	return &first, nil
 }

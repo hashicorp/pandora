@@ -12,7 +12,7 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )
 
-func parseAPIResourcesFromFile(filePath, serviceName string, resourceProvider *string, existingAPIResources map[string]sdkModels.APIResource, resourceIds resourceids.ParseResult) (*map[string]sdkModels.APIResource, error) {
+func parseAPIResourcesFromFile(filePath, serviceName string, resourceProvider *string, parsedAPIResources map[string]sdkModels.APIResource, resourceIds resourceids.ParseResult) (map[string]sdkModels.APIResource, error) {
 	parser, err := parser.NewAPIDefinitionsParser(filePath)
 	if err != nil {
 		return nil, fmt.Errorf("parsing the API Definitions within %q: %+v", filePath, err)
@@ -22,7 +22,6 @@ func parseAPIResourcesFromFile(filePath, serviceName string, resourceProvider *s
 	tags := parser.ParseSwaggerTags()
 
 	// 2. Then iterate over each of the Swagger Operations with each Tag
-	parsedAPIResources := existingAPIResources
 	for _, tag := range tags {
 		if ignore.SwaggerTag(tag) {
 			continue
@@ -32,13 +31,7 @@ func parseAPIResourcesFromFile(filePath, serviceName string, resourceProvider *s
 		normalizedTag = cleanup.NormalizeResourceName(normalizedTag)
 
 		// pass in any existing/known data so that we can reuse the models/references
-		existing := sdkModels.APIResource{
-			Constants:   make(map[string]sdkModels.SDKConstant),
-			Models:      make(map[string]sdkModels.SDKModel),
-			Name:        normalizedTag,
-			Operations:  make(map[string]sdkModels.SDKOperation),
-			ResourceIDs: make(map[string]sdkModels.ResourceID),
-		}
+		existing := sdkModels.NewAPIResource(normalizedTag)
 		if v, ok := parsedAPIResources[normalizedTag]; ok {
 			existing = v
 		}
@@ -53,11 +46,9 @@ func parseAPIResourcesFromFile(filePath, serviceName string, resourceProvider *s
 			discoveredResources := map[string]sdkModels.APIResource{
 				normalizedTag: *resource,
 			}
-			combined, err := combine.APIResourcesWith(parsedAPIResources, discoveredResources)
-			if err != nil {
+			if err = combine.APIResourcesWith(parsedAPIResources, discoveredResources); err != nil {
 				return nil, fmt.Errorf("combining the APIResources for the identified Swagger Tag %q: %+v", tag, err)
 			}
-			parsedAPIResources = *combined
 		}
 	}
 
@@ -66,13 +57,7 @@ func parseAPIResourcesFromFile(filePath, serviceName string, resourceProvider *s
 		inferredTag := cleanup.InferTagFromFilename(filePath)
 
 		// pass in any existing/known data so that we can reuse the models/references
-		existing := sdkModels.APIResource{
-			Constants:   make(map[string]sdkModels.SDKConstant),
-			Models:      make(map[string]sdkModels.SDKModel),
-			Name:        inferredTag,
-			Operations:  make(map[string]sdkModels.SDKOperation),
-			ResourceIDs: make(map[string]sdkModels.ResourceID),
-		}
+		existing := sdkModels.NewAPIResource(inferredTag)
 		if v, ok := parsedAPIResources[inferredTag]; ok {
 			existing = v
 		}
@@ -86,11 +71,9 @@ func parseAPIResourcesFromFile(filePath, serviceName string, resourceProvider *s
 			discoveredResources := map[string]sdkModels.APIResource{
 				inferredTag: *resource,
 			}
-			combined, err := combine.APIResourcesWith(parsedAPIResources, discoveredResources)
-			if err != nil {
+			if err = combine.APIResourcesWith(parsedAPIResources, discoveredResources); err != nil {
 				return nil, fmt.Errorf("combining the APIResources for the inferred Swagger Tag %q: %+v", inferredTag, err)
 			}
-			parsedAPIResources = *combined
 		}
 	}
 
@@ -117,21 +100,11 @@ func parseAPIResourcesFromFile(filePath, serviceName string, resourceProvider *s
 			discoveredResources := map[string]sdkModels.APIResource{
 				inferredTag: resource,
 			}
-			combined, err := combine.APIResourcesWith(parsedAPIResources, discoveredResources)
-			if err != nil {
+			if err = combine.APIResourcesWith(parsedAPIResources, discoveredResources); err != nil {
 				return nil, fmt.Errorf("combining the APIResources for the inferred Swagger Tag %q: %+v", inferredTag, err)
 			}
-			parsedAPIResources = *combined
 		}
 	}
 
-	// 4. Now that we have a canonical list of resources - can we simplify the Operation names at all?
-	simplifiedAPIDefinitions := make(map[string]sdkModels.APIResource)
-	for resourceName, resource := range parsedAPIResources {
-		logging.Tracef("Simplifying operation names for resource %q", resourceName)
-		updated := cleanup.SimplifyOperationNamesForAPIResource(resourceName, resource)
-		simplifiedAPIDefinitions[resourceName] = updated
-	}
-
-	return &simplifiedAPIDefinitions, nil
+	return parsedAPIResources, nil
 }

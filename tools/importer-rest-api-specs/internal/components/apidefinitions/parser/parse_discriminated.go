@@ -28,6 +28,7 @@ func (p *apiDefinitionsParser) FindOrphanedDiscriminatedModels(serviceName strin
 
 		// intentionally scoped to `datafactory` given the peculiarities in the swagger definition
 		// in particular question 4. in this issue https://github.com/Azure/azure-rest-api-specs/issues/28380
+		// TODO: determine whether it is safe to remove this hardcoded restriction and apply this logic to all services
 		if strings.EqualFold(serviceName, "datafactory") {
 			// this catches orphaned discriminated models where the discriminator information is housed in the parent
 			// and uses the name of the model as the discriminated value

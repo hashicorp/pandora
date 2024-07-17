@@ -132,7 +132,7 @@ func (c *Context) FindNestedItemsYetToBeParsed(operations map[string]sdkModels.S
 }
 
 func (c *Context) determineObjectsRequiredButNotParsed(operations map[string]sdkModels.SDKOperation, known parserModels.ParseResult) (*[]string, error) {
-	referencesToFind := make(map[string]struct{}, 0)
+	referencesToFind := make(map[string]struct{})
 
 	for _, operation := range operations {
 		if operation.RequestObject != nil {
@@ -166,7 +166,7 @@ func (c *Context) determineObjectsRequiredButNotParsed(operations map[string]sdk
 				}
 
 				if isKnownModel {
-					// if it's a model, we need to check all of the fields for this to find any constant or models
+					// if it's a model, we need to check all the fields for this to find any constant or models
 					// that we don't know about
 					modelName := *topLevelRef.ReferenceName
 					model := known.Models[modelName]
