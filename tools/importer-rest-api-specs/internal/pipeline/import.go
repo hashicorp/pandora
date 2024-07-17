@@ -21,7 +21,8 @@ func RunImporter(opts Options) error {
 	}
 	logging.Debugf("Completed - Building the repository.")
 
-	logging.Debugf("Reticulating splines..")
+	loadingMessage()
+
 	p := &Pipeline{
 		opts:       opts,
 		repository: repo,
@@ -47,6 +48,20 @@ func RunImporter(opts Options) error {
 
 	logging.Infof("Processing the %d Services..", len(p.servicesFromConfigurationFiles))
 	for _, service := range p.servicesFromConfigurationFiles {
+		if len(opts.ServiceNamesToLimitTo) > 0 {
+			processThisService := false
+			for _, serviceNameToLimitTo := range opts.ServiceNamesToLimitTo {
+				if service.Name == serviceNameToLimitTo {
+					processThisService = true
+					break
+				}
+			}
+			if !processThisService {
+				logging.Infof("Skipping the Service %q..", service.Name)
+				continue
+			}
+		}
+
 		logging.Infof("Discovering the Data for Service %q..", service.Name)
 		data, err := p.parseDataForService(service)
 		if err != nil {
