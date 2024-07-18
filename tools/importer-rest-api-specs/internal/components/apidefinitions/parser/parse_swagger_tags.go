@@ -5,24 +5,26 @@ package parser
 
 import (
 	"sort"
-	"strings"
+
+	"golang.org/x/text/cases"
+	"golang.org/x/text/language"
 )
 
 func (p *apiDefinitionsParser) ParseSwaggerTags() []string {
 	tags := make(map[string]struct{})
 
-	// first we go through, assuming there are tags
 	for _, operation := range p.context.SwaggerSpecExpanded.Operations() {
 		for _, details := range operation {
 			for _, tag := range details.Tags {
-				tags[tag] = struct{}{}
+				normalizedTag := cases.Title(language.AmericanEnglish, cases.NoLower).String(tag)
+				tags[normalizedTag] = struct{}{}
 			}
 		}
 	}
 
 	out := make([]string, 0)
 	for key := range tags {
-		out = append(out, strings.Title(key))
+		out = append(out, key)
 	}
 	sort.Strings(out)
 	return out
