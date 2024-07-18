@@ -31,7 +31,7 @@ func parseAPIResourcesFromFile(filePath, serviceName string, resourceProvider *s
 		normalizedTag = cleanup.NormalizeResourceName(normalizedTag)
 
 		// pass in any existing/known data so that we can reuse the models/references
-		existing := sdkModels.NewAPIResource(normalizedTag)
+		existing := newAPIResource(normalizedTag)
 		if v, ok := parsedAPIResources[normalizedTag]; ok {
 			existing = v
 		}
@@ -57,7 +57,7 @@ func parseAPIResourcesFromFile(filePath, serviceName string, resourceProvider *s
 		inferredTag := cleanup.InferTagFromFilename(filePath)
 
 		// pass in any existing/known data so that we can reuse the models/references
-		existing := sdkModels.NewAPIResource(inferredTag)
+		existing := newAPIResource(inferredTag)
 		if v, ok := parsedAPIResources[inferredTag]; ok {
 			existing = v
 		}
@@ -106,4 +106,14 @@ func parseAPIResourcesFromFile(filePath, serviceName string, resourceProvider *s
 	}
 
 	return parsedAPIResources, nil
+}
+
+func newAPIResource(name string) sdkModels.APIResource {
+	return sdkModels.APIResource{
+		Constants:   make(map[string]sdkModels.SDKConstant),
+		Models:      make(map[string]sdkModels.SDKModel),
+		Name:        name,
+		Operations:  make(map[string]sdkModels.SDKOperation),
+		ResourceIDs: make(map[string]sdkModels.ResourceID),
+	}
 }
