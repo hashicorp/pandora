@@ -77,7 +77,7 @@ func parseAPIResourcesFromFile(filePath, serviceName string, resourceProvider *s
 		}
 	}
 
-	// 3. Discriminator implementations that are defined in separate files with no link to a swagger tag
+	// 4. Discriminator implementations that are defined in separate files with no link to a swagger tag
 	//    are not parsed. So far there are two known instances of this (Data Factory, Chaos Studio) where
 	//    the files are defined in a nested directory e.g. d.Name = /Types/Capabilities
 	if len(parsedAPIResources) == 0 {
@@ -95,7 +95,6 @@ func parseAPIResourcesFromFile(filePath, serviceName string, resourceProvider *s
 				Constants: result.Constants,
 				Models:    result.Models,
 			}
-			resource = cleanup.NormalizeAPIResource(resource)
 
 			discoveredResources := map[string]sdkModels.APIResource{
 				inferredTag: resource,

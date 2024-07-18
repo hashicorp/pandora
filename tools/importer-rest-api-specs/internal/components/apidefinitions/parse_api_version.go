@@ -52,6 +52,14 @@ func parseAPIVersion(serviceName string, input discoveryModels.AvailableDataSetF
 		logging.Tracef("Processing API Definitions from file %q - Completed.", filePath)
 	}
 
+	// Normalize names of all operations, resource IDs, constants, models, and field names, ensuring they are
+	// appropriately Pascal cased. We are doing this after building out all the resources, since some references
+	// can get updated out-of-band and would subsequently be missed if we normalized immediately after parsing
+	// each resource.
+	for resourceName, resource := range apiResources {
+		apiResources[resourceName] = cleanup.NormalizeAPIResource(resource)
+	}
+
 	// Now that we have a canonical list of resources - can we simplify the Operation names at all?
 	for resourceName, resource := range apiResources {
 		logging.Tracef("Simplifying operation names for resource %q", resourceName)

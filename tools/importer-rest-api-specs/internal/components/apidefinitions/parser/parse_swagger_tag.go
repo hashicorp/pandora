@@ -4,7 +4,6 @@ import (
 	"fmt"
 
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/commonschema"
 	parserModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/operation"
@@ -60,9 +59,6 @@ func (p *apiDefinitionsParser) ParseAPIResourceWithinSwaggerTag(tag, resourcePro
 
 	// then switch out any Common Schema Types (e.g. Identity)
 	resource = commonschema.ReplaceSDKObjectDefinitionsAsNeeded(resource)
-
-	// Normalize the names, ensuring they are appropriately Pascal cased
-	resource = cleanup.NormalizeAPIResource(resource)
 
 	return &resource, nil
 }

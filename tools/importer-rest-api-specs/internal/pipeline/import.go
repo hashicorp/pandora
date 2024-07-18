@@ -46,7 +46,7 @@ func RunImporter(opts Options) error {
 	}
 	logging.Debugf("Completed - Clearing any existing API Definitions.")
 
-	logging.Infof("Processing the %d Services..", len(p.servicesFromConfigurationFiles))
+	logging.Infof("Processing %d Services..", len(p.servicesFromConfigurationFiles))
 	for _, service := range p.servicesFromConfigurationFiles {
 		if len(opts.ServiceNamesToLimitTo) > 0 {
 			processThisService := false
