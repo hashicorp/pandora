@@ -6,8 +6,7 @@ package parser
 import (
 	"sort"
 
-	"golang.org/x/text/cases"
-	"golang.org/x/text/language"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/cleanup"
 )
 
 func (p *apiDefinitionsParser) ParseSwaggerTags() []string {
@@ -16,7 +15,7 @@ func (p *apiDefinitionsParser) ParseSwaggerTags() []string {
 	for _, operation := range p.context.SwaggerSpecExpanded.Operations() {
 		for _, details := range operation {
 			for _, tag := range details.Tags {
-				normalizedTag := cases.Title(language.AmericanEnglish, cases.NoLower).String(tag)
+				normalizedTag := cleanup.Title(tag)
 				tags[normalizedTag] = struct{}{}
 			}
 		}

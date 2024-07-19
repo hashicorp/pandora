@@ -183,20 +183,20 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 
 			// prefix this with `static{name}` so that the segment is unique
 			// these aren't parsed out anyway, but we need unique names
-			normalizedSegment = normalizeSegment(fmt.Sprintf("static%s", strings.Title(resourceProviderValue)))
+			normalizedSegment = normalizeSegment(fmt.Sprintf("static%s", cleanup.Title(resourceProviderValue)))
 			segments = append(segments, sdkModels.NewResourceProviderResourceIDSegment(normalizedSegment, resourceProviderValue))
 			continue
 		}
 
 		// prefix this with `static{name}` so that the segment is unique
 		// these aren't parsed out anyway, but we need unique names
-		normalizedName := normalizeSegment(fmt.Sprintf("static%s", strings.Title(normalizedSegment)))
+		normalizedName := normalizeSegment(fmt.Sprintf("static%s", cleanup.Title(normalizedSegment)))
 		segments = append(segments, sdkModels.NewStaticValueResourceIDSegment(normalizedName, normalizedSegment))
 	}
 
-	// now that we've parsed all of the URI Segments, let's determine if this contains a Resource ID scope
+	// now that we've parsed all the URI Segments, let's determine if this contains a Resource ID scope
 
-	// Some Swaggers define Operation URI's which are generic scopes but which use the full Resource ID format
+	// Some Swaggers define Operation URIs which are generic scopes but which use the full Resource ID format
 	// rather than a /{scope} parameter, e.g.
 	// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/{parentType}/{parentName}
 	//

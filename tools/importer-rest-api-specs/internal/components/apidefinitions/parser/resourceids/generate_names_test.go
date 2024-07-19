@@ -157,8 +157,8 @@ func TestResourceIDNamingEmpty(t *testing.T) {
 		return
 	}
 
-	if len(*actualNamesToIds) > 0 {
-		t.Fatalf("expected there to be no namesToIds but got %+v", *actualNamesToIds)
+	if len(actualNamesToIds) > 0 {
+		t.Fatalf("expected there to be no namesToIds but got %+v", actualNamesToIds)
 	}
 }
 
@@ -177,8 +177,8 @@ func TestResourceIDNamingSubscriptionId(t *testing.T) {
 		return
 	}
 
-	if !reflect.DeepEqual(expectedNamesToIds, *actualNamesToIds) {
-		t.Fatalf("expected namesToIds to be %+v but got %+v", expectedNamesToIds, *actualNamesToIds)
+	if !reflect.DeepEqual(expectedNamesToIds, actualNamesToIds) {
+		t.Fatalf("expected namesToIds to be %+v but got %+v", expectedNamesToIds, actualNamesToIds)
 	}
 }
 
@@ -199,8 +199,8 @@ func TestResourceIDNamingSubscriptionIdAndSuffix(t *testing.T) {
 		return
 	}
 
-	if !reflect.DeepEqual(expectedNamesToIds, *actualNamesToIds) {
-		t.Fatalf("expected namesToIds to be %+v but got %+v", expectedNamesToIds, *actualNamesToIds)
+	if !reflect.DeepEqual(expectedNamesToIds, actualNamesToIds) {
+		t.Fatalf("expected namesToIds to be %+v but got %+v", expectedNamesToIds, actualNamesToIds)
 	}
 }
 
@@ -219,8 +219,8 @@ func TestResourceIDNamingResourceGroupId(t *testing.T) {
 		return
 	}
 
-	if !reflect.DeepEqual(expectedNamesToIds, *actualNamesToIds) {
-		t.Fatalf("expected namesToIds to be %+v but got %+v", expectedNamesToIds, *actualNamesToIds)
+	if !reflect.DeepEqual(expectedNamesToIds, actualNamesToIds) {
+		t.Fatalf("expected namesToIds to be %+v but got %+v", expectedNamesToIds, actualNamesToIds)
 	}
 }
 
@@ -241,8 +241,8 @@ func TestResourceIDNamingResourceGroupIdAndSuffix(t *testing.T) {
 		return
 	}
 
-	if !reflect.DeepEqual(expectedNamesToIds, *actualNamesToIds) {
-		t.Fatalf("expected namesToIds to be %+v but got %+v", expectedNamesToIds, *actualNamesToIds)
+	if !reflect.DeepEqual(expectedNamesToIds, actualNamesToIds) {
+		t.Fatalf("expected namesToIds to be %+v but got %+v", expectedNamesToIds, actualNamesToIds)
 	}
 }
 
@@ -261,8 +261,8 @@ func TestResourceIDNamingManagementGroupId(t *testing.T) {
 		return
 	}
 
-	if !reflect.DeepEqual(expectedNamesToIds, *actualNamesToIds) {
-		t.Fatalf("expected namesToIds to be %+v but got %+v", expectedNamesToIds, *actualNamesToIds)
+	if !reflect.DeepEqual(expectedNamesToIds, actualNamesToIds) {
+		t.Fatalf("expected namesToIds to be %+v but got %+v", expectedNamesToIds, actualNamesToIds)
 	}
 }
 
@@ -283,8 +283,8 @@ func TestResourceIDNamingManagementGroupIdAndSuffix(t *testing.T) {
 		return
 	}
 
-	if !reflect.DeepEqual(expectedNamesToIds, *actualNamesToIds) {
-		t.Fatalf("expected namesToIds to be %+v but got %+v", expectedNamesToIds, *actualNamesToIds)
+	if !reflect.DeepEqual(expectedNamesToIds, actualNamesToIds) {
+		t.Fatalf("expected namesToIds to be %+v but got %+v", expectedNamesToIds, actualNamesToIds)
 	}
 }
 
@@ -303,8 +303,8 @@ func TestResourceIDNamingEventHubSkuId(t *testing.T) {
 		return
 	}
 
-	if !reflect.DeepEqual(expectedNamesToIds, *actualNamesToIds) {
-		t.Fatalf("expected namesToIds to be %+v but got %+v", expectedNamesToIds, *actualNamesToIds)
+	if !reflect.DeepEqual(expectedNamesToIds, actualNamesToIds) {
+		t.Fatalf("expected namesToIds to be %+v but got %+v", expectedNamesToIds, actualNamesToIds)
 	}
 }
 
@@ -330,8 +330,8 @@ func TestResourceIDNamingTopLevelScope(t *testing.T) {
 		return
 	}
 
-	if !reflect.DeepEqual(expectedNamesToIds, *actualNamesToIds) {
-		t.Fatalf("expected namesToIds to be %+v but got %+v", expectedNamesToIds, *actualNamesToIds)
+	if !reflect.DeepEqual(expectedNamesToIds, actualNamesToIds) {
+		t.Fatalf("expected namesToIds to be %+v but got %+v", expectedNamesToIds, actualNamesToIds)
 	}
 }
 
@@ -366,8 +366,8 @@ func TestResourceIDNamingContainingAConstant(t *testing.T) {
 		return
 	}
 
-	if !reflect.DeepEqual(expectedNamesToIds, *actualNamesToIds) {
-		t.Fatalf("expected namesToIds to be %+v but got %+v", expectedNamesToIds, *actualNamesToIds)
+	if !reflect.DeepEqual(expectedNamesToIds, actualNamesToIds) {
+		t.Fatalf("expected namesToIds to be %+v but got %+v", expectedNamesToIds, actualNamesToIds)
 	}
 }
 
@@ -404,8 +404,8 @@ func TestResourceIDNamingContainingAConstantAndSuffix(t *testing.T) {
 		return
 	}
 
-	if !reflect.DeepEqual(expectedNamesToIds, *actualNamesToIds) {
-		t.Fatalf("expected namesToIds to be %+v but got %+v", expectedNamesToIds, *actualNamesToIds)
+	if !reflect.DeepEqual(expectedNamesToIds, actualNamesToIds) {
+		t.Fatalf("expected namesToIds to be %+v but got %+v", expectedNamesToIds, actualNamesToIds)
 	}
 }
 
@@ -424,8 +424,8 @@ func TestResourceIdNamingTopLevelResourceId(t *testing.T) {
 		return
 	}
 
-	if !reflect.DeepEqual(expectedNamesToIds, *actualNamesToIds) {
-		t.Fatalf("expected namesToIds to be %+v but got %+v", expectedNamesToIds, *actualNamesToIds)
+	if !reflect.DeepEqual(expectedNamesToIds, actualNamesToIds) {
+		t.Fatalf("expected namesToIds to be %+v but got %+v", expectedNamesToIds, actualNamesToIds)
 	}
 }
 
@@ -446,8 +446,8 @@ func TestResourceIdNamingTopLevelAndNestedResourceId(t *testing.T) {
 		return
 	}
 
-	if !reflect.DeepEqual(expectedNamesToIds, *actualNamesToIds) {
-		t.Fatalf("expected namesToIds to be %+v but got %+v", expectedNamesToIds, *actualNamesToIds)
+	if !reflect.DeepEqual(expectedNamesToIds, actualNamesToIds) {
+		t.Fatalf("expected namesToIds to be %+v but got %+v", expectedNamesToIds, actualNamesToIds)
 	}
 }
 
@@ -466,8 +466,8 @@ func TestResourceIdNamingNestedResourceId(t *testing.T) {
 		return
 	}
 
-	if !reflect.DeepEqual(expectedNamesToIds, *actualNamesToIds) {
-		t.Fatalf("expected namesToIds to be %+v but got %+v", expectedNamesToIds, *actualNamesToIds)
+	if !reflect.DeepEqual(expectedNamesToIds, actualNamesToIds) {
+		t.Fatalf("expected namesToIds to be %+v but got %+v", expectedNamesToIds, actualNamesToIds)
 	}
 }
 
@@ -486,8 +486,8 @@ func TestResourceIdNamingResourceUnderScope(t *testing.T) {
 		return
 	}
 
-	if !reflect.DeepEqual(expectedNamesToIds, *actualNamesToIds) {
-		t.Fatalf("expected namesToIds to be %+v but got %+v", expectedNamesToIds, *actualNamesToIds)
+	if !reflect.DeepEqual(expectedNamesToIds, actualNamesToIds) {
+		t.Fatalf("expected namesToIds to be %+v but got %+v", expectedNamesToIds, actualNamesToIds)
 	}
 }
 
@@ -508,8 +508,8 @@ func TestResourceIdNamingConflictingTwoLevels(t *testing.T) {
 		return
 	}
 
-	if !reflect.DeepEqual(expectedNamesToIds, *actualNamesToIds) {
-		t.Fatalf("expected namesToIds to be:\n\n%+v\nbut got:\n\n%+v", expectedNamesToIds, *actualNamesToIds)
+	if !reflect.DeepEqual(expectedNamesToIds, actualNamesToIds) {
+		t.Fatalf("expected namesToIds to be:\n\n%+v\nbut got:\n\n%+v", expectedNamesToIds, actualNamesToIds)
 	}
 }
 
@@ -539,8 +539,8 @@ func TestResourceIdNamingConflictingWithUpdatingOperation(t *testing.T) {
 		return
 	}
 
-	if !reflect.DeepEqual(expectedNamesToIds, *actualNamesToIds) {
-		t.Fatalf("expected namesToIds to be:\n\n%+v\nbut got:\n\n%+v", expectedNamesToIds, *actualNamesToIds)
+	if !reflect.DeepEqual(expectedNamesToIds, actualNamesToIds) {
+		t.Fatalf("expected namesToIds to be:\n\n%+v\nbut got:\n\n%+v", expectedNamesToIds, actualNamesToIds)
 	}
 
 	for wantIDName, resourceID := range expectedNamesToIds {
@@ -648,8 +648,8 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 		return
 	}
 
-	if !reflect.DeepEqual(expectedNamesToIds, *actualNamesToIds) {
-		t.Fatalf("expected namesToIds to be:\n\n%+v\n\nbut got:\n%+v", expectedNamesToIds, *actualNamesToIds)
+	if !reflect.DeepEqual(expectedNamesToIds, actualNamesToIds) {
+		t.Fatalf("expected namesToIds to be:\n\n%+v\n\nbut got:\n%+v", expectedNamesToIds, actualNamesToIds)
 	}
 }
 
@@ -668,8 +668,8 @@ func TestResourceIdNamingSignalRId(t *testing.T) {
 		return
 	}
 
-	if !reflect.DeepEqual(expectedNamesToIds, *actualNamesToIds) {
-		t.Fatalf("expected namesToIds to be %+v but got %+v", expectedNamesToIds, *actualNamesToIds)
+	if !reflect.DeepEqual(expectedNamesToIds, actualNamesToIds) {
+		t.Fatalf("expected namesToIds to be %+v but got %+v", expectedNamesToIds, actualNamesToIds)
 	}
 }
 
@@ -688,8 +688,8 @@ func TestResourceIdNamingTrafficManagerEndpoint(t *testing.T) {
 		return
 	}
 
-	if !reflect.DeepEqual(expectedNamesToIds, *actualNamesToIds) {
-		t.Fatalf("expected namesToIds to be %+v but got %+v", expectedNamesToIds, *actualNamesToIds)
+	if !reflect.DeepEqual(expectedNamesToIds, actualNamesToIds) {
+		t.Fatalf("expected namesToIds to be %+v but got %+v", expectedNamesToIds, actualNamesToIds)
 	}
 }
 
@@ -708,7 +708,7 @@ func TestResourceIDNamingRedisDefaultId(t *testing.T) {
 		return
 	}
 
-	if !reflect.DeepEqual(expectedNamesToIds, *actualNamesToIds) {
-		t.Fatalf("expected namesToIds to be %+v but got %+v", expectedNamesToIds, *actualNamesToIds)
+	if !reflect.DeepEqual(expectedNamesToIds, actualNamesToIds) {
+		t.Fatalf("expected namesToIds to be %+v but got %+v", expectedNamesToIds, actualNamesToIds)
 	}
 }

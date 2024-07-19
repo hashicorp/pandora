@@ -152,7 +152,7 @@ func NormalizeSegment(input string, camelCase bool) string {
 			if camelCase {
 				return v
 			} else {
-				return strings.Title(v)
+				return Title(v)
 			}
 		}
 	}

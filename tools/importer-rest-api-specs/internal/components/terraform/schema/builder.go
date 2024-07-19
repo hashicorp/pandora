@@ -266,7 +266,7 @@ func (b Builder) schemaFromTopLevelModel(input sdkModels.TerraformResourceDefini
 		displayValueForResourceId := sdkHelpers.DisplayValueForResourceID(resourceId)
 		return nil, fmt.Errorf("identifying top level fields within Resource ID %q: %+v", displayValueForResourceId, err)
 	}
-	for k, v := range *fieldsWithinResourceId {
+	for k, v := range fieldsWithinResourceId {
 		fields[k] = v
 	}
 

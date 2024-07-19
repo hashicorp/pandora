@@ -65,11 +65,11 @@ func modelDefinitionsMatch(t *testing.T, actual map[string]sdkModels.TerraformSc
 	if actual == nil {
 		t.Fatalf("actual was nil")
 	}
-	if len(*actual) != len(expected) {
-		t.Fatalf("actual had %d models but expected had %d models", len(*actual), len(expected))
+	if len(actual) != len(expected) {
+		t.Fatalf("actual had %d models but expected had %d models", len(actual), len(expected))
 	}
 
-	for key, firstVal := range *actual {
+	for key, firstVal := range actual {
 		secondVal, ok := expected[key]
 		if !ok {
 			t.Fatalf("key %q was present in actual but not expected", key)

@@ -11,6 +11,7 @@ import (
 
 	"github.com/go-openapi/spec"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/featureflags"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )
@@ -37,7 +38,7 @@ func Parse(typeVal spec.StringOrArray, fieldName string, modelName *string, valu
 			// of which there are several in data factory (#3725)
 			if strings.EqualFold(fieldName, "type") && modelName != nil {
 				constantPrefix := strings.TrimSuffix(*modelName, "Type")
-				constantName = constantPrefix + strings.Title(fieldName)
+				constantName = constantPrefix + cleanup.Title(fieldName)
 				logging.Debugf("Field %q renamed to %q", fieldName, constantName)
 			}
 
@@ -67,7 +68,7 @@ func Parse(typeVal spec.StringOrArray, fieldName string, modelName *string, valu
 	}
 
 	return &ParsedConstant{
-		Name: strings.Title(constantName),
+		Name: cleanup.Title(constantName),
 		Details: sdkModels.SDKConstant{
 			Values: keysAndValues,
 			Type:   constantType,
@@ -124,7 +125,7 @@ func parseKeysAndValues(input []interface{}, constantType sdkModels.SDKConstantT
 			key := keyValueForInteger(int64(value))
 			// if an override name is defined for this Constant then we should use it
 			if constExtension != nil && constExtension.valuesToDisplayNames != nil {
-				overrideName, hasOverride := (*constExtension.valuesToDisplayNames)[value]
+				overrideName, hasOverride := constExtension.valuesToDisplayNames[value]
 				if hasOverride {
 					key = overrideName
 				}

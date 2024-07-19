@@ -30,7 +30,7 @@ func fragmentNameFromString(fragmentName string) *string {
 
 func inlinedModelName(parentModelName, fieldName string) string {
 	// intentionally split out for consistency
-	val := fmt.Sprintf("%s%s", strings.Title(parentModelName), strings.Title(fieldName))
+	val := fmt.Sprintf("%s%s", cleanup.Title(parentModelName), cleanup.Title(fieldName))
 	return cleanup.NormalizeName(val)
 }
 

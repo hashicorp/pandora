@@ -7,6 +7,7 @@ import (
 	"github.com/go-openapi/spec"
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/constants"
 	parserModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
@@ -223,7 +224,7 @@ func (c *Context) detailsForField(modelName string, propertyName string, value s
 		result.Models[inlinedName] = *inlinedModelDetails
 		// then swap out the reference
 		objectDefinition.Type = sdkModels.ReferenceSDKObjectDefinitionType
-		objectDefinition.ReferenceName = pointer.To(strings.Title(inlinedName))
+		objectDefinition.ReferenceName = pointer.To(cleanup.Title(inlinedName))
 	}
 
 	// Custom Types are determined once all the models/constants have been pulled out at the end

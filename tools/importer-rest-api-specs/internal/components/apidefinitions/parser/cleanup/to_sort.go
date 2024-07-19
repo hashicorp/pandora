@@ -41,7 +41,7 @@ func RemoveInvalidCharacters(input string, titleCaseSegments bool) string {
 		for _, word := range split {
 			word = strings.ReplaceAll(word, find, "")
 			if titleCaseSegments {
-				word = strings.Title(word)
+				word = Title(word)
 			}
 			newVal += word
 		}
@@ -57,7 +57,7 @@ func NormalizeName(input string) string {
 	output = NormalizeCanonicalisation(output)
 	output = RemoveInvalidCharacters(output, true)
 	output = NormalizeSegment(output, false)
-	output = strings.Title(output)
+	output = Title(output)
 	return output
 }
 
@@ -69,7 +69,7 @@ func NormalizeSegmentName(input string) string {
 		output = strings.TrimSuffix(output, "Name")
 	}
 
-	output = strings.Title(GetSingular(output))
+	output = Title(GetSingular(output))
 	return output
 }
 
@@ -235,7 +235,7 @@ func NormalizeResourceProviderName(input string) string {
 	output := make([]string, 0)
 
 	for _, segment := range segments {
-		segment = strings.Title(segment)
+		segment = Title(segment)
 		output = append(output, segment)
 	}
 
@@ -386,7 +386,7 @@ func NormalizeServiceName(input string) string {
 	}
 
 	if v, ok := fixed[strings.ToLower(input)]; ok {
-		return strings.Title(v)
+		return Title(v)
 	}
 
 	return input

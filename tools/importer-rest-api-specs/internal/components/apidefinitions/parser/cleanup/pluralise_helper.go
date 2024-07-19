@@ -159,7 +159,7 @@ func detectCasing(input string) caseType {
 		return UPPER
 	case input == strings.ToLower(input):
 		return LOWER
-	case input == strings.Title(input):
+	case input == Title(input):
 		return TITLE
 	}
 	// Fallback?
@@ -174,7 +174,7 @@ func returnCased(input string, casing caseType) string {
 		return strings.ToUpper(input)
 	}
 	if casing == TITLE {
-		return strings.Title(input)
+		return Title(input)
 	}
 
 	return input

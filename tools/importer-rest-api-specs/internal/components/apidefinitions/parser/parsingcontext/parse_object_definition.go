@@ -287,7 +287,7 @@ func (c *Context) parseDataFactoryCustomTypes(input *spec.Schema, known parserMo
 			Type: sdkModels.ListSDKObjectDefinitionType,
 			NestedItem: &sdkModels.SDKObjectDefinition{
 				Type:          sdkModels.ReferenceSDKObjectDefinitionType,
-				ReferenceName: pointer.To(strings.Title(elementType)),
+				ReferenceName: pointer.To(cleanup.Title(elementType)),
 			},
 		}, &known, nil
 	}

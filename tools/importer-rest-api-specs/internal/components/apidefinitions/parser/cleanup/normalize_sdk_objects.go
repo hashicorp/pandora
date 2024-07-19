@@ -4,8 +4,6 @@
 package cleanup
 
 import (
-	"strings"
-
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
@@ -109,7 +107,7 @@ func NormalizeAPIResource(input sdkModels.APIResource) sdkModels.APIResource {
 func normalizeSDKObjectDefinition(input sdkModels.SDKObjectDefinition) sdkModels.SDKObjectDefinition {
 	if input.ReferenceName != nil {
 		normalized := NormalizeName(*input.ReferenceName)
-		input.ReferenceName = pointer.To(strings.Title(normalized))
+		input.ReferenceName = pointer.To(Title(normalized))
 	}
 
 	if input.NestedItem != nil {
