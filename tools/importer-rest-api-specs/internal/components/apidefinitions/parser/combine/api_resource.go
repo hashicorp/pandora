@@ -14,13 +14,13 @@ func APIResource(first, other sdkModels.APIResource) (*sdkModels.APIResource, er
 	if err != nil {
 		return nil, fmt.Errorf("combining constants: %+v", err)
 	}
-	first.Constants = *constants
+	first.Constants = constants
 
 	models, err := Models(first.Models, other.Models)
 	if err != nil {
 		return nil, fmt.Errorf("combining models: %+v", err)
 	}
-	first.Models = *models
+	first.Models = models
 
 	if err = combineOperations(first.Operations, other.Operations); err != nil {
 		return nil, fmt.Errorf("combining operations: %+v", err)

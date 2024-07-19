@@ -14,7 +14,7 @@ var _ ModelProcessor = modelRenameZones{}
 
 type modelRenameZones struct{}
 
-func (modelRenameZones) ProcessModel(modelName string, model sdkModels.TerraformSchemaModel, schemaModels map[string]sdkModels.TerraformSchemaModel, mappings sdkModels.TerraformMappingDefinition) (*map[string]sdkModels.TerraformSchemaModel, *sdkModels.TerraformMappingDefinition, error) {
+func (modelRenameZones) ProcessModel(modelName string, model sdkModels.TerraformSchemaModel, schemaModels map[string]sdkModels.TerraformSchemaModel, mappings sdkModels.TerraformMappingDefinition) (map[string]sdkModels.TerraformSchemaModel, *sdkModels.TerraformMappingDefinition, error) {
 	fields := make(map[string]sdkModels.TerraformSchemaField)
 	for fieldName, fieldValue := range model.Fields {
 		fields[fieldName] = fieldValue
@@ -65,5 +65,5 @@ func (modelRenameZones) ProcessModel(modelName string, model sdkModels.Terraform
 	}
 	model.Fields = fields
 	schemaModels[modelName] = model
-	return &schemaModels, &mappings, nil
+	return schemaModels, &mappings, nil
 }

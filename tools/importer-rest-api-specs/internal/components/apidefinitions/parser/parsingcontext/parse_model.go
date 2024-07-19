@@ -38,14 +38,14 @@ func (c *Context) ParseModel(name string, input spec.Schema) (*parserModels.Pars
 	}
 
 	// if it's just got constants, we can skip it
-	if len(*fields) == 0 {
+	if len(fields) == 0 {
 		return &result, nil
 	}
 
 	// 3. finally build this model directly
 	// Notably, we **DO NOT** load models used by this model here - this is handled once we
 	// know all the models which we want to load - to avoid infinite loops
-	model, err := c.modelDetailsFromObject(name, input, *fields)
+	model, err := c.modelDetailsFromObject(name, input, fields)
 	if err != nil {
 		return nil, fmt.Errorf("populating model details for %q: %+v", name, err)
 	}
@@ -233,7 +233,7 @@ func (c *Context) detailsForField(modelName string, propertyName string, value s
 	return &field, &result, err
 }
 
-func (c *Context) fieldsForModel(modelName string, input spec.Schema, known parserModels.ParseResult) (*map[string]sdkModels.SDKField, *parserModels.ParseResult, error) {
+func (c *Context) fieldsForModel(modelName string, input spec.Schema, known parserModels.ParseResult) (map[string]sdkModels.SDKField, *parserModels.ParseResult, error) {
 	fields := make(map[string]sdkModels.SDKField, 0)
 	result := parserModels.ParseResult{
 		Constants: map[string]sdkModels.SDKConstant{},
@@ -305,7 +305,7 @@ func (c *Context) fieldsForModel(modelName string, input spec.Schema, known pars
 					}
 				}
 				if parsedParent != nil {
-					for k, v := range *parsedParent {
+					for k, v := range parsedParent {
 						fields[k] = v
 					}
 				}
@@ -326,7 +326,7 @@ func (c *Context) fieldsForModel(modelName string, input spec.Schema, known pars
 		if err != nil {
 			return nil, nil, fmt.Errorf("finding fields for parent model %q: %+v", *fragmentName, err)
 		}
-		for k, v := range *nestedFields {
+		for k, v := range nestedFields {
 			isRequired := isFieldRequired(k, requiredFields)
 			v.Required = isRequired
 			fields[k] = v
@@ -353,7 +353,7 @@ func (c *Context) fieldsForModel(modelName string, input spec.Schema, known pars
 		fields[propName] = *field
 	}
 
-	return &fields, &result, nil
+	return fields, &result, nil
 }
 
 func (c *Context) modelDetailsFromObject(modelName string, input spec.Schema, fields map[string]sdkModels.SDKField) (*sdkModels.SDKModel, error) {

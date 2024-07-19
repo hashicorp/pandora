@@ -69,13 +69,13 @@ func Parse(typeVal spec.StringOrArray, fieldName string, modelName *string, valu
 	return &ParsedConstant{
 		Name: strings.Title(constantName),
 		Details: sdkModels.SDKConstant{
-			Values: *keysAndValues,
+			Values: keysAndValues,
 			Type:   constantType,
 		},
 	}, nil
 }
 
-func parseKeysAndValues(input []interface{}, constantType sdkModels.SDKConstantType, constExtension *constantExtension) (*map[string]string, error) {
+func parseKeysAndValues(input []interface{}, constantType sdkModels.SDKConstantType, constExtension *constantExtension) (map[string]string, error) {
 	keysAndValues := make(map[string]string)
 	for i, raw := range input {
 		if constantType == sdkModels.StringSDKConstantType {
@@ -152,5 +152,5 @@ func parseKeysAndValues(input []interface{}, constantType sdkModels.SDKConstantT
 		return nil, fmt.Errorf("unsupported constant type %q", string(constantType))
 	}
 
-	return &keysAndValues, nil
+	return keysAndValues, nil
 }

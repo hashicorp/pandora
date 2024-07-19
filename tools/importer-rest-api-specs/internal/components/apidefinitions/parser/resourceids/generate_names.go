@@ -15,12 +15,12 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/resourceids/commonids"
 )
 
-func (p *Parser) generateNamesForResourceIds(input []sdkModels.ResourceID, uriToResourceId map[string]ParsedOperation) (*map[string]sdkModels.ResourceID, error) {
+func (p *Parser) generateNamesForResourceIds(input []sdkModels.ResourceID, uriToResourceId map[string]ParsedOperation) (map[string]sdkModels.ResourceID, error) {
 	return generateNamesForResourceIds(input, uriToResourceId)
 }
 
-func generateNamesForResourceIds(input []sdkModels.ResourceID, uriToResourceId map[string]ParsedOperation) (*map[string]sdkModels.ResourceID, error) {
-	// now that we have all of the Resource ID's, we then need to go through and determine Unique ID's for those
+func generateNamesForResourceIds(input []sdkModels.ResourceID, uriToResourceId map[string]ParsedOperation) (map[string]sdkModels.ResourceID, error) {
+	// now that we have all the Resource ID's, we then need to go through and determine Unique ID's for those
 	// we need all of them here to avoid conflicts, e.g. AuthorizationRule which can be a NamespaceAuthorizationRule
 	// or an EventHubAuthorizationRule, but is named AuthorizationRule in both
 
@@ -114,7 +114,7 @@ func generateNamesForResourceIds(input []sdkModels.ResourceID, uriToResourceId m
 			return nil, fmt.Errorf("determining unique names for conflicting uri's %q: %+v", strings.Join(uris, " | "), err)
 		}
 
-		for k, v := range *uniqueNames {
+		for k, v := range uniqueNames {
 			conflictUniqueNames[k] = struct{}{}
 			candidateNamesToUris[k] = v
 		}
@@ -136,10 +136,10 @@ func generateNamesForResourceIds(input []sdkModels.ResourceID, uriToResourceId m
 		}
 	}
 
-	return &outputNamesToUris, nil
+	return outputNamesToUris, nil
 }
 
-func determineUniqueNamesFor(conflictingUris []sdkModels.ResourceID, existingCandidateNames map[string]sdkModels.ResourceID) (*map[string]sdkModels.ResourceID, error) {
+func determineUniqueNamesFor(conflictingUris []sdkModels.ResourceID, existingCandidateNames map[string]sdkModels.ResourceID) (map[string]sdkModels.ResourceID, error) {
 	proposedNames := make(map[string]sdkModels.ResourceID)
 	for _, resourceId := range conflictingUris {
 		availableSegments := SegmentsAvailableForNaming(resourceId)
@@ -189,7 +189,7 @@ func determineUniqueNamesFor(conflictingUris []sdkModels.ResourceID, existingCan
 		proposedNames[proposedName] = resourceId
 	}
 
-	return &proposedNames, nil
+	return proposedNames, nil
 }
 
 func SegmentsAvailableForNaming(pri sdkModels.ResourceID) []string {

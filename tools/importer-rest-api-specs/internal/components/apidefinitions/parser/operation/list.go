@@ -57,7 +57,7 @@ func listOperationDetailsForOperation(input sdkModels.SDKOperation, known parser
 	return nil
 }
 
-func RemoveWrapperModelForListOperations(input map[string]sdkModels.SDKOperation, known parserModels.ParseResult) (*map[string]sdkModels.SDKOperation, error) {
+func RemoveWrapperModelForListOperations(input map[string]sdkModels.SDKOperation, known parserModels.ParseResult) (map[string]sdkModels.SDKOperation, error) {
 	// List Operations return an object which contains a NextLink and a Value (which is the actual Object
 	// being paginated on) - so we want to replace the wrapper object with the Value so that these can be
 	// paginated correctly as needed.
@@ -76,5 +76,5 @@ func RemoveWrapperModelForListOperations(input map[string]sdkModels.SDKOperation
 		output[operationName] = operation
 	}
 
-	return &output, nil
+	return output, nil
 }

@@ -11,7 +11,7 @@ import (
 	parserModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/models"
 )
 
-func optionsForOperation(input parsedOperation) (*map[string]sdkModels.SDKOperationOption, *parserModels.ParseResult, error) {
+func optionsForOperation(input parsedOperation) (map[string]sdkModels.SDKOperationOption, *parserModels.ParseResult, error) {
 	output := make(map[string]sdkModels.SDKOperationOption)
 	result := parserModels.ParseResult{
 		Constants: map[string]sdkModels.SDKConstant{},
@@ -77,7 +77,7 @@ func optionsForOperation(input parsedOperation) (*map[string]sdkModels.SDKOperat
 		}
 	}
 
-	return &output, &result, nil
+	return output, &result, nil
 }
 
 func determineObjectDefinitionForOption(input spec.Parameter) (*sdkModels.SDKOperationOptionObjectDefinition, error) {

@@ -9,7 +9,7 @@ import (
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
-func Models(first map[string]sdkModels.SDKModel, second map[string]sdkModels.SDKModel) (*map[string]sdkModels.SDKModel, error) {
+func Models(first map[string]sdkModels.SDKModel, second map[string]sdkModels.SDKModel) (map[string]sdkModels.SDKModel, error) {
 	output := make(map[string]sdkModels.SDKModel)
 
 	for k, v := range first {
@@ -43,5 +43,5 @@ func Models(first map[string]sdkModels.SDKModel, second map[string]sdkModels.SDK
 		}
 	}
 
-	return &output, nil
+	return output, nil
 }

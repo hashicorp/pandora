@@ -14,7 +14,7 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )
 
-func ParseOperationsWithinTag(parsingContext *parsingcontext.Context, tag *string, operationIdsToParsedOperations map[string]resourceids.ParsedOperation, resourceProvider *string, found parserModels.ParseResult) (*map[string]sdkModels.SDKOperation, *parserModels.ParseResult, error) {
+func ParseOperationsWithinTag(parsingContext *parsingcontext.Context, tag *string, operationIdsToParsedOperations map[string]resourceids.ParsedOperation, resourceProvider *string, found parserModels.ParseResult) (map[string]sdkModels.SDKOperation, *parserModels.ParseResult, error) {
 	operations := make(map[string]sdkModels.SDKOperation, 0)
 	result := parserModels.ParseResult{
 		Constants: map[string]sdkModels.SDKConstant{},
@@ -52,5 +52,5 @@ func ParseOperationsWithinTag(parsingContext *parsingcontext.Context, tag *strin
 		operations[operation.name] = *op
 	}
 
-	return &operations, &result, nil
+	return operations, &result, nil
 }

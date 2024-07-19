@@ -28,7 +28,7 @@ func (d *SupplementaryData) AppendConstant(name string, value sdkModels.SDKConst
 	if err != nil {
 		return fmt.Errorf("combining Constants: %+v", err)
 	}
-	d.Constants = *combinedConstants
+	d.Constants = combinedConstants
 
 	return nil
 }
@@ -38,13 +38,13 @@ func (d *SupplementaryData) AppendParseResult(other ParseResult) error {
 	if err != nil {
 		return fmt.Errorf("combining Constants: %+v", err)
 	}
-	d.Constants = *combinedConstants
+	d.Constants = combinedConstants
 
 	combinedModels, err := combine.Models(d.Models, other.Models)
 	if err != nil {
 		return fmt.Errorf("combining Models: %+v", err)
 	}
-	d.Models = *combinedModels
+	d.Models = combinedModels
 
 	return nil
 }

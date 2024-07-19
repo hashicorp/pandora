@@ -97,7 +97,7 @@ func (r *ParseResult) Append(other ParseResult) error {
 		if err != nil {
 			return fmt.Errorf("regenerating Names : Resource IDs for combined list: %+v", err)
 		}
-		r.NamesToResourceIDs = *namesToResourceIds
+		r.NamesToResourceIDs = namesToResourceIds
 	}
 
 	return nil

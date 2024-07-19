@@ -67,7 +67,7 @@ func parseOperation(parsingContext *parsingcontext.Context, operation parsedOper
 		FieldContainingPaginationDetails: paginationField,
 		LongRunning:                      longRunning,
 		Method:                           strings.ToUpper(operation.httpMethod),
-		Options:                          *options,
+		Options:                          options,
 		RequestObject:                    requestObject,
 		ResourceIDName:                   resourceId.ResourceIdName,
 		ResponseObject:                   responseResult.objectDefinition,

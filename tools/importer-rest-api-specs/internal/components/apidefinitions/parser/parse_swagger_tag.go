@@ -31,7 +31,7 @@ func (p *apiDefinitionsParser) ParseAPIResourceWithinSwaggerTag(tag, resourcePro
 	}
 
 	// pull out each of the remaining models based on what we've got
-	nestedResult, err = p.context.FindNestedItemsYetToBeParsed(*operations, result)
+	nestedResult, err = p.context.FindNestedItemsYetToBeParsed(operations, result)
 	if err != nil {
 		return nil, fmt.Errorf("finding nested items yet to be parsed: %+v", err)
 	}
@@ -40,20 +40,20 @@ func (p *apiDefinitionsParser) ParseAPIResourceWithinSwaggerTag(tag, resourcePro
 	}
 
 	// then pull out the embedded model for List operations (e.g. we don't want the wrapper type but the type for the `value` field)
-	operations, err = operation.RemoveWrapperModelForListOperations(*operations, result)
+	operations, err = operation.RemoveWrapperModelForListOperations(operations, result)
 	if err != nil {
 		return nil, fmt.Errorf("pulling out model from list operations: %+v", err)
 	}
 
 	// if there's nothing here, there's no point generating a package
-	if len(*operations) == 0 {
+	if len(operations) == 0 {
 		return nil, nil
 	}
 
 	resource := sdkModels.APIResource{
 		Constants:   result.Constants,
 		Models:      result.Models,
-		Operations:  *operations,
+		Operations:  operations,
 		ResourceIDs: resourceIds.NamesToResourceIDs,
 	}
 

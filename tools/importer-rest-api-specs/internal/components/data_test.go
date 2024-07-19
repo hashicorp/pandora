@@ -77,7 +77,7 @@ func TestCanParseTerraformConfigurations(t *testing.T) {
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
-	t.Logf("Loaded %d Terraform Configurations", len(*terraformConfigurations))
+	t.Logf("Loaded %d Terraform Configurations", len(terraformConfigurations))
 }
 
 func TestCanBuildTerraformResources(t *testing.T) {
@@ -91,7 +91,7 @@ func TestCanBuildTerraformResources(t *testing.T) {
 		t.Fatalf(err.Error())
 	}
 
-	for serviceName, serviceDetails := range *terraformConfigurations {
+	for serviceName, serviceDetails := range terraformConfigurations {
 		service := findService(servicesFromConfigurationFile, serviceName)
 		if service == nil {
 			t.Fatalf("Unable to find the Configuration for the Service %q referenced in Terraform Resources", serviceName)
@@ -121,7 +121,7 @@ type terraformDetailsForService struct {
 	terraformPackageName               *string
 }
 
-func loadTerraformConfigurations(terraformDefinitionsDirectory string) (*map[string]terraformDetailsForService, error) {
+func loadTerraformConfigurations(terraformDefinitionsDirectory string) (map[string]terraformDetailsForService, error) {
 	logging.Debugf("Parsing the Terraform Resource Definitions..")
 	terraformResourceDefinitions, err := definitions.LoadFromDirectory(terraformDefinitionsDirectory)
 	if err != nil {
@@ -145,7 +145,7 @@ func loadTerraformConfigurations(terraformDefinitionsDirectory string) (*map[str
 			terraformPackageName:               pointer.To(serviceData.TerraformPackageName),
 		}
 	}
-	return &servicesToTerraformDetails, nil
+	return servicesToTerraformDetails, nil
 }
 
 func findService(input *services.Config, serviceName string) *services.Service {

@@ -36,7 +36,7 @@ type processedResourceId struct {
 	constants map[string]sdkModels.SDKConstant
 }
 
-func (p *Parser) parseSegmentsForEachOperation() (*map[string]processedResourceId, error) {
+func (p *Parser) parseSegmentsForEachOperation() (map[string]processedResourceId, error) {
 	// TODO: document this
 
 	operationIdsToProcessedResourceIds := make(map[string]processedResourceId, 0)
@@ -57,7 +57,7 @@ func (p *Parser) parseSegmentsForEachOperation() (*map[string]processedResourceI
 		}
 	}
 
-	return &operationIdsToProcessedResourceIds, nil
+	return operationIdsToProcessedResourceIds, nil
 }
 
 func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operation) (*processedResourceId, error) {

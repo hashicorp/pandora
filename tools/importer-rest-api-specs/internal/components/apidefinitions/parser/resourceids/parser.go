@@ -25,7 +25,7 @@ func (p *Parser) Parse() (*ParseResult, error) {
 
 	// 2. Process the list of parsed segments to obtain a unique list of Resource IDs
 	logging.Tracef("Determining the list of unique Resource IDs from the parsed input")
-	uniqueResourceIds, distinctConstants := p.distinctResourceIds(*operationIdsToSegments)
+	uniqueResourceIds, distinctConstants := p.distinctResourceIds(operationIdsToSegments)
 
 	// 3. Then we need to find any Common Resource IDs and switch those references out
 	logging.Tracef("Switching out Common IDs as needed..")
@@ -40,19 +40,19 @@ func (p *Parser) Parse() (*ParseResult, error) {
 
 	// 5. Then we need to work through the list of Resource IDs and Operation IDs to map the data across
 	logging.Tracef("Updating the Parsed Operations with the Processed ResourceIds..")
-	operationIdsToResourceIds, err := p.updateParsedOperationsWithProcessedResourceIds(*operationIdsToSegments, *namesToResourceIds)
+	operationIdsToResourceIds, err := p.updateParsedOperationsWithProcessedResourceIds(operationIdsToSegments, namesToResourceIds)
 	if err != nil {
 		return nil, fmt.Errorf("updating the parsed Operations with the Processed Resource ID information: %+v", err)
 	}
 
 	return &ParseResult{
-		OperationIdsToParsedResourceIds: *operationIdsToResourceIds,
-		NamesToResourceIDs:              *namesToResourceIds,
+		OperationIdsToParsedResourceIds: operationIdsToResourceIds,
+		NamesToResourceIDs:              namesToResourceIds,
 		Constants:                       distinctConstants,
 	}, nil
 }
 
-func (p *Parser) updateParsedOperationsWithProcessedResourceIds(operationIdsToSegments map[string]processedResourceId, namesToResourceIds map[string]sdkModels.ResourceID) (*map[string]ParsedOperation, error) {
+func (p *Parser) updateParsedOperationsWithProcessedResourceIds(operationIdsToSegments map[string]processedResourceId, namesToResourceIds map[string]sdkModels.ResourceID) (map[string]ParsedOperation, error) {
 	output := make(map[string]ParsedOperation)
 
 	for operationId, operation := range operationIdsToSegments {
@@ -102,5 +102,5 @@ func (p *Parser) updateParsedOperationsWithProcessedResourceIds(operationIdsToSe
 		}
 	}
 
-	return &output, nil
+	return output, nil
 }

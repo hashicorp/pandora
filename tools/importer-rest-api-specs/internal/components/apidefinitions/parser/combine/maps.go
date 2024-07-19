@@ -7,7 +7,7 @@ import (
 	"fmt"
 )
 
-func maps(first map[string]string, second map[string]string) (*map[string]string, error) {
+func maps(first map[string]string, second map[string]string) (map[string]string, error) {
 	vals := make(map[string]string, 0)
 	for k, v := range first {
 		vals[k] = v
@@ -24,5 +24,5 @@ func maps(first map[string]string, second map[string]string) (*map[string]string
 		}
 	}
 
-	return &vals, nil
+	return vals, nil
 }
