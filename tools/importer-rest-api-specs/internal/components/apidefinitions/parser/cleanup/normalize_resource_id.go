@@ -24,6 +24,7 @@ func NormalizeSegment(input string, camelCase bool) string {
 		"artifactsources":                   "artifactSources",
 		"artifacttypes":                     "artifactTypes",
 		"attacheddatabaseconfigurations":    "attachedDatabaseConfigurations",
+		"attachednetworks":                  "attachedNetworks",
 		"attestationprovider":               "attestationProviders", // NOTE: this is a Swagger issue we need to fix too
 		"authorizationrules":                "authorizationRules",
 		"authproviders":                     "authProviders",
