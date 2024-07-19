@@ -14,7 +14,7 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
 )
 
-func (b Builder) identifyTopLevelFieldsWithinResourceID(input sdkModels.ResourceID, mappings *sdkModels.TerraformMappingDefinition, displayName string, resourceDefinition definitions.ResourceDefinition) (*map[string]sdkModels.TerraformSchemaField, *sdkModels.TerraformMappingDefinition, error) {
+func (b Builder) identifyTopLevelFieldsWithinResourceID(input sdkModels.ResourceID, mappings *sdkModels.TerraformMappingDefinition, displayName string, resourceDefinition definitions.ResourceDefinition) (map[string]sdkModels.TerraformSchemaField, *sdkModels.TerraformMappingDefinition, error) {
 	out := make(map[string]sdkModels.TerraformSchemaField)
 	overrides := make([]definitions.Override, 0)
 
@@ -156,7 +156,7 @@ func (b Builder) identifyTopLevelFieldsWithinResourceID(input sdkModels.Resource
 		}
 	}
 
-	return &out, mappings, nil
+	return out, mappings, nil
 }
 
 func descriptionForResourceIDSegment(input, resourceDisplayName string, overrides []definitions.Override) string {

@@ -61,7 +61,7 @@ func mappingTypesMatch(t *testing.T, first sdkModels.TerraformFieldMappingDefini
 	return true
 }
 
-func modelDefinitionsMatch(t *testing.T, actual *map[string]sdkModels.TerraformSchemaModel, expected map[string]sdkModels.TerraformSchemaModel) {
+func modelDefinitionsMatch(t *testing.T, actual map[string]sdkModels.TerraformSchemaModel, expected map[string]sdkModels.TerraformSchemaModel) {
 	if actual == nil {
 		t.Fatalf("actual was nil")
 	}

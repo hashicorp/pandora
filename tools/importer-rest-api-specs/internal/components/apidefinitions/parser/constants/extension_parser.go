@@ -15,7 +15,7 @@ type constantExtension struct {
 	// valuesToDisplayNames defines any display name overrides that should be used for this Constant
 	// NOTE: whilst the API Definitions may define a value with no display name - this map contains
 	// only values with a name defined.
-	valuesToDisplayNames *map[interface{}]string
+	valuesToDisplayNames map[interface{}]string
 }
 
 func parseConstantExtensionFromExtension(input spec.Extensions) (*constantExtension, error) {
@@ -31,7 +31,7 @@ func parseConstantExtensionFromExtension(input spec.Extensions) (*constantExtens
 	}
 
 	var enumName *string
-	var valuesToDisplayNames *map[interface{}]string
+	var valuesToDisplayNames map[interface{}]string
 	for k, v := range enumDetails {
 		// presume inconsistencies in the data
 		if strings.EqualFold(k, "name") {
@@ -59,7 +59,7 @@ func parseConstantExtensionFromExtension(input spec.Extensions) (*constantExtens
 				displayNameOverrides[value] = name
 			}
 			if len(displayNameOverrides) > 0 {
-				valuesToDisplayNames = &displayNameOverrides
+				valuesToDisplayNames = displayNameOverrides
 			}
 		}
 
