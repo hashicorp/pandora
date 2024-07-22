@@ -28,10 +28,10 @@ func TestTopLevelFieldsWithinResourceId_NoSegmentsShouldError(t *testing.T) {
 		t.Fatalf("expected an error but didn't get one")
 	}
 	if actualFields != nil {
-		t.Fatalf("expected actualFields to be nil when an error is returned but got %+v", *actualFields)
+		t.Fatalf("expected actualFields to be nil when an error is returned but got %+v", actualFields)
 	}
 	if actualMappings != nil {
-		t.Fatalf("expected actualMappings to be nil when an error is returned but got %+v", *actualMappings)
+		t.Fatalf("expected actualMappings to be nil when an error is returned but got %+v", actualMappings)
 	}
 }
 
@@ -58,10 +58,10 @@ func TestTopLevelFieldsWithinResourceId_ResourceGroup(t *testing.T) {
 	if actualFields == nil {
 		t.Fatalf("expected actualFields to be non-nil but was nil")
 	}
-	if len(*actualFields) != 1 {
-		t.Fatalf("expected actualFields to contain 1 item but got %d", len(*actualFields))
+	if len(actualFields) != 1 {
+		t.Fatalf("expected actualFields to contain 1 item but got %d", len(actualFields))
 	}
-	name, ok := (*actualFields)["Name"]
+	name, ok := (actualFields)["Name"]
 	if !ok {
 		t.Fatalf("expected there to be a field called `Name` but there wasn't")
 	}
@@ -118,10 +118,10 @@ func TestTopLevelFieldsWithinResourceId_VirtualMachine(t *testing.T) {
 	if actualFields == nil {
 		t.Fatalf("expected actualFields to be non-nil but was nil")
 	}
-	if len(*actualFields) != 2 {
-		t.Fatalf("expected actualFields to contain 2 items but got %d", len(*actualFields))
+	if len(actualFields) != 2 {
+		t.Fatalf("expected actualFields to contain 2 items but got %d", len(actualFields))
 	}
-	resourceGroupName, ok := (*actualFields)["ResourceGroupName"]
+	resourceGroupName, ok := (actualFields)["ResourceGroupName"]
 	if !ok {
 		t.Fatalf("expected there to be a field called `ResourceGroupName` but there wasn't")
 	}
@@ -138,7 +138,7 @@ func TestTopLevelFieldsWithinResourceId_VirtualMachine(t *testing.T) {
 		t.Fatalf("expected the description for `ResourceGroupName` to be `Specifies the name of the Resource Group within which this Virtual Machine should exist.` but got %q", resourceGroupName.Documentation.Markdown)
 	}
 
-	name, ok := (*actualFields)["Name"]
+	name, ok := (actualFields)["Name"]
 	if !ok {
 		t.Fatalf("expected there to be a field called `Name` but there wasn't")
 	}
@@ -215,16 +215,16 @@ func TestTopLevelFieldsWithinResourceId_VirtualMachineExtension(t *testing.T) {
 	if actualFields == nil {
 		t.Fatalf("expected actualFields to be non-nil but was nil")
 	}
-	if len(*actualFields) != 2 {
-		t.Fatalf("expected actualFields to contain 2 items but got %d", len(*actualFields))
+	if len(actualFields) != 2 {
+		t.Fatalf("expected actualFields to contain 2 items but got %d", len(actualFields))
 	}
 
-	_, ok := (*actualFields)["ResourceGroupName"]
+	_, ok := (actualFields)["ResourceGroupName"]
 	if ok {
 		t.Fatalf("expected the field `ResourceGroupName` be absent")
 	}
 
-	virtualMachineId, ok := (*actualFields)["VirtualMachineId"]
+	virtualMachineId, ok := (actualFields)["VirtualMachineId"]
 	if !ok {
 		t.Fatalf("expected there to be a field called `VirtualMachineId` but there wasn't")
 	}
@@ -241,7 +241,7 @@ func TestTopLevelFieldsWithinResourceId_VirtualMachineExtension(t *testing.T) {
 		t.Fatalf("expected the description for `VirtualMachineId` to be `Specifies the Virtual Machine Id within which this Virtual Machine Extension should exist.` but got %q", virtualMachineId.Documentation.Markdown)
 	}
 
-	name, ok := (*actualFields)["Name"]
+	name, ok := (actualFields)["Name"]
 	if !ok {
 		t.Fatalf("expected there to be a field called `Name` but there wasn't")
 	}
@@ -320,14 +320,14 @@ func TestTopLevelFieldsWithinResourceId_KubernetesTrustedAccessRoleBinding(t *te
 	if actualFields == nil {
 		t.Fatalf("expected actualFields to be non-nil but was nil")
 	}
-	if len(*actualFields) != 2 {
-		t.Fatalf("expected actualFields to contain 2 items but got %d", len(*actualFields))
+	if len(actualFields) != 2 {
+		t.Fatalf("expected actualFields to contain 2 items but got %d", len(actualFields))
 	}
-	_, ok := (*actualFields)["ResourceGroupName"]
+	_, ok := (actualFields)["ResourceGroupName"]
 	if ok {
 		t.Fatalf("expected the field `ResourceGroupName` be absent")
 	}
-	kubernetesClusterId, ok := (*actualFields)["KubernetesClusterId"]
+	kubernetesClusterId, ok := (actualFields)["KubernetesClusterId"]
 	if !ok {
 		t.Fatalf("expected there to be a field called `KubernetesClusterId`")
 	}
@@ -344,7 +344,7 @@ func TestTopLevelFieldsWithinResourceId_KubernetesTrustedAccessRoleBinding(t *te
 		t.Fatalf("expected the description for `KubernetesClusterId` to be `Specifies the Kubernetes Cluster Id within which this Kubernetes Cluster Trusted Access Role Binding should exist.` but got %q", kubernetesClusterId.Documentation.Markdown)
 	}
 
-	name, ok := (*actualFields)["Name"]
+	name, ok := (actualFields)["Name"]
 	if !ok {
 		t.Fatalf("expected there to be a field called `Name` but there wasn't")
 	}
@@ -432,14 +432,14 @@ func TestTopLevelFieldsWithinResourceId_ParentIdSchemaOverride(t *testing.T) {
 	if actualFields == nil {
 		t.Fatalf("expected actualFields to be non-nil but was nil")
 	}
-	if len(*actualFields) != 2 {
-		t.Fatalf("expected actualFields to contain 2 items but got %d", len(*actualFields))
+	if len(actualFields) != 2 {
+		t.Fatalf("expected actualFields to contain 2 items but got %d", len(actualFields))
 	}
-	_, ok := (*actualFields)["ResourceGroupName"]
+	_, ok := (actualFields)["ResourceGroupName"]
 	if ok {
 		t.Fatalf("expected the field `ResourceGroupName` be absent")
 	}
-	kubernetesClusterId, ok := (*actualFields)["RenamedClusterId"]
+	kubernetesClusterId, ok := (actualFields)["RenamedClusterId"]
 	if !ok {
 		t.Fatalf("expected there to be a field called `RenamedClusterId`")
 	}
@@ -456,7 +456,7 @@ func TestTopLevelFieldsWithinResourceId_ParentIdSchemaOverride(t *testing.T) {
 		t.Fatalf("expected the description for `RenamedClusterId` to be `Specifies the Renamed Cluster Id within which this Kubernetes Cluster Trusted Access Role Binding should exist.` but got %q", kubernetesClusterId.Documentation.Markdown)
 	}
 
-	name, ok := (*actualFields)["Name"]
+	name, ok := (actualFields)["Name"]
 	if !ok {
 		t.Fatalf("expected there to be a field called `Name` but there wasn't")
 	}
@@ -527,10 +527,10 @@ func TestTopLevelFieldsWithinResourceId_SchemaOverride(t *testing.T) {
 	if actualFields == nil {
 		t.Fatalf("expected actualFields to be non-nil but was nil")
 	}
-	if len(*actualFields) != 2 {
-		t.Fatalf("expected actualFields to contain 2 items but got %d", len(*actualFields))
+	if len(actualFields) != 2 {
+		t.Fatalf("expected actualFields to contain 2 items but got %d", len(actualFields))
 	}
-	resourceGroupName, ok := (*actualFields)["ResourceGroupName"]
+	resourceGroupName, ok := (actualFields)["ResourceGroupName"]
 	if !ok {
 		t.Fatalf("expected there to be a field called `ResourceGroupName` but there wasn't")
 	}
@@ -547,7 +547,7 @@ func TestTopLevelFieldsWithinResourceId_SchemaOverride(t *testing.T) {
 		t.Fatalf("expected the description for `ResourceGroupName` to be `Specifies the name of the Resource Group within which this Chaos Studio Target should exist.` but got %q", resourceGroupName.Documentation.Markdown)
 	}
 
-	targetType, ok := (*actualFields)["TargetType"]
+	targetType, ok := (actualFields)["TargetType"]
 	if !ok {
 		t.Fatalf("expected there to be a field called `TargetType` but there wasn't")
 	}
@@ -618,10 +618,10 @@ func TestTopLevelFieldsWithinResourceId_DocumentationOverride(t *testing.T) {
 	if actualFields == nil {
 		t.Fatalf("expected actualFields to be non-nil but was nil")
 	}
-	if len(*actualFields) != 2 {
-		t.Fatalf("expected actualFields to contain 2 items but got %d", len(*actualFields))
+	if len(actualFields) != 2 {
+		t.Fatalf("expected actualFields to contain 2 items but got %d", len(actualFields))
 	}
-	resourceGroupName, ok := (*actualFields)["ResourceGroupName"]
+	resourceGroupName, ok := (actualFields)["ResourceGroupName"]
 	if !ok {
 		t.Fatalf("expected there to be a field called `ResourceGroupName` but there wasn't")
 	}
@@ -638,7 +638,7 @@ func TestTopLevelFieldsWithinResourceId_DocumentationOverride(t *testing.T) {
 		t.Fatalf("expected the description for `ResourceGroupName` to be `Specifies the name of the Resource Group within which this Chaos Studio Target should exist.` but got %q", resourceGroupName.Documentation.Markdown)
 	}
 
-	targetType, ok := (*actualFields)["TargetType"]
+	targetType, ok := (actualFields)["TargetType"]
 	if !ok {
 		t.Fatalf("expected there to be a field called `TargetType` but there wasn't")
 	}

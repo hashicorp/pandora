@@ -6,6 +6,23 @@
 set -e
 
 DIR="$(cd "$(dirname "$0")" && pwd)/.."
+sourceDataType="${1}"
+
+usage() {
+  echo "Usage: automation-generate-go-sdk.sh sourceDataType" >&2
+  echo "" >&2
+  echo "sourceDataType is required and should be one of:" >&2
+  echo "  microsoft-graph" >&2
+  echo "  resource-manager" >&2
+  echo "" >&2
+}
+
+if [[ "${sourceDataType}" == "" ]]; then
+  echo "sourceDataType not specified" >&2
+  echo "" >&2
+  usage
+  exit 1
+fi
 
 function buildAndInstallDependencies {
   echo "Outputting Go Version.."
@@ -31,15 +48,9 @@ function runWrapper {
   local apiDefinitionsDirectory=$1
   local outputDirectory=$2
 
-  echo "Running Wrapper for Resource Manager.."
+  echo "Running Wrapper.."
   cd "${DIR}/tools/wrapper-automation"
-  ./wrapper-automation resource-manager go-sdk \
-    --api-definitions-dir="../../$apiDefinitionsDirectory"\
-    --output-dir="../../$outputDirectory"
-
-  echo "Running Wrapper for Microsoft Graph.."
-  cd "${DIR}/tools/wrapper-automation"
-  ./wrapper-automation microsoft-graph go-sdk \
+  ./wrapper-automation "${sourceDataType}" go-sdk \
     --api-definitions-dir="../../$apiDefinitionsDirectory"\
     --output-dir="../../$outputDirectory"
 

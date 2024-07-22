@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
+	sdkHelpers "github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
@@ -58,7 +58,7 @@ func modelContainsDiscriminatedTypes(model sdkModels.SDKModel, apiResource sdkMo
 			return true
 		}
 
-		topLevelObjectDefinition := helpers.InnerMostSDKObjectDefinition(field.ObjectDefinition)
+		topLevelObjectDefinition := sdkHelpers.InnerMostSDKObjectDefinition(field.ObjectDefinition)
 		if topLevelObjectDefinition.Type != sdkModels.ReferenceSDKObjectDefinitionType {
 			continue
 		}

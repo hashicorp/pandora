@@ -7,14 +7,14 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
+	sdkHelpers "github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	terraformHelpers "github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/terraform/schema/helpers"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
 )
 
-func (b Builder) identifyTopLevelFieldsWithinResourceID(input sdkModels.ResourceID, mappings *sdkModels.TerraformMappingDefinition, displayName string, resourceDefinition definitions.ResourceDefinition) (*map[string]sdkModels.TerraformSchemaField, *sdkModels.TerraformMappingDefinition, error) {
+func (b Builder) identifyTopLevelFieldsWithinResourceID(input sdkModels.ResourceID, mappings *sdkModels.TerraformMappingDefinition, displayName string, resourceDefinition definitions.ResourceDefinition) (map[string]sdkModels.TerraformSchemaField, *sdkModels.TerraformMappingDefinition, error) {
 	out := make(map[string]sdkModels.TerraformSchemaField)
 	overrides := make([]definitions.Override, 0)
 
@@ -152,11 +152,11 @@ func (b Builder) identifyTopLevelFieldsWithinResourceID(input sdkModels.Resource
 		}
 
 		if userConfigurableSegments == 0 {
-			return nil, nil, fmt.Errorf("no user-configurable segments were found in the Resource ID %q", helpers.DisplayValueForResourceID(input))
+			return nil, nil, fmt.Errorf("no user-configurable segments were found in the Resource ID %q", sdkHelpers.DisplayValueForResourceID(input))
 		}
 	}
 
-	return &out, mappings, nil
+	return out, mappings, nil
 }
 
 func descriptionForResourceIDSegment(input, resourceDisplayName string, overrides []definitions.Override) string {

@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
+	sdkHelpers "github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
@@ -49,7 +49,7 @@ func identifyMethodsForAPIResource(input sdkModels.APIResource, resourceMetaData
 			if v != "update" && strings.HasPrefix(v, "update") {
 				continue
 			}
-			objectDefinition := helpers.InnerMostSDKObjectDefinition(*operation.RequestObject)
+			objectDefinition := sdkHelpers.InnerMostSDKObjectDefinition(*operation.RequestObject)
 			if objectDefinition.Type != sdkModels.ReferenceSDKObjectDefinitionType {
 				continue
 			}

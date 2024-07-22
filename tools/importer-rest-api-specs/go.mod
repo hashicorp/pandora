@@ -3,12 +3,13 @@ module github.com/hashicorp/pandora/tools/importer-rest-api-specs
 go 1.22.1
 
 require (
+	github.com/davecgh/go-spew v1.1.1
 	github.com/gertd/go-pluralize v0.2.1
 	github.com/go-git/go-git/v5 v5.11.0
 	github.com/go-openapi/analysis v0.20.1
 	github.com/go-openapi/loads v0.20.2
 	github.com/go-openapi/spec v0.20.3
-	github.com/hashicorp/go-azure-helpers v0.66.2
+	github.com/hashicorp/go-azure-helpers v0.69.0
 	github.com/hashicorp/go-hclog v1.4.0
 	github.com/hashicorp/hcl/v2 v2.16.2
 	github.com/hashicorp/pandora/tools/data-api-repository v0.0.0-00010101000000-000000000000
@@ -16,6 +17,7 @@ require (
 	github.com/hashicorp/pandora/tools/sdk v0.0.0-00010101000000-000000000000
 	github.com/mitchellh/cli v1.1.4
 	github.com/zclconf/go-cty v1.13.1
+	golang.org/x/text v0.14.0
 )
 
 require (
@@ -72,7 +74,6 @@ require (
 	golang.org/x/mod v0.12.0 // indirect
 	golang.org/x/net v0.23.0 // indirect
 	golang.org/x/sys v0.18.0 // indirect
-	golang.org/x/text v0.14.0 // indirect
 	golang.org/x/tools v0.13.0 // indirect
 	gopkg.in/warnings.v0 v0.1.2 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect

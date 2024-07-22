@@ -13,9 +13,9 @@ var _ ModelProcessor = modelFlattenListReferenceIds{}
 
 type modelFlattenListReferenceIds struct{}
 
-func (modelFlattenListReferenceIds) ProcessModel(modelName string, model sdkModels.TerraformSchemaModel, schemaModels map[string]sdkModels.TerraformSchemaModel, mappings sdkModels.TerraformMappingDefinition) (*map[string]sdkModels.TerraformSchemaModel, *sdkModels.TerraformMappingDefinition, error) {
+func (modelFlattenListReferenceIds) ProcessModel(modelName string, model sdkModels.TerraformSchemaModel, schemaModels map[string]sdkModels.TerraformSchemaModel, mappings sdkModels.TerraformMappingDefinition) (map[string]sdkModels.TerraformSchemaModel, *sdkModels.TerraformMappingDefinition, error) {
 	if len(model.Fields) != 1 {
-		return &schemaModels, &mappings, nil
+		return schemaModels, &mappings, nil
 	}
 
 	fields := make(map[string]sdkModels.TerraformSchemaField)
@@ -67,5 +67,5 @@ func (modelFlattenListReferenceIds) ProcessModel(modelName string, model sdkMode
 	}
 	model.Fields = fields
 	schemaModels[modelName] = model
-	return &schemaModels, &mappings, nil
+	return schemaModels, &mappings, nil
 }

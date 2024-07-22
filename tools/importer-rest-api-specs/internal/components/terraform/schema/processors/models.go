@@ -8,7 +8,7 @@ import (
 )
 
 type ModelProcessor interface {
-	ProcessModel(modelName string, model sdkModels.TerraformSchemaModel, schemaModels map[string]sdkModels.TerraformSchemaModel, mappings sdkModels.TerraformMappingDefinition) (*map[string]sdkModels.TerraformSchemaModel, *sdkModels.TerraformMappingDefinition, error)
+	ProcessModel(modelName string, model sdkModels.TerraformSchemaModel, schemaModels map[string]sdkModels.TerraformSchemaModel, mappings sdkModels.TerraformMappingDefinition) (map[string]sdkModels.TerraformSchemaModel, *sdkModels.TerraformMappingDefinition, error)
 }
 
 var ModelRules = []ModelProcessor{

@@ -7,21 +7,26 @@ import (
 	"fmt"
 
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/discovery"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 	"github.com/hashicorp/pandora/tools/sdk/config/services"
 )
 
-func (p *Pipeline) parseDataForService(service services.Service) (*sdkModels.Service, error) {
-	// TODO: this isn't fully usable until the Parser package is refactored - so enable this after
-	data, err := discovery.DiscoverForService(service, p.opts.RestAPISpecsDirectory)
+func (p *Pipeline) parseDataForService(input services.Service) (*sdkModels.Service, error) {
+	logging.Debugf("Discovering Data for Service %q in %q..", input.Name, p.opts.RestAPISpecsDirectory)
+	data, err := discovery.DiscoverForService(input, p.opts.RestAPISpecsDirectory)
 	if err != nil {
-		return nil, fmt.Errorf("discovering for Service %q: %+v", service.Name, err)
+		return nil, fmt.Errorf("discovering for Service %q: %+v", input.Name, err)
 	}
-	logging.Tracef("Resource Provider is %q", *data.ResourceProvider)
+	logging.Tracef("Resource Provider is %q for the Service %q", *data.ResourceProvider, input.Name)
+	logging.Debugf("Discovering Data for Service %q in %q - Completed", input.Name, p.opts.RestAPISpecsDirectory)
 
-	for version, versionData := range data.DataSetsForAPIVersions {
-		logging.Debugf("API Version %q had %d and %d", version, len(versionData.FilePathsContainingAPIDefinitions), len(versionData.FilePathsContainingSupplementaryData))
+	logging.Debugf("Parsing Data for Service %q..", input.Name)
+	service, err := apidefinitions.ParseService(*data)
+	if err != nil {
+		return nil, fmt.Errorf("parsing Data for Service %q: %+v", input.Name, err)
 	}
-	return nil, fmt.Errorf("TODO")
+	logging.Debugf("Parsing Data for Service %q - Completed", input.Name)
+	return service, nil
 }

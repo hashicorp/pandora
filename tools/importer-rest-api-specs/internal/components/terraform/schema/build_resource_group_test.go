@@ -336,7 +336,7 @@ func TestBuildForResourceGroupUsingRealData(t *testing.T) {
 	testValidateResourceGroupSchema(t, actualModels, actualMappings)
 }
 
-func testValidateResourceGroupSchema(t *testing.T, actualModels *map[string]sdkModels.TerraformSchemaModel, actualMappings *sdkModels.TerraformMappingDefinition) {
+func testValidateResourceGroupSchema(t *testing.T, actualModels map[string]sdkModels.TerraformSchemaModel, actualMappings *sdkModels.TerraformMappingDefinition) {
 	r := resourceUnderTest{
 		Name: "Resource Group",
 	}
@@ -344,11 +344,11 @@ func testValidateResourceGroupSchema(t *testing.T, actualModels *map[string]sdkM
 	if actualModels == nil {
 		t.Fatalf("expected 1 model but got nil")
 	}
-	if len(*actualModels) != 1 {
-		t.Errorf("expected 1 model but got %d", len(*actualModels))
+	if len(actualModels) != 1 {
+		t.Errorf("expected 1 model but got %d", len(actualModels))
 	}
 	r.CurrentModel = "ResourceGroupResource"
-	currentModel, ok := (*actualModels)[r.CurrentModel]
+	currentModel, ok := (actualModels)[r.CurrentModel]
 	if !ok {
 		t.Errorf("top level model %q missing", r.CurrentModel)
 	} else {
@@ -361,7 +361,7 @@ func testValidateResourceGroupSchema(t *testing.T, actualModels *map[string]sdkM
 	}
 
 	r.CurrentModel = "ResourceGroupResourceGroupProperties"
-	currentModel, ok = (*actualModels)[r.CurrentModel]
+	currentModel, ok = (actualModels)[r.CurrentModel]
 	if ok {
 		t.Errorf("expected model %q to be removed but it was present", r.CurrentModel)
 	}

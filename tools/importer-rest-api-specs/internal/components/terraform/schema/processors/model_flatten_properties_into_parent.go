@@ -14,7 +14,7 @@ var _ ModelProcessor = modelFlattenPropertiesIntoParent{}
 
 type modelFlattenPropertiesIntoParent struct{}
 
-func (modelFlattenPropertiesIntoParent) ProcessModel(modelName string, model sdkModels.TerraformSchemaModel, schemaModels map[string]sdkModels.TerraformSchemaModel, mappings sdkModels.TerraformMappingDefinition) (*map[string]sdkModels.TerraformSchemaModel, *sdkModels.TerraformMappingDefinition, error) {
+func (modelFlattenPropertiesIntoParent) ProcessModel(modelName string, model sdkModels.TerraformSchemaModel, schemaModels map[string]sdkModels.TerraformSchemaModel, mappings sdkModels.TerraformMappingDefinition) (map[string]sdkModels.TerraformSchemaModel, *sdkModels.TerraformMappingDefinition, error) {
 	fields := make(map[string]sdkModels.TerraformSchemaField)
 	fieldKeys := make(map[string]struct{})
 	// first ensure we have a canonical list of all fields within the model to be able to use for a unique check
@@ -47,7 +47,7 @@ func (modelFlattenPropertiesIntoParent) ProcessModel(modelName string, model sdk
 			if _, hasExisting := fieldKeys[strings.ToLower(nestedFieldName)]; hasExisting {
 				// if the top level model contains a field with the same name then we shouldn't be flattening
 				// the nested model into it, otherwise we'll have naming conflicts
-				return &schemaModels, &mappings, nil
+				return schemaModels, &mappings, nil
 			}
 
 			fields[nestedFieldName] = nestedFieldValue
@@ -56,5 +56,5 @@ func (modelFlattenPropertiesIntoParent) ProcessModel(modelName string, model sdk
 	}
 	model.Fields = fields
 	schemaModels[modelName] = model
-	return &schemaModels, &mappings, nil
+	return schemaModels, &mappings, nil
 }

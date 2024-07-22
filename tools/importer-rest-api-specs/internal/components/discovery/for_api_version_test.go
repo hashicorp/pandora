@@ -15,6 +15,7 @@ import (
 func TestDiscoverDataSetForAPIVersion_IgnoresExamples(t *testing.T) {
 	apiVersion := "2020-01-01"
 	filePaths := []string{
+		"specification/compute/Compute.Management/examples/2020-01-01/VirtualMachine_Get.json",
 		"specification/compute/resource-manager/stable/2020-01-01/virtualMachines.json",
 		"specification/compute/resource-manager/stable/2020-01-01/examples/VirtualMachine_Get.json",
 	}
