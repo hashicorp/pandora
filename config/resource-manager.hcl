@@ -498,7 +498,7 @@ service "resources" {
 }
 service "scvmm" {
   name      = "SystemCenterVirtualMachineManager"
-  available = ["2023-10-07"]
+  available = ["2023-10-07", "2024-06-01"]
 }
 service "search" {
   name      = "Search"
