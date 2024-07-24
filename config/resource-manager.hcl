@@ -415,6 +415,10 @@ service "operationsmanagement" {
   name      = "OperationsManagement"
   available = ["2015-11-01-preview"]
 }
+service "oracledatabase" {
+  name      = "OracleDatabase"
+  available = ["2024-06-01"]
+}
 service "orbital" {
   name      = "Orbital"
   available = ["2022-11-01"]
