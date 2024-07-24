@@ -415,7 +415,7 @@ service "operationsmanagement" {
   name      = "OperationsManagement"
   available = ["2015-11-01-preview"]
 }
-service "oracledatabase" {
+service "oracle" {
   name      = "OracleDatabase"
   available = ["2024-06-01"]
 }
