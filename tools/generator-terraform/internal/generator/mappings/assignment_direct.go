@@ -248,7 +248,7 @@ output.%[1]s = &%[4]s
 		return nil, fmt.Errorf("expected a DirectAssignment between %q and %q but got %q", string(schemaField.ObjectDefinition.NestedObject.Type), string(v), string(sdkField.ObjectDefinition.NestedItem.Type))
 	}
 
-	variableType, err := helpers.GolangTypeForSDKObjectDefinition(sdkField.ObjectDefinition, &apiResourcePackageName)
+	variableType, err := helpers.GolangTypeForSDKObjectDefinition(sdkField.ObjectDefinition, &apiResourcePackageName, nil, nil)
 	if err != nil {
 		return nil, fmt.Errorf("determining Golang Type for Sdk Model %q / Field %q Object Definition: %+v", mapping.DirectAssignment.SDKModelName, mapping.DirectAssignment.SDKFieldName, err)
 	}
@@ -293,12 +293,12 @@ output.%[1]s = &%[3]s
 }
 
 func (d directAssignmentLine) schemaToSdkMappingBetweenListOfReferenceFields(mapping models.TerraformDirectAssignmentFieldMappingDefinition, schemaField models.TerraformSchemaField, sdkField models.SDKField, apiResourcePackageName string) (*string, error) {
-	listVariableType, err := helpers.GolangTypeForSDKObjectDefinition(sdkField.ObjectDefinition, &apiResourcePackageName)
+	listVariableType, err := helpers.GolangTypeForSDKObjectDefinition(sdkField.ObjectDefinition, &apiResourcePackageName, nil, nil)
 	if err != nil {
 		return nil, fmt.Errorf("determining Golang Type for Sdk Model %q / Field %q Object Definition: %+v", mapping.DirectAssignment.SDKModelName, mapping.DirectAssignment.SDKFieldName, err)
 	}
 
-	listItemVariableReferenceType, err := helpers.GolangTypeForSDKObjectDefinition(*sdkField.ObjectDefinition.NestedItem, &apiResourcePackageName)
+	listItemVariableReferenceType, err := helpers.GolangTypeForSDKObjectDefinition(*sdkField.ObjectDefinition.NestedItem, &apiResourcePackageName, nil, nil)
 	if err != nil {
 		return nil, fmt.Errorf("determining Golang Type for Sdk Model %q / Field %q Nested Object Definition: %+v", mapping.DirectAssignment.SDKModelName, mapping.DirectAssignment.SDKFieldName, err)
 	}

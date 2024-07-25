@@ -20,7 +20,7 @@ type modelsTemplater struct {
 	model models.SDKModel
 }
 
-func (c modelsTemplater) template(data ServiceGeneratorData) (*string, error) {
+func (c modelsTemplater) template(data GeneratorData) (*string, error) {
 	copyrightLines, err := copyrightLinesForSource(data.source)
 	if err != nil {
 		return nil, fmt.Errorf("retrieving copyright lines: %+v", err)
@@ -58,7 +58,7 @@ import (
 	return &template, nil
 }
 
-func (c modelsTemplater) structCode(data ServiceGeneratorData) (*string, error) {
+func (c modelsTemplater) structCode(data GeneratorData) (*string, error) {
 	// if this is an Abstract/Type Hint, we output an Interface with a manual unmarshal func that gets called wherever it's used
 	if c.model.FieldNameContainingDiscriminatedValue != nil && c.model.ParentTypeName == nil {
 		out := fmt.Sprintf(`
@@ -87,7 +87,7 @@ type Raw%[1]sImpl struct {
 	for _, fieldName := range fields {
 		fieldDetails := c.model.Fields[fieldName]
 		fieldTypeName := "FIXME"
-		fieldTypeVal, err := helpers.GolangTypeForSDKObjectDefinition(fieldDetails.ObjectDefinition, nil)
+		fieldTypeVal, err := helpers.GolangTypeForSDKObjectDefinition(fieldDetails.ObjectDefinition, nil, nil, nil)
 		if err != nil {
 			return nil, fmt.Errorf("determining type information for %q: %+v", fieldName, err)
 		}
@@ -138,7 +138,7 @@ type Raw%[1]sImpl struct {
 			for _, fieldName := range parentFields {
 				fieldDetails := parent.Fields[fieldName]
 				fieldTypeName := "FIXME"
-				fieldTypeVal, err := helpers.GolangTypeForSDKObjectDefinition(fieldDetails.ObjectDefinition, nil)
+				fieldTypeVal, err := helpers.GolangTypeForSDKObjectDefinition(fieldDetails.ObjectDefinition, nil, nil, nil)
 				if err != nil {
 					return nil, fmt.Errorf("determining type information for %q: %+v", fieldName, err)
 				}
@@ -169,7 +169,7 @@ type %[1]s struct {
 	return &out, nil
 }
 
-func (c modelsTemplater) methods(data ServiceGeneratorData) (*string, error) {
+func (c modelsTemplater) methods(data GeneratorData) (*string, error) {
 	code := make([]string, 0)
 
 	dateFunctions, err := c.codeForDateFunctions(data)
@@ -196,7 +196,7 @@ func (c modelsTemplater) methods(data ServiceGeneratorData) (*string, error) {
 	return &output, nil
 }
 
-func (c modelsTemplater) structLineForField(fieldName, fieldType string, fieldDetails models.SDKField, data ServiceGeneratorData) (*string, error) {
+func (c modelsTemplater) structLineForField(fieldName, fieldType string, fieldDetails models.SDKField, data GeneratorData) (*string, error) {
 	jsonDetails := fieldDetails.JsonName
 
 	isOptional := false
@@ -239,7 +239,7 @@ func (c modelsTemplater) dateFormatString(input models.SDKDateFormat) string {
 	}
 }
 
-func (c modelsTemplater) codeForDateFunctions(data ServiceGeneratorData) (*string, error) {
+func (c modelsTemplater) codeForDateFunctions(data GeneratorData) (*string, error) {
 	fieldsRequiringDateFunctions := make([]string, 0)
 	// parent models are output as interfaces with no fields - so we can skip these
 	// since the inherited models output the fields from their parents, the methods are output there
@@ -332,7 +332,7 @@ func (c modelsTemplater) dateFunctionForField(fieldName string, fieldDetails mod
 	return &out, nil
 }
 
-func (c modelsTemplater) codeForMarshalFunctions(data ServiceGeneratorData) (*string, error) {
+func (c modelsTemplater) codeForMarshalFunctions(data GeneratorData) (*string, error) {
 	output := ""
 
 	if c.model.DiscriminatedValue != nil {
@@ -392,7 +392,7 @@ func (s %[1]s) MarshalJSON() ([]byte, error) {
 	return &output, nil
 }
 
-func (c modelsTemplater) codeForUnmarshalFunctions(data ServiceGeneratorData) (*string, error) {
+func (c modelsTemplater) codeForUnmarshalFunctions(data GeneratorData) (*string, error) {
 	unmarshalFunction, err := c.codeForUnmarshalStructFunction(data)
 	if err != nil {
 		return nil, fmt.Errorf("generating code for unmarshal struct function: %+v", err)
@@ -410,7 +410,7 @@ func (c modelsTemplater) codeForUnmarshalFunctions(data ServiceGeneratorData) (*
 	return &output, nil
 }
 
-func (c modelsTemplater) codeForUnmarshalParentFunction(data ServiceGeneratorData) (*string, error) {
+func (c modelsTemplater) codeForUnmarshalParentFunction(data GeneratorData) (*string, error) {
 	// if this is a Discriminated Type (e.g. Parent) then we need to generate a unmarshal{Name}Implementations
 	// function which can be used in any usages
 	lines := make([]string, 0)
@@ -489,7 +489,7 @@ func unmarshal%[1]sImplementation(input []byte) (%[1]s, error) {
 	return &output, nil
 }
 
-func (c modelsTemplater) codeForUnmarshalStructFunction(data ServiceGeneratorData) (*string, error) {
+func (c modelsTemplater) codeForUnmarshalStructFunction(data GeneratorData) (*string, error) {
 	// this is a parent, therefore there'll be no struct fields to check here
 	if c.model.IsDiscriminatedParentType() {
 		out := ""
@@ -689,7 +689,7 @@ func (s *%[1]s) UnmarshalJSON(bytes []byte) error {`, c.name))
 // recurseParentModels walks the models hierarchy to find the parentName and field details of the model for disciminated types
 // This is a temporary measure until we update the swagger importer to connect the model fields inheritance for multiple parents.
 // Tracked at: https://github.com/hashicorp/pandora/issues/1235
-func (c modelsTemplater) recurseParentModels(data ServiceGeneratorData, model string, typeHint string) (*models.SDKField, *string, error) {
+func (c modelsTemplater) recurseParentModels(data GeneratorData, model string, typeHint string) (*models.SDKField, *string, error) {
 	parentModel, ok := data.models[model]
 	if !ok {
 		return nil, nil, fmt.Errorf("the parent model %q for model %q was not found", model, c.name)

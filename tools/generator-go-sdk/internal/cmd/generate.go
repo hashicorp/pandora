@@ -34,6 +34,8 @@ type GeneratorInput struct {
 	settings          generator.Settings
 }
 
+const commonTypesPackageName = "common-types"
+
 func NewGenerateCommand(sourceDataType models.SourceDataType) func() (cli.Command, error) {
 	return func() (cli.Command, error) {
 		return GenerateCommand{
@@ -51,7 +53,9 @@ func (g GenerateCommand) Run(args []string) int {
 	ctx := context.Background()
 
 	input := GeneratorInput{
-		settings: generator.Settings{},
+		settings: generator.Settings{
+			CommonTypesPackageName: commonTypesPackageName,
+		},
 	}
 
 	input.settings.UseOldBaseLayerFor(
@@ -138,17 +142,25 @@ func (g GenerateCommand) run(ctx context.Context, input GeneratorInput) error {
 			logging.Debugf("Service %q", serviceName)
 			for versionNumber, versionDetails := range service.APIVersions {
 				logging.Debugf("   Version %q", versionNumber)
+
+				var commonTypes models.CommonTypes
+				if v, ok := data.CommonTypes[versionNumber]; ok {
+					commonTypes = v
+				}
+
 				for resourceName, resourceDetails := range versionDetails.Resources {
 					logging.Debugf("      Resource %q", resourceName)
 					generatorData := generator.ServiceGeneratorInput{
-						ServiceName:     serviceName,
-						ServiceDetails:  service,
-						VersionName:     versionNumber,
-						VersionDetails:  versionDetails,
-						ResourceName:    resourceName,
-						ResourceDetails: resourceDetails,
+						CommonTypes:     commonTypes,
 						OutputDirectory: input.outputDirectory,
+						ResourceDetails: resourceDetails,
+						ResourceName:    resourceName,
+						ServiceDetails:  service,
+						ServiceName:     serviceName,
 						Source:          versionDetails.Source,
+						Type:            g.sourceDataType,
+						VersionDetails:  versionDetails,
+						VersionName:     versionNumber,
 					}
 					logging.Debugf("Generating Service %q / Version %q / Resource %q", serviceName, versionNumber, resourceName)
 					if err := generatorService.Generate(generatorData); err != nil {
@@ -158,13 +170,15 @@ func (g GenerateCommand) run(ctx context.Context, input GeneratorInput) error {
 					logging.Debugf("Generated Service %q / Version %q / Resource %q", serviceName, versionNumber, resourceName)
 				}
 
-				// then output the Meta Client
-				generatorData := generator.VersionInput{
+				// then output Common Types and Meta Client
+				generatorData := generator.VersionGeneratorInput{
 					OutputDirectory: input.outputDirectory,
+					CommonTypes:     commonTypes,
 					ServiceName:     serviceName,
 					VersionName:     versionNumber,
 					Resources:       versionDetails.Resources,
 					Source:          versionDetails.Source,
+					Type:            g.sourceDataType,
 				}
 				generatorData.UseNewBaseLayer = false
 				if input.settings.ShouldUseNewBaseLayer(serviceName, versionNumber) {

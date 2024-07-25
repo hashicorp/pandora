@@ -29,7 +29,7 @@ func (m modelToModelAssignmentLine) assignmentForCreateUpdateMapping(mapping mod
 		return nil, fmt.Errorf("a ModelToModel mapping must be a Reference but got %q", string(sdkField.ObjectDefinition.Type))
 	}
 	outputModelName := *sdkField.ObjectDefinition.ReferenceName
-	sdkFieldType, err := helpers.GolangTypeForSDKObjectDefinition(sdkField.ObjectDefinition, &apiResourcePackageName)
+	sdkFieldType, err := helpers.GolangTypeForSDKObjectDefinition(sdkField.ObjectDefinition, &apiResourcePackageName, nil, nil)
 	if err != nil {
 		return nil, fmt.Errorf("determining Golang Type Name for SDK Field: %+v", err)
 	}
@@ -68,7 +68,7 @@ func (m modelToModelAssignmentLine) assignmentForReadMapping(mapping models.Terr
 	}
 
 	outputModelName := *sdkField.ObjectDefinition.ReferenceName
-	sdkFieldType, err := helpers.GolangTypeForSDKObjectDefinition(sdkField.ObjectDefinition, &apiResourcePackageName)
+	sdkFieldType, err := helpers.GolangTypeForSDKObjectDefinition(sdkField.ObjectDefinition, &apiResourcePackageName, nil, nil)
 	if err != nil {
 		return nil, fmt.Errorf("determining Golang Type Name for SDK Field: %+v", err)
 	}

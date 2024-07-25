@@ -17,7 +17,7 @@ func TestTemplateConstantsSingle(t *testing.T) {
 			out := fmt.Sprintf("// template for %s", name)
 			return &out, nil
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		constants: map[string]models.SDKConstant{
 			"first": {
 				Type:   models.StringSDKConstantType,
@@ -50,7 +50,7 @@ func TestTemplateConstantsMultiple(t *testing.T) {
 			out := fmt.Sprintf("// template for %s", name)
 			return &out, nil
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		constants: map[string]models.SDKConstant{
 			"third":  {},
 			"first":  {},

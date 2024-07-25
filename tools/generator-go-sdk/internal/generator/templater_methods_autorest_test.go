@@ -10,7 +10,7 @@ import (
 )
 
 func TestTemplateMethodsAutoRestLRODelete(t *testing.T) {
-	input := ServiceGeneratorData{
+	input := GeneratorData{
 		packageName:       "chubbyPandas",
 		serviceClientName: "pandaClient",
 		source:            AccTestLicenceType,
@@ -41,7 +41,7 @@ func (c pandaClient) senderForDelete(ctx context.Context, req *http.Request) (fu
 }
 
 func TestTemplateMethodsAutoRestLROCreate(t *testing.T) {
-	input := ServiceGeneratorData{
+	input := GeneratorData{
 		packageName:       "chubbyPandas",
 		serviceClientName: "pandaClient",
 		source:            AccTestLicenceType,
@@ -73,7 +73,7 @@ func (c pandaClient) senderForCreate(ctx context.Context, req *http.Request) (fu
 }
 
 func TestTemplateMethodAutoRestDiscriminatedTypeResponder(t *testing.T) {
-	input := ServiceGeneratorData{
+	input := GeneratorData{
 		packageName:       "chubbyPandas",
 		serviceClientName: "pandaClient",
 		source:            AccTestLicenceType,
@@ -124,7 +124,7 @@ func TestTemplateMethodAutoRestDiscriminatedTypeResponder(t *testing.T) {
 }
 
 func TestTemplateMethodsAutoRestBaseTypePredicates(t *testing.T) {
-	input := ServiceGeneratorData{
+	input := GeneratorData{
 		packageName:       "chubbyPandas",
 		serviceClientName: "pandaClient",
 		source:            AccTestLicenceType,
@@ -244,7 +244,7 @@ func (c pandaClient) ListComplete(ctx context.Context, id PandaPop) (result List
 }
 
 func TestTemplateMethodsAutoRestNonBaseTypePredicates(t *testing.T) {
-	input := ServiceGeneratorData{
+	input := GeneratorData{
 		packageName:       "chubbyPandas",
 		serviceClientName: "pandaClient",
 		source:            AccTestLicenceType,

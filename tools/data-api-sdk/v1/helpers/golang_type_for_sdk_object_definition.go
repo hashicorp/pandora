@@ -11,7 +11,7 @@ import (
 )
 
 // GolangTypeForSDKObjectDefinition returns the Golang type name for the SDKObjectDefinition provided in `input`.
-func GolangTypeForSDKObjectDefinition(input models.SDKObjectDefinition, golangPackageName *string) (*string, error) {
+func GolangTypeForSDKObjectDefinition(input models.SDKObjectDefinition, golangPackageName *string, serviceTypeNames *[]string, commonTypesPackageName *string) (*string, error) {
 	// TODO: we should look to add unit tests for this method
 
 	// NOTE: all of this validation should be done in the Importer and the API - this is purely sanity checking
@@ -31,7 +31,7 @@ func GolangTypeForSDKObjectDefinition(input models.SDKObjectDefinition, golangPa
 			return nil, fmt.Errorf("a dictionary type must have a nested item but didn't get one")
 		}
 
-		innerType, err := GolangTypeForSDKObjectDefinition(*input.NestedItem, golangPackageName)
+		innerType, err := GolangTypeForSDKObjectDefinition(*input.NestedItem, golangPackageName, serviceTypeNames, commonTypesPackageName)
 		if err != nil {
 			return nil, fmt.Errorf("determining inner type for dictionary: %+v", err)
 		}
@@ -44,7 +44,7 @@ func GolangTypeForSDKObjectDefinition(input models.SDKObjectDefinition, golangPa
 			return nil, fmt.Errorf("a list type must have a nested item but didn't get one")
 		}
 
-		innerType, err := GolangTypeForSDKObjectDefinition(*input.NestedItem, golangPackageName)
+		innerType, err := GolangTypeForSDKObjectDefinition(*input.NestedItem, golangPackageName, serviceTypeNames, commonTypesPackageName)
 		if err != nil {
 			return nil, fmt.Errorf("determining inner type for list: %+v", err)
 		}
@@ -60,7 +60,21 @@ func GolangTypeForSDKObjectDefinition(input models.SDKObjectDefinition, golangPa
 		out := *input.ReferenceName
 		if golangPackageName != nil {
 			out = fmt.Sprintf("%s.%s", *golangPackageName, out)
+		} else if serviceTypeNames != nil && commonTypesPackageName != nil {
+			// when serviceTypeNames is specified, look to see if the referenced type is present in the service, and if not, assume it's a common type
+			found := false
+			for _, typeName := range *serviceTypeNames {
+				if typeName == *input.ReferenceName {
+					found = true
+					break
+				}
+			}
+
+			if !found {
+				out = fmt.Sprintf("%s.%s", *commonTypesPackageName, out)
+			}
 		}
+
 		return pointer.To(out), nil
 	}
 

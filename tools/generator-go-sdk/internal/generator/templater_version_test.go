@@ -8,7 +8,7 @@ import (
 )
 
 func TestTemplateVersion(t *testing.T) {
-	input := ServiceGeneratorData{
+	input := GeneratorData{
 		packageName: "somepackage",
 		apiVersion:  "2022-02-01",
 		source:      AccTestLicenceType,

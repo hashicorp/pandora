@@ -8,6 +8,7 @@ import (
 )
 
 type Settings struct {
+	CommonTypesPackageName    string
 	servicesUsingOldBaseLayer map[string]struct{}
 }
 

@@ -12,14 +12,14 @@ import (
 )
 
 type templaterForResource interface {
-	template(data ServiceGeneratorData) (*string, error)
+	template(GeneratorData) (*string, error)
 }
 
 type templaterForVersion interface {
 	template() (*string, error)
 }
 
-func (s *ServiceGenerator) writeToPathForResource(directory, filePath string, templater templaterForResource, data ServiceGeneratorData) error {
+func (s *ServiceGenerator) writeToPathForResource(directory, filePath string, templater templaterForResource, data GeneratorData) error {
 	fileContents, err := templater.template(data)
 	if err != nil {
 		return fmt.Errorf("templating: %+v", err)

@@ -26,7 +26,7 @@ func TestModelTemplaterWithOptionalFloatConstant(t *testing.T) {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName: "somepackage",
 		models: map[string]models.SDKModel{
 			"Basic": {
@@ -93,7 +93,7 @@ func TestModelTemplaterWithOptionalIntegerConstant(t *testing.T) {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName: "somepackage",
 		models: map[string]models.SDKModel{
 			"Basic": {
@@ -161,7 +161,7 @@ func TestModelTemplaterWithOptionalStringConstant(t *testing.T) {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName: "somepackage",
 		models: map[string]models.SDKModel{
 			"Basic": {
@@ -229,7 +229,7 @@ func TestModelTemplaterWithRequiredFloatConstant(t *testing.T) {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName: "somepackage",
 		models: map[string]models.SDKModel{
 			"Basic": {
@@ -296,7 +296,7 @@ func TestModelTemplaterWithRequiredIntegerConstant(t *testing.T) {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName: "somepackage",
 		models: map[string]models.SDKModel{
 			"Basic": {
@@ -363,7 +363,7 @@ func TestModelTemplaterWithRequiredStringConstant(t *testing.T) {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName: "somepackage",
 		models: map[string]models.SDKModel{
 			"Basic": {
@@ -437,7 +437,7 @@ func TestModelTemplaterWithOptionalListOfFloatConstants(t *testing.T) {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName: "somepackage",
 		models: map[string]models.SDKModel{
 			"Basic": {
@@ -513,7 +513,7 @@ func TestModelTemplaterWithOptionalListOfIntegerConstants(t *testing.T) {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName: "somepackage",
 		models: map[string]models.SDKModel{
 			"Basic": {
@@ -586,7 +586,7 @@ func TestModelTemplaterWithOptionalListOfStringConstants(t *testing.T) {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName: "somepackage",
 		models: map[string]models.SDKModel{
 			"Basic": {
@@ -660,7 +660,7 @@ func TestModelTemplaterWithRequiredListOfFloatConstants(t *testing.T) {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName: "somepackage",
 		models: map[string]models.SDKModel{
 			"Basic": {
@@ -733,7 +733,7 @@ func TestModelTemplaterWithRequiredListOfIntegerConstants(t *testing.T) {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName: "somepackage",
 		models: map[string]models.SDKModel{
 			"Basic": {
@@ -809,7 +809,7 @@ func TestModelTemplaterWithRequiredListOfStringConstants(t *testing.T) {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName: "somepackage",
 		models: map[string]models.SDKModel{
 			"Basic": {
@@ -883,7 +883,7 @@ func TestModelTemplaterWithOptionalMapOfFloatConstants(t *testing.T) {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName: "somepackage",
 		models: map[string]models.SDKModel{
 			"Basic": {
@@ -959,7 +959,7 @@ func TestModelTemplaterWithOptionalMapOfIntegerConstants(t *testing.T) {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName: "somepackage",
 		models: map[string]models.SDKModel{
 			"Basic": {
@@ -1032,7 +1032,7 @@ func TestModelTemplaterWithOptionalMapOfStringConstants(t *testing.T) {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName: "somepackage",
 		models: map[string]models.SDKModel{
 			"Basic": {
@@ -1106,7 +1106,7 @@ func TestModelTemplaterWithRequiredMapOfFloatConstants(t *testing.T) {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName: "somepackage",
 		models: map[string]models.SDKModel{
 			"Basic": {
@@ -1182,7 +1182,7 @@ func TestModelTemplaterWithRequiredMapOfIntegerConstants(t *testing.T) {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName: "somepackage",
 		models: map[string]models.SDKModel{
 			"Basic": {
@@ -1255,7 +1255,7 @@ func TestModelTemplaterWithRequiredMapOfStringConstants(t *testing.T) {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName: "somepackage",
 		models: map[string]models.SDKModel{
 			"Basic": {
