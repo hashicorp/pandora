@@ -1,12 +1,11 @@
 ---
-name: Verify All Resource Manager Services can be Imported and Generated
+name: Verify All Microsoft Graph Services can be Imported and Generated
 on:
   pull_request:
     types: ['opened', 'synchronize']
     paths:
       - '.github/workflows/**'
-      - 'config/resource-manager.hcl'
-      - 'config/resources/**'
+      - 'config/microsoft-graph.hcl'
 
 jobs:
   test:
@@ -14,21 +13,22 @@ jobs:
     strategy:
       fail-fast: true
     steps:
-      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+      - uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4.1.6
         with:
           submodules: recursive
 
-      - uses: actions/setup-go@0a12ed9d6a96ab950c8f026ed9f722fe0da7ef32 # v5.0.2
+      - uses: actions/setup-go@cdcb36043654635271a94b9a6d1392de5bb323a7 # v5.0.1
         with:
           go-version-file: ./.go-version
 
-      - name: "Build and Run importer-rest-api-specs"
+      - name: "Build and Run importer-msgraph-metadata"
         id: import-data
         run: |
-          cd ./tools/importer-rest-api-specs
+          cd ./tools/importer-msgraph-metadata
           make tools
-          make build
           make import
+        env:
+          LOG_LEVEL: WARN
 
       - name: "Run the Go SDK Generator"
         run: |
