@@ -16,7 +16,7 @@ type predicateTemplater struct {
 	models           map[string]models.SDKModel
 }
 
-func (p predicateTemplater) template(data ServiceGeneratorData) (*string, error) {
+func (p predicateTemplater) template(data GeneratorData) (*string, error) {
 	output := make([]string, 0)
 	for _, modelName := range p.sortedModelNames {
 		model := data.models[modelName]
@@ -95,7 +95,7 @@ func (p predicateTemplater) templateForModel(predicateStructName string, name st
 		for _, fieldName := range fieldNames {
 			fieldVal := model.Fields[fieldName]
 
-			typeInfo, err := helpers.GolangTypeForSDKObjectDefinition(fieldVal.ObjectDefinition, nil)
+			typeInfo, err := helpers.GolangTypeForSDKObjectDefinition(fieldVal.ObjectDefinition, nil, nil, nil)
 			if err != nil {
 				return nil, fmt.Errorf("determining type information for field %q in model %q with info %q: %+v", fieldName, name, string(fieldVal.ObjectDefinition.Type), err)
 			}

@@ -8,12 +8,22 @@ import (
 	"path/filepath"
 	"strings"
 
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
-type ServiceGeneratorData struct {
-	// the name of the package which should be used e.g. Service1 becomes service1
+type GeneratorData struct {
+	// the name of the package which should be used
 	packageName string
+
+	// commonTypes contains any common models and constants for this API version
+	commonTypes models.CommonTypes
+
+	// the name of the package containing common types (unique to the API version)
+	commonTypesPackageName *string
+
+	// relative include path for common types package
+	commonTypesIncludePath *string
 
 	// the name of the Client e.g. MyThingClient
 	serviceClientName string
@@ -23,7 +33,7 @@ type ServiceGeneratorData struct {
 	idsOutputPath string
 
 	// This is the working directory where files should be output for this specific service
-	// for example {workingDir}/service/version/resource
+	// for example {workingDir}/{service}/{version}/{resource}
 	resourceOutputPath string
 
 	// constants is a map of Constant Name (key) to SDKConstant (value) describing
@@ -51,6 +61,16 @@ type ServiceGeneratorData struct {
 	// the name of the service as a package (e.g. resources or eventhub)
 	servicePackageName string
 
+	// slice of constant/model type names present for the service, used to determine whether a referenced type
+	// is local to the service, or is a common type
+	serviceTypeNames []string
+
+	// sourceType is the source data type and is the SDK package name
+	sourceType models.SourceDataType
+
+	// whether this is a data plane SDK (omits certain Resource Manager specific features)
+	isDataPlane bool
+
 	// development feature flag - this requires work in the Resource ID parser to handle name conflicts
 	// @tombuildsstuff: fix this
 	useIdAliases bool
@@ -60,30 +80,96 @@ type ServiceGeneratorData struct {
 	useNewBaseLayer bool
 }
 
-func (i ServiceGeneratorInput) generatorData(settings Settings) ServiceGeneratorData {
+func (i ServiceGeneratorInput) generatorData(settings Settings) GeneratorData {
+	resourcePackageName := strings.ToLower(i.ResourceName)
 	servicePackageName := strings.ToLower(i.ServiceName)
 	versionPackageName := strings.ToLower(i.VersionName)
-	// TODO: it'd be nice to make these snake_case but that's a problem for another day
-	resourcePackageName := strings.ToLower(i.ResourceName)
+
 	versionOutputPath := filepath.Join(i.OutputDirectory, servicePackageName, versionPackageName)
-	resourceOutputPath := filepath.Join(versionOutputPath, resourcePackageName)
 	idsPath := filepath.Join(versionOutputPath, "ids")
+	resourceOutputPath := filepath.Join(versionOutputPath, resourcePackageName)
 
 	useNewBaseLayer := settings.ShouldUseNewBaseLayer(i.ServiceName, i.VersionName)
 
-	return ServiceGeneratorData{
-		apiVersion:         i.VersionName,
-		constants:          i.ResourceDetails.Constants,
-		idsOutputPath:      idsPath,
-		models:             i.ResourceDetails.Models,
-		operations:         i.ResourceDetails.Operations,
-		resourceOutputPath: resourceOutputPath,
-		packageName:        resourcePackageName,
-		resourceIds:        i.ResourceDetails.ResourceIDs,
-		serviceClientName:  fmt.Sprintf("%sClient", strings.Title(i.ResourceName)),
-		servicePackageName: strings.ToLower(i.ServiceName),
-		source:             i.Source,
-		useIdAliases:       false,
-		useNewBaseLayer:    useNewBaseLayer,
+	serviceTypeNames := make([]string, 0)
+	for constantName := range i.ResourceDetails.Constants {
+		serviceTypeNames = append(serviceTypeNames, constantName)
+	}
+	for modelName := range i.ResourceDetails.Models {
+		serviceTypeNames = append(serviceTypeNames, modelName)
+	}
+
+	var commonTypesPackageName, commonTypesIncludePath *string
+	if len(i.CommonTypes.Constants) > 0 && len(i.CommonTypes.Models) > 0 {
+		commonTypesPackageName = pointer.To(strings.ToLower(strings.ReplaceAll(i.VersionName, "-", "_")))
+		commonTypesIncludePath = pointer.To(fmt.Sprintf("%s/%s", settings.CommonTypesPackageName, *commonTypesPackageName))
+	}
+
+	return GeneratorData{
+		apiVersion:             i.VersionName,
+		commonTypes:            i.CommonTypes,
+		commonTypesIncludePath: commonTypesIncludePath,
+		commonTypesPackageName: commonTypesPackageName,
+		constants:              i.ResourceDetails.Constants,
+		idsOutputPath:          idsPath,
+		isDataPlane:            models.SourceDataTypeIsDataPlane(i.Type),
+		models:                 i.ResourceDetails.Models,
+		operations:             i.ResourceDetails.Operations,
+		packageName:            resourcePackageName,
+		resourceIds:            i.ResourceDetails.ResourceIDs,
+		resourceOutputPath:     resourceOutputPath,
+		serviceClientName:      fmt.Sprintf("%sClient", strings.Title(i.ResourceName)),
+		servicePackageName:     strings.ToLower(i.ServiceName),
+		serviceTypeNames:       serviceTypeNames,
+		source:                 i.Source,
+		sourceType:             i.Type,
+		useIdAliases:           false,
+		useNewBaseLayer:        useNewBaseLayer,
+	}
+}
+
+type VersionGeneratorData struct {
+	GeneratorData
+
+	// This is the directory where versioned common types should be output
+	// for example {workingDir}/common-types/{version}
+	commonTypesOutputPath string
+
+	// resources specifies a map of API Resource Names (key) to APIResource (value).
+	resources map[string]models.APIResource
+
+	// This is the directory for the API version where the meta client should be output
+	// for example {workingDir}/{service}/{version}
+	versionOutputPath string
+
+	// the name of the version as a package
+	versionPackageName string
+}
+
+func (i VersionGeneratorInput) generatorData(settings Settings) VersionGeneratorData {
+	servicePackageName := strings.ToLower(i.ServiceName)
+	versionPackageName := strings.ToLower(strings.ReplaceAll(i.VersionName, "-", "_"))
+
+	commonTypesOutputPath := filepath.Join(i.OutputDirectory, settings.CommonTypesPackageName, versionPackageName)
+	versionOutputPath := filepath.Join(i.OutputDirectory, servicePackageName, versionPackageName)
+
+	useNewBaseLayer := settings.ShouldUseNewBaseLayer(i.ServiceName, i.VersionName)
+
+	return VersionGeneratorData{
+		GeneratorData: GeneratorData{
+			apiVersion:         i.VersionName,
+			commonTypes:        i.CommonTypes,
+			constants:          i.CommonTypes.Constants,
+			isDataPlane:        models.SourceDataTypeIsDataPlane(i.Type),
+			models:             i.CommonTypes.Models,
+			servicePackageName: strings.ToLower(i.ServiceName),
+			source:             i.Source,
+			sourceType:         i.Type,
+			useNewBaseLayer:    useNewBaseLayer,
+		},
+		commonTypesOutputPath: commonTypesOutputPath,
+		resources:             i.Resources,
+		versionOutputPath:     versionOutputPath,
+		versionPackageName:    versionPackageName,
 	}
 }

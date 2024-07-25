@@ -19,7 +19,7 @@ func TestTemplateIdParserBasic(t *testing.T) {
 				models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		resourceIds: map[string]models.ResourceID{
 			"empty": {
 				CommonIDAlias: stringPointer("basic"),
@@ -167,7 +167,7 @@ func TestTemplateIdParserConstantsOnly(t *testing.T) {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		resourceIds: map[string]models.ResourceID{
 			"empty": {
 				CommonIDAlias: stringPointer("thing"),

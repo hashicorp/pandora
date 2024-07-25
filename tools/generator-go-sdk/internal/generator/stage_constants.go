@@ -7,7 +7,7 @@ import (
 	"fmt"
 )
 
-func (s *ServiceGenerator) constants(data ServiceGeneratorData) error {
+func (s *ServiceGenerator) constants(data GeneratorData) error {
 	if len(data.constants) == 0 {
 		return nil
 	}

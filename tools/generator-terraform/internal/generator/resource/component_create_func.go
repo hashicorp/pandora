@@ -199,7 +199,7 @@ id := %[3]s(%[4]s)
 func (h createFunctionComponents) payloadDefinition() (*string, error) {
 	// NOTE: whilst Payload is _technically_ optional in the API endpoint it's not, else it
 	// wouldn't be a Create method
-	createObjectName, err := helpers.GolangTypeForSDKObjectDefinition(*h.createMethod.RequestObject, &h.sdkResourceNameLowered)
+	createObjectName, err := helpers.GolangTypeForSDKObjectDefinition(*h.createMethod.RequestObject, &h.sdkResourceNameLowered, nil, nil)
 	if err != nil {
 		return nil, fmt.Errorf("determining Golang Type name for Create Request Object: %+v", err)
 	}

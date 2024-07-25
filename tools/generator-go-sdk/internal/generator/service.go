@@ -7,8 +7,6 @@ import (
 	"fmt"
 	"os"
 	"os/exec"
-	"path/filepath"
-	"strings"
 
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/generator-go-sdk/internal/logging"
@@ -25,14 +23,16 @@ func NewServiceGenerator(settings Settings) ServiceGenerator {
 }
 
 type ServiceGeneratorInput struct {
-	ServiceName     string
-	ServiceDetails  models.Service
-	VersionName     string
-	VersionDetails  models.APIVersion
-	ResourceName    string
-	ResourceDetails models.APIResource
+	CommonTypes     models.CommonTypes
 	OutputDirectory string
+	ResourceDetails models.APIResource
+	ResourceName    string
+	ServiceDetails  models.Service
+	ServiceName     string
 	Source          models.SourceDataOrigin
+	Type            models.SourceDataType
+	VersionDetails  models.APIVersion
+	VersionName     string
 }
 
 func (s *ServiceGenerator) Generate(input ServiceGeneratorInput) error {
@@ -47,7 +47,7 @@ func (s *ServiceGenerator) Generate(input ServiceGeneratorInput) error {
 		}
 	}
 
-	stages := map[string]func(data ServiceGeneratorData) error{
+	stages := map[string]func(data GeneratorData) error{
 		"clients":    s.clients,
 		"constants":  s.constants,
 		"ids":        s.ids,
@@ -70,32 +70,41 @@ func (s *ServiceGenerator) Generate(input ServiceGeneratorInput) error {
 	return nil
 }
 
-type VersionInput struct {
+type VersionGeneratorInput struct {
+	CommonTypes     models.CommonTypes
 	OutputDirectory string
 	Resources       map[string]models.APIResource
 	ServiceName     string
 	Source          models.SourceDataOrigin
+	Type            models.SourceDataType
 	UseNewBaseLayer bool
 	VersionName     string
 }
 
-func (s *ServiceGenerator) GenerateForVersion(input VersionInput) error {
-	input.ServiceName = strings.ToLower(input.ServiceName)
-	input.VersionName = strings.ToLower(input.VersionName)
-	versionDirectory := filepath.Join(input.OutputDirectory, input.ServiceName, input.VersionName)
+func (s *ServiceGenerator) GenerateForVersion(input VersionGeneratorInput) error {
+	data := input.generatorData(s.settings)
 
-	stages := map[string]func(data VersionInput, versionDirectory string) error{
-		"metaClient": s.metaClient,
+	if err := cleanAndRecreateWorkingDirectory(data.commonTypesOutputPath); err != nil {
+		return fmt.Errorf("cleaning/recreating working directory %q: %+v", data.commonTypesOutputPath, err)
+	}
+
+	stages := map[string]func(data VersionGeneratorData) error{
+		"commonTypes": s.commonTypes,
+		"metaClient":  s.metaClient,
 	}
 	for name, stage := range stages {
 		logging.Debugf("Running Stage %q..", name)
-		if err := stage(input, versionDirectory); err != nil {
+		if err := stage(data); err != nil {
 			return fmt.Errorf("generating %s: %+v", name, err)
 		}
 	}
 
-	runGoFmt(versionDirectory)
-	runGoImports(versionDirectory)
+	runGoFmt(data.commonTypesOutputPath)
+	runGoImports(data.commonTypesOutputPath)
+
+	runGoFmt(data.versionOutputPath)
+	runGoImports(data.versionOutputPath)
+
 	return nil
 }
 

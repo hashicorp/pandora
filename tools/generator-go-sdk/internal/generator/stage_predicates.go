@@ -8,7 +8,7 @@ import (
 	"sort"
 )
 
-func (s *ServiceGenerator) predicates(data ServiceGeneratorData) error {
+func (s *ServiceGenerator) predicates(data GeneratorData) error {
 	modelNames := make(map[string]struct{}, 0)
 	for _, operation := range data.operations {
 		if operation.FieldContainingPaginationDetails == nil {

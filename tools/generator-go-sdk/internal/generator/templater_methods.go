@@ -18,7 +18,7 @@ type methodsPandoraTemplater struct {
 	constants     map[string]models.SDKConstant
 }
 
-func (c methodsPandoraTemplater) template(data ServiceGeneratorData) (*string, error) {
+func (c methodsPandoraTemplater) template(data GeneratorData) (*string, error) {
 	methods, err := c.methods(data)
 	if err != nil {
 		return nil, fmt.Errorf("building methods: %+v", err)
@@ -27,6 +27,11 @@ func (c methodsPandoraTemplater) template(data ServiceGeneratorData) (*string, e
 	copyrightLines, err := copyrightLinesForSource(data.source)
 	if err != nil {
 		return nil, fmt.Errorf("retrieving copyright lines: %+v", err)
+	}
+
+	commonTypesInclude := ""
+	if data.commonTypesIncludePath != nil {
+		commonTypesInclude = fmt.Sprintf(`"github.com/hashicorp/go-azure-sdk/%s/%s"`, data.sourceType, *data.commonTypesIncludePath)
 	}
 
 	template := fmt.Sprintf(`package %[1]s
@@ -42,16 +47,17 @@ import (
 	"github.com/hashicorp/go-azure-sdk/sdk/client/pollers"
 	"github.com/hashicorp/go-azure-sdk/sdk/client/resourcemanager"
 	"github.com/hashicorp/go-azure-sdk/sdk/odata"
+	%[4]s
 )
 
 %[2]s
 
 %[3]s
-`, data.packageName, *copyrightLines, *methods)
+`, data.packageName, *copyrightLines, *methods, commonTypesInclude)
 	return &template, nil
 }
 
-func (c methodsPandoraTemplater) methods(data ServiceGeneratorData) (*string, error) {
+func (c methodsPandoraTemplater) methods(data GeneratorData) (*string, error) {
 	switch strings.ToUpper(c.operation.Method) {
 	case "DELETE":
 		if c.operation.LongRunning {
@@ -129,7 +135,7 @@ func (c methodsPandoraTemplater) methods(data ServiceGeneratorData) (*string, er
 	return nil, fmt.Errorf("unsupported HTTP Method %q", c.operation.Method)
 }
 
-func (c methodsPandoraTemplater) immediateOperationTemplate(data ServiceGeneratorData) (*string, error) {
+func (c methodsPandoraTemplater) immediateOperationTemplate(data GeneratorData) (*string, error) {
 	methodArguments, err := c.argumentsTemplateForMethod(data)
 	if err != nil {
 		return nil, fmt.Errorf("building arguments for immediate operation: %+v", err)
@@ -191,7 +197,7 @@ func (c %[1]s) %[2]s(ctx context.Context %[3]s) (result %[2]sOperationResponse, 
 	return &templated, nil
 }
 
-func (c methodsPandoraTemplater) longRunningOperationTemplate(data ServiceGeneratorData) (*string, error) {
+func (c methodsPandoraTemplater) longRunningOperationTemplate(data GeneratorData) (*string, error) {
 	methodArguments, err := c.argumentsTemplateForMethod(data)
 	if err != nil {
 		return nil, fmt.Errorf("building arguments for long running template: %+v", err)
@@ -272,7 +278,7 @@ func (c %[1]s) %[2]sThenPoll(ctx context.Context %[3]s) error {
 	return &templated, nil
 }
 
-func (c methodsPandoraTemplater) listOperationTemplate(data ServiceGeneratorData) (*string, error) {
+func (c methodsPandoraTemplater) listOperationTemplate(data GeneratorData) (*string, error) {
 	methodArguments, err := c.argumentsTemplateForMethod(data)
 	if err != nil {
 		return nil, fmt.Errorf("building arguments for list operation: %+v", err)
@@ -295,7 +301,7 @@ func (c methodsPandoraTemplater) listOperationTemplate(data ServiceGeneratorData
 	if err != nil {
 		return nil, fmt.Errorf("building options struct: %+v", err)
 	}
-	typeName, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.ResponseObject, nil)
+	typeName, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.ResponseObject, nil, &data.serviceTypeNames, data.commonTypesPackageName)
 	if err != nil {
 		return nil, fmt.Errorf("determining golang type name for response object: %+v", err)
 	}
@@ -450,7 +456,7 @@ func (c methodsPandoraTemplater) requestArgumentsTemplate() string {
 	return fmt.Sprintf(", %s", strings.Join(args, ", "))
 }
 
-func (c methodsPandoraTemplater) argumentsTemplateForMethod(data ServiceGeneratorData) (*string, error) {
+func (c methodsPandoraTemplater) argumentsTemplateForMethod(data GeneratorData) (*string, error) {
 	arguments := make([]string, 0)
 	if c.operation.ResourceIDName != nil {
 		idName := *c.operation.ResourceIDName
@@ -465,7 +471,7 @@ func (c methodsPandoraTemplater) argumentsTemplateForMethod(data ServiceGenerato
 		arguments = append(arguments, fmt.Sprintf("id %s", idName))
 	}
 	if c.operation.RequestObject != nil {
-		typeName, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.RequestObject, nil)
+		typeName, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.RequestObject, nil, &data.serviceTypeNames, data.commonTypesPackageName)
 		if err != nil {
 			return nil, fmt.Errorf("determining type name for request object: %+v", err)
 		}
@@ -566,7 +572,7 @@ func (c methodsPandoraTemplater) marshalerTemplate() (*string, error) {
 	return &output, nil
 }
 
-func (c methodsPandoraTemplater) unmarshalerTemplate(data ServiceGeneratorData) (*string, error) {
+func (c methodsPandoraTemplater) unmarshalerTemplate(data GeneratorData) (*string, error) {
 	var output string
 
 	if c.operation.LongRunning {
@@ -577,7 +583,7 @@ func (c methodsPandoraTemplater) unmarshalerTemplate(data ServiceGeneratorData) 
 	}
 
 	if c.operation.ResponseObject != nil {
-		golangTypeName, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.ResponseObject, nil)
+		golangTypeName, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.ResponseObject, nil, &data.serviceTypeNames, data.commonTypesPackageName)
 		if err != nil {
 			return nil, fmt.Errorf("determing golang type name for response object: %+v", err)
 		}
@@ -655,7 +661,7 @@ func (c methodsPandoraTemplater) unmarshalerTemplate(data ServiceGeneratorData) 
 	result.Model = &model
 `, discriminatedTypeParentName)
 		} else {
-			responseModelType, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.ResponseObject, nil)
+			responseModelType, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.ResponseObject, nil, &data.serviceTypeNames, data.commonTypesPackageName)
 			if err != nil {
 				return nil, fmt.Errorf("determing golang type name for response object: %+v", err)
 			}
@@ -682,11 +688,11 @@ func (c methodsPandoraTemplater) unmarshalerTemplate(data ServiceGeneratorData) 
 	return &output, nil
 }
 
-func (c methodsPandoraTemplater) responseStructTemplate(data ServiceGeneratorData) (*string, error) {
+func (c methodsPandoraTemplater) responseStructTemplate(data GeneratorData) (*string, error) {
 	model := ""
 	typeName := ""
 	if c.operation.ResponseObject != nil {
-		golangTypeName, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.ResponseObject, nil)
+		golangTypeName, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.ResponseObject, nil, &data.serviceTypeNames, data.commonTypesPackageName)
 		if err != nil {
 			return nil, fmt.Errorf("determing golang type name for response object: %+v", err)
 		}
@@ -733,7 +739,7 @@ type %[1]s struct {
 	return &output, nil
 }
 
-func (c methodsPandoraTemplater) optionsStruct(data ServiceGeneratorData) (*string, error) {
+func (c methodsPandoraTemplater) optionsStruct(data GeneratorData) (*string, error) {
 	if len(c.operation.Options) == 0 {
 		out := ""
 		return &out, nil

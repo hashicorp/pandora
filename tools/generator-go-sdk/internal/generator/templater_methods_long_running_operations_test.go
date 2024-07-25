@@ -10,7 +10,7 @@ import (
 )
 
 func TestTemplateMethodsLROCreate(t *testing.T) {
-	input := ServiceGeneratorData{
+	input := GeneratorData{
 		packageName:       "skinnyPandas",
 		serviceClientName: "pandaClient",
 		source:            AccTestLicenceType,
@@ -103,7 +103,7 @@ func (c pandaClient) CreateThenPoll(ctx context.Context , id PandaPop, input str
 }
 
 func TestTemplateMethodsLROReboot(t *testing.T) {
-	input := ServiceGeneratorData{
+	input := GeneratorData{
 		packageName:       "skinnyPandas",
 		serviceClientName: "pandaClient",
 		source:            AccTestLicenceType,
@@ -194,7 +194,7 @@ func TestTemplateMethodsLRODoesNotCallUnmarshal(t *testing.T) {
 	// As such this test asserts that we don't call `Unmarshal` prior to creating the LRO
 	// Poller - since (for the moment) consumers will need to decide when `Unmarshal` should
 	// be called on the LRO Result, if needed at all.
-	input := ServiceGeneratorData{
+	input := GeneratorData{
 		packageName:       "skinnyPandas",
 		serviceClientName: "pandaClient",
 		source:            AccTestLicenceType,

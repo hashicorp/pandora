@@ -13,3 +13,7 @@ const (
 	// ResourceManagerSourceDataType defines that this Data is related to Azure Resource Manager.
 	ResourceManagerSourceDataType SourceDataType = "resource-manager"
 )
+
+func SourceDataTypeIsDataPlane(sourceDataType SourceDataType) bool {
+	return sourceDataType == ResourceManagerSourceDataType
+}

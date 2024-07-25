@@ -36,7 +36,7 @@ client.Client.Authorizer = authorizer
 	actual, err := readmeTemplater{
 		sortedOperationNames: []string{},
 		operations:           map[string]models.SDKOperation{},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
@@ -93,7 +93,7 @@ if model := read.Model; model != nil {
 				ResourceIDName: stringPointer("Disk"),
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
@@ -159,7 +159,7 @@ if model := read.Model; model != nil {
 				ResourceIDName: stringPointer("Disk"),
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
@@ -232,7 +232,7 @@ if model := read.Model; model != nil {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
@@ -319,7 +319,7 @@ if model := read.Model; model != nil {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
@@ -399,7 +399,7 @@ if model := read.Model; model != nil {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
@@ -463,7 +463,7 @@ if model := read.Model; model != nil {
 				ResourceIDName: nil,
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
@@ -528,7 +528,7 @@ if model := read.Model; model != nil {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
@@ -588,7 +588,7 @@ for _, item := range items {
 				ResourceIDName:                   stringPointer("Disk"),
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
@@ -656,7 +656,7 @@ for _, item := range items {
 				ResourceIDName:                   stringPointer("Disk"),
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
@@ -731,7 +731,7 @@ for _, item := range items {
 				FieldContainingPaginationDetails: stringPointer("SomeField"),
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
@@ -820,7 +820,7 @@ for _, item := range items {
 				FieldContainingPaginationDetails: stringPointer("SomeField"),
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
@@ -902,7 +902,7 @@ for _, item := range items {
 				FieldContainingPaginationDetails: stringPointer("SomeField"),
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
@@ -975,7 +975,7 @@ for _, item := range items {
 				FieldContainingPaginationDetails: stringPointer("SomeField"),
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
@@ -1030,7 +1030,7 @@ if err := client.SomeLongRunningThenPoll(ctx, id); err != nil {
 				ResourceIDName: stringPointer("Disk"),
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
@@ -1093,7 +1093,7 @@ if err := client.SomeLongRunningThenPoll(ctx, id); err != nil {
 				ResourceIDName: stringPointer("Disk"),
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
@@ -1163,7 +1163,7 @@ if err := client.SomeLongRunningThenPoll(ctx, id, payload); err != nil {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
@@ -1247,7 +1247,7 @@ if err := client.SomeLongRunningThenPoll(ctx, id, payload, disks.DefaultSomeLong
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
@@ -1323,7 +1323,7 @@ if err := client.SomeLongRunningThenPoll(ctx, id, disks.DefaultSomeLongRunningOp
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
@@ -1385,7 +1385,7 @@ if err := client.SomeLongRunningThenPoll(ctx); err != nil {
 				ResourceIDName: nil,
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
@@ -1461,7 +1461,7 @@ if model := read.Model; model != nil {
 				ResourceIDName: nil,
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",

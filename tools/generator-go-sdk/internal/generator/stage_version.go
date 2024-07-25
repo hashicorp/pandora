@@ -7,7 +7,7 @@ import (
 	"fmt"
 )
 
-func (s *ServiceGenerator) version(data ServiceGeneratorData) error {
+func (s *ServiceGenerator) version(data GeneratorData) error {
 	if err := s.writeToPathForResource(data.resourceOutputPath, "version.go", versionTemplater{}, data); err != nil {
 		return fmt.Errorf("templating version: %+v", err)
 	}

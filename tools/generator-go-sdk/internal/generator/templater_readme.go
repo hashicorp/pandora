@@ -17,7 +17,7 @@ type readmeTemplater struct {
 	operations           map[string]models.SDKOperation
 }
 
-func (r readmeTemplater) template(data ServiceGeneratorData) (*string, error) {
+func (r readmeTemplater) template(data GeneratorData) (*string, error) {
 	summary := r.packageSummary(data)
 	clientInit := r.clientInitialization(data.packageName, data.serviceClientName)
 	examples, err := r.exampleUsages(data)
@@ -33,9 +33,9 @@ func (r readmeTemplater) template(data ServiceGeneratorData) (*string, error) {
 	return &out, nil
 }
 
-func (r readmeTemplater) packageSummary(data ServiceGeneratorData) string {
+func (r readmeTemplater) packageSummary(data GeneratorData) string {
 	importLines := []string{
-		fmt.Sprintf(`import "github.com/hashicorp/go-azure-sdk/resource-manager/%[1]s/%[2]s/%[3]s"`, data.servicePackageName, data.apiVersion, data.packageName),
+		fmt.Sprintf(`import "github.com/hashicorp/go-azure-sdk/%[1]s/%[2]s/%[3]s/%[4]s"`, data.sourceType, data.servicePackageName, data.apiVersion, data.packageName),
 	}
 	containsCommonId := false
 	for _, resourceId := range data.resourceIds {
@@ -50,18 +50,18 @@ func (r readmeTemplater) packageSummary(data ServiceGeneratorData) string {
 	sort.Strings(importLines)
 
 	return fmt.Sprintf(`
-## 'github.com/hashicorp/go-azure-sdk/resource-manager/%[1]s/%[2]s/%[3]s' Documentation
+## 'github.com/hashicorp/go-azure-sdk/%[1]s/%[2]s/%[3]s/%[4]s' Documentation
 
-The '%[3]s' SDK allows for interaction with the Azure Resource Manager Service '%[1]s' (API Version '%[2]s').
+The '%[4]s' SDK allows for interaction with the Azure Resource Manager Service '%[2]s' (API Version '%[3]s').
 
 This readme covers example usages, but further information on [using this SDK can be found in the project root](https://github.com/hashicorp/go-azure-sdk/tree/main/docs).
 
 ### Import Path
 
 '''go
-%[4]s
+%[5]s
 '''
-`, data.servicePackageName, data.apiVersion, data.packageName, strings.Join(importLines, "\n"))
+`, data.sourceType, data.servicePackageName, data.apiVersion, data.packageName, strings.Join(importLines, "\n"))
 }
 
 func (r readmeTemplater) clientInitialization(packageName, clientName string) string {
@@ -75,7 +75,7 @@ client.Client.Authorizer = authorizer
 `, packageName, clientName)
 }
 
-func (r readmeTemplater) exampleUsages(data ServiceGeneratorData) (*string, error) {
+func (r readmeTemplater) exampleUsages(data GeneratorData) (*string, error) {
 	examples := make([]string, 0)
 
 	for _, operationName := range r.sortedOperationNames {
@@ -96,7 +96,7 @@ func (r readmeTemplater) exampleUsages(data ServiceGeneratorData) (*string, erro
 	return &out, nil
 }
 
-func (r readmeTemplater) exampleUsageForOperation(packageName, clientName, operationName string, operation models.SDKOperation, data ServiceGeneratorData) (*string, error) {
+func (r readmeTemplater) exampleUsageForOperation(packageName, clientName, operationName string, operation models.SDKOperation, data GeneratorData) (*string, error) {
 	if operation.FieldContainingPaginationDetails != nil {
 		return r.exampleUsageForListOperation(packageName, clientName, operationName, operation, data)
 	}
@@ -108,7 +108,7 @@ func (r readmeTemplater) exampleUsageForOperation(packageName, clientName, opera
 	return r.exampleUsageForRegularOperation(packageName, clientName, operationName, operation, data)
 }
 
-func (r readmeTemplater) resourceIdInitialization(operation models.SDKOperation, data ServiceGeneratorData) (*string, error) {
+func (r readmeTemplater) resourceIdInitialization(operation models.SDKOperation, data GeneratorData) (*string, error) {
 	resourceId, ok := data.resourceIds[*operation.ResourceIDName]
 	if !ok {
 		return nil, fmt.Errorf("resource id %q was not found", *operation.ResourceIDName)
@@ -132,7 +132,7 @@ func (r readmeTemplater) resourceIdInitialization(operation models.SDKOperation,
 	return &out, nil
 }
 
-func (r readmeTemplater) exampleUsageForRegularOperation(packageName, clientName, operationName string, operation models.SDKOperation, data ServiceGeneratorData) (*string, error) {
+func (r readmeTemplater) exampleUsageForRegularOperation(packageName, clientName, operationName string, operation models.SDKOperation, data GeneratorData) (*string, error) {
 	lines := make([]string, 0)
 
 	methodArgs := []string{
@@ -157,7 +157,7 @@ payload := %[1]s.%[2]s{
 `, packageName, *operation.RequestObject.ReferenceName))
 		} else {
 			// for simplicities sake
-			typeName, err := helpers.GolangTypeForSDKObjectDefinition(*operation.RequestObject, nil)
+			typeName, err := helpers.GolangTypeForSDKObjectDefinition(*operation.RequestObject, nil, nil, nil)
 			if err != nil {
 				return nil, fmt.Errorf("determining golang type name for request object: %+v", err)
 			}
@@ -188,7 +188,7 @@ if model := read.Model; model != nil {
 	return &out, nil
 }
 
-func (r readmeTemplater) exampleUsageForListOperation(packageName, clientName, operationName string, operation models.SDKOperation, data ServiceGeneratorData) (*string, error) {
+func (r readmeTemplater) exampleUsageForListOperation(packageName, clientName, operationName string, operation models.SDKOperation, data GeneratorData) (*string, error) {
 	lines := make([]string, 0)
 
 	methodArgs := []string{
@@ -213,7 +213,7 @@ payload := %[1]s.%[2]s{
 `, packageName, *operation.RequestObject.ReferenceName))
 		} else {
 			// for simplicities sake
-			typeName, err := helpers.GolangTypeForSDKObjectDefinition(*operation.RequestObject, nil)
+			typeName, err := helpers.GolangTypeForSDKObjectDefinition(*operation.RequestObject, nil, nil, nil)
 			if err != nil {
 				return nil, fmt.Errorf("determining golang type name for request object: %+v", err)
 			}
@@ -245,7 +245,7 @@ for _, item := range items {
 	return &out, nil
 }
 
-func (r readmeTemplater) exampleUsageForLongRunningOperation(packageName, clientName, operationName string, operation models.SDKOperation, data ServiceGeneratorData) (*string, error) {
+func (r readmeTemplater) exampleUsageForLongRunningOperation(packageName, clientName, operationName string, operation models.SDKOperation, data GeneratorData) (*string, error) {
 	lines := make([]string, 0)
 
 	methodArgs := []string{
@@ -270,7 +270,7 @@ payload := %[1]s.%[2]s{
 `, packageName, *operation.RequestObject.ReferenceName))
 		} else {
 			// for simplicities sake
-			typeName, err := helpers.GolangTypeForSDKObjectDefinition(*operation.RequestObject, nil)
+			typeName, err := helpers.GolangTypeForSDKObjectDefinition(*operation.RequestObject, nil, nil, nil)
 			if err != nil {
 				return nil, fmt.Errorf("determining golang type name for request object: %+v", err)
 			}

@@ -18,7 +18,7 @@ type resourceIdTemplater struct {
 	constantDetails map[string]models.SDKConstant
 }
 
-func (r resourceIdTemplater) template(data ServiceGeneratorData) (*string, error) {
+func (r resourceIdTemplater) template(data GeneratorData) (*string, error) {
 	copyrightLines, err := copyrightLinesForSource(data.source)
 	if err != nil {
 		return nil, fmt.Errorf("retrieving copyright lines: %+v", err)
@@ -31,6 +31,11 @@ func (r resourceIdTemplater) template(data ServiceGeneratorData) (*string, error
 	methods, err := r.methods()
 	if err != nil {
 		return nil, fmt.Errorf("generating methods: %+v", err)
+	}
+
+	registerId := ""
+	if !data.isDataPlane {
+		registerId = r.registerId()
 	}
 
 	out := fmt.Sprintf(`package %[1]s
@@ -48,7 +53,7 @@ import (
 %[3]s
 %[4]s
 %[5]s
-`, data.packageName, *copyrightLines, r.registerId(), *structBody, *methods)
+`, data.packageName, *copyrightLines, registerId, *structBody, *methods)
 	return &out, nil
 }
 
@@ -297,7 +302,7 @@ func %[1]s(input string) (*%[2]s, error) {
 	}
 
 	id := %[2]s{}
-	if err := id.FromParseResult(*parsed); err != nil {
+	if err = id.FromParseResult(*parsed); err != nil {
 			return nil, err
 	}
 
