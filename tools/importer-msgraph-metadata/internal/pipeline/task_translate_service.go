@@ -7,6 +7,7 @@ import (
 	"fmt"
 
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/normalize"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/parser"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/versions"
 )
@@ -159,7 +160,7 @@ func (p pipeline) translateServiceToDataApiSdkTypes(models parser.Models, consta
 					constantValues := make(map[string]string)
 					if constant, ok := constants[*field.ConstantName]; ok {
 						for _, value := range constant.Enum {
-							constantValues[value] = value
+							constantValues[normalize.CleanName(value)] = value
 						}
 					}
 

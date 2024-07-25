@@ -82,7 +82,7 @@ func (r ResourceId) DataApiSdkResourceId() (*sdkModels.ResourceID, error) {
 		case SegmentAction, SegmentCast, SegmentFunction, SegmentLabel, SegmentODataReference:
 			sdkSegments = append(sdkSegments, sdkModels.NewStaticValueResourceIDSegment(segment.Value, segment.Value))
 		case SegmentUserValue:
-			sdkSegments = append(sdkSegments, sdkModels.NewUserSpecifiedResourceIDSegment(*segment.Field, segment.Value))
+			sdkSegments = append(sdkSegments, sdkModels.NewUserSpecifiedResourceIDSegment(normalize.CleanNameCamel(*segment.Field), segment.Value))
 		default:
 			return nil, fmt.Errorf("unknown segment type %q at index %d for resource ID: %q", segment.Type, i, r.Name)
 		}
