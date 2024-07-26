@@ -3,8 +3,6 @@
 
 package models
 
-import "fmt"
-
 // APIResource defines a grouping of related information within an APIVersion.
 type APIResource struct {
 	// Constants specifies a map of Constant Name (key) to SDKConstant (value)
@@ -31,7 +29,7 @@ type APIResource struct {
 	ResourceIDs map[string]ResourceID
 }
 
-func (a APIResource) Merge(b *APIResource) (*APIResource, error) {
+func (a APIResource) Merge(b *APIResource) APIResource {
 	for k, v := range b.Constants {
 		if _, ok := a.Constants[k]; !ok {
 			a.Constants[k] = v
@@ -45,9 +43,7 @@ func (a APIResource) Merge(b *APIResource) (*APIResource, error) {
 	}
 
 	for k, v := range b.Operations {
-		if _, ok := a.Operations[k]; ok {
-			return nil, fmt.Errorf("operation %s already exits", k)
-		} else {
+		if _, ok := a.Operations[k]; !ok {
 			a.Operations[k] = v
 		}
 	}
@@ -58,5 +54,5 @@ func (a APIResource) Merge(b *APIResource) (*APIResource, error) {
 		}
 	}
 
-	return &a, nil
+	return a
 }

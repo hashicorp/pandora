@@ -36,11 +36,8 @@ func (d *SwaggerDefinition) parse(serviceName, apiVersion string, resourceProvid
 			normalizedTag := normalizeTag(tag)
 			normalizedTag = cleanup.NormalizeResourceName(normalizedTag)
 			if existed, ok := resources[normalizedTag]; ok {
-				if merged, err := existed.Merge(resource); err != nil {
-					return nil, fmt.Errorf("merging resource %s to %s: %v", tag, normalizedTag, err)
-				} else {
-					resources[normalizedTag] = *merged
-				}
+				merged := existed.Merge(resource)
+				resources[normalizedTag] = merged
 			} else {
 				resources[normalizedTag] = *resource
 			}
