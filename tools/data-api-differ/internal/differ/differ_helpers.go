@@ -12,7 +12,7 @@ import (
 
 // stringifySDKObjectDefinition returns a human readable, string version of this SDKObjectDefinition.
 func (d differ) stringifySDKObjectDefinition(input models.SDKObjectDefinition) (*string, error) {
-	return helpers.GolangTypeForSDKObjectDefinition(input, nil, nil, nil)
+	return helpers.GolangTypeForSDKObjectDefinition(input, nil, nil)
 }
 
 // stringifySDKOperationOptionObjectDefinition returns a human readable, string version of this Object Definition.

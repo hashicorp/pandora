@@ -157,7 +157,7 @@ payload := %[1]s.%[2]s{
 `, packageName, *operation.RequestObject.ReferenceName))
 		} else {
 			// for simplicities sake
-			typeName, err := helpers.GolangTypeForSDKObjectDefinition(*operation.RequestObject, nil, nil, nil)
+			typeName, err := helpers.GolangTypeForSDKObjectDefinition(*operation.RequestObject, nil, nil)
 			if err != nil {
 				return nil, fmt.Errorf("determining golang type name for request object: %+v", err)
 			}
@@ -213,7 +213,7 @@ payload := %[1]s.%[2]s{
 `, packageName, *operation.RequestObject.ReferenceName))
 		} else {
 			// for simplicities sake
-			typeName, err := helpers.GolangTypeForSDKObjectDefinition(*operation.RequestObject, nil, nil, nil)
+			typeName, err := helpers.GolangTypeForSDKObjectDefinition(*operation.RequestObject, nil, nil)
 			if err != nil {
 				return nil, fmt.Errorf("determining golang type name for request object: %+v", err)
 			}
@@ -270,7 +270,7 @@ payload := %[1]s.%[2]s{
 `, packageName, *operation.RequestObject.ReferenceName))
 		} else {
 			// for simplicities sake
-			typeName, err := helpers.GolangTypeForSDKObjectDefinition(*operation.RequestObject, nil, nil, nil)
+			typeName, err := helpers.GolangTypeForSDKObjectDefinition(*operation.RequestObject, nil, nil)
 			if err != nil {
 				return nil, fmt.Errorf("determining golang type name for request object: %+v", err)
 			}

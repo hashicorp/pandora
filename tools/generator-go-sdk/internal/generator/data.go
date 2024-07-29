@@ -61,10 +61,6 @@ type GeneratorData struct {
 	// the name of the service as a package (e.g. resources or eventhub)
 	servicePackageName string
 
-	// slice of constant/model type names present for the service, used to determine whether a referenced type
-	// is local to the service, or is a common type
-	serviceTypeNames []string
-
 	// sourceType is the source data type and is the SDK package name
 	sourceType models.SourceDataType
 
@@ -91,14 +87,6 @@ func (i ServiceGeneratorInput) generatorData(settings Settings) GeneratorData {
 
 	useNewBaseLayer := settings.ShouldUseNewBaseLayer(i.ServiceName, i.VersionName)
 
-	serviceTypeNames := make([]string, 0)
-	for constantName := range i.ResourceDetails.Constants {
-		serviceTypeNames = append(serviceTypeNames, constantName)
-	}
-	for modelName := range i.ResourceDetails.Models {
-		serviceTypeNames = append(serviceTypeNames, modelName)
-	}
-
 	var commonTypesPackageName, commonTypesIncludePath *string
 	if len(i.CommonTypes.Constants) > 0 && len(i.CommonTypes.Models) > 0 {
 		commonTypesPackageName = pointer.To(strings.ToLower(strings.ReplaceAll(i.VersionName, "-", "_")))
@@ -120,7 +108,6 @@ func (i ServiceGeneratorInput) generatorData(settings Settings) GeneratorData {
 		resourceOutputPath:     resourceOutputPath,
 		serviceClientName:      fmt.Sprintf("%sClient", strings.Title(i.ResourceName)),
 		servicePackageName:     strings.ToLower(i.ServiceName),
-		serviceTypeNames:       serviceTypeNames,
 		source:                 i.Source,
 		sourceType:             i.Type,
 		useIdAliases:           false,
