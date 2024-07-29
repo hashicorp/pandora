@@ -5,7 +5,6 @@ package pipeline
 
 import (
 	"fmt"
-
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/normalize"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/parser"
@@ -97,22 +96,45 @@ func (p pipeline) translateServiceToDataApiSdkTypes(models parser.Models, consta
 
 			for _, response := range operation.Responses {
 				if response.Type != nil && *response.Type == parser.DataTypeModel && response.ModelName != nil {
-					if !models.Found(*response.ModelName) {
-						return nil, fmt.Errorf("response model %q was not found for operation: %s", *response.ModelName, operation.Name)
+					modelName := *response.ModelName
+
+					if !models.Found(modelName) {
+						return nil, fmt.Errorf("response model %q was not found for operation: %s", modelName, operation.Name)
 					}
 
-					if model := models[*response.ModelName]; !model.IsValid() {
-						return nil, fmt.Errorf("response model %q was invalid for operation: %s", *response.ModelName, operation.Name)
+					model := models[modelName]
+
+					if !model.IsValid() {
+						return nil, fmt.Errorf("response model %q was invalid for operation: %s", modelName, operation.Name)
 					} else if !model.Common {
 						responseObjectIsCommonType = false
 
-						if err := serviceModels.MergeDependants(models, *response.ModelName); err != nil {
+						if err := serviceModels.MergeDependants(models, modelName); err != nil {
 							return nil, err
 						}
 					}
 
+					// List operations return a "CollectionResponse" object, which we are not interested in
+					// We want the actual underlying model, expected to be in the `value` field
+					if operation.Type == parser.OperationTypeList {
+						if value, ok := model.Fields["Value"]; ok && value != nil && *value.Type == parser.DataTypeArray && value.ModelName != nil {
+							responseObjectIsCommonType = true
+							modelName = *value.ModelName
+
+							if !models.Found(modelName) {
+								return nil, fmt.Errorf("nested response model %q was not found for operation: %s", modelName, operation.Name)
+							} else if !model.Common {
+								responseObjectIsCommonType = false
+
+								if err := serviceModels.MergeDependants(models, modelName); err != nil {
+									return nil, err
+								}
+							}
+						}
+					}
+
 					responseObject = &sdkModels.SDKObjectDefinition{
-						ReferenceName:             response.ModelName,
+						ReferenceName:             &modelName,
 						ReferenceNameIsCommonType: &responseObjectIsCommonType,
 						Type:                      sdkModels.ReferenceSDKObjectDefinitionType,
 					}
