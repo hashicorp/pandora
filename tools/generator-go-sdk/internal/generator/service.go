@@ -100,9 +100,9 @@ func (s *ServiceGenerator) GenerateForVersion(input VersionGeneratorInput) error
 	}
 
 	runGoFmt(data.commonTypesOutputPath)
-	runGoImports(data.commonTypesOutputPath)
-
 	runGoFmt(data.versionOutputPath)
+
+	runGoImports(data.commonTypesOutputPath)
 	runGoImports(data.versionOutputPath)
 
 	return nil

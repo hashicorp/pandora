@@ -95,7 +95,7 @@ func (p predicateTemplater) templateForModel(predicateStructName string, name st
 		for _, fieldName := range fieldNames {
 			fieldVal := model.Fields[fieldName]
 
-			typeInfo, err := helpers.GolangTypeForSDKObjectDefinition(fieldVal.ObjectDefinition, nil, nil, nil)
+			typeInfo, err := helpers.GolangTypeForSDKObjectDefinition(fieldVal.ObjectDefinition, nil, nil)
 			if err != nil {
 				return nil, fmt.Errorf("determining type information for field %q in model %q with info %q: %+v", fieldName, name, string(fieldVal.ObjectDefinition.Type), err)
 			}

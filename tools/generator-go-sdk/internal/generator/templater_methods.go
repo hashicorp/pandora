@@ -301,9 +301,15 @@ func (c methodsPandoraTemplater) listOperationTemplate(data GeneratorData) (*str
 	if err != nil {
 		return nil, fmt.Errorf("building options struct: %+v", err)
 	}
-	typeName, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.ResponseObject, nil, &data.serviceTypeNames, data.commonTypesPackageName)
+	typeName, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.ResponseObject, nil, data.commonTypesPackageName)
 	if err != nil {
 		return nil, fmt.Errorf("determining golang type name for response object: %+v", err)
+	}
+	predicateName := "OperationPredicate"
+	if parts := strings.SplitN(*typeName, ".", 2); len(parts) == 2 {
+		predicateName = fmt.Sprintf("%s%s", parts[1], predicateName)
+	} else {
+		predicateName = fmt.Sprintf("%s%s", *typeName, predicateName)
 	}
 
 	templated := fmt.Sprintf(`
@@ -342,11 +348,11 @@ func (c %[1]s) %[2]s(ctx context.Context %[3]s) (result %[2]sOperationResponse, 
 
 // %[2]sComplete retrieves all the results into a single object
 func (c %[1]s) %[2]sComplete(ctx context.Context%[4]s) (%[2]sCompleteResult, error) {
-	return c.%[2]sCompleteMatchingPredicate(ctx%[6]s, %[7]sOperationPredicate{})
+	return c.%[2]sCompleteMatchingPredicate(ctx%[6]s, %[8]s{})
 }
 
 // %[2]sCompleteMatchingPredicate retrieves all the results and then applies the predicate
-func (c %[1]s) %[2]sCompleteMatchingPredicate(ctx context.Context%[4]s, predicate %[7]sOperationPredicate) (result %[2]sCompleteResult, err error) {
+func (c %[1]s) %[2]sCompleteMatchingPredicate(ctx context.Context%[4]s, predicate %[8]s) (result %[2]sCompleteResult, err error) {
 	items := make([]%[7]s, 0)
 
 	resp, err := c.%[2]s(ctx%[6]s)
@@ -369,7 +375,7 @@ func (c %[1]s) %[2]sCompleteMatchingPredicate(ctx context.Context%[4]s, predicat
 	}
 	return
 }
-`, data.serviceClientName, c.operationName, data.packageName, *methodArguments, *responseStruct, argumentsCode, *typeName)
+`, data.serviceClientName, c.operationName, data.packageName, *methodArguments, *responseStruct, argumentsCode, *typeName, predicateName)
 	} else {
 		templated += fmt.Sprintf(`
 // %[2]sComplete retrieves all the results into a single object
@@ -471,7 +477,7 @@ func (c methodsPandoraTemplater) argumentsTemplateForMethod(data GeneratorData) 
 		arguments = append(arguments, fmt.Sprintf("id %s", idName))
 	}
 	if c.operation.RequestObject != nil {
-		typeName, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.RequestObject, nil, &data.serviceTypeNames, data.commonTypesPackageName)
+		typeName, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.RequestObject, nil, data.commonTypesPackageName)
 		if err != nil {
 			return nil, fmt.Errorf("determining type name for request object: %+v", err)
 		}
@@ -583,7 +589,7 @@ func (c methodsPandoraTemplater) unmarshalerTemplate(data GeneratorData) (*strin
 	}
 
 	if c.operation.ResponseObject != nil {
-		golangTypeName, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.ResponseObject, nil, &data.serviceTypeNames, data.commonTypesPackageName)
+		golangTypeName, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.ResponseObject, nil, data.commonTypesPackageName)
 		if err != nil {
 			return nil, fmt.Errorf("determing golang type name for response object: %+v", err)
 		}
@@ -661,7 +667,7 @@ func (c methodsPandoraTemplater) unmarshalerTemplate(data GeneratorData) (*strin
 	result.Model = &model
 `, discriminatedTypeParentName)
 		} else {
-			responseModelType, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.ResponseObject, nil, &data.serviceTypeNames, data.commonTypesPackageName)
+			responseModelType, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.ResponseObject, nil, data.commonTypesPackageName)
 			if err != nil {
 				return nil, fmt.Errorf("determing golang type name for response object: %+v", err)
 			}
@@ -692,7 +698,7 @@ func (c methodsPandoraTemplater) responseStructTemplate(data GeneratorData) (*st
 	model := ""
 	typeName := ""
 	if c.operation.ResponseObject != nil {
-		golangTypeName, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.ResponseObject, nil, &data.serviceTypeNames, data.commonTypesPackageName)
+		golangTypeName, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.ResponseObject, nil, data.commonTypesPackageName)
 		if err != nil {
 			return nil, fmt.Errorf("determing golang type name for response object: %+v", err)
 		}

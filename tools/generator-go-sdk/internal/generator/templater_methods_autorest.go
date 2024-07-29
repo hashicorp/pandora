@@ -225,7 +225,7 @@ func (c methodsAutoRestTemplater) listOperationTemplate(data GeneratorData) (*st
 	if err != nil {
 		return nil, fmt.Errorf("building responder template: %+v", err)
 	}
-	typeName, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.ResponseObject, nil, nil, nil)
+	typeName, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.ResponseObject, nil, nil)
 	if err != nil {
 		return nil, fmt.Errorf("determining golang type name for response object: %+v", err)
 	}
@@ -450,7 +450,7 @@ func (c methodsAutoRestTemplater) argumentsTemplateForMethod(data GeneratorData)
 		arguments = append(arguments, fmt.Sprintf("id %s", idName))
 	}
 	if c.operation.RequestObject != nil {
-		typeName, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.RequestObject, nil, nil, nil)
+		typeName, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.RequestObject, nil, nil)
 		if err != nil {
 			return nil, fmt.Errorf("determining type name for request object: %+v", err)
 		}
@@ -600,7 +600,7 @@ func (c methodsAutoRestTemplater) responderTemplate(responseStructName string, d
 	steps = append(steps, "autorest.ByClosing()")
 
 	if c.operation.FieldContainingPaginationDetails != nil && discriminatedType == "" {
-		typeName, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.ResponseObject, nil, nil, nil)
+		typeName, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.ResponseObject, nil, nil)
 		if err != nil {
 			return nil, fmt.Errorf("determining golang type name for response object: %+v", err)
 		}
@@ -652,7 +652,7 @@ func (c %[1]s) responderFor%[2]s(resp *http.Response) (result %[6]s, err error) 
 	}
 
 	if discriminatedType != "" && c.operation.FieldContainingPaginationDetails != nil {
-		typeName, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.ResponseObject, nil, nil, nil)
+		typeName, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.ResponseObject, nil, nil)
 		if err != nil {
 			return nil, fmt.Errorf("determining golang type name for response object: %+v", err)
 		}
@@ -767,7 +767,7 @@ func (c methodsAutoRestTemplater) responseStructTemplate(responseStructName stri
 	model := ""
 	typeName := ""
 	if c.operation.ResponseObject != nil {
-		golangTypeName, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.ResponseObject, nil, nil, nil)
+		golangTypeName, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.ResponseObject, nil, nil)
 		if err != nil {
 			return nil, fmt.Errorf("determing golang type name for response object: %+v", err)
 		}
