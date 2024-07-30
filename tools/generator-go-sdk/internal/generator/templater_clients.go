@@ -29,7 +29,7 @@ type %[2]s struct {
 }
 
 func New%[2]sWithBaseURI(sdkApi sdkEnv.Api) (*%[2]s, error) {
-	client, err := %[3]s.NewResourceManagerClient(sdkApi, %[1]q, defaultApiVersion)
+	client, err := %[3]s.NewClient(sdkApi, %[1]q, defaultApiVersion)
 	if err != nil {
 		return nil, fmt.Errorf("instantiating %[2]s: %%+v", err)
 	}
