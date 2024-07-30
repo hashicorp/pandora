@@ -15,5 +15,5 @@ const (
 )
 
 func SourceDataTypeIsDataPlane(sourceDataType SourceDataType) bool {
-	return sourceDataType == ResourceManagerSourceDataType
+	return sourceDataType != ResourceManagerSourceDataType
 }
