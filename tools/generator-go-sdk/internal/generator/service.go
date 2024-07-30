@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"os"
 	"os/exec"
+	"path/filepath"
 
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/generator-go-sdk/internal/logging"
@@ -121,10 +122,22 @@ func runGoImports(path string) {
 }
 
 func cleanAndRecreateWorkingDirectory(path string) error {
-	os.RemoveAll(path)
-	// TODO: make these less exciting
+	// first, ensure the directory exists
 	if err := os.MkdirAll(path, 0777); err != nil {
 		return fmt.Errorf("creating %q: %+v", path, err)
+	}
+
+	// determine contents of output directory
+	pathsToDelete, err := filepath.Glob(filepath.Join(path, "*"))
+	if err != nil {
+		return fmt.Errorf("globbing files to delete: %+v", err)
+	}
+
+	// delete any contained files and directories
+	for _, pathToDelete := range pathsToDelete {
+		if err = os.RemoveAll(pathToDelete); err != nil {
+			return fmt.Errorf("deleting %q: %w", pathToDelete, err)
+		}
 	}
 
 	return nil
