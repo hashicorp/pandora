@@ -5,7 +5,9 @@ package pipeline
 
 import (
 	"fmt"
+
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/blacklisted"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/normalize"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/parser"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/versions"
@@ -15,6 +17,10 @@ func (p pipeline) translateServiceToDataApiSdkTypes(models parser.Models, consta
 	sdkServices := make(map[string]sdkModels.Service)
 
 	for _, resource := range resources {
+		if blacklisted.Resource(resource) {
+			continue
+		}
+
 		// First scaffold all discovered services, version(s) and resources (categories)
 		if _, ok := sdkServices[resource.Service]; !ok {
 			sdkServices[resource.Service] = sdkModels.Service{
