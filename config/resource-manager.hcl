@@ -86,6 +86,10 @@ service "botservice" {
   name      = "BotService"
   available = ["2022-09-15"]
 }
+service "cdn" {
+  name      = "CDN"
+  available = ["2024-02-01"]
+}
 service "chaos" {
   name      = "ChaosStudio"
   available = ["2023-11-01", "2024-01-01"]
