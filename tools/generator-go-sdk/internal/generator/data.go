@@ -16,6 +16,9 @@ type GeneratorData struct {
 	// the name of the package which should be used
 	packageName string
 
+	// baseClientPackage is the name of the base client package to use for this SDK
+	baseClientPackage string
+
 	// commonTypes contains any common models and constants for this API version
 	commonTypes models.CommonTypes
 
@@ -95,6 +98,7 @@ func (i ServiceGeneratorInput) generatorData(settings Settings) GeneratorData {
 
 	return GeneratorData{
 		apiVersion:             i.VersionName,
+		baseClientPackage:      baseClientPackageForSdk(i.Type),
 		commonTypes:            i.CommonTypes,
 		commonTypesIncludePath: commonTypesIncludePath,
 		commonTypesPackageName: commonTypesPackageName,
@@ -145,6 +149,7 @@ func (i VersionGeneratorInput) generatorData(settings Settings) VersionGenerator
 	return VersionGeneratorData{
 		GeneratorData: GeneratorData{
 			apiVersion:         i.VersionName,
+			baseClientPackage:  baseClientPackageForSdk(i.Type),
 			commonTypes:        i.CommonTypes,
 			constants:          i.CommonTypes.Constants,
 			isDataPlane:        models.SourceDataTypeIsDataPlane(i.Type),

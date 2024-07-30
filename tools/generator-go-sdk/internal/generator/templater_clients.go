@@ -16,18 +16,20 @@ func (c clientsTemplater) template(data GeneratorData) (*string, error) {
 	template := fmt.Sprintf(`package %[1]s
 
 import (
+	"github.com/hashicorp/go-azure-sdk/sdk/client"
+	"github.com/hashicorp/go-azure-sdk/sdk/client/msgraph"
 	"github.com/hashicorp/go-azure-sdk/sdk/client/resourcemanager"
 	sdkEnv "github.com/hashicorp/go-azure-sdk/sdk/environments"
 )
 
-%[3]s
+%[4]s
 
 type %[2]s struct {
-	Client  *resourcemanager.Client
+	Client  *%[3]s.Client
 }
 
 func New%[2]sWithBaseURI(sdkApi sdkEnv.Api) (*%[2]s, error) {
-	client, err := resourcemanager.NewResourceManagerClient(sdkApi, %[1]q, defaultApiVersion)
+	client, err := %[3]s.NewResourceManagerClient(sdkApi, %[1]q, defaultApiVersion)
 	if err != nil {
 		return nil, fmt.Errorf("instantiating %[2]s: %%+v", err)
 	}
@@ -35,6 +37,6 @@ func New%[2]sWithBaseURI(sdkApi sdkEnv.Api) (*%[2]s, error) {
 	return &%[2]s{
 		Client: client,
 	}, nil
-}`, data.packageName, data.serviceClientName, *copyrightLines)
+}`, data.packageName, data.serviceClientName, data.baseClientPackage, *copyrightLines)
 	return &template, nil
 }
