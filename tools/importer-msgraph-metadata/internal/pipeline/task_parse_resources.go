@@ -207,36 +207,41 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 
 			prefixToTrim := normalize.Singularize(normalize.CleanName(p.service))
 			if resourceId != nil && uriSuffix == nil {
-				prefixToTrim = fmt.Sprintf("%sById", prefixToTrim)
+				prefixToTrim = fmt.Sprintf("%s%s", prefixToTrim, parser.ResourceSuffix)
 			}
 			shortResourceName := strings.TrimPrefix(resourceName, prefixToTrim)
+
+			operationName = shortResourceName
+			if len(operationName) == 0 {
+				operationName = resourceName
+			}
 
 			switch operationType {
 			case parser.OperationTypeList:
 				if _, ok = normalize.Verbs.Match(shortResourceName); ok {
-					operationName = normalize.Pluralize(normalize.Singularize(resourceName))
+					operationName = normalize.Pluralize(normalize.Singularize(operationName))
 				} else {
-					operationName = fmt.Sprintf("List%s", normalize.Pluralize(normalize.Singularize(resourceName)))
+					operationName = fmt.Sprintf("List%s", normalize.Pluralize(normalize.Singularize(operationName)))
 				}
 			case parser.OperationTypeRead:
-				operationName = fmt.Sprintf("Get%s", normalize.Singularize(resourceName))
+				operationName = fmt.Sprintf("Get%s", normalize.Singularize(operationName))
 			case parser.OperationTypeCreate:
 				if _, ok = normalize.Verbs.Match(shortResourceName); ok {
-					operationName = normalize.Singularize(resourceName)
+					operationName = normalize.Singularize(operationName)
 				} else if lastSegment.Type == parser.SegmentODataReference {
-					operationName = fmt.Sprintf("Add%s", normalize.Singularize(resourceName))
+					operationName = fmt.Sprintf("Add%s", normalize.Singularize(operationName))
 				} else {
-					operationName = fmt.Sprintf("Create%s", normalize.Singularize(resourceName))
+					operationName = fmt.Sprintf("Create%s", normalize.Singularize(operationName))
 				}
 			case parser.OperationTypeCreateUpdate:
-				operationName = fmt.Sprintf("CreateUpdate%s", normalize.Singularize(resourceName))
+				operationName = fmt.Sprintf("CreateUpdate%s", normalize.Singularize(operationName))
 			case parser.OperationTypeUpdate:
-				operationName = fmt.Sprintf("Update%s", normalize.Singularize(resourceName))
+				operationName = fmt.Sprintf("Update%s", normalize.Singularize(operationName))
 			case parser.OperationTypeDelete:
 				if lastSegment.Type == parser.SegmentODataReference {
-					operationName = fmt.Sprintf("Remove%s", normalize.Singularize(resourceName))
+					operationName = fmt.Sprintf("Remove%s", normalize.Singularize(operationName))
 				} else {
-					operationName = fmt.Sprintf("Delete%s", normalize.Singularize(resourceName))
+					operationName = fmt.Sprintf("Delete%s", normalize.Singularize(operationName))
 				}
 			}
 
