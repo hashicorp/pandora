@@ -45,6 +45,7 @@ import (
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/commonids"
 	"github.com/hashicorp/go-azure-sdk/sdk/client"
 	"github.com/hashicorp/go-azure-sdk/sdk/client/pollers"
+	"github.com/hashicorp/go-azure-sdk/sdk/client/msgraph"
 	"github.com/hashicorp/go-azure-sdk/sdk/client/resourcemanager"
 	"github.com/hashicorp/go-azure-sdk/sdk/odata"
 	%[4]s
@@ -226,12 +227,12 @@ func (c methodsPandoraTemplater) longRunningOperationTemplate(data GeneratorData
 	}
 
 	templated := fmt.Sprintf(`
-%[8]s
 %[9]s
 %[10]s
+%[11]s
 
-// %[2]s ...
-func (c %[1]s) %[2]s(ctx context.Context %[3]s) (result %[2]sOperationResponse, err error) {
+// %[3]s ...
+func (c %[1]s) %[3]s(ctx context.Context %[4]s) (result %[3]sOperationResponse, err error) {
 	opts := %[4]s
 
 	req, err := c.Client.NewRequest(ctx, opts)
@@ -239,7 +240,7 @@ func (c %[1]s) %[2]s(ctx context.Context %[3]s) (result %[2]sOperationResponse, 
 		return
 	}
 
-	%[5]s
+	%[6]s
 
 	var resp *client.Response
 	resp, err = req.Execute(ctx)
@@ -251,9 +252,9 @@ func (c %[1]s) %[2]s(ctx context.Context %[3]s) (result %[2]sOperationResponse, 
 		return
 	}
 
-	%[6]s
+	%[7]s
 
-	result.Poller, err = resourcemanager.PollerFromResponse(resp, c.Client)
+	result.Poller, err = %[2]s.PollerFromResponse(resp, c.Client)
 	if err != nil {
 		return
 	}
@@ -261,20 +262,20 @@ func (c %[1]s) %[2]s(ctx context.Context %[3]s) (result %[2]sOperationResponse, 
 	return
 }
 
-// %[2]sThenPoll performs %[2]s then polls until it's completed
-func (c %[1]s) %[2]sThenPoll(ctx context.Context %[3]s) error {
-	result, err := c.%[2]s(ctx %[7]s)
+// %[3]sThenPoll performs %[3]s then polls until it's completed
+func (c %[1]s) %[3]sThenPoll(ctx context.Context %[4]s) error {
+	result, err := c.%[3]s(ctx %[8]s)
 	if err != nil {
-		return fmt.Errorf("performing %[2]s: %%+v", err)
+		return fmt.Errorf("performing %[3]s: %%+v", err)
 	}
 
 	if err := result.Poller.PollUntilDone(ctx); err != nil {
-		return fmt.Errorf("polling after %[2]s: %%+v", err)
+		return fmt.Errorf("polling after %[3]s: %%+v", err)
 	}
 
 	return nil
 }
-`, data.serviceClientName, c.operationName, *methodArguments, *requestOptions, *marshalerCode, *unmarshalerCode, argumentsCode, *responseStruct, *optionsStruct, requestOptionStruct)
+`, data.serviceClientName, data.baseClientPackage, c.operationName, *methodArguments, *requestOptions, *marshalerCode, *unmarshalerCode, argumentsCode, *responseStruct, *optionsStruct, requestOptionStruct)
 	return &templated, nil
 }
 
