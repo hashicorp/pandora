@@ -4,6 +4,8 @@
 package pipeline
 
 import (
+	"fmt"
+
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/normalize"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/parser"
@@ -25,7 +27,8 @@ func translateModelsToDataApiSdkTypes(models parser.Models, constants parser.Con
 	for constantName, constant := range constants {
 		constantValues := make(map[string]string)
 		for _, value := range constant.Enum {
-			constantValues[normalize.CleanName(value)] = value
+			// prefix constant value names with underscore to prevent naming conflicts with similarly named models in the generated SDK
+			constantValues[fmt.Sprintf("_%s", normalize.CleanName(value))] = value
 		}
 
 		// TODO support additional types, if there are any
