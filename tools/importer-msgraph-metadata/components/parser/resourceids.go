@@ -14,7 +14,7 @@ import (
 )
 
 const (
-	ResourceSuffix   = "ById"
+	ResourceSuffix   = ""
 	ResourceIdSuffix = "Id"
 )
 
