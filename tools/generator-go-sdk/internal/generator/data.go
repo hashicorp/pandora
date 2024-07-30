@@ -64,7 +64,7 @@ type GeneratorData struct {
 	// sourceType is the source data type and is the SDK package name
 	sourceType models.SourceDataType
 
-	// whether this is a data plane SDK (omits certain Resource Manager specific features)
+	// whether this is a data plane SDK (omits certain Resource Manager specific features, currently used in ID parsers)
 	isDataPlane bool
 
 	// development feature flag - this requires work in the Resource ID parser to handle name conflicts

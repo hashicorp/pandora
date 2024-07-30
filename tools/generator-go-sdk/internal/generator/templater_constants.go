@@ -54,7 +54,11 @@ func (c constantsTemplater) template(data GeneratorData) (*string, error) {
 
 	template := fmt.Sprintf(`package %[1]s
 
-import "strings"
+import (
+	"encoding/json"
+	"fmt"
+	"strings"
+)
 
 %[3]s
 
