@@ -27,7 +27,7 @@ func main() {
 	}
 	logging.Log = hclog.New(loggingOpts)
 
-	c := cli.NewCLI("importer-msgraph-metadata", "0.2.1")
+	c := cli.NewCLI("importer-msgraph-metadata", "0.2.2")
 	c.Args = os.Args[1:]
 	c.Commands = map[string]cli.CommandFactory{
 		"import":    cmd.NewImportCommand(metadataDirectory, microsoftGraphConfig, openApiFilePattern, outputDirectory),
