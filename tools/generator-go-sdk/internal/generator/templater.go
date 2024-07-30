@@ -29,7 +29,9 @@ func (s *ServiceGenerator) writeToPathForResource(directory, filePath string, te
 
 	// remove any existing file if it exists
 	_ = os.Remove(fullFilePath)
-	file, err := os.Create(fullFilePath)
+
+	// call os.OpenFile instead of os.Create to reduce spurious "file not found" errors when O_TRUNC is used
+	file, err := os.OpenFile(fullFilePath, os.O_WRONLY|os.O_CREATE, 0666)
 	defer file.Close()
 	if err != nil {
 		return fmt.Errorf("opening %q: %+v", fullFilePath, err)
