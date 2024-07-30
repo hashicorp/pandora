@@ -21,6 +21,16 @@ service "applicationTemplates" {
   available = ["stable", "beta"]
 }
 
+service "auditLogs" {
+  name      = "AuditLogs"
+  available = ["stable", "beta"]
+}
+
+service "deviceManagement" {
+  name      = "DeviceManagement"
+  available = ["stable", "beta"]
+}
+
 service "directory" {
   name      = "Directory"
   available = ["stable", "beta"]
@@ -46,6 +56,11 @@ service "identity" {
   available = ["stable"]
 }
 
+service "identityGovernance" {
+  name      = "IdentityGovernance"
+  available = ["stable"]
+}
+
 service "invitations" {
   name      = "Invitations"
   available = ["stable", "beta"]
@@ -66,8 +81,18 @@ service "policies" {
   available = ["stable", "beta"]
 }
 
+service "reports" {
+  name      = "Reports"
+  available = ["stable", "beta"]
+}
+
 service "roleManagement" {
   name      = "RoleManagement"
+  available = ["stable", "beta"]
+}
+
+service "schemaExtensions" {
+  name      = "SchemaExtensions"
   available = ["stable", "beta"]
 }
 
