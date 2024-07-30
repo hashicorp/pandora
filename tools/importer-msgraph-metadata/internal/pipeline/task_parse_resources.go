@@ -300,24 +300,47 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 		}
 	}
 
+	// Look for resources without a category, then iterate the known paths of it and all potential parent resources
+	// to find a match by truncating its path to the preceding label segment. Once a match is found, adopt the
+	// resource category of the matched parent to ensure they are grouped together.
 	for _, resource := range resources {
-		// Look for resources without a category, then iterate the known paths of it and all potential parent resources
-		// to find a match by truncating its path to the preceding label segment. Once a match is found, adopt the
-		// resource category of the matched parent to ensure they are grouped together.
-		if pathsLen := len(resource.Paths); resource.Category == "" && pathsLen > 0 {
-			for _, path := range resource.Paths {
-				if trimmedPath := path.TruncateToLastSegmentOfTypeBeforeSegment([]parser.ResourceIdSegmentType{parser.SegmentLabel}, -1); trimmedPath != nil {
-					for _, parentResource := range resources {
-						if parentResource.Category != "" {
-							for _, parentPath := range parentResource.Paths {
-								if parentPath.ID() == trimmedPath.ID() {
-									resource.Category = parentResource.Category
-									break
-								}
-							}
-						}
+		pathsLen := len(resource.Paths)
+		if resource.Category != "" || pathsLen == 0 {
+			continue
+		}
+
+		for _, path := range resource.Paths {
+			trimmedPath := path.TruncateToLastSegmentOfTypeBeforeSegment([]parser.ResourceIdSegmentType{parser.SegmentLabel}, -1)
+			if trimmedPath == nil {
+				continue
+			}
+
+			for _, parentResource := range resources {
+				if parentResource.Category == "" {
+					continue
+				}
+
+				for _, parentPath := range parentResource.Paths {
+					if parentPath.ID() == trimmedPath.ID() {
+						resource.Category = parentResource.Category
+						break
 					}
 				}
+			}
+		}
+	}
+
+	// Loop through resources and trim the leading word if it matches the category _and_ there are more words after it
+	for _, resource := range resources {
+		if resource.Service == "" || resource.Category == "" {
+			continue
+		}
+
+		serviceSingularized := normalize.Singularize(resource.Service)
+		if strings.HasPrefix(resource.Category, serviceSingularized) {
+			trimmedCategory := strings.TrimPrefix(resource.Category, serviceSingularized)
+			if len(trimmedCategory) > 1 {
+				resource.Category = trimmedCategory
 			}
 		}
 	}
