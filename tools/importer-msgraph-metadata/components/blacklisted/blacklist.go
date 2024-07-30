@@ -10,18 +10,18 @@ import (
 func Resource(resource *parser.Resource) bool {
 	if resource.Service == "Groups" {
 
-		// Repeating ID segments which are not supported
-		if resource.Name == "SiteSite" {
+		// Has IDs with repeating segments, which are not supported
+		if resource.Category == "SiteSite" {
 			return true
 		}
 
 		// GroupSiteTermStore resources have repeating ID segments which are not supported at this time
-		if strings.Contains(resource.Name, "TermStore") {
+		if strings.Contains(resource.Category, "TermStore") {
 			return true
 		}
 
 		// Onenote resources have repeating ID segments which are not supported at this time
-		if strings.Contains(resource.Name, "Onenote") {
+		if strings.Contains(resource.Category, "Onenote") {
 			return true
 		}
 
@@ -29,7 +29,7 @@ func Resource(resource *parser.Resource) bool {
 
 	if resource.Service == "IdentityGovernance" {
 
-		// Repeating ID segments which are not supported at this time
+		// These contain IDs with repeating segments, which are not supported at this time
 		prefixes := []string{
 			"EntitlementManagementAccessPackageResourceRoleScopeRoleResourceScopeResourceRole",
 			"EntitlementManagementAccessPackageResourceRoleScopeScopeResourceRoleResourceScope",
@@ -43,7 +43,7 @@ func Resource(resource *parser.Resource) bool {
 			"EntitlementManagementResourceRoleScopeScopeResourceRoleResourceScope",
 		}
 		for _, prefix := range prefixes {
-			if strings.HasPrefix(resource.Name, prefix) || strings.HasPrefix(resource.Name, fmt.Sprintf("%s%s", resource.Service, prefix)) {
+			if strings.HasPrefix(resource.Category, prefix) || strings.HasPrefix(resource.Category, fmt.Sprintf("%s%s", resource.Service, prefix)) {
 				return true
 			}
 		}
@@ -53,17 +53,17 @@ func Resource(resource *parser.Resource) bool {
 	if resource.Service == "Me" || resource.Service == "Users" {
 
 		// Onenote resources have repeating ID segments which are not supported at this time
-		if strings.Contains(resource.Name, "Onenote") {
+		if strings.Contains(resource.Category, "Onenote") {
 			return true
 		}
 
-		// Repeating ID segments which are not supported at this time
+		// These contain IDs with repeating segments, which are not supported at this time
 		prefixes := []string{
 			"PendingAccessReviewInstanceDecisionInstanceStageDecision",
 			"PendingAccessReviewInstanceStageDecisionInstanceDecision",
 		}
 		for _, prefix := range prefixes {
-			if strings.HasPrefix(resource.Name, prefix) || strings.HasPrefix(resource.Name, fmt.Sprintf("%s%s", resource.Service, prefix)) {
+			if strings.HasPrefix(resource.Category, prefix) || strings.HasPrefix(resource.Category, fmt.Sprintf("%s%s", resource.Service, prefix)) {
 				return true
 			}
 		}
