@@ -1,0 +1,20 @@
+{
+  "name": "Failover",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "AutonomousDatabaseId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "PeerDbDetails"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "AutonomousDatabase"
+  },
+  "uriSuffix": "/failover"
+}

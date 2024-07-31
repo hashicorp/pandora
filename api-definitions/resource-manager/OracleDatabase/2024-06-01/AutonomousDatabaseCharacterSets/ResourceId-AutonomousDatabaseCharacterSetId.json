@@ -1,0 +1,43 @@
+{
+  "name": "AutonomousDatabaseCharacterSetId",
+  "id": "/subscriptions/{subscriptionId}/providers/Oracle.Database/locations/{locationName}/autonomousDatabaseCharacterSets/{autonomousDatabaseCharacterSetName}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticOracleDatabase",
+      "type": "ResourceProvider",
+      "value": "Oracle.Database"
+    },
+    {
+      "name": "staticLocations",
+      "type": "Static",
+      "value": "locations"
+    },
+    {
+      "name": "locationName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticAutonomousDatabaseCharacterSets",
+      "type": "Static",
+      "value": "autonomousDatabaseCharacterSets"
+    },
+    {
+      "name": "autonomousDatabaseCharacterSetName",
+      "type": "UserSpecified"
+    }
+  ]
+}

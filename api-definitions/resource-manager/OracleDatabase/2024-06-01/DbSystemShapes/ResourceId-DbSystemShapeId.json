@@ -1,0 +1,43 @@
+{
+  "name": "DbSystemShapeId",
+  "id": "/subscriptions/{subscriptionId}/providers/Oracle.Database/locations/{locationName}/dbSystemShapes/{dbSystemShapeName}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticOracleDatabase",
+      "type": "ResourceProvider",
+      "value": "Oracle.Database"
+    },
+    {
+      "name": "staticLocations",
+      "type": "Static",
+      "value": "locations"
+    },
+    {
+      "name": "locationName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticDbSystemShapes",
+      "type": "Static",
+      "value": "dbSystemShapes"
+    },
+    {
+      "name": "dbSystemShapeName",
+      "type": "UserSpecified"
+    }
+  ]
+}

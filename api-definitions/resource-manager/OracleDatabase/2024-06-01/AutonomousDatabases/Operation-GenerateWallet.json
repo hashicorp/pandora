@@ -1,0 +1,19 @@
+{
+  "name": "GenerateWallet",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "AutonomousDatabaseId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "GenerateAutonomousDatabaseWalletDetails"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "AutonomousDatabaseWalletFile"
+  },
+  "uriSuffix": "/generateWallet"
+}

@@ -1,0 +1,43 @@
+{
+  "name": "GiVersionId",
+  "id": "/subscriptions/{subscriptionId}/providers/Oracle.Database/locations/{locationName}/giVersions/{giVersionName}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticOracleDatabase",
+      "type": "ResourceProvider",
+      "value": "Oracle.Database"
+    },
+    {
+      "name": "staticLocations",
+      "type": "Static",
+      "value": "locations"
+    },
+    {
+      "name": "locationName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticGiVersions",
+      "type": "Static",
+      "value": "giVersions"
+    },
+    {
+      "name": "giVersionName",
+      "type": "UserSpecified"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "name": "DbNodeId",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Oracle.Database/cloudVmClusters/{cloudVmClusterName}/dbNodes/{dbNodeName}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticResourceGroups",
+      "type": "Static",
+      "value": "resourceGroups"
+    },
+    {
+      "name": "resourceGroupName",
+      "type": "ResourceGroup"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticOracleDatabase",
+      "type": "ResourceProvider",
+      "value": "Oracle.Database"
+    },
+    {
+      "name": "staticCloudVmClusters",
+      "type": "Static",
+      "value": "cloudVmClusters"
+    },
+    {
+      "name": "cloudVmClusterName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticDbNodes",
+      "type": "Static",
+      "value": "dbNodes"
+    },
+    {
+      "name": "dbNodeName",
+      "type": "UserSpecified"
+    }
+  ]
+}

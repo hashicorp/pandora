@@ -1,0 +1,23 @@
+{
+  "name": "ListPrivateIPAddresses",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "CloudVMClusterId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "PrivateIPAddressesFilter"
+  },
+  "responseObject": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+      "type": "Reference",
+      "referenceName": "PrivateIPAddressProperties"
+    }
+  },
+  "uriSuffix": "/listPrivateIpAddresses"
+}
