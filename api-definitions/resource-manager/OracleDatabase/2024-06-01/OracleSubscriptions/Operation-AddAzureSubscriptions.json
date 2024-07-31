@@ -1,0 +1,15 @@
+{
+  "name": "AddAzureSubscriptions",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "SubscriptionId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "AzureSubscriptions"
+  },
+  "uriSuffix": "/providers/Oracle.Database/oracleSubscriptions/default/addAzureSubscriptions"
+}

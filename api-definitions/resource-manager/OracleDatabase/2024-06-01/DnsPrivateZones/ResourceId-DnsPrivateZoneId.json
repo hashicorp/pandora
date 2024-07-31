@@ -1,0 +1,43 @@
+{
+  "name": "DnsPrivateZoneId",
+  "id": "/subscriptions/{subscriptionId}/providers/Oracle.Database/locations/{locationName}/dnsPrivateZones/{dnsPrivateZoneName}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticOracleDatabase",
+      "type": "ResourceProvider",
+      "value": "Oracle.Database"
+    },
+    {
+      "name": "staticLocations",
+      "type": "Static",
+      "value": "locations"
+    },
+    {
+      "name": "locationName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticDnsPrivateZones",
+      "type": "Static",
+      "value": "dnsPrivateZones"
+    },
+    {
+      "name": "dnsPrivateZoneName",
+      "type": "UserSpecified"
+    }
+  ]
+}

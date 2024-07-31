@@ -1,0 +1,20 @@
+{
+  "name": "RemoveVMs",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "CloudVMClusterId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "AddRemoveDbNode"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "CloudVMCluster"
+  },
+  "uriSuffix": "/removeVms"
+}

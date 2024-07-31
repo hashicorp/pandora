@@ -1,0 +1,52 @@
+{
+  "name": "VirtualNetworkAddressId",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Oracle.Database/cloudVmClusters/{cloudVmClusterName}/virtualNetworkAddresses/{virtualNetworkAddressName}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticResourceGroups",
+      "type": "Static",
+      "value": "resourceGroups"
+    },
+    {
+      "name": "resourceGroupName",
+      "type": "ResourceGroup"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticOracleDatabase",
+      "type": "ResourceProvider",
+      "value": "Oracle.Database"
+    },
+    {
+      "name": "staticCloudVmClusters",
+      "type": "Static",
+      "value": "cloudVmClusters"
+    },
+    {
+      "name": "cloudVmClusterName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticVirtualNetworkAddresses",
+      "type": "Static",
+      "value": "virtualNetworkAddresses"
+    },
+    {
+      "name": "virtualNetworkAddressName",
+      "type": "UserSpecified"
+    }
+  ]
+}

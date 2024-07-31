@@ -1,0 +1,43 @@
+{
+  "name": "CloudExadataInfrastructureId",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Oracle.Database/cloudExadataInfrastructures/{cloudExadataInfrastructureName}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticResourceGroups",
+      "type": "Static",
+      "value": "resourceGroups"
+    },
+    {
+      "name": "resourceGroupName",
+      "type": "ResourceGroup"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticOracleDatabase",
+      "type": "ResourceProvider",
+      "value": "Oracle.Database"
+    },
+    {
+      "name": "staticCloudExadataInfrastructures",
+      "type": "Static",
+      "value": "cloudExadataInfrastructures"
+    },
+    {
+      "name": "cloudExadataInfrastructureName",
+      "type": "UserSpecified"
+    }
+  ]
+}
