@@ -1,0 +1,15 @@
+{
+  "name": "CreateCheckpoint",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "ScopeId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "VirtualMachineCreateCheckpoint"
+  },
+  "uriSuffix": "/providers/Microsoft.ScVmm/virtualMachineInstances/default/createCheckpoint"
+}

@@ -16,10 +16,36 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "jsonName": "database",
+      "name": "Database",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "jsonName": "encryptedCredential",
       "name": "EncryptedCredential",
       "objectDefinition": {
         "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "port",
+      "name": "Port",
+      "objectDefinition": {
+        "type": "Integer",
         "referenceName": null
       },
       "optional": true,
@@ -34,6 +60,32 @@
       "objectDefinition": {
         "type": "Reference",
         "referenceName": "AzureKeyVaultSecretReference"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "server",
+      "name": "Server",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "uid",
+      "name": "Uid",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
       },
       "optional": true,
       "readOnly": false,

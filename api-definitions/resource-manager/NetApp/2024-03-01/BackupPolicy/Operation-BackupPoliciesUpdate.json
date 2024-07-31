@@ -1,0 +1,19 @@
+{
+  "name": "BackupPoliciesUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "BackupPolicyId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "BackupPolicyPatch"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "BackupPolicy"
+  }
+}
