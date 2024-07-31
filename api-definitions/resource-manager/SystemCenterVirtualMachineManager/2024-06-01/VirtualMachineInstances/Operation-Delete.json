@@ -1,0 +1,34 @@
+{
+  "name": "Delete",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    202,
+    204
+  ],
+  "longRunning": true,
+  "httpMethod": "DELETE",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "deleteFromHost",
+      "required": false,
+      "field": "DeleteFromHost",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "DeleteFromHost"
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "force",
+      "required": false,
+      "field": "Force",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "ForceDelete"
+      }
+    }
+  ],
+  "resourceIdName": "ScopeId",
+  "uriSuffix": "/providers/Microsoft.ScVmm/virtualMachineInstances/default"
+}
