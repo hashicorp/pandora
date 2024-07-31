@@ -263,7 +263,7 @@ service "hdinsight" {
 }
 service "healthbot" {
   name      = "HealthBot"
-  available = ["2022-08-08", "2023-05-01"]
+  available = ["2022-08-08", "2023-05-01", "2024-02-01"]
 }
 service "healthcareapis" {
   name      = "HealthcareApis"
@@ -376,7 +376,7 @@ service "mysql" {
 }
 service "netapp" {
   name      = "NetApp"
-  available = ["2023-05-01", "2023-07-01", "2023-11-01"]
+  available = ["2023-05-01", "2023-07-01", "2023-11-01", "2024-03-01"]
 }
 service "network" {
   name      = "Network"
@@ -489,7 +489,7 @@ service "resourceconnector" {
 }
 service "resourcegraph" {
   name      = "ResourceGraph"
-  available = ["2022-10-01"]
+  available = ["2022-10-01", "2024-04-01"]
 }
 service "resources" {
   name      = "Resources"
@@ -498,7 +498,7 @@ service "resources" {
 }
 service "scvmm" {
   name      = "SystemCenterVirtualMachineManager"
-  available = ["2023-10-07"]
+  available = ["2023-10-07", "2024-06-01"]
 }
 service "search" {
   name      = "Search"
