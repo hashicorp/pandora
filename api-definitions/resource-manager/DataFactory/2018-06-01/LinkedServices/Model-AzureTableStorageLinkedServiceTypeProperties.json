@@ -1,5 +1,5 @@
 {
-  "name": "AzureFileStorageLinkedServiceTypeProperties",
+  "name": "AzureTableStorageLinkedServiceTypeProperties",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
@@ -55,45 +55,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "fileShare",
-      "name": "FileShare",
-      "objectDefinition": {
-        "type": "String",
-        "referenceName": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "host",
-      "name": "Host",
-      "objectDefinition": {
-        "type": "String",
-        "referenceName": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "password",
-      "name": "Password",
-      "objectDefinition": {
-        "type": "Reference",
-        "referenceName": "SecretBase"
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
       "jsonName": "sasToken",
       "name": "SasToken",
       "objectDefinition": {
@@ -122,32 +83,6 @@
       "containsDiscriminatedTypeValue": false,
       "jsonName": "serviceEndpoint",
       "name": "ServiceEndpoint",
-      "objectDefinition": {
-        "type": "String",
-        "referenceName": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "snapshot",
-      "name": "Snapshot",
-      "objectDefinition": {
-        "type": "String",
-        "referenceName": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "userId",
-      "name": "UserId",
       "objectDefinition": {
         "type": "String",
         "referenceName": null
