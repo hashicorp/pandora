@@ -8,10 +8,11 @@ import (
 
 	"github.com/hashicorp/pandora/tools/data-api-repository/repository"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/internal/logging"
 )
 
 func (p pipeline) PersistCommonTypesDefinitions() error {
-	p.logger.Info("Persisting Common Types Definitions..")
+	logging.Infof("Persisting Common Types Definitions..")
 
 	commonTypes := map[string]sdkModels.CommonTypes{
 		p.apiVersion: p.commonTypesForVersion,

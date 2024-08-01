@@ -8,9 +8,12 @@ import (
 	"sort"
 	"strings"
 
+	"github.com/getkin/kin-openapi/openapi3"
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/normalize"
+	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/tags"
+	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/internal/logging"
 )
 
 const (
@@ -62,7 +65,6 @@ func (ri ResourceIds) MatchIdOrAncestor(resourceId ResourceId) (*ResourceIdMatch
 type ResourceId struct {
 	Name     string
 	Service  string
-	Version  string
 	Segments []ResourceIdSegment
 }
 
@@ -419,4 +421,64 @@ func NewResourceId(path string, tags []string) (id ResourceId) {
 	}
 
 	return
+}
+
+func ParseResourceIDs(paths openapi3.Paths, serviceName *string) (resourceIds ResourceIds, err error) {
+	resourceIds = make(ResourceIds, 0)
+	for path, item := range paths {
+		operations := item.Operations()
+		operationTags := make([]string, 0)
+
+		if serviceName != nil {
+			// Check tags and skip
+			skip := true
+			for _, operation := range operations {
+				if tags.Matches(*serviceName, operation.Tags) {
+					operationTags = append(operationTags, operation.Tags...)
+					skip = false
+					break
+				}
+			}
+			if skip {
+				continue
+			}
+		}
+
+		id := NewResourceId(path, operationTags)
+		segmentsLastIndex := len(id.Segments) - 1
+
+		lastSegment := id.Segments[segmentsLastIndex]
+		if lastSegment.Type == SegmentODataReference {
+			lastSegment = id.Segments[segmentsLastIndex-1]
+			truncated := id.TruncateToLastSegmentOfTypeBeforeSegment([]ResourceIdSegmentType{}, segmentsLastIndex)
+			if truncated == nil {
+				err = fmt.Errorf("unable to truncate resource ID with OData Reference: %q", id.ID())
+				return
+			}
+			id = *truncated
+		}
+		if lastSegment.Type != SegmentUserValue {
+			continue
+		}
+
+		resourceIdName := ""
+		if r, ok := id.FindResourceIdName(); ok {
+			resourceIdName = normalize.Singularize(normalize.CleanName(*r))
+		}
+
+		if resourceIdName != "" {
+			logging.Infof(fmt.Sprintf("Found resource ID %q", resourceIdName))
+
+			id.Name = resourceIdName
+
+			if serviceName != nil {
+				id.Service = normalize.CleanName(*serviceName)
+			}
+
+			resourceIds = append(resourceIds, &id)
+		}
+	}
+
+	return
+
 }

@@ -6,14 +6,12 @@ package pipeline
 import (
 	"fmt"
 
-	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/data-api-repository/repository"
+	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/internal/logging"
 )
 
 type RunInput struct {
 	ProviderPrefix string
-
-	Logger hclog.Logger
 
 	CommonTypesDirectoryName string
 	ConfigFilePath           string
@@ -25,9 +23,7 @@ type RunInput struct {
 }
 
 func Run(input RunInput) error {
-	logger := input.Logger
-
-	metadataGitSha, err := determineGitSha(input.MetadataDirectory, logger)
+	metadataGitSha, err := determineGitSha(input.MetadataDirectory, logging.Log)
 	if err != nil {
 		return fmt.Errorf("determining Git SHA at %q: %+v", input.MetadataDirectory, err)
 	}

@@ -12,6 +12,7 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/normalize"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/parser"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/tags"
+	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/internal/logging"
 )
 
 func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, models parser.Models, constants parser.Constants) (resources parser.Resources, err error) {
@@ -37,7 +38,7 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 		// Determine whether to skip a path containing unsupported segment types
 		for idx, segment := range parsedPath.Segments {
 			if segment.Type == parser.SegmentCast || segment.Type == parser.SegmentFunction {
-				p.logger.Debug(fmt.Sprintf("Skipping path containing %s at position %d for %q: %v", segment.Type, idx, p.service, path))
+				logging.Debugf(fmt.Sprintf("Skipping path containing %s at position %d for %q: %v", segment.Type, idx, p.service, path))
 				skip = true
 				break
 			}
@@ -52,7 +53,7 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 			resourceName = *r
 		}
 		if resourceName == "" {
-			p.logger.Warn(fmt.Sprintf("Path with unknown name was encountered for %q: %v", p.service, path))
+			logging.Warnf(fmt.Sprintf("Path with unknown name was encountered for %q: %v", p.service, path))
 			continue
 		}
 
@@ -66,7 +67,7 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 
 		if _, ok := resources[resourceName]; !ok {
 			// Create a new resource if not already encountered
-			p.logger.Info(fmt.Sprintf("Found new resource %q (category %q, service %q, version %q)", resourceName, resourceCategory, p.service, p.apiVersion))
+			logging.Infof(fmt.Sprintf("Found new resource %q (category %q, service %q, version %q)", resourceName, resourceCategory, p.service, p.apiVersion))
 
 			resources[resourceName] = &parser.Resource{
 				Name:       resourceName,
@@ -110,7 +111,7 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 
 			if uriSuffix != nil {
 				if uriSuffixParsed := parser.NewResourceId(*uriSuffix, operationTags); uriSuffixParsed.HasUserValue() {
-					p.logger.Info(fmt.Sprintf("Skipping URI suffix containing user value in resource %q (category %q, service %q, version %q): %q", resourceName, resourceCategory, p.service, p.apiVersion, *uriSuffix))
+					logging.Infof(fmt.Sprintf("Skipping URI suffix containing user value in resource %q (category %q, service %q, version %q): %q", resourceName, resourceCategory, p.service, p.apiVersion, *uriSuffix))
 					continue
 				}
 			}
@@ -199,7 +200,7 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 
 			// Skip unknown operations
 			if operationType == parser.OperationTypeUnknown {
-				p.logger.Warn(fmt.Sprintf("Skipping unknown operation type for %q: %v", p.service, path))
+				logging.Warnf(fmt.Sprintf("Skipping unknown operation type for %q: %v", p.service, path))
 				continue
 			}
 

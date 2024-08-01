@@ -17,7 +17,7 @@ type ResourceId struct {
 	// during `terraform import` examples.
 	Id string `json:"id"` // TODO: does this want renaming to `ExampleValue` to be clearer?
 
-	// Segments specifies the ordered list of ResourceIdSegments which comprise this Resource Id.
+	// Segments specifies the ordered list of ResourceIdSegments which comprise this ResourceId.
 	// Typically, these comprise Static and UserSpecified Segment Types.
 	Segments []ResourceIdSegment `json:"segments"`
 }

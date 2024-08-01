@@ -12,18 +12,17 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/parser"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/tags"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/versions"
+	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/internal/logging"
 	"github.com/hashicorp/pandora/tools/sdk/config/services"
 )
 
 func runImporter(input RunInput, metadataGitSha string) error {
-	logger := input.Logger
-
 	config, err := services.LoadFromFile(input.ConfigFilePath)
 	if err != nil {
 		return fmt.Errorf("loading config: %+v", err)
 	}
 
-	logger.Debug("Removing any existing API Definitions")
+	logging.Debugf("Removing any existing API Definitions")
 	if err = input.Repo.PurgeExistingData(sdkModels.MicrosoftGraphMetaDataSourceDataOrigin); err != nil {
 		return fmt.Errorf("removing existing API Definitions: %+v", err)
 	}
@@ -34,24 +33,31 @@ func runImporter(input RunInput, metadataGitSha string) error {
 			return err
 		}
 	}
-	logger.Info("Finished!")
+	logging.Infof("Finished!")
 
 	return nil
 }
 
 func runImportForVersion(input RunInput, apiVersion, openApiFile, metadataGitSha string, config *services.Config) error {
-	input.Logger.Info(fmt.Sprintf("Loading OpenAPI3 definitions for API version %q", apiVersion))
+	logging.Infof(fmt.Sprintf("Loading OpenAPI3 definitions for API version %q", apiVersion))
 	spec, err := openapi3.NewLoader().LoadFromFile(filepath.Join(input.MetadataDirectory, openApiFile))
 	if err != nil {
 		return err
 	}
 
+	logging.Infof(fmt.Sprintf("Parsing models and constants..."))
 	models, constants, err := parser.Common(spec.Components.Schemas)
 	if err != nil {
 		return err
 	}
 
-	commonTypesForApiVersion, err := translateModelsToDataApiSdkTypes(models, constants)
+	logging.Infof(fmt.Sprintf("Parsing resource IDs..."))
+	resourceIds, err := parser.ParseResourceIDs(spec.Paths, nil)
+	if err != nil {
+		return err
+	}
+
+	commonTypesForApiVersion, err := translateModelsToDataApiSdkTypes(models, constants, resourceIds)
 	if err != nil {
 		return err
 	}
@@ -64,9 +70,9 @@ func runImportForVersion(input RunInput, apiVersion, openApiFile, metadataGitSha
 	p := &pipeline{
 		apiVersion:            apiVersion,
 		commonTypesForVersion: *commonTypesForApiVersion,
-		logger:                input.Logger,
 		metadataGitSha:        metadataGitSha,
 		outputDirectory:       input.OutputDirectory,
+		resourceIds:           resourceIds,
 		repo:                  input.Repo,
 		spec:                  spec,
 	}
@@ -105,11 +111,13 @@ func runImportForVersion(input RunInput, apiVersion, openApiFile, metadataGitSha
 					}
 				}
 
-				input.Logger.Info(fmt.Sprintf("Importing service %q for API version %q", service.Name, version))
+				logging.Infof(fmt.Sprintf("Importing service %q for API version %q", service.Name, version))
 
 				if err = p.ForService(service.Directory).RunImport(serviceTags[service.Directory], models, constants); err != nil {
 					return err
 				}
+
+				break
 			}
 		}
 	}

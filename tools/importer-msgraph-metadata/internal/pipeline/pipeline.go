@@ -8,19 +8,19 @@ import (
 
 	"github.com/davecgh/go-spew/spew"
 	"github.com/getkin/kin-openapi/openapi3"
-	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/data-api-repository/repository"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/parser"
+	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/internal/logging"
 )
 
 type pipeline struct {
 	apiVersion            string
 	commonTypesForVersion sdkModels.CommonTypes
 	repo                  repository.Repository
-	logger                hclog.Logger
 	metadataGitSha        string
 	outputDirectory       string
+	resourceIds           parser.ResourceIds
 	spec                  *openapi3.T
 }
 
@@ -37,14 +37,14 @@ func (p pipeline) ForService(serviceName string) pipelineForService {
 }
 
 func (p pipelineForService) RunImport(serviceTags []string, models parser.Models, constants parser.Constants) error {
-	p.logger.Info(fmt.Sprintf("Parsing resource IDs for %q", p.service))
-	resourceIds, err := p.parseResourceIDs()
-	if err != nil {
-		return err
-	}
+	//logging.Infof(fmt.Sprintf("Parsing resource IDs for %q", p.service))
+	//resourceIds, err := p.parseResourceIDs()
+	//if err != nil {
+	//	return err
+	//}
 
-	p.logger.Info(fmt.Sprintf("Parsing resources for %q", p.service))
-	resources, err := p.parseResources(resourceIds, models, constants)
+	logging.Infof(fmt.Sprintf("Parsing resources for %q", p.service))
+	resources, err := p.parseResources(p.resourceIds, models, constants)
 	if err != nil {
 		return err
 	}
@@ -62,7 +62,7 @@ func (p pipelineForService) RunImport(serviceTags []string, models parser.Models
 			if len(resource.Paths) > 0 {
 				path = resource.Paths[0].ID()
 			}
-			p.logger.Warn(spew.Sprintf("Resource with no category was encountered for %q at %q: %#v", p.service, path, *resource))
+			logging.Warnf(spew.Sprintf("Resource with no category was encountered for %q at %q: %#v", p.service, path, *resource))
 		}
 	}
 
