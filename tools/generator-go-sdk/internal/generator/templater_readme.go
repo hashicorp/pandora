@@ -8,6 +8,7 @@ import (
 	"sort"
 	"strings"
 
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
@@ -109,9 +110,23 @@ func (r readmeTemplater) exampleUsageForOperation(packageName, clientName, opera
 }
 
 func (r readmeTemplater) resourceIdInitialization(operation models.SDKOperation, data GeneratorData) (*string, error) {
-	resourceId, ok := data.resourceIds[*operation.ResourceIDName]
-	if !ok {
-		return nil, fmt.Errorf("resource id %q was not found", *operation.ResourceIDName)
+	var resourceId models.ResourceID
+	idName := *operation.ResourceIDName
+	if pointer.From(operation.ResourceIDNameIsCommonType) {
+		if data.commonTypesPackageName == nil {
+			return nil, fmt.Errorf("internal error: Common Type Resource ID %q encountered, but `commonTypesPackageName` was nil", idName)
+		}
+		var ok bool
+		if resourceId, ok = data.commonTypes.ResourceIDs[idName]; !ok {
+			return nil, fmt.Errorf("internal error: Common Type Resource ID %q was not found", idName)
+		}
+
+		idName = fmt.Sprintf("%s.%s", *data.commonTypesPackageName, idName)
+	} else {
+		var ok bool
+		if resourceId, ok = data.resourceIds[idName]; !ok {
+			return nil, fmt.Errorf("internal error: Resource ID %q was not found", idName)
+		}
 	}
 
 	resourceIdPackageName := data.packageName

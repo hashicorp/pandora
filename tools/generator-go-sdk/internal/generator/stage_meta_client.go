@@ -7,7 +7,7 @@ import (
 	"fmt"
 )
 
-func (s *ServiceGenerator) metaClient(data VersionGeneratorData) error {
+func (s *Generator) metaClient(data VersionGeneratorData) error {
 	if len(data.resources) == 0 {
 		return nil
 	}

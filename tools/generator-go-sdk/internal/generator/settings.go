@@ -5,11 +5,14 @@ package generator
 
 import (
 	"fmt"
+
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 type Settings struct {
-	CommonTypesPackageName    string
-	servicesUsingOldBaseLayer map[string]struct{}
+	CommonTypesPackageName        string
+	VersionsToGenerateCommonTypes map[string]models.SourceDataOrigin
+	servicesUsingOldBaseLayer     map[string]struct{}
 }
 
 func (s *Settings) UseOldBaseLayerFor(serviceNames ...string) {

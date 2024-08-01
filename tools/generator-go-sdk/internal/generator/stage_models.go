@@ -8,7 +8,7 @@ import (
 	"strings"
 )
 
-func (s *ServiceGenerator) models(data GeneratorData) error {
+func (s *Generator) models(data GeneratorData) error {
 	if len(data.models) == 0 {
 		return nil
 	}

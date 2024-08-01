@@ -8,7 +8,7 @@ import (
 	"strings"
 )
 
-func (s *ServiceGenerator) methods(data GeneratorData) error {
+func (s *Generator) methods(data GeneratorData) error {
 	for operationName, operation := range data.operations {
 
 		if data.useNewBaseLayer {
