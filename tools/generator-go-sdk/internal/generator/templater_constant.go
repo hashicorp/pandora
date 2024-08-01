@@ -124,7 +124,7 @@ func PossibleValuesFor%[1]s() []%[2]s {
 }
 
 func (t constantTemplater) parseFunction() (*string, error) {
-	// we only output the parse function if it's a String constant (in which case it'll be needed by the Normalizaation function)
+	// we only output the parse function if it's a String constant (in which case it'll be needed by the Normalization function)
 	// or if the Constant is used in a Resource ID segment (since that calls this to parse the Resource ID segment)
 	// we could output this always, but this reduces the TLOC we output, which is preferable.
 	requiresParseFunction := t.details.Type == models.StringSDKConstantType || t.constantUsedInAResourceID

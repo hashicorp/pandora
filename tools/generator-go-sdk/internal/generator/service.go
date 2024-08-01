@@ -7,18 +7,17 @@ import (
 	"fmt"
 	"os"
 	"os/exec"
-	"path/filepath"
 
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/generator-go-sdk/internal/logging"
 )
 
-type ServiceGenerator struct {
+type Generator struct {
 	settings Settings
 }
 
-func NewServiceGenerator(settings Settings) ServiceGenerator {
-	return ServiceGenerator{
+func NewGenerator(settings Settings) Generator {
+	return Generator{
 		settings: settings,
 	}
 }
@@ -36,16 +35,11 @@ type ServiceGeneratorInput struct {
 	VersionName     string
 }
 
-func (s *ServiceGenerator) Generate(input ServiceGeneratorInput) error {
+func (s *Generator) Generate(input ServiceGeneratorInput) error {
 	data := input.generatorData(s.settings)
 
 	if err := cleanAndRecreateWorkingDirectory(data.resourceOutputPath); err != nil {
 		return fmt.Errorf("cleaning/recreating working directory %q: %+v", data.resourceOutputPath, err)
-	}
-	if data.useIdAliases {
-		if err := ensureWorkingDirectoryExists(data.idsOutputPath); err != nil {
-			return fmt.Errorf("ensuring the ids working directory %q exists: %+v", data.idsOutputPath, err)
-		}
 	}
 
 	stages := map[string]func(data GeneratorData) error{
@@ -82,7 +76,26 @@ type VersionGeneratorInput struct {
 	VersionName     string
 }
 
-func (s *ServiceGenerator) GenerateForVersion(input VersionGeneratorInput) error {
+func (s *Generator) GenerateForVersion(input VersionGeneratorInput) error {
+	data := input.generatorData(s.settings)
+
+	stages := map[string]func(data VersionGeneratorData) error{
+		"metaClient": s.metaClient,
+	}
+	for name, stage := range stages {
+		logging.Debugf("Running Stage %q..", name)
+		if err := stage(data); err != nil {
+			return fmt.Errorf("generating %s: %+v", name, err)
+		}
+	}
+
+	runGoFmt(data.versionOutputPath)
+	runGoImports(data.versionOutputPath)
+
+	return nil
+}
+
+func (s *Generator) GenerateCommonTypes(input VersionGeneratorInput) error {
 	data := input.generatorData(s.settings)
 
 	if err := cleanAndRecreateWorkingDirectory(data.commonTypesOutputPath); err != nil {
@@ -91,7 +104,6 @@ func (s *ServiceGenerator) GenerateForVersion(input VersionGeneratorInput) error
 
 	stages := map[string]func(data VersionGeneratorData) error{
 		"commonTypes": s.commonTypes,
-		"metaClient":  s.metaClient,
 	}
 	for name, stage := range stages {
 		logging.Debugf("Running Stage %q..", name)
@@ -101,10 +113,7 @@ func (s *ServiceGenerator) GenerateForVersion(input VersionGeneratorInput) error
 	}
 
 	runGoFmt(data.commonTypesOutputPath)
-	runGoFmt(data.versionOutputPath)
-
 	runGoImports(data.commonTypesOutputPath)
-	runGoImports(data.versionOutputPath)
 
 	return nil
 }
@@ -122,22 +131,14 @@ func runGoImports(path string) {
 }
 
 func cleanAndRecreateWorkingDirectory(path string) error {
-	// first, ensure the directory exists
+	// rm -r
+	if err := os.RemoveAll(path); err != nil {
+		return fmt.Errorf("deleting %q: %+v", path, err)
+	}
+
+	// then ensure the directory exists
 	if err := os.MkdirAll(path, 0777); err != nil {
 		return fmt.Errorf("creating %q: %+v", path, err)
-	}
-
-	// determine contents of output directory
-	pathsToDelete, err := filepath.Glob(filepath.Join(path, "*"))
-	if err != nil {
-		return fmt.Errorf("globbing files to delete: %+v", err)
-	}
-
-	// delete any contained files and directories
-	for _, pathToDelete := range pathsToDelete {
-		if err = os.RemoveAll(pathToDelete); err != nil {
-			return fmt.Errorf("deleting %q: %w", pathToDelete, err)
-		}
 	}
 
 	return nil

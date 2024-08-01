@@ -31,10 +31,6 @@ type GeneratorData struct {
 	// the name of the Client e.g. MyThingClient
 	serviceClientName string
 
-	// This is the output path for Resource IDs, which then gets aliased by packages
-	// for example {workingDir}/service/version/ids
-	idsOutputPath string
-
 	// This is the working directory where files should be output for this specific service
 	// for example {workingDir}/{service}/{version}/{resource}
 	resourceOutputPath string
@@ -70,10 +66,6 @@ type GeneratorData struct {
 	// whether this is a data plane SDK (omits certain Resource Manager specific features, currently used in ID parsers)
 	isDataPlane bool
 
-	// development feature flag - this requires work in the Resource ID parser to handle name conflicts
-	// @tombuildsstuff: fix this
-	useIdAliases bool
-
 	// development feature flag - should this service use the new transport layer from `hashicorp/go-azure-sdk`
 	// rather than the existing Autorest base layer?
 	useNewBaseLayer bool
@@ -85,7 +77,6 @@ func (i ServiceGeneratorInput) generatorData(settings Settings) GeneratorData {
 	versionPackageName := strings.ToLower(i.VersionName)
 
 	versionOutputPath := filepath.Join(i.OutputDirectory, servicePackageName, versionPackageName)
-	idsPath := filepath.Join(versionOutputPath, "ids")
 	resourceOutputPath := filepath.Join(versionOutputPath, resourcePackageName)
 
 	useNewBaseLayer := settings.ShouldUseNewBaseLayer(i.ServiceName, i.VersionName)
@@ -103,7 +94,6 @@ func (i ServiceGeneratorInput) generatorData(settings Settings) GeneratorData {
 		commonTypesIncludePath: commonTypesIncludePath,
 		commonTypesPackageName: commonTypesPackageName,
 		constants:              i.ResourceDetails.Constants,
-		idsOutputPath:          idsPath,
 		isDataPlane:            models.SourceDataTypeIsDataPlane(i.Type),
 		models:                 i.ResourceDetails.Models,
 		operations:             i.ResourceDetails.Operations,
@@ -114,7 +104,6 @@ func (i ServiceGeneratorInput) generatorData(settings Settings) GeneratorData {
 		servicePackageName:     strings.ToLower(i.ServiceName),
 		source:                 i.Source,
 		sourceType:             i.Type,
-		useIdAliases:           false,
 		useNewBaseLayer:        useNewBaseLayer,
 	}
 }
@@ -154,6 +143,7 @@ func (i VersionGeneratorInput) generatorData(settings Settings) VersionGenerator
 			constants:          i.CommonTypes.Constants,
 			isDataPlane:        models.SourceDataTypeIsDataPlane(i.Type),
 			models:             i.CommonTypes.Models,
+			packageName:        versionPackageName,
 			servicePackageName: strings.ToLower(i.ServiceName),
 			source:             i.Source,
 			sourceType:         i.Type,

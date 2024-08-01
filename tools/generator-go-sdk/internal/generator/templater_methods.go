@@ -467,9 +467,22 @@ func (c methodsPandoraTemplater) argumentsTemplateForMethod(data GeneratorData) 
 	arguments := make([]string, 0)
 	if c.operation.ResourceIDName != nil {
 		idName := *c.operation.ResourceIDName
-		id, ok := data.resourceIds[idName]
-		if !ok {
-			return nil, fmt.Errorf("internal error: Resource ID %q was not found", idName)
+		var id models.ResourceID
+		if pointer.From(c.operation.ResourceIDNameIsCommonType) {
+			if data.commonTypesPackageName == nil {
+				return nil, fmt.Errorf("internal error: Common Type Resource ID %q encountered, but `commonTypesPackageName` was nil", idName)
+			}
+			var ok bool
+			if id, ok = data.commonTypes.ResourceIDs[idName]; !ok {
+				return nil, fmt.Errorf("internal error: Common Type Resource ID %q was not found", idName)
+			}
+
+			idName = fmt.Sprintf("%s.%s", *data.commonTypesPackageName, idName)
+		} else {
+			var ok bool
+			if id, ok = data.resourceIds[idName]; !ok {
+				return nil, fmt.Errorf("internal error: Resource ID %q was not found", idName)
+			}
 		}
 		if id.CommonIDAlias != nil {
 			idName = fmt.Sprintf("commonids.%sId", *id.CommonIDAlias)
