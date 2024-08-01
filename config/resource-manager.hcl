@@ -62,6 +62,10 @@ service "azureactivedirectory" {
   name      = "AzureActiveDirectory"
   available = ["2017-04-01", "2020-03-01"]
 }
+service "azurefleet" {
+  name      = "AzureFleet"
+  available = ["2024-05-01-preview"]
+}
 service "azurestackhci" {
   name      = "AzureStackHCI"
   available = ["2024-01-01"]
