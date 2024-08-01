@@ -32,6 +32,9 @@ type Operation struct {
 	// ResourceIdName specifies the name of the optional Resource ID used for this operation
 	ResourceIdName *string `json:"resourceIdName,omitempty"`
 
+	// ResourceIdNameIsCommonType specifies whether the referenced ResourceIdName is a common type
+	ResourceIdNameIsCommonType *bool `json:"resourceIdNameIsCommonType,omitempty"`
+
 	// RequestObject specifies the optional ObjectDefinition to be specified in the Request
 	RequestObject *ObjectDefinition `json:"requestObject,omitempty"`
 

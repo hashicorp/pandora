@@ -44,11 +44,12 @@ func (g OperationsStage) Generate(input *helpers.FileSystem, logger hclog.Logger
 		logger.Trace(fmt.Sprintf("Generating Operation %q..", operationName))
 
 		knownData := helpers.KnownData{
-			Constants:           g.Constants,
-			Models:              g.Models,
-			ResourceIds:         map[string]sdkModels.ResourceID{},
-			CommonTypeConstants: g.CommonTypesForThisAPIVersion.Constants,
-			CommonTypeModels:    g.CommonTypesForThisAPIVersion.Models,
+			Constants:              g.Constants,
+			Models:                 g.Models,
+			ResourceIds:            map[string]sdkModels.ResourceID{},
+			CommonTypeConstants:    g.CommonTypesForThisAPIVersion.Constants,
+			CommonTypeModels:       g.CommonTypesForThisAPIVersion.Models,
+			CommonTypesResourceIds: g.CommonTypesForThisAPIVersion.ResourceIDs,
 		}
 
 		operationDetails := g.Operations[operationName]

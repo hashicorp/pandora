@@ -6,6 +6,7 @@ package pipeline
 import (
 	"fmt"
 
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/blacklisted"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/normalize"
@@ -60,12 +61,13 @@ func (p pipeline) translateServiceToDataApiSdkTypes(models parser.Models, consta
 			if operation.ResourceId != nil {
 				resourceIdName = &operation.ResourceId.Name
 
-				sdkResourceId, err := operation.ResourceId.DataApiSdkResourceId()
-				if err != nil {
-					return nil, err
-				}
-
-				sdkServices[resource.Service].APIVersions[resource.Version].Resources[resource.Category].ResourceIDs[operation.ResourceId.Name] = *sdkResourceId
+				// No longer output resource IDs per service, they are now common types
+				//sdkResourceId, err := operation.ResourceId.DataApiSdkResourceId()
+				//if err != nil {
+				//	return nil, err
+				//}
+				//
+				//sdkServices[resource.Service].APIVersions[resource.Version].Resources[resource.Category].ResourceIDs[operation.ResourceId.Name] = *sdkResourceId
 			}
 
 			var requestObject *sdkModels.SDKObjectDefinition
@@ -170,6 +172,7 @@ func (p pipeline) translateServiceToDataApiSdkTypes(models parser.Models, consta
 				Options:                          nil, // TODO request options for odata queries etc
 				RequestObject:                    requestObject,
 				ResourceIDName:                   resourceIdName,
+				ResourceIDNameIsCommonType:       pointer.To(true),
 				ResponseObject:                   responseObject,
 				URISuffix:                        operation.UriSuffix,
 			}

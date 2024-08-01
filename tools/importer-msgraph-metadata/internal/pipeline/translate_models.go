@@ -11,9 +11,10 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/parser"
 )
 
-func translateModelsToDataApiSdkTypes(models parser.Models, constants parser.Constants) (*sdkModels.CommonTypes, error) {
+func translateModelsToDataApiSdkTypes(models parser.Models, constants parser.Constants, resourceIds parser.ResourceIds) (*sdkModels.CommonTypes, error) {
 	sdkConstantsMap := make(map[string]sdkModels.SDKConstant)
 	sdkModelsMap := make(map[string]sdkModels.SDKModel)
+	sdkResourceIdsMap := make(map[string]sdkModels.ResourceID)
 
 	for modelName, model := range models {
 		sdkModel, err := model.DataApiSdkModel(models)
@@ -31,15 +32,25 @@ func translateModelsToDataApiSdkTypes(models parser.Models, constants parser.Con
 			constantValues[fmt.Sprintf("_%s", normalize.CleanName(value))] = value
 		}
 
-		// TODO support additional types, if there are any
 		sdkConstantsMap[constantName] = sdkModels.SDKConstant{
+			// TODO support additional types, if there are any
 			Type:   sdkModels.StringSDKConstantType,
 			Values: constantValues,
 		}
 	}
 
+	for _, resourceId := range resourceIds {
+		sdkResourceId, err := resourceId.DataApiSdkResourceId()
+		if err != nil {
+			return nil, err
+		}
+
+		sdkResourceIdsMap[resourceId.Name] = *sdkResourceId
+	}
+
 	return &sdkModels.CommonTypes{
-		Constants: sdkConstantsMap,
-		Models:    sdkModelsMap,
+		Constants:   sdkConstantsMap,
+		Models:      sdkModelsMap,
+		ResourceIDs: sdkResourceIdsMap,
 	}, nil
 }
