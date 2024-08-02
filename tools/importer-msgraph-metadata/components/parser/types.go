@@ -49,12 +49,15 @@ func (m Models) Found(modelName string) bool {
 }
 
 // MergeDependants inspects the named model in m, then traverses allModels and appends any dependant models to m, recursively
-func (m Models) MergeDependants(allModels Models, modelName string) error {
+func (m Models) MergeDependants(allModels Models, modelName string, includeCommon bool) error {
 	if !allModels.Found(modelName) {
 		return fmt.Errorf("model not found: %q", modelName)
 	}
 
 	if _, ok := m[modelName]; !ok {
+		if !includeCommon && allModels[modelName].Common {
+			return nil
+		}
 		m[modelName] = allModels[modelName]
 	}
 
@@ -71,7 +74,7 @@ func (m Models) MergeDependants(allModels Models, modelName string) error {
 			return fmt.Errorf("dependant model not found: %q", modelName)
 		}
 
-		if err := m.MergeDependants(allModels, *field.ModelName); err != nil {
+		if err := m.MergeDependants(allModels, *field.ModelName, includeCommon); err != nil {
 			return err
 		}
 	}
@@ -178,9 +181,10 @@ func (f ModelField) DataApiSdkObjectDefinition(models Models) (*sdkModels.SDKObj
 		}
 
 		return &sdkModels.SDKObjectDefinition{
-			NestedItem:    nil,
-			ReferenceName: f.ModelName,
-			Type:          sdkModels.ReferenceSDKObjectDefinitionType,
+			NestedItem:                nil,
+			ReferenceName:             f.ModelName,
+			ReferenceNameIsCommonType: pointer.To(models[*f.ModelName].Common),
+			Type:                      sdkModels.ReferenceSDKObjectDefinitionType,
 		}, nil
 
 	case DataTypeArray:
@@ -191,9 +195,10 @@ func (f ModelField) DataApiSdkObjectDefinition(models Models) (*sdkModels.SDKObj
 
 			return &sdkModels.SDKObjectDefinition{
 				NestedItem: &sdkModels.SDKObjectDefinition{
-					NestedItem:    nil,
-					ReferenceName: f.ModelName,
-					Type:          sdkModels.ReferenceSDKObjectDefinitionType,
+					NestedItem:                nil,
+					ReferenceName:             f.ModelName,
+					ReferenceNameIsCommonType: pointer.To(models[*f.ModelName].Common),
+					Type:                      sdkModels.ReferenceSDKObjectDefinitionType,
 				},
 				ReferenceName: nil,
 				Type:          sdkModels.ListSDKObjectDefinitionType,

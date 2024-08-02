@@ -14,27 +14,23 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/versions"
 )
 
-func (p pipeline) translateServiceToDataApiSdkTypes(models parser.Models, constants parser.Constants, resources parser.Resources) (*map[string]sdkModels.Service, error) {
-	sdkServices := make(map[string]sdkModels.Service)
+func (p pipelineForService) translateServiceToDataApiSdkTypes() (*sdkModels.Service, error) {
+	sdkService := sdkModels.Service{
+		APIVersions:         make(map[string]sdkModels.APIVersion),
+		Generate:            true,
+		Name:                normalize.CleanName(p.service),
+		ResourceProvider:    nil,
+		TerraformDefinition: nil,
+	}
 
-	for _, resource := range resources {
+	for _, resource := range p.resources[p.service] {
 		if blacklisted.Resource(resource) {
 			continue
 		}
 
-		// First scaffold all discovered services, version(s) and resources (categories)
-		if _, ok := sdkServices[resource.Service]; !ok {
-			sdkServices[resource.Service] = sdkModels.Service{
-				APIVersions:         make(map[string]sdkModels.APIVersion),
-				Generate:            true,
-				Name:                resource.Service,
-				ResourceProvider:    nil,
-				TerraformDefinition: nil,
-			}
-		}
-
-		if _, ok := sdkServices[resource.Service].APIVersions[resource.Version]; !ok {
-			sdkServices[resource.Service].APIVersions[resource.Version] = sdkModels.APIVersion{
+		// First scaffold the version and resources (categories)
+		if _, ok := sdkService.APIVersions[resource.Version]; !ok {
+			sdkService.APIVersions[resource.Version] = sdkModels.APIVersion{
 				APIVersion: resource.Version,
 				Generate:   true,
 				Preview:    versions.IsPreview(resource.Version),
@@ -43,8 +39,8 @@ func (p pipeline) translateServiceToDataApiSdkTypes(models parser.Models, consta
 			}
 		}
 
-		if _, ok := sdkServices[resource.Service].APIVersions[resource.Version].Resources[resource.Category]; !ok {
-			sdkServices[resource.Service].APIVersions[resource.Version].Resources[resource.Category] = sdkModels.APIResource{
+		if _, ok := sdkService.APIVersions[resource.Version].Resources[resource.Category]; !ok {
+			sdkService.APIVersions[resource.Version].Resources[resource.Category] = sdkModels.APIResource{
 				Constants:   make(map[string]sdkModels.SDKConstant),
 				Models:      make(map[string]sdkModels.SDKModel),
 				Operations:  make(map[string]sdkModels.SDKOperation),
@@ -74,16 +70,16 @@ func (p pipeline) translateServiceToDataApiSdkTypes(models parser.Models, consta
 			requestObjectIsCommonType := true
 
 			if operation.RequestModel != nil {
-				if !models.Found(*operation.RequestModel) {
+				if !p.models.Found(*operation.RequestModel) {
 					return nil, fmt.Errorf("request model %q was not found for operation: %s", *operation.RequestModel, operation.Name)
 				}
 
-				if model := models[*operation.RequestModel]; !model.IsValid() {
+				if model := p.models[*operation.RequestModel]; !model.IsValid() {
 					return nil, fmt.Errorf("request model %q was invalid for operation: %s", *operation.RequestModel, operation.Name)
 				} else if !model.Common {
 					requestObjectIsCommonType = false
 
-					if err := serviceModels.MergeDependants(models, *operation.RequestModel); err != nil {
+					if err := serviceModels.MergeDependants(p.models, *operation.RequestModel, false); err != nil {
 						return nil, err
 					}
 				}
@@ -106,18 +102,18 @@ func (p pipeline) translateServiceToDataApiSdkTypes(models parser.Models, consta
 				if response.Type != nil && *response.Type == parser.DataTypeModel && response.ModelName != nil {
 					modelName := *response.ModelName
 
-					if !models.Found(modelName) {
+					if !p.models.Found(modelName) {
 						return nil, fmt.Errorf("response model %q was not found for operation: %s", modelName, operation.Name)
 					}
 
-					model := models[modelName]
+					model := p.models[modelName]
 
 					if !model.IsValid() {
 						return nil, fmt.Errorf("response model %q was invalid for operation: %s", modelName, operation.Name)
 					} else if !model.Common {
 						responseObjectIsCommonType = false
 
-						if err := serviceModels.MergeDependants(models, modelName); err != nil {
+						if err := serviceModels.MergeDependants(p.models, modelName, false); err != nil {
 							return nil, err
 						}
 					}
@@ -129,12 +125,12 @@ func (p pipeline) translateServiceToDataApiSdkTypes(models parser.Models, consta
 							responseObjectIsCommonType = true
 							modelName = *value.ModelName
 
-							if !models.Found(modelName) {
+							if !p.models.Found(modelName) {
 								return nil, fmt.Errorf("nested response model %q was not found for operation: %s", modelName, operation.Name)
 							} else if !model.Common {
 								responseObjectIsCommonType = false
 
-								if err := serviceModels.MergeDependants(models, modelName); err != nil {
+								if err := serviceModels.MergeDependants(p.models, modelName, false); err != nil {
 									return nil, err
 								}
 							}
@@ -163,7 +159,7 @@ func (p pipeline) translateServiceToDataApiSdkTypes(models parser.Models, consta
 				}
 			}
 
-			sdkServices[resource.Service].APIVersions[resource.Version].Resources[resource.Category].Operations[operation.Name] = sdkModels.SDKOperation{
+			sdkService.APIVersions[resource.Version].Resources[resource.Category].Operations[operation.Name] = sdkModels.SDKOperation{
 				ContentType:                      contentType,
 				ExpectedStatusCodes:              expectedStatusCodes,
 				FieldContainingPaginationDetails: operation.PaginationField,
@@ -179,24 +175,24 @@ func (p pipeline) translateServiceToDataApiSdkTypes(models parser.Models, consta
 		}
 
 		for modelName, model := range serviceModels {
-			sdkModel, err := model.DataApiSdkModel(models)
+			sdkModel, err := model.DataApiSdkModel(p.models)
 			if err != nil {
 				return nil, err
 			}
 
-			sdkServices[resource.Service].APIVersions[resource.Version].Resources[resource.Category].Models[modelName] = *sdkModel
+			sdkService.APIVersions[resource.Version].Resources[resource.Category].Models[modelName] = *sdkModel
 
 			for _, field := range model.Fields {
 				if field.ConstantName != nil {
 					constantValues := make(map[string]string)
-					if constant, ok := constants[*field.ConstantName]; ok {
+					if constant, ok := p.constants[*field.ConstantName]; ok {
 						for _, value := range constant.Enum {
 							constantValues[normalize.CleanName(value)] = value
 						}
 					}
 
 					// TODO support additional types, if there are any
-					sdkServices[resource.Service].APIVersions[resource.Version].Resources[resource.Category].Constants[*field.ConstantName] = sdkModels.SDKConstant{
+					sdkService.APIVersions[resource.Version].Resources[resource.Category].Constants[*field.ConstantName] = sdkModels.SDKConstant{
 						Type:   sdkModels.StringSDKConstantType,
 						Values: constantValues,
 					}
@@ -205,5 +201,5 @@ func (p pipeline) translateServiceToDataApiSdkTypes(models parser.Models, consta
 		}
 	}
 
-	return &sdkServices, nil
+	return &sdkService, nil
 }

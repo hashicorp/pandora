@@ -11,11 +11,11 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/internal/logging"
 )
 
-func (p pipeline) PersistCommonTypesDefinitions() error {
+func (p pipeline) PersistCommonTypesDefinitions(commonTypesForVersion sdkModels.CommonTypes) error {
 	logging.Infof("Persisting Common Types Definitions..")
 
 	commonTypes := map[string]sdkModels.CommonTypes{
-		p.apiVersion: p.commonTypesForVersion,
+		p.apiVersion: commonTypesForVersion,
 	}
 
 	opts := repository.SaveCommonTypesOptions{
