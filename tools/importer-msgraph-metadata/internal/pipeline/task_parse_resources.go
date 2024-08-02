@@ -32,6 +32,10 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 			}
 		}
 
+		if skip {
+			continue
+		}
+
 		parsedPath := parser.NewResourceId(path, operationTags)
 		lastSegment := parsedPath.Segments[len(parsedPath.Segments)-1]
 

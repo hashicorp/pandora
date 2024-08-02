@@ -12,21 +12,19 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/internal/logging"
 )
 
-func (p pipelineForService) persistApiDefinitions(sdkServices map[string]sdkModels.Service, commonTypes map[string]sdkModels.CommonTypes) error {
-	for serviceName, service := range sdkServices {
-		logging.Infof(fmt.Sprintf("Persisting API Definitions for Service %q..", serviceName))
+func (p pipelineForService) persistApiDefinitions(sdkService sdkModels.Service, commonTypes map[string]sdkModels.CommonTypes) error {
+	logging.Infof(fmt.Sprintf("Persisting API Definitions for Service %q..", sdkService.Name))
 
-		opts := repository.SaveServiceOptions{
-			CommonTypes:      commonTypes,
-			Service:          service,
-			ServiceName:      serviceName,
-			SourceCommitSHA:  pointer.To(p.metadataGitSha),
-			SourceDataOrigin: sdkModels.MicrosoftGraphMetaDataSourceDataOrigin,
-		}
+	opts := repository.SaveServiceOptions{
+		CommonTypes:      commonTypes,
+		Service:          sdkService,
+		ServiceName:      sdkService.Name,
+		SourceCommitSHA:  pointer.To(p.metadataGitSha),
+		SourceDataOrigin: sdkModels.MicrosoftGraphMetaDataSourceDataOrigin,
+	}
 
-		if err := p.repo.SaveService(opts); err != nil {
-			return fmt.Errorf("persisting Data API Definitions for Service %q: %+v", serviceName, err)
-		}
+	if err := p.repo.SaveService(opts); err != nil {
+		return fmt.Errorf("persisting Data API Definitions for Service %q: %+v", sdkService.Name, err)
 	}
 
 	return nil

@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"path/filepath"
 
+	"github.com/davecgh/go-spew/spew"
 	"github.com/getkin/kin-openapi/openapi3"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/parser"
@@ -39,45 +40,36 @@ func runImporter(input RunInput, metadataGitSha string) error {
 }
 
 func runImportForVersion(input RunInput, apiVersion, openApiFile, metadataGitSha string, config *services.Config) error {
+	var err error
+
+	p := &pipeline{
+		apiVersion:      apiVersion,
+		metadataGitSha:  metadataGitSha,
+		outputDirectory: input.OutputDirectory,
+		resources:       make(map[string]parser.Resources),
+		repo:            input.Repo,
+	}
+
 	logging.Infof(fmt.Sprintf("Loading OpenAPI3 definitions for API version %q", apiVersion))
-	spec, err := openapi3.NewLoader().LoadFromFile(filepath.Join(input.MetadataDirectory, openApiFile))
+	p.spec, err = openapi3.NewLoader().LoadFromFile(filepath.Join(input.MetadataDirectory, openApiFile))
 	if err != nil {
 		return err
 	}
 
 	logging.Infof(fmt.Sprintf("Parsing models and constants..."))
-	models, constants, err := parser.Common(spec.Components.Schemas)
+	p.models, p.constants, err = parser.Common(p.spec.Components.Schemas)
 	if err != nil {
 		return err
 	}
 
 	logging.Infof(fmt.Sprintf("Parsing resource IDs..."))
-	resourceIds, err := parser.ParseResourceIDs(spec.Paths, nil)
+	p.resourceIds, err = parser.ParseResourceIDs(p.spec.Paths, nil)
 	if err != nil {
 		return err
 	}
 
-	commonTypesForApiVersion, err := translateModelsToDataApiSdkTypes(models, constants, resourceIds)
+	serviceTags, err := tags.Parse(p.spec.Tags)
 	if err != nil {
-		return err
-	}
-
-	serviceTags, err := tags.Parse(spec.Tags)
-	if err != nil {
-		return err
-	}
-
-	p := &pipeline{
-		apiVersion:            apiVersion,
-		commonTypesForVersion: *commonTypesForApiVersion,
-		metadataGitSha:        metadataGitSha,
-		outputDirectory:       input.OutputDirectory,
-		resourceIds:           resourceIds,
-		repo:                  input.Repo,
-		spec:                  spec,
-	}
-
-	if err = p.PersistCommonTypesDefinitions(); err != nil {
 		return err
 	}
 
@@ -113,13 +105,90 @@ func runImportForVersion(input RunInput, apiVersion, openApiFile, metadataGitSha
 
 				logging.Infof(fmt.Sprintf("Importing service %q for API version %q", service.Name, version))
 
-				if err = p.ForService(service.Directory).RunImport(serviceTags[service.Directory], models, constants); err != nil {
+				if err = p.ForService(service.Directory).RunImport(); err != nil {
 					return err
 				}
 
 				break
 			}
 		}
+	}
+
+	// Determine which resource IDs were actually used in resources
+	usedResourceIds := make(map[string]parser.ResourceId)
+	for _, resources := range p.resources {
+		for _, resource := range resources {
+			for _, operation := range resource.Operations {
+				if operation.ResourceId != nil {
+					usedResourceIds[operation.ResourceId.Name] = *operation.ResourceId
+				}
+			}
+		}
+	}
+	resourceIds := make(parser.ResourceIds, 0, len(usedResourceIds))
+	for _, resourceId := range usedResourceIds {
+		resourceIds = append(resourceIds, &resourceId)
+	}
+
+	commonTypesForApiVersion, err := translateCommonTypesToDataApiSdkTypes(p.models, p.constants, resourceIds)
+	if err != nil {
+		return err
+	}
+
+	for service := range p.resources {
+		if err = p.ForService(service).PersistDefinitions(*commonTypesForApiVersion); err != nil {
+			return err
+		}
+	}
+
+	if err = p.PersistCommonTypesDefinitions(*commonTypesForApiVersion); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (p pipelineForService) RunImport() error {
+	logging.Infof(fmt.Sprintf("Parsing resources for %q", p.service))
+	resources, err := p.parseResources(p.resourceIds, p.models, p.constants)
+	if err != nil {
+		return err
+	}
+	if len(resources) == 0 {
+		return nil
+	}
+
+	p.resources[p.service] = resources
+
+	// Consistency checks for discovered resources
+	for resourceName, resource := range resources {
+		if resource == nil {
+			return fmt.Errorf("nil resource named %q was encountered for %q", resourceName, p.service)
+		}
+		if resource.Category == "" {
+			path := "(no path)"
+			if len(resource.Paths) > 0 {
+				path = resource.Paths[0].ID()
+			}
+			logging.Warnf(spew.Sprintf("Resource with no category was encountered for %q at %q: %#v", p.service, path, *resource))
+		}
+	}
+
+	return nil
+}
+
+func (p pipelineForService) PersistDefinitions(commonTypesForVersion sdkModels.CommonTypes) error {
+	sdkService, err := p.translateServiceToDataApiSdkTypes()
+	if err != nil {
+		return err
+	}
+
+	commonTypes := map[string]sdkModels.CommonTypes{
+		p.apiVersion: commonTypesForVersion,
+	}
+
+	if err = p.persistApiDefinitions(*sdkService, commonTypes); err != nil {
+		return err
 	}
 
 	return nil

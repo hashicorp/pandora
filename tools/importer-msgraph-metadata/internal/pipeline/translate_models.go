@@ -11,18 +11,19 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/parser"
 )
 
-func translateModelsToDataApiSdkTypes(models parser.Models, constants parser.Constants, resourceIds parser.ResourceIds) (*sdkModels.CommonTypes, error) {
+func translateCommonTypesToDataApiSdkTypes(models parser.Models, constants parser.Constants, resourceIds parser.ResourceIds) (*sdkModels.CommonTypes, error) {
 	sdkConstantsMap := make(map[string]sdkModels.SDKConstant)
 	sdkModelsMap := make(map[string]sdkModels.SDKModel)
 	sdkResourceIdsMap := make(map[string]sdkModels.ResourceID)
 
 	for modelName, model := range models {
-		sdkModel, err := model.DataApiSdkModel(models)
-		if err != nil {
-			return nil, err
+		if model.Common {
+			sdkModel, err := model.DataApiSdkModel(models)
+			if err != nil {
+				return nil, err
+			}
+			sdkModelsMap[modelName] = *sdkModel
 		}
-		sdkModelsMap[modelName] = *sdkModel
-
 	}
 
 	for constantName, constant := range constants {
