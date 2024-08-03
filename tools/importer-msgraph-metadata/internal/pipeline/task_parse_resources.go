@@ -280,13 +280,55 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 									// Unique object for this operation
 									modelName = fmt.Sprintf("%sRequest", operationName)
 									models, constants = parser.Schemas(*schema, modelName, models, constants, false)
-									requestModel = &modelName
+
+									// Only assign requestModel if the parsed model was valid and added
+									if models.Found(modelName) {
+										requestModel = &modelName
+									}
 									break
 								}
 							}
 						}
 					}
 				}
+			}
+
+			// Determine request options
+			var requestHeaders *parser.Headers
+			var requestParams *parser.Params
+			headers := make(parser.Headers, 0)
+			params := make(parser.Params, 0)
+			for _, param := range operation.Parameters {
+				if param.Value == nil {
+					continue
+				}
+
+				result, _ := parser.FlattenSchemaRef(param.Value.Schema, nil)
+				paramType := parser.FieldType(result.Type, result.Format, false)
+
+				switch param.Value.In {
+				case "header":
+					headers = append(headers, parser.Header{
+						Name: param.Value.Name,
+						Type: paramType,
+					})
+				case "query":
+					var itemType *parser.DataType
+					if paramType != nil && *paramType == parser.DataTypeArray {
+						itemType = parser.FieldType(result.Type, result.Format, false)
+					}
+					params = append(params, parser.Param{
+						Name:     param.Value.Name,
+						Type:     paramType,
+						ItemType: itemType,
+					})
+				}
+			}
+			if len(headers) > 0 {
+				requestHeaders = &headers
+			}
+			if len(params) > 0 {
+				requestParams = &params
 			}
 
 			if operationType == parser.OperationTypeCreate || operationType == parser.OperationTypeUpdate || operationType == parser.OperationTypeCreateUpdate {
@@ -302,6 +344,8 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 				ResourceId:      resourceId,
 				UriSuffix:       uriSuffix,
 				RequestModel:    requestModel,
+				RequestHeaders:  requestHeaders,
+				RequestParams:   requestParams,
 				RequestType:     requestType,
 				Responses:       responses,
 				PaginationField: paginationField,

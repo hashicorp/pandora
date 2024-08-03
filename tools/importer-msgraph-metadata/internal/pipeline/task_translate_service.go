@@ -5,6 +5,7 @@ package pipeline
 
 import (
 	"fmt"
+	"strings"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
@@ -12,6 +13,7 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/normalize"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/parser"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/versions"
+	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/internal/logging"
 )
 
 func (p pipelineForService) translateServiceToDataApiSdkTypes() (*sdkModels.Service, error) {
@@ -95,6 +97,139 @@ func (p pipelineForService) translateServiceToDataApiSdkTypes() (*sdkModels.Serv
 				}
 			}
 
+			options := make(map[string]sdkModels.SDKOperationOption)
+
+			if operation.RequestHeaders != nil {
+				for _, header := range *operation.RequestHeaders {
+					if strings.EqualFold(header.Name, "ConsistencyLevel") {
+						options[normalize.CleanName(header.Name)] = sdkModels.SDKOperationOption{
+							ODataFieldName: &header.Name,
+							ObjectDefinition: sdkModels.SDKOperationOptionObjectDefinition{
+								NestedItem:    nil,
+								ReferenceName: pointer.To("odata.ConsistencyLevel"),
+								Type:          sdkModels.ReferenceSDKOperationOptionObjectDefinitionType,
+							},
+						}
+						continue
+					}
+
+					objectDefinition, err := header.DataApiSdkObjectDefinition()
+					if err != nil {
+						return nil, err
+					}
+
+					if objectDefinition == nil {
+						logging.Warnf("could not determine SDKOperationOptionObjectDefinition for header %q, skipping", header.Name)
+						continue
+					}
+
+					options[normalize.CleanName(header.Name)] = sdkModels.SDKOperationOption{
+						HeaderName:       &header.Name,
+						Required:         false,
+						ObjectDefinition: *objectDefinition,
+					}
+				}
+			}
+
+			if operation.RequestParams != nil {
+				for _, param := range *operation.RequestParams {
+					switch normalize.CleanName(param.Name) {
+					case "Count":
+						options["Count"] = sdkModels.SDKOperationOption{
+							ODataFieldName: pointer.To("Count"),
+							ObjectDefinition: sdkModels.SDKOperationOptionObjectDefinition{
+								Type: sdkModels.BooleanSDKOperationOptionObjectDefinitionType,
+							},
+						}
+
+					case "Expand":
+						options["Expand"] = sdkModels.SDKOperationOption{
+							ODataFieldName: pointer.To("Expand"),
+							ObjectDefinition: sdkModels.SDKOperationOptionObjectDefinition{
+								NestedItem:    nil,
+								ReferenceName: pointer.To("odata.Expand"),
+								Type:          sdkModels.ReferenceSDKOperationOptionObjectDefinitionType,
+							},
+						}
+
+					case "Format":
+						options["Format"] = sdkModels.SDKOperationOption{
+							ODataFieldName: pointer.To("Format"),
+							ObjectDefinition: sdkModels.SDKOperationOptionObjectDefinition{
+								NestedItem:    nil,
+								ReferenceName: pointer.To("odata.Format"),
+								Type:          sdkModels.ReferenceSDKOperationOptionObjectDefinitionType,
+							},
+						}
+
+					case "OrderBy":
+						options["OrderBy"] = sdkModels.SDKOperationOption{
+							ODataFieldName: pointer.To("OrderBy"),
+							ObjectDefinition: sdkModels.SDKOperationOptionObjectDefinition{
+								NestedItem:    nil,
+								ReferenceName: pointer.To("odata.OrderBy"),
+								Type:          sdkModels.ReferenceSDKOperationOptionObjectDefinitionType,
+							},
+						}
+
+					case "Select":
+						options["Select"] = sdkModels.SDKOperationOption{
+							ODataFieldName: pointer.To("Select"),
+							ObjectDefinition: sdkModels.SDKOperationOptionObjectDefinition{
+								NestedItem: &sdkModels.SDKOperationOptionObjectDefinition{
+									Type: sdkModels.StringSDKOperationOptionObjectDefinitionType,
+								},
+								Type: sdkModels.ListSDKOperationOptionObjectDefinitionType,
+							},
+						}
+
+					case "Filter", "Search":
+						options[normalize.CleanName(param.Name)] = sdkModels.SDKOperationOption{
+							ODataFieldName: pointer.To(normalize.CleanName(param.Name)),
+							ObjectDefinition: sdkModels.SDKOperationOptionObjectDefinition{
+								Type: sdkModels.StringSDKOperationOptionObjectDefinitionType,
+							},
+						}
+
+					case "Skip", "Top":
+						// Don't set here, we handle this implicitly for list operations
+
+					default:
+						objectDefinition, err := param.DataApiSdkObjectDefinition()
+						if err != nil {
+							return nil, err
+						}
+
+						if objectDefinition == nil {
+							logging.Warnf("could not determine SDKOperationOptionObjectDefinition for param %q, skipping", param.Name)
+							continue
+						}
+
+						options[normalize.CleanName(param.Name)] = sdkModels.SDKOperationOption{
+							QueryStringName:  &param.Name,
+							Required:         false,
+							ObjectDefinition: *objectDefinition,
+						}
+					}
+				}
+			}
+
+			if operation.Type == parser.OperationTypeList {
+				options["Top"] = sdkModels.SDKOperationOption{
+					ODataFieldName: pointer.To("Top"),
+					ObjectDefinition: sdkModels.SDKOperationOptionObjectDefinition{
+						Type: sdkModels.IntegerSDKOperationOptionObjectDefinitionType,
+					},
+				}
+
+				options["Skip"] = sdkModels.SDKOperationOption{
+					ODataFieldName: pointer.To("Skip"),
+					ObjectDefinition: sdkModels.SDKOperationOptionObjectDefinition{
+						Type: sdkModels.IntegerSDKOperationOptionObjectDefinitionType,
+					},
+				}
+			}
+
 			var responseObject *sdkModels.SDKObjectDefinition
 			responseObjectIsCommonType := true
 
@@ -165,7 +300,7 @@ func (p pipelineForService) translateServiceToDataApiSdkTypes() (*sdkModels.Serv
 				FieldContainingPaginationDetails: operation.PaginationField,
 				LongRunning:                      false,
 				Method:                           operation.Method,
-				Options:                          nil, // TODO request options for odata queries etc
+				Options:                          options,
 				RequestObject:                    requestObject,
 				ResourceIDName:                   resourceIdName,
 				ResourceIDNameIsCommonType:       pointer.To(true),

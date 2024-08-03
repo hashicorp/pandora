@@ -50,19 +50,24 @@ func runImportForVersion(input RunInput, apiVersion, openApiFile, metadataGitSha
 		repo:            input.Repo,
 	}
 
-	logging.Infof(fmt.Sprintf("Loading OpenAPI3 definitions for API version %q", apiVersion))
+	logging.Infof("Loading OpenAPI3 definitions for API version %q", apiVersion)
 	p.spec, err = openapi3.NewLoader().LoadFromFile(filepath.Join(input.MetadataDirectory, openApiFile))
 	if err != nil {
 		return err
 	}
 
-	logging.Infof(fmt.Sprintf("Parsing models and constants..."))
+	logging.Infof("Parsing models and constants...")
 	p.models, p.constants, err = parser.Common(p.spec.Components.Schemas)
 	if err != nil {
 		return err
 	}
 
-	logging.Infof(fmt.Sprintf("Parsing resource IDs..."))
+	logging.Infof("Cleaning up models...")
+	if err = p.cleanupModels(); err != nil {
+		return err
+	}
+
+	logging.Infof("Parsing resource IDs...")
 	p.resourceIds, err = parser.ParseResourceIDs(p.spec.Paths, nil)
 	if err != nil {
 		return err
@@ -103,7 +108,7 @@ func runImportForVersion(input RunInput, apiVersion, openApiFile, metadataGitSha
 					}
 				}
 
-				logging.Infof(fmt.Sprintf("Importing service %q for API version %q", service.Name, version))
+				logging.Infof("Importing service %q for API version %q", service.Name, version)
 
 				if err = p.ForService(service.Directory).RunImport(); err != nil {
 					return err
@@ -125,12 +130,12 @@ func runImportForVersion(input RunInput, apiVersion, openApiFile, metadataGitSha
 			}
 		}
 	}
-	resourceIds := make(parser.ResourceIds, 0, len(usedResourceIds))
+	p.resourceIds = make(parser.ResourceIds, 0, len(usedResourceIds))
 	for _, resourceId := range usedResourceIds {
-		resourceIds = append(resourceIds, &resourceId)
+		p.resourceIds = append(p.resourceIds, &resourceId)
 	}
 
-	commonTypesForApiVersion, err := translateCommonTypesToDataApiSdkTypes(p.models, p.constants, resourceIds)
+	commonTypesForApiVersion, err := p.translateCommonTypesToDataApiSdkTypes()
 	if err != nil {
 		return err
 	}
@@ -149,7 +154,7 @@ func runImportForVersion(input RunInput, apiVersion, openApiFile, metadataGitSha
 }
 
 func (p pipelineForService) RunImport() error {
-	logging.Infof(fmt.Sprintf("Parsing resources for %q", p.service))
+	logging.Infof("Parsing resources for %q", p.service)
 	resources, err := p.parseResources(p.resourceIds, p.models, p.constants)
 	if err != nil {
 		return err

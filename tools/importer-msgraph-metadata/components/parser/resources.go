@@ -4,7 +4,10 @@
 package parser
 
 import (
+	"fmt"
 	"net/http"
+
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 type Resource struct {
@@ -23,11 +26,68 @@ type Operation struct {
 	ResourceId      *ResourceId
 	UriSuffix       *string
 	RequestModel    *string
+	RequestHeaders  *Headers
+	RequestParams   *Params
 	RequestType     *DataType
 	Responses       Responses
 	PaginationField *string
 	Tags            []string
 }
+
+type Header struct {
+	Name string
+	Type *DataType
+}
+
+func (h Header) DataApiSdkObjectDefinition() (*sdkModels.SDKOperationOptionObjectDefinition, error) {
+	if h.Type == nil {
+		return nil, fmt.Errorf("param %q has no Type", h.Name)
+	}
+
+	return &sdkModels.SDKOperationOptionObjectDefinition{
+		NestedItem:    nil,
+		ReferenceName: nil,
+		Type:          h.Type.DataApiSdkOperationOptionObjectDefinitionType(),
+	}, nil
+}
+
+type Headers []Header
+
+type Param struct {
+	Name     string
+	Type     *DataType
+	ItemType *DataType
+}
+
+func (p Param) DataApiSdkObjectDefinition() (*sdkModels.SDKOperationOptionObjectDefinition, error) {
+	if p.Type == nil {
+		return nil, fmt.Errorf("param %q has no Type", p.Name)
+	}
+
+	if *p.Type == DataTypeArray {
+		if p.ItemType != nil {
+			return &sdkModels.SDKOperationOptionObjectDefinition{
+				NestedItem: &sdkModels.SDKOperationOptionObjectDefinition{
+					NestedItem:    nil,
+					ReferenceName: nil,
+					Type:          p.ItemType.DataApiSdkOperationOptionObjectDefinitionType(),
+				},
+				ReferenceName: nil,
+				Type:          sdkModels.ListSDKOperationOptionObjectDefinitionType,
+			}, nil
+		}
+
+		return nil, nil
+	}
+
+	return &sdkModels.SDKOperationOptionObjectDefinition{
+		NestedItem:    nil,
+		ReferenceName: nil,
+		Type:          p.Type.DataApiSdkOperationOptionObjectDefinitionType(),
+	}, nil
+}
+
+type Params []Param
 
 type Response struct {
 	Status      int
