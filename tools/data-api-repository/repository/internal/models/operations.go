@@ -52,6 +52,9 @@ type Option struct {
 	// (e.g. `If-Match`, `x-ms-client-request-id`)
 	HeaderName *string `json:"headerName,omitempty"`
 
+	// ODataFieldName specifies the name for the OData query string parameter associated with this Option.
+	ODataFieldName *string `json:"odataFieldName,omitempty"`
+
 	// Optional specifies whether this Option could be specified in the Request
 	// NOTE: this is intentionally not inferred from Required to allow retrieving HTTP Header
 	// and QueryString values in the Response in the future.
