@@ -771,6 +771,7 @@ func (c methodsPandoraTemplater) optionsStruct(data GeneratorData) (*string, err
 	}
 
 	properties := make([]string, 0)
+	odataAssignments := make([]string, 0)
 	queryStringAssignments := make([]string, 0)
 	headerAssignments := make([]string, 0)
 
@@ -780,6 +781,15 @@ func (c methodsPandoraTemplater) optionsStruct(data GeneratorData) (*string, err
 			return nil, fmt.Errorf("determining golang type name for option %q's ObjectDefinition: %+v", optionName, err)
 		}
 		properties = append(properties, fmt.Sprintf("%s *%s", optionName, *optionType))
+		if option.ODataFieldName != nil {
+			value := fmt.Sprintf("*o.%s", *option.ODataFieldName)
+			if option.ObjectDefinition.Type == models.IntegerSDKOperationOptionObjectDefinitionType {
+				value = fmt.Sprintf("int(%s)", value)
+			}
+			odataAssignments = append(odataAssignments, fmt.Sprintf(`if o.%[1]s != nil {
+	out.%[2]s = %[3]s
+}`, optionName, *option.ODataFieldName, value))
+		}
 		if option.HeaderName != nil {
 			headerAssignments = append(headerAssignments, fmt.Sprintf(`if o.%[1]s != nil {
 	out.Append("%[2]s", fmt.Sprintf("%%v", *o.%[1]s))
@@ -793,6 +803,7 @@ func (c methodsPandoraTemplater) optionsStruct(data GeneratorData) (*string, err
 	}
 
 	sort.Strings(properties)
+	sort.Strings(odataAssignments)
 	sort.Strings(headerAssignments)
 	sort.Strings(queryStringAssignments)
 
@@ -813,14 +824,15 @@ func (o %[1]s) ToHeaders() *client.Headers {
 
 func (o %[1]s) ToOData() *odata.Query {
 	out := odata.Query{}
+%[4]s
 	return &out
 }
 
 func (o %[1]s) ToQuery() *client.QueryParams {
 	out := client.QueryParams{}
-%[4]s
+%[5]s
 	return &out
 }
-`, optionsStructName, strings.Join(properties, "\n"), strings.Join(headerAssignments, "\n"), strings.Join(queryStringAssignments, "\n"))
+`, optionsStructName, strings.Join(properties, "\n"), strings.Join(headerAssignments, "\n"), strings.Join(odataAssignments, "\n"), strings.Join(queryStringAssignments, "\n"))
 	return &out, nil
 }
