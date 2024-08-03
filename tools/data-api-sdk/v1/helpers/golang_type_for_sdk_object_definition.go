@@ -60,10 +60,7 @@ func GolangTypeForSDKObjectDefinition(input models.SDKObjectDefinition, golangPa
 		out := *input.ReferenceName
 		if golangPackageName != nil {
 			out = fmt.Sprintf("%s.%s", *golangPackageName, out)
-		} else if input.ReferenceNameIsCommonType != nil && *input.ReferenceNameIsCommonType {
-			if commonTypesPackageName == nil {
-				return nil, fmt.Errorf("ReferenceName %q is indicated to be a common type, but common types package name was not specified", *input.ReferenceName)
-			}
+		} else if input.ReferenceNameIsCommonType != nil && *input.ReferenceNameIsCommonType && commonTypesPackageName != nil {
 			out = fmt.Sprintf("%s.%s", *commonTypesPackageName, out)
 		}
 
