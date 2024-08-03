@@ -28,7 +28,7 @@ type ResourceIdMatch struct {
 	Remainder *ResourceId
 }
 
-// MatchIdOrAncestor returns a ResourceIdMatch containing a matching/ancestor ResourceId and/or a remaininder value, or nil if no
+// MatchIdOrAncestor returns a ResourceIdMatch containing a matching/ancestor ResourceId and/or a remainder value, or nil if no
 // match/ancestor was found. A match is a ResourceId that represents the same path, and an ancestor is any ResourceId that
 // represents a shorter matching path. Where multiple ancestors are found, the most granular (i.e. the longest) ancestor is returned.
 //
@@ -445,6 +445,9 @@ func ParseResourceIDs(paths openapi3.Paths, serviceName *string) (resourceIds Re
 		}
 
 		id := NewResourceId(path, operationTags)
+		if len(id.Segments) == 0 {
+			continue
+		}
 		segmentsLastIndex := len(id.Segments) - 1
 
 		lastSegment := id.Segments[segmentsLastIndex]

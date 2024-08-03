@@ -16,7 +16,7 @@ import (
 const (
 	metadataDirectory    = "../../submodules/msgraph-metadata"
 	microsoftGraphConfig = "../../config/microsoft-graph.hcl"
-	openApiFilePattern   = "transformed_%s_metadata.xml.yaml"
+	openApiFilePattern   = "openapi/%s/default.yaml"
 	outputDirectory      = "../../api-definitions"
 )
 
@@ -27,7 +27,7 @@ func main() {
 	}
 	logging.Log = hclog.New(loggingOpts)
 
-	c := cli.NewCLI("importer-msgraph-metadata", "0.2.2")
+	c := cli.NewCLI("importer-msgraph-metadata", "0.3.0")
 	c.Args = os.Args[1:]
 	c.Commands = map[string]cli.CommandFactory{
 		"import":    cmd.NewImportCommand(metadataDirectory, microsoftGraphConfig, openApiFilePattern, outputDirectory),

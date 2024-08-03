@@ -8,25 +8,29 @@ import (
 
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/normalize"
-	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/parser"
+	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/internal/logging"
 )
 
-func translateCommonTypesToDataApiSdkTypes(models parser.Models, constants parser.Constants, resourceIds parser.ResourceIds) (*sdkModels.CommonTypes, error) {
+func (p pipeline) translateCommonTypesToDataApiSdkTypes() (*sdkModels.CommonTypes, error) {
 	sdkConstantsMap := make(map[string]sdkModels.SDKConstant)
 	sdkModelsMap := make(map[string]sdkModels.SDKModel)
 	sdkResourceIdsMap := make(map[string]sdkModels.ResourceID)
 
-	for modelName, model := range models {
+	for modelName, model := range p.models {
 		if model.Common {
-			sdkModel, err := model.DataApiSdkModel(models)
+			sdkModel, err := model.DataApiSdkModel(p.models)
 			if err != nil {
 				return nil, err
+			}
+			if sdkModel == nil {
+				logging.Warnf("skipping invalid model %q as it has no fields", modelName)
+				continue
 			}
 			sdkModelsMap[modelName] = *sdkModel
 		}
 	}
 
-	for constantName, constant := range constants {
+	for constantName, constant := range p.constants {
 		constantValues := make(map[string]string)
 		for _, value := range constant.Enum {
 			// prefix constant value names with underscore to prevent naming conflicts with similarly named models in the generated SDK
@@ -40,7 +44,7 @@ func translateCommonTypesToDataApiSdkTypes(models parser.Models, constants parse
 		}
 	}
 
-	for _, resourceId := range resourceIds {
+	for _, resourceId := range p.resourceIds {
 		sdkResourceId, err := resourceId.DataApiSdkResourceId()
 		if err != nil {
 			return nil, err

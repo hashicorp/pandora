@@ -11,6 +11,7 @@ import (
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/normalize"
+	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/internal/logging"
 	"golang.org/x/text/cases"
 	"golang.org/x/text/language"
 )
@@ -119,7 +120,9 @@ func (m *Model) DataApiSdkModel(models Models) (*sdkModels.SDKModel, error) {
 		}
 
 		if objectDefinition == nil {
-			return nil, fmt.Errorf("could not determine SDKObjectDefinition for field: %s", fieldName)
+			//return nil, fmt.Errorf("could not determine SDKObjectDefinition for field: %s", fieldName)
+			logging.Warnf("could not determine SDKObjectDefinition for field %q, skipping", fieldName)
+			continue
 		}
 
 		sdkFields[fieldName] = sdkModels.SDKField{
@@ -135,6 +138,10 @@ func (m *Model) DataApiSdkModel(models Models) (*sdkModels.SDKModel, error) {
 			Required:  false,
 			Sensitive: false,
 		}
+	}
+
+	if len(sdkFields) == 0 {
+		return nil, nil
 	}
 
 	// TODO support discriminated types (good example: conditional access named locations)
@@ -176,8 +183,12 @@ func (f ModelField) DataApiSdkObjectDefinition(models Models) (*sdkModels.SDKObj
 			return nil, fmt.Errorf("field type Model encountered without model name")
 		}
 
-		if !models.Found(*f.ModelName) || !models[*f.ModelName].IsValid() {
-			return nil, fmt.Errorf("field type Model encountered with invalid referenced model")
+		if !models.Found(*f.ModelName) {
+			return nil, fmt.Errorf("field type Model encountered with unknown referenced model")
+		}
+
+		if !models[*f.ModelName].IsValid() {
+			logging.Warnf("skipping field %q with type Model as the referenced model %q is invalid", f.Title, *f.ModelName)
 		}
 
 		return &sdkModels.SDKObjectDefinition{
@@ -189,8 +200,12 @@ func (f ModelField) DataApiSdkObjectDefinition(models Models) (*sdkModels.SDKObj
 
 	case DataTypeArray:
 		if f.ModelName != nil {
-			if !models.Found(*f.ModelName) || !models[*f.ModelName].IsValid() {
-				return nil, fmt.Errorf("field type Array[Model] encountered with invalid referenced model")
+			if !models.Found(*f.ModelName) {
+				return nil, fmt.Errorf("field type Array[Model] encountered with unknown referenced model")
+			}
+
+			if !models[*f.ModelName].IsValid() {
+				logging.Warnf("skipping field %q with type Array[Model] as the referenced model %q is invalid", f.Title, *f.ModelName)
 			}
 
 			return &sdkModels.SDKObjectDefinition{
@@ -286,6 +301,27 @@ func (ft DataType) DataApiSdkObjectDefinitionType() sdkModels.SDKObjectDefinitio
 
 	// Fall back to string where the type is not known
 	return sdkModels.StringSDKObjectDefinitionType
+}
+
+func (ft DataType) DataApiSdkOperationOptionObjectDefinitionType() sdkModels.SDKOperationOptionObjectDefinitionType {
+	switch ft {
+	case DataTypeString, DataTypeBase64, DataTypeDuration, DataTypeUuid:
+		return sdkModels.StringSDKOperationOptionObjectDefinitionType
+	case DataTypeInteger64, DataTypeInteger32, DataTypeInteger16, DataTypeInteger8, DataTypeIntegerUnsigned64,
+		DataTypeIntegerUnsigned32, DataTypeIntegerUnsigned16, DataTypeIntegerUnsigned8:
+		return sdkModels.IntegerSDKOperationOptionObjectDefinitionType
+	case DataTypeFloat64, DataTypeFloat32:
+		return sdkModels.FloatSDKOperationOptionObjectDefinitionType
+	case DataTypeBool:
+		return sdkModels.BooleanSDKOperationOptionObjectDefinitionType
+	case DataTypeDate, DataTypeDateTime, DataTypeTime:
+		return sdkModels.StringSDKOperationOptionObjectDefinitionType
+	case DataTypeBinary:
+		return sdkModels.StringSDKOperationOptionObjectDefinitionType
+	}
+
+	// Fall back to string where the type is not known
+	return sdkModels.StringSDKOperationOptionObjectDefinitionType
 }
 
 // FieldType parses the schemaType and schemaFormat from the OpenAPI spec for a given field, and returns the appropriate DataType
@@ -696,8 +732,17 @@ func Schemas(input flattenedSchema, name string, models Models, constants Consta
 				}
 			}
 
+			if field.Type == nil {
+				logging.Warnf("skipping field %q in model %q because Type is nil", name, field.Title)
+				continue
+			}
+
 			model.Fields[normalize.CleanName(jsonField)] = &field
 		}
+	}
+
+	if !model.IsValid() {
+		delete(models, name)
 	}
 
 	return models, constants

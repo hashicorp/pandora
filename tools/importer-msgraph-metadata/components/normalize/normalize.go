@@ -78,6 +78,9 @@ func CleanName(name string) string {
 	// known issue where CloudPC appears with inconsistent casing
 	name = regexp.MustCompile("(?i)CloudPc").ReplaceAllString(name, "CloudPC")
 
+	// Orderby should be OrderBy
+	name = regexp.MustCompile("^Orderby").ReplaceAllString(name, "OrderBy")
+
 	return name
 }
 
