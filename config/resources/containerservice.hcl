@@ -4,6 +4,17 @@
 service "ContainerService" {
   terraform_package = "containers"
 
+  api "2024-04-01" {
+    package "Fleets" {
+      definition "kubernetes_fleet_manager" {
+        id = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}"
+        display_name = "Kubernetes Fleet Manager"
+        website_subcategory = "Container"
+        description = "Manages a Kubernetes Fleet Manager"
+      }
+    }
+  }
+
   api "2023-03-02-preview" {
     package "TrustedAccess" {
       definition "kubernetes_cluster_trusted_access_role_binding" {
