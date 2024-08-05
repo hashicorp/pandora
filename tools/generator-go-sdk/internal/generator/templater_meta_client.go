@@ -9,12 +9,13 @@ import (
 )
 
 type metaClientTemplater struct {
-	serviceName       string
-	apiVersion        string
-	baseClientPackage string
-	resources         map[string]models.APIResource
-	source            models.SourceDataOrigin
-	sourceType        models.SourceDataType
+	apiVersionDirectoryName string
+	apiVersionPackageName   string
+	baseClientPackage       string
+	resources               map[string]models.APIResource
+	serviceName             string
+	source                  models.SourceDataOrigin
+	sourceType              models.SourceDataType
 }
 
 func (m metaClientTemplater) template() (*string, error) {
@@ -36,7 +37,7 @@ func (m metaClientTemplater) template() (*string, error) {
 	for _, resourceName := range resourceNames {
 		variableName := fmt.Sprintf("%s%sClient", strings.ToLower(string(resourceName[0])), resourceName[1:])
 
-		imports = append(imports, fmt.Sprintf(`"github.com/hashicorp/go-azure-sdk/%s/%s/%s/%s"`, m.sourceType, strings.ToLower(m.serviceName), m.apiVersion, strings.ToLower(resourceName)))
+		imports = append(imports, fmt.Sprintf(`"github.com/hashicorp/go-azure-sdk/%s/%s/%s/%s"`, m.sourceType, strings.ToLower(m.serviceName), m.apiVersionDirectoryName, strings.ToLower(resourceName)))
 		fields = append(fields, fmt.Sprintf("%[1]s *%[2]s.%[1]sClient", resourceName, strings.ToLower(resourceName)))
 		clientInitializationTemplate := fmt.Sprintf(`%[1]s, err := %[2]s.New%[3]sClientWithBaseURI(sdkApi)
 if err != nil {
@@ -52,11 +53,6 @@ configureFunc(%[1]s.Client)
 	sort.Strings(clientInitialization)
 	sort.Strings(fields)
 	sort.Strings(imports)
-
-	packageName := m.apiVersion
-	if strings.Contains(packageName, "-") {
-		packageName = fmt.Sprintf("v%s", strings.ReplaceAll(m.apiVersion, "-", "_"))
-	}
 
 	out := fmt.Sprintf(`package %[1]s
 
@@ -83,6 +79,6 @@ func NewClientWithBaseURI(sdkApi sdkEnv.Api, configureFunc func(c *%[2]s.Client)
 		%[7]s
 	}, nil
 }
-`, packageName, m.baseClientPackage, *copyrightLines, strings.Join(imports, "\n"), strings.Join(fields, "\n"), strings.Join(clientInitialization, "\n"), strings.Join(assignments, "\n"))
+`, m.apiVersionPackageName, m.baseClientPackage, *copyrightLines, strings.Join(imports, "\n"), strings.Join(fields, "\n"), strings.Join(clientInitialization, "\n"), strings.Join(assignments, "\n"))
 	return &out, nil
 }
