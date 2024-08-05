@@ -15,21 +15,22 @@ func (s *Generator) metaClient(data VersionGeneratorData) error {
 	var templater templaterForVersion
 	if data.useNewBaseLayer {
 		templater = metaClientTemplater{
-			serviceName:             data.servicePackageName,
 			apiVersionDirectoryName: data.versionDirectoryName,
 			apiVersionPackageName:   data.versionPackageName,
 			baseClientPackage:       data.baseClientPackage,
 			resources:               data.resources,
+			serviceName:             data.servicePackageName,
 			source:                  data.source,
 			sourceType:              data.sourceType,
 		}
 	} else {
 		templater = metaClientAutorestTemplater{
-			serviceName: data.servicePackageName,
-			apiVersion:  data.versionPackageName,
-			resources:   data.resources,
-			source:      data.source,
-			sourceType:  data.sourceType,
+			apiVersionDirectoryName: data.versionDirectoryName,
+			apiVersionPackageName:   data.versionPackageName,
+			resources:               data.resources,
+			serviceName:             data.servicePackageName,
+			source:                  data.source,
+			sourceType:              data.sourceType,
 		}
 	}
 
