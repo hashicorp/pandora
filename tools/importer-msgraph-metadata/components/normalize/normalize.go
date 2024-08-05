@@ -13,15 +13,27 @@ import (
 )
 
 func Singularize(name string) string {
+	// "access" is already singular
+	if len(name) >= 5 && name[len(name)-5:] == "ccess" {
+		return name
+	}
+
+	// "properties", "entities" etc
 	if len(name) >= 3 && name[len(name)-3:] == "ies" {
 		return fmt.Sprintf("%sy", name[:len(name)-3])
 	}
+
+	// "premises" etc
 	if len(name) >= 3 && name[len(name)-3:] == "ses" {
 		return name[:len(name)-2]
 	}
+
+	// all other words, remove the trailing "s"
 	if len(name) >= 1 && name[len(name)-1:] == "s" {
 		return name[:len(name)-1]
 	}
+
+	// else just return the original name
 	return name
 }
 
@@ -69,17 +81,23 @@ func CleanName(name string) string {
 	trailing := regexp.MustCompile(`[^a-zA-Z0-9]`).ReplaceAllString(name[len(leading):], "")
 	name = leading + trailing
 
-	// Odata should be OData
-	name = regexp.MustCompile("^Odata").ReplaceAllString(name, "OData")
+	// CloudPc should be CloudPC, also fixes inconsistent casing
+	name = regexp.MustCompile("(?i)CloudPc").ReplaceAllString(name, "CloudPC")
 
 	// Innererror should be InnerError
 	name = regexp.MustCompile("^Innererror").ReplaceAllString(name, "InnerError")
 
-	// known issue where CloudPC appears with inconsistent casing
-	name = regexp.MustCompile("(?i)CloudPc").ReplaceAllString(name, "CloudPC")
+	// Oauth should be OAuth
+	name = regexp.MustCompile("^Oauth").ReplaceAllString(name, "OAuth")
+
+	// Odata should be OData
+	name = regexp.MustCompile("^Odata").ReplaceAllString(name, "OData")
 
 	// Orderby should be OrderBy
 	name = regexp.MustCompile("^Orderby").ReplaceAllString(name, "OrderBy")
+
+	// (trailing) ID should be Id for compatibility with Go SDK generator
+	name = regexp.MustCompile("([a-z])ID$").ReplaceAllString(name, "${1}Id")
 
 	return name
 }
