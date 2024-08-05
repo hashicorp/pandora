@@ -130,7 +130,7 @@ func (r ResourceId) IsMatchOrAncestor(r2 ResourceId) (ResourceId, bool) {
 }
 
 // FullyQualifiedResourceName returns a human-readable name for the ResourceId, using all segments, each segment singularized
-// except when the following segment is a plural function, or the first known verb is encountered.
+// except when the following segment is an OData reference or plural function, or the first known verb is encountered.
 // e.g.
 // if r represents `/applications/{applicationId}/synchronization/jobs/{synchronizationJobId}/schema`, the returned name
 // will be `ApplicationSynchronizationJob`
@@ -149,19 +149,21 @@ func (r ResourceId) FullyQualifiedResourceName(suffixQualification *string) (*st
 				if i == len(r.Segments)+1 {
 					// Don't singularize the final segment, so it can still be reliably verb-matched when parsing operations later
 					shouldSingularize = false
+				}
 
-				} else if len(r.Segments) > i+1 && r.Segments[i+1].Type != SegmentUserValue {
+				if len(r.Segments) > i+1 && r.Segments[i+1].Type != SegmentUserValue {
 					// Look for a verb match in the next segment, if it exists and is not a SegmentUserValue
 					// Example: in the following ID, we want to _not_ singularize the `jobs` label
 					//          /applications/{applicationId}/synchronization/jobs/validateCredentials
 					if _, ok := normalize.Verbs.Match(normalize.CleanName(r.Segments[i+1].Value)); ok {
 						shouldSingularize = false
 					}
+				}
 
-				} else if len(r.Segments) > i+1 && r.Segments[i+1].Type == SegmentODataReference && r.Segments[i+1].Value == "$count" {
-					// $count indicates a plural entity whereas $ref does not
+				if len(r.Segments) > i+1 && r.Segments[i+1].Type == SegmentODataReference && (r.Segments[i+1].Value == "$count" || r.Segments[i+1].Value == "$ref") {
+					// $count and $ref indicate a plural entity (noting that this only applies when the current
+					// segment is a label and not user-specified).
 					shouldSingularize = false
-
 				}
 			}
 
