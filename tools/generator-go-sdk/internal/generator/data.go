@@ -74,10 +74,10 @@ type GeneratorData struct {
 func (i ServiceGeneratorInput) generatorData(settings Settings) GeneratorData {
 	resourcePackageName := strings.ToLower(i.ResourceName)
 	servicePackageName := strings.ToLower(i.ServiceName)
-	versionPackageName := strings.ToLower(i.VersionName)
+	versionDirectoryName := strings.ToLower(i.VersionName)
 
-	versionOutputPath := filepath.Join(i.OutputDirectory, servicePackageName, versionPackageName)
-	resourceOutputPath := filepath.Join(versionOutputPath, resourcePackageName)
+	versionOutputPath := filepath.Join(i.OutputDirectory, servicePackageName, versionDirectoryName)
+	resourceOutputPath := filepath.Join(versionOutputPath, versionDirectoryName)
 
 	useNewBaseLayer := settings.ShouldUseNewBaseLayer(i.ServiceName, i.VersionName)
 
@@ -122,16 +122,20 @@ type VersionGeneratorData struct {
 	// for example {workingDir}/{service}/{version}
 	versionOutputPath string
 
-	// the name of the version as a package
+	// the directory name of the package for the API version
+	versionDirectoryName string
+
+	// the package name for the API version
 	versionPackageName string
 }
 
 func (i VersionGeneratorInput) generatorData(settings Settings) VersionGeneratorData {
 	servicePackageName := strings.ToLower(i.ServiceName)
+	versionDirectoryName := strings.ToLower(i.VersionName)
 	versionPackageName := strings.ToLower(strings.ReplaceAll(i.VersionName, "-", "_"))
 
-	commonTypesOutputPath := filepath.Join(i.OutputDirectory, settings.CommonTypesPackageName, versionPackageName)
-	versionOutputPath := filepath.Join(i.OutputDirectory, servicePackageName, versionPackageName)
+	commonTypesOutputPath := filepath.Join(i.OutputDirectory, settings.CommonTypesPackageName, versionDirectoryName)
+	versionOutputPath := filepath.Join(i.OutputDirectory, servicePackageName, versionDirectoryName)
 
 	useNewBaseLayer := settings.ShouldUseNewBaseLayer(i.ServiceName, i.VersionName)
 
@@ -152,6 +156,7 @@ func (i VersionGeneratorInput) generatorData(settings Settings) VersionGenerator
 		commonTypesOutputPath: commonTypesOutputPath,
 		resources:             i.Resources,
 		versionOutputPath:     versionOutputPath,
+		versionDirectoryName:  versionDirectoryName,
 		versionPackageName:    versionPackageName,
 	}
 }
