@@ -78,7 +78,7 @@ func (i ServiceGeneratorInput) generatorData(settings Settings) GeneratorData {
 	versionDirectoryName := strings.ToLower(i.VersionName)
 
 	versionOutputPath := filepath.Join(i.OutputDirectory, servicePackageName, versionDirectoryName)
-	resourceOutputPath := filepath.Join(versionOutputPath, versionDirectoryName)
+	resourceOutputPath := filepath.Join(versionOutputPath, resourcePackageName)
 
 	useNewBaseLayer := settings.ShouldUseNewBaseLayer(i.ServiceName, i.VersionName)
 
