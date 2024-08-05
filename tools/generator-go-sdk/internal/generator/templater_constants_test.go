@@ -34,7 +34,11 @@ func TestTemplateConstantsSingle(t *testing.T) {
 	}
 	expected := `package somepackage
 
-import "strings"
+import (
+	"encoding/json"
+	"fmt"
+	"strings"
+)
 
 // acctests licence placeholder
 // template for first
@@ -64,7 +68,11 @@ func TestTemplateConstantsMultiple(t *testing.T) {
 	}
 	expected := `package somepackage
 
-import "strings"
+import (
+	"encoding/json"
+	"fmt"
+	"strings"
+)
 
 // acctests licence placeholder
 // template for first

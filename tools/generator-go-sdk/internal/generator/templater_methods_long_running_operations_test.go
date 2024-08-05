@@ -11,6 +11,7 @@ import (
 
 func TestTemplateMethodsLROCreate(t *testing.T) {
 	input := GeneratorData{
+		baseClientPackage: "testclient",
 		packageName:       "skinnyPandas",
 		serviceClientName: "pandaClient",
 		source:            AccTestLicenceType,
@@ -77,7 +78,7 @@ func (c pandaClient) Create(ctx context.Context , id PandaPop, input string) (re
 		return
 	}
 
-	result.Poller, err = resourcemanager.PollerFromResponse(resp, c.Client)
+	result.Poller, err = testclient.PollerFromResponse(resp, c.Client)
 	if err != nil {
 		return
 	}
@@ -104,6 +105,7 @@ func (c pandaClient) CreateThenPoll(ctx context.Context , id PandaPop, input str
 
 func TestTemplateMethodsLROReboot(t *testing.T) {
 	input := GeneratorData{
+		baseClientPackage: "testclient",
 		packageName:       "skinnyPandas",
 		serviceClientName: "pandaClient",
 		source:            AccTestLicenceType,
@@ -161,7 +163,7 @@ func (c pandaClient) Reboot(ctx context.Context , id PandaPop) (result RebootOpe
 	return
 	}
 
-	result.Poller, err = resourcemanager.PollerFromResponse(resp, c.Client)
+	result.Poller, err = testclient.PollerFromResponse(resp, c.Client)
 	if err != nil {
 		return
 	}
@@ -195,6 +197,7 @@ func TestTemplateMethodsLRODoesNotCallUnmarshal(t *testing.T) {
 	// Poller - since (for the moment) consumers will need to decide when `Unmarshal` should
 	// be called on the LRO Result, if needed at all.
 	input := GeneratorData{
+		baseClientPackage: "testclient",
 		packageName:       "skinnyPandas",
 		serviceClientName: "pandaClient",
 		source:            AccTestLicenceType,
@@ -280,7 +283,7 @@ func (c pandaClient) Create(ctx context.Context , id PandaPop, input Example) (r
 		return
 	}
 
-	result.Poller, err = resourcemanager.PollerFromResponse(resp, c.Client)
+	result.Poller, err = testclient.PollerFromResponse(resp, c.Client)
 	if err != nil {
 		return
 	}

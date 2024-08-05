@@ -15,6 +15,7 @@ import (
 
 func TestTemplateMethodsGet(t *testing.T) {
 	input := GeneratorData{
+		baseClientPackage: "testclient",
 		packageName:       "skinnyPandas",
 		serviceClientName: "pandaClient",
 		source:            AccTestLicenceType,
@@ -88,6 +89,7 @@ func (c pandaClient) Get(ctx context.Context , id PandaPop) (result GetOperation
 
 func TestTemplateMethodsGetAsTextPowerShell(t *testing.T) {
 	input := GeneratorData{
+		baseClientPackage: "testclient",
 		packageName:       "skinnyPandas",
 		serviceClientName: "pandaClient",
 		source:            AccTestLicenceType,
@@ -166,6 +168,7 @@ func (c pandaClient) Get(ctx context.Context , id PandaPop) (result GetOperation
 
 func TestTemplateMethodsListWithDiscriminatedType(t *testing.T) {
 	input := GeneratorData{
+		baseClientPackage: "testclient",
 		packageName:       "chubbyPandas",
 		serviceClientName: "pandaClient",
 		source:            AccTestLicenceType,
@@ -334,6 +337,7 @@ func (c pandaClient) ListCompleteMatchingPredicate(ctx context.Context, id Panda
 
 func TestTemplateMethodsListWithSimpleType(t *testing.T) {
 	input := GeneratorData{
+		baseClientPackage: "testclient",
 		packageName:       "chubbyPandas",
 		serviceClientName: "pandaClient",
 		source:            AccTestLicenceType,
@@ -455,6 +459,7 @@ func (c pandaClient) ListComplete(ctx context.Context, id PandaPop) (result List
 
 func TestTemplateMethodsListWithObject(t *testing.T) {
 	input := GeneratorData{
+		baseClientPackage: "testclient",
 		packageName:       "chubbyPandas",
 		serviceClientName: "pandaClient",
 		source:            AccTestLicenceType,

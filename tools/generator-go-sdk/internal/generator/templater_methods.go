@@ -233,7 +233,7 @@ func (c methodsPandoraTemplater) longRunningOperationTemplate(data GeneratorData
 
 // %[3]s ...
 func (c %[1]s) %[3]s(ctx context.Context %[4]s) (result %[3]sOperationResponse, err error) {
-	opts := %[4]s
+	opts := %[5]s
 
 	req, err := c.Client.NewRequest(ctx, opts)
 	if err != nil {

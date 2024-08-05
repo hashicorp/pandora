@@ -71,7 +71,7 @@ var _ resourceids.ResourceId = &BasicTestId{}
         }
 
         id := BasicTestId{}
-        if err := id.FromParseResult(*parsed); err != nil {
+        if err = id.FromParseResult(*parsed); err != nil {
 			return nil, err
 		}
 
@@ -88,7 +88,7 @@ var _ resourceids.ResourceId = &BasicTestId{}
         }
 
         id := BasicTestId{}
-        if err := id.FromParseResult(*parsed); err != nil {
+        if err = id.FromParseResult(*parsed); err != nil {
 			return nil, err
 		}
 
@@ -220,7 +220,7 @@ func ParseConstantOnlyID(input string) (*ConstantOnlyId, error) {
 	}
 
 	id := ConstantOnlyId{}
-	if err := id.FromParseResult(*parsed); err != nil {
+	if err = id.FromParseResult(*parsed); err != nil {
 			return nil, err
 	}
 
@@ -237,7 +237,7 @@ func ParseConstantOnlyIDInsensitively(input string) (*ConstantOnlyId, error) {
 	}
 
 	id := ConstantOnlyId{}
-	if err := id.FromParseResult(*parsed); err != nil {
+	if err = id.FromParseResult(*parsed); err != nil {
 			return nil, err
 	}
 
