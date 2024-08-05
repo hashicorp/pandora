@@ -6,6 +6,7 @@ package generator
 import (
 	"fmt"
 	"path/filepath"
+	"regexp"
 	"strings"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
@@ -132,10 +133,14 @@ type VersionGeneratorData struct {
 func (i VersionGeneratorInput) generatorData(settings Settings) VersionGeneratorData {
 	servicePackageName := strings.ToLower(i.ServiceName)
 	versionDirectoryName := strings.ToLower(i.VersionName)
-	versionPackageName := strings.ToLower(strings.ReplaceAll(i.VersionName, "-", "_"))
 
 	commonTypesOutputPath := filepath.Join(i.OutputDirectory, settings.CommonTypesPackageName, versionDirectoryName)
 	versionOutputPath := filepath.Join(i.OutputDirectory, servicePackageName, versionDirectoryName)
+
+	versionPackageName := strings.ToLower(strings.ReplaceAll(i.VersionName, "-", "_"))
+	if regexp.MustCompile(`^[0-9]+`).MatchString(versionPackageName) {
+		versionPackageName = fmt.Sprintf("v%s", versionPackageName)
+	}
 
 	useNewBaseLayer := settings.ShouldUseNewBaseLayer(i.ServiceName, i.VersionName)
 
