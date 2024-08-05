@@ -63,6 +63,8 @@ configureFunc(%[1]s.Client)
 %[3]s
 
 import (
+	"fmt"
+
 	"github.com/hashicorp/go-azure-sdk/sdk/client"
 	"github.com/hashicorp/go-azure-sdk/sdk/client/msgraph"
 	"github.com/hashicorp/go-azure-sdk/sdk/client/resourcemanager"

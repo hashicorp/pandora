@@ -16,6 +16,8 @@ func (c clientsTemplater) template(data GeneratorData) (*string, error) {
 	template := fmt.Sprintf(`package %[1]s
 
 import (
+	"fmt"
+
 	"github.com/hashicorp/go-azure-sdk/sdk/client"
 	"github.com/hashicorp/go-azure-sdk/sdk/client/msgraph"
 	"github.com/hashicorp/go-azure-sdk/sdk/client/resourcemanager"
