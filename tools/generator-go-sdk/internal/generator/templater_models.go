@@ -36,6 +36,11 @@ func (c modelsTemplater) template(data GeneratorData) (*string, error) {
 		return nil, fmt.Errorf("generating functions: %+v", err)
 	}
 
+	commonTypesInclude := ""
+	if data.commonTypesIncludePath != nil {
+		commonTypesInclude = fmt.Sprintf(`"github.com/hashicorp/go-azure-sdk/%s/%s"`, data.sourceType, *data.commonTypesIncludePath)
+	}
+
 	template := fmt.Sprintf(`package %[1]s
 
 import (
@@ -49,12 +54,13 @@ import (
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/systemdata"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/zones"
+	%[2]s
 )
 
-%[4]s
-%[2]s
+%[5]s
 %[3]s
-`, data.packageName, *structCode, *methods, *copyrightLines)
+%[4]s
+`, data.packageName, commonTypesInclude, *structCode, *methods, *copyrightLines)
 	return &template, nil
 }
 

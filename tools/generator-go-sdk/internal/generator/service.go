@@ -131,21 +131,15 @@ func runGoImports(path string) {
 }
 
 func cleanAndRecreateWorkingDirectory(path string) error {
-	// rm -r
+	// rm -r 💥
 	if err := os.RemoveAll(path); err != nil {
 		return fmt.Errorf("deleting %q: %+v", path, err)
 	}
 
-	// then ensure the directory exists
-	if err := os.MkdirAll(path, 0777); err != nil {
-		return fmt.Errorf("creating %q: %+v", path, err)
-	}
-
-	return nil
+	return ensureWorkingDirectoryExists(path)
 }
 
 func ensureWorkingDirectoryExists(path string) error {
-	// TODO: make these less exciting
 	if err := os.MkdirAll(path, 0777); err != nil {
 		if !os.IsExist(err) {
 			return fmt.Errorf("creating %q: %+v", path, err)
