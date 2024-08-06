@@ -5,6 +5,7 @@ package transforms
 
 import (
 	"fmt"
+	"strings"
 
 	"github.com/hashicorp/pandora/tools/data-api-repository/repository/internal/helpers"
 	repositoryModels "github.com/hashicorp/pandora/tools/data-api-repository/repository/internal/models"
@@ -24,13 +25,15 @@ func mapSDKOperationOptionObjectDefinitionFromRepository(input repositoryModels.
 	}
 
 	if input.ReferenceName != nil {
-		isConstant := knownData.ConstantExists(*input.ReferenceName)
-		isModel := knownData.ModelExists(*input.ReferenceName)
-		if !isConstant && !isModel {
-			return nil, fmt.Errorf("the Reference %q was not found as either a Constant or a Model", *input.ReferenceName)
-		}
-		if isConstant && isModel {
-			return nil, fmt.Errorf("the Reference %q was found as both a Constant or a Model", *input.ReferenceName)
+		if !strings.HasPrefix(*input.ReferenceName, "odata.") {
+			isConstant := knownData.ConstantExists(*input.ReferenceName)
+			isModel := knownData.ModelExists(*input.ReferenceName)
+			if !isConstant && !isModel {
+				return nil, fmt.Errorf("the Reference %q was not found as either a Constant or a Model", *input.ReferenceName)
+			}
+			if isConstant && isModel {
+				return nil, fmt.Errorf("the Reference %q was found as both a Constant or a Model", *input.ReferenceName)
+			}
 		}
 
 		output.ReferenceName = input.ReferenceName
@@ -91,6 +94,10 @@ func validateSDKOperationOptionObjectDefinition(input repositoryModels.OptionObj
 	if requiresReference {
 		if input.ReferenceName == nil {
 			return fmt.Errorf("a Reference must be specified for a %q type but didn't get one", string(input.Type))
+		}
+
+		if strings.HasPrefix(*input.ReferenceName, "odata.") {
+			return nil
 		}
 
 		isConstant := knownData.ConstantExists(*input.ReferenceName)

@@ -71,10 +71,11 @@ func (r *repositoryImpl) SaveService(opts SaveServiceOptions) error {
 			})
 
 			items = append(items, stages.ModelsStage{
-				APIVersion:  apiVersion,
-				APIResource: apiResourceName,
-				Constants:   apiResourceDetails.Constants,
-				Models:      apiResourceDetails.Models,
+				APIVersion:                   apiVersion,
+				APIResource:                  apiResourceName,
+				CommonTypesForThisAPIVersion: commonTypesForThisApiVersion,
+				Constants:                    apiResourceDetails.Constants,
+				Models:                       apiResourceDetails.Models,
 			})
 
 			items = append(items, stages.OperationsStage{

@@ -36,11 +36,12 @@ client.Client.Authorizer = authorizer
 	actual, err := readmeTemplater{
 		sortedOperationNames: []string{},
 		operations:           map[string]models.SDKOperation{},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
 		serviceClientName:  "DisksClient",
+		sourceType:         models.ResourceManagerSourceDataType,
 	})
 	if err != nil {
 		t.Fatalf("generating readme: %+v", err)
@@ -93,11 +94,12 @@ if model := read.Model; model != nil {
 				ResourceIDName: stringPointer("Disk"),
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
 		serviceClientName:  "DisksClient",
+		sourceType:         models.ResourceManagerSourceDataType,
 		resourceIds: map[string]models.ResourceID{
 			"Disk": {
 				Segments: []models.ResourceIDSegment{
@@ -159,11 +161,12 @@ if model := read.Model; model != nil {
 				ResourceIDName: stringPointer("Disk"),
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
 		serviceClientName:  "DisksClient",
+		sourceType:         models.ResourceManagerSourceDataType,
 		resourceIds: map[string]models.ResourceID{
 			"Disk": {
 				CommonIDAlias: pointer.To("ManagedDisk"),
@@ -232,11 +235,12 @@ if model := read.Model; model != nil {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
 		serviceClientName:  "DisksClient",
+		sourceType:         models.ResourceManagerSourceDataType,
 		resourceIds: map[string]models.ResourceID{
 			"Disk": {
 				Segments: []models.ResourceIDSegment{
@@ -319,11 +323,12 @@ if model := read.Model; model != nil {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
 		serviceClientName:  "DisksClient",
+		sourceType:         models.ResourceManagerSourceDataType,
 		resourceIds: map[string]models.ResourceID{
 			"Disk": {
 				Segments: []models.ResourceIDSegment{
@@ -399,11 +404,12 @@ if model := read.Model; model != nil {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
 		serviceClientName:  "DisksClient",
+		sourceType:         models.ResourceManagerSourceDataType,
 		resourceIds: map[string]models.ResourceID{
 			"Disk": {
 				Segments: []models.ResourceIDSegment{
@@ -463,11 +469,12 @@ if model := read.Model; model != nil {
 				ResourceIDName: nil,
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
 		serviceClientName:  "DisksClient",
+		sourceType:         models.ResourceManagerSourceDataType,
 		resourceIds:        map[string]models.ResourceID{},
 	})
 	if err != nil {
@@ -528,11 +535,12 @@ if model := read.Model; model != nil {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
 		serviceClientName:  "DisksClient",
+		sourceType:         models.ResourceManagerSourceDataType,
 		resourceIds:        map[string]models.ResourceID{},
 	})
 	if err != nil {
@@ -588,11 +596,12 @@ for _, item := range items {
 				ResourceIDName:                   stringPointer("Disk"),
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
 		serviceClientName:  "DisksClient",
+		sourceType:         models.ResourceManagerSourceDataType,
 		resourceIds: map[string]models.ResourceID{
 			"Disk": {
 				Segments: []models.ResourceIDSegment{
@@ -656,11 +665,12 @@ for _, item := range items {
 				ResourceIDName:                   stringPointer("Disk"),
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
 		serviceClientName:  "DisksClient",
+		sourceType:         models.ResourceManagerSourceDataType,
 		resourceIds: map[string]models.ResourceID{
 			"Disk": {
 				CommonIDAlias: pointer.To("ManagedDisk"),
@@ -731,11 +741,12 @@ for _, item := range items {
 				FieldContainingPaginationDetails: stringPointer("SomeField"),
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
 		serviceClientName:  "DisksClient",
+		sourceType:         models.ResourceManagerSourceDataType,
 		resourceIds: map[string]models.ResourceID{
 			"Disk": {
 				Segments: []models.ResourceIDSegment{
@@ -820,11 +831,12 @@ for _, item := range items {
 				FieldContainingPaginationDetails: stringPointer("SomeField"),
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
 		serviceClientName:  "DisksClient",
+		sourceType:         models.ResourceManagerSourceDataType,
 		resourceIds: map[string]models.ResourceID{
 			"Disk": {
 				Segments: []models.ResourceIDSegment{
@@ -902,11 +914,12 @@ for _, item := range items {
 				FieldContainingPaginationDetails: stringPointer("SomeField"),
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
 		serviceClientName:  "DisksClient",
+		sourceType:         models.ResourceManagerSourceDataType,
 		resourceIds: map[string]models.ResourceID{
 			"Disk": {
 				Segments: []models.ResourceIDSegment{
@@ -975,11 +988,12 @@ for _, item := range items {
 				FieldContainingPaginationDetails: stringPointer("SomeField"),
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
 		serviceClientName:  "DisksClient",
+		sourceType:         models.ResourceManagerSourceDataType,
 		resourceIds:        map[string]models.ResourceID{},
 	})
 	if err != nil {
@@ -1030,11 +1044,12 @@ if err := client.SomeLongRunningThenPoll(ctx, id); err != nil {
 				ResourceIDName: stringPointer("Disk"),
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
 		serviceClientName:  "DisksClient",
+		sourceType:         models.ResourceManagerSourceDataType,
 		resourceIds: map[string]models.ResourceID{
 			"Disk": {
 				Segments: []models.ResourceIDSegment{
@@ -1093,11 +1108,12 @@ if err := client.SomeLongRunningThenPoll(ctx, id); err != nil {
 				ResourceIDName: stringPointer("Disk"),
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
 		serviceClientName:  "DisksClient",
+		sourceType:         models.ResourceManagerSourceDataType,
 		resourceIds: map[string]models.ResourceID{
 			"Disk": {
 				CommonIDAlias: pointer.To("ManagedDisk"),
@@ -1163,11 +1179,12 @@ if err := client.SomeLongRunningThenPoll(ctx, id, payload); err != nil {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
 		serviceClientName:  "DisksClient",
+		sourceType:         models.ResourceManagerSourceDataType,
 		resourceIds: map[string]models.ResourceID{
 			"Disk": {
 				Segments: []models.ResourceIDSegment{
@@ -1247,11 +1264,12 @@ if err := client.SomeLongRunningThenPoll(ctx, id, payload, disks.DefaultSomeLong
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
 		serviceClientName:  "DisksClient",
+		sourceType:         models.ResourceManagerSourceDataType,
 		resourceIds: map[string]models.ResourceID{
 			"Disk": {
 				Segments: []models.ResourceIDSegment{
@@ -1323,11 +1341,12 @@ if err := client.SomeLongRunningThenPoll(ctx, id, disks.DefaultSomeLongRunningOp
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
 		serviceClientName:  "DisksClient",
+		sourceType:         models.ResourceManagerSourceDataType,
 		resourceIds: map[string]models.ResourceID{
 			"Disk": {
 				Segments: []models.ResourceIDSegment{
@@ -1385,11 +1404,12 @@ if err := client.SomeLongRunningThenPoll(ctx); err != nil {
 				ResourceIDName: nil,
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
 		serviceClientName:  "DisksClient",
+		sourceType:         models.ResourceManagerSourceDataType,
 		resourceIds:        map[string]models.ResourceID{},
 	})
 	if err != nil {
@@ -1461,11 +1481,12 @@ if model := read.Model; model != nil {
 				ResourceIDName: nil,
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
 		serviceClientName:  "DisksClient",
+		sourceType:         models.ResourceManagerSourceDataType,
 		resourceIds:        map[string]models.ResourceID{},
 	})
 	if err != nil {

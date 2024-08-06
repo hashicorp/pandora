@@ -12,6 +12,7 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/normalize"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/parser"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/tags"
+	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/internal/logging"
 )
 
 func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, models parser.Models, constants parser.Constants) (resources parser.Resources, err error) {
@@ -31,13 +32,17 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 			}
 		}
 
+		if skip {
+			continue
+		}
+
 		parsedPath := parser.NewResourceId(path, operationTags)
 		lastSegment := parsedPath.Segments[len(parsedPath.Segments)-1]
 
 		// Determine whether to skip a path containing unsupported segment types
 		for idx, segment := range parsedPath.Segments {
 			if segment.Type == parser.SegmentCast || segment.Type == parser.SegmentFunction {
-				p.logger.Debug(fmt.Sprintf("Skipping path containing %s at position %d for %q: %v", segment.Type, idx, p.service, path))
+				logging.Debugf(fmt.Sprintf("Skipping path containing %s at position %d for %q: %v", segment.Type, idx, p.service, path))
 				skip = true
 				break
 			}
@@ -52,7 +57,7 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 			resourceName = *r
 		}
 		if resourceName == "" {
-			p.logger.Warn(fmt.Sprintf("Path with unknown name was encountered for %q: %v", p.service, path))
+			logging.Warnf(fmt.Sprintf("Path with unknown name was encountered for %q: %v", p.service, path))
 			continue
 		}
 
@@ -66,7 +71,7 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 
 		if _, ok := resources[resourceName]; !ok {
 			// Create a new resource if not already encountered
-			p.logger.Info(fmt.Sprintf("Found new resource %q (category %q, service %q, version %q)", resourceName, resourceCategory, p.service, p.apiVersion))
+			logging.Infof(fmt.Sprintf("Found new resource %q (category %q, service %q, version %q)", resourceName, resourceCategory, p.service, p.apiVersion))
 
 			resources[resourceName] = &parser.Resource{
 				Name:       resourceName,
@@ -110,7 +115,7 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 
 			if uriSuffix != nil {
 				if uriSuffixParsed := parser.NewResourceId(*uriSuffix, operationTags); uriSuffixParsed.HasUserValue() {
-					p.logger.Info(fmt.Sprintf("Skipping URI suffix containing user value in resource %q (category %q, service %q, version %q): %q", resourceName, resourceCategory, p.service, p.apiVersion, *uriSuffix))
+					logging.Infof(fmt.Sprintf("Skipping URI suffix containing user value in resource %q (category %q, service %q, version %q): %q", resourceName, resourceCategory, p.service, p.apiVersion, *uriSuffix))
 					continue
 				}
 			}
@@ -199,7 +204,7 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 
 			// Skip unknown operations
 			if operationType == parser.OperationTypeUnknown {
-				p.logger.Warn(fmt.Sprintf("Skipping unknown operation type for %q: %v", p.service, path))
+				logging.Warnf(fmt.Sprintf("Skipping unknown operation type for %q: %v", p.service, path))
 				continue
 			}
 
@@ -207,36 +212,41 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 
 			prefixToTrim := normalize.Singularize(normalize.CleanName(p.service))
 			if resourceId != nil && uriSuffix == nil {
-				prefixToTrim = fmt.Sprintf("%sById", prefixToTrim)
+				prefixToTrim = fmt.Sprintf("%s%s", prefixToTrim, parser.ResourceSuffix)
 			}
 			shortResourceName := strings.TrimPrefix(resourceName, prefixToTrim)
+
+			operationName = shortResourceName
+			if len(operationName) == 0 {
+				operationName = resourceName
+			}
 
 			switch operationType {
 			case parser.OperationTypeList:
 				if _, ok = normalize.Verbs.Match(shortResourceName); ok {
-					operationName = normalize.Pluralize(normalize.Singularize(resourceName))
+					operationName = normalize.Pluralize(normalize.Singularize(operationName))
 				} else {
-					operationName = fmt.Sprintf("List%s", normalize.Pluralize(normalize.Singularize(resourceName)))
+					operationName = fmt.Sprintf("List%s", normalize.Pluralize(normalize.Singularize(operationName)))
 				}
 			case parser.OperationTypeRead:
-				operationName = fmt.Sprintf("Get%s", normalize.Singularize(resourceName))
+				operationName = fmt.Sprintf("Get%s", normalize.Singularize(operationName))
 			case parser.OperationTypeCreate:
 				if _, ok = normalize.Verbs.Match(shortResourceName); ok {
-					operationName = normalize.Singularize(resourceName)
+					operationName = normalize.Singularize(operationName)
 				} else if lastSegment.Type == parser.SegmentODataReference {
-					operationName = fmt.Sprintf("Add%s", normalize.Singularize(resourceName))
+					operationName = fmt.Sprintf("Add%s", normalize.Singularize(operationName))
 				} else {
-					operationName = fmt.Sprintf("Create%s", normalize.Singularize(resourceName))
+					operationName = fmt.Sprintf("Create%s", normalize.Singularize(operationName))
 				}
 			case parser.OperationTypeCreateUpdate:
-				operationName = fmt.Sprintf("CreateUpdate%s", normalize.Singularize(resourceName))
+				operationName = fmt.Sprintf("CreateUpdate%s", normalize.Singularize(operationName))
 			case parser.OperationTypeUpdate:
-				operationName = fmt.Sprintf("Update%s", normalize.Singularize(resourceName))
+				operationName = fmt.Sprintf("Update%s", normalize.Singularize(operationName))
 			case parser.OperationTypeDelete:
 				if lastSegment.Type == parser.SegmentODataReference {
-					operationName = fmt.Sprintf("Remove%s", normalize.Singularize(resourceName))
+					operationName = fmt.Sprintf("Remove%s", normalize.Singularize(operationName))
 				} else {
-					operationName = fmt.Sprintf("Delete%s", normalize.Singularize(resourceName))
+					operationName = fmt.Sprintf("Delete%s", normalize.Singularize(operationName))
 				}
 			}
 
@@ -270,13 +280,55 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 									// Unique object for this operation
 									modelName = fmt.Sprintf("%sRequest", operationName)
 									models, constants = parser.Schemas(*schema, modelName, models, constants, false)
-									requestModel = &modelName
+
+									// Only assign requestModel if the parsed model was valid and added
+									if models.Found(modelName) {
+										requestModel = &modelName
+									}
 									break
 								}
 							}
 						}
 					}
 				}
+			}
+
+			// Determine request options
+			var requestHeaders *parser.Headers
+			var requestParams *parser.Params
+			headers := make(parser.Headers, 0)
+			params := make(parser.Params, 0)
+			for _, param := range operation.Parameters {
+				if param.Value == nil {
+					continue
+				}
+
+				result, _ := parser.FlattenSchemaRef(param.Value.Schema, nil)
+				paramType := parser.FieldType(result.Type, result.Format, false)
+
+				switch param.Value.In {
+				case "header":
+					headers = append(headers, parser.Header{
+						Name: param.Value.Name,
+						Type: paramType,
+					})
+				case "query":
+					var itemType *parser.DataType
+					if paramType != nil && *paramType == parser.DataTypeArray {
+						itemType = parser.FieldType(result.Type, result.Format, false)
+					}
+					params = append(params, parser.Param{
+						Name:     param.Value.Name,
+						Type:     paramType,
+						ItemType: itemType,
+					})
+				}
+			}
+			if len(headers) > 0 {
+				requestHeaders = &headers
+			}
+			if len(params) > 0 {
+				requestParams = &params
 			}
 
 			if operationType == parser.OperationTypeCreate || operationType == parser.OperationTypeUpdate || operationType == parser.OperationTypeCreateUpdate {
@@ -292,6 +344,8 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 				ResourceId:      resourceId,
 				UriSuffix:       uriSuffix,
 				RequestModel:    requestModel,
+				RequestHeaders:  requestHeaders,
+				RequestParams:   requestParams,
 				RequestType:     requestType,
 				Responses:       responses,
 				PaginationField: paginationField,
@@ -300,24 +354,47 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 		}
 	}
 
+	// Look for resources without a category, then iterate the known paths of it and all potential parent resources
+	// to find a match by truncating its path to the preceding label segment. Once a match is found, adopt the
+	// resource category of the matched parent to ensure they are grouped together.
 	for _, resource := range resources {
-		// Look for resources without a category, then iterate the known paths of it and all potential parent resources
-		// to find a match by truncating its path to the preceding label segment. Once a match is found, adopt the
-		// resource category of the matched parent to ensure they are grouped together.
-		if pathsLen := len(resource.Paths); resource.Category == "" && pathsLen > 0 {
-			for _, path := range resource.Paths {
-				if trimmedPath := path.TruncateToLastSegmentOfTypeBeforeSegment([]parser.ResourceIdSegmentType{parser.SegmentLabel}, -1); trimmedPath != nil {
-					for _, parentResource := range resources {
-						if parentResource.Category != "" {
-							for _, parentPath := range parentResource.Paths {
-								if parentPath.ID() == trimmedPath.ID() {
-									resource.Category = parentResource.Category
-									break
-								}
-							}
-						}
+		pathsLen := len(resource.Paths)
+		if resource.Category != "" || pathsLen == 0 {
+			continue
+		}
+
+		for _, path := range resource.Paths {
+			trimmedPath := path.TruncateToLastSegmentOfTypeBeforeSegment([]parser.ResourceIdSegmentType{parser.SegmentLabel}, -1)
+			if trimmedPath == nil {
+				continue
+			}
+
+			for _, parentResource := range resources {
+				if parentResource.Category == "" {
+					continue
+				}
+
+				for _, parentPath := range parentResource.Paths {
+					if parentPath.ID() == trimmedPath.ID() {
+						resource.Category = parentResource.Category
+						break
 					}
 				}
+			}
+		}
+	}
+
+	// Loop through resources and trim the leading word if it matches the category _and_ there are more words after it
+	for _, resource := range resources {
+		if resource.Service == "" || resource.Category == "" {
+			continue
+		}
+
+		serviceSingularized := normalize.Singularize(resource.Service)
+		if strings.HasPrefix(resource.Category, serviceSingularized) {
+			trimmedCategory := strings.TrimPrefix(resource.Category, serviceSingularized)
+			if len(trimmedCategory) > 1 {
+				resource.Category = trimmedCategory
 			}
 		}
 	}

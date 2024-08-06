@@ -32,6 +32,9 @@ type Operation struct {
 	// ResourceIdName specifies the name of the optional Resource ID used for this operation
 	ResourceIdName *string `json:"resourceIdName,omitempty"`
 
+	// ResourceIdNameIsCommonType specifies whether the referenced ResourceIdName is a common type
+	ResourceIdNameIsCommonType *bool `json:"resourceIdNameIsCommonType,omitempty"`
+
 	// RequestObject specifies the optional ObjectDefinition to be specified in the Request
 	RequestObject *ObjectDefinition `json:"requestObject,omitempty"`
 
@@ -48,6 +51,9 @@ type Option struct {
 	// HeaderName is the name of the Http Header which this Option should be set into
 	// (e.g. `If-Match`, `x-ms-client-request-id`)
 	HeaderName *string `json:"headerName,omitempty"`
+
+	// ODataFieldName specifies the name for the OData query string parameter associated with this Option.
+	ODataFieldName *string `json:"odataFieldName,omitempty"`
 
 	// Optional specifies whether this Option could be specified in the Request
 	// NOTE: this is intentionally not inferred from Required to allow retrieving HTTP Header

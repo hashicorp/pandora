@@ -17,8 +17,9 @@ func mapSDKFieldObjectDefinitionFromRepository(input repositoryModels.ObjectDefi
 		return nil, fmt.Errorf("internal-error: missing a mapping for the ObjectDefinitionType %q", string(input.Type))
 	}
 	output := sdkModels.SDKObjectDefinition{
-		ReferenceName: input.ReferenceName,
-		Type:          typeVal,
+		ReferenceName:             input.ReferenceName,
+		ReferenceNameIsCommonType: input.ReferenceNameIsCommonType,
+		Type:                      typeVal,
 	}
 
 	if input.NestedItem != nil {
@@ -45,6 +46,10 @@ func mapSDKFieldObjectDefinitionToRepository(input sdkModels.SDKObjectDefinition
 
 	if input.ReferenceName != nil {
 		output.ReferenceName = input.ReferenceName
+	}
+
+	if input.ReferenceNameIsCommonType != nil {
+		output.ReferenceNameIsCommonType = input.ReferenceNameIsCommonType
 	}
 
 	if input.NestedItem != nil {

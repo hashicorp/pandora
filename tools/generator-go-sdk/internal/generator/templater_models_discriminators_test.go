@@ -26,7 +26,7 @@ func TestTemplaterModelsParent(t *testing.T) {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName: "somepackage",
 		models: map[string]models.SDKModel{
 			"ModeOfTransit": {
@@ -151,7 +151,7 @@ func TestTemplaterModelsImplementation(t *testing.T) {
 			ParentTypeName:                        stringPointer("ModeOfTransit"),
 			DiscriminatedValue:                    stringPointer("train"),
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName: "somepackage",
 		models: map[string]models.SDKModel{
 			"ModeOfTransit": {
@@ -261,7 +261,7 @@ func TestTemplaterModelsFieldImplementation(t *testing.T) {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName: "somepackage",
 		models: map[string]models.SDKModel{
 			"ModeOfTransit": {
@@ -356,7 +356,7 @@ func TestTemplaterModelsImplementationInheritedFromParentType(t *testing.T) {
 			FieldNameContainingDiscriminatedValue: stringPointer("Type"),
 			ParentTypeName:                        stringPointer("First"),
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName: "somepackage",
 		models: map[string]models.SDKModel{
 			"First": {

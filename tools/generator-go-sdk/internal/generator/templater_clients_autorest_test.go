@@ -8,7 +8,7 @@ import (
 )
 
 func TestTemplateAutoRestClient(t *testing.T) {
-	input := ServiceGeneratorData{
+	input := GeneratorData{
 		packageName:       "somepackage",
 		serviceClientName: "ExampleClient",
 		source:            AccTestLicenceType,

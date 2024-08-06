@@ -8,7 +8,7 @@ import (
 	"strings"
 )
 
-func (s *ServiceGenerator) ids(data ServiceGeneratorData) error {
+func (s *Generator) ids(data GeneratorData) error {
 	outputDirectory := data.resourceOutputPath
 
 	for idName, resourceData := range data.resourceIds {

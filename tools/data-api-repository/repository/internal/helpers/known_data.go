@@ -10,8 +10,9 @@ type KnownData struct {
 	Models      map[string]sdkModels.SDKModel
 	ResourceIds map[string]sdkModels.ResourceID
 
-	CommonTypeConstants map[string]sdkModels.SDKConstant
-	CommonTypeModels    map[string]sdkModels.SDKModel
+	CommonTypeConstants    map[string]sdkModels.SDKConstant
+	CommonTypeModels       map[string]sdkModels.SDKModel
+	CommonTypesResourceIds map[string]sdkModels.ResourceID
 }
 
 func (d KnownData) ConstantExists(constantName string) bool {
@@ -38,5 +39,6 @@ func (d KnownData) ModelExists(modelName string) bool {
 
 func (d KnownData) ResourceIDExists(resourceIdName string) bool {
 	_, resourceIdExists := d.ResourceIds[resourceIdName]
-	return resourceIdExists
+	_, commonTypesResourceIdExists := d.CommonTypesResourceIds[resourceIdName]
+	return resourceIdExists || commonTypesResourceIdExists
 }

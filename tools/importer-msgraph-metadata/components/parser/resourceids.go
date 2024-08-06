@@ -8,13 +8,16 @@ import (
 	"sort"
 	"strings"
 
+	"github.com/getkin/kin-openapi/openapi3"
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/normalize"
+	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/tags"
+	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/internal/logging"
 )
 
 const (
-	ResourceSuffix   = "ById"
+	ResourceSuffix   = ""
 	ResourceIdSuffix = "Id"
 )
 
@@ -25,7 +28,7 @@ type ResourceIdMatch struct {
 	Remainder *ResourceId
 }
 
-// MatchIdOrAncestor returns a ResourceIdMatch containing a matching/ancestor ResourceId and/or a remaininder value, or nil if no
+// MatchIdOrAncestor returns a ResourceIdMatch containing a matching/ancestor ResourceId and/or a remainder value, or nil if no
 // match/ancestor was found. A match is a ResourceId that represents the same path, and an ancestor is any ResourceId that
 // represents a shorter matching path. Where multiple ancestors are found, the most granular (i.e. the longest) ancestor is returned.
 //
@@ -62,7 +65,6 @@ func (ri ResourceIds) MatchIdOrAncestor(resourceId ResourceId) (*ResourceIdMatch
 type ResourceId struct {
 	Name     string
 	Service  string
-	Version  string
 	Segments []ResourceIdSegment
 }
 
@@ -82,7 +84,7 @@ func (r ResourceId) DataApiSdkResourceId() (*sdkModels.ResourceID, error) {
 		case SegmentAction, SegmentCast, SegmentFunction, SegmentLabel, SegmentODataReference:
 			sdkSegments = append(sdkSegments, sdkModels.NewStaticValueResourceIDSegment(segment.Value, segment.Value))
 		case SegmentUserValue:
-			sdkSegments = append(sdkSegments, sdkModels.NewUserSpecifiedResourceIDSegment(*segment.Field, segment.Value))
+			sdkSegments = append(sdkSegments, sdkModels.NewUserSpecifiedResourceIDSegment(normalize.CleanNameCamel(*segment.Field), segment.Value))
 		default:
 			return nil, fmt.Errorf("unknown segment type %q at index %d for resource ID: %q", segment.Type, i, r.Name)
 		}
@@ -128,7 +130,7 @@ func (r ResourceId) IsMatchOrAncestor(r2 ResourceId) (ResourceId, bool) {
 }
 
 // FullyQualifiedResourceName returns a human-readable name for the ResourceId, using all segments, each segment singularized
-// except when the following segment is a plural function, or the first known verb is encountered.
+// except when the following segment is an OData reference or plural function, or the first known verb is encountered.
 // e.g.
 // if r represents `/applications/{applicationId}/synchronization/jobs/{synchronizationJobId}/schema`, the returned name
 // will be `ApplicationSynchronizationJob`
@@ -147,19 +149,21 @@ func (r ResourceId) FullyQualifiedResourceName(suffixQualification *string) (*st
 				if i == len(r.Segments)+1 {
 					// Don't singularize the final segment, so it can still be reliably verb-matched when parsing operations later
 					shouldSingularize = false
+				}
 
-				} else if len(r.Segments) > i+1 && r.Segments[i+1].Type != SegmentUserValue {
+				if len(r.Segments) > i+1 && r.Segments[i+1].Type != SegmentUserValue {
 					// Look for a verb match in the next segment, if it exists and is not a SegmentUserValue
 					// Example: in the following ID, we want to _not_ singularize the `jobs` label
 					//          /applications/{applicationId}/synchronization/jobs/validateCredentials
 					if _, ok := normalize.Verbs.Match(normalize.CleanName(r.Segments[i+1].Value)); ok {
 						shouldSingularize = false
 					}
+				}
 
-				} else if len(r.Segments) > i+1 && r.Segments[i+1].Type == SegmentODataReference && r.Segments[i+1].Value == "$count" {
-					// $count indicates a plural entity whereas $ref does not
+				if len(r.Segments) > i+1 && r.Segments[i+1].Type == SegmentODataReference && (r.Segments[i+1].Value == "$count" || r.Segments[i+1].Value == "$ref") {
+					// $count and $ref indicate a plural entity (noting that this only applies when the current
+					// segment is a label and not user-specified).
 					shouldSingularize = false
-
 				}
 			}
 
@@ -419,4 +423,67 @@ func NewResourceId(path string, tags []string) (id ResourceId) {
 	}
 
 	return
+}
+
+func ParseResourceIDs(paths openapi3.Paths, serviceName *string) (resourceIds ResourceIds, err error) {
+	resourceIds = make(ResourceIds, 0)
+	for path, item := range paths {
+		operations := item.Operations()
+		operationTags := make([]string, 0)
+
+		if serviceName != nil {
+			// Check tags and skip
+			skip := true
+			for _, operation := range operations {
+				if tags.Matches(*serviceName, operation.Tags) {
+					operationTags = append(operationTags, operation.Tags...)
+					skip = false
+					break
+				}
+			}
+			if skip {
+				continue
+			}
+		}
+
+		id := NewResourceId(path, operationTags)
+		if len(id.Segments) == 0 {
+			continue
+		}
+		segmentsLastIndex := len(id.Segments) - 1
+
+		lastSegment := id.Segments[segmentsLastIndex]
+		if lastSegment.Type == SegmentODataReference {
+			lastSegment = id.Segments[segmentsLastIndex-1]
+			truncated := id.TruncateToLastSegmentOfTypeBeforeSegment([]ResourceIdSegmentType{}, segmentsLastIndex)
+			if truncated == nil {
+				err = fmt.Errorf("unable to truncate resource ID with OData Reference: %q", id.ID())
+				return
+			}
+			id = *truncated
+		}
+		if lastSegment.Type != SegmentUserValue {
+			continue
+		}
+
+		resourceIdName := ""
+		if r, ok := id.FindResourceIdName(); ok {
+			resourceIdName = normalize.Singularize(normalize.CleanName(*r))
+		}
+
+		if resourceIdName != "" {
+			logging.Infof(fmt.Sprintf("Found resource ID %q", resourceIdName))
+
+			id.Name = resourceIdName
+
+			if serviceName != nil {
+				id.Service = normalize.CleanName(*serviceName)
+			}
+
+			resourceIds = append(resourceIds, &id)
+		}
+	}
+
+	return
+
 }

@@ -57,8 +57,9 @@ func parseCommonTypesWithin(workingDirectory string, logger hclog.Logger) (*map[
 		apiVersion = strings.TrimPrefix(apiVersion, "/")
 
 		commonTypes := sdkModels.CommonTypes{
-			Constants: map[string]sdkModels.SDKConstant{},
-			Models:    map[string]sdkModels.SDKModel{},
+			Constants:   map[string]sdkModels.SDKConstant{},
+			Models:      map[string]sdkModels.SDKModel{},
+			ResourceIDs: make(map[string]sdkModels.ResourceID),
 		}
 
 		logger.Trace(fmt.Sprintf("Discovering the Common Type Constants within %q..", subDirectory))
@@ -75,7 +76,14 @@ func parseCommonTypesWithin(workingDirectory string, logger hclog.Logger) (*map[
 		}
 		commonTypes.Models = *models
 
-		if len(commonTypes.Constants) > 0 || len(commonTypes.Models) > 0 {
+		logger.Trace(fmt.Sprintf("Discovering the Common Type Resource IDs within %q..", subDirectory))
+		resourceIds, err := parseResourceIDsWithin(subDirectory, *constants, logger)
+		if err != nil {
+			return nil, fmt.Errorf("parsing the Common Type Models within %q: %+v", subDirectory, err)
+		}
+		commonTypes.ResourceIDs = *resourceIds
+
+		if len(commonTypes.Constants) > 0 || len(commonTypes.Models) > 0 || len(commonTypes.ResourceIDs) > 0 {
 			output[apiVersion] = commonTypes
 		}
 	}
@@ -183,15 +191,17 @@ func parseAPIResourceWithin(workingDirectory, resourceName string, commonTypesFo
 	}
 
 	knownData := helpers.KnownData{
-		Constants:           *constants,
-		Models:              *models,
-		ResourceIds:         *resourceIds,
-		CommonTypeConstants: make(map[string]sdkModels.SDKConstant),
-		CommonTypeModels:    make(map[string]sdkModels.SDKModel),
+		Constants:              *constants,
+		Models:                 *models,
+		ResourceIds:            *resourceIds,
+		CommonTypeConstants:    make(map[string]sdkModels.SDKConstant),
+		CommonTypeModels:       make(map[string]sdkModels.SDKModel),
+		CommonTypesResourceIds: make(map[string]sdkModels.ResourceID),
 	}
 	if commonTypesForThisAPIVersion != nil {
 		knownData.CommonTypeConstants = commonTypesForThisAPIVersion.Constants
 		knownData.CommonTypeModels = commonTypesForThisAPIVersion.Models
+		knownData.CommonTypesResourceIds = commonTypesForThisAPIVersion.ResourceIDs
 	}
 
 	logger.Trace(fmt.Sprintf("Parsing the Operations within %q..", workingDirectory))

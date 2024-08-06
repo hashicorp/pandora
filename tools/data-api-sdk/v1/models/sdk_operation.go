@@ -49,6 +49,9 @@ type SDKOperation struct {
 	//   3. {uriSuffix}
 	ResourceIDName *string `json:"resourceIdName"`
 
+	// ResourceIDNameIsCommonType specifies whether the referenced ResourceIdName is a common type
+	ResourceIDNameIsCommonType *bool `json:"resourceIdNameIsCommonType,omitempty"`
+
 	// ResponseObject optionally specifies the Object which is expected to be returned in the
 	// HTTP Response. This is represented by an SDKObjectDefinition, which defines the shape
 	// of the object.

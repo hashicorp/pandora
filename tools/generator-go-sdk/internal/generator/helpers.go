@@ -30,6 +30,16 @@ func alternateCasingOnEveryLetter(input string) string {
 	return output
 }
 
+func baseClientPackageForSdk(input models.SourceDataType) string {
+	switch input {
+	case models.MicrosoftGraphSourceDataType:
+		return "msgraph"
+	case models.ResourceManagerSourceDataType:
+		return "resourcemanager"
+	}
+	return "client"
+}
+
 func capitalizeFirstLetter(input string) string {
 	return strings.ToUpper(input[0:1]) + strings.ToLower(input[1:])
 }

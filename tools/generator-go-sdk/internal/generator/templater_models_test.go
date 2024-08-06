@@ -32,7 +32,7 @@ func TestModelTemplaterSimple(t *testing.T) {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName: "somepackage",
 		models: map[string]models.SDKModel{
 			"Basic": {
@@ -105,7 +105,7 @@ func TestModelTemplaterWithDate(t *testing.T) {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName: "somepackage",
 		models: map[string]models.SDKModel{
 			"Basic": {
@@ -199,7 +199,7 @@ func TestModelTemplaterWithOptionalObject(t *testing.T) {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName: "somepackage",
 		models: map[string]models.SDKModel{
 			"Basic": {

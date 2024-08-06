@@ -14,7 +14,8 @@ import (
 // TODO: split the tests out into sub-groupings & add more coverage
 
 func TestTemplateMethodsGet(t *testing.T) {
-	input := ServiceGeneratorData{
+	input := GeneratorData{
+		baseClientPackage: "testclient",
 		packageName:       "skinnyPandas",
 		serviceClientName: "pandaClient",
 		source:            AccTestLicenceType,
@@ -87,7 +88,8 @@ func (c pandaClient) Get(ctx context.Context , id PandaPop) (result GetOperation
 }
 
 func TestTemplateMethodsGetAsTextPowerShell(t *testing.T) {
-	input := ServiceGeneratorData{
+	input := GeneratorData{
+		baseClientPackage: "testclient",
 		packageName:       "skinnyPandas",
 		serviceClientName: "pandaClient",
 		source:            AccTestLicenceType,
@@ -165,7 +167,8 @@ func (c pandaClient) Get(ctx context.Context , id PandaPop) (result GetOperation
 // As such these tests (whilst similar) cover the two different code paths.
 
 func TestTemplateMethodsListWithDiscriminatedType(t *testing.T) {
-	input := ServiceGeneratorData{
+	input := GeneratorData{
+		baseClientPackage: "testclient",
 		packageName:       "chubbyPandas",
 		serviceClientName: "pandaClient",
 		source:            AccTestLicenceType,
@@ -333,7 +336,8 @@ func (c pandaClient) ListCompleteMatchingPredicate(ctx context.Context, id Panda
 }
 
 func TestTemplateMethodsListWithSimpleType(t *testing.T) {
-	input := ServiceGeneratorData{
+	input := GeneratorData{
+		baseClientPackage: "testclient",
 		packageName:       "chubbyPandas",
 		serviceClientName: "pandaClient",
 		source:            AccTestLicenceType,
@@ -454,7 +458,8 @@ func (c pandaClient) ListComplete(ctx context.Context, id PandaPop) (result List
 }
 
 func TestTemplateMethodsListWithObject(t *testing.T) {
-	input := ServiceGeneratorData{
+	input := GeneratorData{
+		baseClientPackage: "testclient",
 		packageName:       "chubbyPandas",
 		serviceClientName: "pandaClient",
 		source:            AccTestLicenceType,
