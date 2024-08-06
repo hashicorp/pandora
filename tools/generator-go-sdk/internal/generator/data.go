@@ -43,6 +43,10 @@ type GeneratorData struct {
 	// API Version is the default API version for this Resource
 	apiVersion string
 
+	// canonicalApiVersion is the upstream API version, which is set when different to the internal API version in Pandora
+	// example of this would be MS Graph v1.0, which Pandora internally refers to as "stable"
+	canonicalApiVersion *string
+
 	// models is a map of Model Name (key) to SDKModel (value) describing
 	// the models used in this Resource
 	models map[string]models.SDKModel
@@ -64,6 +68,12 @@ type GeneratorData struct {
 	// sourceType is the source data type and is the SDK package name
 	sourceType models.SourceDataType
 
+	// the directory name of the package for the API version
+	versionDirectoryName string
+
+	// the package name for the API version
+	versionPackageName string
+
 	// whether this is a data plane SDK (omits certain Resource Manager specific features, currently used in ID parsers)
 	isDataPlane bool
 
@@ -80,6 +90,11 @@ func (i ServiceGeneratorInput) generatorData(settings Settings) GeneratorData {
 	versionOutputPath := filepath.Join(i.OutputDirectory, servicePackageName, versionDirectoryName)
 	resourceOutputPath := filepath.Join(versionOutputPath, resourcePackageName)
 
+	versionPackageName := strings.ToLower(strings.ReplaceAll(i.VersionName, "-", "_"))
+	if regexp.MustCompile(`^[0-9]+`).MatchString(versionPackageName) {
+		versionPackageName = fmt.Sprintf("v%s", versionPackageName)
+	}
+
 	useNewBaseLayer := settings.ShouldUseNewBaseLayer(i.ServiceName, i.VersionName)
 
 	var commonTypesPackageName, commonTypesIncludePath *string
@@ -90,6 +105,7 @@ func (i ServiceGeneratorInput) generatorData(settings Settings) GeneratorData {
 
 	return GeneratorData{
 		apiVersion:             i.VersionName,
+		canonicalApiVersion:    settings.CanonicalApiVersion(i.VersionName),
 		baseClientPackage:      baseClientPackageForSdk(i.Type),
 		commonTypes:            i.CommonTypes,
 		commonTypesIncludePath: commonTypesIncludePath,
@@ -122,12 +138,6 @@ type VersionGeneratorData struct {
 	// This is the directory for the API version where the meta client should be output
 	// for example {workingDir}/{service}/{version}
 	versionOutputPath string
-
-	// the directory name of the package for the API version
-	versionDirectoryName string
-
-	// the package name for the API version
-	versionPackageName string
 }
 
 func (i VersionGeneratorInput) generatorData(settings Settings) VersionGeneratorData {
@@ -146,22 +156,23 @@ func (i VersionGeneratorInput) generatorData(settings Settings) VersionGenerator
 
 	return VersionGeneratorData{
 		GeneratorData: GeneratorData{
-			apiVersion:         i.VersionName,
-			baseClientPackage:  baseClientPackageForSdk(i.Type),
-			commonTypes:        i.CommonTypes,
-			constants:          i.CommonTypes.Constants,
-			isDataPlane:        models.SourceDataTypeIsDataPlane(i.Type),
-			models:             i.CommonTypes.Models,
-			packageName:        versionPackageName,
-			servicePackageName: strings.ToLower(i.ServiceName),
-			source:             i.Source,
-			sourceType:         i.Type,
-			useNewBaseLayer:    useNewBaseLayer,
+			apiVersion:           i.VersionName,
+			canonicalApiVersion:  settings.CanonicalApiVersion(i.VersionName),
+			baseClientPackage:    baseClientPackageForSdk(i.Type),
+			commonTypes:          i.CommonTypes,
+			constants:            i.CommonTypes.Constants,
+			isDataPlane:          models.SourceDataTypeIsDataPlane(i.Type),
+			models:               i.CommonTypes.Models,
+			packageName:          versionPackageName,
+			servicePackageName:   strings.ToLower(i.ServiceName),
+			source:               i.Source,
+			sourceType:           i.Type,
+			useNewBaseLayer:      useNewBaseLayer,
+			versionDirectoryName: versionDirectoryName,
+			versionPackageName:   versionPackageName,
 		},
 		commonTypesOutputPath: commonTypesOutputPath,
 		resources:             i.Resources,
 		versionOutputPath:     versionOutputPath,
-		versionDirectoryName:  versionDirectoryName,
-		versionPackageName:    versionPackageName,
 	}
 }

@@ -59,6 +59,9 @@ func (g GenerateCommand) Run(args []string) int {
 	}
 
 	if g.sourceDataType == models.MicrosoftGraphSourceDataType {
+		input.settings.CanonicalApiVersions = map[string]string{
+			"stable": "v1.0",
+		}
 		input.settings.VersionsToGenerateCommonTypes = map[string]models.SourceDataOrigin{
 			"stable": models.MicrosoftGraphMetaDataSourceDataOrigin,
 			"beta":   models.MicrosoftGraphMetaDataSourceDataOrigin,
