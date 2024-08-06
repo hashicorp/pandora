@@ -10,9 +10,17 @@ import (
 )
 
 type Settings struct {
+	CanonicalApiVersions          map[string]string
 	CommonTypesPackageName        string
 	VersionsToGenerateCommonTypes map[string]models.SourceDataOrigin
 	servicesUsingOldBaseLayer     map[string]struct{}
+}
+
+func (s *Settings) CanonicalApiVersion(version string) *string {
+	if v, ok := s.CanonicalApiVersions[version]; ok {
+		return &v
+	}
+	return nil
 }
 
 func (s *Settings) UseOldBaseLayerFor(serviceNames ...string) {

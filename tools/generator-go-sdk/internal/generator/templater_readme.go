@@ -62,7 +62,7 @@ This readme covers example usages, but further information on [using this SDK ca
 '''go
 %[5]s
 '''
-`, data.sourceType, data.servicePackageName, data.apiVersion, data.packageName, strings.Join(importLines, "\n"))
+`, data.sourceType, data.servicePackageName, data.versionDirectoryName, data.packageName, strings.Join(importLines, "\n"))
 }
 
 func (r readmeTemplater) clientInitialization(packageName, clientName string) string {
