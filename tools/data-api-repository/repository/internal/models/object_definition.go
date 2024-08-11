@@ -8,6 +8,9 @@ type ObjectDefinition struct {
 	// ObjectDefinitionType defines what kind of ObjectDefinition this is, such as a Reference, String or List
 	Type ObjectDefinitionType `json:"type"`
 
+	// Nullable specifies that this type should be unset by sending `null` as the JSON value.
+	Nullable bool `json:"nullable"`
+
 	// ReferenceName is the name of the Constant or Model that this is a reference to
 	ReferenceName *string `json:"referenceName"`
 

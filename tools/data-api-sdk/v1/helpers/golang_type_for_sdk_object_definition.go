@@ -67,6 +67,24 @@ func GolangTypeForSDKObjectDefinition(input models.SDKObjectDefinition, golangPa
 		return pointer.To(out), nil
 	}
 
+	if input.Nullable {
+		nullableSdkObjectDefinitionTypesToValues := map[models.SDKObjectDefinitionType]string{
+			// Simple Types
+			models.BooleanSDKObjectDefinitionType:  "nullable.Type[bool]",
+			models.DateTimeSDKObjectDefinitionType: "nullable.Type[string]", // intentional since we have cast methods one way or the other
+			models.FloatSDKObjectDefinitionType:    "nullable.Type[float64]",
+			models.IntegerSDKObjectDefinitionType:  "nullable.Type[int64]",
+			models.StringSDKObjectDefinitionType:   "nullable.Type[string]",
+
+			// Complex Types
+			models.LocationSDKObjectDefinitionType: "nullable.Type[string]",
+		}
+
+		if v, ok := nullableSdkObjectDefinitionTypesToValues[input.Type]; ok {
+			return pointer.To(v), nil
+		}
+	}
+
 	sdkObjectDefinitionTypesToValues := map[models.SDKObjectDefinitionType]string{
 		// Simple Types
 		models.BooleanSDKObjectDefinitionType:  "bool",
