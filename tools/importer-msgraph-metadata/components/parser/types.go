@@ -672,8 +672,18 @@ func Schemas(input flattenedSchema, name string, models Models, constants Consta
 		return models, constants
 	}
 
+	// Add an explicit ODataId field to each model, since it is inconsistently defined in the API specs. This won't be
+	// a valid field for every model, but it's impossible to tell which models support it, and it's effectively
+	// harmless to leave it in so long as it has the `omitempty` struct tag in the generated SDK.
 	model := Model{
-		Fields: make(map[string]*ModelField),
+		Fields: map[string]*ModelField{
+			"ODataId": {
+				Title:     "ODataId",
+				Type:      pointer.To(DataTypeString),
+				Default:   "",
+				JsonField: "@odata.id",
+			},
+		},
 		Common: common,
 		Prefix: input.Prefix,
 	}
