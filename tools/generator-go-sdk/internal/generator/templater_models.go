@@ -54,6 +54,7 @@ import (
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/systemdata"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/zones"
+	"github.com/hashicorp/go-azure-sdk/sdk/nullable"
 	%[2]s
 )
 
@@ -224,7 +225,9 @@ func (c modelsTemplater) structLineForField(fieldName, fieldType string, fieldDe
 	}
 	// TODO: proper support for ReadOnly fields, which is likely to necessitate a custom marshal func
 	if isOptional || fieldDetails.ReadOnly {
-		fieldType = fmt.Sprintf("*%s", fieldType)
+		if !strings.HasPrefix(fieldType, "nullable.") {
+			fieldType = fmt.Sprintf("*%s", fieldType)
+		}
 		jsonDetails += ",omitempty"
 	}
 
