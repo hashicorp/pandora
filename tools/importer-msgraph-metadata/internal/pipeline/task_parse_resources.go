@@ -36,6 +36,11 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 			continue
 		}
 
+		// maintainer note: this is a good place to add a breakpoint for inspecting individual resources and their operations
+		// example breakpoint conditions:
+		//   p.service=="administrativeUnits"
+		//   path=="/applications/{application-id}/owners"
+		//   len(path)>62 && path[:62]=="/directory/administrativeUnits/{administrativeUnit-id}/members"
 		parsedPath := parser.NewResourceId(path, operationTags)
 		lastSegment := parsedPath.Segments[len(parsedPath.Segments)-1]
 
@@ -69,6 +74,10 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 			}
 		}
 
+		// maintainer note: this is a good place to add a breakpoint for inspecting individual resources and their operations
+		// example breakpoint conditions:
+		//   resourceName=="ApplicationOwner"
+		//   len(resourceName)>27 && resourceName[:27]=="DirectoryAdministrativeUnit"
 		if _, ok := resources[resourceName]; !ok {
 			// Create a new resource if not already encountered
 			logging.Infof(fmt.Sprintf("Found new resource %q (category %q, service %q, version %q)", resourceName, resourceCategory, p.service, p.apiVersion))

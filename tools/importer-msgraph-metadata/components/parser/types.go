@@ -132,9 +132,10 @@ func (m *Model) DataApiSdkModel(models Models) (*sdkModels.SDKModel, error) {
 			JsonName:                   field.JsonField,
 			ObjectDefinition:           *objectDefinition,
 
+			ReadOnly: field.ReadOnly,
+
 			// TODO work these out
 			Optional:  true,
-			ReadOnly:  false,
 			Required:  false,
 			Sensitive: false,
 		}
@@ -154,20 +155,24 @@ func (m *Model) DataApiSdkModel(models Models) (*sdkModels.SDKModel, error) {
 }
 
 type ModelField struct {
-	Title        string
-	Type         *DataType
-	Description  string
-	Default      interface{}
-	ItemType     *DataType
-	ConstantName *string
-	ModelName    *string
-	JsonField    string
+	Title           string
+	Type            *DataType
+	Description     string
+	Default         interface{}
+	ReadOnly        bool
+	WriteOnly       bool
+	Nullable        bool
+	AllowEmptyValue bool
+	ItemType        *DataType
+	ConstantName    *string
+	ModelName       *string
+	JsonField       string
 }
 
 func (f ModelField) DataApiSdkObjectDefinition(models Models) (*sdkModels.SDKObjectDefinition, error) {
 	if f.ConstantName != nil {
 		return &sdkModels.SDKObjectDefinition{
-			NestedItem:    nil,
+			Nullable:      f.Nullable,
 			ReferenceName: f.ConstantName,
 			Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 		}, nil
@@ -192,7 +197,7 @@ func (f ModelField) DataApiSdkObjectDefinition(models Models) (*sdkModels.SDKObj
 		}
 
 		return &sdkModels.SDKObjectDefinition{
-			NestedItem:                nil,
+			Nullable:                  f.Nullable,
 			ReferenceName:             f.ModelName,
 			ReferenceNameIsCommonType: pointer.To(models[*f.ModelName].Common),
 			Type:                      sdkModels.ReferenceSDKObjectDefinitionType,
@@ -210,7 +215,7 @@ func (f ModelField) DataApiSdkObjectDefinition(models Models) (*sdkModels.SDKObj
 
 			return &sdkModels.SDKObjectDefinition{
 				NestedItem: &sdkModels.SDKObjectDefinition{
-					NestedItem:                nil,
+					Nullable:                  f.Nullable,
 					ReferenceName:             f.ModelName,
 					ReferenceNameIsCommonType: pointer.To(models[*f.ModelName].Common),
 					Type:                      sdkModels.ReferenceSDKObjectDefinitionType,
@@ -224,24 +229,21 @@ func (f ModelField) DataApiSdkObjectDefinition(models Models) (*sdkModels.SDKObj
 			// TODO validate constant exists
 			return &sdkModels.SDKObjectDefinition{
 				NestedItem: &sdkModels.SDKObjectDefinition{
-					NestedItem:    nil,
+					Nullable:      f.Nullable,
 					ReferenceName: f.ConstantName,
 					Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 				},
-				ReferenceName: nil,
-				Type:          sdkModels.ListSDKObjectDefinitionType,
+				Type: sdkModels.ListSDKObjectDefinitionType,
 			}, nil
 		}
 
 		if f.ItemType != nil {
 			return &sdkModels.SDKObjectDefinition{
 				NestedItem: &sdkModels.SDKObjectDefinition{
-					NestedItem:    nil,
-					ReferenceName: nil,
-					Type:          f.ItemType.DataApiSdkObjectDefinitionType(),
+					Nullable: f.Nullable,
+					Type:     f.ItemType.DataApiSdkObjectDefinitionType(),
 				},
-				ReferenceName: nil,
-				Type:          sdkModels.ListSDKObjectDefinitionType,
+				Type: sdkModels.ListSDKObjectDefinitionType,
 			}, nil
 		}
 
@@ -249,9 +251,8 @@ func (f ModelField) DataApiSdkObjectDefinition(models Models) (*sdkModels.SDKObj
 	}
 
 	return &sdkModels.SDKObjectDefinition{
-		NestedItem:    nil,
-		ReferenceName: nil,
-		Type:          f.Type.DataApiSdkObjectDefinitionType(),
+		Nullable: f.Nullable,
+		Type:     f.Type.DataApiSdkObjectDefinitionType(),
 	}, nil
 }
 
@@ -681,12 +682,18 @@ func Schemas(input flattenedSchema, name string, models Models, constants Consta
 	models[name] = &model
 
 	for jsonField, schemaRef := range input.Schemas {
+		// maintainer note: this is a good place to add a breakpoint for inspecting model fields and constants as they are processed
+		// example breakpoint condition: name=="AdministrativeUnit"
 		if schema := schemaRef.Value; schema != nil {
 			field := ModelField{
-				Title:       cases.Title(language.AmericanEnglish, cases.NoLower).String(jsonField),
-				Description: schema.Description,
-				Default:     schema.Default,
-				JsonField:   jsonField,
+				Title:           cases.Title(language.AmericanEnglish, cases.NoLower).String(jsonField),
+				Description:     schema.Description,
+				Default:         schema.Default,
+				ReadOnly:        schemaRef.Value.ReadOnly,
+				WriteOnly:       schemaRef.Value.WriteOnly,
+				Nullable:        schemaRef.Value.Nullable,
+				AllowEmptyValue: schemaRef.Value.AllowEmptyValue,
+				JsonField:       jsonField,
 			}
 
 			if field.Title == "" {
