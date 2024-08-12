@@ -712,11 +712,13 @@ func Schemas(input flattenedSchema, name string, models Models, constants Consta
 
 			result, _ := FlattenSchemaRef(schemaRef, nil)
 
+			// Determine any enumeration for the field
 			enum := parseEnum(schema.Enum)
 			if result != nil && len(result.Enum) > 0 && len(enum) == 0 {
 				enum = parseEnum(result.Enum)
 			}
 
+			// Find the corresponding model when the field refers to it, and set the model name for the field
 			if result != nil && result.Title != "" && result.Schemas != nil {
 				if _, ok := models[result.Title]; !ok {
 					models, constants = Schemas(*result, result.Title, models, constants, common)
@@ -724,16 +726,19 @@ func Schemas(input flattenedSchema, name string, models Models, constants Consta
 				field.ModelName = &result.Title
 			}
 
+			// Determine the item type for collections
 			if schema.Items != nil && schema.Items.Value != nil && schema.Items.Value.Type != "" {
 				field.ItemType = FieldType(schema.Items.Value.Type, schema.Items.Value.Format, field.ModelName != nil)
 			}
 
+			// Match the field type to the referenced object, or set a basic type
 			if result != nil && schema.Type == "" && schema.Format == "" && (result.Type != "" || result.Format != "") {
 				field.Type = FieldType(result.Type, result.Format, field.ModelName != nil)
 			} else {
 				field.Type = FieldType(schema.Type, schema.Format, field.ModelName != nil)
 			}
 
+			// Set the field type for enums; typically strings for constants, but could be any valid type
 			if result != nil && field.Type != nil && *field.Type == DataTypeArray && len(enum) > 0 && (result.Type != "" || result.Format != "") {
 				field.ItemType = FieldType(result.Type, result.Format, field.ModelName != nil)
 			}
@@ -743,6 +748,7 @@ func Schemas(input flattenedSchema, name string, models Models, constants Consta
 				// This leads to some excessively long constant names, it is what it is.
 				field.ConstantName = pointer.To(name + field.Title)
 
+				// Add the enumeration as a constant
 				constants[*field.ConstantName] = &Constant{
 					Enum: enum,
 					Type: field.Type,
@@ -754,10 +760,32 @@ func Schemas(input flattenedSchema, name string, models Models, constants Consta
 				continue
 			}
 
+			// Insert an "@odata.bind" field where a field or collection refers to a DirectoryObject. The MS Graph
+			// OpenAPI spec unfortunately does not document relationships between entities.
+			if field.ModelName != nil && strings.EqualFold(*field.ModelName, "DirectoryObject") {
+				bindFieldName := fmt.Sprintf("%s_ODataBind", normalize.CleanName(jsonField))
+
+				var fieldType, itemType *DataType
+
+				fieldType = pointer.To(DataTypeString)
+				if *field.Type == DataTypeArray {
+					fieldType = pointer.To(DataTypeArray)
+					itemType = pointer.To(DataTypeString)
+				}
+
+				model.Fields[bindFieldName] = &ModelField{
+					Title:     bindFieldName,
+					Type:      fieldType,
+					ItemType:  itemType,
+					JsonField: fmt.Sprintf("%s@odata.bind", jsonField),
+				}
+			}
+
 			model.Fields[normalize.CleanName(jsonField)] = &field
 		}
 	}
 
+	// Abandon the model if it has no fields
 	if !model.IsValid() {
 		delete(models, name)
 	}
