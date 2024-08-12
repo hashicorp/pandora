@@ -119,12 +119,14 @@ func (s *Generator) GenerateCommonTypes(input VersionGeneratorInput) error {
 }
 
 func runGoFmt(path string) {
+	logging.Debugf("Running gofmt -w %s..", path)
 	cmd := exec.Command("gofmt", "-w", path)
 	_ = cmd.Start()
 	_ = cmd.Wait()
 }
 
 func runGoImports(path string) {
+	logging.Debugf("Running goimports -w %s..", path)
 	cmd := exec.Command("goimports", "-w", path)
 	_ = cmd.Start()
 	_ = cmd.Wait()
