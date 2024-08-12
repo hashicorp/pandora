@@ -121,7 +121,7 @@ func (m *Model) DataApiSdkModel(models Models) (*sdkModels.SDKModel, error) {
 
 		if objectDefinition == nil {
 			//return nil, fmt.Errorf("could not determine SDKObjectDefinition for field: %s", fieldName)
-			logging.Warnf("could not determine SDKObjectDefinition for field %q, skipping", fieldName)
+			logging.Warnf("Could not determine SDKObjectDefinition for field %q, skipping", fieldName)
 			continue
 		}
 
@@ -193,7 +193,7 @@ func (f ModelField) DataApiSdkObjectDefinition(models Models) (*sdkModels.SDKObj
 		}
 
 		if !models[*f.ModelName].IsValid() {
-			logging.Warnf("skipping field %q with type Model as the referenced model %q is invalid", f.Title, *f.ModelName)
+			logging.Warnf("Skipping field %q with type Model as the referenced model %q is invalid", f.Title, *f.ModelName)
 		}
 
 		return &sdkModels.SDKObjectDefinition{
@@ -210,7 +210,7 @@ func (f ModelField) DataApiSdkObjectDefinition(models Models) (*sdkModels.SDKObj
 			}
 
 			if !models[*f.ModelName].IsValid() {
-				logging.Warnf("skipping field %q with type Array[Model] as the referenced model %q is invalid", f.Title, *f.ModelName)
+				logging.Warnf("Skipping field %q with type Array[Model] as the referenced model %q is invalid", f.Title, *f.ModelName)
 			}
 
 			return &sdkModels.SDKObjectDefinition{
@@ -756,7 +756,7 @@ func Schemas(input flattenedSchema, name string, models Models, constants Consta
 			}
 
 			if field.Type == nil {
-				logging.Warnf("skipping field %q in model %q because Type is nil", name, field.Title)
+				logging.Warnf("Skipping field %q in model %q because Type is nil", name, field.Title)
 				continue
 			}
 

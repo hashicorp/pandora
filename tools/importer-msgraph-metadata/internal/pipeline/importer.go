@@ -13,6 +13,7 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/parser"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/tags"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/versions"
+	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/workarounds"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/internal/logging"
 	"github.com/hashicorp/pandora/tools/sdk/config/services"
 )
@@ -64,6 +65,11 @@ func runImportForVersion(input RunInput, apiVersion, openApiFile, metadataGitSha
 
 	logging.Infof("Cleaning up models...")
 	if err = p.cleanupModels(); err != nil {
+		return err
+	}
+
+	logging.Infof("Applying workarounds for invalid model definitions..")
+	if err = workarounds.ApplyWorkarounds(p.apiVersion, p.models); err != nil {
 		return err
 	}
 
