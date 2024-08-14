@@ -12,6 +12,7 @@ import (
 
 var workarounds = []workaround{
 	workaroundApplication{},
+	workaroundConditionalAccessPolicy{},
 	workaroundNamedLocation{},
 	workaroundIPRange{},
 }
