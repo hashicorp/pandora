@@ -8,62 +8,35 @@ import (
 	"regexp"
 	"strings"
 
+	"github.com/gertd/go-pluralize"
 	"golang.org/x/text/cases"
 	"golang.org/x/text/language"
 )
 
 func Singularize(name string) string {
-	// "access" is already singular
-	if len(name) >= 5 && name[len(name)-5:] == "ccess" {
-		return name
+	for _, v := range pluralExceptions {
+		if name == v.plural {
+			return v.singular
+		}
 	}
 
-	// "properties", "entities" etc
-	if len(name) >= 3 && name[len(name)-3:] == "ies" {
-		return fmt.Sprintf("%sy", name[:len(name)-3])
-	}
+	client := pluralize.NewClient()
+	output := client.Singular(name)
 
-	// "premises" etc
-	if len(name) >= 3 && name[len(name)-3:] == "ses" {
-		return name[:len(name)-2]
-	}
-
-	// all other words, remove the trailing "s"
-	if len(name) >= 1 && name[len(name)-1:] == "s" {
-		return name[:len(name)-1]
-	}
-
-	// else just return the original name
-	return name
+	return output
 }
 
 func Pluralize(name string) string {
-	if name == "" {
-		return ""
+	for _, v := range pluralExceptions {
+		if name == v.singular {
+			return v.plural
+		}
 	}
-	ret := fmt.Sprintf("%ss", name)
-	if strings.EqualFold(name, "me") {
-		return name
-	}
-	if len(name) == 0 {
-		return ret
-	}
-	if strings.EqualFold(name[len(name)-2:], "ay") || strings.EqualFold(name[len(name)-2:], "ey") {
-		return fmt.Sprintf("%ss", name)
-	}
-	if strings.EqualFold(name[len(name)-1:], "y") {
-		return fmt.Sprintf("%sies", name[:len(name)-1])
-	}
-	if strings.EqualFold(name[len(name)-1:], "s") {
-		return name
-	}
-	if len(name) < 2 {
-		return ret
-	}
-	if strings.EqualFold(name[len(name)-2:], "Of") {
-		return name
-	}
-	return ret
+
+	client := pluralize.NewClient()
+	output := client.Plural(name)
+
+	return output
 }
 
 func CleanName(name string) string {
@@ -148,4 +121,20 @@ var Verbs = operationVerbs{
 	"Unset",
 	"Update",
 	"Validate",
+}
+
+type plural struct {
+	singular string
+	plural   string
+}
+
+var pluralExceptions = []plural{
+	{"By", "By"},
+	{"Compatibility", "Compatibility"},
+	{"Cache", "Caches"},
+	{"Data", "Data"},
+	{"Metadata", "Metadata"},
+	{"Orderby", "Orderby"},
+	{"Premise", "Premises"},
+	{"Sortby", "Sortby"},
 }
