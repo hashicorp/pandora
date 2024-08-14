@@ -12,29 +12,24 @@ import (
 
 var workarounds = []workaround{
 	workaroundApplication{},
+	workaroundNamedLocation{},
+	workaroundIPRange{},
 }
 
 type workaround interface {
-	// IsApplicable determines whether this workaround is applicable for this AzureApiDefinition
-	IsApplicable(string, string, *parser.Model) bool
-
 	// Name returns the Service Name and associated Pull Request number
 	Name() string
 
 	// Process takes the apiDefinition and applies the Workaround to this AzureApiDefinition
-	Process(*parser.Model) error
+	Process(string, parser.Models, parser.Constants) error
 }
 
-func ApplyWorkarounds(apiVersion string, models parser.Models) error {
+func ApplyWorkarounds(apiVersion string, models parser.Models, constants parser.Constants) error {
 	logging.Tracef("Processing Data Workarounds..")
-	for modelName, model := range models {
-		for _, fix := range workarounds {
-			if fix.IsApplicable(apiVersion, modelName, model) {
-				logging.Tracef("Applying Data Workaround %q to Model %q", fix.Name(), modelName)
-				if err := fix.Process(model); err != nil {
-					return fmt.Errorf("applying Data Workaround %q to Model %q: %v", fix.Name(), modelName, err)
-				}
-			}
+	for _, fix := range workarounds {
+		logging.Tracef("Applying Data Workaround %q to Model %q", fix.Name())
+		if err := fix.Process(apiVersion, models, constants); err != nil {
+			return fmt.Errorf("applying Data Workaround %q: %v", fix.Name(), err)
 		}
 	}
 

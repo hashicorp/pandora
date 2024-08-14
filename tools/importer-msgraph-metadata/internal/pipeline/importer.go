@@ -63,13 +63,13 @@ func runImportForVersion(input RunInput, apiVersion, openApiFile, metadataGitSha
 		return err
 	}
 
-	logging.Infof("Cleaning up models...")
-	if err = p.cleanupModels(); err != nil {
+	logging.Infof("Applying workarounds for invalid model definitions..")
+	if err = workarounds.ApplyWorkarounds(p.apiVersion, p.models, p.constants); err != nil {
 		return err
 	}
 
-	logging.Infof("Applying workarounds for invalid model definitions..")
-	if err = workarounds.ApplyWorkarounds(p.apiVersion, p.models); err != nil {
+	logging.Infof("Cleaning up models...")
+	if err = p.cleanupModels(); err != nil {
 		return err
 	}
 
