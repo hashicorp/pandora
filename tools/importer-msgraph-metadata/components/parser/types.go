@@ -766,7 +766,7 @@ func Schemas(input flattenedSchema, name string, models Models, constants Consta
 			if ((field.Type != nil && *field.Type == DataTypeString) || (field.ItemType != nil && *field.ItemType == DataTypeString)) && len(enum) > 0 {
 				// Despite being "fully qualified", type names are not unique in MS Graph, so we prefix them with the field name to provide some namespacing.
 				// This leads to some excessively long constant names, it is what it is.
-				field.ConstantName = pointer.To(name + field.Title)
+				field.ConstantName = pointer.To(normalize.Singularize(name + field.Title))
 
 				// Add the enumeration as a constant
 				constants[*field.ConstantName] = &Constant{
