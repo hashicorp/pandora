@@ -19,15 +19,20 @@ var _ workaround = workaroundApplication{}
 //  2. Missing `applicationTemplateId` field.
 type workaroundApplication struct{}
 
-func (workaroundApplication) IsApplicable(apiVersion, modelName string, model *parser.Model) bool {
-	return apiVersion == versions.ApiVersionBeta && modelName == "Application"
-}
-
 func (workaroundApplication) Name() string {
 	return "Application / missing fields in beta"
 }
 
-func (workaroundApplication) Process(model *parser.Model) error {
+func (workaroundApplication) Process(apiVersion string, models parser.Models, constants parser.Constants) error {
+	if apiVersion != versions.ApiVersionBeta {
+		return nil
+	}
+
+	model, ok := models["Application"]
+	if !ok {
+		return fmt.Errorf("`Application` model not found")
+	}
+
 	// Add the `oauth2RequirePostResponse` field if missing
 	if _, ok := model.Fields["OAuth2RequirePostResponse"]; !ok {
 		model.Fields["OAuth2RequirePostResponse"] = &parser.ModelField{
