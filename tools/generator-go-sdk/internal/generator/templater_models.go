@@ -420,7 +420,7 @@ func (c modelsTemplater) codeForUnmarshalFunctions(data GeneratorData) (*string,
 }
 
 func (c modelsTemplater) codeForUnmarshalParentFunction(data GeneratorData) (*string, error) {
-	// if this is a Discriminated Type (e.g. Parent) then we need to generate a unmarshal{Name}Implementations
+	// if this is a Discriminated Type (e.g. Parent) then we need to generate an Unmarshal{Name}Implementation
 	// function which can be used in any usages
 	lines := make([]string, 0)
 	if c.model.IsDiscriminatedParentType() {
@@ -450,7 +450,7 @@ func (c modelsTemplater) codeForUnmarshalParentFunction(data GeneratorData) (*st
 		// NOTE: unmarshaling null returns an empty map, which'll mean the `ok` fails
 		// the 'type' field being omitted will also mean that `ok` is false
 		lines = append(lines, fmt.Sprintf(`
-func unmarshal%[1]sImplementation(input []byte) (%[1]s, error) {
+func Unmarshal%[1]sImplementation(input []byte) (%[1]s, error) {
 	if input == nil {
 		return nil, nil
 	}
@@ -630,7 +630,7 @@ func (s *%[1]s) UnmarshalJSON(bytes []byte) error {`, c.name))
 
 		output := make(map[string]%[2]s)
 		for key, val := range dictionaryTemp {
-			impl, err := unmarshal%[2]sImplementation(val)
+			impl, err := Unmarshal%[2]sImplementation(val)
 			if err != nil {
 				return fmt.Errorf("unmarshaling key %%q field '%[1]s' for '%[3]s': %%+v", key, err)
 			}
@@ -665,7 +665,7 @@ func (s *%[1]s) UnmarshalJSON(bytes []byte) error {`, c.name))
 
 		output := make([]%[2]s, 0)
 		for i, val := range listTemp {
-			impl, err := unmarshal%[2]sImplementation(val)
+			impl, err := Unmarshal%[2]sImplementation(val)
 			if err != nil {
 				return fmt.Errorf("unmarshaling index %%d field '%[1]s' for '%[3]s': %%+v", i, err)
 			}
@@ -678,7 +678,7 @@ func (s *%[1]s) UnmarshalJSON(bytes []byte) error {`, c.name))
 			if fieldDetails.ObjectDefinition.Type == models.ReferenceSDKObjectDefinitionType {
 				lines = append(lines, fmt.Sprintf(`
 	if v, ok := temp[%[4]q]; ok {
-		impl, err := unmarshal%[2]sImplementation(v)
+		impl, err := Unmarshal%[2]sImplementation(v)
 		if err != nil {
 			return fmt.Errorf("unmarshaling field '%[1]s' for '%[3]s': %%+v", err)
 		}
