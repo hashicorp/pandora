@@ -12,6 +12,7 @@ import (
 type Settings struct {
 	CanonicalApiVersions          map[string]string
 	CommonTypesPackageName        string
+	GenerateDescriptionsForModels bool
 	VersionsToGenerateCommonTypes map[string]models.SourceDataOrigin
 	servicesUsingOldBaseLayer     map[string]struct{}
 }
