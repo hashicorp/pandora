@@ -87,6 +87,12 @@ func CleanName(name string) string {
 	// Innererror should be InnerError
 	name = regexp.MustCompile("^Innererror").ReplaceAllString(name, "InnerError")
 
+	// Ip[A-Zv] should be IP[A-Zv]
+	name = regexp.MustCompile("Ip([A-Zv])").ReplaceAllString(name, "IP${1}")
+
+	// Cidr should be CIDR
+	name = regexp.MustCompile("Cidr").ReplaceAllString(name, "CIDR")
+
 	// Oauth should be OAuth
 	name = regexp.MustCompile("^Oauth").ReplaceAllString(name, "OAuth")
 
