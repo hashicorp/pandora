@@ -45,8 +45,6 @@ func (workaroundApplication) Process(apiVersion string, models parser.Models, co
 
 	// Add the `applicationTemplateId` field if missing
 	if _, ok := model.Fields["ApplicationTemplateId"]; !ok {
-		fmt.Println("fo")
-
 		model.Fields["ApplicationTemplateId"] = &parser.ModelField{
 			Title:       "ApplicationTemplateId",
 			Description: "Unique identifier of the applicationTemplate. Supports $filter (eq, not, ne). Read-only. null if the app wasn't created from an application template.",
