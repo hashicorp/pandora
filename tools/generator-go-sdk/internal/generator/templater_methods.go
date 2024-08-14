@@ -645,9 +645,9 @@ func (c methodsPandoraTemplater) unmarshalerTemplate(data GeneratorData) (*strin
 	}
 
 	if c.operation.FieldContainingPaginationDetails != nil {
-		unmarshaler := fmt.Sprintf("unmarshal%sImplementation", modelName)
+		unmarshaler := fmt.Sprintf("Unmarshal%sImplementation", modelName)
 		if modelPackage != "" {
-			unmarshaler = fmt.Sprintf("%s.unmarshal%sImplementation", modelPackage, modelName)
+			unmarshaler = fmt.Sprintf("%s.Unmarshal%sImplementation", modelPackage, modelName)
 		}
 
 		output = fmt.Sprintf(`
@@ -691,9 +691,9 @@ func (c methodsPandoraTemplater) unmarshalerTemplate(data GeneratorData) (*strin
 	// when this is a Discriminated Type (either the Parent or the Implementation, call the `unmarshal` func
 	// for the relevant Parent
 	if discriminatedTypeParentName != "" {
-		unmarshaler := fmt.Sprintf("unmarshal%sImplementation", discriminatedTypeParentName)
+		unmarshaler := fmt.Sprintf("Unmarshal%sImplementation", discriminatedTypeParentName)
 		if modelPackage != "" {
-			unmarshaler = fmt.Sprintf("%s.unmarshal%sImplementation", modelPackage, discriminatedTypeParentName)
+			unmarshaler = fmt.Sprintf("%s.Unmarshal%sImplementation", modelPackage, discriminatedTypeParentName)
 		}
 
 		output = fmt.Sprintf(`
