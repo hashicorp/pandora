@@ -126,6 +126,13 @@ func (m *Model) DataApiSdkModel(models Models) (*sdkModels.SDKModel, error) {
 			continue
 		}
 
+		optional := true
+		required := false
+		if field.Required {
+			optional = false
+			required = true
+		}
+
 		sdkFields[fieldName] = sdkModels.SDKField{
 			ContainsDiscriminatedValue: field.DiscriminatedValue,
 			DateFormat:                 nil,
@@ -133,11 +140,9 @@ func (m *Model) DataApiSdkModel(models Models) (*sdkModels.SDKModel, error) {
 			JsonName:                   field.JsonField,
 			ObjectDefinition:           *objectDefinition,
 
-			ReadOnly: field.ReadOnly,
-
-			// TODO work these out
-			Optional:  true,
-			Required:  false,
+			Optional:  optional,
+			ReadOnly:  field.ReadOnly,
+			Required:  required,
 			Sensitive: false,
 		}
 	}
@@ -159,6 +164,7 @@ type ModelField struct {
 	Type               *DataType
 	Description        string
 	Default            interface{}
+	Required           bool
 	ReadOnly           bool
 	WriteOnly          bool
 	Nullable           bool
@@ -265,6 +271,7 @@ const (
 	DataTypeBase64
 	DataTypeBinary
 	DataTypeBool
+	DataTypeCsv
 	DataTypeDate
 	DataTypeDateTime
 	DataTypeDuration
@@ -295,6 +302,8 @@ func (ft DataType) DataApiSdkObjectDefinitionType() sdkModels.SDKObjectDefinitio
 		return sdkModels.FloatSDKObjectDefinitionType
 	case DataTypeBool:
 		return sdkModels.BooleanSDKObjectDefinitionType
+	case DataTypeCsv:
+		return sdkModels.CSVSDKObjectDefinitionType
 	case DataTypeDate, DataTypeDateTime, DataTypeTime:
 		return sdkModels.DateTimeSDKObjectDefinitionType
 	case DataTypeBinary:
@@ -316,6 +325,8 @@ func (ft DataType) DataApiSdkOperationOptionObjectDefinitionType() sdkModels.SDK
 		return sdkModels.FloatSDKOperationOptionObjectDefinitionType
 	case DataTypeBool:
 		return sdkModels.BooleanSDKOperationOptionObjectDefinitionType
+	case DataTypeCsv:
+		return sdkModels.CSVSDKOperationOptionObjectDefinitionType
 	case DataTypeDate, DataTypeDateTime, DataTypeTime:
 		return sdkModels.StringSDKOperationOptionObjectDefinitionType
 	case DataTypeBinary:
@@ -701,108 +712,122 @@ func Schemas(input flattenedSchema, name string, models Models, constants Consta
 	for jsonField, schemaRef := range input.Schemas {
 		// maintainer note: this is a good place to add a breakpoint for inspecting model fields and constants as they are processed
 		// example breakpoint condition: name=="AdministrativeUnit"
-		if schema := schemaRef.Value; schema != nil {
-			field := ModelField{
-				Title:           normalize.CleanName(jsonField),
-				Description:     schema.Description,
-				Default:         schema.Default,
-				ReadOnly:        schemaRef.Value.ReadOnly,
-				WriteOnly:       schemaRef.Value.WriteOnly,
-				Nullable:        schemaRef.Value.Nullable,
-				AllowEmptyValue: schemaRef.Value.AllowEmptyValue,
-				JsonField:       jsonField,
+		schema := schemaRef.Value
+		if schema == nil {
+			continue
+		}
+
+		field := ModelField{
+			Title:           normalize.CleanName(jsonField),
+			Description:     schema.Description,
+			Default:         schema.Default,
+			ReadOnly:        schemaRef.Value.ReadOnly,
+			WriteOnly:       schemaRef.Value.WriteOnly,
+			Nullable:        schemaRef.Value.Nullable,
+			AllowEmptyValue: schemaRef.Value.AllowEmptyValue,
+			JsonField:       jsonField,
+		}
+
+		if field.Title == "" {
+			continue
+		}
+
+		result, _ := FlattenSchemaRef(schemaRef, nil)
+
+		// Determine any enumeration for the field
+		enum := parseEnum(schema.Enum)
+		if result != nil && len(result.Enum) > 0 && len(enum) == 0 {
+			enum = parseEnum(result.Enum)
+		}
+
+		// Find the corresponding model when the field refers to it, and set the model name for the field
+		if result != nil && result.Title != "" && result.Schemas != nil {
+			if _, ok := models[result.Title]; !ok {
+				models, constants = Schemas(*result, result.Title, models, constants, common)
+			}
+			field.ModelName = &result.Title
+		}
+
+		// Handle items for collections
+		if schema.Items != nil && schema.Items.Value != nil {
+			itemsResult, _ := FlattenSchemaRef(schema.Items, nil)
+
+			// Determine any type for the items
+			if schema.Items.Value.Type != "" || schema.Items.Value.Format != "" {
+				field.ItemType = FieldType(schema.Items.Value.Type, schema.Items.Value.Format, field.ModelName != nil)
 			}
 
-			if field.Title == "" {
-				continue
-			}
-
-			result, _ := FlattenSchemaRef(schemaRef, nil)
-
-			// Determine any enumeration for the field
-			enum := parseEnum(schema.Enum)
-			if result != nil && len(result.Enum) > 0 && len(enum) == 0 {
-				enum = parseEnum(result.Enum)
-			}
-
-			// Find the corresponding model when the field refers to it, and set the model name for the field
-			if result != nil && result.Title != "" && result.Schemas != nil {
+			// Find the corresponding model when the field (items) refers to it, and set the model name for the field items
+			if itemsResult != nil && itemsResult.Title != "" && itemsResult.Type == "object" {
 				if _, ok := models[result.Title]; !ok {
 					models, constants = Schemas(*result, result.Title, models, constants, common)
 				}
 				field.ModelName = &result.Title
 			}
-
-			// Handle items for collections
-			if schema.Items != nil && schema.Items.Value != nil {
-				itemsResult, _ := FlattenSchemaRef(schema.Items, nil)
-
-				// Determine any type for the items
-				if schema.Items.Value.Type != "" || schema.Items.Value.Format != "" {
-					field.ItemType = FieldType(schema.Items.Value.Type, schema.Items.Value.Format, field.ModelName != nil)
-				}
-
-				// Find the corresponding model when the field (items) refers to it, and set the model name for the field items
-				if itemsResult != nil && itemsResult.Title != "" && itemsResult.Type == "object" {
-					if _, ok := models[result.Title]; !ok {
-						models, constants = Schemas(*result, result.Title, models, constants, common)
-					}
-					field.ModelName = &result.Title
-				}
-			}
-
-			// Match the field type to the referenced object, or set a basic type
-			if result != nil && schema.Type == "" && schema.Format == "" && (result.Type != "" || result.Format != "") {
-				field.Type = FieldType(result.Type, result.Format, field.ModelName != nil)
-			} else {
-				field.Type = FieldType(schema.Type, schema.Format, field.ModelName != nil)
-			}
-
-			// Set the field type for enums; typically strings for constants, but could be any valid type
-			if result != nil && field.Type != nil && *field.Type == DataTypeArray && len(enum) > 0 && (result.Type != "" || result.Format != "") {
-				field.ItemType = FieldType(result.Type, result.Format, field.ModelName != nil)
-			}
-
-			if ((field.Type != nil && *field.Type == DataTypeString) || (field.ItemType != nil && *field.ItemType == DataTypeString)) && len(enum) > 0 {
-				// Despite being "fully qualified", type names are not unique in MS Graph, so we prefix them with the field name to provide some namespacing.
-				// This leads to some excessively long constant names, it is what it is.
-				field.ConstantName = pointer.To(normalize.Singularize(name + field.Title))
-
-				// Add the enumeration as a constant
-				constants[*field.ConstantName] = &Constant{
-					Enum: enum,
-					Type: field.Type,
-				}
-			}
-
-			if field.Type == nil {
-				logging.Warnf("Skipping field %q in model %q because Type is nil", name, field.Title)
-				continue
-			}
-
-			// Insert an "@odata.bind" field where a field or collection refers to a DirectoryObject. The MS Graph
-			// OpenAPI spec unfortunately does not document relationships between entities.
-			if field.ModelName != nil && strings.EqualFold(*field.ModelName, "DirectoryObject") {
-				bindFieldName := fmt.Sprintf("%s_ODataBind", normalize.CleanName(jsonField))
-
-				var fieldType, itemType *DataType
-
-				fieldType = pointer.To(DataTypeString)
-				if *field.Type == DataTypeArray {
-					fieldType = pointer.To(DataTypeArray)
-					itemType = pointer.To(DataTypeString)
-				}
-
-				model.Fields[bindFieldName] = &ModelField{
-					Title:     bindFieldName,
-					Type:      fieldType,
-					ItemType:  itemType,
-					JsonField: fmt.Sprintf("%s@odata.bind", jsonField),
-				}
-			}
-
-			model.Fields[normalize.CleanName(jsonField)] = &field
 		}
+
+		// Match the field type to the referenced object, or set a basic type
+		if result != nil && schema.Type == "" && schema.Format == "" && (result.Type != "" || result.Format != "") {
+			field.Type = FieldType(result.Type, result.Format, field.ModelName != nil)
+		} else {
+			field.Type = FieldType(schema.Type, schema.Format, field.ModelName != nil)
+		}
+
+		// Set the field type for enums; typically strings for constants, but could be any valid type
+		if result != nil && field.Type != nil && *field.Type == DataTypeArray && len(enum) > 0 && (result.Type != "" || result.Format != "") {
+			field.ItemType = FieldType(result.Type, result.Format, field.ModelName != nil)
+		}
+
+		if ((field.Type != nil && *field.Type == DataTypeString) || (field.ItemType != nil && *field.ItemType == DataTypeString)) && len(enum) > 0 {
+			// Despite being "fully qualified", type names are not unique in MS Graph, so we prefix them with the model name to provide some namespacing.
+			// Though we attempt to de-duplicate, this does lead to some excessively long constant names, it is what it is.
+			constantName := name
+			if result.Title != "" {
+				// use provided ref name if present
+				constantName += result.Title
+			} else {
+				// otherwise use the field name
+				constantName += field.Title
+			}
+			constantName = normalize.DeDuplicateName(constantName)
+			constantName = normalize.Singularize(constantName)
+
+			field.ConstantName = pointer.To(constantName)
+
+			// Add the enumeration as a constant
+			constants[constantName] = &Constant{
+				Enum: enum,
+				Type: field.Type,
+			}
+		}
+
+		if field.Type == nil {
+			logging.Warnf("Skipping field %q in model %q because Type is nil", name, field.Title)
+			continue
+		}
+
+		// Insert an "@odata.bind" field where a field or collection refers to a DirectoryObject. The MS Graph
+		// OpenAPI spec unfortunately does not document relationships between entities.
+		if field.ModelName != nil && strings.EqualFold(*field.ModelName, "DirectoryObject") {
+			bindFieldName := fmt.Sprintf("%s_ODataBind", normalize.CleanName(jsonField))
+
+			var fieldType, itemType *DataType
+
+			fieldType = pointer.To(DataTypeString)
+			if *field.Type == DataTypeArray {
+				fieldType = pointer.To(DataTypeArray)
+				itemType = pointer.To(DataTypeString)
+			}
+
+			model.Fields[bindFieldName] = &ModelField{
+				Title:     bindFieldName,
+				Type:      fieldType,
+				ItemType:  itemType,
+				JsonField: fmt.Sprintf("%s@odata.bind", jsonField),
+			}
+		}
+
+		model.Fields[normalize.CleanName(jsonField)] = &field
 	}
 
 	return models, constants
