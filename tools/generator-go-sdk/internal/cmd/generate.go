@@ -59,6 +59,7 @@ func (g GenerateCommand) Run(args []string) int {
 	}
 
 	if g.sourceDataType == models.MicrosoftGraphSourceDataType {
+		input.settings.GenerateDescriptionsForModels = true
 		input.settings.CanonicalApiVersions = map[string]string{
 			"stable": "v1.0",
 		}
@@ -81,7 +82,7 @@ func (g GenerateCommand) Run(args []string) int {
 			// is sent in the Request to update or remove a Key Vault Access Policy - and using other casings mean the update
 			// or removal fails - which is tracked in https://github.com/hashicorp/pandora/issues/3229.
 			//
-			// After testing it appears that `2023-07-01` doesn't suffer from this problem - as such we're going to leave
+			// After testing, it appears that `2023-07-01` doesn't suffer from this problem - as such we're going to leave
 			// `2023-02-01` on the older base layer and use the newer API Version as a divide to give us a clear migration path.
 			"KeyVault@2023-02-01",
 		)

@@ -17,8 +17,8 @@ const OptionalDiscriminatorsShouldBeOutputWithoutOmitEmpty = false
 // functions should be generated.
 const GenerateCaseInsensitiveFunctions = true
 
-// SkipDiscriminatedParentTypes returns whether or not the feature for skipping generation of
-// discriminated parent types is enabled.
+// SkipDiscriminatedParentTypes returns whether the feature is enabled for skipping generation of
+// discriminated parent types.
 func SkipDiscriminatedParentTypes() bool {
 	value := os.Getenv("PANDORA_SKIP_DISCRIMINATED_PARENT_TYPE")
 	if value == "" {

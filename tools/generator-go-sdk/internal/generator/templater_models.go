@@ -167,12 +167,25 @@ type Raw%[1]sImpl struct {
 		}
 	}
 
+	formattedStructLines := make([]string, 0)
+	for i, v := range structLines {
+		if strings.Contains(v, "//") {
+			if i > 0 && !strings.HasSuffix(formattedStructLines[i-1], "\n") {
+				v = "\n" + v
+			}
+			if i < len(structLines)-1 {
+				v += "\n"
+			}
+		}
+		formattedStructLines = append(formattedStructLines, v)
+	}
+
 	out := fmt.Sprintf(`
 %[3]s
 type %[1]s struct {
 %[2]s
 }
-`, c.name, strings.Join(structLines, "\n"), parentAssignmentInfo)
+`, c.name, strings.Join(formattedStructLines, "\n"), parentAssignmentInfo)
 	return &out, nil
 }
 
@@ -229,9 +242,17 @@ func (c modelsTemplater) structLineForField(fieldName, fieldType string, fieldDe
 			fieldType = fmt.Sprintf("*%s", fieldType)
 		}
 		jsonDetails += ",omitempty"
+	} else if fieldDetails.ObjectDefinition.Nullable && !strings.HasPrefix(fieldType, "nullable.") {
+		fieldType = fmt.Sprintf("*%s", fieldType)
 	}
 
 	line := fmt.Sprintf("\t%s %s `json:\"%s\"`", fieldName, fieldType, jsonDetails)
+
+	if data.generateDescriptionsForModels && fieldDetails.Description != "" {
+		description := fmt.Sprintf("// %s", fieldDetails.Description)
+		line = fmt.Sprintf("%s\n%s", description, line)
+	}
+
 	return &line, nil
 }
 
