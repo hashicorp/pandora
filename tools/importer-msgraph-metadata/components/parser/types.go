@@ -171,14 +171,6 @@ type ModelField struct {
 }
 
 func (f ModelField) DataApiSdkObjectDefinition(models Models) (*sdkModels.SDKObjectDefinition, error) {
-	if f.ConstantName != nil {
-		return &sdkModels.SDKObjectDefinition{
-			Nullable:      f.Nullable,
-			ReferenceName: f.ConstantName,
-			Type:          sdkModels.ReferenceSDKObjectDefinitionType,
-		}, nil
-	}
-
 	if f.Type == nil {
 		return nil, fmt.Errorf("field %q has no Type", f.Title)
 	}
@@ -249,6 +241,14 @@ func (f ModelField) DataApiSdkObjectDefinition(models Models) (*sdkModels.SDKObj
 		}
 
 		return nil, nil
+	}
+
+	if f.ConstantName != nil {
+		return &sdkModels.SDKObjectDefinition{
+			Nullable:      f.Nullable,
+			ReferenceName: f.ConstantName,
+			Type:          sdkModels.ReferenceSDKObjectDefinitionType,
+		}, nil
 	}
 
 	return &sdkModels.SDKObjectDefinition{
