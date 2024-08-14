@@ -12,8 +12,6 @@ import (
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/normalize"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/internal/logging"
-	"golang.org/x/text/cases"
-	"golang.org/x/text/language"
 )
 
 /* ===================
@@ -98,9 +96,12 @@ type Constant struct {
 }
 
 type Model struct {
-	Fields map[string]*ModelField
-	Common bool
-	Prefix string
+	Fields          map[string]*ModelField
+	Common          bool
+	Prefix          string
+	TypeField       *string
+	TypeValue       *string
+	ParentModelName *string
 }
 
 func (m *Model) IsValid() bool {
@@ -126,7 +127,7 @@ func (m *Model) DataApiSdkModel(models Models) (*sdkModels.SDKModel, error) {
 		}
 
 		sdkFields[fieldName] = sdkModels.SDKField{
-			ContainsDiscriminatedValue: false,
+			ContainsDiscriminatedValue: field.DiscriminatedValue,
 			DateFormat:                 nil,
 			Description:                field.Description,
 			JsonName:                   field.JsonField,
@@ -145,28 +146,28 @@ func (m *Model) DataApiSdkModel(models Models) (*sdkModels.SDKModel, error) {
 		return nil, nil
 	}
 
-	// TODO support discriminated types (good example: conditional access named locations)
 	return &sdkModels.SDKModel{
-		DiscriminatedValue:                    nil,
-		FieldNameContainingDiscriminatedValue: nil,
+		DiscriminatedValue:                    m.TypeValue,
+		FieldNameContainingDiscriminatedValue: m.TypeField,
 		Fields:                                sdkFields,
-		ParentTypeName:                        nil,
+		ParentTypeName:                        m.ParentModelName,
 	}, nil
 }
 
 type ModelField struct {
-	Title           string
-	Type            *DataType
-	Description     string
-	Default         interface{}
-	ReadOnly        bool
-	WriteOnly       bool
-	Nullable        bool
-	AllowEmptyValue bool
-	ItemType        *DataType
-	ConstantName    *string
-	ModelName       *string
-	JsonField       string
+	Title              string
+	Type               *DataType
+	Description        string
+	Default            interface{}
+	ReadOnly           bool
+	WriteOnly          bool
+	Nullable           bool
+	AllowEmptyValue    bool
+	DiscriminatedValue bool
+	ItemType           *DataType
+	ConstantName       *string
+	ModelName          *string
+	JsonField          string
 }
 
 func (f ModelField) DataApiSdkObjectDefinition(models Models) (*sdkModels.SDKObjectDefinition, error) {
@@ -672,9 +673,9 @@ func Schemas(input flattenedSchema, name string, models Models, constants Consta
 		return models, constants
 	}
 
-	// Add an explicit ODataId field to each model, since it is inconsistently defined in the API specs. This won't be
-	// a valid field for every model, but it's impossible to tell which models support it, and it's effectively
-	// harmless to leave it in so long as it has the `omitempty` struct tag in the generated SDK.
+	// Add an explicit ODataId and ODataType field to each model, since it is inconsistently defined in the API specs.
+	// This won't be valid for every model, but it's impossible to tell which models support them, and it's effectively
+	// harmless to leave these in so long as they have the `omitempty` struct tag in the generated SDK.
 	model := Model{
 		Fields: map[string]*ModelField{
 			"ODataId": {
@@ -682,6 +683,12 @@ func Schemas(input flattenedSchema, name string, models Models, constants Consta
 				Type:      pointer.To(DataTypeString),
 				Default:   "",
 				JsonField: "@odata.id",
+			},
+			"ODataType": {
+				Title:     "ODataType",
+				Type:      pointer.To(DataTypeString),
+				Default:   "",
+				JsonField: "@odata.type",
 			},
 		},
 		Common: common,
@@ -696,7 +703,7 @@ func Schemas(input flattenedSchema, name string, models Models, constants Consta
 		// example breakpoint condition: name=="AdministrativeUnit"
 		if schema := schemaRef.Value; schema != nil {
 			field := ModelField{
-				Title:           cases.Title(language.AmericanEnglish, cases.NoLower).String(jsonField),
+				Title:           normalize.CleanName(jsonField),
 				Description:     schema.Description,
 				Default:         schema.Default,
 				ReadOnly:        schemaRef.Value.ReadOnly,
@@ -726,9 +733,22 @@ func Schemas(input flattenedSchema, name string, models Models, constants Consta
 				field.ModelName = &result.Title
 			}
 
-			// Determine the item type for collections
-			if schema.Items != nil && schema.Items.Value != nil && schema.Items.Value.Type != "" {
-				field.ItemType = FieldType(schema.Items.Value.Type, schema.Items.Value.Format, field.ModelName != nil)
+			// Handle items for collections
+			if schema.Items != nil && schema.Items.Value != nil {
+				itemsResult, _ := FlattenSchemaRef(schema.Items, nil)
+
+				// Determine any type for the items
+				if schema.Items.Value.Type != "" || schema.Items.Value.Format != "" {
+					field.ItemType = FieldType(schema.Items.Value.Type, schema.Items.Value.Format, field.ModelName != nil)
+				}
+
+				// Find the corresponding model when the field (items) refers to it, and set the model name for the field items
+				if itemsResult != nil && itemsResult.Title != "" && itemsResult.Type == "object" {
+					if _, ok := models[result.Title]; !ok {
+						models, constants = Schemas(*result, result.Title, models, constants, common)
+					}
+					field.ModelName = &result.Title
+				}
 			}
 
 			// Match the field type to the referenced object, or set a basic type
@@ -783,11 +803,6 @@ func Schemas(input flattenedSchema, name string, models Models, constants Consta
 
 			model.Fields[normalize.CleanName(jsonField)] = &field
 		}
-	}
-
-	// Abandon the model if it has no fields
-	if !model.IsValid() {
-		delete(models, name)
 	}
 
 	return models, constants
