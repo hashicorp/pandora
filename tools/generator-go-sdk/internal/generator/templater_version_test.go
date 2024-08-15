@@ -28,7 +28,7 @@ import "fmt"
 const defaultApiVersion = "2022-02-01"
 
 func userAgent() string {
-	return fmt.Sprintf("hashicorp/go-azure-sdk/somepackage/%s", defaultApiVersion)
+	return "hashicorp/go-azure-sdk/somepackage/2022-02-01"
 }`
 	assertTemplatedCodeMatches(t, expected, *actual)
 }
