@@ -98,5 +98,34 @@ func (workaroundConditionalAccessPolicy) Process(apiVersion string, models parse
 		delete(constants, "ConditionalAccessGuestsOrExternalUsersGuestOrExternalUserType")
 	}
 
+	model, ok = models["ConditionalAccessSessionControls"]
+	if !ok {
+		return fmt.Errorf("`ConditionalAccessSessionControls` model not found")
+	}
+
+	// cloudAppSecurityPolicy must be null to unset it, so make it nullable + required
+	if _, ok = model.Fields["CloudAppSecurity"]; !ok {
+		return fmt.Errorf("`CloudAppSecurity` field not found")
+	}
+	model.Fields["CloudAppSecurity"].Nullable = true
+	model.Fields["CloudAppSecurity"].Required = true
+
+	model, ok = models["ConditionalAccessUsers"]
+	if !ok {
+		return fmt.Errorf("`ConditionalAccessUsers` model not found")
+	}
+
+	// cloudAppSecurityPolicy must be null to unset it, so make it nullable + required
+	if _, ok = model.Fields["ExcludeGuestsOrExternalUsers"]; !ok {
+		return fmt.Errorf("`ExcludeGuestsOrExternalUsers` field not found")
+	}
+	model.Fields["ExcludeGuestsOrExternalUsers"].Nullable = true
+	model.Fields["ExcludeGuestsOrExternalUsers"].Required = true
+	if _, ok = model.Fields["IncludeGuestsOrExternalUsers"]; !ok {
+		return fmt.Errorf("`IncludeGuestsOrExternalUsers` field not found")
+	}
+	model.Fields["IncludeGuestsOrExternalUsers"].Nullable = true
+	model.Fields["IncludeGuestsOrExternalUsers"].Required = true
+
 	return nil
 }
