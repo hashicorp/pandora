@@ -46,6 +46,11 @@ service "directoryRoles" {
   available = ["stable", "beta"]
 }
 
+service "directoryRoleTemplates" {
+  name      = "DirectoryRoleTemplates"
+  available = ["stable", "beta"]
+}
+
 service "domains" {
   name      = "Domains"
   available = ["stable", "beta"]
