@@ -40,6 +40,10 @@ func baseClientPackageForSdk(input models.SourceDataType) string {
 	return "client"
 }
 
+func camelCase(input string) string {
+	return strings.ToLower(input[0:1]) + input[1:]
+}
+
 func capitalizeFirstLetter(input string) string {
 	return strings.ToUpper(input[0:1]) + strings.ToLower(input[1:])
 }

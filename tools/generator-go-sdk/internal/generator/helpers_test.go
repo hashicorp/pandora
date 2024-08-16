@@ -4,6 +4,7 @@
 package generator
 
 import (
+	"fmt"
 	"strings"
 	"testing"
 
@@ -19,8 +20,14 @@ func assertTemplatedCodeMatches(t *testing.T, expected string, actual string) {
 	actualLines := splitLines(actual)
 	expectedLines := splitLines(expected)
 
-	normalizedActualValue := strings.Join(actualLines, "\n")
-	normalizedExpectedValue := strings.Join(expectedLines, "\n")
+	normalizedActualValue := ""
+	for i, v := range actualLines {
+		normalizedActualValue += fmt.Sprintf("%d:	%s\n", i+1, v)
+	}
+	normalizedExpectedValue := ""
+	for i, v := range expectedLines {
+		normalizedExpectedValue += fmt.Sprintf("%d:	%s\n", i+1, v)
+	}
 
 	if len(actualLines) != len(expectedLines) {
 		t.Fatalf(`Expected %d lines but got %d lines.

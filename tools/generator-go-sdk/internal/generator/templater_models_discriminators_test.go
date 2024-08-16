@@ -75,7 +75,12 @@ import (
 
 // acctests licence placeholder
 
+type ModeOfTransitBase struct {
+	Type string ''json:"type"''
+}
+
 type ModeOfTransit interface {
+	ModeOfTransit() ModeOfTransitBase
 }
 
 // RawModeOfTransitImpl is returned when the Discriminated Value
@@ -83,8 +88,13 @@ type ModeOfTransit interface {
 // NOTE: this should only be used when a type isn't defined for this type of Object (as a workaround)
 // and is used only for Deserialization (e.g. this cannot be used as a Request Payload).
 type RawModeOfTransitImpl struct {
+	modeOfTransit ModeOfTransitBase
 	Type string
 	Values map[string]interface{}
+}
+
+func (s RawModeOfTransitImpl) ModeOfTransit() ModeOfTransitBase {
+	return s.modeOfTransit
 }
 
 func unmarshalModeOfTransitImplementation(input []byte) (ModeOfTransit, error) {
@@ -118,8 +128,14 @@ func unmarshalModeOfTransitImplementation(input []byte) (ModeOfTransit, error) {
 		return out, nil
 	}
 
+	var parent ModeOfTransitBase
+	if err := json.Unmarshal(input, &parent); err != nil {
+		return nil, fmt.Errorf("unmarshaling into ModeOfTransitBase: modeOfTransit", err)
+	}
+
 	out := RawModeOfTransitImpl{
-		Type:   value,
+		modeOfTransit: parent,
+		Type: value,
 		Values: temp,
 	}
 	return out, nil
@@ -158,6 +174,13 @@ func TestTemplaterModelsImplementation(t *testing.T) {
 			"ModeOfTransit": {
 				FieldNameContainingDiscriminatedValue: stringPointer("Type"),
 				Fields: map[string]models.SDKField{
+					"Name": {
+						Required: true,
+						JsonName: "name",
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
+						},
+					},
 					"Type": {
 						ContainsDiscriminatedValue: true,
 						JsonName:                   "type",
@@ -219,6 +242,15 @@ type Train struct {
 	Operator string ''json:"operator"''
 
 	// Fields inherited from ModeOfTransit
+	Name string ''json:"name"''
+	Type string ''json:"type"''
+}
+
+func (s Train) ModeOfTransit() ModeOfTransitBase {
+	return ModeOfTransitBase{
+		Name: s.Name,
+		Type: s.Type,
+	}
 }
 
 var _ json.Marshaler = Train{}
@@ -269,6 +301,13 @@ func TestTemplaterModelsFieldImplementation(t *testing.T) {
 			"ModeOfTransit": {
 				FieldNameContainingDiscriminatedValue: stringPointer("Type"),
 				Fields: map[string]models.SDKField{
+					"Name": {
+						Required: true,
+						JsonName: "name",
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
+						},
+					},
 					"Type": {
 						ContainsDiscriminatedValue: true,
 						JsonName:                   "type",
@@ -443,6 +482,13 @@ type FirstImplementation struct {
 	Serialization Serialization ''json:"serialization"''
 
 	// Fields inherited from First
+	Type string ''json:"type"''
+}
+
+func (s FirstImplementation) First() FirstBase {
+	return FirstBase{
+		Type: s.Type,
+	}
 }
 
 var _ json.Marshaler = FirstImplementation{}
