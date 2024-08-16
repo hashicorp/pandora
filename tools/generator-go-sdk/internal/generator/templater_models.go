@@ -66,22 +66,12 @@ import (
 }
 
 func (c modelsTemplater) structCode(data GeneratorData) (*string, error) {
-	// if this is an Abstract/Type Hint, we output an Interface with a manual unmarshal func that gets called wherever it's used
-	if c.model.FieldNameContainingDiscriminatedValue != nil && c.model.ParentTypeName == nil {
-		out := fmt.Sprintf(`
-type %[1]s interface {
-}
+	out := ""
+	structName := c.name
 
-// Raw%[1]sImpl is returned when the Discriminated Value
-// doesn't match any of the defined types
-// NOTE: this should only be used when a type isn't defined for this type of Object (as a workaround)
-// and is used only for Deserialization (e.g. this cannot be used as a Request Payload).
-type Raw%[1]sImpl struct {
-	Type string
-	Values map[string]interface{}
-}
-`, c.name)
-		return &out, nil
+	// parent models get a {model}Base struct
+	if c.model.IsDiscriminatedParentType() {
+		structName = fmt.Sprintf("%sBase", c.name)
 	}
 
 	fields := make([]string, 0)
@@ -105,11 +95,6 @@ type Raw%[1]sImpl struct {
 			return nil, err
 		}
 
-		if c.model.FieldNameContainingDiscriminatedValue != nil && *c.model.FieldNameContainingDiscriminatedValue == fieldName {
-			// this isn't user configurable (and is hard-coded) so there's no point outputting this
-			continue
-		}
-
 		structLines = append(structLines, *structLine)
 	}
 
@@ -127,7 +112,7 @@ type Raw%[1]sImpl struct {
 		} else {
 			parentTypeName = *c.model.ParentTypeName
 		}
-		parentAssignmentInfo = fmt.Sprintf("var _ %[1]s = %[2]s{}", parentTypeName, c.name)
+		parentAssignmentInfo = fmt.Sprintf("var _ %[1]s = %[2]s{}", parentTypeName, structName)
 
 		parent, ok := data.models[*c.model.ParentTypeName]
 		if !ok {
@@ -156,12 +141,6 @@ type Raw%[1]sImpl struct {
 					return nil, err
 				}
 
-				// check this field isn't used as the discriminated value
-				if c.model.FieldNameContainingDiscriminatedValue != nil && *c.model.FieldNameContainingDiscriminatedValue == fieldName {
-					// this isn't user configurable (and is hard-coded) so there's no point outputting this
-					continue
-				}
-
 				structLines = append(structLines, *structLine)
 			}
 		}
@@ -180,12 +159,40 @@ type Raw%[1]sImpl struct {
 		formattedStructLines = append(formattedStructLines, v)
 	}
 
-	out := fmt.Sprintf(`
+	out += fmt.Sprintf(`
 %[3]s
 type %[1]s struct {
 %[2]s
 }
-`, c.name, strings.Join(formattedStructLines, "\n"), parentAssignmentInfo)
+`, structName, strings.Join(formattedStructLines, "\n"), parentAssignmentInfo)
+
+	// if this is an Abstract/Type Hint, we output an Interface with a manual unmarshal func that gets called wherever it's used
+	if c.model.IsDiscriminatedParentType() {
+		out += fmt.Sprintf(`
+type %[1]s interface {
+	%[1]s() %[1]sBase
+}
+
+// Raw%[1]sImpl is returned when the Discriminated Value
+// doesn't match any of the defined types
+// NOTE: this should only be used when a type isn't defined for this type of Object (as a workaround)
+// and is used only for Deserialization (e.g. this cannot be used as a Request Payload).
+type Raw%[1]sImpl struct {
+	%[2]s %[1]sBase
+	Type string
+	Values map[string]interface{}
+}
+
+`, c.name, camelCase(c.name))
+
+		out += fmt.Sprintf(`
+func (s Raw%[1]sImpl) %[1]s() %[1]sBase {
+	return s.%[2]s
+}
+
+`, c.name, camelCase(c.name))
+	}
+
 	return &out, nil
 }
 
@@ -197,6 +204,12 @@ func (c modelsTemplater) methods(data GeneratorData) (*string, error) {
 		return nil, fmt.Errorf("generating date functions: %+v", err)
 	}
 	code = append(code, *dateFunctions)
+
+	parentModelFunctions, err := c.codeForParentStructFunctions(data)
+	if err != nil {
+		return nil, fmt.Errorf("generating parent model functions: %+v", err)
+	}
+	code = append(code, *parentModelFunctions)
 
 	marshalFunctions, err := c.codeForMarshalFunctions(data)
 	if err != nil {
@@ -362,37 +375,97 @@ func (c modelsTemplater) dateFunctionForField(fieldName string, fieldDetails mod
 	return &out, nil
 }
 
+func (c modelsTemplater) codeForParentStructFunctions(data GeneratorData) (*string, error) {
+	out := ""
+
+	if c.model.ParentTypeName == nil {
+		return &out, nil
+	}
+
+	parentTypeName := ""
+	structFields := make([]string, 0)
+
+	if c.model.FieldNameContainingDiscriminatedValue != nil {
+		_, foundParentTypeName, err := c.recurseParentModels(data, *c.model.ParentTypeName, *c.model.FieldNameContainingDiscriminatedValue)
+		if err != nil {
+			return nil, err
+		}
+		parentTypeName = *foundParentTypeName
+
+	} else {
+		parentTypeName = *c.model.ParentTypeName
+	}
+
+	parent, ok := data.models[*c.model.ParentTypeName]
+	if !ok {
+		return nil, fmt.Errorf("couldn't find Parent Model %q for Model %q", *c.model.ParentTypeName, c.name)
+	}
+
+	parentFields := make([]string, 0)
+	for fieldName := range parent.Fields {
+		parentFields = append(parentFields, fieldName)
+	}
+	sort.Strings(parentFields)
+
+	if len(parentFields) > 0 {
+		for _, fieldName := range parentFields {
+			structFields = append(structFields, fmt.Sprintf(`%[1]s: s.%[1]s,`, fieldName))
+		}
+	}
+
+	out += fmt.Sprintf(`
+func (s %[1]s) %[2]s() %[2]sBase {
+	return %[2]sBase{
+		%[3]s
+	}
+}
+
+`, c.name, parentTypeName, strings.Join(structFields, "\n"))
+
+	return &out, nil
+}
+
 func (c modelsTemplater) codeForMarshalFunctions(data GeneratorData) (*string, error) {
 	output := ""
 
-	if c.model.DiscriminatedValue != nil {
-		if c.model.FieldNameContainingDiscriminatedValue == nil {
-			return nil, fmt.Errorf("model %q must contain a TypeHintIn when a TypeHintValue is present", c.name)
-		}
-		if c.model.ParentTypeName == nil {
-			return nil, fmt.Errorf("model %q must contain a ParentTypeName when a TypeHintValue is present", c.name)
-		}
+	if c.model.DiscriminatedValue == nil {
+		return &output, nil
+	}
 
-		parentModel, ok := data.models[*c.model.ParentTypeName]
-		if !ok {
-			return nil, fmt.Errorf("the parent model %q for model %q was not found", *c.model.ParentTypeName, c.name)
-		}
+	if c.model.FieldNameContainingDiscriminatedValue == nil {
+		return nil, fmt.Errorf("model %q must contain a TypeHintIn when a TypeHintValue is present", c.name)
+	}
+	if c.model.ParentTypeName == nil {
+		return nil, fmt.Errorf("model %q must contain a ParentTypeName when a TypeHintValue is present", c.name)
+	}
 
-		// the TypeHintIn field comes from the parent and so won't be output on the inherited items
-		field, ok := parentModel.Fields[*c.model.FieldNameContainingDiscriminatedValue]
-		if !ok {
-			if parentModel.ParentTypeName != nil {
-				parentField, _, err := c.recurseParentModels(data, *c.model.ParentTypeName, *c.model.FieldNameContainingDiscriminatedValue)
-				if err != nil {
-					return nil, err
-				}
-				field = *parentField
-			} else {
-				return nil, fmt.Errorf("the field %q was not found on the parent model %q for model %q", *c.model.FieldNameContainingDiscriminatedValue, *c.model.ParentTypeName, c.name)
+	structName := c.name
+
+	// parent models get a {model}Parent struct
+	if c.model.IsDiscriminatedParentType() {
+		structName = fmt.Sprintf("%sBase", c.name)
+	}
+
+	parentModel, ok := data.models[*c.model.ParentTypeName]
+	if !ok {
+		return nil, fmt.Errorf("the parent model %q for model %q was not found", *c.model.ParentTypeName, c.name)
+	}
+
+	// the TypeHintIn field comes from the parent and so won't be output on the inherited items
+	field, ok := parentModel.Fields[*c.model.FieldNameContainingDiscriminatedValue]
+	if !ok {
+		if parentModel.ParentTypeName != nil {
+			parentField, _, err := c.recurseParentModels(data, *c.model.ParentTypeName, *c.model.FieldNameContainingDiscriminatedValue)
+			if err != nil {
+				return nil, err
 			}
+			field = *parentField
+		} else {
+			return nil, fmt.Errorf("the field %q was not found on the parent model %q for model %q", *c.model.FieldNameContainingDiscriminatedValue, *c.model.ParentTypeName, c.name)
 		}
+	}
 
-		output = fmt.Sprintf(`
+	output += fmt.Sprintf(`
 var _ json.Marshaler = %[1]s{}
 
 func (s %[1]s) MarshalJSON() ([]byte, error) {
@@ -416,8 +489,7 @@ func (s %[1]s) MarshalJSON() ([]byte, error) {
 
 	return encoded, nil
 }
-`, c.name, field.JsonName, *c.model.DiscriminatedValue)
-	}
+`, structName, field.JsonName, *c.model.DiscriminatedValue)
 
 	return &output, nil
 }
@@ -441,36 +513,41 @@ func (c modelsTemplater) codeForUnmarshalFunctions(data GeneratorData) (*string,
 }
 
 func (c modelsTemplater) codeForUnmarshalParentFunction(data GeneratorData) (*string, error) {
+	output := ""
+
+	if !c.model.IsDiscriminatedParentType() {
+		return &output, nil
+	}
+
 	// if this is a Discriminated Type (e.g. Parent) then we need to generate an Unmarshal{Name}Implementation
 	// function which can be used in any usages
 	lines := make([]string, 0)
-	if c.model.IsDiscriminatedParentType() {
-		modelsImplementingThisClass := make([]string, 0)
-		for modelName, model := range data.models {
-			if model.ParentTypeName == nil || model.FieldNameContainingDiscriminatedValue == nil || model.DiscriminatedValue == nil || modelName == c.name {
-				continue
-			}
-
-			// sanity-checking
-			if *model.ParentTypeName != c.name {
-				continue
-			}
-
-			if *model.FieldNameContainingDiscriminatedValue != *c.model.FieldNameContainingDiscriminatedValue {
-				return nil, fmt.Errorf("implementation %q uses a different discriminated field (%q) than parent %q (%q)", modelName, *model.FieldNameContainingDiscriminatedValue, c.name, *c.model.FieldNameContainingDiscriminatedValue)
-			}
-
-			modelsImplementingThisClass = append(modelsImplementingThisClass, modelName)
+	modelsImplementingThisClass := make([]string, 0)
+	for modelName, model := range data.models {
+		if model.ParentTypeName == nil || model.FieldNameContainingDiscriminatedValue == nil || model.DiscriminatedValue == nil || modelName == c.name {
+			continue
 		}
 
 		// sanity-checking
-		if len(modelsImplementingThisClass) == 0 && featureflags.SkipDiscriminatedParentTypes() == false {
-			return nil, fmt.Errorf("model %q is a discriminated parent type with no implementations", c.name)
+		if *model.ParentTypeName != c.name {
+			continue
 		}
-		jsonFieldName := c.model.Fields[*c.model.FieldNameContainingDiscriminatedValue].JsonName
-		// NOTE: unmarshaling null returns an empty map, which'll mean the `ok` fails
-		// the 'type' field being omitted will also mean that `ok` is false
-		lines = append(lines, fmt.Sprintf(`
+
+		if *model.FieldNameContainingDiscriminatedValue != *c.model.FieldNameContainingDiscriminatedValue {
+			return nil, fmt.Errorf("implementation %q uses a different discriminated field (%q) than parent %q (%q)", modelName, *model.FieldNameContainingDiscriminatedValue, c.name, *c.model.FieldNameContainingDiscriminatedValue)
+		}
+
+		modelsImplementingThisClass = append(modelsImplementingThisClass, modelName)
+	}
+
+	// sanity-checking
+	if len(modelsImplementingThisClass) == 0 && featureflags.SkipDiscriminatedParentTypes() == false {
+		return nil, fmt.Errorf("model %q is a discriminated parent type with no implementations", c.name)
+	}
+	jsonFieldName := c.model.Fields[*c.model.FieldNameContainingDiscriminatedValue].JsonName
+	// NOTE: unmarshaling null returns an empty map, which'll mean the `ok` fails
+	// the 'type' field being omitted will also mean that `ok` is false
+	lines = append(lines, fmt.Sprintf(`
 func Unmarshal%[1]sImplementation(input []byte) (%[1]s, error) {
 	if input == nil {
 		return nil, nil
@@ -487,11 +564,11 @@ func Unmarshal%[1]sImplementation(input []byte) (%[1]s, error) {
 	}
 `, c.name, jsonFieldName))
 
-		sort.Strings(modelsImplementingThisClass)
-		for _, implementationName := range modelsImplementingThisClass {
-			model := data.models[implementationName]
+	sort.Strings(modelsImplementingThisClass)
+	for _, implementationName := range modelsImplementingThisClass {
+		model := data.models[implementationName]
 
-			lines = append(lines, fmt.Sprintf(`
+		lines = append(lines, fmt.Sprintf(`
 	if strings.EqualFold(value, %[1]q) {
 		var out %[2]s
 		if err := json.Unmarshal(input, &out); err != nil {
@@ -500,30 +577,36 @@ func Unmarshal%[1]sImplementation(input []byte) (%[1]s, error) {
 		return out, nil
 	}
 `, *model.DiscriminatedValue, implementationName))
-		}
+	}
 
-		// if it doesn't match - we generate and deserialize into a 'Raw{Name}Impl' type - named intentionally
-		// so that we don't conflict with a generated 'Raw{Name}' type which exists in a handful of Swaggers
-		lines = append(lines, fmt.Sprintf(`
+	// if it doesn't match - we generate and deserialize into a 'Raw{Name}Impl' type - named intentionally
+	// so that we don't conflict with a generated 'Raw{Name}' type which exists in a handful of Swaggers
+	lines = append(lines, fmt.Sprintf(`
+	var parent %[1]sBase
+	if err := json.Unmarshal(input, &parent); err != nil {
+		return nil, fmt.Errorf("unmarshaling into %[1]sBase: %+v", err)
+	}
+
 	out := Raw%[1]sImpl{
-		Type:   value,
+		%[2]s: parent,
+		Type: value,
 		Values: temp,
 	}
 	return out, nil
-`, c.name))
+`, c.name, camelCase(c.name)))
 
-		lines = append(lines, "}")
-	}
+	lines = append(lines, "}")
 
-	output := strings.Join(lines, "\n")
+	output += strings.Join(lines, "\n")
 	return &output, nil
 }
 
 func (c modelsTemplater) codeForUnmarshalStructFunction(data GeneratorData) (*string, error) {
-	// this is a parent, therefore there'll be no struct fields to check here
+	structName := c.name
+
+	// parent models get a {model}Parent struct
 	if c.model.IsDiscriminatedParentType() {
-		out := ""
-		return &out, nil
+		structName = fmt.Sprintf("%sBase", c.name)
 	}
 
 	lines := make([]string, 0)
@@ -576,7 +659,7 @@ func (c modelsTemplater) codeForUnmarshalStructFunction(data GeneratorData) (*st
 		lines = append(lines, fmt.Sprintf(`
 var _ json.Unmarshaler = &%[1]s{}
 
-func (s *%[1]s) UnmarshalJSON(bytes []byte) error {`, c.name))
+func (s *%[1]s) UnmarshalJSON(bytes []byte) error {`, structName))
 
 		// first for each regular field, decode & assign that
 		if len(fieldsRequiringAssignment) > 0 {
@@ -585,7 +668,7 @@ func (s *%[1]s) UnmarshalJSON(bytes []byte) error {`, c.name))
 	if err := json.Unmarshal(bytes, &decoded); err != nil {
 		return fmt.Errorf("unmarshaling into %[1]s: %%+v", err)
 	}
-`, c.name))
+`, structName))
 
 			sort.Strings(fieldsRequiringAssignment)
 			for _, fieldName := range fieldsRequiringAssignment {
@@ -598,7 +681,7 @@ func (s *%[1]s) UnmarshalJSON(bytes []byte) error {`, c.name))
 	if err := json.Unmarshal(bytes, &temp); err != nil {
 		return fmt.Errorf("unmarshaling %[1]s into map[string]json.RawMessage: %%+v", err)
 	}
-`, c.name))
+`, structName))
 
 		sort.Strings(fieldsRequiringUnmarshalling)
 		for _, fieldName := range fieldsRequiringUnmarshalling {
@@ -658,7 +741,7 @@ func (s *%[1]s) UnmarshalJSON(bytes []byte) error {`, c.name))
 			output[key] = impl
 		}
 		s.%[1]s = %[4]soutput
-	}`, fieldName, *topLevelObjectDef.ReferenceName, c.name, assignmentPrefix, fieldDetails.JsonName))
+	}`, fieldName, *topLevelObjectDef.ReferenceName, structName, assignmentPrefix, fieldDetails.JsonName))
 			}
 
 			if fieldDetails.ObjectDefinition.Type == models.ListSDKObjectDefinitionType {
@@ -693,7 +776,7 @@ func (s *%[1]s) UnmarshalJSON(bytes []byte) error {`, c.name))
 			output = append(output, impl)
 		}
 		s.%[1]s = %[4]soutput
-	}`, fieldName, *topLevelObjectDef.ReferenceName, c.name, assignmentPrefix, fieldDetails.JsonName))
+	}`, fieldName, *topLevelObjectDef.ReferenceName, structName, assignmentPrefix, fieldDetails.JsonName))
 			}
 
 			if fieldDetails.ObjectDefinition.Type == models.ReferenceSDKObjectDefinitionType {
@@ -704,7 +787,7 @@ func (s *%[1]s) UnmarshalJSON(bytes []byte) error {`, c.name))
 			return fmt.Errorf("unmarshaling field '%[1]s' for '%[3]s': %%+v", err)
 		}
 		s.%[1]s = impl
-	}`, fieldName, *topLevelObjectDef.ReferenceName, c.name, fieldDetails.JsonName))
+	}`, fieldName, *topLevelObjectDef.ReferenceName, structName, fieldDetails.JsonName))
 			}
 		}
 
