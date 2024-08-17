@@ -214,11 +214,11 @@ func (f ModelField) DataApiSdkObjectDefinition(models Models) (*sdkModels.SDKObj
 
 			return &sdkModels.SDKObjectDefinition{
 				NestedItem: &sdkModels.SDKObjectDefinition{
-					Nullable:                  f.Nullable,
 					ReferenceName:             f.ModelName,
 					ReferenceNameIsCommonType: pointer.To(models[*f.ModelName].Common),
 					Type:                      sdkModels.ReferenceSDKObjectDefinitionType,
 				},
+				Nullable:      f.Nullable,
 				ReferenceName: nil,
 				Type:          sdkModels.ListSDKObjectDefinitionType,
 			}, nil
@@ -228,25 +228,32 @@ func (f ModelField) DataApiSdkObjectDefinition(models Models) (*sdkModels.SDKObj
 			// TODO validate constant exists
 			return &sdkModels.SDKObjectDefinition{
 				NestedItem: &sdkModels.SDKObjectDefinition{
-					Nullable:      f.Nullable,
 					ReferenceName: f.ConstantName,
 					Type:          sdkModels.ReferenceSDKObjectDefinitionType,
 				},
-				Type: sdkModels.ListSDKObjectDefinitionType,
+				Nullable: f.Nullable,
+				Type:     sdkModels.ListSDKObjectDefinitionType,
 			}, nil
 		}
 
 		if f.ItemType != nil {
 			return &sdkModels.SDKObjectDefinition{
 				NestedItem: &sdkModels.SDKObjectDefinition{
-					Nullable: f.Nullable,
-					Type:     f.ItemType.DataApiSdkObjectDefinitionType(),
+					Type: f.ItemType.DataApiSdkObjectDefinitionType(),
 				},
-				Type: sdkModels.ListSDKObjectDefinitionType,
+				Nullable: f.Nullable,
+				Type:     sdkModels.ListSDKObjectDefinitionType,
 			}, nil
 		}
 
-		return nil, nil
+		// Unknown types should be []interface{}
+		return &sdkModels.SDKObjectDefinition{
+			NestedItem: &sdkModels.SDKObjectDefinition{
+				Type: sdkModels.RawObjectSDKObjectDefinitionType,
+			},
+			Nullable: f.Nullable,
+			Type:     sdkModels.ListSDKObjectDefinitionType,
+		}, nil
 	}
 
 	if f.ConstantName != nil {
@@ -690,16 +697,18 @@ func Schemas(input flattenedSchema, name string, models Models, constants Consta
 	model := Model{
 		Fields: map[string]*ModelField{
 			"ODataId": {
-				Title:     "ODataId",
-				Type:      pointer.To(DataTypeString),
-				Default:   "",
-				JsonField: "@odata.id",
+				Title:       "ODataId",
+				Description: "The OData ID of this entity",
+				Type:        pointer.To(DataTypeString),
+				Default:     "",
+				JsonField:   "@odata.id",
 			},
 			"ODataType": {
-				Title:     "ODataType",
-				Type:      pointer.To(DataTypeString),
-				Default:   "",
-				JsonField: "@odata.type",
+				Title:       "ODataType",
+				Description: "The OData Type of this entity",
+				Type:        pointer.To(DataTypeString),
+				Default:     "",
+				JsonField:   "@odata.type",
 			},
 		},
 		Common: common,
@@ -820,10 +829,11 @@ func Schemas(input flattenedSchema, name string, models Models, constants Consta
 			}
 
 			model.Fields[bindFieldName] = &ModelField{
-				Title:     bindFieldName,
-				Type:      fieldType,
-				ItemType:  itemType,
-				JsonField: fmt.Sprintf("%s@odata.bind", jsonField),
+				Title:       bindFieldName,
+				Description: fmt.Sprintf("List of OData IDs for `%s` to bind to this entity", normalize.CleanName(jsonField)),
+				Type:        fieldType,
+				ItemType:    itemType,
+				JsonField:   fmt.Sprintf("%s@odata.bind", jsonField),
 			}
 		}
 
