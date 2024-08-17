@@ -820,6 +820,13 @@ func Schemas(input flattenedSchema, name string, models Models, constants Consta
 		if field.ModelName != nil && strings.EqualFold(*field.ModelName, "DirectoryObject") {
 			bindFieldName := fmt.Sprintf("%s_ODataBind", normalize.CleanName(jsonField))
 
+			description := ""
+			if *field.Type == DataTypeArray {
+				description = fmt.Sprintf("List of OData IDs for `%s` to bind to this entity", normalize.CleanName(jsonField))
+			} else {
+				description = fmt.Sprintf("OData ID for `%s` to bind to this entity", normalize.CleanName(jsonField))
+			}
+
 			var fieldType, itemType *DataType
 
 			fieldType = pointer.To(DataTypeString)
@@ -830,7 +837,7 @@ func Schemas(input flattenedSchema, name string, models Models, constants Consta
 
 			model.Fields[bindFieldName] = &ModelField{
 				Title:       bindFieldName,
-				Description: fmt.Sprintf("List of OData IDs for `%s` to bind to this entity", normalize.CleanName(jsonField)),
+				Description: description,
 				Type:        fieldType,
 				ItemType:    itemType,
 				JsonField:   fmt.Sprintf("%s@odata.bind", jsonField),
