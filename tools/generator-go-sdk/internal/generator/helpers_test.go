@@ -61,7 +61,7 @@ Actual Value:
 ---
 %s
 ---
-`, i, expectedLine, actualLine, normalizedExpectedValue, normalizedActualValue)
+`, i+1, expectedLine, actualLine, normalizedExpectedValue, normalizedActualValue)
 		}
 	}
 }

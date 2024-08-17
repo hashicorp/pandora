@@ -11,8 +11,6 @@ import (
 	"github.com/hashicorp/pandora/tools/generator-go-sdk/internal/featureflags"
 )
 
-// TODO: add unit tests covering this
-
 var _ templaterForResource = modelsTemplater{}
 
 type modelsTemplater struct {
@@ -249,7 +247,6 @@ func (c modelsTemplater) structLineForField(fieldName, fieldType string, fieldDe
 			}
 		}
 	}
-	// TODO: proper support for ReadOnly fields, which is likely to necessitate a custom marshal func
 	if isOptional || fieldDetails.ReadOnly {
 		if !strings.HasPrefix(fieldType, "nullable.") {
 			fieldType = fmt.Sprintf("*%s", fieldType)
@@ -347,7 +344,7 @@ func (c modelsTemplater) dateFunctionForField(fieldName string, fieldDetails mod
 	}
 
 	// Get{Name}AsTime method for getting *time.Time from a string
-	if fieldDetails.Optional || fieldDetails.ReadOnly { // TODO: work out how to handle ReadOnly fields
+	if fieldDetails.Optional || fieldDetails.ReadOnly {
 		linesForField = append(linesForField, fmt.Sprintf("\t\tif o.%s == nil {", fieldName))
 		linesForField = append(linesForField, fmt.Sprintf("\t\t\treturn nil, nil"))
 		linesForField = append(linesForField, fmt.Sprintf("\t\t}"))
@@ -428,15 +425,25 @@ func (s %[1]s) %[2]s() %[2]sBase {
 func (c modelsTemplater) codeForMarshalFunctions(data GeneratorData) (*string, error) {
 	output := ""
 
-	if c.model.DiscriminatedValue == nil {
+	readOnlyFields := make([]string, 0)
+	for fieldName, field := range c.model.Fields {
+		if field.ReadOnly {
+			readOnlyFields = append(readOnlyFields, fieldName)
+		}
+	}
+
+	// Only output a Marshal function when there are discriminated value or read-only fields to customize
+	if c.model.DiscriminatedValue == nil && len(readOnlyFields) == 0 {
 		return &output, nil
 	}
 
-	if c.model.FieldNameContainingDiscriminatedValue == nil {
-		return nil, fmt.Errorf("model %q must contain a TypeHintIn when a TypeHintValue is present", c.name)
-	}
-	if c.model.ParentTypeName == nil {
-		return nil, fmt.Errorf("model %q must contain a ParentTypeName when a TypeHintValue is present", c.name)
+	if c.model.DiscriminatedValue != nil {
+		if c.model.FieldNameContainingDiscriminatedValue == nil {
+			return nil, fmt.Errorf("model %q must contain a TypeHintIn when a TypeHintValue is present", c.name)
+		}
+		if c.model.ParentTypeName == nil {
+			return nil, fmt.Errorf("model %q must contain a ParentTypeName when a TypeHintValue is present", c.name)
+		}
 	}
 
 	structName := c.name
@@ -444,25 +451,6 @@ func (c modelsTemplater) codeForMarshalFunctions(data GeneratorData) (*string, e
 	// parent models get a {model}Parent struct
 	if c.model.IsDiscriminatedParentType() {
 		structName = fmt.Sprintf("%sBase", c.name)
-	}
-
-	parentModel, ok := data.models[*c.model.ParentTypeName]
-	if !ok {
-		return nil, fmt.Errorf("the parent model %q for model %q was not found", *c.model.ParentTypeName, c.name)
-	}
-
-	// the TypeHintIn field comes from the parent and so won't be output on the inherited items
-	field, ok := parentModel.Fields[*c.model.FieldNameContainingDiscriminatedValue]
-	if !ok {
-		if parentModel.ParentTypeName != nil {
-			parentField, _, err := c.recurseParentModels(data, *c.model.ParentTypeName, *c.model.FieldNameContainingDiscriminatedValue)
-			if err != nil {
-				return nil, err
-			}
-			field = *parentField
-		} else {
-			return nil, fmt.Errorf("the field %q was not found on the parent model %q for model %q", *c.model.FieldNameContainingDiscriminatedValue, *c.model.ParentTypeName, c.name)
-		}
 	}
 
 	output += fmt.Sprintf(`
@@ -480,7 +468,37 @@ func (s %[1]s) MarshalJSON() ([]byte, error) {
 	if err := json.Unmarshal(encoded, &decoded); err != nil {
 		return nil, fmt.Errorf("unmarshaling %[1]s: %%+v", err)
 	}
-	decoded[%[2]q] = %[3]q
+
+`, structName)
+
+	for _, fieldName := range readOnlyFields {
+		output += fmt.Sprintf("	delete(decoded, %[1]q)\n", fieldName)
+	}
+
+	if c.model.DiscriminatedValue != nil {
+		parentModel, ok := data.models[*c.model.ParentTypeName]
+		if !ok {
+			return nil, fmt.Errorf("the parent model %q for model %q was not found", *c.model.ParentTypeName, c.name)
+		}
+
+		// the TypeHintIn field comes from the parent and so won't be output on the inherited items
+		field, ok := parentModel.Fields[*c.model.FieldNameContainingDiscriminatedValue]
+		if !ok {
+			if parentModel.ParentTypeName != nil {
+				parentField, _, err := c.recurseParentModels(data, *c.model.ParentTypeName, *c.model.FieldNameContainingDiscriminatedValue)
+				if err != nil {
+					return nil, err
+				}
+				field = *parentField
+			} else {
+				return nil, fmt.Errorf("the field %q was not found on the parent model %q for model %q", *c.model.FieldNameContainingDiscriminatedValue, *c.model.ParentTypeName, c.name)
+			}
+		}
+
+		output += fmt.Sprintf("	decoded[%[1]q] = %[2]q\n", field.JsonName, *c.model.DiscriminatedValue)
+	}
+
+	output += fmt.Sprintf(`
 
 	encoded, err = json.Marshal(decoded)
 	if err != nil {
@@ -489,7 +507,7 @@ func (s %[1]s) MarshalJSON() ([]byte, error) {
 
 	return encoded, nil
 }
-`, structName, field.JsonName, *c.model.DiscriminatedValue)
+`, structName)
 
 	return &output, nil
 }
@@ -779,15 +797,21 @@ func (s *%[1]s) UnmarshalJSON(bytes []byte) error {`, structName))
 	}`, fieldName, *topLevelObjectDef.ReferenceName, structName, assignmentPrefix, fieldDetails.JsonName))
 			}
 
+			// if the field is read-only, we need to assign the pointer value
+			assignmentPrefix := ""
+			if fieldDetails.ReadOnly {
+				assignmentPrefix = "&"
+			}
+
 			if fieldDetails.ObjectDefinition.Type == models.ReferenceSDKObjectDefinitionType {
 				lines = append(lines, fmt.Sprintf(`
-	if v, ok := temp[%[4]q]; ok {
+	if v, ok := temp[%[5]q]; ok {
 		impl, err := Unmarshal%[2]sImplementation(v)
 		if err != nil {
 			return fmt.Errorf("unmarshaling field '%[1]s' for '%[3]s': %%+v", err)
 		}
-		s.%[1]s = impl
-	}`, fieldName, *topLevelObjectDef.ReferenceName, structName, fieldDetails.JsonName))
+		s.%[1]s = %[4]simpl
+	}`, fieldName, *topLevelObjectDef.ReferenceName, structName, assignmentPrefix, fieldDetails.JsonName))
 			}
 		}
 
