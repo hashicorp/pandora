@@ -11,6 +11,7 @@ import (
 )
 
 var workarounds = []workaround{
+	workaroundReadOnlyFields{},
 	workaroundApplication{},
 	workaroundConditionalAccessPolicy{},
 	workaroundNamedLocation{},

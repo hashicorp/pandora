@@ -5,6 +5,7 @@ package workarounds
 
 import (
 	"fmt"
+
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/parser"
 )
