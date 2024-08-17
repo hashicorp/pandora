@@ -381,9 +381,19 @@ func NewResourceId(path string, tags []string) (id ResourceId) {
 			}
 		} else if strings.HasPrefix(strings.ToLower(s), "microsoft.graph.") || strings.HasPrefix(strings.ToLower(s), "graph.") {
 			if tagSuffix(".actions") {
+				value := s
+				if strings.HasPrefix(strings.ToLower(value), "microsoft.graph.") {
+					value = value[16:]
+				}
+				if strings.HasPrefix(strings.ToLower(value), "graph.") {
+					value = value[6:]
+				}
+				if value == "" {
+					value = s
+				}
 				segment = ResourceIdSegment{
 					Type:  SegmentAction,
-					Value: s,
+					Value: value,
 					Field: nil,
 				}
 			} else {
