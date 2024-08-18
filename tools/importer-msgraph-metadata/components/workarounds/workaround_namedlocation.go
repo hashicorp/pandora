@@ -12,7 +12,7 @@ import (
 
 var _ workaround = workaroundNamedLocation{}
 
-// workaroundNamedLocation implements discrimination
+// workaroundNamedLocation implements discrimination for countryNamedLocation and ipNamedLocation
 type workaroundNamedLocation struct{}
 
 func (workaroundNamedLocation) Name() string {

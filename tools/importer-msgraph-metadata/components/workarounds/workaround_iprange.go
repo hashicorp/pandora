@@ -12,7 +12,7 @@ import (
 
 var _ workaround = workaroundIPRange{}
 
-// workaroundIPRange implements discrimination
+// workaroundIPRange implements discrimination for iPv4CidrRange, iPv4Range, iPv6CidrRange, and iPv6Range
 type workaroundIPRange struct{}
 
 func (workaroundIPRange) Name() string {

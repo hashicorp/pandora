@@ -736,6 +736,17 @@ func Schemas(input flattenedSchema, name string, models Models, constants Consta
 			JsonField:       jsonField,
 		}
 
+		// Detect nullable, read-only and requried fields from the description
+		if strings.Contains(schema.Description, "Nullable.") {
+			field.Nullable = true
+		}
+		if strings.Contains(schema.Description, "Read-only.") {
+			field.ReadOnly = true
+		}
+		if strings.Contains(schema.Description, "Required.") {
+			field.Required = true
+		}
+
 		if field.Title == "" {
 			continue
 		}

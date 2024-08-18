@@ -116,7 +116,7 @@ func (workaroundConditionalAccessPolicy) Process(apiVersion string, models parse
 		return fmt.Errorf("`ConditionalAccessUsers` model not found")
 	}
 
-	// cloudAppSecurityPolicy must be null to unset it, so make it nullable + required
+	// excludeGuestsOrExternalUsers / includeGuestsOrExternalUsers must be null to unset them, so make them nullable + required
 	if _, ok = model.Fields["ExcludeGuestsOrExternalUsers"]; !ok {
 		return fmt.Errorf("`ExcludeGuestsOrExternalUsers` field not found")
 	}
