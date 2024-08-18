@@ -130,7 +130,7 @@ func unmarshalModeOfTransitImplementation(input []byte) (ModeOfTransit, error) {
 
 	var parent ModeOfTransitBase
 	if err := json.Unmarshal(input, &parent); err != nil {
-		return nil, fmt.Errorf("unmarshaling into ModeOfTransitBase: modeOfTransit", err)
+		return nil, fmt.Errorf("unmarshaling into ModeOfTransitBase: %+v", err)
 	}
 
 	out := RawModeOfTransitImpl{

@@ -603,7 +603,7 @@ func Unmarshal%[1]sImplementation(input []byte) (%[1]s, error) {
 	lines = append(lines, fmt.Sprintf(`
 	var parent %[1]sBase
 	if err := json.Unmarshal(input, &parent); err != nil {
-		return nil, fmt.Errorf("unmarshaling into %[1]sBase: %+v", err)
+		return nil, fmt.Errorf("unmarshaling into %[1]sBase: %%+v", err)
 	}
 
 	out := Raw%[1]sImpl{
