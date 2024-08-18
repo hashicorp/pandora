@@ -121,7 +121,6 @@ func (m *Model) DataApiSdkModel(models Models) (*sdkModels.SDKModel, error) {
 		}
 
 		if objectDefinition == nil {
-			//return nil, fmt.Errorf("could not determine SDKObjectDefinition for field: %s", fieldName)
 			logging.Warnf("Could not determine SDKObjectDefinition for field %q, skipping", fieldName)
 			continue
 		}
@@ -317,8 +316,8 @@ func (ft DataType) DataApiSdkObjectDefinitionType() sdkModels.SDKObjectDefinitio
 		return sdkModels.RawFileSDKObjectDefinitionType
 	}
 
-	// Fall back to string where the type is not known
-	return sdkModels.StringSDKObjectDefinitionType
+	// Fall back to `interface{}` where the type is not known
+	return sdkModels.RawObjectSDKObjectDefinitionType
 }
 
 func (ft DataType) DataApiSdkOperationOptionObjectDefinitionType() sdkModels.SDKOperationOptionObjectDefinitionType {
