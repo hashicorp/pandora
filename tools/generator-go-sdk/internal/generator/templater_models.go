@@ -431,6 +431,7 @@ func (c modelsTemplater) codeForMarshalFunctions(data GeneratorData) (*string, e
 			readOnlyFields = append(readOnlyFields, fieldName)
 		}
 	}
+	sort.Strings(readOnlyFields)
 
 	// Only output a Marshal function when there are discriminated value or read-only fields to customize
 	if c.model.DiscriminatedValue == nil && len(readOnlyFields) == 0 {
