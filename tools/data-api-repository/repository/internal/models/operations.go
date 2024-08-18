@@ -11,6 +11,9 @@ type Operation struct {
 	// ContentType specifies the format of the information being sent with the Operation (e.g. `application/json; charset=utf-8`)
 	ContentType string `json:"contentType"`
 
+	// Description is used to write a comment for the operation method
+	Description string `json:"description"`
+
 	// ExpectedStatusCodes specifies is a list of Status Codes which are expected to be returned (e.g. 200, 201)
 	ExpectedStatusCodes []int `json:"expectedStatusCodes"`
 

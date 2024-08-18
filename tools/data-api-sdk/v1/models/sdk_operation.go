@@ -12,6 +12,9 @@ type SDKOperation struct {
 	// performing the Request for this Operation.
 	ContentType string `json:"contentType"`
 
+	// Description is used to write a comment for the operation method
+	Description string `json:"description"`
+
 	// ExpectedStatusCodes specifies the list of Status Codes which are expected to be
 	// returned by this Operation.
 	ExpectedStatusCodes []int `json:"expectedStatusCodes"`

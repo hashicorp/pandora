@@ -57,6 +57,7 @@ func GolangTypeForSDKObjectDefinition(input models.SDKObjectDefinition, golangPa
 			return nil, fmt.Errorf("missing Reference for a Reference ObjectDefinition")
 		}
 
+		// Prepend a containing package name to the type where necessary
 		out := *input.ReferenceName
 		if golangPackageName != nil {
 			out = fmt.Sprintf("%s.%s", *golangPackageName, out)

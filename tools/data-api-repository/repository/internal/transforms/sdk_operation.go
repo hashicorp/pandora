@@ -28,6 +28,7 @@ func MapSDKOperationFromRepository(input repositoryModels.Operation, knownData h
 	}
 	output := sdkModels.SDKOperation{
 		ContentType:                      input.ContentType,
+		Description:                      input.Description,
 		ExpectedStatusCodes:              input.ExpectedStatusCodes,
 		FieldContainingPaginationDetails: input.FieldContainingPaginationDetails,
 		LongRunning:                      input.LongRunning,
@@ -74,6 +75,7 @@ func MapSDKOperationToRepository(operationName string, input sdkModels.SDKOperat
 	output := repositoryModels.Operation{
 		Name:                             operationName,
 		ContentType:                      contentType,
+		Description:                      input.Description,
 		ExpectedStatusCodes:              input.ExpectedStatusCodes,
 		FieldContainingPaginationDetails: input.FieldContainingPaginationDetails,
 		LongRunning:                      input.LongRunning,
