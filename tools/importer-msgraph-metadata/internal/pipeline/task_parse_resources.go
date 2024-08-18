@@ -346,8 +346,17 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 				}
 			}
 
+			operationDescription := make([]string, 0)
+			if operation.Summary != "" {
+				operationDescription = append(operationDescription, operation.Summary)
+			}
+			if operation.Description != "" {
+				operationDescription = append(operationDescription, operation.Description)
+			}
+
 			resources[resourceName].Operations = append(resources[resourceName].Operations, parser.Operation{
 				Name:            operationName,
+				Description:     strings.Join(operationDescription, ". "),
 				Type:            operationType,
 				Method:          method,
 				ResourceId:      resourceId,

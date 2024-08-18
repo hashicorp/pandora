@@ -296,6 +296,7 @@ func (p pipelineForService) translateServiceToDataApiSdkTypes() (*sdkModels.Serv
 
 			sdkService.APIVersions[resource.Version].Resources[resource.Category].Operations[operation.Name] = sdkModels.SDKOperation{
 				ContentType:                      contentType,
+				Description:                      operation.Description,
 				ExpectedStatusCodes:              expectedStatusCodes,
 				FieldContainingPaginationDetails: operation.PaginationField,
 				LongRunning:                      false,
