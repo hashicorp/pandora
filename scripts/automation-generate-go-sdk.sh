@@ -7,6 +7,19 @@ set -e
 
 DIR="$(cd "$(dirname "$0")" && pwd)/.."
 
+sdkToGenerate="${1}"
+if [[ "${sdkToGenerate}" == "" ]]; then
+  echo "must specify SDK to generate!" >&2
+  echo "" >&2
+  echo "supported values are:" >&2
+  echo "  microsoft-graph" >&2
+  echo "  resource-manager" >&2
+  echo "" >&2
+  echo "example usage:" >&2
+  echo "${0} resource-manager" >&2
+  exit 1
+fi
+
 function buildAndInstallDependencies {
   echo "Outputting Go Version.."
   go version
@@ -31,15 +44,9 @@ function runWrapper {
   local apiDefinitionsDirectory=$1
   local outputDirectory=$2
 
-  echo "Running Wrapper for Resource Manager.."
+  echo "Running Wrapper for ${sdkToGenerate}.."
   cd "${DIR}/tools/wrapper-automation"
-  ./wrapper-automation resource-manager go-sdk \
-    --api-definitions-dir="../../$apiDefinitionsDirectory"\
-    --output-dir="../../$outputDirectory"
-
-  echo "Running Wrapper for Microsoft Graph.."
-  cd "${DIR}/tools/wrapper-automation"
-  ./wrapper-automation microsoft-graph go-sdk \
+  ./wrapper-automation "${sdkToGenerate}" go-sdk \
     --api-definitions-dir="../../$apiDefinitionsDirectory"\
     --output-dir="../../$outputDirectory"
 
@@ -61,11 +68,11 @@ function runWrapper {
 function runGoSDKUnitTests {
   local outputDirectory=$1
 
-  cd "${DIR}"
+  echo "Running unit tests within the SDK codebase.."
+  cd "${outputDirectory}/${sdkToGenerate}"
+  go test -v ./...
 
-  echo "Running 'make test' within the SDK codebase.."
-  cd "${outputDirectory}"
-  make test
+  cd "${DIR}"
 }
 
 function prepareGoSdk {
