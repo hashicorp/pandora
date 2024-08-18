@@ -426,9 +426,9 @@ func (c modelsTemplater) codeForMarshalFunctions(data GeneratorData) (*string, e
 	output := ""
 
 	readOnlyFields := make([]string, 0)
-	for fieldName, field := range c.model.Fields {
+	for _, field := range c.model.Fields {
 		if field.ReadOnly {
-			readOnlyFields = append(readOnlyFields, fieldName)
+			readOnlyFields = append(readOnlyFields, field.JsonName)
 		}
 	}
 	sort.Strings(readOnlyFields)
