@@ -12,7 +12,8 @@ import (
 
 var _ workaround = workaroundDirectoryObject{}
 
-// workaroundDirectoryObject implements discrimination
+// workaroundDirectoryObject implements discrimination for the most common implementations of DirectoryObject. More
+// can be added as necessary over time; unfortunately there doesn't seem to be any way of auto-detecting these.
 type workaroundDirectoryObject struct{}
 
 func (workaroundDirectoryObject) Name() string {
