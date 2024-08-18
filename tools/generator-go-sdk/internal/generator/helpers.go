@@ -160,3 +160,25 @@ func wordifyString(input string) string {
 
 	return strings.TrimPrefix(output, " ")
 }
+
+// wrapOnWordBoundary attempts to wrap a string on whitespace to the specified maximum length, optionally
+// prefixing each line with the provided prefix (useful for comments).
+func wrapOnWordBoundary(in string, maxLength int, prefix string) string {
+	words := strings.Fields(in)
+	out := make([]string, 0)
+	currentLine := prefix
+
+	for _, word := range words {
+		if len(currentLine)+len(word) > maxLength {
+			out = append(out, currentLine)
+			currentLine = prefix
+		}
+		currentLine = fmt.Sprintf("%s %s", currentLine, word)
+	}
+
+	if currentLine != prefix {
+		out = append(out, currentLine)
+	}
+
+	return strings.Join(out, "\n")
+}

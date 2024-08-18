@@ -163,12 +163,20 @@ func (c methodsPandoraTemplater) immediateOperationTemplate(data GeneratorData) 
 		return nil, fmt.Errorf("building options struct: %+v", err)
 	}
 
+	comment := c.operationName
+	if c.operation.Description != "" {
+		comment += fmt.Sprintf(": %s", c.operation.Description)
+	} else {
+		comment += " ..."
+	}
+	comment = wrapOnWordBoundary(comment, 120, "//")
+
 	templated := fmt.Sprintf(`
 %[7]s
 %[8]s
 %[9]s
 
-// %[2]s ...
+%[10]s
 func (c %[1]s) %[2]s(ctx context.Context %[3]s) (result %[2]sOperationResponse, err error) {
 	opts := %[4]s
 
@@ -194,7 +202,7 @@ func (c %[1]s) %[2]s(ctx context.Context %[3]s) (result %[2]sOperationResponse, 
 	return
 }
 
-`, data.serviceClientName, c.operationName, *methodArguments, *requestOptions, *marshalerCode, *unmarshalerCode, *responseStruct, *optionsStruct, requestOptionStruct)
+`, data.serviceClientName, c.operationName, *methodArguments, *requestOptions, *marshalerCode, *unmarshalerCode, *responseStruct, *optionsStruct, requestOptionStruct, comment)
 	return &templated, nil
 }
 
@@ -226,12 +234,20 @@ func (c methodsPandoraTemplater) longRunningOperationTemplate(data GeneratorData
 		return nil, fmt.Errorf("building options struct: %+v", err)
 	}
 
+	comment := c.operationName
+	if c.operation.Description != "" {
+		comment += fmt.Sprintf(": %s", c.operation.Description)
+	} else {
+		comment += " ..."
+	}
+	comment = wrapOnWordBoundary(comment, 120, "//")
+
 	templated := fmt.Sprintf(`
 %[9]s
 %[10]s
 %[11]s
 
-// %[3]s ...
+%[12]s
 func (c %[1]s) %[3]s(ctx context.Context %[4]s) (result %[3]sOperationResponse, err error) {
 	opts := %[5]s
 
@@ -275,7 +291,7 @@ func (c %[1]s) %[3]sThenPoll(ctx context.Context %[4]s) error {
 
 	return nil
 }
-`, data.serviceClientName, data.baseClientPackage, c.operationName, *methodArguments, *requestOptions, *marshalerCode, *unmarshalerCode, argumentsCode, *responseStruct, *optionsStruct, requestOptionStruct)
+`, data.serviceClientName, data.baseClientPackage, c.operationName, *methodArguments, *requestOptions, *marshalerCode, *unmarshalerCode, argumentsCode, *responseStruct, *optionsStruct, requestOptionStruct, comment)
 	return &templated, nil
 }
 
@@ -313,12 +329,20 @@ func (c methodsPandoraTemplater) listOperationTemplate(data GeneratorData) (*str
 		predicateName = fmt.Sprintf("%s%s", *typeName, predicateName)
 	}
 
+	comment := c.operationName
+	if c.operation.Description != "" {
+		comment += fmt.Sprintf(": %s", c.operation.Description)
+	} else {
+		comment += " ..."
+	}
+	comment = wrapOnWordBoundary(comment, 120, "//")
+
 	templated := fmt.Sprintf(`
 %[6]s
 %[7]s
 %[8]s
 
-// %[2]s ...
+%[9]s
 func (c %[1]s) %[2]s(ctx context.Context %[3]s) (result %[2]sOperationResponse, err error) {
 	opts := %[4]s
 
@@ -341,7 +365,7 @@ func (c %[1]s) %[2]s(ctx context.Context %[3]s) (result %[2]sOperationResponse, 
 
 	return
 }
-`, data.serviceClientName, c.operationName, *methodArguments, *requestOptions, *unmarshalerCode, *responseStruct, *optionsStruct, requestOptionStruct)
+`, data.serviceClientName, c.operationName, *methodArguments, *requestOptions, *unmarshalerCode, *responseStruct, *optionsStruct, requestOptionStruct, comment)
 
 	// Only output predicate functions for models and not for base types like string, int etc.
 	if c.operation.ResponseObject.Type == models.ReferenceSDKObjectDefinitionType || c.operation.ResponseObject.Type == models.ListSDKObjectDefinitionType {
