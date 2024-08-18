@@ -737,13 +737,13 @@ func Schemas(input flattenedSchema, name string, models Models, constants Consta
 		}
 
 		// Detect nullable, read-only and requried fields from the description
-		if strings.Contains(schema.Description, "Nullable.") {
+		if (strings.HasPrefix(schema.Description, "Nullable.") || strings.Contains(schema.Description, " Nullable.")) && !strings.Contains(strings.ToLower(schema.Description), "not nullable.") {
 			field.Nullable = true
 		}
-		if strings.Contains(schema.Description, "Read-only.") {
+		if strings.HasPrefix(schema.Description, "Read-only.") || strings.Contains(schema.Description, " Read-only.") {
 			field.ReadOnly = true
 		}
-		if strings.Contains(schema.Description, "Required.") {
+		if strings.HasPrefix(schema.Description, "Required.") || strings.Contains(schema.Description, " Required.") {
 			field.Required = true
 		}
 
