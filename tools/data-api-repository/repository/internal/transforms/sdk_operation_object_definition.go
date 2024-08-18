@@ -12,6 +12,8 @@ import (
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
+var specialPackageNames = []string{"odata"}
+
 func mapSDKOperationOptionObjectDefinitionFromRepository(input repositoryModels.OptionObjectDefinition, knownData helpers.KnownData) (*sdkModels.SDKOperationOptionObjectDefinition, error) {
 	typeVal, ok := sdkOperationOptionsFromRepository[input.Type]
 	if !ok {
@@ -25,7 +27,13 @@ func mapSDKOperationOptionObjectDefinitionFromRepository(input repositoryModels.
 	}
 
 	if input.ReferenceName != nil {
-		if !strings.HasPrefix(*input.ReferenceName, "odata.") {
+		referencedObjectInSpecialPackage := false
+		for _, packageName := range specialPackageNames {
+			if strings.HasPrefix(*input.ReferenceName, fmt.Sprintf("%s.", packageName)) {
+				referencedObjectInSpecialPackage = true
+			}
+		}
+		if !referencedObjectInSpecialPackage {
 			isConstant := knownData.ConstantExists(*input.ReferenceName)
 			isModel := knownData.ModelExists(*input.ReferenceName)
 			if !isConstant && !isModel {
@@ -96,8 +104,10 @@ func validateSDKOperationOptionObjectDefinition(input repositoryModels.OptionObj
 			return fmt.Errorf("a Reference must be specified for a %q type but didn't get one", string(input.Type))
 		}
 
-		if strings.HasPrefix(*input.ReferenceName, "odata.") {
-			return nil
+		for _, packageName := range specialPackageNames {
+			if strings.HasPrefix(*input.ReferenceName, fmt.Sprintf("%s.", packageName)) {
+				return nil
+			}
 		}
 
 		isConstant := knownData.ConstantExists(*input.ReferenceName)
