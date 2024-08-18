@@ -21,6 +21,7 @@ type Resource struct {
 
 type Operation struct {
 	Name            string
+	Description     string
 	Type            OperationType
 	Method          string
 	ResourceId      *ResourceId
