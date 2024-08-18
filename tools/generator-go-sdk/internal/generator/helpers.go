@@ -169,15 +169,15 @@ func wrapOnWordBoundary(in string, maxLength int, prefix string) string {
 	currentLine := prefix
 
 	for _, word := range words {
-		if len(currentLine)+len(word) > maxLength {
-			out = append(out, currentLine)
+		if len(currentLine)+len(word) >= maxLength {
+			out = append(out, strings.TrimSpace(currentLine))
 			currentLine = prefix
 		}
 		currentLine = fmt.Sprintf("%s %s", currentLine, word)
 	}
 
 	if currentLine != prefix {
-		out = append(out, currentLine)
+		out = append(out, strings.TrimSpace(currentLine))
 	}
 
 	return strings.Join(out, "\n")

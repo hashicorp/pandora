@@ -146,7 +146,7 @@ func (c modelsTemplater) structCode(data GeneratorData) (*string, error) {
 
 	formattedStructLines := make([]string, 0)
 	for i, v := range structLines {
-		if strings.Contains(v, "//") {
+		if strings.HasPrefix(strings.TrimSpace(v), "//") {
 			if i > 0 && !strings.HasSuffix(formattedStructLines[i-1], "\n") {
 				v = "\n" + v
 			}
@@ -259,8 +259,8 @@ func (c modelsTemplater) structLineForField(fieldName, fieldType string, fieldDe
 	line := fmt.Sprintf("\t%s %s `json:\"%s\"`", fieldName, fieldType, jsonDetails)
 
 	if data.generateDescriptionsForModels && fieldDetails.Description != "" {
-		description := fmt.Sprintf("// %s", fieldDetails.Description)
-		line = fmt.Sprintf("%s\n%s", description, line)
+		comment := wrapOnWordBoundary(fieldDetails.Description, 120, "//")
+		line = fmt.Sprintf("%s\n%s", comment, line)
 	}
 
 	return &line, nil
