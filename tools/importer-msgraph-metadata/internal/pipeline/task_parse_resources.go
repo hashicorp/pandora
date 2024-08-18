@@ -346,17 +346,22 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 				}
 			}
 
-			operationDescription := make([]string, 0)
+			descriptionChunks := make([]string, 0)
 			if operation.Summary != "" {
-				operationDescription = append(operationDescription, operation.Summary)
+				descriptionChunks = append(descriptionChunks, operation.Summary)
 			}
 			if operation.Description != "" {
-				operationDescription = append(operationDescription, operation.Description)
+				descriptionChunks = append(descriptionChunks, operation.Description)
 			}
+
+			// Trim a trailing colon/semicolon from descriptions because they are confusing
+			operationDescription := strings.Join(descriptionChunks, ". ")
+			operationDescription = strings.TrimPrefix(operationDescription, ":")
+			operationDescription = strings.TrimPrefix(operationDescription, ";")
 
 			resources[resourceName].Operations = append(resources[resourceName].Operations, parser.Operation{
 				Name:            operationName,
-				Description:     strings.Join(operationDescription, ". "),
+				Description:     operationDescription,
 				Type:            operationType,
 				Method:          method,
 				ResourceId:      resourceId,
