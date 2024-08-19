@@ -21,7 +21,7 @@ const (
 	ResourceIdSuffix = "Id"
 )
 
-type ResourceIds []*ResourceId
+type ResourceIds map[string]*ResourceId
 
 type ResourceIdMatch struct {
 	Id        *ResourceId
@@ -436,7 +436,7 @@ func NewResourceId(path string, tags []string) (id ResourceId) {
 }
 
 func ParseResourceIDs(paths openapi3.Paths, serviceName *string) (resourceIds ResourceIds, err error) {
-	resourceIds = make(ResourceIds, 0)
+	resourceIds = make(ResourceIds)
 	for path, item := range paths {
 		operations := item.Operations()
 		operationTags := make([]string, 0)
@@ -490,7 +490,7 @@ func ParseResourceIDs(paths openapi3.Paths, serviceName *string) (resourceIds Re
 				id.Service = normalize.CleanName(*serviceName)
 			}
 
-			resourceIds = append(resourceIds, &id)
+			resourceIds[resourceIdName] = &id
 		}
 	}
 

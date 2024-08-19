@@ -19,7 +19,7 @@ func (workaroundNamedLocation) Name() string {
 	return "NamedLocation / discrimination"
 }
 
-func (workaroundNamedLocation) Process(apiVersion string, models parser.Models, constants parser.Constants) error {
+func (workaroundNamedLocation) Process(apiVersion string, models parser.Models, constants parser.Constants, resourceIds parser.ResourceIds) error {
 	model, ok := models["NamedLocation"]
 	if !ok {
 		return fmt.Errorf("`NamedLocation` model not found")

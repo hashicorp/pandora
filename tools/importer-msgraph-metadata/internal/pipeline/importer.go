@@ -63,19 +63,19 @@ func runImportForVersion(input RunInput, apiVersion, openApiFile, metadataGitSha
 		return err
 	}
 
-	logging.Infof("Applying workarounds for invalid model definitions..")
-	if err = workarounds.ApplyWorkarounds(p.apiVersion, p.models, p.constants); err != nil {
+	logging.Infof("Parsing resource IDs...")
+	p.resourceIds, err = parser.ParseResourceIDs(p.spec.Paths, nil)
+	if err != nil {
+		return err
+	}
+
+	logging.Infof("Applying workarounds for invalid type definitions..")
+	if err = workarounds.ApplyWorkarounds(p.apiVersion, p.models, p.constants, p.resourceIds); err != nil {
 		return err
 	}
 
 	logging.Infof("Cleaning up models...")
 	if err = p.cleanupModels(); err != nil {
-		return err
-	}
-
-	logging.Infof("Parsing resource IDs...")
-	p.resourceIds, err = parser.ParseResourceIDs(p.spec.Paths, nil)
-	if err != nil {
 		return err
 	}
 
@@ -126,20 +126,17 @@ func runImportForVersion(input RunInput, apiVersion, openApiFile, metadataGitSha
 	}
 
 	// Determine which resource IDs were actually used in resources
-	usedResourceIds := make(map[string]parser.ResourceId)
+	usedResourceIds := make(parser.ResourceIds)
 	for _, resources := range p.resources {
 		for _, resource := range resources {
 			for _, operation := range resource.Operations {
 				if operation.ResourceId != nil {
-					usedResourceIds[operation.ResourceId.Name] = *operation.ResourceId
+					usedResourceIds[operation.ResourceId.Name] = operation.ResourceId
 				}
 			}
 		}
 	}
-	p.resourceIds = make(parser.ResourceIds, 0, len(usedResourceIds))
-	for _, resourceId := range usedResourceIds {
-		p.resourceIds = append(p.resourceIds, &resourceId)
-	}
+	p.resourceIds = usedResourceIds
 
 	commonTypesForApiVersion, err := p.translateCommonTypesToDataApiSdkTypes()
 	if err != nil {
