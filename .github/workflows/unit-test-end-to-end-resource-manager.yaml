@@ -4,8 +4,11 @@ on:
   pull_request:
     types: ['opened', 'synchronize']
     paths:
-      - '.github/workflows/**'
-      - 'config/**'
+      - '.github/workflows/unit-test-end-to-end-resource-manager.yaml'
+      - 'config/resource-manager.hcl'
+      - 'config/resources/**'
+      - 'tools/generator-go-sdk/**'
+      - 'tools/importer-rest-api-specs/**'
 
 jobs:
   test:
