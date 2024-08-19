@@ -70,6 +70,7 @@ function runGoSDKUnitTests {
 
   echo "Running unit tests within the SDK codebase.."
   cd "${outputDirectory}/${sdkToGenerate}"
+  go mod tidy
   go test -v ./...
 
   cd "${DIR}"
