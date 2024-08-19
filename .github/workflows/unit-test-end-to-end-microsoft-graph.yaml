@@ -4,8 +4,10 @@ on:
   pull_request:
     types: ['opened', 'synchronize']
     paths:
-      - '.github/workflows/**'
-      - 'config/**'
+      - '.github/workflows/unit-test-end-to-end-microsoft-graph.yaml'
+      - 'config/microsoft-graph.hcl'
+      - 'tools/generator-go-sdk/**'
+      - 'tools/importer-msgraph-metadata/**'
 
 jobs:
   test:
