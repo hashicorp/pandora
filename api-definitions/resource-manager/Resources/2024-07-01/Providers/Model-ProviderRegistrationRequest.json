@@ -1,0 +1,18 @@
+{
+  "name": "ProviderRegistrationRequest",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "thirdPartyProviderConsent",
+      "name": "ThirdPartyProviderConsent",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ProviderConsentDefinition"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}
