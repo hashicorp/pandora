@@ -112,21 +112,38 @@ func (c modelsTemplater) structCode(data GeneratorData) (*string, error) {
 		}
 		parentAssignmentInfo = fmt.Sprintf("var _ %[1]s = %[2]s{}", parentTypeName, structName)
 
+		parentFields := make(map[string]models.SDKField)
+
 		parent, ok := data.models[*c.model.ParentTypeName]
 		if !ok {
 			return nil, fmt.Errorf("couldn't find Parent Model %q for Model %q", *c.model.ParentTypeName, c.name)
 		}
-
-		parentFields := make([]string, 0)
-		for fieldName := range parent.Fields {
-			parentFields = append(parentFields, fieldName)
+		for fieldName, fieldDetails := range parent.Fields {
+			parentFields[fieldName] = fieldDetails
 		}
-		sort.Strings(parentFields)
 
-		if len(parentFields) > 0 {
+		// Also include fields from the grandparent model
+		// Related to: https://github.com/hashicorp/pandora/issues/1235
+		if parentTypeName != *c.model.ParentTypeName {
+			grandParent, ok := data.models[parentTypeName]
+			if !ok {
+				return nil, fmt.Errorf("couldn't find [Grand]Parent Model %q for Model %q", parentTypeName, c.name)
+			}
+			for fieldName, fieldDetails := range grandParent.Fields {
+				parentFields[fieldName] = fieldDetails
+			}
+		}
+
+		parentFieldNames := make([]string, 0, len(parentFields))
+		for fieldName := range parentFields {
+			parentFieldNames = append(parentFieldNames, fieldName)
+		}
+		sort.Strings(parentFieldNames)
+
+		if len(parentFieldNames) > 0 {
 			structLines = append(structLines, fmt.Sprintf("\n// Fields inherited from %s", *c.model.ParentTypeName))
-			for _, fieldName := range parentFields {
-				fieldDetails := parent.Fields[fieldName]
+			for _, fieldName := range parentFieldNames {
+				fieldDetails := parentFields[fieldName]
 				fieldTypeName := "FIXME"
 				fieldTypeVal, err := helpers.GolangTypeForSDKObjectDefinition(fieldDetails.ObjectDefinition, nil, data.commonTypesPackageName)
 				if err != nil {
@@ -393,7 +410,8 @@ func (c modelsTemplater) codeForParentStructFunctions(data GeneratorData) (*stri
 		parentTypeName = *c.model.ParentTypeName
 	}
 
-	parent, ok := data.models[*c.model.ParentTypeName]
+	// Intentionally only setting fields from the outermost parent model
+	parent, ok := data.models[parentTypeName]
 	if !ok {
 		return nil, fmt.Errorf("couldn't find Parent Model %q for Model %q", *c.model.ParentTypeName, c.name)
 	}
@@ -449,7 +467,7 @@ func (c modelsTemplater) codeForMarshalFunctions(data GeneratorData) (*string, e
 
 	structName := c.name
 
-	// parent models get a {model}Parent struct
+	// parent models get a {model}Base struct
 	if c.model.IsDiscriminatedParentType() {
 		structName = fmt.Sprintf("%sBase", c.name)
 	}
@@ -623,7 +641,7 @@ func Unmarshal%[1]sImplementation(input []byte) (%[1]s, error) {
 func (c modelsTemplater) codeForUnmarshalStructFunction(data GeneratorData) (*string, error) {
 	structName := c.name
 
-	// parent models get a {model}Parent struct
+	// parent models get a {model}Base struct
 	if c.model.IsDiscriminatedParentType() {
 		structName = fmt.Sprintf("%sBase", c.name)
 	}
