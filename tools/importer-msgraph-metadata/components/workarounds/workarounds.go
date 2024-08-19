@@ -16,6 +16,7 @@ var workarounds = []workaround{
 	workaroundDirectoryObject{},
 	workaroundNamedLocation{},
 	workaroundIPRange{},
+	workaroundRepeatingResourceIdSegments{},
 }
 
 type workaround interface {
