@@ -1,0 +1,25 @@
+{
+  "name": "TenantConfigurationId",
+  "id": "/providers/Microsoft.Portal/tenantConfigurations/{tenantConfigurationName}",
+  "segments": [
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftPortal",
+      "type": "ResourceProvider",
+      "value": "Microsoft.Portal"
+    },
+    {
+      "name": "staticTenantConfigurations",
+      "type": "Static",
+      "value": "tenantConfigurations"
+    },
+    {
+      "name": "tenantConfigurationName",
+      "type": "UserSpecified"
+    }
+  ]
+}

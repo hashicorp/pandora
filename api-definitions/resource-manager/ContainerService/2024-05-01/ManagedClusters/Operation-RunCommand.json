@@ -1,0 +1,20 @@
+{
+  "name": "RunCommand",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "KubernetesClusterId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "RunCommandRequest"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "RunCommandResult"
+  },
+  "uriSuffix": "/runCommand"
+}
