@@ -23,7 +23,7 @@ func (workaroundApplication) Name() string {
 	return "Application / missing fields in beta"
 }
 
-func (workaroundApplication) Process(apiVersion string, models parser.Models, constants parser.Constants) error {
+func (workaroundApplication) Process(apiVersion string, models parser.Models, constants parser.Constants, resourceIds parser.ResourceIds) error {
 	if apiVersion != versions.ApiVersionBeta {
 		return nil
 	}

@@ -19,7 +19,7 @@ func (workaroundConditionalAccessPolicy) Name() string {
 	return "Conditional Access Policy / fixing missing fields and types"
 }
 
-func (workaroundConditionalAccessPolicy) Process(apiVersion string, models parser.Models, constants parser.Constants) error {
+func (workaroundConditionalAccessPolicy) Process(apiVersion string, models parser.Models, constants parser.Constants, resourceIds parser.ResourceIds) error {
 	model, ok := models["ConditionalAccessPolicy"]
 	if !ok {
 		return fmt.Errorf("`ConditionalAccessPolicy` model not found")

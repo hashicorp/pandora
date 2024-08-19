@@ -20,7 +20,7 @@ func (workaroundDirectoryObject) Name() string {
 	return "Directory Object / discrimination"
 }
 
-func (workaroundDirectoryObject) Process(apiVersion string, models parser.Models, constants parser.Constants) error {
+func (workaroundDirectoryObject) Process(apiVersion string, models parser.Models, constants parser.Constants, resourceIds parser.ResourceIds) error {
 	model, ok := models["DirectoryObject"]
 	if !ok {
 		return fmt.Errorf("`DirectoryObject` model not found")

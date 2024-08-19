@@ -23,14 +23,15 @@ type workaround interface {
 	Name() string
 
 	// Process takes the apiDefinition and applies the Workaround to this AzureApiDefinition
-	Process(string, parser.Models, parser.Constants) error
+	Process(string, parser.Models, parser.Constants, parser.ResourceIds) error
 }
 
-func ApplyWorkarounds(apiVersion string, models parser.Models, constants parser.Constants) error {
+// ApplyWorkarounds invokes the specified workarounds for models, constants and resource
+func ApplyWorkarounds(apiVersion string, models parser.Models, constants parser.Constants, resourceIds parser.ResourceIds) error {
 	logging.Tracef("Processing Data Workarounds..")
 	for _, fix := range workarounds {
 		logging.Tracef("Applying Data Workaround %q to Model %q", fix.Name())
-		if err := fix.Process(apiVersion, models, constants); err != nil {
+		if err := fix.Process(apiVersion, models, constants, resourceIds); err != nil {
 			return fmt.Errorf("applying Data Workaround %q: %v", fix.Name(), err)
 		}
 	}

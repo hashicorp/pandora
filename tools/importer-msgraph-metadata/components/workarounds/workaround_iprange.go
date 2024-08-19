@@ -19,7 +19,7 @@ func (workaroundIPRange) Name() string {
 	return "IPRange / discrimination"
 }
 
-func (workaroundIPRange) Process(apiVersion string, models parser.Models, constants parser.Constants) error {
+func (workaroundIPRange) Process(apiVersion string, models parser.Models, constants parser.Constants, resourceIds parser.ResourceIds) error {
 	// microsoft.graph.ipRange model is empty and is omitted by the OpenAPI parser
 	models["IPRange"] = &parser.Model{
 		Fields: map[string]*parser.ModelField{
