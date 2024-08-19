@@ -279,7 +279,7 @@ service "hybridaks" {
 }
 service "hybridcompute" {
   name      = "HybridCompute"
-  available = ["2022-11-10", "2022-12-27", "2024-05-20-preview"]
+  available = ["2022-11-10", "2022-12-27", "2024-05-20-preview", "2024-07-10"]
 }
 service "hybridkubernetes" {
   name      = "HybridKubernetes"
