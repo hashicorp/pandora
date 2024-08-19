@@ -93,7 +93,7 @@ func (g GenerateCommand) Run(args []string) int {
 	f := flag.NewFlagSet("generator-go-sdk", flag.ExitOnError)
 	f.StringVar(&input.apiServerEndpoint, "data-api", "http://localhost:8080", "-data-api=http://localhost:8080")
 	f.StringVar(&input.outputDirectory, "output-dir", "", "-output-dir=../generated-sdk-dev")
-	f.StringVar(&serviceNames, "services", "", "A list of comma separated Service named from the Data API to import")
+	f.StringVar(&serviceNames, "services", "", "A list of comma separated Service named from the Data API to generate")
 	if err := f.Parse(args); err != nil {
 		log.Fatalf("parsing arguments: %+v", err)
 	}
