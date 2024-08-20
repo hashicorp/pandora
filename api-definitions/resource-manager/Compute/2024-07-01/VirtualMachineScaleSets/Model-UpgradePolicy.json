@@ -1,0 +1,44 @@
+{
+  "name": "UpgradePolicy",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "automaticOSUpgradePolicy",
+      "name": "AutomaticOSUpgradePolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AutomaticOSUpgradePolicy"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "mode",
+      "name": "Mode",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "UpgradeMode"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rollingUpgradePolicy",
+      "name": "RollingUpgradePolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RollingUpgradePolicy"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}
