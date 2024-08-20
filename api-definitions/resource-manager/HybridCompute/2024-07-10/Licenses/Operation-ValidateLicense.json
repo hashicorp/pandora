@@ -1,0 +1,19 @@
+{
+  "name": "ValidateLicense",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "SubscriptionId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "License"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "License"
+  },
+  "uriSuffix": "/providers/Microsoft.HybridCompute/validateLicense"
+}

@@ -1,0 +1,20 @@
+{
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "MachineId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "LicenseProfileUpdate"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "LicenseProfile"
+  },
+  "uriSuffix": "/licenseProfiles/default"
+}

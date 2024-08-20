@@ -1,0 +1,48 @@
+{
+  "name": "ProductProfileUpdateProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "productFeatures",
+      "name": "ProductFeatures",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "ProductFeatureUpdate"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "productType",
+      "name": "ProductType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "LicenseProfileProductType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "subscriptionStatus",
+      "name": "SubscriptionStatus",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "LicenseProfileSubscriptionStatusUpdate"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

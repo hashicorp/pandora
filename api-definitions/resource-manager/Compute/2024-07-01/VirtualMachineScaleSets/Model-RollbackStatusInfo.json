@@ -1,0 +1,44 @@
+{
+  "name": "RollbackStatusInfo",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "failedRolledbackInstanceCount",
+      "name": "FailedRolledbackInstanceCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rollbackError",
+      "name": "RollbackError",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ApiError"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "successfullyRolledbackInstanceCount",
+      "name": "SuccessfullyRolledbackInstanceCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

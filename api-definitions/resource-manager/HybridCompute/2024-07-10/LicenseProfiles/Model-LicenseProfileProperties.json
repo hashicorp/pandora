@@ -1,0 +1,57 @@
+{
+  "name": "LicenseProfileProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "esuProfile",
+      "name": "EsuProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "LicenseProfileArmEsuProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "productProfile",
+      "name": "ProductProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "LicenseProfileArmProductProfileProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "provisioningState",
+      "name": "ProvisioningState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ProvisioningState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "softwareAssurance",
+      "name": "SoftwareAssurance",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "LicenseProfilePropertiesSoftwareAssurance"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

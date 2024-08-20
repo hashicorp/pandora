@@ -1,0 +1,100 @@
+{
+  "name": "LicenseProfileMachineInstanceViewEsuProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "assignedLicense",
+      "name": "AssignedLicense",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "License"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "assignedLicenseImmutableId",
+      "name": "AssignedLicenseImmutableId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "esuEligibility",
+      "name": "EsuEligibility",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EsuEligibility"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "esuKeyState",
+      "name": "EsuKeyState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EsuKeyState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "esuKeys",
+      "name": "EsuKeys",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "EsuKey"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "licenseAssignmentState",
+      "name": "LicenseAssignmentState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "LicenseAssignmentState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "serverType",
+      "name": "ServerType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EsuServerType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}
