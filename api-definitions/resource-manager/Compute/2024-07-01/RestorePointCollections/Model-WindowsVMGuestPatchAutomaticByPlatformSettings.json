@@ -1,0 +1,31 @@
+{
+  "name": "WindowsVMGuestPatchAutomaticByPlatformSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "bypassPlatformSafetyChecksOnUserSchedule",
+      "name": "BypassPlatformSafetyChecksOnUserSchedule",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rebootSetting",
+      "name": "RebootSetting",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "WindowsVMGuestPatchAutomaticByPlatformRebootSetting"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

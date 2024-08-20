@@ -1,0 +1,44 @@
+{
+  "name": "IPAddress",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "address",
+      "name": "Address",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "ipAddressVersion",
+      "name": "IPAddressVersion",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "subnet",
+      "name": "Subnet",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Subnet"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

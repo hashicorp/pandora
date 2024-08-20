@@ -1,0 +1,40 @@
+{
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "options": [
+    {
+      "headerName": "If-Match",
+      "optional": true,
+      "required": false,
+      "field": "IfMatch",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "headerName": "If-None-Match",
+      "optional": true,
+      "required": false,
+      "field": "IfNoneMatch",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "VirtualMachineScaleSetId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "VirtualMachineScaleSetUpdate"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "VirtualMachineScaleSet"
+  }
+}

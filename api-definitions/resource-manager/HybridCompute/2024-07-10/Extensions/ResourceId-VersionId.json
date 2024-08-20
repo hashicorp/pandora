@@ -1,0 +1,61 @@
+{
+  "name": "VersionId",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.HybridCompute/locations/{locationName}/publishers/{publisherName}/extensionTypes/{extensionTypeName}/versions/{versionName}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftHybridCompute",
+      "type": "ResourceProvider",
+      "value": "Microsoft.HybridCompute"
+    },
+    {
+      "name": "staticLocations",
+      "type": "Static",
+      "value": "locations"
+    },
+    {
+      "name": "locationName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticPublishers",
+      "type": "Static",
+      "value": "publishers"
+    },
+    {
+      "name": "publisherName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticExtensionTypes",
+      "type": "Static",
+      "value": "extensionTypes"
+    },
+    {
+      "name": "extensionTypeName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticVersions",
+      "type": "Static",
+      "value": "versions"
+    },
+    {
+      "name": "versionName",
+      "type": "UserSpecified"
+    }
+  ]
+}

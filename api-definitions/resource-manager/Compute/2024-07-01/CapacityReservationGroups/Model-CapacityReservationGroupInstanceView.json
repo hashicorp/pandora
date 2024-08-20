@@ -1,0 +1,39 @@
+{
+  "name": "CapacityReservationGroupInstanceView",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "capacityReservations",
+      "name": "CapacityReservations",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "CapacityReservationInstanceViewWithName"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sharedSubscriptionIds",
+      "name": "SharedSubscriptionIds",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "SubResourceReadOnly"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

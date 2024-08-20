@@ -1,0 +1,31 @@
+{
+  "name": "OrchestrationServiceSummary",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "serviceName",
+      "name": "ServiceName",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "OrchestrationServiceNames"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "serviceState",
+      "name": "ServiceState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "OrchestrationServiceState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

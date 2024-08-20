@@ -1,0 +1,137 @@
+{
+  "name": "MachineAssessPatchesResult",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "assessmentActivityId",
+      "name": "AssessmentActivityId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "availablePatchCountByClassification",
+      "name": "AvailablePatchCountByClassification",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AvailablePatchCountByClassification"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "errorDetails",
+      "name": "ErrorDetails",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ErrorDetail"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "dateFormat": "RFC3339",
+      "jsonName": "lastModifiedDateTime",
+      "name": "LastModifiedDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "osType",
+      "name": "OsType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "OsType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "patchServiceUsed",
+      "name": "PatchServiceUsed",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PatchServiceUsed"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rebootPending",
+      "name": "RebootPending",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "dateFormat": "RFC3339",
+      "jsonName": "startDateTime",
+      "name": "StartDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "startedBy",
+      "name": "StartedBy",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PatchOperationStartedBy"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "status",
+      "name": "Status",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PatchOperationStatus"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}
