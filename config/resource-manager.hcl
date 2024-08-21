@@ -242,7 +242,7 @@ service "extendedlocation" {
   available = ["2021-08-15"]
 }
 service "fabric" {
-  name      = "fabric"
+  name      = "Fabric"
   available = ["2023-11-01"]
 }
 service "fluidrelay" {
