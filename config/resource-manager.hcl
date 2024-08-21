@@ -370,6 +370,10 @@ service "mobilenetwork" {
   name      = "MobileNetwork"
   available = ["2022-11-01", "2023-06-01", "2023-09-01", "2024-02-01", "2024-04-01"]
 }
+service "mongocluster" {
+  name      = "MongoCluster"
+  available = ["2024-07-01"]
+}
 service "monitor" {
   name      = "Insights"
   available = ["2015-04-01", "2016-03-01", "2018-03-01", "2018-04-16", "2019-10-17-preview", "2020-10-01", "2021-05-01-preview", "2021-07-01-preview", "2021-08-01", "2021-09-01", "2022-06-01", "2022-10-01", "2023-01-01", "2023-03-15-preview", "2023-04-03", "2023-10-01", "2024-02-01"]
