@@ -165,7 +165,7 @@ func (c methodsPandoraTemplater) immediateOperationTemplate(data GeneratorData) 
 
 	comment := c.operationName
 	if c.operation.Description != "" {
-		comment += fmt.Sprintf(": %s", c.operation.Description)
+		comment += fmt.Sprintf(" - %s", c.operation.Description)
 	} else {
 		comment += " ..."
 	}
@@ -236,7 +236,7 @@ func (c methodsPandoraTemplater) longRunningOperationTemplate(data GeneratorData
 
 	comment := c.operationName
 	if c.operation.Description != "" {
-		comment += fmt.Sprintf(": %s", c.operation.Description)
+		comment += fmt.Sprintf(" - %s", c.operation.Description)
 	} else {
 		comment += " ..."
 	}
@@ -331,7 +331,7 @@ func (c methodsPandoraTemplater) listOperationTemplate(data GeneratorData) (*str
 
 	comment := c.operationName
 	if c.operation.Description != "" {
-		comment += fmt.Sprintf(": %s", c.operation.Description)
+		comment += fmt.Sprintf(" - %s", c.operation.Description)
 	} else {
 		comment += " ..."
 	}
