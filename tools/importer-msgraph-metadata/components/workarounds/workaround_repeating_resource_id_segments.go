@@ -4,9 +4,8 @@
 package workarounds
 
 import (
-	"strings"
-
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/parser"
+	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/internal/logging"
 )
 
 var _ workaround = workaroundRepeatingResourceIdSegments{}
@@ -21,47 +20,16 @@ func (workaroundRepeatingResourceIdSegments) Name() string {
 func (workaroundRepeatingResourceIdSegments) Process(apiVersion string, models parser.Models, constants parser.Constants, resourceIds parser.ResourceIds) error {
 	for resourceIdName := range resourceIds {
 		var invalid bool
+		resourceId := *resourceIds[resourceIdName]
 
-		// Repeating segments, which are not supported
-		if strings.Contains(resourceIdName, "SiteIdSiteId") {
-			invalid = true
-		}
-
-		// GroupSiteTermStore resources have repeating ID segments which are not supported at this time
-		if strings.Contains(resourceIdName, "TermStore") {
-			invalid = true
-		}
-
-		// Onenote resources have repeating ID segments which are not supported at this time
-		if strings.Contains(resourceIdName, "Onenote") {
-			invalid = true
-		}
-
-		// These contain IDs with repeating segments, which are not supported at this time
-		prefixes := []string{
-			"IdentityGovernanceEntitlementManagementAccessPackageIdResourceRoleScopeIdRoleResourceScopeIdResourceRoleId",
-			"IdentityGovernanceEntitlementManagementAccessPackageIdResourceRoleScopeIdScopeResourceRoleIdResourceScopeId",
-			"IdentityGovernanceEntitlementManagementCatalogIdResourceRoleIdResourceScopeIdResourceRoleId",
-			"IdentityGovernanceEntitlementManagementCatalogIdResourceScopeIdResourceRoleIdResourceScopeId",
-			"IdentityGovernanceEntitlementManagementResourceRequestIdCatalogResourceRoleIdResourceScopeIdResourceRoleId",
-			"IdentityGovernanceEntitlementManagementResourceRequestIdCatalogResourceScopeIdResourceRoleIdResourceScopeId",
-			"IdentityGovernanceEntitlementManagementResourceRequestIdResourceRoleIdResourceScopeId",
-			"IdentityGovernanceEntitlementManagementResourceRequestIdResourceScopeIdResourceRoleId",
-			"IdentityGovernanceEntitlementManagementResourceRoleScopeIdRoleResourceScopeIdResourceRoleId",
-			"IdentityGovernanceEntitlementManagementResourceRoleScopeIdScopeResourceRoleIdResourceScopeId",
-			"MePendingAccessReviewInstanceIdDecisionIdInstanceStageIdDecisionId",
-			"MePendingAccessReviewInstanceIdDecisionIdInstanceStageIdDecisionIdInsightId",
-			"MePendingAccessReviewInstanceIdStageIdDecisionIdInstanceDecisionId",
-			"MePendingAccessReviewInstanceIdStageIdDecisionIdInstanceDecisionIdInsightId",
-			"UserIdPendingAccessReviewInstanceIdDecisionIdInstanceStageIdDecisionId",
-			"UserIdPendingAccessReviewInstanceIdDecisionIdInstanceStageIdDecisionIdInsightId",
-			"UserIdPendingAccessReviewInstanceIdStageIdDecisionIdInstanceDecisionId",
-			"UserIdPendingAccessReviewInstanceIdStageIdDecisionIdInstanceDecisionIdInsightId",
-		}
-		for _, prefix := range prefixes {
-			if strings.HasPrefix(resourceIdName, prefix) {
+		seenSegmentNames := map[string]struct{}{}
+		for _, segment := range resourceId.Segments {
+			if _, ok := seenSegmentNames[segment.Value]; ok {
+				logging.Warnf("Dropping resource ID due to duplicate segment %q: %s", resourceIdName, segment.Value)
 				invalid = true
+				break
 			}
+			seenSegmentNames[segment.Value] = struct{}{}
 		}
 
 		if invalid {

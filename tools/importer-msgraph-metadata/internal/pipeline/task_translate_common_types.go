@@ -16,28 +16,28 @@ func (p pipeline) translateCommonTypesToDataApiSdkTypes() (*sdkModels.CommonType
 	sdkModelsMap := make(map[string]sdkModels.SDKModel)
 	sdkResourceIdsMap := make(map[string]sdkModels.ResourceID)
 
-	for modelName, model := range p.models {
+	for schemaName, model := range p.models {
 		if model.Common {
-			sdkModel, err := model.DataApiSdkModel(p.models)
+			sdkModel, err := model.DataApiSdkModel(p.models, p.constants)
 			if err != nil {
 				return nil, err
 			}
 			if sdkModel == nil {
-				logging.Warnf("skipping invalid model %q as it has no fields", modelName)
+				logging.Warnf("skipping invalid model %q as it has no fields", schemaName)
 				continue
 			}
-			sdkModelsMap[modelName] = *sdkModel
+			sdkModelsMap[model.Name] = *sdkModel
 		}
 	}
 
-	for constantName, constant := range p.constants {
+	for _, constant := range p.constants {
 		constantValues := make(map[string]string)
 		for _, value := range constant.Enum {
-			// prefix constant value names with underscore to prevent naming conflicts with similarly named models in the generated SDK
+			// Prefix constant-value names with underscore to prevent naming conflicts with similarly named models in the generated SDK
 			constantValues[fmt.Sprintf("_%s", normalize.CleanName(value))] = value
 		}
 
-		sdkConstantsMap[constantName] = sdkModels.SDKConstant{
+		sdkConstantsMap[constant.Name] = sdkModels.SDKConstant{
 			// TODO support additional types, if there are any
 			Type:   sdkModels.StringSDKConstantType,
 			Values: constantValues,
