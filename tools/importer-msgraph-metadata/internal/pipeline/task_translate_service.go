@@ -50,44 +50,37 @@ func (p pipelineForService) translateServiceToDataApiSdkTypes() (*sdkModels.Serv
 			}
 		}
 
+		serviceConstants := make(parser.Constants)
 		serviceModels := make(parser.Models)
 
 		// Populate everything else
 		for _, operation := range resource.Operations {
 			var resourceIdName *string
 
+			// Note we longer output resource IDs per service, they are now common types
 			if operation.ResourceId != nil {
 				resourceIdName = &operation.ResourceId.Name
-
-				// No longer output resource IDs per service, they are now common types
-				//sdkResourceId, err := operation.ResourceId.DataApiSdkResourceId()
-				//if err != nil {
-				//	return nil, err
-				//}
-				//
-				//sdkServices[resource.Service].APIVersions[resource.Version].Resources[resource.Category].ResourceIDs[operation.ResourceId.Name] = *sdkResourceId
 			}
 
 			var requestObject *sdkModels.SDKObjectDefinition
 			requestObjectIsCommonType := true
 
 			if operation.RequestModel != nil {
-				if !p.models.Found(*operation.RequestModel) {
-					return nil, fmt.Errorf("request model %q was not found for operation: %s", *operation.RequestModel, operation.Name)
+				schemaName := *operation.RequestModel
+
+				if !p.models.Found(schemaName) {
+					return nil, fmt.Errorf("request model %q was not found for operation: %s", schemaName, operation.Name)
 				}
 
-				if model := p.models[*operation.RequestModel]; !model.IsValid() {
-					return nil, fmt.Errorf("request model %q was invalid for operation: %s", *operation.RequestModel, operation.Name)
-				} else if !model.Common {
-					requestObjectIsCommonType = false
+				model := p.models[schemaName]
 
-					if err := serviceModels.MergeDependants(p.models, *operation.RequestModel, false); err != nil {
-						return nil, err
-					}
+				if !model.Common {
+					requestObjectIsCommonType = false
+					serviceModels[schemaName] = model
 				}
 
 				requestObject = &sdkModels.SDKObjectDefinition{
-					ReferenceName:             operation.RequestModel,
+					ReferenceName:             pointer.To(normalize.CleanName(*operation.RequestModel)),
 					ReferenceNameIsCommonType: &requestObjectIsCommonType,
 					Type:                      sdkModels.ReferenceSDKObjectDefinitionType,
 				}
@@ -234,46 +227,36 @@ func (p pipelineForService) translateServiceToDataApiSdkTypes() (*sdkModels.Serv
 			responseObjectIsCommonType := true
 
 			for _, response := range operation.Responses {
-				if response.Type != nil && *response.Type == parser.DataTypeModel && response.ModelName != nil {
-					modelName := *response.ModelName
+				if response.Type != nil && *response.Type == parser.DataTypeReference && response.ReferenceName != nil {
+					schemaName := *response.ReferenceName
 
-					if !p.models.Found(modelName) {
-						return nil, fmt.Errorf("response model %q was not found for operation: %s", modelName, operation.Name)
+					if !p.constants.Found(schemaName) && !p.models.Found(schemaName) {
+						return nil, fmt.Errorf("response constant or model %q was not found for operation: %s", schemaName, operation.Name)
+					}
+					if p.constants.Found(schemaName) && p.models.Found(schemaName) {
+						return nil, fmt.Errorf("response object %q was found as both a constant and a model for operation: %s", schemaName, operation.Name)
 					}
 
-					model := p.models[modelName]
+					if p.constants.Found(schemaName) {
+						constant := p.constants[schemaName]
 
-					if !model.IsValid() {
-						return nil, fmt.Errorf("response model %q was invalid for operation: %s", modelName, operation.Name)
-					} else if !model.Common {
-						responseObjectIsCommonType = false
-
-						if err := serviceModels.MergeDependants(p.models, modelName, false); err != nil {
-							return nil, err
+						if !constant.Common {
+							responseObjectIsCommonType = false
+							serviceConstants[schemaName] = constant
 						}
 					}
 
-					// List operations return a "CollectionResponse" object, which we are not interested in
-					// We want the actual underlying model, expected to be in the `value` field
-					if operation.Type == parser.OperationTypeList {
-						if value, ok := model.Fields["Value"]; ok && value != nil && *value.Type == parser.DataTypeArray && value.ModelName != nil {
-							responseObjectIsCommonType = true
-							modelName = *value.ModelName
+					if p.models.Found(schemaName) {
+						model := p.models[schemaName]
 
-							if !p.models.Found(modelName) {
-								return nil, fmt.Errorf("nested response model %q was not found for operation: %s", modelName, operation.Name)
-							} else if !model.Common {
-								responseObjectIsCommonType = false
-
-								if err := serviceModels.MergeDependants(p.models, modelName, false); err != nil {
-									return nil, err
-								}
-							}
+						if !model.Common {
+							responseObjectIsCommonType = false
+							serviceModels[schemaName] = model
 						}
 					}
 
 					responseObject = &sdkModels.SDKObjectDefinition{
-						ReferenceName:             &modelName,
+						ReferenceName:             pointer.To(normalize.CleanName(schemaName)),
 						ReferenceNameIsCommonType: &responseObjectIsCommonType,
 						Type:                      sdkModels.ReferenceSDKObjectDefinitionType,
 					}
@@ -282,6 +265,11 @@ func (p pipelineForService) translateServiceToDataApiSdkTypes() (*sdkModels.Serv
 						Type: response.Type.DataApiSdkObjectDefinitionType(),
 					}
 				}
+
+				// Only one response object is currently supported by the SDK, so break here. This doesn't affect
+				// us right now since we already ignored error responses during parsing, and to date the specs
+				// have at most one "success" response per operation.
+				break
 			}
 
 			contentType := "application/json"
@@ -310,30 +298,13 @@ func (p pipelineForService) translateServiceToDataApiSdkTypes() (*sdkModels.Serv
 			}
 		}
 
-		for modelName, model := range serviceModels {
-			sdkModel, err := model.DataApiSdkModel(p.models)
+		for _, model := range serviceModels {
+			sdkModel, err := model.DataApiSdkModel(p.models, p.constants)
 			if err != nil {
 				return nil, err
 			}
 
-			sdkService.APIVersions[resource.Version].Resources[resource.Category].Models[modelName] = *sdkModel
-
-			for _, field := range model.Fields {
-				if field.ConstantName != nil {
-					constantValues := make(map[string]string)
-					if constant, ok := p.constants[*field.ConstantName]; ok {
-						for _, value := range constant.Enum {
-							constantValues[normalize.CleanName(value)] = value
-						}
-					}
-
-					// TODO support additional types, if there are any
-					sdkService.APIVersions[resource.Version].Resources[resource.Category].Constants[*field.ConstantName] = sdkModels.SDKConstant{
-						Type:   sdkModels.StringSDKConstantType,
-						Values: constantValues,
-					}
-				}
-			}
+			sdkService.APIVersions[resource.Version].Resources[resource.Category].Models[model.Name] = *sdkModel
 		}
 	}
 

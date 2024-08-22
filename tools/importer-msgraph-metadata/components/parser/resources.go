@@ -20,19 +20,20 @@ type Resource struct {
 }
 
 type Operation struct {
-	Name            string
-	Description     string
-	Type            OperationType
-	Method          string
-	ResourceId      *ResourceId
-	UriSuffix       *string
-	RequestModel    *string
-	RequestHeaders  *Headers
-	RequestParams   *Params
-	RequestType     *DataType
-	Responses       Responses
-	PaginationField *string
-	Tags            []string
+	Name               string
+	Description        string
+	Type               OperationType
+	Method             string
+	ResourceId         *ResourceId
+	UriSuffix          *string
+	RequestContentType *string
+	RequestModel       *string
+	RequestHeaders     *Headers
+	RequestParams      *Params
+	RequestType        *DataType
+	Responses          Responses
+	PaginationField    *string
+	Tags               []string
 }
 
 type Header struct {
@@ -91,18 +92,20 @@ func (p Param) DataApiSdkObjectDefinition() (*sdkModels.SDKOperationOptionObject
 type Params []Param
 
 type Response struct {
-	Status      int
-	ContentType *string
-	ModelName   *string
-	Type        *DataType
+	Status        int
+	ContentType   *string
+	ReferenceName *string
+	Type          *DataType
+	Model         *Model
+	Constant      *Constant
 }
 
 type Responses []Response
 
 func (rs Responses) FindModelName() *string {
 	for _, r := range rs {
-		if r.ModelName != nil {
-			return r.ModelName
+		if r.ReferenceName != nil {
+			return r.ReferenceName
 		}
 	}
 	return nil

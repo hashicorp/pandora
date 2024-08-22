@@ -40,11 +40,15 @@ func Pluralize(name string) string {
 }
 
 func CleanName(name string) string {
+	if name == "" {
+		return name
+	}
+
 	// Trim a "microsoft.graph" prefix from type names
 	name = strings.TrimPrefix(name, "microsoft.graph")
 
 	// Replace all periods with spaces to allow for title casing
-	name = strings.ReplaceAll(name, ".", " ")
+	name = strings.TrimSpace(strings.ReplaceAll(name, ".", " "))
 
 	// Convert name to title case
 	name = cases.Title(language.AmericanEnglish, cases.NoLower).String(name)

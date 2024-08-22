@@ -58,7 +58,7 @@ func runImportForVersion(input RunInput, apiVersion, openApiFile, metadataGitSha
 	}
 
 	logging.Infof("Parsing models and constants...")
-	p.models, p.constants, err = parser.Common(p.spec.Components.Schemas)
+	p.models, p.constants, err = parser.ModelsAndConstants(p.spec.Components.Schemas)
 	if err != nil {
 		return err
 	}
@@ -71,11 +71,6 @@ func runImportForVersion(input RunInput, apiVersion, openApiFile, metadataGitSha
 
 	logging.Infof("Applying workarounds for invalid type definitions..")
 	if err = workarounds.ApplyWorkarounds(p.apiVersion, p.models, p.constants, p.resourceIds); err != nil {
-		return err
-	}
-
-	logging.Infof("Cleaning up models...")
-	if err = p.cleanupModels(); err != nil {
 		return err
 	}
 

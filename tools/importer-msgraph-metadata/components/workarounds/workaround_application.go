@@ -28,28 +28,26 @@ func (workaroundApplication) Process(apiVersion string, models parser.Models, co
 		return nil
 	}
 
-	model, ok := models["Application"]
+	model, ok := models["microsoft.graph.application"]
 	if !ok {
 		return fmt.Errorf("`Application` model not found")
 	}
 
 	// Add the `oauth2RequirePostResponse` field if missing
 	if _, ok := model.Fields["OAuth2RequirePostResponse"]; !ok {
-		model.Fields["OAuth2RequirePostResponse"] = &parser.ModelField{
-			Title:       "OAuth2RequirePostResponse",
+		model.Fields["oauth2RequirePostResponse"] = &parser.ModelField{
+			Name:        "OAuth2RequirePostResponse",
 			Description: "Specifies whether, as part of OAuth 2.0 token requests, Microsoft Entra ID allows POST requests, as opposed to GET requests. The default is false, which specifies that only GET requests are allowed.",
 			Type:        pointer.To(parser.DataTypeBool),
-			JsonField:   "oauth2RequirePostResponse",
 		}
 	}
 
 	// Add the `applicationTemplateId` field if missing
 	if _, ok := model.Fields["ApplicationTemplateId"]; !ok {
-		model.Fields["ApplicationTemplateId"] = &parser.ModelField{
-			Title:       "ApplicationTemplateId",
+		model.Fields["applicationTemplateId"] = &parser.ModelField{
+			Name:        "ApplicationTemplateId",
 			Description: "Unique identifier of the applicationTemplate. Supports $filter (eq, not, ne). Read-only. null if the app wasn't created from an application template.",
 			Type:        pointer.To(parser.DataTypeString),
-			JsonField:   "applicationTemplateId",
 			Nullable:    true,
 		}
 	}
