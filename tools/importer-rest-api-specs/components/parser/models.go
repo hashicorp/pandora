@@ -144,7 +144,7 @@ func (d *SwaggerDefinition) detailsForField(modelName string, propertyName strin
 
 	field := sdkModels.SDKField{
 		Required:    isRequired,
-		Optional:    !isRequired, //TODO: re-enable readonly && !value.ReadOnly,
+		Optional:    !isRequired, // TODO: re-enable readonly && !value.ReadOnly,
 		ReadOnly:    false,       // TODO: re-enable readonly value.ReadOnly,
 		Sensitive:   false,       // todo: this probably needs to be a predefined list, unless there's something we can parse
 		JsonName:    propertyName,
@@ -362,13 +362,13 @@ func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, 
 
 func (d *SwaggerDefinition) findTopLevelObject(name string) (*spec.Schema, error) {
 	for modelName, model := range d.swaggerSpecRaw.Definitions {
-		if strings.EqualFold(modelName, name) {
+		if modelName == name {
 			return &model, nil
 		}
 	}
 
 	for modelName, model := range d.swaggerSpecExtendedRaw.Definitions {
-		if strings.EqualFold(modelName, name) {
+		if modelName == name {
 			return &model, nil
 		}
 	}
