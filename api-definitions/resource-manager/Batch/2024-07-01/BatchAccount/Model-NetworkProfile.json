@@ -1,0 +1,31 @@
+{
+  "name": "NetworkProfile",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "accountAccess",
+      "name": "AccountAccess",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EndpointAccessProfile"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "nodeManagementAccess",
+      "name": "NodeManagementAccess",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EndpointAccessProfile"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}
