@@ -1,0 +1,19 @@
+{
+  "name": "Activate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "VersionId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ActivateApplicationPackageParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ApplicationPackage"
+  },
+  "uriSuffix": "/activate"
+}

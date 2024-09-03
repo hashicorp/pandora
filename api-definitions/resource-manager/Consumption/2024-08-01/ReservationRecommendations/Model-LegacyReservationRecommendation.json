@@ -1,0 +1,21 @@
+{
+  "name": "LegacyReservationRecommendation",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "LegacyReservationRecommendationProperties"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "ReservationRecommendation",
+  "discriminatedTypeValue": "legacy",
+  "typeHintIn": "Kind"
+}
