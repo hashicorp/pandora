@@ -1,13 +1,13 @@
 {
-  "name": "UserRecommendation",
+  "name": "IcebergSink",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "recommendationAction",
-      "name": "RecommendationAction",
+      "jsonName": "formatSettings",
+      "name": "FormatSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RecommendationAction"
+        "referenceName": "FormatWriteSettings"
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +16,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "username",
-      "name": "Username",
+      "jsonName": "storeSettings",
+      "name": "StoreSettings",
       "objectDefinition": {
-        "type": "String",
-        "referenceName": null
+        "type": "Reference",
+        "referenceName": "StoreWriteSettings"
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "discriminatedParentModelName": "CopySink",
+  "discriminatedTypeValue": "IcebergSink",
+  "typeHintIn": "Type"
 }
