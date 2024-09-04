@@ -13,6 +13,9 @@ type Model struct {
 	// Fields is an array of fields contained in the Model
 	Fields []ModelField `json:"fields"`
 
+	// IsParent specifies whether this model is a known parent model, typically for discriminated child models.
+	IsParent bool
+
 	// NOTE: If DiscriminatedParentModelName and DiscriminatedTypeValue are both populated then this Model
 	// represents a discriminated type
 	// DiscriminatedParentModelName contains the name of the Parent Model that this Model would implement

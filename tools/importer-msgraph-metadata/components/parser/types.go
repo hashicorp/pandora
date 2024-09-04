@@ -79,6 +79,7 @@ type Model struct {
 	Name        string
 	Fields      map[string]*ModelField
 	Common      bool
+	Parent      bool
 	TypeField   *string
 	TypeValue   *string
 	ParentModel *string
@@ -139,6 +140,7 @@ func (m *Model) DataApiSdkModel(models Models, constants Constants) (*sdkModels.
 	return &sdkModels.SDKModel{
 		Fields: sdkFields,
 
+		IsParent:                              m.Parent,
 		DiscriminatedValue:                    m.TypeValue,
 		FieldNameContainingDiscriminatedValue: m.TypeField,
 		ParentTypeName:                        parentTypeName,
@@ -441,7 +443,7 @@ func ModelsAndConstants(schemas openapi3.Schemas) (Models, Constants, error) {
 		}
 	}
 
-	// Now iterate models and populate discriminated children
+	// Now iterate models, mark parent models as such and populate discriminated children
 	for schemaName, model := range models {
 		if model.ParentModel == nil {
 			continue
@@ -453,6 +455,7 @@ func ModelsAndConstants(schemas openapi3.Schemas) (Models, Constants, error) {
 		}
 
 		parentModel.Fields["@odata.type"].DiscriminatedValue = true
+		parentModel.Parent = true
 		parentModel.TypeField = pointer.To("ODataType")
 		model.TypeField = pointer.To("ODataType")
 		model.TypeValue = pointer.To("#" + schemaName)
