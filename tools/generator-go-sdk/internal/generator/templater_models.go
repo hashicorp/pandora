@@ -182,7 +182,7 @@ type %[1]s interface {
 `, c.name, strings.Join(interfaceLines, "\n"))
 	}
 
-	// Output a model struct
+	// Format the model struct field lines
 	formattedStructLines := make([]string, 0)
 	for i, v := range structLines {
 		if strings.HasPrefix(strings.TrimSpace(v), "//") {
@@ -196,12 +196,28 @@ type %[1]s interface {
 		formattedStructLines = append(formattedStructLines, v)
 	}
 
+	// When the struct name doesn't match the model name, the struct should implement the model interface
+	if structName != c.name {
+		parentAssignmentInfo = fmt.Sprintf("var _ %[1]s = %[2]s{}", c.name, structName)
+	}
+
+	// Output the model struct
 	out += fmt.Sprintf(`
 %[3]s
 type %[1]s struct {
 %[2]s
 }
 `, structName, strings.Join(formattedStructLines, "\n"), parentAssignmentInfo)
+
+	// When the struct name doesn't match the model name, output a method to satisfy the model interface
+	if structName != c.name {
+		out += fmt.Sprintf(`
+
+func (s %[1]s) %[2]s() %[1]s {
+	return s
+}
+`, structName, c.name)
+	}
 
 	parentModelFunctions, err := c.codeForParentStructFunctions(data)
 	if err != nil {
