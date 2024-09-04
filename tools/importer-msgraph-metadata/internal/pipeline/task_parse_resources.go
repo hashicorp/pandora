@@ -355,9 +355,9 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 
 			case parser.OperationTypeDelete:
 				if lastSegment.Type == parser.SegmentODataReference {
-					operationName = fmt.Sprintf("Remove%s", normalize.Singularize(operationName))
+					operationName = fmt.Sprintf("Remove%s", operationName)
 				} else {
-					operationName = fmt.Sprintf("Delete%s", normalize.Singularize(operationName))
+					operationName = fmt.Sprintf("Delete%s", operationName)
 				}
 			}
 
