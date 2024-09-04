@@ -63,6 +63,7 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 			continue
 		}
 
+		// Determine the resource name
 		resourceName := ""
 		if r, ok := parsedPath.FullyQualifiedResourceName(pointer.To(parser.ResourceSuffix)); ok {
 			resourceName = *r
@@ -101,38 +102,41 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 			resources[resourceName].Paths = append(resources[resourceName].Paths, parsedPath)
 		}
 
+		// Determine resource ID and/or URI suffix
+		var resourceId *parser.ResourceId
+		var uriSuffix *string
+		match, ok := resourceIds.MatchIdOrAncestor(parsedPath)
+		if ok {
+			if match.Id != nil {
+				resourceId = match.Id
+			}
+			if match.Remainder != nil && len(match.Remainder.Segments) > 0 {
+				uriSuffix = pointer.To(match.Remainder.ID())
+
+				// When last segment is not a label (e.g. an action, function or cast), adopt the parent resource category,
+				// but only if the suffix has one segment, else this could indicate a different parent, in which case
+				// we'll attempt a match after parsing all resources.
+				if resourceCategory == "" && len(match.Remainder.Segments) == 1 &&
+					(match.Remainder.Segments[0].Type == parser.SegmentAction || match.Remainder.Segments[0].Type == parser.SegmentCast || match.Remainder.Segments[0].Type == parser.SegmentFunction) {
+					resourceCategory = parsedPath.ID()
+				}
+			}
+		} else {
+			uriSuffix = pointer.To(parsedPath.ID())
+		}
+
+		// Skip this path when the uriSuffix contains a user-specified value. This should ordinarily not occur, but
+		// can happen when no parent resource ID has been matched, for example if a resource ID was blacklisted.
+		if uriSuffix != nil {
+			if uriSuffixParsed := parser.NewResourceId(*uriSuffix, operationTags); uriSuffixParsed.HasUserValue() {
+				logging.Infof(fmt.Sprintf("Skipping URI suffix containing user value in resource %q (category %q, service %q, version %q): %q", resourceName, resourceCategory, p.service, p.apiVersion, *uriSuffix))
+				continue
+			}
+		}
+
 		for method, operation := range operations {
 			if !tags.Matches(p.service, operation.Tags) {
 				continue
-			}
-
-			// Determine resource ID and/or URI suffix
-			var resourceId *parser.ResourceId
-			var uriSuffix *string
-			match, ok := resourceIds.MatchIdOrAncestor(parsedPath)
-			if ok {
-				if match.Id != nil {
-					resourceId = match.Id
-				}
-				if match.Remainder != nil && len(match.Remainder.Segments) > 0 {
-					uriSuffix = pointer.To(match.Remainder.ID())
-
-					// When last segment is not a label (e.g. an action, function or cast), adopt the parent resource category,
-					// but only if the suffix has one segment, else this could indicate a different parent, in which case
-					// we'll attempt a match after parsing all resources.
-					if resourceCategory == "" && strings.Count(*uriSuffix, "/") == 1 {
-						resourceCategory = resourceId.Name
-					}
-				}
-			} else {
-				uriSuffix = &path
-			}
-
-			if uriSuffix != nil {
-				if uriSuffixParsed := parser.NewResourceId(*uriSuffix, operationTags); uriSuffixParsed.HasUserValue() {
-					logging.Infof(fmt.Sprintf("Skipping URI suffix containing user value in resource %q (category %q, service %q, version %q): %q", resourceName, resourceCategory, p.service, p.apiVersion, *uriSuffix))
-					continue
-				}
 			}
 
 			listOperation := false
@@ -291,25 +295,38 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 				paginationField = pointer.To("@odata.nextLink")
 			}
 
-			// Skip unknown operations
+			// Skip unknown operation types
 			if operationType == parser.OperationTypeUnknown {
 				logging.Warnf(fmt.Sprintf("Skipping unknown operation type for %q: %v", p.service, path))
 				continue
 			}
 
+			// Determine the base name of the operation, attempting to trim a leading service name since that is redundant
 			operationName := ""
 
-			prefixToTrim := normalize.Singularize(normalize.CleanName(p.service))
-			if resourceId != nil && uriSuffix == nil {
-				prefixToTrim = fmt.Sprintf("%s%s", prefixToTrim, parser.ResourceSuffix)
+			prefixesToTrim := []string{
+				normalize.CleanName(p.service),
+				normalize.Singularize(normalize.CleanName(p.service)),
 			}
-			shortResourceName := strings.TrimPrefix(resourceName, prefixToTrim)
+			if resourceId != nil && uriSuffix == nil {
+				for i := range prefixesToTrim {
+					prefixesToTrim[i] = fmt.Sprintf("%s%s", prefixesToTrim[i], parser.ResourceSuffix)
+				}
+			}
+			shortResourceName := resourceName
+			for _, prefixToTrim := range prefixesToTrim {
+				shortResourceName = strings.TrimPrefix(shortResourceName, prefixToTrim)
+			}
 
 			operationName = shortResourceName
 			if len(operationName) == 0 {
 				operationName = resourceName
 			}
 
+			// Now qualify the operation name based on the type of operation. Additionally, if the operation name
+			// matches a known verb, move that verb to the beginning and use it instead of a standard verb.
+			// For example, a Create operation for "Application" should get an operation name of "CreateApplication",
+			// but a Create operation for "ApplicationTemplateInstantiate" should get an operation name of "InstantiateApplicationTemplate"
 			switch operationType {
 			case parser.OperationTypeList:
 				if _, ok = normalize.Verbs.Match(shortResourceName); ok {
@@ -317,8 +334,10 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 				} else {
 					operationName = fmt.Sprintf("List%s", normalize.Pluralize(normalize.Singularize(operationName)))
 				}
+
 			case parser.OperationTypeRead:
 				operationName = fmt.Sprintf("Get%s", normalize.Singularize(operationName))
+
 			case parser.OperationTypeCreate:
 				if _, ok = normalize.Verbs.Match(shortResourceName); ok {
 					operationName = normalize.Singularize(operationName)
@@ -327,10 +346,13 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 				} else {
 					operationName = fmt.Sprintf("Create%s", normalize.Singularize(operationName))
 				}
+
 			case parser.OperationTypeCreateUpdate:
 				operationName = fmt.Sprintf("CreateUpdate%s", normalize.Singularize(operationName))
+
 			case parser.OperationTypeUpdate:
 				operationName = fmt.Sprintf("Update%s", normalize.Singularize(operationName))
+
 			case parser.OperationTypeDelete:
 				if lastSegment.Type == parser.SegmentODataReference {
 					operationName = fmt.Sprintf("Remove%s", normalize.Singularize(operationName))

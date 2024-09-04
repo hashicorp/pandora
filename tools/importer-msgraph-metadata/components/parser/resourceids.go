@@ -84,7 +84,7 @@ func (r ResourceId) DataApiSdkResourceId() (*sdkModels.ResourceID, error) {
 		case SegmentAction, SegmentCast, SegmentFunction, SegmentLabel, SegmentODataReference:
 			sdkSegments = append(sdkSegments, sdkModels.NewStaticValueResourceIDSegment(segment.Value, segment.Value))
 		case SegmentUserValue:
-			sdkSegments = append(sdkSegments, sdkModels.NewUserSpecifiedResourceIDSegment(normalize.CleanNameCamel(*segment.Field), segment.Value))
+			sdkSegments = append(sdkSegments, sdkModels.NewUserSpecifiedResourceIDSegment(normalize.CleanNameCamel(*segment.field), segment.Value))
 		default:
 			return nil, fmt.Errorf("unknown segment type %q at index %d for resource ID: %q", segment.Type, i, r.Name)
 		}
@@ -160,11 +160,16 @@ func (r ResourceId) FullyQualifiedResourceName(suffixQualification *string) (*st
 					}
 				}
 
-				if len(r.Segments) > i+1 && r.Segments[i+1].Type == SegmentODataReference && (r.Segments[i+1].Value == "$count" || r.Segments[i+1].Value == "$ref") {
-					// $count and $ref indicate a plural entity (noting that this only applies when the current
+				if len(r.Segments) > i+1 && r.Segments[i+1].Type == SegmentODataReference && (r.Segments[i+1].Value == "$count") {
+					// $count indicates a plural entity (noting that this only applies when the current
 					// segment is a label and not user-specified).
 					shouldSingularize = false
 				}
+			}
+
+			// Explicitly pluralize a $ref segment when the previous segment was a label and plural
+			if segment.Type == SegmentODataReference && segment.Value == "$ref" && r.Segments[i-1].plural {
+				newName = normalize.Pluralize(newName)
 			}
 
 			// Note we intentionally match verbs on any segment type, not just SegmentTypeAction
@@ -333,7 +338,12 @@ func (r ResourceId) TruncateToLastSegmentOfTypeBeforeSegment(types []ResourceIdS
 type ResourceIdSegment struct {
 	Type  ResourceIdSegmentType
 	Value string
-	Field *string
+
+	// indicates the name to use when converting a SegmentUserValue to an sdkModels.ResourceIDSegment
+	field *string
+
+	// indicates whether the original value for a SegmentLabel was a plural
+	plural bool
 }
 
 type ResourceIdSegmentType string
@@ -371,13 +381,13 @@ func NewResourceId(path string, tags []string) (id ResourceId) {
 			segment = ResourceIdSegment{
 				Type:  SegmentUserValue,
 				Value: fmt.Sprintf("{%s}", value),
-				Field: &field,
+				field: &field,
 			}
 		} else if strings.Contains(s, "(") {
 			segment = ResourceIdSegment{
 				Type:  SegmentFunction,
 				Value: s,
-				Field: nil,
+				field: nil,
 			}
 		} else if strings.HasPrefix(strings.ToLower(s), "microsoft.graph.") || strings.HasPrefix(strings.ToLower(s), "graph.") {
 			if tagSuffix(".actions") {
@@ -394,38 +404,39 @@ func NewResourceId(path string, tags []string) (id ResourceId) {
 				segment = ResourceIdSegment{
 					Type:  SegmentAction,
 					Value: value,
-					Field: nil,
+					field: nil,
 				}
 			} else {
 				segment = ResourceIdSegment{
 					Type:  SegmentCast,
 					Value: s,
-					Field: nil,
+					field: nil,
 				}
 			}
 		} else if strings.HasPrefix(s, "$") {
 			segment = ResourceIdSegment{
 				Type:  SegmentODataReference,
 				Value: s,
-				Field: nil,
+				field: nil,
 			}
 		} else if i == len(segments)-1 && tagSuffix(".actions") {
 			segment = ResourceIdSegment{
 				Type:  SegmentAction,
 				Value: s,
-				Field: nil,
+				field: nil,
 			}
 		} else if i == len(segments)-1 && tagSuffix(".functions") {
 			segment = ResourceIdSegment{
 				Type:  SegmentFunction,
 				Value: s,
-				Field: nil,
+				field: nil,
 			}
 		} else {
 			segment = ResourceIdSegment{
-				Type:  SegmentLabel,
-				Value: s,
-				Field: nil,
+				Type:   SegmentLabel,
+				Value:  s,
+				field:  nil,
+				plural: normalize.Pluralize(s) == s,
 			}
 		}
 

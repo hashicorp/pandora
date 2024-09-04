@@ -4,6 +4,7 @@ import "testing"
 
 func TestSingularize(t *testing.T) {
 	testCases := map[string]string{
+		// Plurals to be singularized
 		"Access":        "Access",
 		"Apps":          "App",
 		"Applications":  "Application",
@@ -27,6 +28,13 @@ func TestSingularize(t *testing.T) {
 		"Sortby":        "Sortby",
 		"Success":       "Success",
 		"Successes":     "Success",
+
+		// Singulars to remain the same
+		"Application": "Application",
+		"Group":       "Group",
+		"Property":    "Property",
+		"Ref":         "Ref",
+		"Reference":   "Reference",
 	}
 
 	for input, expected := range testCases {
@@ -39,6 +47,7 @@ func TestSingularize(t *testing.T) {
 
 func TestPluralize(t *testing.T) {
 	testCases := map[string]string{
+		// Singulars to be pluralized
 		"Access":        "Accesses",
 		"App":           "Apps",
 		"Application":   "Applications",
@@ -62,6 +71,13 @@ func TestPluralize(t *testing.T) {
 		"Sortby":        "Sortby",
 		"Success":       "Successes",
 		"Successes":     "Successes",
+
+		// Plurals to remain the same
+		"Applications": "Applications",
+		"Groups":       "Groups",
+		"Properties":   "Properties",
+		"Refs":         "Refs",
+		"References":   "References",
 	}
 
 	for input, expected := range testCases {

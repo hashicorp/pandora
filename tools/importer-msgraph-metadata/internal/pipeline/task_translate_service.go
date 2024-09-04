@@ -30,7 +30,7 @@ func (p pipelineForService) translateServiceToDataApiSdkTypes() (*sdkModels.Serv
 			continue
 		}
 
-		// First scaffold the version and resources (categories)
+		// First scaffold the version and SDK resources (categories)
 		if _, ok := sdkService.APIVersions[resource.Version]; !ok {
 			sdkService.APIVersions[resource.Version] = sdkModels.APIVersion{
 				APIVersion: resource.Version,
