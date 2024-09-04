@@ -1,0 +1,21 @@
+{
+  "name": "ModernReservationRecommendation",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ModernReservationRecommendationProperties"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "ReservationRecommendation",
+  "discriminatedTypeValue": "modern",
+  "typeHintIn": "Kind"
+}

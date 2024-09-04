@@ -1,0 +1,34 @@
+{
+  "name": "IcebergSink",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "formatSettings",
+      "name": "FormatSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "FormatWriteSettings"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "storeSettings",
+      "name": "StoreSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "StoreWriteSettings"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "CopySink",
+  "discriminatedTypeValue": "IcebergSink",
+  "typeHintIn": "Type"
+}

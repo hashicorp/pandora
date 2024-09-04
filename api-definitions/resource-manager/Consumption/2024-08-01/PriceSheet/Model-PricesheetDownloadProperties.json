@@ -1,0 +1,32 @@
+{
+  "name": "PricesheetDownloadProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "downloadUrl",
+      "name": "DownloadUrl",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "dateFormat": "RFC3339",
+      "jsonName": "validTill",
+      "name": "ValidTill",
+      "objectDefinition": {
+        "type": "DateTime",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}
