@@ -60,14 +60,19 @@ func (g GenerateCommand) Run(args []string) int {
 
 	if g.sourceDataType == models.MicrosoftGraphSourceDataType {
 		input.settings.GenerateDescriptionsForModels = true
+		input.settings.RecurseParentModels = false
+
 		input.settings.CanonicalApiVersions = map[string]string{
 			"stable": "v1.0",
 		}
+
 		input.settings.VersionsToGenerateCommonTypes = map[string]models.SourceDataOrigin{
 			"stable": models.MicrosoftGraphMetaDataSourceDataOrigin,
 			"beta":   models.MicrosoftGraphMetaDataSourceDataOrigin,
 		}
 	} else if g.sourceDataType == models.ResourceManagerSourceDataType {
+		input.settings.RecurseParentModels = true
+
 		input.settings.UseOldBaseLayerFor(
 			// @tombuildsstuff: New Services should now use the `hashicorp/go-azure-sdk` base layer by default
 			// instead of the base layer from `Azure/go-autorest` - as such this list is for compatibility purposes

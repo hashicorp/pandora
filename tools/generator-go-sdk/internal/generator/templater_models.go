@@ -67,9 +67,9 @@ func (c modelsTemplater) structCode(data GeneratorData) (*string, error) {
 	out := ""
 	structName := c.name
 
-	// parent models get a {model}Base struct
+	// parent models get a Base{model}Impl struct so as not to conflict with their interface name
 	if c.model.IsDiscriminatedParentType() {
-		structName = fmt.Sprintf("%sBase", c.name)
+		structName = fmt.Sprintf("Base%sImpl", c.name)
 	}
 
 	fields := make([]string, 0)
@@ -98,69 +98,91 @@ func (c modelsTemplater) structCode(data GeneratorData) (*string, error) {
 
 	// then add any inherited fields
 	parentAssignmentInfo := ""
-	parentTypeName := ""
+	ancestorTypeNames := make([]string, 0)
 	if c.model.ParentTypeName != nil {
+		ancestorTypeNames = append(ancestorTypeNames, *c.model.ParentTypeName)
 		if c.model.FieldNameContainingDiscriminatedValue != nil {
-			_, foundParentTypeName, err := c.recurseParentModels(data, *c.model.ParentTypeName, *c.model.FieldNameContainingDiscriminatedValue)
+			_, foundAncestorTypeNames, err := c.findModelAncestry(data, *c.model.ParentTypeName, *c.model.FieldNameContainingDiscriminatedValue)
 			if err != nil {
 				return nil, err
 			}
-			parentTypeName = *foundParentTypeName
-
-		} else {
-			parentTypeName = *c.model.ParentTypeName
-		}
-		parentAssignmentInfo = fmt.Sprintf("var _ %[1]s = %[2]s{}", parentTypeName, structName)
-
-		parentFields := make(map[string]models.SDKField)
-
-		parent, ok := data.models[*c.model.ParentTypeName]
-		if !ok {
-			return nil, fmt.Errorf("couldn't find Parent Model %q for Model %q", *c.model.ParentTypeName, c.name)
-		}
-		for fieldName, fieldDetails := range parent.Fields {
-			parentFields[fieldName] = fieldDetails
+			ancestorTypeNames = *foundAncestorTypeNames
 		}
 
-		// Also include fields from the grandparent model
-		// Related to: https://github.com/hashicorp/pandora/issues/1235
-		if parentTypeName != *c.model.ParentTypeName {
-			grandParent, ok := data.models[parentTypeName]
+		// Since ancestor interfaces embed each other, we only need to satisfy the immediate parent interface
+		parentAssignmentInfo = fmt.Sprintf("var _ %[1]s = %[2]s{}", ancestorTypeNames[0], structName)
+
+		// We want to include fields from all ancestors, grouped by ancestor name
+		ancestorFields := make(map[string]map[string]models.SDKField)
+		for _, ancestorTypeName := range ancestorTypeNames {
+			parent, ok := data.models[ancestorTypeName]
 			if !ok {
-				return nil, fmt.Errorf("couldn't find [Grand]Parent Model %q for Model %q", parentTypeName, c.name)
+				return nil, fmt.Errorf("couldn't find Ancestor Model %q for Model %q", ancestorTypeName, c.name)
 			}
-			for fieldName, fieldDetails := range grandParent.Fields {
-				parentFields[fieldName] = fieldDetails
+			ancestorFields[ancestorTypeName] = make(map[string]models.SDKField)
+			for fieldName, fieldDetails := range parent.Fields {
+				ancestorFields[ancestorTypeName][fieldName] = fieldDetails
 			}
 		}
 
-		parentFieldNames := make([]string, 0, len(parentFields))
-		for fieldName := range parentFields {
-			parentFieldNames = append(parentFieldNames, fieldName)
+		// Get sorted slices of ancestors' field names
+		ancestorFieldNames := make(map[string][]string)
+		for ancestorName := range ancestorFields {
+			ancestorFieldNames[ancestorName] = make([]string, 0, len(ancestorFields[ancestorName]))
+			for fieldName := range ancestorFields[ancestorName] {
+				ancestorFieldNames[ancestorName] = append(ancestorFieldNames[ancestorName], fieldName)
+			}
+			sort.Strings(ancestorFieldNames[ancestorName])
 		}
-		sort.Strings(parentFieldNames)
 
-		if len(parentFieldNames) > 0 {
-			structLines = append(structLines, fmt.Sprintf("\n// Fields inherited from %s", *c.model.ParentTypeName))
-			for _, fieldName := range parentFieldNames {
-				fieldDetails := parentFields[fieldName]
-				fieldTypeName := "FIXME"
-				fieldTypeVal, err := helpers.GolangTypeForSDKObjectDefinition(fieldDetails.ObjectDefinition, nil, data.commonTypesPackageName)
-				if err != nil {
-					return nil, fmt.Errorf("determining type information for %q: %+v", fieldName, err)
+		// Append fields from all ancestors to struct
+		for _, ancestorName := range ancestorTypeNames {
+			if len(ancestorFieldNames[ancestorName]) > 0 {
+				structLines = append(structLines, fmt.Sprintf("\n// Fields inherited from %s", ancestorName))
+				for _, fieldName := range ancestorFieldNames[ancestorName] {
+					fieldDetails := ancestorFields[ancestorName][fieldName]
+					fieldTypeName := "FIXME"
+					fieldTypeVal, err := helpers.GolangTypeForSDKObjectDefinition(fieldDetails.ObjectDefinition, nil, data.commonTypesPackageName)
+					if err != nil {
+						return nil, fmt.Errorf("determining type information for %q: %+v", fieldName, err)
+					}
+					fieldTypeName = *fieldTypeVal
+
+					structLine, err := c.structLineForField(fieldName, fieldTypeName, fieldDetails, data)
+					if err != nil {
+						return nil, err
+					}
+
+					structLines = append(structLines, *structLine)
 				}
-				fieldTypeName = *fieldTypeVal
-
-				structLine, err := c.structLineForField(fieldName, fieldTypeName, fieldDetails, data)
-				if err != nil {
-					return nil, err
-				}
-
-				structLines = append(structLines, *structLine)
 			}
 		}
 	}
 
+	// If this is a parent model, we output an Interface with a manual unmarshal func that gets called wherever it's used
+	if c.model.IsDiscriminatedParentType() {
+		interfaceLines := make([]string, 0, len(ancestorTypeNames)+1)
+
+		// First we embed any ancestor types (in reverse ancestral order for neatness)
+		if len(ancestorTypeNames) > 0 {
+			for i := len(ancestorTypeNames) - 1; i >= 0; i-- {
+				interfaceLines = append(interfaceLines, ancestorTypeNames[i])
+			}
+		}
+
+		// Then we implement a method for the base type
+		interfaceLines = append(interfaceLines, fmt.Sprintf(`%[1]s() %[2]s`, c.name, structName))
+
+		// Output an interface for the parent type
+		out += fmt.Sprintf(`
+type %[1]s interface {
+	%[2]s
+}
+
+`, c.name, strings.Join(interfaceLines, "\n"))
+	}
+
+	// Output a model struct
 	formattedStructLines := make([]string, 0)
 	for i, v := range structLines {
 		if strings.HasPrefix(strings.TrimSpace(v), "//") {
@@ -181,31 +203,47 @@ type %[1]s struct {
 }
 `, structName, strings.Join(formattedStructLines, "\n"), parentAssignmentInfo)
 
-	// if this is an Abstract/Type Hint, we output an Interface with a manual unmarshal func that gets called wherever it's used
-	if c.model.IsDiscriminatedParentType() {
-		out += fmt.Sprintf(`
-type %[1]s interface {
-	%[1]s() %[1]sBase
-}
+	parentModelFunctions, err := c.codeForParentStructFunctions(data)
+	if err != nil {
+		return nil, fmt.Errorf("generating parent model functions: %+v", err)
+	}
+	out += *parentModelFunctions
 
-// Raw%[1]sImpl is returned when the Discriminated Value
-// doesn't match any of the defined types
+	// Parent models also get an implementation struct for use as a fallback when unmarshalling and no child type is found
+	if c.model.IsDiscriminatedParentType() {
+		// Output a Raw{Type}Impl struct for use as a fallback when unmarshalling an unimplemented discriminated type
+		implementationStructName := fmt.Sprintf("Raw%sImpl", c.name)
+
+		out += fmt.Sprintf(`
+var _ %[1]s = %[3]s{}
+
+// %[3]s is returned when the Discriminated Value doesn't match any of the defined types
 // NOTE: this should only be used when a type isn't defined for this type of Object (as a workaround)
 // and is used only for Deserialization (e.g. this cannot be used as a Request Payload).
-type Raw%[1]sImpl struct {
-	%[2]s %[1]sBase
+type %[3]s struct {
+	%[2]s %[4]s
 	Type string
 	Values map[string]interface{}
 }
 
-`, c.name, camelCase(c.name))
-
-		out += fmt.Sprintf(`
-func (s Raw%[1]sImpl) %[1]s() %[1]sBase {
+func (s %[3]s) %[1]s() %[4]s {
 	return s.%[2]s
 }
 
-`, c.name, camelCase(c.name))
+`, c.name, camelCase(c.name), implementationStructName, structName)
+
+		// Output functions for Raw{Type}Impl to satisfy ancestor interfaces
+		for _, ancestorName := range ancestorTypeNames {
+			// the parent model we're returning will get a Base{model}Impl struct
+			ancestorStructName := fmt.Sprintf("Base%sImpl", ancestorName)
+
+			out += fmt.Sprintf(`
+func (s %[1]s) %[2]s() %[3]s {
+	return s.%[4]s.%[2]s()
+}
+
+`, implementationStructName, ancestorName, ancestorStructName, camelCase(c.name))
+		}
 	}
 
 	return &out, nil
@@ -219,12 +257,6 @@ func (c modelsTemplater) methods(data GeneratorData) (*string, error) {
 		return nil, fmt.Errorf("generating date functions: %+v", err)
 	}
 	code = append(code, *dateFunctions)
-
-	parentModelFunctions, err := c.codeForParentStructFunctions(data)
-	if err != nil {
-		return nil, fmt.Errorf("generating parent model functions: %+v", err)
-	}
-	code = append(code, *parentModelFunctions)
 
 	marshalFunctions, err := c.codeForMarshalFunctions(data)
 	if err != nil {
@@ -247,24 +279,7 @@ func (c modelsTemplater) methods(data GeneratorData) (*string, error) {
 func (c modelsTemplater) structLineForField(fieldName, fieldType string, fieldDetails models.SDKField, data GeneratorData) (*string, error) {
 	jsonDetails := fieldDetails.JsonName
 
-	isOptional := false
-	if fieldDetails.Optional {
-		isOptional = true
-
-		// TODO: this'll want rolling out by Service Package (likely using the new base layer toggle, for now)
-		// but I'm disabling this entirely for the moment to workaround the issue.
-		if !featureflags.OptionalDiscriminatorsShouldBeOutputWithoutOmitEmpty {
-			// however if the immediate (not top-level) object definition is a Reference to a Parent it's Optional
-			// by default since Parent types are output as an interface (which is implied nullable)
-			if fieldDetails.ObjectDefinition.Type == models.ReferenceSDKObjectDefinitionType {
-				model, ok := data.models[*fieldDetails.ObjectDefinition.ReferenceName]
-				if ok && model.FieldNameContainingDiscriminatedValue != nil && model.ParentTypeName == nil {
-					isOptional = false
-				}
-			}
-		}
-	}
-	if isOptional || fieldDetails.ReadOnly {
+	if c.fieldIsOptional(data, fieldDetails) || fieldDetails.ReadOnly {
 		if !strings.HasPrefix(fieldType, "nullable.") {
 			fieldType = fmt.Sprintf("*%s", fieldType)
 		}
@@ -391,51 +406,74 @@ func (c modelsTemplater) dateFunctionForField(fieldName string, fieldDetails mod
 
 func (c modelsTemplater) codeForParentStructFunctions(data GeneratorData) (*string, error) {
 	out := ""
+	structName := c.name
 
 	if c.model.ParentTypeName == nil {
 		return &out, nil
 	}
 
-	parentTypeName := ""
-	structFields := make([]string, 0)
+	// parent models get a Base{model}Impl struct so as not to conflict with their interface name
+	if c.model.IsDiscriminatedParentType() {
+		structName = fmt.Sprintf("Base%sImpl", c.name)
+	}
 
+	ancestorTypeNames := make([]string, 0)
+
+	ancestorTypeNames = append(ancestorTypeNames, *c.model.ParentTypeName)
 	if c.model.FieldNameContainingDiscriminatedValue != nil {
-		_, foundParentTypeName, err := c.recurseParentModels(data, *c.model.ParentTypeName, *c.model.FieldNameContainingDiscriminatedValue)
+		_, foundAncestorTypeNames, err := c.findModelAncestry(data, *c.model.ParentTypeName, *c.model.FieldNameContainingDiscriminatedValue)
 		if err != nil {
 			return nil, err
 		}
-		parentTypeName = *foundParentTypeName
-
-	} else {
-		parentTypeName = *c.model.ParentTypeName
+		ancestorTypeNames = *foundAncestorTypeNames
 	}
 
-	// Intentionally only setting fields from the outermost parent model
-	parent, ok := data.models[parentTypeName]
-	if !ok {
-		return nil, fmt.Errorf("couldn't find Parent Model %q for Model %q", *c.model.ParentTypeName, c.name)
-	}
-
-	parentFields := make([]string, 0)
-	for fieldName := range parent.Fields {
-		parentFields = append(parentFields, fieldName)
-	}
-	sort.Strings(parentFields)
-
-	if len(parentFields) > 0 {
-		for _, fieldName := range parentFields {
-			structFields = append(structFields, fmt.Sprintf(`%[1]s: s.%[1]s,`, fieldName))
+	// We want to include fields from all ancestors, grouped by ancestor name
+	ancestorFields := make(map[string]map[string]models.SDKField)
+	for _, ancestorTypeName := range ancestorTypeNames {
+		parent, ok := data.models[ancestorTypeName]
+		if !ok {
+			return nil, fmt.Errorf("couldn't find Ancestor Model %q for Model %q", ancestorTypeName, c.name)
+		}
+		ancestorFields[ancestorTypeName] = make(map[string]models.SDKField)
+		for fieldName, fieldDetails := range parent.Fields {
+			ancestorFields[ancestorTypeName][fieldName] = fieldDetails
 		}
 	}
 
-	out += fmt.Sprintf(`
-func (s %[1]s) %[2]s() %[2]sBase {
-	return %[2]sBase{
-		%[3]s
+	// Get sorted slices of ancestors' field names
+	ancestorFieldNames := make(map[string][]string)
+	for ancestorName := range ancestorFields {
+		ancestorFieldNames[ancestorName] = make([]string, 0, len(ancestorFields[ancestorName]))
+		for fieldName := range ancestorFields[ancestorName] {
+			ancestorFieldNames[ancestorName] = append(ancestorFieldNames[ancestorName], fieldName)
+		}
+		sort.Strings(ancestorFieldNames[ancestorName])
+	}
+
+	// Output functions to satisfy ancestor interfaces
+	for i, ancestorName := range ancestorTypeNames {
+		// parent models get a Base{model}Impl struct so as not to conflict with their interface name
+		ancestorStructName := fmt.Sprintf("Base%sImpl", ancestorName)
+		ancestorStructFields := make([]string, 0)
+
+		// Get fields from the current/next ancestor, plus any older ancestors
+		for j := i; j < len(ancestorTypeNames); j++ {
+			nextAncestorName := ancestorTypeNames[j]
+			for _, fieldName := range ancestorFieldNames[nextAncestorName] {
+				ancestorStructFields = append(ancestorStructFields, fmt.Sprintf(`%[1]s: s.%[1]s,`, fieldName))
+			}
+		}
+
+		out += fmt.Sprintf(`
+func (s %[1]s) %[2]s() %[3]s {
+	return %[3]s{
+		%[4]s
 	}
 }
 
-`, c.name, parentTypeName, strings.Join(structFields, "\n"))
+`, structName, ancestorName, ancestorStructName, strings.Join(ancestorStructFields, "\n"))
+	}
 
 	return &out, nil
 }
@@ -467,9 +505,9 @@ func (c modelsTemplater) codeForMarshalFunctions(data GeneratorData) (*string, e
 
 	structName := c.name
 
-	// parent models get a {model}Base struct
+	// parent models get a Base{model}Impl struct so as not to conflict with their interface name
 	if c.model.IsDiscriminatedParentType() {
-		structName = fmt.Sprintf("%sBase", c.name)
+		structName = fmt.Sprintf("Base%sImpl", c.name)
 	}
 
 	output += fmt.Sprintf(`
@@ -484,7 +522,7 @@ func (s %[1]s) MarshalJSON() ([]byte, error) {
 	}
 
 	var decoded map[string]interface{}
-	if err := json.Unmarshal(encoded, &decoded); err != nil {
+	if err = json.Unmarshal(encoded, &decoded); err != nil {
 		return nil, fmt.Errorf("unmarshaling %[1]s: %%+v", err)
 	}
 
@@ -556,6 +594,9 @@ func (c modelsTemplater) codeForUnmarshalParentFunction(data GeneratorData) (*st
 		return &output, nil
 	}
 
+	// parent models get a Base{model}Impl struct so as not to conflict with their interface name
+	structName := fmt.Sprintf("Base%sImpl", c.name)
+
 	// if this is a Discriminated Type (e.g. Parent) then we need to generate an Unmarshal{Name}Implementation
 	// function which can be used in any usages
 	lines := make([]string, 0)
@@ -618,19 +659,19 @@ func Unmarshal%[1]sImplementation(input []byte) (%[1]s, error) {
 
 	// if it doesn't match - we generate and deserialize into a 'Raw{Name}Impl' type - named intentionally
 	// so that we don't conflict with a generated 'Raw{Name}' type which exists in a handful of Swaggers
+	implementationStructName := fmt.Sprintf("Raw%sImpl", c.name)
 	lines = append(lines, fmt.Sprintf(`
-	var parent %[1]sBase
+	var parent %[1]s
 	if err := json.Unmarshal(input, &parent); err != nil {
-		return nil, fmt.Errorf("unmarshaling into %[1]sBase: %%+v", err)
+		return nil, fmt.Errorf("unmarshaling into %[1]s: %%+v", err)
 	}
 
-	out := Raw%[1]sImpl{
-		%[2]s: parent,
+	return %[2]s{
+		%[3]s: parent,
 		Type: value,
 		Values: temp,
-	}
-	return out, nil
-`, c.name, camelCase(c.name)))
+	}, nil
+`, structName, implementationStructName, camelCase(c.name)))
 
 	lines = append(lines, "}")
 
@@ -641,9 +682,9 @@ func Unmarshal%[1]sImplementation(input []byte) (%[1]s, error) {
 func (c modelsTemplater) codeForUnmarshalStructFunction(data GeneratorData) (*string, error) {
 	structName := c.name
 
-	// parent models get a {model}Base struct
+	// parent models get a Base{model}Impl struct so as not to conflict with their interface name
 	if c.model.IsDiscriminatedParentType() {
-		structName = fmt.Sprintf("%sBase", c.name)
+		structName = fmt.Sprintf("Base%sImpl", c.name)
 	}
 
 	lines := make([]string, 0)
@@ -816,9 +857,14 @@ func (s *%[1]s) UnmarshalJSON(bytes []byte) error {`, structName))
 	}`, fieldName, *topLevelObjectDef.ReferenceName, structName, assignmentPrefix, fieldDetails.JsonName))
 			}
 
-			// if the field is read-only, we need to assign the pointer value
 			assignmentPrefix := ""
-			if fieldDetails.ReadOnly {
+			fieldType, err := helpers.GolangTypeForSDKObjectDefinition(fieldDetails.ObjectDefinition, nil, data.commonTypesPackageName)
+			if err != nil {
+				return nil, err
+			}
+
+			// if the field is optional, read-only, or nullable, but not a nullable type, we need to assign the pointer value
+			if (c.fieldIsOptional(data, fieldDetails) || fieldDetails.ReadOnly || fieldDetails.ObjectDefinition.Nullable) && !strings.HasPrefix(*fieldType, "nullable.") {
 				assignmentPrefix = "&"
 			}
 
@@ -842,7 +888,43 @@ func (s *%[1]s) UnmarshalJSON(bytes []byte) error {`, structName))
 	return &output, nil
 }
 
-// recurseParentModels walks the models hierarchy to find the parentName and field details of the model for disciminated types
+// findModelAncestry walks the models hierarchy to find all ancestors of the specified model for discriminated types.
+func (c modelsTemplater) findModelAncestry(data GeneratorData, parentModelName, typeHint string) (*models.SDKField, *[]string, error) {
+	if data.recurseParentModels {
+		field, model, err := c.recurseParentModels(data, parentModelName, typeHint)
+		if err != nil {
+			return nil, nil, err
+		}
+		return field, &[]string{*model}, nil
+	}
+
+	parentModel, ok := data.models[parentModelName]
+	if !ok {
+		return nil, nil, fmt.Errorf("the parent model %q for model %q was not found", parentModelName, c.name)
+	}
+
+	ancestors := []string{parentModelName}
+	var field *models.SDKField
+
+	if parentField, ok := parentModel.Fields[typeHint]; ok {
+		field = &parentField
+	}
+
+	if parentModel.ParentTypeName != nil {
+		parentField, older, err := c.findModelAncestry(data, *parentModel.ParentTypeName, typeHint)
+		if err != nil {
+			return nil, nil, err
+		}
+		if field == nil {
+			field = parentField
+		}
+		ancestors = append(ancestors, *older...)
+	}
+
+	return field, &ancestors, nil
+}
+
+// recurseParentModels walks the models hierarchy to find the parentName and field details of the model for discriminated types
 // This is a temporary measure until we update the swagger importer to connect the model fields inheritance for multiple parents.
 // Tracked at: https://github.com/hashicorp/pandora/issues/1235
 func (c modelsTemplater) recurseParentModels(data GeneratorData, model string, typeHint string) (*models.SDKField, *string, error) {
@@ -865,4 +947,21 @@ func (c modelsTemplater) recurseParentModels(data GeneratorData, model string, t
 	}
 
 	return &field, &model, nil
+}
+
+func (c modelsTemplater) fieldIsOptional(data GeneratorData, fieldDetails models.SDKField) (isOptional bool) {
+	if fieldDetails.Optional {
+		isOptional = true
+
+		// If the immediate (not top-level) object definition is a Reference to a Parent it's Optional
+		// by default since Parent types are output as an interface (which is implied nullable)
+		if fieldDetails.ObjectDefinition.Type == models.ReferenceSDKObjectDefinitionType {
+			model, ok := data.models[*fieldDetails.ObjectDefinition.ReferenceName]
+			if ok && model.FieldNameContainingDiscriminatedValue != nil && model.ParentTypeName == nil {
+				isOptional = false
+			}
+		}
+	}
+
+	return
 }

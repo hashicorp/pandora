@@ -80,6 +80,9 @@ type GeneratorData struct {
 	// whether this is a data plane SDK (omits certain Resource Manager specific features, currently used in ID parsers)
 	isDataPlane bool
 
+	// whether parent models should be traversed recursively so that the most distant ancestor is allocated as the parent
+	recurseParentModels bool
+
 	// development feature flag - should this service use the new transport layer from `hashicorp/go-azure-sdk`
 	// rather than the existing Autorest base layer?
 	useNewBaseLayer bool
@@ -119,6 +122,7 @@ func (i ServiceGeneratorInput) generatorData(settings Settings) GeneratorData {
 		models:                        i.ResourceDetails.Models,
 		operations:                    i.ResourceDetails.Operations,
 		packageName:                   resourcePackageName,
+		recurseParentModels:           settings.RecurseParentModels,
 		resourceIds:                   i.ResourceDetails.ResourceIDs,
 		resourceOutputPath:            resourceOutputPath,
 		serviceClientName:             fmt.Sprintf("%sClient", strings.Title(i.ResourceName)),
@@ -169,6 +173,7 @@ func (i VersionGeneratorInput) generatorData(settings Settings) VersionGenerator
 			isDataPlane:                   models.SourceDataTypeIsDataPlane(i.Type),
 			models:                        i.CommonTypes.Models,
 			packageName:                   versionPackageName,
+			recurseParentModels:           settings.RecurseParentModels,
 			servicePackageName:            strings.ToLower(i.ServiceName),
 			source:                        i.Source,
 			sourceType:                    i.Type,
