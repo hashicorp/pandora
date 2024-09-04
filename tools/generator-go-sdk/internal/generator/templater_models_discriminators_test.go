@@ -75,29 +75,30 @@ import (
 
 // acctests licence placeholder
 
-type ModeOfTransitBase struct {
+type ModeOfTransit interface {
+	ModeOfTransit() BaseModeOfTransitImpl
+}
+
+type BaseModeOfTransitImpl struct {
 	Type string ''json:"type"''
 }
 
-type ModeOfTransit interface {
-	ModeOfTransit() ModeOfTransitBase
-}
+var _ ModeOfTransit = RawModeOfTransitImpl{}
 
-// RawModeOfTransitImpl is returned when the Discriminated Value
-// doesn't match any of the defined types
+// RawModeOfTransitImpl is returned when the Discriminated Value doesn't match any of the defined types
 // NOTE: this should only be used when a type isn't defined for this type of Object (as a workaround)
 // and is used only for Deserialization (e.g. this cannot be used as a Request Payload).
 type RawModeOfTransitImpl struct {
-	modeOfTransit ModeOfTransitBase
+	modeOfTransit BaseModeOfTransitImpl
 	Type string
 	Values map[string]interface{}
 }
 
-func (s RawModeOfTransitImpl) ModeOfTransit() ModeOfTransitBase {
+func (s RawModeOfTransitImpl) ModeOfTransit() BaseModeOfTransitImpl {
 	return s.modeOfTransit
 }
 
-func unmarshalModeOfTransitImplementation(input []byte) (ModeOfTransit, error) {
+func UnmarshalModeOfTransitImplementation(input []byte) (ModeOfTransit, error) {
 	if input == nil {
 		return nil, nil
 	}
@@ -128,17 +129,16 @@ func unmarshalModeOfTransitImplementation(input []byte) (ModeOfTransit, error) {
 		return out, nil
 	}
 
-	var parent ModeOfTransitBase
+	var parent BaseModeOfTransitImpl
 	if err := json.Unmarshal(input, &parent); err != nil {
-		return nil, fmt.Errorf("unmarshaling into ModeOfTransitBase: %+v", err)
+		return nil, fmt.Errorf("unmarshaling into BaseModeOfTransitImpl: %+v", err)
 	}
 
-	out := RawModeOfTransitImpl{
+	return RawModeOfTransitImpl{
 		modeOfTransit: parent,
 		Type: value,
 		Values: temp,
-	}
-	return out, nil
+	}, nil
 }
 `, "''", "`")
 	assertTemplatedCodeMatches(t, expected, *actual)
@@ -246,8 +246,8 @@ type Train struct {
 	Type string ''json:"type"''
 }
 
-func (s Train) ModeOfTransit() ModeOfTransitBase {
-	return ModeOfTransitBase{
+func (s Train) ModeOfTransit() BaseModeOfTransitImpl {
+	return BaseModeOfTransitImpl{
 		Name: s.Name,
 		Type: s.Type,
 	}
@@ -264,7 +264,7 @@ func (s Train) MarshalJSON() ([]byte, error) {
 	}
 
 	var decoded map[string]interface{}
-	if err := json.Unmarshal(encoded, &decoded); err != nil {
+	if err = json.Unmarshal(encoded, &decoded); err != nil {
 		return nil, fmt.Errorf("unmarshaling Train: %+v", err)
 	}
 	decoded["type"] = "train"
@@ -485,8 +485,8 @@ type FirstImplementation struct {
 	Type string ''json:"type"''
 }
 
-func (s FirstImplementation) First() FirstBase {
-	return FirstBase{
+func (s FirstImplementation) First() BaseFirstImpl {
+	return BaseFirstImpl{
 		Type: s.Type,
 	}
 }
@@ -502,7 +502,7 @@ func (s FirstImplementation) MarshalJSON() ([]byte, error) {
 	}
 
 	var decoded map[string]interface{}
-	if err := json.Unmarshal(encoded, &decoded); err != nil {
+	if err = json.Unmarshal(encoded, &decoded); err != nil {
 		return nil, fmt.Errorf("unmarshaling FirstImplementation: %+v", err)
 	}
 	decoded["type"] = "first"
