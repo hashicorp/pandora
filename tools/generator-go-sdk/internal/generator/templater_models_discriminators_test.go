@@ -79,8 +79,14 @@ type ModeOfTransit interface {
 	ModeOfTransit() BaseModeOfTransitImpl
 }
 
+var _ ModeOfTransit = BaseModeOfTransitImpl{}
+
 type BaseModeOfTransitImpl struct {
 	Type string ''json:"type"''
+}
+
+func (s BaseModeOfTransitImpl) ModeOfTransit() BaseModeOfTransitImpl {
+	return s
 }
 
 var _ ModeOfTransit = RawModeOfTransitImpl{}
