@@ -301,7 +301,7 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 				continue
 			}
 
-			// Determine the base name of the operation, attempting to trim a leading service name since that is redundant
+			// Determine the base name of the operation, whilst attempting to trim a leading service name since that is redundant
 			operationName := ""
 
 			prefixesToTrim := []string{
@@ -313,9 +313,15 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 					prefixesToTrim[i] = fmt.Sprintf("%s%s", prefixesToTrim[i], parser.ResourceSuffix)
 				}
 			}
+
 			shortResourceName := resourceName
 			for _, prefixToTrim := range prefixesToTrim {
-				shortResourceName = strings.TrimPrefix(shortResourceName, prefixToTrim)
+				if verb, ok := normalize.Verbs.Match(shortResourceName); ok {
+					// resource name starts with a standard verb, so remove it before trimming a prefix
+					shortResourceName = *verb + strings.TrimPrefix(strings.TrimPrefix(shortResourceName, *verb), prefixToTrim)
+				} else {
+					shortResourceName = strings.TrimPrefix(shortResourceName, prefixToTrim)
+				}
 			}
 
 			operationName = shortResourceName
