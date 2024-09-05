@@ -10,7 +10,7 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/parser"
 )
 
-var _ workaround = workaroundConditionalAccessPolicy{}
+var _ dataWorkaround = workaroundConditionalAccessPolicy{}
 
 // workaroundConditionalAccessPolicy adds missing fields and fixes some field types.
 type workaroundConditionalAccessPolicy struct{}

@@ -13,7 +13,7 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/internal/logging"
 )
 
-var _ workaround = workaroundODataBind{}
+var _ dataWorkaround = workaroundODataBind{}
 
 // workaroundODataBind inserts an `@odata.bind` field where a field or collection refers to a DirectoryObject. The
 // OpenAPI spec unfortunately does not document relationships between entities.

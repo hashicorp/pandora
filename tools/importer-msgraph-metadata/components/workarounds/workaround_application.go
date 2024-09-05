@@ -11,7 +11,7 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/versions"
 )
 
-var _ workaround = workaroundApplication{}
+var _ dataWorkaround = workaroundApplication{}
 
 // workaroundApplication works around missing fields in the Application model for the beta API.
 //  1. Missing `oauth2RequirePostResponse` field.

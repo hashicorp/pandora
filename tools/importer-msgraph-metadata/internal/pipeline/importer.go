@@ -161,7 +161,10 @@ func (p pipelineForService) RunImport() error {
 		return nil
 	}
 
-	p.resources[p.service] = resources
+	// Apply workarounds
+	if err = workarounds.ApplyWorkaroundsForService(p.apiVersion, p.service, resources, p.resourceIds); err != nil {
+		return err
+	}
 
 	// Consistency checks for discovered resources
 	for resourceName, resource := range resources {
@@ -177,6 +180,7 @@ func (p pipelineForService) RunImport() error {
 		}
 	}
 
+	p.resources[p.service] = resources
 	return nil
 }
 
