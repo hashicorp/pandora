@@ -8,7 +8,7 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/internal/logging"
 )
 
-var _ workaround = workaroundRepeatingResourceIdSegments{}
+var _ dataWorkaround = workaroundRepeatingResourceIdSegments{}
 
 // workaroundRepeatingResourceIdSegments removes incompatible resource IDs due to repeating segments which are not supported at this time.
 type workaroundRepeatingResourceIdSegments struct{}
