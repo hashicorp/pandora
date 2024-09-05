@@ -27,16 +27,13 @@ func load(directory string, fileName string) (*SwaggerDefinition, error) {
 	if err != nil {
 		return nil, fmt.Errorf("loading swagger file %q: %+v", filePath, err)
 	}
-	swaggerDocWithReferences, err = findAndMergeLocalMixins(swaggerDocWithReferences, directory, fileName)
-	if err != nil {
-		return nil, fmt.Errorf("could not mixin remote swagger files referenced by %q: %+v", filePath, err)
-	}
+
 	flattenedWithReferencesOpts := &analysis.FlattenOpts{
 		Minimal:      true,
 		Verbose:      true,
 		Expand:       false,
 		RemoveUnused: false,
-		//ContinueOnError: true,
+		// ContinueOnError: true,
 
 		BasePath: swaggerDocWithReferences.SpecFilePath(),
 		Spec:     analysis.New(swaggerDocWithReferences.Spec()),
@@ -62,7 +59,7 @@ func load(directory string, fileName string) (*SwaggerDefinition, error) {
 		Verbose:      true,
 		Expand:       false,
 		RemoveUnused: false,
-		//ContinueOnError: true,
+		// ContinueOnError: true,
 
 		BasePath: expandedSwaggerDoc.SpecFilePath(),
 		Spec:     analysis.New(expandedSwaggerDoc.Spec()),
