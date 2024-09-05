@@ -4,7 +4,6 @@
 package normalize
 
 import (
-	"fmt"
 	"regexp"
 	"strings"
 
@@ -12,6 +11,22 @@ import (
 	"golang.org/x/text/cases"
 	"golang.org/x/text/language"
 )
+
+type plural struct {
+	singular string
+	plural   string
+}
+
+var pluralExceptions = []plural{
+	{"By", "By"},
+	{"Cache", "Caches"},
+	{"Compatibility", "Compatibility"},
+	{"Data", "Data"},
+	{"Metadata", "Metadata"},
+	{"Orderby", "Orderby"},
+	{"Premise", "Premises"},
+	{"Sortby", "Sortby"},
+}
 
 func Singularize(name string) string {
 	for _, v := range pluralExceptions {
@@ -64,7 +79,7 @@ func CleanName(name string) string {
 	// Innererror should be InnerError
 	name = regexp.MustCompile("^Innererror").ReplaceAllString(name, "InnerError")
 
-	// Ip[A-Zv] should be IP[A-Zv]
+	// Ip[A-Zv] should be IP[A-Zv] (e.g. IpAddress, Ipv6)
 	name = regexp.MustCompile("Ip([A-Zv])").ReplaceAllString(name, "IP${1}")
 
 	// Cidr should be CIDR
@@ -79,6 +94,9 @@ func CleanName(name string) string {
 	// Orderby should be OrderBy
 	name = regexp.MustCompile("^Orderby").ReplaceAllString(name, "OrderBy")
 
+	// Sortby should be SortBy
+	name = regexp.MustCompile("^Sortby").ReplaceAllString(name, "SortBy")
+
 	// (trailing) ID should be Id for compatibility with Go SDK generator
 	name = regexp.MustCompile("([a-z])ID$").ReplaceAllString(name, "${1}Id")
 
@@ -88,57 +106,4 @@ func CleanName(name string) string {
 func CleanNameCamel(name string) string {
 	name = CleanName(name)
 	return strings.ToLower(name[0:1]) + name[1:]
-}
-
-type operationVerbs []string
-
-func (ov operationVerbs) Match(operation string) (*string, bool) {
-	for _, v := range ov {
-		if regexp.MustCompile(fmt.Sprintf("^%s$", v)).MatchString(operation) {
-			return &v, true
-		}
-		if regexp.MustCompile(fmt.Sprintf("^%s[A-Z]", v)).MatchString(operation) {
-			return &v, true
-		}
-	}
-	return nil, false
-}
-
-var Verbs = operationVerbs{
-	"Acquire",
-	"Add",
-	"Assign",
-	"Check",
-	"Discover",
-	"Get",
-	"Instantiate",
-	"Parse",
-	"Pause",
-	"Provision",
-	"Remove",
-	"Renew",
-	"Restart",
-	"Restore",
-	"Set",
-	"Start",
-	"Stop",
-	"Unset",
-	"Update",
-	"Validate",
-}
-
-type plural struct {
-	singular string
-	plural   string
-}
-
-var pluralExceptions = []plural{
-	{"By", "By"},
-	{"Compatibility", "Compatibility"},
-	{"Cache", "Caches"},
-	{"Data", "Data"},
-	{"Metadata", "Metadata"},
-	{"Orderby", "Orderby"},
-	{"Premise", "Premises"},
-	{"Sortby", "Sortby"},
 }
