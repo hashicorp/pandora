@@ -1,0 +1,72 @@
+{
+  "name": "QuotaCounterContract",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "counterKey",
+      "name": "CounterKey",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "dateFormat": "RFC3339",
+      "jsonName": "periodEndTime",
+      "name": "PeriodEndTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "periodKey",
+      "name": "PeriodKey",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "dateFormat": "RFC3339",
+      "jsonName": "periodStartTime",
+      "name": "PeriodStartTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "value",
+      "name": "Value",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "QuotaCounterValueContractProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

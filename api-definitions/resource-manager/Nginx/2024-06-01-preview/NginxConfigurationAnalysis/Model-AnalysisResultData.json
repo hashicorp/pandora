@@ -1,0 +1,22 @@
+{
+  "name": "AnalysisResultData",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "errors",
+      "name": "Errors",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "AnalysisDiagnostic"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

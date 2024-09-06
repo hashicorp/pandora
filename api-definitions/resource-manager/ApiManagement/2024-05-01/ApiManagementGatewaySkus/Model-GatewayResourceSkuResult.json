@@ -1,0 +1,44 @@
+{
+  "name": "GatewayResourceSkuResult",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "capacity",
+      "name": "Capacity",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "GatewaySkuCapacity"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "resourceType",
+      "name": "ResourceType",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sku",
+      "name": "Sku",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "GatewaySku"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

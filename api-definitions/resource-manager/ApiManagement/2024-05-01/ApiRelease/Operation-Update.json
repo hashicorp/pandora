@@ -1,0 +1,30 @@
+{
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "options": [
+    {
+      "headerName": "If-Match",
+      "optional": false,
+      "required": true,
+      "field": "IfMatch",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "ReleaseId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ApiReleaseContract"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ApiReleaseContract"
+  }
+}
