@@ -5,36 +5,44 @@ import "testing"
 func TestSingularize(t *testing.T) {
 	testCases := map[string]string{
 		// Plurals to be singularized
-		"Access":        "Access",
-		"Apps":          "App",
-		"Applications":  "Application",
-		"By":            "By",
-		"Caches":        "Cache",
-		"Data":          "Data",
-		"Details":       "Detail",
-		"Compatibility": "Compatibility",
-		"Entities":      "Entity",
-		"Kinds":         "Kind",
-		"Metadata":      "Metadata",
-		"Modalities":    "Modality",
-		"Options":       "Option",
-		"Orderby":       "Orderby",
-		"Policies":      "Policy",
-		"Premises":      "Premise",
-		"Principals":    "Principal",
-		"Properties":    "Property",
-		"Services":      "Service",
-		"Severities":    "Severity",
-		"Sortby":        "Sortby",
-		"Success":       "Success",
-		"Successes":     "Success",
+		"Apps":         "App",
+		"Applications": "Application",
+		"Caches":       "Cache",
+		"Entities":     "Entity",
+		"Modalities":   "Modality",
+		"Options":      "Option",
+		"Premises":     "Premise",
+		"Principals":   "Principal",
+		"Services":     "Service",
+		"Severities":   "Severity",
+		"Successes":    "Success",
+
+		// Composite plurals to be singularized
+		"FolderProperties": "FolderProperty",
+		"SecurityPolicies": "SecurityPolicy",
+		"ServerDetails":    "ServerDetail",
+		"UserKinds":        "UserKind",
 
 		// Singulars to remain the same
-		"Application": "Application",
-		"Group":       "Group",
-		"Property":    "Property",
-		"Ref":         "Ref",
-		"Reference":   "Reference",
+		"Access":        "Access",
+		"Application":   "Application",
+		"Compatibility": "Compatibility",
+		"By":            "By",
+		"Data":          "Data",
+		"Group":         "Group",
+		"Metadata":      "Metadata",
+		"Orderby":       "Orderby",
+		"Ref":           "Ref",
+		"Reference":     "Reference",
+		"Sortby":        "Sortby",
+
+		// Composite singulars to remain the same
+		"OrderBy":       "OrderBy",
+		"SecurityGroup": "SecurityGroup",
+		"UserData":      "UserData",
+
+		// Already a singular, mistakenly treated as plural
+		"Success": "Success",
 	}
 
 	for input, expected := range testCases {
@@ -51,33 +59,43 @@ func TestPluralize(t *testing.T) {
 		"Access":        "Accesses",
 		"App":           "Apps",
 		"Application":   "Applications",
-		"By":            "By",
 		"Compatibility": "Compatibility",
 		"Cache":         "Caches",
-		"Data":          "Data",
 		"Detail":        "Details",
 		"Entity":        "Entities",
 		"Kind":          "Kinds",
-		"Metadata":      "Metadata",
 		"Modality":      "Modalities",
 		"Option":        "Options",
-		"Orderby":       "Orderby",
 		"Policy":        "Policies",
 		"Premise":       "Premises",
 		"Principal":     "Principals",
 		"Property":      "Properties",
 		"Service":       "Services",
 		"Severity":      "Severities",
-		"Sortby":        "Sortby",
 		"Success":       "Successes",
-		"Successes":     "Successes",
+
+		// Composite plurals to stay the same
+		"FolderProperty": "FolderProperties",
+		"SystemService":  "SystemServices",
+		"UserDetail":     "UserDetails",
 
 		// Plurals to remain the same
 		"Applications": "Applications",
+		"By":           "By",
+		"Data":         "Data",
 		"Groups":       "Groups",
+		"Metadata":     "Metadata",
+		"Orderby":      "Orderby",
 		"Properties":   "Properties",
 		"Refs":         "Refs",
 		"References":   "References",
+		"Sortby":       "Sortby",
+		"Successes":    "Successes",
+
+		// Composite plurals to remain the same
+		"FolderProperties": "FolderProperties",
+		"OrderBy":          "OrderBy",
+		"UserData":         "UserData",
 	}
 
 	for input, expected := range testCases {
