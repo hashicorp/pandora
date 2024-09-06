@@ -1,58 +1,12 @@
-// Copyright (c) HashiCorp, Inc.
-// SPDX-License-Identifier: MPL-2.0
-
 package normalize
 
 import (
 	"regexp"
 	"strings"
 
-	"github.com/gertd/go-pluralize"
 	"golang.org/x/text/cases"
 	"golang.org/x/text/language"
 )
-
-type plural struct {
-	singular string
-	plural   string
-}
-
-var pluralExceptions = []plural{
-	{"By", "By"},
-	{"Cache", "Caches"},
-	{"Compatibility", "Compatibility"},
-	{"Data", "Data"},
-	{"Metadata", "Metadata"},
-	{"Orderby", "Orderby"},
-	{"Premise", "Premises"},
-	{"Sortby", "Sortby"},
-}
-
-func Singularize(name string) string {
-	for _, v := range pluralExceptions {
-		if name == v.plural {
-			return v.singular
-		}
-	}
-
-	client := pluralize.NewClient()
-	output := client.Singular(name)
-
-	return output
-}
-
-func Pluralize(name string) string {
-	for _, v := range pluralExceptions {
-		if name == v.singular {
-			return v.plural
-		}
-	}
-
-	client := pluralize.NewClient()
-	output := client.Plural(name)
-
-	return output
-}
 
 func CleanName(name string) string {
 	if name == "" {
