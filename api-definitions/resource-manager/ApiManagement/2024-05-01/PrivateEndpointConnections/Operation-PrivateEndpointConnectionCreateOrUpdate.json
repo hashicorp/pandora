@@ -1,0 +1,19 @@
+{
+  "name": "PrivateEndpointConnectionCreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "PrivateEndpointConnectionId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "PrivateEndpointConnectionRequest"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "PrivateEndpointConnection"
+  }
+}

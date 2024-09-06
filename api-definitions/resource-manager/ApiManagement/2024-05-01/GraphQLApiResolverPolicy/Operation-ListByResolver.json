@@ -1,0 +1,16 @@
+{
+  "name": "ListByResolver",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "ResolverId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "PolicyContract"
+  },
+  "uriSuffix": "/policies"
+}

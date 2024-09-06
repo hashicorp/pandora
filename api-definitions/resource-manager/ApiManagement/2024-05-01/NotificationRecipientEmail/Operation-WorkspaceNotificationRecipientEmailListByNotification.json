@@ -1,0 +1,16 @@
+{
+  "name": "WorkspaceNotificationRecipientEmailListByNotification",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "NotificationNotificationId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "RecipientEmailContract"
+  },
+  "uriSuffix": "/recipientEmails"
+}

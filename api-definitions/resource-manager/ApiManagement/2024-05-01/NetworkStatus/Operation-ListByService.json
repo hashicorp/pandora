@@ -1,0 +1,19 @@
+{
+  "name": "ListByService",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "ServiceId",
+  "responseObject": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+      "type": "Reference",
+      "referenceName": "NetworkStatusContractByLocation"
+    }
+  },
+  "uriSuffix": "/networkstatus"
+}

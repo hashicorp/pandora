@@ -1,0 +1,31 @@
+{
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "options": [
+    {
+      "headerName": "If-Match",
+      "optional": false,
+      "required": true,
+      "field": "IfMatch",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "NamedValueId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "NamedValueUpdateParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "NamedValueContract"
+  }
+}

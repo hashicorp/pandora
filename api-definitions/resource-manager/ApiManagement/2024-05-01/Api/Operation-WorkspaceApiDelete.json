@@ -1,0 +1,33 @@
+{
+  "name": "WorkspaceApiDelete",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "DELETE",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "deleteRevisions",
+      "required": false,
+      "field": "DeleteRevisions",
+      "optionsObjectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      }
+    },
+    {
+      "headerName": "If-Match",
+      "optional": false,
+      "required": true,
+      "field": "IfMatch",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "WorkspaceApiId"
+}

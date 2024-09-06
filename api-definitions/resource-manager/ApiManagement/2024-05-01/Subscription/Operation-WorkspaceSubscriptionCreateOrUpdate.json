@@ -1,0 +1,51 @@
+{
+  "name": "WorkspaceSubscriptionCreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": false,
+  "httpMethod": "PUT",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "appType",
+      "required": false,
+      "field": "AppType",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "AppType"
+      }
+    },
+    {
+      "headerName": "If-Match",
+      "optional": true,
+      "required": false,
+      "field": "IfMatch",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "notify",
+      "required": false,
+      "field": "Notify",
+      "optionsObjectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "WorkspaceSubscriptions2Id",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "SubscriptionCreateParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "SubscriptionContract"
+  }
+}
