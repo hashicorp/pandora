@@ -56,17 +56,18 @@ func (workaroundSynchronizationSecrets) Process(apiVersion, serviceName string, 
 		}
 
 		resource.Operations = append(resource.Operations, parser.Operation{
-			Name:        "GetSynchronizationSecret",
-			Description: "Retrieve synchronization secrets.",
-			Type:        parser.OperationTypeRead,
-			Method:      http.MethodGet,
-			ResourceId:  resourceId,
-			UriSuffix:   uriSuffix,
+			Name:            "ListSynchronizationSecrets",
+			Description:     "Retrieve synchronization secrets.",
+			Type:            parser.OperationTypeList,
+			Method:          http.MethodGet,
+			PaginationField: pointer.To("@odata.nextLink"),
+			ResourceId:      resourceId,
+			UriSuffix:       uriSuffix,
 			Responses: parser.Responses{
 				{
 					Status:        http.StatusOK,
 					ContentType:   pointer.To("application/json"),
-					ReferenceName: pointer.To("microsoft.graph.synchronizationSecret"),
+					ReferenceName: pointer.To("microsoft.graph.synchronizationSecretKeyStringValuePair"),
 					Type:          pointer.To(parser.DataTypeReference),
 				},
 			},
