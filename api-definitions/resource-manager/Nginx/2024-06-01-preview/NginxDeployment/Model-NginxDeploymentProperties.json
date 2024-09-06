@@ -1,65 +1,13 @@
 {
-  "name": "MariaDBLinkedServiceTypeProperties",
+  "name": "NginxDeploymentProperties",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "connectionString",
-      "name": "ConnectionString",
-      "objectDefinition": {
-        "type": "String",
-        "referenceName": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "database",
-      "name": "Database",
-      "objectDefinition": {
-        "type": "String",
-        "referenceName": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "driverVersion",
-      "name": "DriverVersion",
-      "objectDefinition": {
-        "type": "String",
-        "referenceName": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "encryptedCredential",
-      "name": "EncryptedCredential",
-      "objectDefinition": {
-        "type": "String",
-        "referenceName": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "password",
-      "name": "Password",
+      "jsonName": "autoUpgradeProfile",
+      "name": "AutoUpgradeProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureKeyVaultSecretReference"
+        "referenceName": "AutoUpgradeProfile"
       },
       "optional": true,
       "readOnly": false,
@@ -68,10 +16,10 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "port",
-      "name": "Port",
+      "jsonName": "enableDiagnosticsSupport",
+      "name": "EnableDiagnosticsSupport",
       "objectDefinition": {
-        "type": "Integer",
+        "type": "Boolean",
         "referenceName": null
       },
       "optional": true,
@@ -81,8 +29,34 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "server",
-      "name": "Server",
+      "jsonName": "ipAddress",
+      "name": "IPAddress",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "logging",
+      "name": "Logging",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "NginxLogging"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "managedResourceGroup",
+      "name": "ManagedResourceGroup",
       "objectDefinition": {
         "type": "String",
         "referenceName": null
@@ -94,11 +68,11 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "sslMode",
-      "name": "SslMode",
+      "jsonName": "networkProfile",
+      "name": "NetworkProfile",
       "objectDefinition": {
-        "type": "Integer",
-        "referenceName": null
+        "type": "Reference",
+        "referenceName": "NginxNetworkProfile"
       },
       "optional": true,
       "readOnly": false,
@@ -107,11 +81,11 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "useSystemTrustStore",
-      "name": "UseSystemTrustStore",
+      "jsonName": "nginxAppProtect",
+      "name": "NginxAppProtect",
       "objectDefinition": {
-        "type": "Integer",
-        "referenceName": null
+        "type": "Reference",
+        "referenceName": "NginxDeploymentPropertiesNginxAppProtect"
       },
       "optional": true,
       "readOnly": false,
@@ -120,11 +94,50 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "username",
-      "name": "Username",
+      "jsonName": "nginxVersion",
+      "name": "NginxVersion",
       "objectDefinition": {
         "type": "String",
         "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "provisioningState",
+      "name": "ProvisioningState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ProvisioningState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "scalingProperties",
+      "name": "ScalingProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "NginxDeploymentScalingProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "userProfile",
+      "name": "UserProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "NginxDeploymentUserProfile"
       },
       "optional": true,
       "readOnly": false,

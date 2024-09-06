@@ -1,65 +1,13 @@
 {
-  "name": "MariaDBLinkedServiceTypeProperties",
+  "name": "NginxCertificateProperties",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "connectionString",
-      "name": "ConnectionString",
-      "objectDefinition": {
-        "type": "String",
-        "referenceName": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "database",
-      "name": "Database",
-      "objectDefinition": {
-        "type": "String",
-        "referenceName": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "driverVersion",
-      "name": "DriverVersion",
-      "objectDefinition": {
-        "type": "String",
-        "referenceName": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "encryptedCredential",
-      "name": "EncryptedCredential",
-      "objectDefinition": {
-        "type": "String",
-        "referenceName": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "password",
-      "name": "Password",
+      "jsonName": "certificateError",
+      "name": "CertificateError",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureKeyVaultSecretReference"
+        "referenceName": "NginxCertificateErrorResponseBody"
       },
       "optional": true,
       "readOnly": false,
@@ -68,21 +16,8 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "port",
-      "name": "Port",
-      "objectDefinition": {
-        "type": "Integer",
-        "referenceName": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "server",
-      "name": "Server",
+      "jsonName": "certificateVirtualPath",
+      "name": "CertificateVirtualPath",
       "objectDefinition": {
         "type": "String",
         "referenceName": null
@@ -94,10 +29,11 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "sslMode",
-      "name": "SslMode",
+      "dateFormat": "RFC3339",
+      "jsonName": "keyVaultSecretCreated",
+      "name": "KeyVaultSecretCreated",
       "objectDefinition": {
-        "type": "Integer",
+        "type": "DateTime",
         "referenceName": null
       },
       "optional": true,
@@ -107,10 +43,10 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "useSystemTrustStore",
-      "name": "UseSystemTrustStore",
+      "jsonName": "keyVaultSecretId",
+      "name": "KeyVaultSecretId",
       "objectDefinition": {
-        "type": "Integer",
+        "type": "String",
         "referenceName": null
       },
       "optional": true,
@@ -120,8 +56,47 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "username",
-      "name": "Username",
+      "jsonName": "keyVaultSecretVersion",
+      "name": "KeyVaultSecretVersion",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "keyVirtualPath",
+      "name": "KeyVirtualPath",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "provisioningState",
+      "name": "ProvisioningState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ProvisioningState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sha1Thumbprint",
+      "name": "Sha1Thumbprint",
       "objectDefinition": {
         "type": "String",
         "referenceName": null

@@ -1,10 +1,10 @@
 {
-  "name": "MariaDBLinkedServiceTypeProperties",
+  "name": "NginxDeployment",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "connectionString",
-      "name": "ConnectionString",
+      "jsonName": "id",
+      "name": "Id",
       "objectDefinition": {
         "type": "String",
         "referenceName": null
@@ -16,8 +16,34 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "database",
-      "name": "Database",
+      "jsonName": "identity",
+      "name": "Identity",
+      "objectDefinition": {
+        "type": "SystemAndUserAssignedIdentityMap",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "location",
+      "name": "Location",
+      "objectDefinition": {
+        "type": "Location",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "name",
+      "name": "Name",
       "objectDefinition": {
         "type": "String",
         "referenceName": null
@@ -29,37 +55,11 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "driverVersion",
-      "name": "DriverVersion",
-      "objectDefinition": {
-        "type": "String",
-        "referenceName": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "encryptedCredential",
-      "name": "EncryptedCredential",
-      "objectDefinition": {
-        "type": "String",
-        "referenceName": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "password",
-      "name": "Password",
+      "jsonName": "properties",
+      "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureKeyVaultSecretReference"
+        "referenceName": "NginxDeploymentProperties"
       },
       "optional": true,
       "readOnly": false,
@@ -68,10 +68,23 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "port",
-      "name": "Port",
+      "jsonName": "sku",
+      "name": "Sku",
       "objectDefinition": {
-        "type": "Integer",
+        "type": "Reference",
+        "referenceName": "ResourceSku"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "systemData",
+      "name": "SystemData",
+      "objectDefinition": {
+        "type": "SystemData",
         "referenceName": null
       },
       "optional": true,
@@ -81,10 +94,10 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "server",
-      "name": "Server",
+      "jsonName": "tags",
+      "name": "Tags",
       "objectDefinition": {
-        "type": "String",
+        "type": "Tags",
         "referenceName": null
       },
       "optional": true,
@@ -94,34 +107,8 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "sslMode",
-      "name": "SslMode",
-      "objectDefinition": {
-        "type": "Integer",
-        "referenceName": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "useSystemTrustStore",
-      "name": "UseSystemTrustStore",
-      "objectDefinition": {
-        "type": "Integer",
-        "referenceName": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "username",
-      "name": "Username",
+      "jsonName": "type",
+      "name": "Type",
       "objectDefinition": {
         "type": "String",
         "referenceName": null
