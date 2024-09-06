@@ -1,0 +1,16 @@
+{
+  "name": "ListByNotification",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "NotificationId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "RecipientUserContract"
+  },
+  "uriSuffix": "/recipientUsers"
+}

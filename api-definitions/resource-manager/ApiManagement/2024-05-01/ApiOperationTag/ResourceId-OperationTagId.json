@@ -1,0 +1,70 @@
+{
+  "name": "OperationTagId",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/operations/{operationId}/tags/{tagId}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticResourceGroups",
+      "type": "Static",
+      "value": "resourceGroups"
+    },
+    {
+      "name": "resourceGroupName",
+      "type": "ResourceGroup"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftApiManagement",
+      "type": "ResourceProvider",
+      "value": "Microsoft.ApiManagement"
+    },
+    {
+      "name": "staticService",
+      "type": "Static",
+      "value": "service"
+    },
+    {
+      "name": "serviceName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticApis",
+      "type": "Static",
+      "value": "apis"
+    },
+    {
+      "name": "apiId",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticOperations",
+      "type": "Static",
+      "value": "operations"
+    },
+    {
+      "name": "operationId",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticTags",
+      "type": "Static",
+      "value": "tags"
+    },
+    {
+      "name": "tagId",
+      "type": "UserSpecified"
+    }
+  ]
+}

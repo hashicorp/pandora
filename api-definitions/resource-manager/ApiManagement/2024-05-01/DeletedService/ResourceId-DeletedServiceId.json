@@ -1,0 +1,43 @@
+{
+  "name": "DeletedServiceId",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.ApiManagement/locations/{locationName}/deletedServices/{deletedServiceName}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftApiManagement",
+      "type": "ResourceProvider",
+      "value": "Microsoft.ApiManagement"
+    },
+    {
+      "name": "staticLocations",
+      "type": "Static",
+      "value": "locations"
+    },
+    {
+      "name": "locationName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticDeletedServices",
+      "type": "Static",
+      "value": "deletedServices"
+    },
+    {
+      "name": "deletedServiceName",
+      "type": "UserSpecified"
+    }
+  ]
+}

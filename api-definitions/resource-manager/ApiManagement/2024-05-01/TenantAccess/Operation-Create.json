@@ -1,0 +1,30 @@
+{
+  "name": "Create",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PUT",
+  "options": [
+    {
+      "headerName": "If-Match",
+      "optional": false,
+      "required": true,
+      "field": "IfMatch",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "AccessId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "AccessInformationCreateParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "AccessInformationContract"
+  }
+}

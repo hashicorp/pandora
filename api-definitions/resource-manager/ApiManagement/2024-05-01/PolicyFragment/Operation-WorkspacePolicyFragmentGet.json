@@ -1,0 +1,26 @@
+{
+  "name": "WorkspacePolicyFragmentGet",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "format",
+      "required": false,
+      "field": "Format",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "PolicyFragmentContentFormat"
+      }
+    }
+  ],
+  "resourceIdName": "WorkspacePolicyFragmentId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "PolicyFragmentContract"
+  }
+}

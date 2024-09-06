@@ -1,0 +1,30 @@
+{
+  "name": "WorkspaceTagUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "options": [
+    {
+      "headerName": "If-Match",
+      "optional": false,
+      "required": true,
+      "field": "IfMatch",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "WorkspaceTagId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "TagCreateUpdateParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "TagContract"
+  }
+}

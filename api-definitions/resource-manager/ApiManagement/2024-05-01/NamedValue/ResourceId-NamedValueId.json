@@ -1,0 +1,52 @@
+{
+  "name": "NamedValueId",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/namedValues/{namedValueId}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticResourceGroups",
+      "type": "Static",
+      "value": "resourceGroups"
+    },
+    {
+      "name": "resourceGroupName",
+      "type": "ResourceGroup"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftApiManagement",
+      "type": "ResourceProvider",
+      "value": "Microsoft.ApiManagement"
+    },
+    {
+      "name": "staticService",
+      "type": "Static",
+      "value": "service"
+    },
+    {
+      "name": "serviceName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticNamedValues",
+      "type": "Static",
+      "value": "namedValues"
+    },
+    {
+      "name": "namedValueId",
+      "type": "UserSpecified"
+    }
+  ]
+}

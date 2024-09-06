@@ -1,0 +1,27 @@
+{
+  "name": "Get",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "format",
+      "required": false,
+      "field": "Format",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "PolicyExportFormat"
+      }
+    }
+  ],
+  "resourceIdName": "OperationId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "PolicyContract"
+  },
+  "uriSuffix": "/policies/policy"
+}

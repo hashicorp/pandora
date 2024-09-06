@@ -1,0 +1,30 @@
+{
+  "name": "WorkspaceLoggerUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "options": [
+    {
+      "headerName": "If-Match",
+      "optional": false,
+      "required": true,
+      "field": "IfMatch",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "WorkspaceLoggerId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "LoggerUpdateContract"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "LoggerContract"
+  }
+}

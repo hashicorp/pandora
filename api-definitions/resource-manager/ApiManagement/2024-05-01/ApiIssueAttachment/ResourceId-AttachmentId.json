@@ -1,0 +1,70 @@
+{
+  "name": "AttachmentId",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/issues/{issueId}/attachments/{attachmentId}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticResourceGroups",
+      "type": "Static",
+      "value": "resourceGroups"
+    },
+    {
+      "name": "resourceGroupName",
+      "type": "ResourceGroup"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftApiManagement",
+      "type": "ResourceProvider",
+      "value": "Microsoft.ApiManagement"
+    },
+    {
+      "name": "staticService",
+      "type": "Static",
+      "value": "service"
+    },
+    {
+      "name": "serviceName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticApis",
+      "type": "Static",
+      "value": "apis"
+    },
+    {
+      "name": "apiId",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticIssues",
+      "type": "Static",
+      "value": "issues"
+    },
+    {
+      "name": "issueId",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticAttachments",
+      "type": "Static",
+      "value": "attachments"
+    },
+    {
+      "name": "attachmentId",
+      "type": "UserSpecified"
+    }
+  ]
+}

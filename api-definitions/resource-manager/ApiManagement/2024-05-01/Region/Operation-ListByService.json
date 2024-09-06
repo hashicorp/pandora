@@ -1,0 +1,16 @@
+{
+  "name": "ListByService",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "ServiceId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "RegionContract"
+  },
+  "uriSuffix": "/regions"
+}

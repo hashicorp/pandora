@@ -1,0 +1,31 @@
+{
+  "name": "NginxDeploymentScalingProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "autoScaleSettings",
+      "name": "AutoScaleSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "NginxDeploymentScalingPropertiesAutoScaleSettings"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "capacity",
+      "name": "Capacity",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

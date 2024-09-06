@@ -1,0 +1,61 @@
+{
+  "name": "ApiLinkId",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/tags/{tagId}/apiLinks/{apiLinkId}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticResourceGroups",
+      "type": "Static",
+      "value": "resourceGroups"
+    },
+    {
+      "name": "resourceGroupName",
+      "type": "ResourceGroup"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftApiManagement",
+      "type": "ResourceProvider",
+      "value": "Microsoft.ApiManagement"
+    },
+    {
+      "name": "staticService",
+      "type": "Static",
+      "value": "service"
+    },
+    {
+      "name": "serviceName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticTags",
+      "type": "Static",
+      "value": "tags"
+    },
+    {
+      "name": "tagId",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticApiLinks",
+      "type": "Static",
+      "value": "apiLinks"
+    },
+    {
+      "name": "apiLinkId",
+      "type": "UserSpecified"
+    }
+  ]
+}

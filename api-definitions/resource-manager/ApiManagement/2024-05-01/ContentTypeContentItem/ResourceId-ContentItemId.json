@@ -1,0 +1,61 @@
+{
+  "name": "ContentItemId",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/contentTypes/{contentTypeId}/contentItems/{contentItemId}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticResourceGroups",
+      "type": "Static",
+      "value": "resourceGroups"
+    },
+    {
+      "name": "resourceGroupName",
+      "type": "ResourceGroup"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftApiManagement",
+      "type": "ResourceProvider",
+      "value": "Microsoft.ApiManagement"
+    },
+    {
+      "name": "staticService",
+      "type": "Static",
+      "value": "service"
+    },
+    {
+      "name": "serviceName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticContentTypes",
+      "type": "Static",
+      "value": "contentTypes"
+    },
+    {
+      "name": "contentTypeId",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticContentItems",
+      "type": "Static",
+      "value": "contentItems"
+    },
+    {
+      "name": "contentItemId",
+      "type": "UserSpecified"
+    }
+  ]
+}

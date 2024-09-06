@@ -1,0 +1,19 @@
+{
+  "name": "CreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": false,
+  "httpMethod": "PUT",
+  "resourceIdName": "OperationLinkId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "TagOperationLinkContract"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "TagOperationLinkContract"
+  }
+}

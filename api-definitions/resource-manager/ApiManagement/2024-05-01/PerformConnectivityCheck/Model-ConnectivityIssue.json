@@ -1,0 +1,65 @@
+{
+  "name": "ConnectivityIssue",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "context",
+      "name": "Context",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Dictionary",
+          "referenceName": null,
+          "nestedItem": {
+            "type": "String",
+            "referenceName": null
+          }
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "origin",
+      "name": "Origin",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Origin"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "severity",
+      "name": "Severity",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Severity"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "type",
+      "name": "Type",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "IssueType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

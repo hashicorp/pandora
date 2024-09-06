@@ -1,0 +1,19 @@
+{
+  "name": "GatewayListTrace",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "ServiceGatewayId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "GatewayListTraceContract"
+  },
+  "responseObject": {
+    "type": "RawObject",
+    "referenceName": null
+  },
+  "uriSuffix": "/listTrace"
+}

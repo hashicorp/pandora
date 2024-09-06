@@ -1,0 +1,57 @@
+{
+  "name": "TagResourceContract",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "api",
+      "name": "Api",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ApiTagResourceContractProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "operation",
+      "name": "Operation",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "OperationTagResourceContractProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "product",
+      "name": "Product",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ProductTagResourceContractProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "tag",
+      "name": "Tag",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "TagTagResourceContractProperties"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ]
+}

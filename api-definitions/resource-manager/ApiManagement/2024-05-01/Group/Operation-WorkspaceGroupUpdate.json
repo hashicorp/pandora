@@ -1,0 +1,30 @@
+{
+  "name": "WorkspaceGroupUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "options": [
+    {
+      "headerName": "If-Match",
+      "optional": false,
+      "required": true,
+      "field": "IfMatch",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "WorkspaceGroupId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "GroupUpdateParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "GroupContract"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "GatewayRegenerateKey",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "ServiceGatewayId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "GatewayKeyRegenerationRequestContract"
+  },
+  "uriSuffix": "/regenerateKey"
+}

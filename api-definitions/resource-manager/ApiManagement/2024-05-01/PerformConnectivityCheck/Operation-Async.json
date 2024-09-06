@@ -1,0 +1,20 @@
+{
+  "name": "Async",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "ServiceId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ConnectivityCheckRequest"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ConnectivityCheckResponse"
+  },
+  "uriSuffix": "/connectivityCheck"
+}

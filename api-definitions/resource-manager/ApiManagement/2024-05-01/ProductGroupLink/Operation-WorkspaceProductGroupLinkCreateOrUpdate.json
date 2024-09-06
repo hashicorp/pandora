@@ -1,0 +1,19 @@
+{
+  "name": "WorkspaceProductGroupLinkCreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": false,
+  "httpMethod": "PUT",
+  "resourceIdName": "ProductGroupLinkId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ProductGroupLinkContract"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ProductGroupLinkContract"
+  }
+}

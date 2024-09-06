@@ -1,0 +1,41 @@
+{
+  "name": "CreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": false,
+  "httpMethod": "PUT",
+  "options": [
+    {
+      "headerName": "If-Match",
+      "optional": true,
+      "required": false,
+      "field": "IfMatch",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "notify",
+      "required": false,
+      "field": "Notify",
+      "optionsObjectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "UserId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "UserCreateParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "UserContract"
+  }
+}

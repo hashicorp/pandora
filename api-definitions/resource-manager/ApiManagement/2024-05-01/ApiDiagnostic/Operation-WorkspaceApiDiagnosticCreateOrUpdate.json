@@ -1,0 +1,31 @@
+{
+  "name": "WorkspaceApiDiagnosticCreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": false,
+  "httpMethod": "PUT",
+  "options": [
+    {
+      "headerName": "If-Match",
+      "optional": true,
+      "required": false,
+      "field": "IfMatch",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "WorkspaceApiDiagnosticId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "DiagnosticContract"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "DiagnosticContract"
+  }
+}

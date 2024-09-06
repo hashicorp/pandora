@@ -1,0 +1,38 @@
+{
+  "name": "WorkspacePolicyFragmentListReferences",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "$skip",
+      "required": false,
+      "field": "Skip",
+      "optionsObjectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "$top",
+      "required": false,
+      "field": "Top",
+      "optionsObjectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "WorkspacePolicyFragmentId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "Resource"
+  },
+  "uriSuffix": "/listReferences"
+}

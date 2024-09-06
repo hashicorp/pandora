@@ -1,0 +1,62 @@
+{
+  "name": "RecipientUserId",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/notifications/{notificationName}/recipientUsers/{userId}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticResourceGroups",
+      "type": "Static",
+      "value": "resourceGroups"
+    },
+    {
+      "name": "resourceGroupName",
+      "type": "ResourceGroup"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftApiManagement",
+      "type": "ResourceProvider",
+      "value": "Microsoft.ApiManagement"
+    },
+    {
+      "name": "staticService",
+      "type": "Static",
+      "value": "service"
+    },
+    {
+      "name": "serviceName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticNotifications",
+      "type": "Static",
+      "value": "notifications"
+    },
+    {
+      "constantName": "NotificationName",
+      "name": "notificationName",
+      "type": "Constant"
+    },
+    {
+      "name": "staticRecipientUsers",
+      "type": "Static",
+      "value": "recipientUsers"
+    },
+    {
+      "name": "userId",
+      "type": "UserSpecified"
+    }
+  ]
+}

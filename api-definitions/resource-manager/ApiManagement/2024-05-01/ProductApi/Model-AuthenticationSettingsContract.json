@@ -1,0 +1,65 @@
+{
+  "name": "AuthenticationSettingsContract",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "oAuth2",
+      "name": "OAuth2",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "OAuth2AuthenticationSettingsContract"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "oAuth2AuthenticationSettings",
+      "name": "OAuth2AuthenticationSettings",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "OAuth2AuthenticationSettingsContract"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "openid",
+      "name": "Openid",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "OpenIdAuthenticationSettingsContract"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "openidAuthenticationSettings",
+      "name": "OpenidAuthenticationSettings",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "OpenIdAuthenticationSettingsContract"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

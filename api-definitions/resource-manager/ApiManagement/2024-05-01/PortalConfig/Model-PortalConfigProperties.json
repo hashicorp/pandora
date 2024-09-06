@@ -1,0 +1,83 @@
+{
+  "name": "PortalConfigProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "cors",
+      "name": "Cors",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PortalConfigCorsProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "csp",
+      "name": "Csp",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PortalConfigCspProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "delegation",
+      "name": "Delegation",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PortalConfigDelegationProperties"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "enableBasicAuth",
+      "name": "EnableBasicAuth",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "signin",
+      "name": "Signin",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PortalConfigPropertiesSignin"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "signup",
+      "name": "Signup",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PortalConfigPropertiesSignup"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

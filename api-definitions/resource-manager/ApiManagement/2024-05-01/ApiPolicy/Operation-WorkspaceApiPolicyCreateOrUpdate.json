@@ -1,0 +1,32 @@
+{
+  "name": "WorkspaceApiPolicyCreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": false,
+  "httpMethod": "PUT",
+  "options": [
+    {
+      "headerName": "If-Match",
+      "optional": true,
+      "required": false,
+      "field": "IfMatch",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "WorkspaceApiId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "PolicyContract"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "PolicyContract"
+  },
+  "uriSuffix": "/policies/policy"
+}

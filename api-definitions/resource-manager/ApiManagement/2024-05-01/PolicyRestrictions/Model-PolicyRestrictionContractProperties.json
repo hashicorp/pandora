@@ -1,0 +1,31 @@
+{
+  "name": "PolicyRestrictionContractProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "requireBase",
+      "name": "RequireBase",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PolicyRestrictionRequireBase"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "scope",
+      "name": "Scope",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

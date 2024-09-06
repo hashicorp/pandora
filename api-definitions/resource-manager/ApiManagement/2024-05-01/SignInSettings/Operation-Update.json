@@ -1,0 +1,27 @@
+{
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "options": [
+    {
+      "headerName": "If-Match",
+      "optional": false,
+      "required": true,
+      "field": "IfMatch",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "ServiceId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "PortalSigninSettings"
+  },
+  "uriSuffix": "/portalsettings/signin"
+}
