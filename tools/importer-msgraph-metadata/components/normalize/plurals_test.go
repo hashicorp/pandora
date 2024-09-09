@@ -34,10 +34,12 @@ func TestSingularize(t *testing.T) {
 		"Orderby":       "Orderby",
 		"Ref":           "Ref",
 		"Reference":     "Reference",
+		"Sms":           "Sms",
 		"Sortby":        "Sortby",
 
 		// Composite singulars to remain the same
 		"OrderBy":       "OrderBy",
+		"ReminderSms":   "ReminderSms",
 		"SecurityGroup": "SecurityGroup",
 		"UserData":      "UserData",
 

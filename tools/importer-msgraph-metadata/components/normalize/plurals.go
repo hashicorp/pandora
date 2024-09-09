@@ -20,6 +20,7 @@ var pluralExceptions = []plural{
 	{"Metadata", "Metadata"},
 	{"Orderby", "Orderby"},
 	{"Premise", "Premises"},
+	{"Sms", "Sms"},
 	{"Sortby", "Sortby"},
 }
 
