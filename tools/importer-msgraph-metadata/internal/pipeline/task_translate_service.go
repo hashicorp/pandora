@@ -63,10 +63,10 @@ func (p pipelineForService) translateServiceToDataApiSdkTypes() (*sdkModels.Serv
 			}
 
 			var requestObject *sdkModels.SDKObjectDefinition
-			requestObjectIsCommonType := true
 
 			if operation.RequestModel != nil {
 				schemaName := *operation.RequestModel
+				requestObjectIsCommonType := true
 
 				if !p.models.Found(schemaName) {
 					return nil, fmt.Errorf("request model %q was not found for operation: %s", schemaName, operation.Name)
@@ -224,11 +224,11 @@ func (p pipelineForService) translateServiceToDataApiSdkTypes() (*sdkModels.Serv
 			}
 
 			var responseObject *sdkModels.SDKObjectDefinition
-			responseObjectIsCommonType := true
 
 			for _, response := range operation.Responses {
 				if response.Type != nil && *response.Type == parser.DataTypeReference && response.ReferenceName != nil {
 					schemaName := *response.ReferenceName
+					responseObjectIsCommonType := true
 
 					if !p.constants.Found(schemaName) && !p.models.Found(schemaName) {
 						return nil, fmt.Errorf("response constant or model %q was not found for operation: %s", schemaName, operation.Name)
@@ -298,6 +298,7 @@ func (p pipelineForService) translateServiceToDataApiSdkTypes() (*sdkModels.Serv
 			}
 		}
 
+		// Append any service-local models that were discovered
 		for _, model := range serviceModels {
 			sdkModel, err := model.DataApiSdkModel(p.models, p.constants)
 			if err != nil {
