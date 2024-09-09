@@ -87,7 +87,7 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 		//   len(resourceName)>27 && resourceName[:27]=="DirectoryAdministrativeUnit"
 		if _, ok := resources[resourceName]; !ok {
 			// Create a new resource if not already encountered
-			logging.Infof(fmt.Sprintf("Found new resource %q (category %q, service %q, version %q)", resourceName, resourceCategory, p.service, p.apiVersion))
+			logging.Infof(fmt.Sprintf("Found new resource %q (service %q, version %q)", resourceName, p.service, p.apiVersion))
 
 			resources[resourceName] = &parser.Resource{
 				Name:       resourceName,
@@ -129,7 +129,7 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 		// can happen when no parent resource ID has been matched, for example if a resource ID was blacklisted.
 		if uriSuffix != nil {
 			if uriSuffixParsed := parser.NewResourceId(*uriSuffix, operationTags); uriSuffixParsed.HasUserValue() {
-				logging.Infof(fmt.Sprintf("Skipping URI suffix containing user value in resource %q (category %q, service %q, version %q): %q", resourceName, resourceCategory, p.service, p.apiVersion, *uriSuffix))
+				logging.Infof(fmt.Sprintf("Skipping URI suffix containing user value in resource %q (service %q, version %q): %q", resourceName, p.service, p.apiVersion, *uriSuffix))
 				continue
 			}
 		}
@@ -301,9 +301,7 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 				continue
 			}
 
-			// Determine the base name of the operation, whilst attempting to trim a leading service name since that is redundant
-			operationName := ""
-
+			// Determine prefixes to trim from the operation name
 			prefixesToTrim := []string{
 				normalize.CleanName(p.service),
 				normalize.Singularize(normalize.CleanName(p.service)),
@@ -314,6 +312,7 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 				}
 			}
 
+			// Trim prefixes from the resourceName to get a shortResourceName, which we'll use to build the operationName and to match for known verbs
 			shortResourceName := resourceName
 			for _, prefixToTrim := range prefixesToTrim {
 				if verb, ok := normalize.Verbs.Match(shortResourceName); ok {
@@ -324,10 +323,15 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 				}
 			}
 
-			operationName = shortResourceName
+			// Set the name of the operation using the determined shortResourceName (i.e. resourceName with trimmed prefixes)
+			operationName := shortResourceName
 			if len(operationName) == 0 {
+				// If trimming prefixes truncated the operationName, then use the full resourceName
 				operationName = resourceName
 			}
+
+			// Remove duplicate words in the operationName
+			operationName = normalize.DeDuplicateName(operationName)
 
 			// Now qualify the operation name based on the type of operation. Additionally, if the operation name
 			// matches a known verb, move that verb to the beginning and use it instead of a standard verb.
@@ -354,7 +358,7 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 				}
 
 			case parser.OperationTypeCreateUpdate:
-				operationName = fmt.Sprintf("CreateUpdate%s", normalize.Singularize(operationName))
+				operationName = fmt.Sprintf("Set%s", normalize.Singularize(operationName))
 
 			case parser.OperationTypeUpdate:
 				operationName = fmt.Sprintf("Update%s", normalize.Singularize(operationName))
@@ -561,12 +565,13 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 		}
 	}
 
-	// Loop through resources and trim the leading word if it matches the category _and_ there are more words after it
+	// Clean up categories
 	for _, resource := range resources {
 		if resource.Service == "" || resource.Category == "" {
 			continue
 		}
 
+		// Trim the leading word if it matches the category _and_ there are more words after it
 		serviceSingularized := normalize.Singularize(resource.Service)
 		if strings.HasPrefix(resource.Category, serviceSingularized) {
 			trimmedCategory := strings.TrimPrefix(resource.Category, serviceSingularized)
@@ -574,6 +579,9 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 				resource.Category = trimmedCategory
 			}
 		}
+
+		// Remove duplicate words in the category
+		resource.Category = normalize.DeDuplicateName(resource.Category)
 	}
 
 	return
