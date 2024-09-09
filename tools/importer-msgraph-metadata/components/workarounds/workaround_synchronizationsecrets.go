@@ -23,6 +23,7 @@ func (workaroundSynchronizationSecrets) Name() string {
 
 func (workaroundSynchronizationSecrets) Process(apiVersion, serviceName string, resources parser.Resources, resourceIds parser.ResourceIds) error {
 	serviceNamesToPaths := map[string]string{
+		"applications":      "/applications/{application-id}/synchronization/secrets",
 		"servicePrincipals": "/servicePrincipals/{servicePrincipal-id}/synchronization/secrets",
 	}
 
