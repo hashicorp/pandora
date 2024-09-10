@@ -1,0 +1,43 @@
+{
+  "name": "ImageId",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevOpsInfrastructure/images/{imageName}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticResourceGroups",
+      "type": "Static",
+      "value": "resourceGroups"
+    },
+    {
+      "name": "resourceGroupName",
+      "type": "ResourceGroup"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftDevOpsInfrastructure",
+      "type": "ResourceProvider",
+      "value": "Microsoft.DevOpsInfrastructure"
+    },
+    {
+      "name": "staticImages",
+      "type": "Static",
+      "value": "images"
+    },
+    {
+      "name": "imageName",
+      "type": "UserSpecified"
+    }
+  ]
+}

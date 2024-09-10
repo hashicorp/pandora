@@ -1,0 +1,35 @@
+{
+  "name": "StorageProfile",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "dataDisks",
+      "name": "DataDisks",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "DataDisk"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "osDiskStorageAccountType",
+      "name": "OsDiskStorageAccountType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "OsDiskStorageAccountType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "GitHubOrganizationProfile",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "organizations",
+      "name": "Organizations",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "GitHubOrganization"
+        }
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "OrganizationProfile",
+  "discriminatedTypeValue": "GitHub",
+  "typeHintIn": "Kind"
+}
