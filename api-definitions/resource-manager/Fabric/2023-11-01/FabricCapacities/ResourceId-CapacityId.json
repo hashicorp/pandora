@@ -1,0 +1,43 @@
+{
+  "name": "CapacityId",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Fabric/capacities/{capacityName}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticResourceGroups",
+      "type": "Static",
+      "value": "resourceGroups"
+    },
+    {
+      "name": "resourceGroupName",
+      "type": "ResourceGroup"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftFabric",
+      "type": "ResourceProvider",
+      "value": "Microsoft.Fabric"
+    },
+    {
+      "name": "staticCapacities",
+      "type": "Static",
+      "value": "capacities"
+    },
+    {
+      "name": "capacityName",
+      "type": "UserSpecified"
+    }
+  ]
+}
