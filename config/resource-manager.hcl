@@ -196,13 +196,13 @@ service "deviceupdate" {
   name      = "DeviceUpdate"
   available = ["2022-10-01", "2023-07-01"]
 }
+service "devopsinfrastructure" {
+  name      = "DevOpsInfrastructure"
+  available = ["2024-04-04-preview"]
+}
 service "devtestlabs" {
   name      = "DevTestLab"
   available = ["2018-09-15"]
-}
-service "devopsinfrastructure" {
-  name = "DevOpsInfrastructure"
-  available = ["2024-04-04-preview"]
 }
 service "digitaltwins" {
   name      = "DigitalTwins"
