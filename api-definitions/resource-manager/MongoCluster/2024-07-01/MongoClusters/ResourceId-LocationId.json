@@ -1,0 +1,34 @@
+{
+  "name": "LocationId",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{locationName}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftDocumentDB",
+      "type": "ResourceProvider",
+      "value": "Microsoft.DocumentDB"
+    },
+    {
+      "name": "staticLocations",
+      "type": "Static",
+      "value": "locations"
+    },
+    {
+      "name": "locationName",
+      "type": "UserSpecified"
+    }
+  ]
+}
