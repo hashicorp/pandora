@@ -1,0 +1,52 @@
+{
+  "name": "FirewallRuleId",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/firewallRules/{firewallRuleName}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticResourceGroups",
+      "type": "Static",
+      "value": "resourceGroups"
+    },
+    {
+      "name": "resourceGroupName",
+      "type": "ResourceGroup"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftDocumentDB",
+      "type": "ResourceProvider",
+      "value": "Microsoft.DocumentDB"
+    },
+    {
+      "name": "staticMongoClusters",
+      "type": "Static",
+      "value": "mongoClusters"
+    },
+    {
+      "name": "mongoClusterName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticFirewallRules",
+      "type": "Static",
+      "value": "firewallRules"
+    },
+    {
+      "name": "firewallRuleName",
+      "type": "UserSpecified"
+    }
+  ]
+}

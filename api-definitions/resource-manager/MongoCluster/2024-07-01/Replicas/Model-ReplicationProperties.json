@@ -1,0 +1,44 @@
+{
+  "name": "ReplicationProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "replicationState",
+      "name": "ReplicationState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ReplicationState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "role",
+      "name": "Role",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ReplicationRole"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sourceResourceId",
+      "name": "SourceResourceId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}
