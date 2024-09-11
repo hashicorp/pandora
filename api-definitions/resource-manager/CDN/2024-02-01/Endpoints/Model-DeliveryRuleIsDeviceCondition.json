@@ -1,0 +1,21 @@
+{
+  "name": "DeliveryRuleIsDeviceCondition",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "parameters",
+      "name": "Parameters",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "IsDeviceMatchConditionParameters"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "DeliveryRuleCondition",
+  "discriminatedTypeValue": "IsDevice",
+  "typeHintIn": "Name"
+}

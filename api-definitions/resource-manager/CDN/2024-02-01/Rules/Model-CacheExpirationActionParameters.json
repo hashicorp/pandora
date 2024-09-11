@@ -1,0 +1,47 @@
+{
+  "name": "CacheExpirationActionParameters",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "cacheBehavior",
+      "name": "CacheBehavior",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CacheBehavior"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "cacheDuration",
+      "name": "CacheDuration",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "cacheType",
+      "name": "CacheType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CacheType"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "DeliveryRuleActionParameters",
+  "discriminatedTypeValue": "DeliveryRuleCacheExpirationActionParameters",
+  "typeHintIn": "TypeName"
+}

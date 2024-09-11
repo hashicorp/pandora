@@ -1,0 +1,19 @@
+{
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "ProfileId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ProfileUpdateParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "Profile"
+  }
+}

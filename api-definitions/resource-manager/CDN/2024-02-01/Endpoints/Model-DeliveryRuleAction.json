@@ -1,0 +1,19 @@
+{
+  "name": "DeliveryRuleAction",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": true,
+      "jsonName": "name",
+      "name": "Name",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DeliveryRuleActionName"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "typeHintIn": "Name"
+}

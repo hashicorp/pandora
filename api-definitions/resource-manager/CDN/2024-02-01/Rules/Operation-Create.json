@@ -1,0 +1,20 @@
+{
+  "name": "Create",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "RuleId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "Rule"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "Rule"
+  }
+}

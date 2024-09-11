@@ -1,0 +1,16 @@
+{
+  "name": "ListByEndpoint",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "EndpointId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "OriginGroup"
+  },
+  "uriSuffix": "/originGroups"
+}

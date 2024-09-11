@@ -1,0 +1,43 @@
+{
+  "name": "CdnWebApplicationFirewallPolicyId",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CDN/cdnWebApplicationFirewallPolicies/{cdnWebApplicationFirewallPolicyName}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticResourceGroups",
+      "type": "Static",
+      "value": "resourceGroups"
+    },
+    {
+      "name": "resourceGroupName",
+      "type": "ResourceGroup"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftCDN",
+      "type": "ResourceProvider",
+      "value": "Microsoft.CDN"
+    },
+    {
+      "name": "staticCdnWebApplicationFirewallPolicies",
+      "type": "Static",
+      "value": "cdnWebApplicationFirewallPolicies"
+    },
+    {
+      "name": "cdnWebApplicationFirewallPolicyName",
+      "type": "UserSpecified"
+    }
+  ]
+}

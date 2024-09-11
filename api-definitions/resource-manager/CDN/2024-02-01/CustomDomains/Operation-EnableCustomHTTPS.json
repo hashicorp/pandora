@@ -1,0 +1,20 @@
+{
+  "name": "EnableCustomHTTPS",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "EndpointCustomDomainId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "CustomDomainHTTPSParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "CustomDomain"
+  },
+  "uriSuffix": "/enableCustomHttps"
+}

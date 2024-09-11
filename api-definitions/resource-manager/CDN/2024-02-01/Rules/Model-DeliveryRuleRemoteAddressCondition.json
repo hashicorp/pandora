@@ -1,0 +1,21 @@
+{
+  "name": "DeliveryRuleRemoteAddressCondition",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "parameters",
+      "name": "Parameters",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RemoteAddressMatchConditionParameters"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "DeliveryRuleCondition",
+  "discriminatedTypeValue": "RemoteAddress",
+  "typeHintIn": "Name"
+}

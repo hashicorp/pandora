@@ -1,0 +1,61 @@
+{
+  "name": "RouteId",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CDN/profiles/{profileName}/afdEndpoints/{afdEndpointName}/routes/{routeName}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticResourceGroups",
+      "type": "Static",
+      "value": "resourceGroups"
+    },
+    {
+      "name": "resourceGroupName",
+      "type": "ResourceGroup"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftCDN",
+      "type": "ResourceProvider",
+      "value": "Microsoft.CDN"
+    },
+    {
+      "name": "staticProfiles",
+      "type": "Static",
+      "value": "profiles"
+    },
+    {
+      "name": "profileName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticAfdEndpoints",
+      "type": "Static",
+      "value": "afdEndpoints"
+    },
+    {
+      "name": "afdEndpointName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticRoutes",
+      "type": "Static",
+      "value": "routes"
+    },
+    {
+      "name": "routeName",
+      "type": "UserSpecified"
+    }
+  ]
+}

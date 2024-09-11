@@ -1,0 +1,19 @@
+{
+  "name": "ValidateProbe",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "SubscriptionId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ValidateProbeInput"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ValidateProbeOutput"
+  },
+  "uriSuffix": "/providers/Microsoft.CDN/validateProbe"
+}

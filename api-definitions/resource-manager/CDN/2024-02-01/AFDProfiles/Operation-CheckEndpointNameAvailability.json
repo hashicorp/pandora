@@ -1,0 +1,19 @@
+{
+  "name": "CheckEndpointNameAvailability",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "ProfileId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "CheckEndpointNameAvailabilityInput"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "CheckEndpointNameAvailabilityOutput"
+  },
+  "uriSuffix": "/checkEndpointNameAvailability"
+}

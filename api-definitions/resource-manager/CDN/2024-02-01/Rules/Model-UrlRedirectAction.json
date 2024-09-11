@@ -1,0 +1,21 @@
+{
+  "name": "UrlRedirectAction",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "parameters",
+      "name": "Parameters",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "UrlRedirectActionParameters"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "DeliveryRuleAction",
+  "discriminatedTypeValue": "UrlRedirect",
+  "typeHintIn": "Name"
+}

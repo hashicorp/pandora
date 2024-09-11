@@ -1,0 +1,47 @@
+{
+  "name": "HeaderActionParameters",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "headerAction",
+      "name": "HeaderAction",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "HeaderAction"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "headerName",
+      "name": "HeaderName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "value",
+      "name": "Value",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "DeliveryRuleActionParameters",
+  "discriminatedTypeValue": "DeliveryRuleHeaderActionParameters",
+  "typeHintIn": "TypeName"
+}

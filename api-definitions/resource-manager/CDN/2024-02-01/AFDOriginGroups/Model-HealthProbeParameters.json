@@ -1,0 +1,57 @@
+{
+  "name": "HealthProbeParameters",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "probeIntervalInSeconds",
+      "name": "ProbeIntervalInSeconds",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "probePath",
+      "name": "ProbePath",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "probeProtocol",
+      "name": "ProbeProtocol",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ProbeProtocol"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "probeRequestType",
+      "name": "ProbeRequestType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "HealthProbeRequestType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

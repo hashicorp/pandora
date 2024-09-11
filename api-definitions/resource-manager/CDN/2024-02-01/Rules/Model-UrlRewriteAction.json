@@ -1,0 +1,21 @@
+{
+  "name": "UrlRewriteAction",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "parameters",
+      "name": "Parameters",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "UrlRewriteActionParameters"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "DeliveryRuleAction",
+  "discriminatedTypeValue": "UrlRewrite",
+  "typeHintIn": "Name"
+}

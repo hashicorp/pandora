@@ -1,0 +1,21 @@
+{
+  "name": "OriginGroupOverrideActionParameters",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "originGroup",
+      "name": "OriginGroup",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ResourceReference"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "DeliveryRuleActionParameters",
+  "discriminatedTypeValue": "DeliveryRuleOriginGroupOverrideActionParameters",
+  "typeHintIn": "TypeName"
+}

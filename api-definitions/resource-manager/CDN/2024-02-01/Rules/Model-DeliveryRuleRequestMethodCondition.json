@@ -1,0 +1,21 @@
+{
+  "name": "DeliveryRuleRequestMethodCondition",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "parameters",
+      "name": "Parameters",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RequestMethodMatchConditionParameters"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "DeliveryRuleCondition",
+  "discriminatedTypeValue": "RequestMethod",
+  "typeHintIn": "Name"
+}

@@ -1,0 +1,20 @@
+{
+  "name": "PoliciesCreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "CdnWebApplicationFirewallPolicyId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "CdnWebApplicationFirewallPolicy"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "CdnWebApplicationFirewallPolicy"
+  }
+}

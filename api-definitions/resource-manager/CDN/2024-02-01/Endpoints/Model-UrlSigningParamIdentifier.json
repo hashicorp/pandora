@@ -1,0 +1,31 @@
+{
+  "name": "UrlSigningParamIdentifier",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "paramIndicator",
+      "name": "ParamIndicator",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ParamIndicator"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "paramName",
+      "name": "ParamName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ]
+}

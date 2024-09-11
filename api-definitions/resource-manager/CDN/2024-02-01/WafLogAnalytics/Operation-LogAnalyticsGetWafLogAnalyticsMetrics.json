@@ -1,0 +1,103 @@
+{
+  "name": "LogAnalyticsGetWafLogAnalyticsMetrics",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "actions",
+      "required": false,
+      "field": "Actions",
+      "optionsObjectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      }
+    },
+    {
+      "optional": false,
+      "queryString": "dateTimeBegin",
+      "required": true,
+      "field": "DateTimeBegin",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": false,
+      "queryString": "dateTimeEnd",
+      "required": true,
+      "field": "DateTimeEnd",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": false,
+      "queryString": "granularity",
+      "required": true,
+      "field": "Granularity",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "WafGranularity"
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "groupBy",
+      "required": false,
+      "field": "GroupBy",
+      "optionsObjectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      }
+    },
+    {
+      "optional": false,
+      "queryString": "metrics",
+      "required": true,
+      "field": "Metrics",
+      "optionsObjectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "ruleTypes",
+      "required": false,
+      "field": "RuleTypes",
+      "optionsObjectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      }
+    }
+  ],
+  "resourceIdName": "ProfileId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "WafMetricsResponse"
+  },
+  "uriSuffix": "/getWafLogAnalyticsMetrics"
+}

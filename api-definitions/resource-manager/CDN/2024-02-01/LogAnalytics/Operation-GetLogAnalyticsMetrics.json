@@ -1,0 +1,131 @@
+{
+  "name": "GetLogAnalyticsMetrics",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "continents",
+      "required": false,
+      "field": "Continents",
+      "optionsObjectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "countryOrRegions",
+      "required": false,
+      "field": "CountryOrRegions",
+      "optionsObjectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      }
+    },
+    {
+      "optional": false,
+      "queryString": "customDomains",
+      "required": true,
+      "field": "CustomDomains",
+      "optionsObjectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      }
+    },
+    {
+      "optional": false,
+      "queryString": "dateTimeBegin",
+      "required": true,
+      "field": "DateTimeBegin",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": false,
+      "queryString": "dateTimeEnd",
+      "required": true,
+      "field": "DateTimeEnd",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": false,
+      "queryString": "granularity",
+      "required": true,
+      "field": "Granularity",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "LogMetricsGranularity"
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "groupBy",
+      "required": false,
+      "field": "GroupBy",
+      "optionsObjectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      }
+    },
+    {
+      "optional": false,
+      "queryString": "metrics",
+      "required": true,
+      "field": "Metrics",
+      "optionsObjectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      }
+    },
+    {
+      "optional": false,
+      "queryString": "protocols",
+      "required": true,
+      "field": "Protocols",
+      "optionsObjectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      }
+    }
+  ],
+  "resourceIdName": "ProfileId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "MetricsResponse"
+  },
+  "uriSuffix": "/getLogAnalyticsMetrics"
+}

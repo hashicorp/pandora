@@ -1,0 +1,19 @@
+{
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "OriginId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "OriginUpdateParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "Origin"
+  }
+}

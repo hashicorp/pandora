@@ -1,0 +1,31 @@
+{
+  "name": "OriginGroupOverride",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "forwardingProtocol",
+      "name": "ForwardingProtocol",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ForwardingProtocol"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "originGroup",
+      "name": "OriginGroup",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ResourceReference"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}
