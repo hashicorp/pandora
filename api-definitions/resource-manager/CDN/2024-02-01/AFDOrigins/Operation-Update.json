@@ -1,0 +1,19 @@
+{
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "OriginGroupOriginId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "AFDOriginUpdateParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "AFDOrigin"
+  }
+}

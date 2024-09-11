@@ -1,0 +1,38 @@
+{
+  "name": "SecurityPolicyWebApplicationFirewallParameters",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "associations",
+      "name": "Associations",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "SecurityPolicyWebApplicationFirewallAssociation"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "wafPolicy",
+      "name": "WafPolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ResourceReference"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "SecurityPolicyPropertiesParameters",
+  "discriminatedTypeValue": "WebApplicationFirewall",
+  "typeHintIn": "Type"
+}

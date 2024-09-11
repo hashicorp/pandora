@@ -1,0 +1,19 @@
+{
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "CustomDomainId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "AFDDomainUpdateParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "AFDDomain"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "DeliveryRuleRequestHeaderAction",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "parameters",
+      "name": "Parameters",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "HeaderActionParameters"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "DeliveryRuleAction",
+  "discriminatedTypeValue": "ModifyRequestHeader",
+  "typeHintIn": "Name"
+}

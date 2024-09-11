@@ -1,0 +1,48 @@
+{
+  "name": "ResponseBasedOriginErrorDetectionParameters",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "httpErrorRanges",
+      "name": "HTTPErrorRanges",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "HTTPErrorRangeParameters"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "responseBasedDetectedErrorTypes",
+      "name": "ResponseBasedDetectedErrorTypes",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ResponseBasedDetectedErrorTypes"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "responseBasedFailoverThresholdPercentage",
+      "name": "ResponseBasedFailoverThresholdPercentage",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

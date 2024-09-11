@@ -1,0 +1,21 @@
+{
+  "name": "CdnManagedHTTPSParameters",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "certificateSourceParameters",
+      "name": "CertificateSourceParameters",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CdnCertificateSourceParameters"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "CustomDomainHTTPSParameters",
+  "discriminatedTypeValue": "Cdn",
+  "typeHintIn": "CertificateSource"
+}

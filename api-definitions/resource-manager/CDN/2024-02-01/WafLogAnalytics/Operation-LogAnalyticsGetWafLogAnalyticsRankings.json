@@ -1,0 +1,103 @@
+{
+  "name": "LogAnalyticsGetWafLogAnalyticsRankings",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "actions",
+      "required": false,
+      "field": "Actions",
+      "optionsObjectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      }
+    },
+    {
+      "optional": false,
+      "queryString": "dateTimeBegin",
+      "required": true,
+      "field": "DateTimeBegin",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": false,
+      "queryString": "dateTimeEnd",
+      "required": true,
+      "field": "DateTimeEnd",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": false,
+      "queryString": "maxRanking",
+      "required": true,
+      "field": "MaxRanking",
+      "optionsObjectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": false,
+      "queryString": "metrics",
+      "required": true,
+      "field": "Metrics",
+      "optionsObjectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      }
+    },
+    {
+      "optional": false,
+      "queryString": "rankings",
+      "required": true,
+      "field": "Rankings",
+      "optionsObjectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "ruleTypes",
+      "required": false,
+      "field": "RuleTypes",
+      "optionsObjectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      }
+    }
+  ],
+  "resourceIdName": "ProfileId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "WafRankingsResponse"
+  },
+  "uriSuffix": "/getWafLogAnalyticsRankings"
+}

@@ -1,0 +1,22 @@
+{
+  "name": "ManagedRuleSetList",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "managedRuleSets",
+      "name": "ManagedRuleSets",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "ManagedRuleSet"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}
