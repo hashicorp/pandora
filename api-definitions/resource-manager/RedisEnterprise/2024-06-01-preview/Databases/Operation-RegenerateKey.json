@@ -1,0 +1,20 @@
+{
+  "name": "RegenerateKey",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "DatabaseId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "RegenerateKeyParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "AccessKeys"
+  },
+  "uriSuffix": "/regenerateKey"
+}

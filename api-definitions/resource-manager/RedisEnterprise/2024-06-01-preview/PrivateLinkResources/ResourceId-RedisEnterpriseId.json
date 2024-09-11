@@ -1,0 +1,43 @@
+{
+  "name": "RedisEnterpriseId",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{redisEnterpriseName}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticResourceGroups",
+      "type": "Static",
+      "value": "resourceGroups"
+    },
+    {
+      "name": "resourceGroupName",
+      "type": "ResourceGroup"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftCache",
+      "type": "ResourceProvider",
+      "value": "Microsoft.Cache"
+    },
+    {
+      "name": "staticRedisEnterprise",
+      "type": "Static",
+      "value": "redisEnterprise"
+    },
+    {
+      "name": "redisEnterpriseName",
+      "type": "UserSpecified"
+    }
+  ]
+}

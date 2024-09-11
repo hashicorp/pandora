@@ -1,0 +1,19 @@
+{
+  "name": "Create",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "RedisEnterpriseId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "Cluster"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "Cluster"
+  }
+}

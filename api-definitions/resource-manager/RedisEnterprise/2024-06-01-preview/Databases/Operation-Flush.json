@@ -1,0 +1,16 @@
+{
+  "name": "Flush",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "DatabaseId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "FlushParameters"
+  },
+  "uriSuffix": "/flush"
+}
