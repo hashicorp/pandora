@@ -8,5 +8,37 @@
   ],
   "longRunning": true,
   "httpMethod": "DELETE",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "deleteWorkflow",
+      "required": false,
+      "field": "DeleteWorkflow",
+      "optionsObjectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "ignoreWorkflowDeletionFailure",
+      "required": false,
+      "field": "IgnoreWorkflowDeletionFailure",
+      "optionsObjectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      }
+    },
+    {
+      "headerName": "x-ms-github-auxiliary",
+      "optional": false,
+      "required": true,
+      "field": "XMsGitHubAuxiliary",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
   "resourceIdName": "SourceControlId"
 }

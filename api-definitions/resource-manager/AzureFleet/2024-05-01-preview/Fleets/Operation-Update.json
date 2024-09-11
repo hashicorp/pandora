@@ -1,0 +1,19 @@
+{
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "FleetId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "FleetUpdate"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "Fleet"
+  }
+}

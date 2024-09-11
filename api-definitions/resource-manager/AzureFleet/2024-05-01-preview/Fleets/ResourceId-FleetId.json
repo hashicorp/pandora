@@ -1,0 +1,43 @@
+{
+  "name": "FleetId",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureFleet/fleets/{fleetName}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticResourceGroups",
+      "type": "Static",
+      "value": "resourceGroups"
+    },
+    {
+      "name": "resourceGroupName",
+      "type": "ResourceGroup"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftAzureFleet",
+      "type": "ResourceProvider",
+      "value": "Microsoft.AzureFleet"
+    },
+    {
+      "name": "staticFleets",
+      "type": "Static",
+      "value": "fleets"
+    },
+    {
+      "name": "fleetName",
+      "type": "UserSpecified"
+    }
+  ]
+}

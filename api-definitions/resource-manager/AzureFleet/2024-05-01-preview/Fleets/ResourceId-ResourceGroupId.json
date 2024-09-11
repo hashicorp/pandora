@@ -1,0 +1,25 @@
+{
+  "name": "ResourceGroupId",
+  "commonAlias": "ResourceGroup",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
+  "segments": [
+    {
+      "name": "subscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "resourceGroups",
+      "type": "Static",
+      "value": "resourceGroups"
+    },
+    {
+      "name": "resourceGroupName",
+      "type": "ResourceGroup"
+    }
+  ]
+}

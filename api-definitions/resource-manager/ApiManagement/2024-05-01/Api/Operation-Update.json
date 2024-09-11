@@ -1,0 +1,30 @@
+{
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "options": [
+    {
+      "headerName": "If-Match",
+      "optional": false,
+      "required": true,
+      "field": "IfMatch",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "ApiId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ApiUpdateContract"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ApiContract"
+  }
+}

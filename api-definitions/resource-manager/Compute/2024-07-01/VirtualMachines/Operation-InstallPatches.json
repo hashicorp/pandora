@@ -1,0 +1,20 @@
+{
+  "name": "InstallPatches",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "VirtualMachineId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "VirtualMachineInstallPatchesParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "VirtualMachineInstallPatchesResult"
+  },
+  "uriSuffix": "/installPatches"
+}

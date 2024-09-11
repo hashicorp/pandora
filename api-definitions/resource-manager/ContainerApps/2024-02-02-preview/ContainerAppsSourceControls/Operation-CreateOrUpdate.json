@@ -7,6 +7,18 @@
   ],
   "longRunning": true,
   "httpMethod": "PUT",
+  "options": [
+    {
+      "headerName": "x-ms-github-auxiliary",
+      "optional": false,
+      "required": true,
+      "field": "XMsGitHubAuxiliary",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
   "resourceIdName": "SourceControlId",
   "requestObject": {
     "type": "Reference",

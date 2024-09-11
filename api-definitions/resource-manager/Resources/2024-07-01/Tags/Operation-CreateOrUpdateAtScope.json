@@ -1,0 +1,20 @@
+{
+  "name": "CreateOrUpdateAtScope",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "ScopeId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "TagsResource"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "TagsResource"
+  },
+  "uriSuffix": "/providers/Microsoft.Resources/tags/default"
+}

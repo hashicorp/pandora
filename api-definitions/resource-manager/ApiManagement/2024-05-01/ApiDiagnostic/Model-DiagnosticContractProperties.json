@@ -1,0 +1,135 @@
+{
+  "name": "DiagnosticContractProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "alwaysLog",
+      "name": "AlwaysLog",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AlwaysLog"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "backend",
+      "name": "Backend",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PipelineDiagnosticSettings"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "frontend",
+      "name": "Frontend",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PipelineDiagnosticSettings"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "httpCorrelationProtocol",
+      "name": "HTTPCorrelationProtocol",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "HTTPCorrelationProtocol"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "logClientIp",
+      "name": "LogClientIP",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "loggerId",
+      "name": "LoggerId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "metrics",
+      "name": "Metrics",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "operationNameFormat",
+      "name": "OperationNameFormat",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "OperationNameFormat"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sampling",
+      "name": "Sampling",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SamplingSettings"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "verbosity",
+      "name": "Verbosity",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Verbosity"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

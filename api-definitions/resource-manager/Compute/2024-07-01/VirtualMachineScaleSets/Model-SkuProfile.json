@@ -1,0 +1,35 @@
+{
+  "name": "SkuProfile",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "allocationStrategy",
+      "name": "AllocationStrategy",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AllocationStrategy"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "vmSizes",
+      "name": "VMSizes",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "SkuProfileVMSize"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

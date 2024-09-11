@@ -1,0 +1,27 @@
+{
+  "name": "ListByService",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "scope",
+      "required": false,
+      "field": "Scope",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "PolicyScopeContract"
+      }
+    }
+  ],
+  "resourceIdName": "ServiceId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "PolicyDescriptionCollection"
+  },
+  "uriSuffix": "/policyDescriptions"
+}

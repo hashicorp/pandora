@@ -1,0 +1,48 @@
+{
+  "name": "VirtualMachinePatchStatus",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "availablePatchSummary",
+      "name": "AvailablePatchSummary",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AvailablePatchSummary"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "configurationStatuses",
+      "name": "ConfigurationStatuses",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "InstanceViewStatus"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "lastPatchInstallationSummary",
+      "name": "LastPatchInstallationSummary",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "LastPatchInstallationSummary"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

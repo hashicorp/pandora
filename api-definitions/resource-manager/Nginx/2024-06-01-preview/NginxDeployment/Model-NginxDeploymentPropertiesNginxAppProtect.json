@@ -1,0 +1,31 @@
+{
+  "name": "NginxDeploymentPropertiesNginxAppProtect",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "webApplicationFirewallSettings",
+      "name": "WebApplicationFirewallSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "WebApplicationFirewallSettings"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "webApplicationFirewallStatus",
+      "name": "WebApplicationFirewallStatus",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "WebApplicationFirewallStatus"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

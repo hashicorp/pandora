@@ -1,0 +1,28 @@
+{
+  "name": "PowerOff",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "skipShutdown",
+      "required": false,
+      "field": "SkipShutdown",
+      "optionsObjectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "VirtualMachineScaleSetId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "VirtualMachineScaleSetVMInstanceIDs"
+  },
+  "uriSuffix": "/poweroff"
+}

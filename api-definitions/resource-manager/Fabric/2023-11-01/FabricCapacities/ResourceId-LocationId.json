@@ -1,0 +1,34 @@
+{
+  "name": "LocationId",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Fabric/locations/{locationName}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftFabric",
+      "type": "ResourceProvider",
+      "value": "Microsoft.Fabric"
+    },
+    {
+      "name": "staticLocations",
+      "type": "Static",
+      "value": "locations"
+    },
+    {
+      "name": "locationName",
+      "type": "UserSpecified"
+    }
+  ]
+}
