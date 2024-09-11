@@ -1,0 +1,52 @@
+{
+  "name": "SecurityPolicyId",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CDN/profiles/{profileName}/securityPolicies/{securityPolicyName}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticResourceGroups",
+      "type": "Static",
+      "value": "resourceGroups"
+    },
+    {
+      "name": "resourceGroupName",
+      "type": "ResourceGroup"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftCDN",
+      "type": "ResourceProvider",
+      "value": "Microsoft.CDN"
+    },
+    {
+      "name": "staticProfiles",
+      "type": "Static",
+      "value": "profiles"
+    },
+    {
+      "name": "profileName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticSecurityPolicies",
+      "type": "Static",
+      "value": "securityPolicies"
+    },
+    {
+      "name": "securityPolicyName",
+      "type": "UserSpecified"
+    }
+  ]
+}

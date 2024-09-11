@@ -1,0 +1,21 @@
+{
+  "name": "CdnCertificateSourceParameters",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "certificateType",
+      "name": "CertificateType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CertificateType"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "CertificateSourceParameters",
+  "discriminatedTypeValue": "CdnCertificateSourceParameters",
+  "typeHintIn": "TypeName"
+}

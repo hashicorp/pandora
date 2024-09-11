@@ -1,0 +1,45 @@
+{
+  "name": "CustomDomainHTTPSParameters",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": true,
+      "jsonName": "certificateSource",
+      "name": "CertificateSource",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CertificateSource"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "minimumTlsVersion",
+      "name": "MinimumTlsVersion",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MinimumTlsVersion"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "protocolType",
+      "name": "ProtocolType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ProtocolType"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "typeHintIn": "CertificateSource"
+}

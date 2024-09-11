@@ -1,0 +1,19 @@
+{
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "RuleId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "RuleUpdateParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "Rule"
+  }
+}

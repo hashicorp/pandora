@@ -1,0 +1,70 @@
+{
+  "name": "AFDOriginGroupUpdatePropertiesParameters",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "healthProbeSettings",
+      "name": "HealthProbeSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "HealthProbeParameters"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "loadBalancingSettings",
+      "name": "LoadBalancingSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "LoadBalancingSettingsParameters"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "profileName",
+      "name": "ProfileName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sessionAffinityState",
+      "name": "SessionAffinityState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EnabledState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "trafficRestorationTimeToHealedOrNewEndpointsInMinutes",
+      "name": "TrafficRestorationTimeToHealedOrNewEndpointsInMinutes",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

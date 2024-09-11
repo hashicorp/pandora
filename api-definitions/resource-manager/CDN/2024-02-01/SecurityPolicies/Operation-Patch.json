@@ -1,0 +1,19 @@
+{
+  "name": "Patch",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "SecurityPolicyId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "SecurityPolicyUpdateParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "SecurityPolicy"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "name": "ProfileScrubbingRules",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "matchVariable",
+      "name": "MatchVariable",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ScrubbingRuleEntryMatchVariable"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "selector",
+      "name": "Selector",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "selectorMatchOperator",
+      "name": "SelectorMatchOperator",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ScrubbingRuleEntryMatchOperator"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "state",
+      "name": "State",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ScrubbingRuleEntryState"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

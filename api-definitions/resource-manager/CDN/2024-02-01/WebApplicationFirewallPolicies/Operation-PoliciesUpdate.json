@@ -1,0 +1,19 @@
+{
+  "name": "PoliciesUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "CdnWebApplicationFirewallPolicyId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "CdnWebApplicationFirewallPolicyPatchParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "CdnWebApplicationFirewallPolicy"
+  }
+}

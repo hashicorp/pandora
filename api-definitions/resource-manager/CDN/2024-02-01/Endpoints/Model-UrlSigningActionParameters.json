@@ -1,0 +1,38 @@
+{
+  "name": "UrlSigningActionParameters",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "algorithm",
+      "name": "Algorithm",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Algorithm"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "parameterNameOverride",
+      "name": "ParameterNameOverride",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "UrlSigningParamIdentifier"
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "DeliveryRuleActionParameters",
+  "discriminatedTypeValue": "DeliveryRuleUrlSigningActionParameters",
+  "typeHintIn": "TypeName"
+}
