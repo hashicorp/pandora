@@ -30,7 +30,7 @@ func (g TerraformSchemaModelsStage) Generate(input *helpers.FileSystem, logger h
 			return fmt.Errorf("mapping Terraform Schema Model %q: %+v", schemaModelName, err)
 		}
 
-		fileName := fmt.Sprintf("%s-Resource-Schema-%s.json", g.ResourceDetails.ResourceName, strings.TrimPrefix(schemaModelName, g.ResourceDetails.SchemaModelName))
+		fileName := fmt.Sprintf("%s-Resource-%s-Schema.json", g.ResourceDetails.ResourceName, strings.TrimPrefix(schemaModelName, g.ResourceDetails.SchemaModelName))
 		if schemaModelName == g.ResourceDetails.SchemaModelName {
 			// Special-case the Resources Model so that it's easier to find the Resource's Schema quickly
 			fileName = fmt.Sprintf("%s-Resource-Schema.json", g.ResourceDetails.ResourceName)
