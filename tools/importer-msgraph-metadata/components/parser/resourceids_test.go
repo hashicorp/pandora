@@ -246,6 +246,92 @@ received:
 	}
 }
 
+func TestFullyQualifiedResourceName(t *testing.T) {
+	testCases := []struct {
+		input    string
+		tags     []string
+		expected string
+	}{
+		// Top-level resource
+		{
+			input:    "/applications/{application-id}",
+			tags:     []string{"applications.Application"},
+			expected: "Application",
+		},
+
+		// Top-level resource with namespacing
+		{
+			input:    "/roleManagement/directory/roleAssignmentScheduleInstances/{unifiedRoleAssignmentScheduleInstance-id}",
+			tags:     []string{"roleManagement.rbacApplication"},
+			expected: "RoleManagementDirectoryRoleAssignmentScheduleInstance",
+		},
+
+		// Child resource
+		{
+			input:    "/applications/{application-id}/owners",
+			tags:     []string{"applications.DirectoryObject"},
+			expected: "ApplicationOwner",
+		},
+
+		// Child resource with namespacing
+		{
+			input:    "/servicePrincipals/{servicePrincipal-id}/synchronization/jobs/{synchronizationJob-id}",
+			tags:     []string{"security.threatIntelligence"},
+			expected: "ServicePrincipalSynchronizationJob",
+		},
+
+		// Child resource with parent namespacing
+		{
+			input:    "/security/threatIntelligence/vulnerabilities/{vulnerability-id}/components",
+			tags:     []string{"security.threatIntelligence"},
+			expected: "SecurityThreatIntelligenceVulnerabilityComponent",
+		},
+
+		// Child resource with name overlap should maintain namespacing to avoid clobbering
+		{
+			input:    "/identityGovernance/entitlementManagement/accessPackages/{accessPackage-id}/accessPackageResourceRoleScopes",
+			tags:     []string{"identityGovernance.entitlementManagement"},
+			expected: "IdentityGovernanceEntitlementManagementAccessPackageAccessPackageResourceRoleScope",
+		},
+
+		// Verb moves to start of name
+		{
+			input:    "/applications/{application-id}/microsoft.graph.setVerifiedPublisher",
+			tags:     []string{"applications.Actions"},
+			expected: "SetApplicationVerifiedPublisher",
+		},
+
+		// OData reference should be pluralized
+		{
+			input:    "/directory/administrativeUnits/{administrativeUnit-id}/members/$ref",
+			tags:     []string{"directory.administrativeUnit"},
+			expected: "DirectoryAdministrativeUnitMemberRefs",
+		},
+
+		// OData count should pluralize the preceding label
+		{
+			input:    "/servicePrincipals/{servicePrincipal-id}/createdObjects/$count",
+			tags:     []string{"servicePrincipals.directoryObject"},
+			expected: "ServicePrincipalCreatedObjectsCount",
+		},
+	}
+
+	for _, c := range testCases {
+		id := NewResourceId(c.input, c.tags)
+		output, ok := id.FullyQualifiedResourceName(nil)
+
+		if !ok {
+			t.Errorf("received false")
+		}
+
+		if output == nil {
+			t.Error("received nil fqrn")
+		} else if *output != c.expected {
+			t.Errorf("expected: %q, received: %q", c.expected, *output)
+		}
+	}
+}
+
 func TestTruncateToLastSegmentOfTypeBeforeSegment(t *testing.T) {
 	testCases := []struct {
 		input        string
