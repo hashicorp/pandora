@@ -524,6 +524,14 @@ func (s FirstImplementation) MarshalJSON() ([]byte, error) {
 var _ json.Unmarshaler = &FirstImplementation{}
 
 func (s *FirstImplementation) UnmarshalJSON(bytes []byte) error {
+	type alias FirstImplementation
+	var decoded alias
+	if err := json.Unmarshal(bytes, &decoded); err != nil {
+		return fmt.Errorf("unmarshaling into FirstImplementation: %+v", err)
+	}
+
+	s.Type = decoded.Type
+
 	var temp map[string]json.RawMessage
 	if err := json.Unmarshal(bytes, &temp); err != nil {
 		return fmt.Errorf("unmarshaling FirstImplementation into map[string]json.RawMessage: %+v", err)
