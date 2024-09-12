@@ -16,7 +16,7 @@ func TestReadmeTemplater_NoOperations(t *testing.T) {
 	expected := strings.ReplaceAll(`
 ## 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks' Documentation
 
-The 'disks' SDK allows for interaction with the Azure Resource Manager Service 'compute' (API Version '2022-02-01').
+The 'disks' SDK allows for interaction with Azure Resource Manager 'compute' (API Version '2022-02-01').
 
 This readme covers example usages, but further information on [using this SDK can be found in the project root](https://github.com/hashicorp/go-azure-sdk/tree/main/docs).
 
@@ -53,7 +53,7 @@ func TestReadmeTemplater_GetOperationWithResourceID(t *testing.T) {
 	expected := strings.ReplaceAll(`
 ## 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks' Documentation
 
-The 'disks' SDK allows for interaction with the Azure Resource Manager Service 'compute' (API Version '2022-02-01').
+The 'disks' SDK allows for interaction with Azure Resource Manager 'compute' (API Version '2022-02-01').
 
 This readme covers example usages, but further information on [using this SDK can be found in the project root](https://github.com/hashicorp/go-azure-sdk/tree/main/docs).
 
@@ -119,7 +119,7 @@ func TestReadmeTemplater_GetOperationWithResourceIDUsingACommonID(t *testing.T) 
 	expected := strings.ReplaceAll(`
 ## 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks' Documentation
 
-The 'disks' SDK allows for interaction with the Azure Resource Manager Service 'compute' (API Version '2022-02-01').
+The 'disks' SDK allows for interaction with Azure Resource Manager 'compute' (API Version '2022-02-01').
 
 This readme covers example usages, but further information on [using this SDK can be found in the project root](https://github.com/hashicorp/go-azure-sdk/tree/main/docs).
 
@@ -187,7 +187,7 @@ func TestReadmeTemplater_GetOperationWithResourceIDAndPayload(t *testing.T) {
 	expected := strings.ReplaceAll(`
 ## 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks' Documentation
 
-The 'disks' SDK allows for interaction with the Azure Resource Manager Service 'compute' (API Version '2022-02-01').
+The 'disks' SDK allows for interaction with Azure Resource Manager 'compute' (API Version '2022-02-01').
 
 This readme covers example usages, but further information on [using this SDK can be found in the project root](https://github.com/hashicorp/go-azure-sdk/tree/main/docs).
 
@@ -267,7 +267,7 @@ func TestReadmeTemplater_GetOperationWithResourceIDAndPayloadAndOptions(t *testi
 	expected := strings.ReplaceAll(`
 ## 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks' Documentation
 
-The 'disks' SDK allows for interaction with the Azure Resource Manager Service 'compute' (API Version '2022-02-01').
+The 'disks' SDK allows for interaction with Azure Resource Manager 'compute' (API Version '2022-02-01').
 
 This readme covers example usages, but further information on [using this SDK can be found in the project root](https://github.com/hashicorp/go-azure-sdk/tree/main/docs).
 
@@ -355,7 +355,7 @@ func TestReadmeTemplater_GetOperationWithResourceIDAndOptions(t *testing.T) {
 	expected := strings.ReplaceAll(`
 ## 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks' Documentation
 
-The 'disks' SDK allows for interaction with the Azure Resource Manager Service 'compute' (API Version '2022-02-01').
+The 'disks' SDK allows for interaction with Azure Resource Manager 'compute' (API Version '2022-02-01').
 
 This readme covers example usages, but further information on [using this SDK can be found in the project root](https://github.com/hashicorp/go-azure-sdk/tree/main/docs).
 
@@ -429,7 +429,7 @@ func TestReadmeTemplater_GetOperationWithoutResourceID(t *testing.T) {
 	expected := strings.ReplaceAll(`
 ## 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks' Documentation
 
-The 'disks' SDK allows for interaction with the Azure Resource Manager Service 'compute' (API Version '2022-02-01').
+The 'disks' SDK allows for interaction with Azure Resource Manager 'compute' (API Version '2022-02-01').
 
 This readme covers example usages, but further information on [using this SDK can be found in the project root](https://github.com/hashicorp/go-azure-sdk/tree/main/docs).
 
@@ -487,7 +487,7 @@ func TestReadmeTemplater_GetOperationWithoutResourceIDWithOptions(t *testing.T) 
 	expected := strings.ReplaceAll(`
 ## 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks' Documentation
 
-The 'disks' SDK allows for interaction with the Azure Resource Manager Service 'compute' (API Version '2022-02-01').
+The 'disks' SDK allows for interaction with Azure Resource Manager 'compute' (API Version '2022-02-01').
 
 This readme covers example usages, but further information on [using this SDK can be found in the project root](https://github.com/hashicorp/go-azure-sdk/tree/main/docs).
 
@@ -553,7 +553,7 @@ func TestReadmeTemplater_ListOperationWithResourceID(t *testing.T) {
 	expected := strings.ReplaceAll(`
 ## 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks' Documentation
 
-The 'disks' SDK allows for interaction with the Azure Resource Manager Service 'compute' (API Version '2022-02-01').
+The 'disks' SDK allows for interaction with Azure Resource Manager 'compute' (API Version '2022-02-01').
 
 This readme covers example usages, but further information on [using this SDK can be found in the project root](https://github.com/hashicorp/go-azure-sdk/tree/main/docs).
 
@@ -621,7 +621,7 @@ func TestReadmeTemplater_ListOperationWithResourceIDUsingACommonID(t *testing.T)
 	expected := strings.ReplaceAll(`
 ## 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks' Documentation
 
-The 'disks' SDK allows for interaction with the Azure Resource Manager Service 'compute' (API Version '2022-02-01').
+The 'disks' SDK allows for interaction with Azure Resource Manager 'compute' (API Version '2022-02-01').
 
 This readme covers example usages, but further information on [using this SDK can be found in the project root](https://github.com/hashicorp/go-azure-sdk/tree/main/docs).
 
@@ -691,7 +691,7 @@ func TestReadmeTemplater_ListOperationWithResourceIDAndPayload(t *testing.T) {
 	expected := strings.ReplaceAll(`
 ## 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks' Documentation
 
-The 'disks' SDK allows for interaction with the Azure Resource Manager Service 'compute' (API Version '2022-02-01').
+The 'disks' SDK allows for interaction with Azure Resource Manager 'compute' (API Version '2022-02-01').
 
 This readme covers example usages, but further information on [using this SDK can be found in the project root](https://github.com/hashicorp/go-azure-sdk/tree/main/docs).
 
@@ -773,7 +773,7 @@ func TestReadmeTemplater_ListOperationWithResourceIDAndPayloadAndOptions(t *test
 	expected := strings.ReplaceAll(`
 ## 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks' Documentation
 
-The 'disks' SDK allows for interaction with the Azure Resource Manager Service 'compute' (API Version '2022-02-01').
+The 'disks' SDK allows for interaction with Azure Resource Manager 'compute' (API Version '2022-02-01').
 
 This readme covers example usages, but further information on [using this SDK can be found in the project root](https://github.com/hashicorp/go-azure-sdk/tree/main/docs).
 
@@ -863,7 +863,7 @@ func TestReadmeTemplater_ListOperationWithResourceIDAndOptions(t *testing.T) {
 	expected := strings.ReplaceAll(`
 ## 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks' Documentation
 
-The 'disks' SDK allows for interaction with the Azure Resource Manager Service 'compute' (API Version '2022-02-01').
+The 'disks' SDK allows for interaction with Azure Resource Manager 'compute' (API Version '2022-02-01').
 
 This readme covers example usages, but further information on [using this SDK can be found in the project root](https://github.com/hashicorp/go-azure-sdk/tree/main/docs).
 
@@ -946,7 +946,7 @@ func TestReadmeTemplater_ListOperationWithoutResourceID(t *testing.T) {
 	expected := strings.ReplaceAll(`
 ## 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks' Documentation
 
-The 'disks' SDK allows for interaction with the Azure Resource Manager Service 'compute' (API Version '2022-02-01').
+The 'disks' SDK allows for interaction with Azure Resource Manager 'compute' (API Version '2022-02-01').
 
 This readme covers example usages, but further information on [using this SDK can be found in the project root](https://github.com/hashicorp/go-azure-sdk/tree/main/docs).
 
@@ -1006,7 +1006,7 @@ func TestReadmeTemplater_LongRunningOperationWithResourceID(t *testing.T) {
 	expected := strings.ReplaceAll(`
 ## 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks' Documentation
 
-The 'disks' SDK allows for interaction with the Azure Resource Manager Service 'compute' (API Version '2022-02-01').
+The 'disks' SDK allows for interaction with Azure Resource Manager 'compute' (API Version '2022-02-01').
 
 This readme covers example usages, but further information on [using this SDK can be found in the project root](https://github.com/hashicorp/go-azure-sdk/tree/main/docs).
 
@@ -1069,7 +1069,7 @@ func TestReadmeTemplater_LongRunningOperationWithResourceIDUsingACommonID(t *tes
 	expected := strings.ReplaceAll(`
 ## 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks' Documentation
 
-The 'disks' SDK allows for interaction with the Azure Resource Manager Service 'compute' (API Version '2022-02-01').
+The 'disks' SDK allows for interaction with Azure Resource Manager 'compute' (API Version '2022-02-01').
 
 This readme covers example usages, but further information on [using this SDK can be found in the project root](https://github.com/hashicorp/go-azure-sdk/tree/main/docs).
 
@@ -1134,7 +1134,7 @@ func TestReadmeTemplater_LongRunningOperationWithResourceIDAndPayload(t *testing
 	expected := strings.ReplaceAll(`
 ## 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks' Documentation
 
-The 'disks' SDK allows for interaction with the Azure Resource Manager Service 'compute' (API Version '2022-02-01').
+The 'disks' SDK allows for interaction with Azure Resource Manager 'compute' (API Version '2022-02-01').
 
 This readme covers example usages, but further information on [using this SDK can be found in the project root](https://github.com/hashicorp/go-azure-sdk/tree/main/docs).
 
@@ -1211,7 +1211,7 @@ func TestReadmeTemplater_LongRunningOperationWithResourceIDAndPayloadAndOptions(
 	expected := strings.ReplaceAll(`
 ## 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks' Documentation
 
-The 'disks' SDK allows for interaction with the Azure Resource Manager Service 'compute' (API Version '2022-02-01').
+The 'disks' SDK allows for interaction with Azure Resource Manager 'compute' (API Version '2022-02-01').
 
 This readme covers example usages, but further information on [using this SDK can be found in the project root](https://github.com/hashicorp/go-azure-sdk/tree/main/docs).
 
@@ -1296,7 +1296,7 @@ func TestReadmeTemplater_LongRunningOperationWithResourceIDAndOptions(t *testing
 	expected := strings.ReplaceAll(`
 ## 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks' Documentation
 
-The 'disks' SDK allows for interaction with the Azure Resource Manager Service 'compute' (API Version '2022-02-01').
+The 'disks' SDK allows for interaction with Azure Resource Manager 'compute' (API Version '2022-02-01').
 
 This readme covers example usages, but further information on [using this SDK can be found in the project root](https://github.com/hashicorp/go-azure-sdk/tree/main/docs).
 
@@ -1367,7 +1367,7 @@ func TestReadmeTemplater_LongRunningOperationWithoutResourceID(t *testing.T) {
 	expected := strings.ReplaceAll(`
 ## 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks' Documentation
 
-The 'disks' SDK allows for interaction with the Azure Resource Manager Service 'compute' (API Version '2022-02-01').
+The 'disks' SDK allows for interaction with Azure Resource Manager 'compute' (API Version '2022-02-01').
 
 This readme covers example usages, but further information on [using this SDK can be found in the project root](https://github.com/hashicorp/go-azure-sdk/tree/main/docs).
 
@@ -1422,7 +1422,7 @@ func TestReadmeTemplater_MultipleOperations(t *testing.T) {
 	expected := strings.ReplaceAll(`
 ## 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks' Documentation
 
-The 'disks' SDK allows for interaction with the Azure Resource Manager Service 'compute' (API Version '2022-02-01').
+The 'disks' SDK allows for interaction with Azure Resource Manager 'compute' (API Version '2022-02-01').
 
 This readme covers example usages, but further information on [using this SDK can be found in the project root](https://github.com/hashicorp/go-azure-sdk/tree/main/docs).
 

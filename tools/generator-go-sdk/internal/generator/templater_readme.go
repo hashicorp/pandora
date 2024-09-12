@@ -20,7 +20,7 @@ type readmeTemplater struct {
 
 func (r readmeTemplater) template(data GeneratorData) (*string, error) {
 	summary := r.packageSummary(data)
-	clientInit := r.clientInitialization(data.packageName, data.serviceClientName)
+	clientInit := r.clientInitialization(data.sourceType, data.packageName, data.serviceClientName)
 	examples, err := r.exampleUsages(data)
 	if err != nil {
 		return nil, fmt.Errorf("building examples: %+v", err)
@@ -53,27 +53,34 @@ func (r readmeTemplater) packageSummary(data GeneratorData) string {
 	return fmt.Sprintf(`
 ## 'github.com/hashicorp/go-azure-sdk/%[1]s/%[2]s/%[3]s/%[4]s' Documentation
 
-The '%[4]s' SDK allows for interaction with the Azure Resource Manager Service '%[2]s' (API Version '%[3]s').
+The '%[4]s' SDK allows for interaction with %[5]s '%[2]s' (API Version '%[3]s').
 
 This readme covers example usages, but further information on [using this SDK can be found in the project root](https://github.com/hashicorp/go-azure-sdk/tree/main/docs).
 
 ### Import Path
 
 '''go
-%[5]s
+%[6]s
 '''
-`, data.sourceType, data.servicePackageName, data.apiVersion, data.packageName, strings.Join(importLines, "\n"))
+`, data.sourceType, data.servicePackageName, data.apiVersion, data.packageName, models.SourceDataTypeName(data.sourceType), strings.Join(importLines, "\n"))
 }
 
-func (r readmeTemplater) clientInitialization(packageName, clientName string) string {
+func (r readmeTemplater) clientInitialization(sourceType models.SourceDataType, packageName, clientName string) string {
+	var baseUri string
+	switch sourceType {
+	case models.MicrosoftGraphSourceDataType:
+		baseUri = "https://graph.microsoft.com"
+	case models.ResourceManagerSourceDataType:
+		baseUri = "https://management.azure.com"
+	}
 	return fmt.Sprintf(`
 ### Client Initialization
 
 '''go
-client := %[1]s.New%[2]sWithBaseURI("https://management.azure.com")
+client := %[1]s.New%[2]sWithBaseURI("%[3]s")
 client.Client.Authorizer = authorizer
 '''
-`, packageName, clientName)
+`, packageName, clientName, baseUri)
 }
 
 func (r readmeTemplater) exampleUsages(data GeneratorData) (*string, error) {
