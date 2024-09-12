@@ -143,6 +143,7 @@ type Resources map[string]*Resource
 
 // ServiceHasValidResources returns true when resources are found for the provided serviceName that have usable operations
 // defined (specifically any operations that do not require a response model, or that have a response model for any response)
+// TODO: maybe remove this, we are not using this as it's preferable to error out rather than skip over
 func (r Resources) ServiceHasValidResources(serviceName string) bool {
 	for _, resource := range r {
 		if resource.Category == "" {
