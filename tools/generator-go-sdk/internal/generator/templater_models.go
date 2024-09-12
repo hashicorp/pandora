@@ -295,13 +295,16 @@ func (c modelsTemplater) methods(data GeneratorData) (*string, error) {
 func (c modelsTemplater) structLineForField(fieldName, fieldType string, fieldDetails models.SDKField, data GeneratorData) (*string, error) {
 	jsonDetails := fieldDetails.JsonName
 
-	if c.fieldIsOptional(data, fieldDetails) || fieldDetails.ReadOnly {
-		if !strings.HasPrefix(fieldType, "nullable.") {
+	if strings.HasPrefix(fieldType, "nullable.") {
+		// nullable types should have the omitempty tag option and not be pointers
+		jsonDetails += ",omitempty"
+	} else {
+		if c.fieldIsOptional(data, fieldDetails) || fieldDetails.ReadOnly {
+			fieldType = fmt.Sprintf("*%s", fieldType)
+			jsonDetails += ",omitempty"
+		} else if fieldDetails.ObjectDefinition.Nullable {
 			fieldType = fmt.Sprintf("*%s", fieldType)
 		}
-		jsonDetails += ",omitempty"
-	} else if fieldDetails.ObjectDefinition.Nullable && !strings.HasPrefix(fieldType, "nullable.") {
-		fieldType = fmt.Sprintf("*%s", fieldType)
 	}
 
 	line := fmt.Sprintf("\t%s %s `json:\"%s\"`", fieldName, fieldType, jsonDetails)
