@@ -17,3 +17,14 @@ const (
 func SourceDataTypeIsDataPlane(sourceDataType SourceDataType) bool {
 	return sourceDataType != ResourceManagerSourceDataType
 }
+
+func SourceDataTypeName(sourceDataType SourceDataType) string {
+	switch sourceDataType {
+	case MicrosoftGraphSourceDataType:
+		return "Microsoft Graph"
+	case ResourceManagerSourceDataType:
+		return "Azure Resource Manager"
+	}
+
+	return "<unknown source data type>"
+}
