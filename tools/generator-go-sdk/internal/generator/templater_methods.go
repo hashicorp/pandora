@@ -617,8 +617,6 @@ func (c methodsPandoraTemplater) marshalerTemplate() (*string, error) {
 }
 
 func (c methodsPandoraTemplater) unmarshalerTemplate(data GeneratorData) (*string, error) {
-	var output string
-
 	if c.operation.LongRunning {
 		// Long Running operations shouldn't be attempted to be unmarshalled until the LRO is completed
 		// in the event this needs to be unmarshalled early - the Response Object being exposed means that
@@ -627,7 +625,7 @@ func (c methodsPandoraTemplater) unmarshalerTemplate(data GeneratorData) (*strin
 	}
 
 	if c.operation.ResponseObject == nil {
-		return &output, nil
+		return pointer.To(""), nil
 	}
 
 	golangTypeName, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.ResponseObject, nil, data.commonTypesPackageName)
@@ -636,8 +634,6 @@ func (c methodsPandoraTemplater) unmarshalerTemplate(data GeneratorData) (*strin
 	}
 	typeName := *golangTypeName
 
-	discriminatedTypeParentName := ""
-
 	var model *models.SDKModel
 	modelPackage := ""
 	modelName := typeName
@@ -645,48 +641,23 @@ func (c methodsPandoraTemplater) unmarshalerTemplate(data GeneratorData) (*strin
 		modelPackage = s[0]
 		modelName = s[1]
 	}
+
+	// Note that `model` may be nil in the case of standard types (e.g. string, []byte etc)
 	if m, ok := data.models[modelName]; ok {
 		model = &m
 	} else if m, ok = data.commonTypes.Models[modelName]; ok {
 		model = &m
 	}
 
-	if model != nil {
-		// it's either a parent model
-		if model.FieldNameContainingDiscriminatedValue != nil {
-			discriminatedTypeParentName = modelName
-		}
-		// or an implementation referencing a parent
-		if model.ParentTypeName != nil {
-			discriminatedTypeParentName = *model.ParentTypeName
-		}
-
-		if model.DiscriminatedValue != nil {
-			// in this instance this would be a discriminated implementation present in the response object
-			// as such we should use that directly, rather than calling the parents unmarshal function
-			discriminatedTypeParentName = ""
-		}
-	}
-
+	// Paginated response
 	if c.operation.FieldContainingPaginationDetails != nil {
-		unmarshaler := fmt.Sprintf("Unmarshal%sImplementation", modelName)
-		if modelPackage != "" {
-			unmarshaler = fmt.Sprintf("%s.Unmarshal%sImplementation", modelPackage, modelName)
-		}
+		if model != nil && model.IsDiscriminatedParentType() {
+			unmarshaler := fmt.Sprintf("Unmarshal%sImplementation", modelName)
+			if modelPackage != "" {
+				unmarshaler = fmt.Sprintf("%s.Unmarshal%sImplementation", modelPackage, modelName)
+			}
 
-		output = fmt.Sprintf(`
-	var values struct {
-		Values *[]%[1]s %[2]s
-	}
-	if err = resp.Unmarshal(&values); err != nil {
-		return
-	}
-
-	result.Model = values.Values
-`, typeName, "`json:\"value\"`")
-
-		if discriminatedTypeParentName != "" {
-			output = fmt.Sprintf(`
+			output := fmt.Sprintf(`
 	var values struct {
 		Values *[]json.RawMessage %[3]s
 	}
@@ -707,20 +678,33 @@ func (c methodsPandoraTemplater) unmarshalerTemplate(data GeneratorData) (*strin
 	}
 	result.Model = &temp
 `, typeName, unmarshaler, "`json:\"value\"`")
+
+			return &output, nil
 		}
+
+		output := fmt.Sprintf(`
+	var values struct {
+		Values *[]%[1]s %[2]s
+	}
+	if err = resp.Unmarshal(&values); err != nil {
+		return
+	}
+
+	result.Model = values.Values
+`, typeName, "`json:\"value\"`")
 
 		return &output, nil
 	}
 
-	// when this is a Discriminated Type (either the Parent or the Implementation, call the `unmarshal` func
+	// When this is a Discriminated Type (either the Parent or the Implementation, call the `unmarshal` func
 	// for the relevant Parent
-	if discriminatedTypeParentName != "" {
-		unmarshaler := fmt.Sprintf("Unmarshal%sImplementation", discriminatedTypeParentName)
+	if model != nil && model.IsDiscriminatedParentType() {
+		unmarshaler := fmt.Sprintf("Unmarshal%sImplementation", modelName)
 		if modelPackage != "" {
-			unmarshaler = fmt.Sprintf("%s.Unmarshal%sImplementation", modelPackage, discriminatedTypeParentName)
+			unmarshaler = fmt.Sprintf("%s.Unmarshal%sImplementation", modelPackage, modelName)
 		}
 
-		output = fmt.Sprintf(`
+		output := fmt.Sprintf(`
 	var respObj json.RawMessage
 	if err = resp.Unmarshal(&respObj); err != nil {
 		return
@@ -729,37 +713,40 @@ func (c methodsPandoraTemplater) unmarshalerTemplate(data GeneratorData) (*strin
 	if err != nil {
 		return
 	}
-	result.Model = &model
+	result.Model = model
 `, unmarshaler)
-	} else {
-		responseModelType, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.ResponseObject, nil, data.commonTypesPackageName)
-		if err != nil {
-			return nil, fmt.Errorf("determing golang type name for response object: %+v", err)
-		}
-		if responseModelType != nil {
-			if c.operation.FieldContainingPaginationDetails != nil {
-				output = fmt.Sprintf(`
-	var model []%s`, *responseModelType)
-			} else {
-				output = fmt.Sprintf(`
-	var model %s`, *responseModelType)
-			}
-			output = fmt.Sprintf(`%s
-	result.Model = &model`, output)
-		}
-		output = fmt.Sprintf(`%s
 
+		return &output, nil
+	}
+
+	responseModelType, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.ResponseObject, nil, data.commonTypesPackageName)
+	if err != nil {
+		return nil, fmt.Errorf("determing golang type name for response object: %+v", err)
+	}
+
+	output := "\n"
+	if responseModelType != nil {
+		if c.operation.FieldContainingPaginationDetails != nil {
+			output += fmt.Sprintf(`	var model []%s`, *responseModelType)
+		} else {
+			output = fmt.Sprintf(`	var model %s`, *responseModelType)
+		}
+
+		output += `
+	result.Model = &model`
+	}
+
+	output += `
 	if err = resp.Unmarshal(result.Model); err != nil {
 		return
 	}
-`, output)
-	}
+`
 
 	return &output, nil
 }
 
 func (c methodsPandoraTemplater) responseStructTemplate(data GeneratorData) (*string, error) {
-	model := ""
+	modelLine := ""
 	typeName := ""
 	if c.operation.ResponseObject != nil {
 		golangTypeName, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.ResponseObject, nil, data.commonTypesPackageName)
@@ -768,10 +755,27 @@ func (c methodsPandoraTemplater) responseStructTemplate(data GeneratorData) (*st
 		}
 		typeName = *golangTypeName
 
-		if c.operation.FieldContainingPaginationDetails != nil {
-			model = fmt.Sprintf("Model *[]%s", typeName)
+		var model *models.SDKModel
+		modelName := typeName
+		if s := strings.SplitN(modelName, ".", 2); len(s) == 2 {
+			modelName = s[1]
+		}
+		if m, ok := data.models[modelName]; ok {
+			model = &m
+		} else if m, ok = data.commonTypes.Models[modelName]; ok {
+			model = &m
+		}
+
+		if model != nil && model.IsParent {
+			if c.operation.FieldContainingPaginationDetails != nil {
+				modelLine = fmt.Sprintf("Model *[]%s", typeName)
+			} else {
+				modelLine = fmt.Sprintf("Model %s", typeName)
+			}
+		} else if c.operation.FieldContainingPaginationDetails != nil {
+			modelLine = fmt.Sprintf("Model *[]%s", typeName)
 		} else {
-			model = fmt.Sprintf("Model *%s", typeName)
+			modelLine = fmt.Sprintf("Model *%s", typeName)
 		}
 	}
 
@@ -805,7 +809,7 @@ type %[1]s struct {
 }
 
 %[4]s
-`, responseStructName, model, lro, paginationCode)
+`, responseStructName, modelLine, lro, paginationCode)
 	return &output, nil
 }
 

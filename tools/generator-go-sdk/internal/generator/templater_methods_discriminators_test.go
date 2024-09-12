@@ -220,7 +220,7 @@ func (c pandaClient) Get(ctx context.Context ) (result GetOperationResponse, err
 	if err != nil {
 		return
 	}
-	result.Model = &model
+	result.Model = model
 	return
 }`
 

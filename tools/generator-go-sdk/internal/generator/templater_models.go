@@ -641,7 +641,28 @@ func (c modelsTemplater) codeForUnmarshalParentFunction(data GeneratorData) (*st
 	if len(modelsImplementingThisClass) == 0 && featureflags.SkipDiscriminatedParentTypes() == false {
 		return nil, fmt.Errorf("model %q is a discriminated parent type with no implementations", c.name)
 	}
-	jsonFieldName := c.model.Fields[*c.model.FieldNameContainingDiscriminatedValue].JsonName
+
+	// Discover discriminated field, which may be defined on an ancestor model
+	var discriminatedValueField models.SDKField
+	var ok bool
+	if discriminatedValueField, ok = c.model.Fields[*c.model.FieldNameContainingDiscriminatedValue]; !ok && c.model.ParentTypeName != nil {
+		ancestorTypeNames := []string{*c.model.ParentTypeName}
+		if c.model.FieldNameContainingDiscriminatedValue != nil {
+			_, foundAncestorTypeNames, err := c.findModelAncestry(data, *c.model.ParentTypeName, *c.model.FieldNameContainingDiscriminatedValue)
+			if err != nil {
+				return nil, err
+			}
+			ancestorTypeNames = *foundAncestorTypeNames
+
+			// Look for the discriminated value field in all ancestors
+			for _, ancestorTypeName := range ancestorTypeNames {
+				if discriminatedValueField, ok = data.models[ancestorTypeName].Fields[*c.model.FieldNameContainingDiscriminatedValue]; ok {
+					break
+				}
+			}
+		}
+	}
+
 	// NOTE: unmarshaling null returns an empty map, which'll mean the `ok` fails
 	// the 'type' field being omitted will also mean that `ok` is false
 	lines = append(lines, fmt.Sprintf(`
@@ -659,7 +680,7 @@ func Unmarshal%[1]sImplementation(input []byte) (%[1]s, error) {
 	if !ok {
 		return nil, nil
 	}
-`, c.name, jsonFieldName))
+`, c.name, discriminatedValueField.JsonName))
 
 	sort.Strings(modelsImplementingThisClass)
 	for _, implementationName := range modelsImplementingThisClass {
@@ -708,45 +729,66 @@ func (c modelsTemplater) codeForUnmarshalStructFunction(data GeneratorData) (*st
 
 	lines := make([]string, 0)
 
-	// fields either require unmarshaling or can be explicitly assigned, determine which
+	// Determine which fields can be directly assigned and which must be explicitly unmarshalled
 	fieldsRequiringAssignment := make([]string, 0)
-	fieldsRequiringUnmarshalling := make([]string, 0)
+	fieldsRequiringUnmarshalling := make(map[string]models.SDKField)
 	for fieldName, fieldDetails := range c.model.Fields {
+		// Check if the model field references a model interface, which will require explicit unmarshalling
 		topLevelObject := helpers.InnerMostSDKObjectDefinition(fieldDetails.ObjectDefinition)
 		if topLevelObject.Type == models.ReferenceSDKObjectDefinitionType {
 			model, ok := data.models[*topLevelObject.ReferenceName]
 			if ok && model.IsDiscriminatedParentType() {
-				fieldsRequiringUnmarshalling = append(fieldsRequiringUnmarshalling, fieldName)
+				fieldsRequiringUnmarshalling[fieldName] = fieldDetails
 				continue
 			}
 		}
 
 		fieldsRequiringAssignment = append(fieldsRequiringAssignment, fieldName)
 	}
+
+	// Enumerate fields from ancestor models, determine which fields to assign directory or explicitly unmarshal
 	if c.model.ParentTypeName != nil {
-		parent, ok := data.models[*c.model.ParentTypeName]
-		if !ok {
-			return nil, fmt.Errorf("Parent Model %q (for Model %q) was not found", *c.model.ParentTypeName, c.name)
+		ancestorTypeNames := []string{*c.model.ParentTypeName}
+		if c.model.FieldNameContainingDiscriminatedValue != nil {
+			_, foundAncestorTypeNames, err := c.findModelAncestry(data, *c.model.ParentTypeName, *c.model.FieldNameContainingDiscriminatedValue)
+			if err != nil {
+				return nil, err
+			}
+			ancestorTypeNames = *foundAncestorTypeNames
 		}
-		for fieldName, fieldDetails := range parent.Fields {
-			// also double-check if the parent has any fields matching the same conditions
+
+		ancestorFields := make(map[string]models.SDKField)
+
+		// We want to include fields from all ancestors
+		for _, ancestorTypeName := range ancestorTypeNames {
+			parent, ok := data.models[ancestorTypeName]
+			if !ok {
+				return nil, fmt.Errorf("couldn't find Ancestor Model %q for Model %q", ancestorTypeName, c.name)
+			}
+			for fieldName, fieldDetails := range parent.Fields {
+				if _, ok := ancestorFields[fieldName]; ok {
+					// Skip fields already present from a closer ancestor
+					continue
+				}
+				ancestorFields[fieldName] = fieldDetails
+			}
+		}
+
+		for fieldName, fieldDetails := range ancestorFields {
+			// Check if the ancestor field references a model interface, which requires explicit unmarshalling
 			topLevelObject := helpers.InnerMostSDKObjectDefinition(fieldDetails.ObjectDefinition)
 			if topLevelObject.Type == models.ReferenceSDKObjectDefinitionType {
 				model, ok := data.models[*topLevelObject.ReferenceName]
 				if ok && model.IsDiscriminatedParentType() {
-					fieldsRequiringUnmarshalling = append(fieldsRequiringUnmarshalling, fieldName)
+					fieldsRequiringUnmarshalling[fieldName] = fieldDetails
 					continue
 				}
 			}
 
-			// however specifically for the parent we don't want to assign the `type` field since we don't output it
-			// so check the implementation model to determine which field the `type` is in, and assign if they
-			// don't match
-			//
-			// at this point since we know there's a parent-implementation relationship, there's no need to nil-check
-			if *c.model.FieldNameContainingDiscriminatedValue != fieldName {
-				fieldsRequiringAssignment = append(fieldsRequiringAssignment, fieldName)
-			}
+			// Note: previously we skipped unmarshalling the `type` field for discriminated models, we now intentionally
+			// populate this field to allow consumers the option of inspecting it. Note that we do not marshal the `type`
+			// field, so it cannot be set by consumers.
+			fieldsRequiringAssignment = append(fieldsRequiringAssignment, fieldName)
 		}
 	}
 
@@ -780,21 +822,15 @@ func (s *%[1]s) UnmarshalJSON(bytes []byte) error {`, structName))
 	}
 `, structName))
 
-		sort.Strings(fieldsRequiringUnmarshalling)
-		for _, fieldName := range fieldsRequiringUnmarshalling {
-			fieldDetails, ok := c.model.Fields[fieldName]
+		fieldNamesRequiringUnmarshalling := make([]string, 0, len(fieldsRequiringUnmarshalling))
+		for fieldName := range fieldsRequiringUnmarshalling {
+			fieldNamesRequiringUnmarshalling = append(fieldNamesRequiringUnmarshalling, fieldName)
+		}
+		sort.Strings(fieldNamesRequiringUnmarshalling)
+		for _, fieldName := range fieldNamesRequiringUnmarshalling {
+			fieldDetails, ok := fieldsRequiringUnmarshalling[fieldName]
 			if !ok {
-				if c.model.ParentTypeName == nil {
-					return nil, fmt.Errorf("field %q was not found on Model %q which has no Parent", fieldName, c.name)
-				}
-				parent, ok := data.models[*c.model.ParentTypeName]
-				if !ok {
-					return nil, fmt.Errorf("parent model %q was not found", *c.model.ParentTypeName)
-				}
-				fieldDetails, ok = parent.Fields[fieldName]
-				if !ok {
-					return nil, fmt.Errorf("field %q was not found on Model %q or Parent %q", fieldName, c.name, *c.model.ParentTypeName)
-				}
+				return nil, fmt.Errorf("internal-error: field %q for model %q was not found in `fieldsRequiringUnmarshalling` map", fieldName, c.name)
 			}
 			topLevelObjectDef := helpers.InnerMostSDKObjectDefinition(fieldDetails.ObjectDefinition)
 
