@@ -105,12 +105,7 @@ func findLocalMixins(input *loads.Document, filePath string) (*spec.Swagger, err
 
 func findMixinForRef(ref spec.Ref, filePath string, doc *loads.Document, mixins *spec.Swagger) error {
 	if path := ref.GetURL(); path == nil || (path.Path != "" && len(strings.Split(path.Path, "/")) != 2) {
-		// Check if we have a reference in the CWD. if path.Path is empty string, it refers to the same file
-		return nil
-	}
-
-	modelName, refFilePath := modelNamePathFromRef(ref, filePath)
-	if _, ok := mixins.Definitions[modelName]; ok {
+		// Check if we have a reference in the CWD (otherwise there will be issue resolving relative path in analysis.Flatten). if path.Path is empty string, it refers to the same file
 		return nil
 	}
 
@@ -118,11 +113,17 @@ func findMixinForRef(ref spec.Ref, filePath string, doc *loads.Document, mixins 
 		return nil
 	}
 
+	modelName, modelFilePath := modelNamePathFromRef(ref, filePath)
+	if _, ok := mixins.Definitions[modelName]; ok {
+		// skip if this has already been resolved
+		return nil
+	}
+
 	refDoc := doc
-	if refFilePath != filePath {
-		newDoc, err := loads.Spec(refFilePath)
+	if modelFilePath != filePath {
+		newDoc, err := loads.Spec(modelFilePath)
 		if err != nil {
-			return fmt.Errorf("load swagger %s: %+v", refFilePath, err)
+			return fmt.Errorf("load swagger %s: %+v", modelFilePath, err)
 		}
 
 		refDoc = newDoc
@@ -149,7 +150,7 @@ func findMixinForRef(ref spec.Ref, filePath string, doc *loads.Document, mixins 
 			}
 			for _, allOf := range def.AllOf {
 				if allOf.Ref.String() != "" {
-					allOfRefModelName, _ := modelNamePathFromRef(allOf.Ref, refFilePath)
+					allOfRefModelName, _ := modelNamePathFromRef(allOf.Ref, modelFilePath)
 					if modelName == allOfRefModelName {
 						mixins.Definitions[defName] = def
 						temp.Definitions[defName] = def
@@ -164,8 +165,8 @@ func findMixinForRef(ref spec.Ref, filePath string, doc *loads.Document, mixins 
 	if len(temp.Definitions) > 0 {
 		analyzer := analysis.New(temp)
 		for _, r := range analyzer.AllRefs() {
-			if err := findMixinForRef(r, refFilePath, refDoc, mixins); err != nil {
-				return fmt.Errorf("find mixin for ref %q in %q: %+v", r.String(), refFilePath, err)
+			if err := findMixinForRef(r, modelFilePath, refDoc, mixins); err != nil {
+				return fmt.Errorf("find mixin for ref %q in %q: %+v", r.String(), modelFilePath, err)
 			}
 		}
 	}
