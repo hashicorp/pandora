@@ -90,7 +90,15 @@ func (p pipelineForService) translateServiceToDataApiSdkTypes() (*sdkModels.Serv
 				}
 			}
 
-			options := make(map[string]sdkModels.SDKOperationOption)
+			options := map[string]sdkModels.SDKOperationOption{
+				"Metadata": {
+					ODataFieldName: pointer.To("Metadata"),
+					ObjectDefinition: sdkModels.SDKOperationOptionObjectDefinition{
+						ReferenceName: pointer.To("odata.Metadata"),
+						Type:          sdkModels.ReferenceSDKOperationOptionObjectDefinitionType,
+					},
+				},
+			}
 
 			if operation.RequestHeaders != nil {
 				for _, header := range *operation.RequestHeaders {
@@ -98,7 +106,6 @@ func (p pipelineForService) translateServiceToDataApiSdkTypes() (*sdkModels.Serv
 						options[normalize.CleanName(header.Name)] = sdkModels.SDKOperationOption{
 							ODataFieldName: &header.Name,
 							ObjectDefinition: sdkModels.SDKOperationOptionObjectDefinition{
-								NestedItem:    nil,
 								ReferenceName: pointer.To("odata.ConsistencyLevel"),
 								Type:          sdkModels.ReferenceSDKOperationOptionObjectDefinitionType,
 							},
@@ -139,7 +146,6 @@ func (p pipelineForService) translateServiceToDataApiSdkTypes() (*sdkModels.Serv
 						options["Expand"] = sdkModels.SDKOperationOption{
 							ODataFieldName: pointer.To("Expand"),
 							ObjectDefinition: sdkModels.SDKOperationOptionObjectDefinition{
-								NestedItem:    nil,
 								ReferenceName: pointer.To("odata.Expand"),
 								Type:          sdkModels.ReferenceSDKOperationOptionObjectDefinitionType,
 							},
@@ -149,7 +155,6 @@ func (p pipelineForService) translateServiceToDataApiSdkTypes() (*sdkModels.Serv
 						options["Format"] = sdkModels.SDKOperationOption{
 							ODataFieldName: pointer.To("Format"),
 							ObjectDefinition: sdkModels.SDKOperationOptionObjectDefinition{
-								NestedItem:    nil,
 								ReferenceName: pointer.To("odata.Format"),
 								Type:          sdkModels.ReferenceSDKOperationOptionObjectDefinitionType,
 							},
@@ -159,7 +164,6 @@ func (p pipelineForService) translateServiceToDataApiSdkTypes() (*sdkModels.Serv
 						options["OrderBy"] = sdkModels.SDKOperationOption{
 							ODataFieldName: pointer.To("OrderBy"),
 							ObjectDefinition: sdkModels.SDKOperationOptionObjectDefinition{
-								NestedItem:    nil,
 								ReferenceName: pointer.To("odata.OrderBy"),
 								Type:          sdkModels.ReferenceSDKOperationOptionObjectDefinitionType,
 							},
