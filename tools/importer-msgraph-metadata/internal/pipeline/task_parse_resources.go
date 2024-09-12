@@ -581,7 +581,9 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 		}
 
 		// Remove duplicate words in the category
-		resource.Category = normalize.DeDuplicateName(resource.Category)
+		// TODO: Figure out whether we can do this safely; causes clobbering in identityGovernance, e.g.
+		// EntitlementManagementAccessPackageResourceRoleScopeClient vs EntitlementManagementAccessPackageAccessPackageResourceRoleScopeClient
+		//resource.Category = normalize.DeDuplicateName(resource.Category)
 	}
 
 	return
