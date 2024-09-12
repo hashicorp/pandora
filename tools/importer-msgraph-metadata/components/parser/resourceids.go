@@ -312,7 +312,7 @@ func (r ResourceId) LastSegmentOfTypeBeforeSegment(types []ResourceIdSegmentType
 	return nil
 }
 
-// TruncateToLastSegmentOfTypeBeforeSegment returns a new ResourceId, truncating this ResourceId to the last segment of
+// TruncateToLastSegmentOfTypeBeforeSegment returns a new ResourceId, truncated to the last segment of
 // the specified type from the ResourceId that precedes the provided segment index
 func (r ResourceId) TruncateToLastSegmentOfTypeBeforeSegment(types []ResourceIdSegmentType, i int) *ResourceId {
 	ret := r
