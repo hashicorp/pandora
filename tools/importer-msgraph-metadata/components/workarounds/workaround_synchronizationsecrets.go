@@ -29,7 +29,7 @@ func (workaroundSynchronizationSecrets) Process(apiVersion, serviceName string, 
 
 	for serviceNameToMatch, path := range serviceNamesToPaths {
 		if serviceNameToMatch != serviceName {
-			return nil
+			continue
 		}
 
 		resourceName := fmt.Sprintf("%sSynchronizationSecret", normalize.Singularize(normalize.CleanName(serviceName)))
