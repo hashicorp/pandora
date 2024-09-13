@@ -183,7 +183,7 @@ import (
 type GetOperationResponse struct {
 	HttpResponse *http.Response
 	OData *odata.OData
-	Model *FizzyDrink
+	Model FizzyDrink
 }
 
 // Get ...
