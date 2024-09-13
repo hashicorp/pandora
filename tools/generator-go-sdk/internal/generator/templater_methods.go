@@ -766,7 +766,7 @@ func (c methodsPandoraTemplater) responseStructTemplate(data GeneratorData) (*st
 			model = &m
 		}
 
-		if model != nil && model.IsParent {
+		if model != nil && model.IsDiscriminatedParentType() {
 			if c.operation.FieldContainingPaginationDetails != nil {
 				modelLine = fmt.Sprintf("Model *[]%s", typeName)
 			} else {
