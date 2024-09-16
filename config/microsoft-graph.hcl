@@ -68,7 +68,7 @@ service "identity" {
 
 service "identityGovernance" {
   name      = "IdentityGovernance"
-  available = ["stable"]
+  available = ["stable", "beta"]
 }
 
 service "invitations" {
