@@ -14,9 +14,9 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/internal/logging"
 )
 
-/* ===================
-   openapi3 cheatsheet
-   ===================
+/* =======================
+   kin-openapi3 cheatsheet
+   =======================
    Schemas is a map[string]*SchemaRef
    SchemaRef is a struct{Ref, Value} where Ref is a string, Value is a *Schema
    The Ref string (after trimming) indicates a Schemas map key to follow/inherit
@@ -69,19 +69,39 @@ func (m Models) Found(schemaName string) bool {
 }
 
 type Constant struct {
-	Name   string
+	// The name of this constant from the spec (not normalized)
+	Name string
+
+	// Whether this constant is a common type
 	Common bool
-	Enum   []string
-	Type   *DataType
+
+	// The accepted values for this constant
+	Enum []string
+
+	// The data type for this constant (currently only supports strings)
+	Type *DataType
 }
 
 type Model struct {
-	Name        string
-	Fields      map[string]*ModelField
-	Common      bool
-	Parent      bool
-	TypeField   *string
-	TypeValue   *string
+	// The type name of this model from the spec (not normalized)
+	Name string
+
+	// Fields that comprise this model
+	Fields map[string]*ModelField
+
+	// Whether this model is a common type
+	Common bool
+
+	// Whether this model has known child models
+	Parent bool
+
+	// For parent models, the field name containing the discriminated type value
+	TypeField *string
+
+	// For child models, the type value that specifies this model
+	TypeValue *string
+
+	// For child models, the name of the parent model
 	ParentModel *string
 }
 
@@ -93,6 +113,8 @@ func (m *Model) AppendDefaultFields() {
 	}
 }
 
+// DataApiSdkModel converts the internal ModelField representation to a Data API SDKModel, so it can be persisted to the Data
+// API Definitions. It's necessary to provide Models and Constants so that references (both fields and model ancestry) can be resolved.
 func (m *Model) DataApiSdkModel(models Models, constants Constants) (*sdkModels.SDKModel, error) {
 	sdkFields := make(map[string]sdkModels.SDKField)
 	for jsonName, field := range m.Fields {
@@ -147,41 +169,44 @@ func (m *Model) DataApiSdkModel(models Models, constants Constants) (*sdkModels.
 	}, nil
 }
 
-func defaultModelFields() map[string]*ModelField {
-	// Add an explicit ODataId and ODataType field to each model, since it is inconsistently defined in the API specs.
-	// This won't be valid for every model, but it's impossible to tell which models support them, and it's effectively
-	// harmless to leave these in so long as they have the `omitempty` struct tag in the generated SDK.
-	return map[string]*ModelField{
-		"@odata.id": {
-			Name:        "ODataId",
-			Description: "The OData ID of this entity",
-			Type:        pointer.To(DataTypeString),
-			Default:     "",
-		},
-		"@odata.type": {
-			Name:        "ODataType",
-			Description: "The OData Type of this entity",
-			Type:        pointer.To(DataTypeString),
-			Default:     "",
-		},
-	}
-}
-
 type ModelField struct {
-	Name               string
-	Type               *DataType
-	Description        string
-	Default            interface{}
-	Required           bool
-	ReadOnly           bool
-	WriteOnly          bool
-	Nullable           bool
-	AllowEmptyValue    bool
+	// The name of this field
+	Name string
+
+	// The internal type for this field
+	Type *DataType
+
+	// The internal type for items, when this field type is DataTypeArray
+	ItemType *DataType
+
+	// Optional description which can be added to the generated SDK model as a comment
+	Description string
+
+	// The default value for this field
+	Default any
+
+	// Whether the field is required
+	Required bool
+
+	// Read-only fields should be omitted during marshalling in the generated SDK
+	ReadOnly bool
+
+	// Whether the field value can be a JSON null
+	Nullable bool
+
+	// Whether this field contains the discriminated type for a child model
 	DiscriminatedValue bool
-	ItemType           *DataType
-	ReferenceName      *string
+
+	// The name of a referenced model or constant, noting that this should be the full type name from the spec prior to normalizing
+	ReferenceName *string
+
+	// This is parsed from the spec but otherwise currently unused
+	WriteOnly       bool
+	AllowEmptyValue bool
 }
 
+// DataApiSdkObjectDefinition converts the internal ModelField representation to a Data API SDKObjectDefinition, so it can be
+// persisted to the Data API Definitions. It's necessary to provide Models and Constants so that references can be resolved.
 func (f ModelField) DataApiSdkObjectDefinition(models Models, constants Constants) (*sdkModels.SDKObjectDefinition, error) {
 	if f.Type == nil {
 		return nil, fmt.Errorf("field %q has no Type", f.Name)
@@ -604,7 +629,7 @@ func modelFieldFromSchemaRef(jsonField string, fieldSchema *openapi3.SchemaRef) 
 		field.ItemType = FieldType(items.Value.Type, items.Value.Format, field.ReferenceName != nil)
 	}
 
-	// Detect nullable, read-only and required fields from the description
+	// Detect nullable, read-only and required fields from the description, which appears to be reliably auto-generated.
 	if (strings.HasPrefix(fieldSchema.Value.Description, "Nullable.") || strings.Contains(fieldSchema.Value.Description, " Nullable.")) && !strings.Contains(strings.ToLower(fieldSchema.Value.Description), "not nullable.") {
 		field.Nullable = true
 	}
@@ -620,6 +645,30 @@ func modelFieldFromSchemaRef(jsonField string, fieldSchema *openapi3.SchemaRef) 
 	}
 
 	return &field, nil
+}
+
+// defaultModelFields adds an explicit ODataId and ODataType field to each model, since it is inconsistently defined in
+// the API specs. This won't be valid for every model, but it's impossible to tell which models support them, and it's
+// effectively harmless to leave these in so long as they have the `omitempty` struct tag in the generated SDK.
+func defaultModelFields() map[string]*ModelField {
+	return map[string]*ModelField{
+		"@odata.id": {
+			Name:        "ODataId",
+			Description: "The OData ID of this entity",
+			Type:        pointer.To(DataTypeString),
+			Default:     "",
+			Required:    false,
+			Nullable:    false,
+		},
+		"@odata.type": {
+			Name:        "ODataType",
+			Description: "The OData Type of this entity",
+			Type:        pointer.To(DataTypeString),
+			Default:     "",
+			Required:    false,
+			Nullable:    false,
+		},
+	}
 }
 
 // parseEnum returns a slice of sanitized enum values (which are always strings)

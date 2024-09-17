@@ -9,7 +9,6 @@ import (
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/blacklisted"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/normalize"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/parser"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/versions"
@@ -26,10 +25,6 @@ func (p pipelineForService) translateServiceToDataApiSdkTypes() (*sdkModels.Serv
 	}
 
 	for _, resource := range p.resources[p.service] {
-		if blacklisted.Resource(resource) {
-			continue
-		}
-
 		// First scaffold the version and SDK resources (categories)
 		if _, ok := sdkService.APIVersions[resource.Version]; !ok {
 			sdkService.APIVersions[resource.Version] = sdkModels.APIVersion{
