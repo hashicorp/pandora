@@ -17,6 +17,7 @@ var _ dataWorkaround = workaroundODataBind{}
 
 // workaroundODataBind inserts an `@odata.bind` field where a field or collection refers to a DirectoryObject. The
 // OpenAPI spec unfortunately does not document relationships between entities.
+// For example usage, see https://learn.microsoft.com/en-us/graph/api/group-post-groups?view=graph-rest-1.0&tabs=http#example-2-create-a-group-with-owners-and-members
 type workaroundODataBind struct{}
 
 func (workaroundODataBind) Name() string {

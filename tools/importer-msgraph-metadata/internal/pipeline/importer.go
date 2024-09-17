@@ -79,6 +79,7 @@ func runImportForVersion(input RunInput, apiVersion, openApiFile, metadataGitSha
 		return err
 	}
 
+	// Parse all configured services
 	for _, service := range config.Services {
 		for _, version := range service.Available {
 			if version == apiVersion {
@@ -94,6 +95,7 @@ func runImportForVersion(input RunInput, apiVersion, openApiFile, metadataGitSha
 					return fmt.Errorf("unknown service was configured for API version %s: %#v", version, service)
 				}
 
+				// Check that service is configured for import
 				if len(input.Services) > 0 {
 					skip := true
 
@@ -133,17 +135,20 @@ func runImportForVersion(input RunInput, apiVersion, openApiFile, metadataGitSha
 	}
 	p.resourceIds = usedResourceIds
 
+	// Translate common types for this API version
 	commonTypesForApiVersion, err := p.translateCommonTypesToDataApiSdkTypes()
 	if err != nil {
 		return err
 	}
 
+	// Translate and persist all services to Data API Definitions
 	for service := range p.resources {
 		if err = p.ForService(service).PersistDefinitions(*commonTypesForApiVersion); err != nil {
 			return err
 		}
 	}
 
+	// Persist all common types to Data API Definitions
 	if err = p.PersistCommonTypesDefinitions(*commonTypesForApiVersion); err != nil {
 		return err
 	}
@@ -161,7 +166,7 @@ func (p pipelineForService) RunImport() error {
 		return nil
 	}
 
-	// Apply workarounds
+	// Apply workarounds for this service
 	if err = workarounds.ApplyWorkaroundsForService(p.apiVersion, p.service, resources, p.resourceIds); err != nil {
 		return err
 	}

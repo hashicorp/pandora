@@ -11,6 +11,9 @@ import (
 var _ dataWorkaround = workaroundRepeatingResourceIdSegments{}
 
 // workaroundRepeatingResourceIdSegments removes incompatible resource IDs due to repeating segments which are not supported at this time.
+// After removing unsupported resource IDs, when a corresponding resource is being parsed, it will not match against any resource IDs, and
+// the resulting URI suffix will contain the entire URL. If that resulting URI suffix contains any user-specified segments, the resource
+// will also be skipped.
 type workaroundRepeatingResourceIdSegments struct{}
 
 func (workaroundRepeatingResourceIdSegments) Name() string {

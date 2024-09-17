@@ -10,14 +10,21 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/internal/logging"
 )
 
+// workarounds are general data workarounds that operate on models, constants and resource IDs. They can make any changes
+// to this parsed data - note that each of these are passed in as maps, so changes propagate to the underlying object.
 var workarounds = []dataWorkaround{
+	// Process general workarounds first
 	workaroundODataBind{},
 	workaroundRepeatingResourceIdSegments{},
 
+	// Model-specific workarounds
 	workaroundApplication{},
 	workaroundConditionalAccessPolicy{},
 }
 
+// serviceWorkarounds make post-parsing changes to individual services and are able to make any changes to resources
+// within that service and/or to resource IDs (which are shared across all services). Note that each of these are passed
+// in as maps, so changes propagate to the underlying object.
 var serviceWorkarounds = []serviceWorkaround{
 	workaroundSynchronizationSecrets{},
 }

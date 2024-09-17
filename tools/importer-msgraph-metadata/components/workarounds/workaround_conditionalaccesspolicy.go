@@ -25,7 +25,7 @@ func (workaroundConditionalAccessPolicy) Process(apiVersion string, models parse
 		return fmt.Errorf("`ConditionalAccessPolicy` model not found")
 	}
 
-	// grantControls and sessionControls must be null to unset them, so make them nullable + required
+	// `grantControls` and `sessionControls` must be null to unset them, so make them nullable + required
 	if _, ok = model.Fields["grantControls"]; !ok {
 		return fmt.Errorf("`GrantControls` field not found")
 	}
@@ -42,7 +42,7 @@ func (workaroundConditionalAccessPolicy) Process(apiVersion string, models parse
 		return fmt.Errorf("`ConditionalAccessConditionSet` model not found")
 	}
 
-	// devices, locations, platforms must each be null to unset them, so make them nullable + required
+	// `devices`, `locations`, `platforms` must each be null to unset them, so make them nullable + required
 	if _, ok = model.Fields["devices"]; !ok {
 		return fmt.Errorf("`Devices` field not found")
 	}
@@ -88,7 +88,7 @@ func (workaroundConditionalAccessPolicy) Process(apiVersion string, models parse
 		return fmt.Errorf("`ConditionalAccessSessionControls` model not found")
 	}
 
-	// cloudAppSecurityPolicy must be null to unset it, so make it nullable + required
+	// `cloudAppSecurityPolicy` must be null to unset it, so make it nullable + required
 	if _, ok = model.Fields["cloudAppSecurity"]; !ok {
 		return fmt.Errorf("`CloudAppSecurity` field not found")
 	}
@@ -100,7 +100,7 @@ func (workaroundConditionalAccessPolicy) Process(apiVersion string, models parse
 		return fmt.Errorf("`ConditionalAccessUsers` model not found")
 	}
 
-	// excludeGuestsOrExternalUsers / includeGuestsOrExternalUsers must be null to unset them, so make them nullable + required
+	// `excludeGuestsOrExternalUsers` / `includeGuestsOrExternalUsers` must be null to unset them, so make them nullable + required
 	if _, ok = model.Fields["excludeGuestsOrExternalUsers"]; !ok {
 		return fmt.Errorf("`ExcludeGuestsOrExternalUsers` field not found")
 	}

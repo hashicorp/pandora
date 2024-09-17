@@ -76,6 +76,8 @@ func (r ResourceId) ID() string {
 	return "/" + strings.Join(segments, "/")
 }
 
+// DataApiSdkResourceId converts the internal ResourceId representation to a Data API SDK ResourceID, so it can be
+// persisted to the Data API Definitions.
 func (r ResourceId) DataApiSdkResourceId() (*sdkModels.ResourceID, error) {
 	sdkSegments := make([]sdkModels.ResourceIDSegment, 0, len(r.Segments))
 
