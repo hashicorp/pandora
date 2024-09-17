@@ -1,0 +1,201 @@
+{
+  "name": "ManagedAllDeviceCertificateState",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Certificate expiry date",
+      "jsonName": "certificateExpirationDateTime",
+      "name": "CertificateExpirationDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Enhanced Key Usage",
+      "jsonName": "certificateExtendedKeyUsages",
+      "name": "CertificateExtendedKeyUsages",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Issuance date",
+      "jsonName": "certificateIssuanceDateTime",
+      "name": "CertificateIssuanceDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Issuer",
+      "jsonName": "certificateIssuerName",
+      "name": "CertificateIssuerName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Key Usage",
+      "jsonName": "certificateKeyUsages",
+      "name": "CertificateKeyUsages",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Certificate Revocation Status.",
+      "jsonName": "certificateRevokeStatus",
+      "name": "CertificateRevokeStatus",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "CertificateRevocationStatus",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The time the revoke status was last changed",
+      "jsonName": "certificateRevokeStatusLastChangeDateTime",
+      "name": "CertificateRevokeStatusLastChangeDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Serial number",
+      "jsonName": "certificateSerialNumber",
+      "name": "CertificateSerialNumber",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Certificate subject name",
+      "jsonName": "certificateSubjectName",
+      "name": "CertificateSubjectName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Thumbprint",
+      "jsonName": "certificateThumbprint",
+      "name": "CertificateThumbprint",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Device display name",
+      "jsonName": "managedDeviceDisplayName",
+      "name": "ManagedDeviceDisplayName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "User principal name",
+      "jsonName": "userPrincipalName",
+      "name": "UserPrincipalName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.managedAllDeviceCertificateState",
+  "typeHintIn": "ODataType"
+}

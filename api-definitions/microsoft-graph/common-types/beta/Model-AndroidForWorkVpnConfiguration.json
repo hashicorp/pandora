@@ -1,0 +1,187 @@
+{
+  "name": "AndroidForWorkVpnConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "VPN Authentication Method.",
+      "jsonName": "authenticationMethod",
+      "name": "AuthenticationMethod",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "VpnAuthenticationMethod",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Connection name displayed to the user.",
+      "jsonName": "connectionName",
+      "name": "ConnectionName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Android For Work VPN connection type.",
+      "jsonName": "connectionType",
+      "name": "ConnectionType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AndroidForWorkVpnConnectionType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Custom data when connection type is set to Citrix. This collection can contain a maximum of 25 elements.",
+      "jsonName": "customData",
+      "name": "CustomData",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "KeyValue",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Custom data when connection type is set to Citrix. This collection can contain a maximum of 25 elements.",
+      "jsonName": "customKeyValueData",
+      "name": "CustomKeyValueData",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "KeyValuePair",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Fingerprint is a string that will be used to verify the VPN server can be trusted, which is only applicable when connection type is Check Point Capsule VPN.",
+      "jsonName": "fingerprint",
+      "name": "Fingerprint",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Identity certificate for client authentication when authentication method is certificate.",
+      "jsonName": "identityCertificate",
+      "name": "IdentityCertificate",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AndroidForWorkCertificateProfileBase",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Realm when connection type is set to Pulse Secure.",
+      "jsonName": "realm",
+      "name": "Realm",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Role when connection type is set to Pulse Secure.",
+      "jsonName": "role",
+      "name": "Role",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "List of VPN Servers on the network. Make sure end users can access these network locations. This collection can contain a maximum of 500 elements.",
+      "jsonName": "servers",
+      "name": "Servers",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "VpnServer",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceConfiguration",
+  "discriminatedTypeValue": "#microsoft.graph.androidForWorkVpnConfiguration",
+  "typeHintIn": "ODataType"
+}

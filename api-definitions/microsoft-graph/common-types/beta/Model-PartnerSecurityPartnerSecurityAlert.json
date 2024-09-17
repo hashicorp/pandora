@@ -1,0 +1,338 @@
+{
+  "name": "PartnerSecurityPartnerSecurityAlert",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Represents the activity by a partner and includes details of state transitions, who performed them, and when they occurred.",
+      "jsonName": "activityLogs",
+      "name": "ActivityLogs",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "PartnerSecurityActivityLog",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A bag of name-value pairs that contain more details about an alert.",
+      "jsonName": "additionalDetails",
+      "name": "AdditionalDetails",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PartnerSecurityAdditionalDataDictionary",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Contains details of the resources affected by the security alert.",
+      "jsonName": "affectedResources",
+      "name": "AffectedResources",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "PartnerSecurityAffectedResource",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The type of vulnerability that impacts the customer due to this alert. For more information, see Security alerts reference guide.",
+      "jsonName": "alertType",
+      "name": "AlertType",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The modern offer category ID of the subscription.",
+      "jsonName": "catalogOfferId",
+      "name": "CatalogOfferId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "confidenceLevel",
+      "name": "ConfidenceLevel",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PartnerSecuritySecurityAlertConfidence",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The impacted customer tenant associated with the alert.",
+      "jsonName": "customerTenantId",
+      "name": "CustomerTenantId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The description for each alert.",
+      "jsonName": "description",
+      "name": "Description",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Time when the alert was detected or created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.",
+      "jsonName": "detectedDateTime",
+      "name": "DetectedDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The display name of the alert.",
+      "jsonName": "displayName",
+      "name": "DisplayName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Time of the first activity associated with the alert. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.",
+      "jsonName": "firstObservedDateTime",
+      "name": "FirstObservedDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether an alert is a test alert.",
+      "jsonName": "isTest",
+      "name": "IsTest",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Time of the latest activity associated with the alert. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.",
+      "jsonName": "lastObservedDateTime",
+      "name": "LastObservedDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The UPN of the partner user who resolved the alert.",
+      "jsonName": "resolvedBy",
+      "name": "ResolvedBy",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Time when the alert was resolved. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.",
+      "jsonName": "resolvedOnDateTime",
+      "name": "ResolvedOnDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The reason provided by the partner for addressing the alert. The possible values are: legitimate, ignore, fraud, unknownFutureValue.",
+      "jsonName": "resolvedReason",
+      "name": "ResolvedReason",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PartnerSecuritySecurityAlertResolvedReason",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "severity",
+      "name": "Severity",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PartnerSecuritySecurityAlertSeverity",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "status",
+      "name": "Status",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PartnerSecuritySecurityAlertStatus",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The subscription associated with the alert for the customer.",
+      "jsonName": "subscriptionId",
+      "name": "SubscriptionId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The value-added reseller tenant associated with the partner tenant and customer tenant.",
+      "jsonName": "valueAddedResellerTenantId",
+      "name": "ValueAddedResellerTenantId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.partner.security.partnerSecurityAlert",
+  "typeHintIn": "ODataType"
+}

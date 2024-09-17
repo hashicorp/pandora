@@ -1,0 +1,60 @@
+{
+  "name": "VirtualEventRegistrationConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "capacity",
+      "name": "Capacity",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "questions",
+      "name": "Questions",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "VirtualEventRegistrationQuestionBase",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "registrationWebUrl",
+      "name": "RegistrationWebUrl",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": true,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.virtualEventRegistrationConfiguration",
+  "typeHintIn": "ODataType"
+}

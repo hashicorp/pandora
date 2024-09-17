@@ -1,0 +1,25 @@
+{
+  "name": "Windows10PFXImportCertificateProfile",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Key Storage Provider (KSP) Import Options.",
+      "jsonName": "keyStorageProvider",
+      "name": "KeyStorageProvider",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "KeyStorageProviderOption",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceConfiguration",
+  "discriminatedTypeValue": "#microsoft.graph.windows10PFXImportCertificateProfile",
+  "typeHintIn": "ODataType"
+}

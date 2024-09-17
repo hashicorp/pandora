@@ -1,0 +1,76 @@
+{
+  "name": "ExternalConnectorsUrlMatchInfo",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A list of the URL prefixes that must match URLs to be processed by this URL-to-item-resolver.",
+      "jsonName": "baseUrls",
+      "name": "BaseUrls",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The OData ID of this entity",
+      "jsonName": "@odata.id",
+      "name": "ODataId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The OData Type of this entity",
+      "jsonName": "@odata.type",
+      "name": "ODataType",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A regular expression that will be matched towards the URL that is processed by this URL-to-item-resolver. The ECMAScript specification for regular expressions (ECMA-262) is used for the evaluation. The named groups defined by the regular expression will be used later to extract values from the URL.",
+      "jsonName": "urlPattern",
+      "name": "UrlPattern",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

@@ -1,0 +1,86 @@
+{
+  "name": "DeviceManagementApplicabilityRuleDeviceMode",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Windows 10 Device Mode type.",
+      "jsonName": "deviceMode",
+      "name": "DeviceMode",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Windows10DeviceModeType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Name for object.",
+      "jsonName": "name",
+      "name": "Name",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The OData ID of this entity",
+      "jsonName": "@odata.id",
+      "name": "ODataId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The OData Type of this entity",
+      "jsonName": "@odata.type",
+      "name": "ODataType",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Supported Applicability rule types for Device Configuration",
+      "jsonName": "ruleType",
+      "name": "RuleType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceManagementApplicabilityRuleType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

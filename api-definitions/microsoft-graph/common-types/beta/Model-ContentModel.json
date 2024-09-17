@@ -1,0 +1,105 @@
+{
+  "name": "ContentModel",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Identity of the user, device, or applicationthat created the item. Read-only.",
+      "jsonName": "createdBy",
+      "name": "CreatedBy",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "IdentitySet",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Date and time of item creation. Read-only.",
+      "jsonName": "createdDateTime",
+      "name": "CreatedDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Identity of the user, device, or application that modified the item. Read-only.",
+      "jsonName": "lastModifiedBy",
+      "name": "LastModifiedBy",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "IdentitySet",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Date and time of item last modification. Read-only.",
+      "jsonName": "lastModifiedDateTime",
+      "name": "LastModifiedDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The type of the contentModel. The possible values are: teachingMethod, layoutMethod, freeformSelectionMethod, prebuiltContractModel, prebuiltInvoiceModel, prebuiltReceiptModel, unknownFutureValue.",
+      "jsonName": "modelType",
+      "name": "ModelType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ContentModelType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The name of the contentModel.",
+      "jsonName": "name",
+      "name": "Name",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.contentModel",
+  "typeHintIn": "ODataType"
+}

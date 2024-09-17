@@ -1,0 +1,36 @@
+{
+  "name": "CreateDriveListContentTypeUnpublish",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Invoke action unpublish. Unpublish a contentType from a content type hub site.",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "UserIdDriveIdListContentTypeId",
+  "resourceIdNameIsCommonType": true,
+  "uriSuffix": "/unpublish"
+}

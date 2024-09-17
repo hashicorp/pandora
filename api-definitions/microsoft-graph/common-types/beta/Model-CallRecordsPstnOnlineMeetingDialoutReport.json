@@ -1,0 +1,182 @@
+{
+  "name": "CallRecordsPstnOnlineMeetingDialoutReport",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Currency used to calculate the cost of the call. For details, see ISO 4217.",
+      "jsonName": "currency",
+      "name": "Currency",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether the call was Domestic (within a country or region) or International (outside a country or region) based on the user's location.",
+      "jsonName": "destinationContext",
+      "name": "DestinationContext",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The OData ID of this entity",
+      "jsonName": "@odata.id",
+      "name": "ODataId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The OData Type of this entity",
+      "jsonName": "@odata.type",
+      "name": "ODataType",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Total costs of all the calls within the selected time range, including call charges and connection fees.",
+      "jsonName": "totalCallCharge",
+      "name": "TotalCallCharge",
+      "objectDefinition": {
+        "type": "Float",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Total duration of all the calls within the selected time range, in seconds.",
+      "jsonName": "totalCallSeconds",
+      "name": "TotalCallSeconds",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Total number of dial-out calls within the selected time range.",
+      "jsonName": "totalCalls",
+      "name": "TotalCalls",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Country code of the user. For details, see ISO 3166-1 alpha-2.",
+      "jsonName": "usageLocation",
+      "name": "UsageLocation",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Display name of the user.",
+      "jsonName": "userDisplayName",
+      "name": "UserDisplayName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The unique identifier (GUID) of the user in Microsoft Entra ID.",
+      "jsonName": "userId",
+      "name": "UserId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The user principal name (sign-in name) in Microsoft Entra ID. This is usually the same as the user's SIP address, and can be same as the user's e-mail address.",
+      "jsonName": "userPrincipalName",
+      "name": "UserPrincipalName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

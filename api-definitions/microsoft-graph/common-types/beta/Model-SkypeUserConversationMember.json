@@ -1,0 +1,25 @@
+{
+  "name": "SkypeUserConversationMember",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Skype ID of the user.",
+      "jsonName": "skypeId",
+      "name": "SkypeId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ConversationMember",
+  "discriminatedTypeValue": "#microsoft.graph.skypeUserConversationMember",
+  "typeHintIn": "ODataType"
+}

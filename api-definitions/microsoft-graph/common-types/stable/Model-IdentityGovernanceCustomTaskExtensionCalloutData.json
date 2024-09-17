@@ -1,0 +1,69 @@
+{
+  "name": "IdentityGovernanceCustomTaskExtensionCalloutData",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "subject",
+      "name": "Subject",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "User",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "task",
+      "name": "Task",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "IdentityGovernanceTask",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "taskProcessingresult",
+      "name": "TaskProcessingresult",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "IdentityGovernanceTaskProcessingResult",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "workflow",
+      "name": "Workflow",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "IdentityGovernanceWorkflow",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "CustomExtensionData",
+  "discriminatedTypeValue": "#microsoft.graph.identityGovernance.customTaskExtensionCalloutData",
+  "typeHintIn": "ODataType"
+}

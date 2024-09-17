@@ -1,0 +1,267 @@
+{
+  "name": "GroupPolicyMigrationReport",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The date and time at which the GroupPolicyMigrationReport was created.",
+      "jsonName": "createdDateTime",
+      "name": "CreatedDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The name of Group Policy Object from the GPO Xml Content",
+      "jsonName": "displayName",
+      "name": "DisplayName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The date and time at which the GroupPolicyMigrationReport was created.",
+      "jsonName": "groupPolicyCreatedDateTime",
+      "name": "GroupPolicyCreatedDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The date and time at which the GroupPolicyMigrationReport was last modified.",
+      "jsonName": "groupPolicyLastModifiedDateTime",
+      "name": "GroupPolicyLastModifiedDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The Group Policy Object GUID from GPO Xml content",
+      "jsonName": "groupPolicyObjectId",
+      "name": "GroupPolicyObjectId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A list of group policy settings to MDM/Intune mappings.",
+      "jsonName": "groupPolicySettingMappings",
+      "name": "GroupPolicySettingMappings",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "GroupPolicySettingMapping",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The date and time at which the GroupPolicyMigrationReport was last modified.",
+      "jsonName": "lastModifiedDateTime",
+      "name": "LastModifiedDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates if the Group Policy Object file is covered and ready for Intune migration.",
+      "jsonName": "migrationReadiness",
+      "name": "MigrationReadiness",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "GroupPolicyMigrationReadiness",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The distinguished name of the OU.",
+      "jsonName": "ouDistinguishedName",
+      "name": "OuDistinguishedName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The list of scope tags for the configuration.",
+      "jsonName": "roleScopeTagIds",
+      "name": "RoleScopeTagIds",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The number of Group Policy Settings supported by Intune.",
+      "jsonName": "supportedSettingsCount",
+      "name": "SupportedSettingsCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The Percentage of Group Policy Settings supported by Intune.",
+      "jsonName": "supportedSettingsPercent",
+      "name": "SupportedSettingsPercent",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The Targeted in AD property from GPO Xml Content",
+      "jsonName": "targetedInActiveDirectory",
+      "name": "TargetedInActiveDirectory",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The total number of Group Policy Settings from GPO file.",
+      "jsonName": "totalSettingsCount",
+      "name": "TotalSettingsCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A list of unsupported group policy extensions inside the Group Policy Object.",
+      "jsonName": "unsupportedGroupPolicyExtensions",
+      "name": "UnsupportedGroupPolicyExtensions",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "UnsupportedGroupPolicyExtension",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.groupPolicyMigrationReport",
+  "typeHintIn": "ODataType"
+}

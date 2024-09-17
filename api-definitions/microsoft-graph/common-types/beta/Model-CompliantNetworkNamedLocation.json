@@ -1,0 +1,40 @@
+{
+  "name": "CompliantNetworkNamedLocation",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "compliantNetworkType",
+      "name": "CompliantNetworkType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "CompliantNetworkType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "true if this location is explicitly trusted. Optional. Default value is false.",
+      "jsonName": "isTrusted",
+      "name": "IsTrusted",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "NamedLocation",
+  "discriminatedTypeValue": "#microsoft.graph.compliantNetworkNamedLocation",
+  "typeHintIn": "ODataType"
+}

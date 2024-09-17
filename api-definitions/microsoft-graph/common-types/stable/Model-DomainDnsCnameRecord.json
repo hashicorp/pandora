@@ -1,0 +1,25 @@
+{
+  "name": "DomainDnsCnameRecord",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The canonical name of the CNAME record. Used to configure the CNAME record at the DNS host.",
+      "jsonName": "canonicalName",
+      "name": "CanonicalName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DomainDnsRecord",
+  "discriminatedTypeValue": "#microsoft.graph.domainDnsCnameRecord",
+  "typeHintIn": "ODataType"
+}

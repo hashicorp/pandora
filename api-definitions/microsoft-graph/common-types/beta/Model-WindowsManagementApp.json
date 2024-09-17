@@ -1,0 +1,79 @@
+{
+  "name": "WindowsManagementApp",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Windows management app available version.",
+      "jsonName": "availableVersion",
+      "name": "AvailableVersion",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The list of health states for installed Windows management app.",
+      "jsonName": "healthStates",
+      "name": "HealthStates",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "WindowsManagementAppHealthState",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "ManagedInstallerStatus",
+      "jsonName": "managedInstaller",
+      "name": "ManagedInstaller",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ManagedInstallerStatus",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Managed Installer Configured Date Time",
+      "jsonName": "managedInstallerConfiguredDateTime",
+      "name": "ManagedInstallerConfiguredDateTime",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.windowsManagementApp",
+  "typeHintIn": "ODataType"
+}

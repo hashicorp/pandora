@@ -1,0 +1,54 @@
+{
+  "name": "Package",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The OData ID of this entity",
+      "jsonName": "@odata.id",
+      "name": "ODataId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The OData Type of this entity",
+      "jsonName": "@odata.type",
+      "name": "ODataType",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "An string indicating the type of package. While oneNote is the only currently defined value, you should expect other package types to be returned and handle them accordingly.",
+      "jsonName": "type",
+      "name": "Type",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

@@ -1,0 +1,41 @@
+{
+  "name": "TrainingNotificationSetting",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Training assignment details.",
+      "jsonName": "trainingAssignment",
+      "name": "TrainingAssignment",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "BaseEndUserNotification",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Training reminder details.",
+      "jsonName": "trainingReminder",
+      "name": "TrainingReminder",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "TrainingReminderNotification",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "EndUserNotificationSetting",
+  "discriminatedTypeValue": "#microsoft.graph.trainingNotificationSetting",
+  "typeHintIn": "ODataType"
+}

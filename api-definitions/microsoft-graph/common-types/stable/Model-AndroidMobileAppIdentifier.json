@@ -1,0 +1,25 @@
+{
+  "name": "AndroidMobileAppIdentifier",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The identifier for an app, as specified in the play store.",
+      "jsonName": "packageId",
+      "name": "PackageId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "MobileAppIdentifier",
+  "discriminatedTypeValue": "#microsoft.graph.androidMobileAppIdentifier",
+  "typeHintIn": "ODataType"
+}

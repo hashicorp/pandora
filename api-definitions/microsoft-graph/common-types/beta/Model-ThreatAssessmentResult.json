@@ -1,0 +1,57 @@
+{
+  "name": "ThreatAssessmentResult",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.",
+      "jsonName": "createdDateTime",
+      "name": "CreatedDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The result message for each threat assessment.",
+      "jsonName": "message",
+      "name": "Message",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The threat assessment result type. Possible values are: checkPolicy (only for mail assessment), rescan.",
+      "jsonName": "resultType",
+      "name": "ResultType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ThreatAssessmentResultType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.threatAssessmentResult",
+  "typeHintIn": "ODataType"
+}

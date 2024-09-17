@@ -1,0 +1,105 @@
+{
+  "name": "ServicePrincipalSignInActivity",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The application ID of the resource.",
+      "jsonName": "appId",
+      "name": "AppId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The sign-in activity of the application in a app-only authentication flow (app-to-app tokens) where the application acts like a client.",
+      "jsonName": "applicationAuthenticationClientSignInActivity",
+      "name": "ApplicationAuthenticationClientSignInActivity",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SignInActivity",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The sign-in activity of the application in a app-only authentication flow (app-to-app tokens) where the application acts like a resource.",
+      "jsonName": "applicationAuthenticationResourceSignInActivity",
+      "name": "ApplicationAuthenticationResourceSignInActivity",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SignInActivity",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The sign-in activity of the application in a delegated flow (user sign-in) where the application acts like a client.",
+      "jsonName": "delegatedClientSignInActivity",
+      "name": "DelegatedClientSignInActivity",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SignInActivity",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The sign-in activity of the application in a delegated flow (user sign-in) where the application acts like a resource.",
+      "jsonName": "delegatedResourceSignInActivity",
+      "name": "DelegatedResourceSignInActivity",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SignInActivity",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The most recent sign-in activity of the application across delegated or app-only flows where the application is used either as a client or resource.",
+      "jsonName": "lastSignInActivity",
+      "name": "LastSignInActivity",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SignInActivity",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.servicePrincipalSignInActivity",
+  "typeHintIn": "ODataType"
+}

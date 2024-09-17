@@ -1,0 +1,63 @@
+{
+  "name": "ManagedTenantsManagementActionTenantDeploymentStatus",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The collection of deployment status for each instance of a management action. Optional.",
+      "jsonName": "statuses",
+      "name": "Statuses",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "ManagedTenantsManagementActionDeploymentStatus",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The identifier for the tenant group that is associated with the management action. Required. Read-only.",
+      "jsonName": "tenantGroupId",
+      "name": "TenantGroupId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": true,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The Microsoft Entra tenant identifier for the managed tenant. Required. Read-only.",
+      "jsonName": "tenantId",
+      "name": "TenantId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": true,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.managedTenants.managementActionTenantDeploymentStatus",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,185 @@
+{
+  "name": "DeviceHealthScriptRunSummary",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Number of devices on which the detection script execution encountered an error and did not complete",
+      "jsonName": "detectionScriptErrorDeviceCount",
+      "name": "DetectionScriptErrorDeviceCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Number of devices for which the detection script was not applicable",
+      "jsonName": "detectionScriptNotApplicableDeviceCount",
+      "name": "DetectionScriptNotApplicableDeviceCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Number of devices which have not yet run the latest version of the device health script",
+      "jsonName": "detectionScriptPendingDeviceCount",
+      "name": "DetectionScriptPendingDeviceCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Number of devices for which the detection script found an issue",
+      "jsonName": "issueDetectedDeviceCount",
+      "name": "IssueDetectedDeviceCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Number of devices that were remediated over the last 30 days",
+      "jsonName": "issueRemediatedCumulativeDeviceCount",
+      "name": "IssueRemediatedCumulativeDeviceCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Number of devices for which the remediation script was able to resolve the detected issue",
+      "jsonName": "issueRemediatedDeviceCount",
+      "name": "IssueRemediatedDeviceCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Number of devices for which the remediation script executed successfully but failed to resolve the detected issue",
+      "jsonName": "issueReoccurredDeviceCount",
+      "name": "IssueReoccurredDeviceCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Last run time for the script across all devices",
+      "jsonName": "lastScriptRunDateTime",
+      "name": "LastScriptRunDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Number of devices for which the detection script did not find an issue and the device is healthy",
+      "jsonName": "noIssueDetectedDeviceCount",
+      "name": "NoIssueDetectedDeviceCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Number of devices for which the remediation script execution encountered an error and did not complete",
+      "jsonName": "remediationScriptErrorDeviceCount",
+      "name": "RemediationScriptErrorDeviceCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Number of devices for which remediation was skipped",
+      "jsonName": "remediationSkippedDeviceCount",
+      "name": "RemediationSkippedDeviceCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.deviceHealthScriptRunSummary",
+  "typeHintIn": "ODataType"
+}

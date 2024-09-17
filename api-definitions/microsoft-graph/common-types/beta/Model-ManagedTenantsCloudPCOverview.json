@@ -1,0 +1,344 @@
+{
+  "name": "ManagedTenantsCloudPCOverview",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The total number of cloud PC devices that have the Frontline SKU. Optional. Read-only.",
+      "jsonName": "frontlineLicensesCount",
+      "name": "FrontlineLicensesCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Date and time the entity was last updated in the multi-tenant management platform. Optional. Read-only.",
+      "jsonName": "lastRefreshedDateTime",
+      "name": "LastRefreshedDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The number of cloud PC connections that have a status of failed. Optional. Read-only.",
+      "jsonName": "numberOfCloudPcConnectionStatusFailed",
+      "name": "NumberOfCloudPCConnectionStatusFailed",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The number of cloud PC connections that have a status of passed. Optional. Read-only.",
+      "jsonName": "numberOfCloudPcConnectionStatusPassed",
+      "name": "NumberOfCloudPCConnectionStatusPassed",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The number of cloud PC connections that have a status of pending. Optional. Read-only.",
+      "jsonName": "numberOfCloudPcConnectionStatusPending",
+      "name": "NumberOfCloudPCConnectionStatusPending",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The number of cloud PC connections that have a status of running. Optional. Read-only.",
+      "jsonName": "numberOfCloudPcConnectionStatusRunning",
+      "name": "NumberOfCloudPCConnectionStatusRunning",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The number of cloud PC connections that have a status of unknownFutureValue. Optional. Read-only.",
+      "jsonName": "numberOfCloudPcConnectionStatusUnkownFutureValue",
+      "name": "NumberOfCloudPCConnectionStatusUnkownFutureValue",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The number of cloud PCs that have a status of deprovisioning. Optional. Read-only.",
+      "jsonName": "numberOfCloudPcStatusDeprovisioning",
+      "name": "NumberOfCloudPCStatusDeprovisioning",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The number of cloud PCs that have a status of failed. Optional. Read-only.",
+      "jsonName": "numberOfCloudPcStatusFailed",
+      "name": "NumberOfCloudPCStatusFailed",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The number of cloud PCs that have a status of inGracePeriod. Optional. Read-only.",
+      "jsonName": "numberOfCloudPcStatusInGracePeriod",
+      "name": "NumberOfCloudPCStatusInGracePeriod",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The number of cloud PCs that have a status of notProvisioned. Optional. Read-only.",
+      "jsonName": "numberOfCloudPcStatusNotProvisioned",
+      "name": "NumberOfCloudPCStatusNotProvisioned",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The number of cloud PCs that have a status of provisioned. Optional. Read-only.",
+      "jsonName": "numberOfCloudPcStatusProvisioned",
+      "name": "NumberOfCloudPCStatusProvisioned",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The number of cloud PCs that have a status of provisioning. Optional. Read-only.",
+      "jsonName": "numberOfCloudPcStatusProvisioning",
+      "name": "NumberOfCloudPCStatusProvisioning",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The number of cloud PCs that have a status of unknown. Optional. Read-only.",
+      "jsonName": "numberOfCloudPcStatusUnknown",
+      "name": "NumberOfCloudPCStatusUnknown",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The number of cloud PCs that have a status of upgrading. Optional. Read-only.",
+      "jsonName": "numberOfCloudPcStatusUpgrading",
+      "name": "NumberOfCloudPCStatusUpgrading",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The display name for the managed tenant. Optional. Read-only.",
+      "jsonName": "tenantDisplayName",
+      "name": "TenantDisplayName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "tenantId",
+      "name": "TenantId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The total number of cloud PC devices that have the Business SKU. Optional. Read-only.",
+      "jsonName": "totalBusinessLicenses",
+      "name": "TotalBusinessLicenses",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The total number of cloud PC connection statuses for the given managed tenant. Optional. Read-only.",
+      "jsonName": "totalCloudPcConnectionStatus",
+      "name": "TotalCloudPCConnectionStatus",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The total number of cloud PC statues for the given managed tenant. Optional. Read-only.",
+      "jsonName": "totalCloudPcStatus",
+      "name": "TotalCloudPCStatus",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The total number of cloud PC devices that have the Enterprise SKU. Optional. Read-only.",
+      "jsonName": "totalEnterpriseLicenses",
+      "name": "TotalEnterpriseLicenses",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.managedTenants.cloudPcOverview",
+  "typeHintIn": "ODataType"
+}

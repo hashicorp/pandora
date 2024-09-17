@@ -1,0 +1,41 @@
+{
+  "name": "BookingsAvailabilityWindow",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "End date of the availability window.",
+      "jsonName": "endDate",
+      "name": "EndDate",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Start date of the availability window.",
+      "jsonName": "startDate",
+      "name": "StartDate",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "BookingsAvailability",
+  "discriminatedTypeValue": "#microsoft.graph.bookingsAvailabilityWindow",
+  "typeHintIn": "ODataType"
+}

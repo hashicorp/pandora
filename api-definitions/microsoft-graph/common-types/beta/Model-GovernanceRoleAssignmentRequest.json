@@ -1,0 +1,217 @@
+{
+  "name": "GovernanceRoleAssignmentRequest",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Required. The state of the assignment. The possible values are: Eligible (for eligible assignment),  Active (if it is directly assigned), Active (by administrators, or activated on an eligible assignment by the users).",
+      "jsonName": "assignmentState",
+      "name": "AssignmentState",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "If this is a request for role activation, it represents the id of the eligible assignment being referred; Otherwise, the value is null.",
+      "jsonName": "linkedEligibleRoleAssignmentId",
+      "name": "LinkedEligibleRoleAssignmentId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A message provided by users and administrators when create the request about why it is needed.",
+      "jsonName": "reason",
+      "name": "Reason",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Read-only. The request create time. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z",
+      "jsonName": "requestedDateTime",
+      "name": "RequestedDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Read-only. The resource that the request aims to.",
+      "jsonName": "resource",
+      "name": "Resource",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "GovernanceResource",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Required. The unique identifier of the Azure resource that is associated with the role assignment request. Azure resources can include subscriptions, resource groups, virtual machines, and SQL databases.",
+      "jsonName": "resourceId",
+      "name": "ResourceId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Read-only. The role definition that the request aims to.",
+      "jsonName": "roleDefinition",
+      "name": "RoleDefinition",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "GovernanceRoleDefinition",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Required. The identifier of the Azure role definition that the role assignment request is associated with.",
+      "jsonName": "roleDefinitionId",
+      "name": "RoleDefinitionId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The schedule object of the role assignment request.",
+      "jsonName": "schedule",
+      "name": "Schedule",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "GovernanceSchedule",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The status of the role assignment request.",
+      "jsonName": "status",
+      "name": "Status",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "GovernanceRoleAssignmentRequestStatus",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Read-only. The user/group principal.",
+      "jsonName": "subject",
+      "name": "Subject",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "GovernanceSubject",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Required. The unique identifier of the principal or subject that the role assignment request is associated with. Principals can be users, groups, or service principals.",
+      "jsonName": "subjectId",
+      "name": "SubjectId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Required. Representing the type of the operation on the role assignment. The possible values are: AdminAdd , UserAdd , AdminUpdate , AdminRemove , UserRemove , UserExtend , AdminExtend , UserRenew , AdminRenew.",
+      "jsonName": "type",
+      "name": "Type",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.governanceRoleAssignmentRequest",
+  "typeHintIn": "ODataType"
+}

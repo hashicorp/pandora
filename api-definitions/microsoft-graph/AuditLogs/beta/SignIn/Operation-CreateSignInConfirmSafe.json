@@ -1,0 +1,41 @@
+{
+  "name": "CreateSignInConfirmSafe",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Invoke action confirmSafe. Allow admins to mark an event in Microsoft Entra sign-in logs as safe. Admins can either mark the events flagged as risky by Microsoft Entra ID Protection as safe, or they can mark unflagged events as safe. For details about investigating Identity Protection risks, see How to investigate risk.",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "CreateSignInConfirmSafeRequest",
+    "referenceNameIsCommonType": false
+  },
+  "uriSuffix": "/auditLogs/signIns/confirmSafe"
+}

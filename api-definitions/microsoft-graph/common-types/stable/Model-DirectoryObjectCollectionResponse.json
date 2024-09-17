@@ -1,0 +1,52 @@
+{
+  "name": "DirectoryObjectCollectionResponse",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "value",
+      "name": "Value",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "DirectoryObject",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "List of OData IDs for `Value` to bind to this entity",
+      "jsonName": "value@odata.bind",
+      "name": "Value_ODataBind",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "BaseCollectionPaginationCountResponse",
+  "discriminatedTypeValue": "#microsoft.graph.directoryObjectCollectionResponse",
+  "typeHintIn": "ODataType"
+}

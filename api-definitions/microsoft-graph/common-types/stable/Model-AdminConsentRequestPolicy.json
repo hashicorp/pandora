@@ -1,0 +1,111 @@
+{
+  "name": "AdminConsentRequestPolicy",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specifies whether the admin consent request feature is enabled or disabled. Required.",
+      "jsonName": "isEnabled",
+      "name": "IsEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specifies whether reviewers will receive notifications. Required.",
+      "jsonName": "notifyReviewers",
+      "name": "NotifyReviewers",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specifies whether reviewers will receive reminder emails. Required.",
+      "jsonName": "remindersEnabled",
+      "name": "RemindersEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the duration the request is active before it automatically expires if no decision is applied.",
+      "jsonName": "requestDurationInDays",
+      "name": "RequestDurationInDays",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The list of reviewers for the admin consent. Required.",
+      "jsonName": "reviewers",
+      "name": "Reviewers",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "AccessReviewReviewerScope",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the version of this policy. When the policy is updated, this version is updated. Read-only.",
+      "jsonName": "version",
+      "name": "Version",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.adminConsentRequestPolicy",
+  "typeHintIn": "ODataType"
+}

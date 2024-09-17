@@ -1,0 +1,41 @@
+{
+  "name": "Windows81VpnProxyServer",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Automatically detect proxy settings.",
+      "jsonName": "automaticallyDetectProxySettings",
+      "name": "AutomaticallyDetectProxySettings",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Bypass proxy server for local address.",
+      "jsonName": "bypassProxyServerForLocalAddress",
+      "name": "BypassProxyServerForLocalAddress",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "VpnProxyServer",
+  "discriminatedTypeValue": "#microsoft.graph.windows81VpnProxyServer",
+  "typeHintIn": "ODataType"
+}

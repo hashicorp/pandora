@@ -1,0 +1,41 @@
+{
+  "name": "AccessReviewInstanceDecisionItemAccessPackageAssignmentPolicyResource",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Display name of the access package to which access has been granted.",
+      "jsonName": "accessPackageDisplayName",
+      "name": "AccessPackageDisplayName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Identifier of the access package to which access has been granted.",
+      "jsonName": "accessPackageId",
+      "name": "AccessPackageId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AccessReviewInstanceDecisionItemResource",
+  "discriminatedTypeValue": "#microsoft.graph.accessReviewInstanceDecisionItemAccessPackageAssignmentPolicyResource",
+  "typeHintIn": "ODataType"
+}

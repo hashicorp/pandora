@@ -1,0 +1,30 @@
+{
+  "name": "WhatIfApplicationContext",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "includeApplications",
+      "name": "IncludeApplications",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ConditionalAccessContext",
+  "discriminatedTypeValue": "#microsoft.graph.whatIfApplicationContext",
+  "typeHintIn": "ODataType"
+}

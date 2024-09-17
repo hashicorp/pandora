@@ -1,0 +1,25 @@
+{
+  "name": "EducationSubmissionIndividualRecipient",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "User ID of the user to whom the submission is assigned.",
+      "jsonName": "userId",
+      "name": "UserId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "EducationSubmissionRecipient",
+  "discriminatedTypeValue": "#microsoft.graph.educationSubmissionIndividualRecipient",
+  "typeHintIn": "ODataType"
+}

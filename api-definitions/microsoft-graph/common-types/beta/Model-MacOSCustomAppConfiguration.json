@@ -1,0 +1,57 @@
+{
+  "name": "MacOSCustomAppConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Bundle id for targeting.",
+      "jsonName": "bundleId",
+      "name": "BundleId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Configuration xml. (UTF8 encoded byte array)",
+      "jsonName": "configurationXml",
+      "name": "ConfigurationXml",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Configuration file name (.plist",
+      "jsonName": "fileName",
+      "name": "FileName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceConfiguration",
+  "discriminatedTypeValue": "#microsoft.graph.macOSCustomAppConfiguration",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,57 @@
+{
+  "name": "SourcedAttribute",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The identifier of the attribute on the specified source.",
+      "jsonName": "id",
+      "name": "Id",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A flag that indicates if the name specified is that of an extension attribute.",
+      "jsonName": "isExtensionAttribute",
+      "name": "IsExtensionAttribute",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The source where the claim is going to retrieve its value. Valid sources include user, application, resource, audience and company.",
+      "jsonName": "source",
+      "name": "Source",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "CustomClaimAttributeBase",
+  "discriminatedTypeValue": "#microsoft.graph.sourcedAttribute",
+  "typeHintIn": "ODataType"
+}

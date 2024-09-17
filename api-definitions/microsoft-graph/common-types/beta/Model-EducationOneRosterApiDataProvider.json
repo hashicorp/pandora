@@ -1,0 +1,116 @@
+{
+  "name": "EducationOneRosterApiDataProvider",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "connectionSettings",
+      "name": "ConnectionSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "EducationSynchronizationConnectionSettings",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The connection URL to the OneRoster instance.",
+      "jsonName": "connectionUrl",
+      "name": "ConnectionUrl",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Optional customization to be applied to the synchronization profile.",
+      "jsonName": "customizations",
+      "name": "Customizations",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "EducationSynchronizationCustomizations",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The OneRoster Service Provider name as defined by the OneRoster specification.",
+      "jsonName": "providerName",
+      "name": "ProviderName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The list of School/Org sourcedId to sync.",
+      "jsonName": "schoolsIds",
+      "name": "SchoolsIds",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The list of academic sessions to sync.",
+      "jsonName": "termIds",
+      "name": "TermIds",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "EducationSynchronizationDataProvider",
+  "discriminatedTypeValue": "#microsoft.graph.educationOneRosterApiDataProvider",
+  "typeHintIn": "ODataType"
+}

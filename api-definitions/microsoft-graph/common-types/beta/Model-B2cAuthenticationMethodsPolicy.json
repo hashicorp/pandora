@@ -1,0 +1,57 @@
+{
+  "name": "B2cAuthenticationMethodsPolicy",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The tenant admin can configure local accounts using email if the email and password authentication method is enabled.",
+      "jsonName": "isEmailPasswordAuthenticationEnabled",
+      "name": "IsEmailPasswordAuthenticationEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The tenant admin can configure local accounts using phone number if the phone number and one-time password authentication method is enabled.",
+      "jsonName": "isPhoneOneTimePasswordAuthenticationEnabled",
+      "name": "IsPhoneOneTimePasswordAuthenticationEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The tenant admin can configure local accounts using username if the username and password authentication method is enabled.",
+      "jsonName": "isUserNameAuthenticationEnabled",
+      "name": "IsUserNameAuthenticationEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.b2cAuthenticationMethodsPolicy",
+  "typeHintIn": "ODataType"
+}

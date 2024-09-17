@@ -1,0 +1,73 @@
+{
+  "name": "WorkbookChartAxis",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Represents the formatting of a chart object, which includes line and font formatting. Read-only.",
+      "jsonName": "format",
+      "name": "Format",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WorkbookChartAxisFormat",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Returns a gridlines object that represents the major gridlines for the specified axis. Read-only.",
+      "jsonName": "majorGridlines",
+      "name": "MajorGridlines",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WorkbookChartGridlines",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Returns a Gridlines object that represents the minor gridlines for the specified axis. Read-only.",
+      "jsonName": "minorGridlines",
+      "name": "MinorGridlines",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WorkbookChartGridlines",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Represents the axis title. Read-only.",
+      "jsonName": "title",
+      "name": "Title",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WorkbookChartAxisTitle",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.workbookChartAxis",
+  "typeHintIn": "ODataType"
+}

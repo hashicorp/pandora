@@ -1,0 +1,41 @@
+{
+  "name": "ChatMessageMentionedIdentitySet",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "If present, represents a conversation (for example, team or channel) @mentioned in a message.",
+      "jsonName": "conversation",
+      "name": "Conversation",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "TeamworkConversationIdentity",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "If present, represents a tag @mentioned in a team message.",
+      "jsonName": "tag",
+      "name": "Tag",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "TeamworkTagIdentity",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "IdentitySet",
+  "discriminatedTypeValue": "#microsoft.graph.chatMessageMentionedIdentitySet",
+  "typeHintIn": "ODataType"
+}

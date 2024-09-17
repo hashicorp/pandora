@@ -1,0 +1,48 @@
+{
+  "name": "UpdateAuthenticationStrengthPolicyAllowedCombinations",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Invoke action updateAllowedCombinations. Update the allowedCombinations property of an authenticationStrengthPolicy object. To update other properties of an authenticationStrengthPolicy object, use the Update authenticationStrengthPolicy method.",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "PolicyAuthenticationStrengthPolicyId",
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "UpdateAuthenticationStrengthPolicyAllowedCombinationsRequest",
+    "referenceNameIsCommonType": false
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "UpdateAllowedCombinationsResult",
+    "referenceNameIsCommonType": true
+  },
+  "uriSuffix": "/updateAllowedCombinations"
+}

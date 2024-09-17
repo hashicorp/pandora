@@ -1,0 +1,105 @@
+{
+  "name": "DomainDnsSrvRecord",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Value to use when configuring the Target property of the SRV record at the DNS host.",
+      "jsonName": "nameTarget",
+      "name": "NameTarget",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Value to use when configuring the port property of the SRV record at the DNS host.",
+      "jsonName": "port",
+      "name": "Port",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Value to use when configuring the priority property of the SRV record at the DNS host.",
+      "jsonName": "priority",
+      "name": "Priority",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Value to use when configuring the protocol property of the SRV record at the DNS host.",
+      "jsonName": "protocol",
+      "name": "Protocol",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Value to use when configuring the service property of the SRV record at the DNS host.",
+      "jsonName": "service",
+      "name": "Service",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Value to use when configuring the weight property of the SRV record at the DNS host.",
+      "jsonName": "weight",
+      "name": "Weight",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DomainDnsRecord",
+  "discriminatedTypeValue": "#microsoft.graph.domainDnsSrvRecord",
+  "typeHintIn": "ODataType"
+}

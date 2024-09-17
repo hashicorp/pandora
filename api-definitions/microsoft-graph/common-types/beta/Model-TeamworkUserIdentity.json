@@ -1,0 +1,25 @@
+{
+  "name": "TeamworkUserIdentity",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Type of user. Possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, emailUser and azureCommunicationServicesUser.",
+      "jsonName": "userIdentityType",
+      "name": "UserIdentityType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "TeamworkUserIdentityType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Identity",
+  "discriminatedTypeValue": "#microsoft.graph.teamworkUserIdentity",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,57 @@
+{
+  "name": "AccessReviewInstanceDecisionItemServicePrincipalTarget",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The appId for the service principal entity being reviewed.",
+      "jsonName": "appId",
+      "name": "AppId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The display name of the service principal whose access is being reviewed.",
+      "jsonName": "servicePrincipalDisplayName",
+      "name": "ServicePrincipalDisplayName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The identifier of the service principal whose access is being reviewed.",
+      "jsonName": "servicePrincipalId",
+      "name": "ServicePrincipalId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AccessReviewInstanceDecisionItemTarget",
+  "discriminatedTypeValue": "#microsoft.graph.accessReviewInstanceDecisionItemServicePrincipalTarget",
+  "typeHintIn": "ODataType"
+}

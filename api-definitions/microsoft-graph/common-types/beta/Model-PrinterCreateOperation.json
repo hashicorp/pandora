@@ -1,0 +1,40 @@
+{
+  "name": "PrinterCreateOperation",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The signed certificate created during the registration process. Read-only.",
+      "jsonName": "certificate",
+      "name": "Certificate",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "printer",
+      "name": "Printer",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Printer",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "PrintOperation",
+  "discriminatedTypeValue": "#microsoft.graph.printerCreateOperation",
+  "typeHintIn": "ODataType"
+}

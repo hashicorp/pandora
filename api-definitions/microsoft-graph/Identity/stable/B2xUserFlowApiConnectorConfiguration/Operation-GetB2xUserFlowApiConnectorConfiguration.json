@@ -1,0 +1,68 @@
+{
+  "name": "GetB2xUserFlowApiConnectorConfiguration",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Get userFlowApiConnectorConfiguration. Get the apiConnectorConfiguration property in a b2xIdentityUserFlow to detail the API connectors enabled for the user flow.",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Expand",
+      "optional": true,
+      "required": false,
+      "field": "Expand",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Expand"
+      }
+    },
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    },
+    {
+      "Type": "Data",
+      "odataFieldName": "Select",
+      "optional": true,
+      "required": false,
+      "field": "Select",
+      "optionsObjectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      }
+    }
+  ],
+  "resourceIdName": "IdentityB2xUserFlowId",
+  "resourceIdNameIsCommonType": true,
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "UserFlowApiConnectorConfiguration",
+    "referenceNameIsCommonType": true
+  },
+  "uriSuffix": "/apiConnectorConfiguration"
+}

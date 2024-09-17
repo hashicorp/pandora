@@ -1,0 +1,25 @@
+{
+  "name": "WorkbookApplication",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Returns the calculation mode used in the workbook. Possible values are: Automatic, AutomaticExceptTables, Manual.",
+      "jsonName": "calculationMode",
+      "name": "CalculationMode",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.workbookApplication",
+  "typeHintIn": "ODataType"
+}

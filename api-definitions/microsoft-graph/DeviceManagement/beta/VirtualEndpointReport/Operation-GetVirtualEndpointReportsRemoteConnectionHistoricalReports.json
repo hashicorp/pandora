@@ -1,0 +1,47 @@
+{
+  "name": "GetVirtualEndpointReportsRemoteConnectionHistoricalReports",
+  "contentType": "application/octet-stream",
+  "description": "Invoke action getRemoteConnectionHistoricalReports. Get the remote connection history records of a Cloud PC during a given period. This report contains data such as signInDateTime, signOutDateTime, usageInHour, remoteSignInTimeInSec and roundTripTimeInMsP50, and so on. This data is aggregated hourly for a specified time period, such as the last seven days.",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "GetVirtualEndpointReportsRemoteConnectionHistoricalReportsRequest",
+    "referenceNameIsCommonType": false
+  },
+  "responseObject": {
+    "type": "RawFile",
+    "nullable": false,
+    "referenceName": null,
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/deviceManagement/virtualEndpoint/reports/getRemoteConnectionHistoricalReports"
+}

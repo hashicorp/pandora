@@ -1,0 +1,75 @@
+{
+  "name": "DeviceManagementConfigurationSettingGroupDefinition",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Dependent child settings to this group of settings.",
+      "jsonName": "childIds",
+      "name": "ChildIds",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "List of child settings that depend on this setting",
+      "jsonName": "dependedOnBy",
+      "name": "DependedOnBy",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "DeviceManagementConfigurationSettingDependedOnBy",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "List of Dependencies for the setting group",
+      "jsonName": "dependentOn",
+      "name": "DependentOn",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "DeviceManagementConfigurationDependentOn",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": true,
+  "discriminatedParentModelName": "DeviceManagementConfigurationSettingDefinition",
+  "discriminatedTypeValue": "#microsoft.graph.deviceManagementConfigurationSettingGroupDefinition",
+  "typeHintIn": "ODataType"
+}

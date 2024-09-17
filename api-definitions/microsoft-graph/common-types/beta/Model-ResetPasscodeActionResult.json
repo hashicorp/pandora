@@ -1,0 +1,41 @@
+{
+  "name": "ResetPasscodeActionResult",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "RotateBitLockerKeys action error code. Valid values 0 to 2147483647",
+      "jsonName": "errorCode",
+      "name": "ErrorCode",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Newly generated passcode for the device",
+      "jsonName": "passcode",
+      "name": "Passcode",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceActionResult",
+  "discriminatedTypeValue": "#microsoft.graph.resetPasscodeActionResult",
+  "typeHintIn": "ODataType"
+}

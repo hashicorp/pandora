@@ -1,0 +1,319 @@
+{
+  "name": "IosCompliancePolicy",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Device threat protection levels for the Device Threat Protection API.",
+      "jsonName": "advancedThreatProtectionRequiredSecurityLevel",
+      "name": "AdvancedThreatProtectionRequiredSecurityLevel",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceThreatProtectionLevel",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Require that devices have enabled device threat protection .",
+      "jsonName": "deviceThreatProtectionEnabled",
+      "name": "DeviceThreatProtectionEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Device threat protection levels for the Device Threat Protection API.",
+      "jsonName": "deviceThreatProtectionRequiredSecurityLevel",
+      "name": "DeviceThreatProtectionRequiredSecurityLevel",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceThreatProtectionLevel",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to require a managed email profile.",
+      "jsonName": "managedEmailProfileRequired",
+      "name": "ManagedEmailProfileRequired",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Maximum IOS build version.",
+      "jsonName": "osMaximumBuildVersion",
+      "name": "OsMaximumBuildVersion",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Maximum IOS version.",
+      "jsonName": "osMaximumVersion",
+      "name": "OsMaximumVersion",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Minimum IOS build version.",
+      "jsonName": "osMinimumBuildVersion",
+      "name": "OsMinimumBuildVersion",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Minimum IOS version.",
+      "jsonName": "osMinimumVersion",
+      "name": "OsMinimumVersion",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block simple passcodes.",
+      "jsonName": "passcodeBlockSimple",
+      "name": "PasscodeBlockSimple",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Number of days before the passcode expires. Valid values 1 to 65535",
+      "jsonName": "passcodeExpirationDays",
+      "name": "PasscodeExpirationDays",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The number of character sets required in the password.",
+      "jsonName": "passcodeMinimumCharacterSetCount",
+      "name": "PasscodeMinimumCharacterSetCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Minimum length of passcode. Valid values 4 to 14",
+      "jsonName": "passcodeMinimumLength",
+      "name": "PasscodeMinimumLength",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Minutes of inactivity before a passcode is required.",
+      "jsonName": "passcodeMinutesOfInactivityBeforeLock",
+      "name": "PasscodeMinutesOfInactivityBeforeLock",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Minutes of inactivity before the screen times out.",
+      "jsonName": "passcodeMinutesOfInactivityBeforeScreenTimeout",
+      "name": "PasscodeMinutesOfInactivityBeforeScreenTimeout",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Number of previous passcodes to block. Valid values 1 to 24",
+      "jsonName": "passcodePreviousPasscodeBlockCount",
+      "name": "PasscodePreviousPasscodeBlockCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to require a passcode.",
+      "jsonName": "passcodeRequired",
+      "name": "PasscodeRequired",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values of required passwords.",
+      "jsonName": "passcodeRequiredType",
+      "name": "PasscodeRequiredType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "RequiredPasswordType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Require the device to not have the specified apps installed. This collection can contain a maximum of 100 elements.",
+      "jsonName": "restrictedApps",
+      "name": "RestrictedApps",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "AppListItem",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Devices must not be jailbroken or rooted.",
+      "jsonName": "securityBlockJailbrokenDevices",
+      "name": "SecurityBlockJailbrokenDevices",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceCompliancePolicy",
+  "discriminatedTypeValue": "#microsoft.graph.iosCompliancePolicy",
+  "typeHintIn": "ODataType"
+}

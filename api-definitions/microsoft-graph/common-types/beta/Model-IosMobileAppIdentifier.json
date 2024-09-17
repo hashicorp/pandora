@@ -1,0 +1,25 @@
+{
+  "name": "IosMobileAppIdentifier",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The identifier for an app, as specified in the app store.",
+      "jsonName": "bundleId",
+      "name": "BundleId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "MobileAppIdentifier",
+  "discriminatedTypeValue": "#microsoft.graph.iosMobileAppIdentifier",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,41 @@
+{
+  "name": "TeamworkHostedContent",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Write only. Bytes for the hosted content (such as images).",
+      "jsonName": "contentBytes",
+      "name": "ContentBytes",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Write only. Content type, such as image/png, image/jpg.",
+      "jsonName": "contentType",
+      "name": "ContentType",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": true,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.teamworkHostedContent",
+  "typeHintIn": "ODataType"
+}

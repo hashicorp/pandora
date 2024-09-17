@@ -1,0 +1,47 @@
+{
+  "name": "CreateOutlookTask",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Create outlookTask (deprecated). Create an Outlook task in the default task group (My Tasks) and default task folder (Tasks) in the user's mailbox. The POST method always ignores the time portion of startDateTime and dueDateTime in the request body, and assumes the time \nto be always midnight in the specified time zone. By default, this operation (and the GET, PATCH, and complete task operations) returns date-related properties in UTC. \nYou can use the Prefer: outlook.timezone header to have all the date-related properties in the response represented in a time zone \ndifferent than UTC.",
+  "expectedStatusCodes": [
+    201
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "OutlookTask",
+    "referenceNameIsCommonType": true
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "OutlookTask",
+    "referenceNameIsCommonType": true
+  },
+  "uriSuffix": "/me/outlook/tasks"
+}

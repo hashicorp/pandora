@@ -1,0 +1,284 @@
+{
+  "name": "Chat",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "chatType",
+      "name": "ChatType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ChatType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Date and time at which the chat was created. Read-only.",
+      "jsonName": "createdDateTime",
+      "name": "CreatedDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A collection of all the apps in the chat. Nullable.",
+      "jsonName": "installedApps",
+      "name": "InstalledApps",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "TeamsAppInstallation",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Preview of the last message sent in the chat. Null if no messages were sent in the chat. Currently, only the list chats operation supports this property.",
+      "jsonName": "lastMessagePreview",
+      "name": "LastMessagePreview",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ChatMessageInfo",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Date and time at which the chat was renamed or the list of members was last changed. Read-only.",
+      "jsonName": "lastUpdatedDateTime",
+      "name": "LastUpdatedDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A collection of all the members in the chat. Nullable.",
+      "jsonName": "members",
+      "name": "Members",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "ConversationMember",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A collection of all the messages in the chat. Nullable.",
+      "jsonName": "messages",
+      "name": "Messages",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "ChatMessage",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Represents details about an online meeting. If the chat isn't associated with an online meeting, the property is empty. Read-only.",
+      "jsonName": "onlineMeetingInfo",
+      "name": "OnlineMeetingInfo",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "TeamworkOnlineMeetingInfo",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A collection of permissions granted to apps for the chat.",
+      "jsonName": "permissionGrants",
+      "name": "PermissionGrants",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "ResourceSpecificPermissionGrant",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A collection of all the pinned messages in the chat. Nullable.",
+      "jsonName": "pinnedMessages",
+      "name": "PinnedMessages",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "PinnedChatMessageInfo",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A collection of all the tabs in the chat. Nullable.",
+      "jsonName": "tabs",
+      "name": "Tabs",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "TeamsTab",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The identifier of the tenant in which the chat was created. Read-only.",
+      "jsonName": "tenantId",
+      "name": "TenantId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "(Optional) Subject or topic for the chat. Only available for group chats.",
+      "jsonName": "topic",
+      "name": "Topic",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Represents caller-specific information about the chat, such as the last message read date and time. This property is populated only when the request is made in a delegated context.",
+      "jsonName": "viewpoint",
+      "name": "Viewpoint",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ChatViewpoint",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The URL for the chat in Microsoft Teams. The URL should be treated as an opaque blob, and not parsed. Read-only.",
+      "jsonName": "webUrl",
+      "name": "WebUrl",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.chat",
+  "typeHintIn": "ODataType"
+}

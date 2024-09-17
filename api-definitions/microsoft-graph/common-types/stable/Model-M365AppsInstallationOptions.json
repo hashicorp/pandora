@@ -1,0 +1,54 @@
+{
+  "name": "M365AppsInstallationOptions",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "appsForMac",
+      "name": "AppsForMac",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AppsInstallationOptionsForMac",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "appsForWindows",
+      "name": "AppsForWindows",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AppsInstallationOptionsForWindows",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "updateChannel",
+      "name": "UpdateChannel",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AppsUpdateChannelType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.m365AppsInstallationOptions",
+  "typeHintIn": "ODataType"
+}

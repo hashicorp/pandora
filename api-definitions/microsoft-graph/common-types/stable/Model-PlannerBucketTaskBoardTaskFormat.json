@@ -1,0 +1,25 @@
+{
+  "name": "PlannerBucketTaskBoardTaskFormat",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Hint used to order tasks in the bucket view of the task board. For details about the supported format, see Using order hints in Planner.",
+      "jsonName": "orderHint",
+      "name": "OrderHint",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.plannerBucketTaskBoardTaskFormat",
+  "typeHintIn": "ODataType"
+}

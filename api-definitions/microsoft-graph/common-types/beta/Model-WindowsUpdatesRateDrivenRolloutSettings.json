@@ -1,0 +1,25 @@
+{
+  "name": "WindowsUpdatesRateDrivenRolloutSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the number of devices that are offered at the same time. When not set, all devices in the deployment are offered content at the same time.",
+      "jsonName": "devicesPerOffer",
+      "name": "DevicesPerOffer",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "WindowsUpdatesGradualRolloutSettings",
+  "discriminatedTypeValue": "#microsoft.graph.windowsUpdates.rateDrivenRolloutSettings",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,57 @@
+{
+  "name": "ChannelDescriptionUpdatedEventMessageDetail",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The updated description of the channel.",
+      "jsonName": "channelDescription",
+      "name": "ChannelDescription",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Unique identifier of the channel.",
+      "jsonName": "channelId",
+      "name": "ChannelId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Initiator of the event.",
+      "jsonName": "initiator",
+      "name": "Initiator",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "IdentitySet",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "EventMessageDetail",
+  "discriminatedTypeValue": "#microsoft.graph.channelDescriptionUpdatedEventMessageDetail",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,57 @@
+{
+  "name": "FileAttachment",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The base64-encoded contents of the file.",
+      "jsonName": "contentBytes",
+      "name": "ContentBytes",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The ID of the attachment in the Exchange store.",
+      "jsonName": "contentId",
+      "name": "ContentId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Don't use this property as it isn't supported.",
+      "jsonName": "contentLocation",
+      "name": "ContentLocation",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Attachment",
+  "discriminatedTypeValue": "#microsoft.graph.fileAttachment",
+  "typeHintIn": "ODataType"
+}

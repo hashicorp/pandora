@@ -1,0 +1,53 @@
+{
+  "name": "IndustryDataValidateOperation",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Set of errors discovered through validation.",
+      "jsonName": "errors",
+      "name": "Errors",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "PublicError",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Set of warnings discovered through validation.",
+      "jsonName": "warnings",
+      "name": "Warnings",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "PublicError",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": true,
+  "discriminatedParentModelName": "LongRunningOperation",
+  "discriminatedTypeValue": "#microsoft.graph.industryData.validateOperation",
+  "typeHintIn": "ODataType"
+}

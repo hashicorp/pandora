@@ -1,0 +1,41 @@
+{
+  "name": "Pkcs12Certificate",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The password for the pfx file. Required. If no password is used, you must still provide a value of ''.",
+      "jsonName": "password",
+      "name": "Password",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Represents the pfx content that is sent. The value should be a base-64 encoded version of the actual certificate content. Required.",
+      "jsonName": "pkcs12Value",
+      "name": "Pkcs12Value",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ApiAuthenticationConfigurationBase",
+  "discriminatedTypeValue": "#microsoft.graph.pkcs12Certificate",
+  "typeHintIn": "ODataType"
+}

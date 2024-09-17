@@ -1,0 +1,67 @@
+{
+  "name": "GetRoleManagementPolicyEffectiveRule",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Get effectiveRules from policies. The list of effective rules like approval rules and expiration rules evaluated based on inherited referenced rules. For example, if there is a tenant-wide policy to enforce enabling an approval rule, the effective rule will be to enable approval even if the policy has a rule to disable approval. Supports $expand.",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Expand",
+      "optional": true,
+      "required": false,
+      "field": "Expand",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Expand"
+      }
+    },
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    },
+    {
+      "Type": "Data",
+      "odataFieldName": "Select",
+      "optional": true,
+      "required": false,
+      "field": "Select",
+      "optionsObjectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      }
+    }
+  ],
+  "resourceIdName": "PolicyRoleManagementPolicyIdEffectiveRuleId",
+  "resourceIdNameIsCommonType": true,
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "UnifiedRoleManagementPolicyRule",
+    "referenceNameIsCommonType": true
+  }
+}

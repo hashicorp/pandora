@@ -1,0 +1,57 @@
+{
+  "name": "WindowsUpdateCatalogItem",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The display name for the catalog item.",
+      "jsonName": "displayName",
+      "name": "DisplayName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The last supported date for a catalog item",
+      "jsonName": "endOfSupportDate",
+      "name": "EndOfSupportDate",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The date the catalog item was released",
+      "jsonName": "releaseDateTime",
+      "name": "ReleaseDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": true,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.windowsUpdateCatalogItem",
+  "typeHintIn": "ODataType"
+}

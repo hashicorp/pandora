@@ -1,0 +1,41 @@
+{
+  "name": "ActiveDirectoryWindowsAutopilotDeploymentProfile",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Configuration to join Active Directory domain",
+      "jsonName": "domainJoinConfiguration",
+      "name": "DomainJoinConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WindowsDomainJoinConfiguration",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The Autopilot Hybrid Azure AD join flow will continue even if it does not establish domain controller connectivity during OOBE.",
+      "jsonName": "hybridAzureADJoinSkipConnectivityCheck",
+      "name": "HybridAzureADJoinSkipConnectivityCheck",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "WindowsAutopilotDeploymentProfile",
+  "discriminatedTypeValue": "#microsoft.graph.activeDirectoryWindowsAutopilotDeploymentProfile",
+  "typeHintIn": "ODataType"
+}

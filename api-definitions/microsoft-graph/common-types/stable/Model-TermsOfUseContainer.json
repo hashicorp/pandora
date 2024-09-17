@@ -1,0 +1,53 @@
+{
+  "name": "TermsOfUseContainer",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Represents the current status of a user's response to a company's customizable terms of use agreement.",
+      "jsonName": "agreementAcceptances",
+      "name": "AgreementAcceptances",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "AgreementAcceptance",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Represents a tenant's customizable terms of use agreement that's created and managed with Microsoft Entra ID Governance.",
+      "jsonName": "agreements",
+      "name": "Agreements",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "Agreement",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.termsOfUseContainer",
+  "typeHintIn": "ODataType"
+}

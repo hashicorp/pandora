@@ -1,0 +1,24 @@
+{
+  "name": "DeviceManagementConfigurationChoiceSettingInstance",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "choiceSettingValue",
+      "name": "ChoiceSettingValue",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceManagementConfigurationChoiceSettingValue",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceManagementConfigurationSettingInstance",
+  "discriminatedTypeValue": "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
+  "typeHintIn": "ODataType"
+}

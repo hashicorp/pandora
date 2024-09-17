@@ -1,0 +1,41 @@
+{
+  "name": "UpdateAccessReviewDefinitionInstance",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Update accessReviewInstance. Update the properties of an accessReviewInstance object. Only the reviewers and fallbackReviewers properties can be updated but the scope property is also required in the request body. You can only add reviewers to the fallbackReviewers property but can't remove existing fallbackReviewers. To update an accessReviewInstance, its status must be InProgress.",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "IdentityGovernanceAccessReviewDefinitionIdInstanceId",
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "AccessReviewInstance",
+    "referenceNameIsCommonType": true
+  }
+}

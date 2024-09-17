@@ -1,0 +1,57 @@
+{
+  "name": "MailboxProtectionUnit",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The ID of the directory object.",
+      "jsonName": "directoryObjectId",
+      "name": "DirectoryObjectId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Display name of the directory object.",
+      "jsonName": "displayName",
+      "name": "DisplayName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Email address associated with the directory object.",
+      "jsonName": "email",
+      "name": "Email",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ProtectionUnitBase",
+  "discriminatedTypeValue": "#microsoft.graph.mailboxProtectionUnit",
+  "typeHintIn": "ODataType"
+}

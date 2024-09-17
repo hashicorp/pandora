@@ -1,0 +1,86 @@
+{
+  "name": "VirtualMachineWithAwsStorageBucketAccessFinding",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The total number of storage buckets that the EC2 instance can access using the role.",
+      "jsonName": "accessibleCount",
+      "name": "AccessibleCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The total number of storage buckets in the authorization system that hosts the EC2 instance.",
+      "jsonName": "bucketCount",
+      "name": "BucketCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "ec2Instance",
+      "name": "Ec2Instance",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AuthorizationSystemResource",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "permissionsCreepIndex",
+      "name": "PermissionsCreepIndex",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PermissionsCreepIndex",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "role",
+      "name": "Role",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AwsRole",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Finding",
+  "discriminatedTypeValue": "#microsoft.graph.virtualMachineWithAwsStorageBucketAccessFinding",
+  "typeHintIn": "ODataType"
+}

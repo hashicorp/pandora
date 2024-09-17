@@ -1,0 +1,219 @@
+{
+  "name": "AndroidManagedStoreAccountEnterpriseSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Company codes for AndroidManagedStoreAccountEnterpriseSettings",
+      "jsonName": "androidDeviceOwnerFullyManagedEnrollmentEnabled",
+      "name": "AndroidDeviceOwnerFullyManagedEnrollmentEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Bind status of the tenant with the Google EMM API",
+      "jsonName": "bindStatus",
+      "name": "BindStatus",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AndroidManagedStoreAccountBindStatus",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Company codes for AndroidManagedStoreAccountEnterpriseSettings",
+      "jsonName": "companyCodes",
+      "name": "CompanyCodes",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "AndroidEnrollmentCompanyCode",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates if this account is flighting for Android Device Owner Management with CloudDPC.",
+      "jsonName": "deviceOwnerManagementEnabled",
+      "name": "DeviceOwnerManagementEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Android for Work device management targeting type for the account",
+      "jsonName": "enrollmentTarget",
+      "name": "EnrollmentTarget",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AndroidManagedStoreAccountEnrollmentTarget",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Last completion time for app sync",
+      "jsonName": "lastAppSyncDateTime",
+      "name": "LastAppSyncDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Sync status of the tenant with the Google EMM API",
+      "jsonName": "lastAppSyncStatus",
+      "name": "LastAppSyncStatus",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AndroidManagedStoreAccountAppSyncStatus",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Last modification time for Android enterprise settings",
+      "jsonName": "lastModifiedDateTime",
+      "name": "LastModifiedDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Initial scope tags for MGP apps",
+      "jsonName": "managedGooglePlayInitialScopeTagIds",
+      "name": "ManagedGooglePlayInitialScopeTagIds",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Organization name used when onboarding Android Enterprise",
+      "jsonName": "ownerOrganizationName",
+      "name": "OwnerOrganizationName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Owner UPN that created the enterprise",
+      "jsonName": "ownerUserPrincipalName",
+      "name": "OwnerUserPrincipalName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specifies which AAD groups can enroll devices in Android for Work device management if enrollmentTarget is set to 'Targeted'",
+      "jsonName": "targetGroupIds",
+      "name": "TargetGroupIds",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.androidManagedStoreAccountEnterpriseSettings",
+  "typeHintIn": "ODataType"
+}

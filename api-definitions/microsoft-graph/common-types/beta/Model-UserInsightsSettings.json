@@ -1,0 +1,25 @@
+{
+  "name": "UserInsightsSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "true if user's itemInsights and meeting hours insights are enabled; false if user's itemInsights and meeting hours insights are disabled. Default is true. Optional.",
+      "jsonName": "isEnabled",
+      "name": "IsEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.userInsightsSettings",
+  "typeHintIn": "ODataType"
+}

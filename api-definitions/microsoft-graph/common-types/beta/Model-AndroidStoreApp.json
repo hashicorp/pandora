@@ -1,0 +1,73 @@
+{
+  "name": "AndroidStoreApp",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The Identity Name. This property is read-only.",
+      "jsonName": "appIdentifier",
+      "name": "AppIdentifier",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The Android app store URL.",
+      "jsonName": "appStoreUrl",
+      "name": "AppStoreUrl",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The value for the minimum applicable operating system.",
+      "jsonName": "minimumSupportedOperatingSystem",
+      "name": "MinimumSupportedOperatingSystem",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AndroidMinimumOperatingSystem",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The package identifier. This property is read-only.",
+      "jsonName": "packageId",
+      "name": "PackageId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "MobileApp",
+  "discriminatedTypeValue": "#microsoft.graph.androidStoreApp",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,46 @@
+{
+  "name": "DeleteApplication",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Delete application. Deletes an application. When deleted, apps are moved to a temporary container and can be restored within 30 days. After that time, they are permanently deleted.",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "DELETE",
+  "options": [
+    {
+      "Type": "Data",
+      "headerName": "If-Match",
+      "optional": true,
+      "required": false,
+      "field": "IfMatch",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "ApplicationId",
+  "resourceIdNameIsCommonType": true
+}

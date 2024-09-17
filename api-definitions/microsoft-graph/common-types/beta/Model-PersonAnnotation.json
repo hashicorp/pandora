@@ -1,0 +1,56 @@
+{
+  "name": "PersonAnnotation",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Contains the detail of the note itself.",
+      "jsonName": "detail",
+      "name": "Detail",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ItemBody",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Contains a friendly name for the note.",
+      "jsonName": "displayName",
+      "name": "DisplayName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "thumbnailUrl",
+      "name": "ThumbnailUrl",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ItemFacet",
+  "discriminatedTypeValue": "#microsoft.graph.personAnnotation",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,25 @@
+{
+  "name": "InvokeUserFlowListener",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The user flow that is invoked when this action executes.",
+      "jsonName": "userFlow",
+      "name": "UserFlow",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "B2xIdentityUserFlow",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AuthenticationListener",
+  "discriminatedTypeValue": "#microsoft.graph.invokeUserFlowListener",
+  "typeHintIn": "ODataType"
+}

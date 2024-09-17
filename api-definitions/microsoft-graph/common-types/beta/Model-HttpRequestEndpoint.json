@@ -1,0 +1,25 @@
+{
+  "name": "HttpRequestEndpoint",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The HTTP endpoint that a custom extension calls.",
+      "jsonName": "targetUrl",
+      "name": "TargetUrl",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "CustomExtensionEndpointConfiguration",
+  "discriminatedTypeValue": "#microsoft.graph.httpRequestEndpoint",
+  "typeHintIn": "ODataType"
+}

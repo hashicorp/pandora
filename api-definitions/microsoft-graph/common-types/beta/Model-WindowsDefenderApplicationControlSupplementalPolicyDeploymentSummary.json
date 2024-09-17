@@ -1,0 +1,41 @@
+{
+  "name": "WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Number of Devices that have successfully deployed this WindowsDefenderApplicationControl supplemental policy.",
+      "jsonName": "deployedDeviceCount",
+      "name": "DeployedDeviceCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Number of Devices that have failed to deploy this WindowsDefenderApplicationControl supplemental policy.",
+      "jsonName": "failedDeviceCount",
+      "name": "FailedDeviceCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.windowsDefenderApplicationControlSupplementalPolicyDeploymentSummary",
+  "typeHintIn": "ODataType"
+}

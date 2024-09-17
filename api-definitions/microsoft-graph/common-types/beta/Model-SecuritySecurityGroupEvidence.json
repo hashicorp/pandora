@@ -1,0 +1,41 @@
+{
+  "name": "SecuritySecurityGroupEvidence",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The name of the security group.",
+      "jsonName": "displayName",
+      "name": "DisplayName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Unique identifier of the security group.",
+      "jsonName": "securityGroupId",
+      "name": "SecurityGroupId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SecurityAlertEvidence",
+  "discriminatedTypeValue": "#microsoft.graph.security.securityGroupEvidence",
+  "typeHintIn": "ODataType"
+}

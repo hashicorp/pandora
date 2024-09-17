@@ -1,0 +1,57 @@
+{
+  "name": "WorkbookChartAxisTitle",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Represents the formatting of chart axis title. Read-only.",
+      "jsonName": "format",
+      "name": "Format",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WorkbookChartAxisTitleFormat",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Represents the axis title.",
+      "jsonName": "text",
+      "name": "Text",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A boolean that specifies the visibility of an axis title.",
+      "jsonName": "visible",
+      "name": "Visible",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.workbookChartAxisTitle",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,46 @@
+{
+  "name": "DeleteMailFolder",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Delete mailFolder. Delete the specified mailFolder. The folder can be a mailSearchFolder. You can specify a mail folder by its folder ID, or by its well-known folder name, if one exists.",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "DELETE",
+  "options": [
+    {
+      "Type": "Data",
+      "headerName": "If-Match",
+      "optional": true,
+      "required": false,
+      "field": "IfMatch",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "MeMailFolderId",
+  "resourceIdNameIsCommonType": true
+}

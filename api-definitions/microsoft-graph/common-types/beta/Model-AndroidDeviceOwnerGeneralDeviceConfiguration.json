@@ -1,0 +1,2299 @@
+{
+  "name": "AndroidDeviceOwnerGeneralDeviceConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not adding or removing accounts is disabled.",
+      "jsonName": "accountsBlockModification",
+      "name": "AccountsBlockModification",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the list of managed apps with app details and its associated delegated scope(s). This collection can contain a maximum of 500 elements.",
+      "jsonName": "androidDeviceOwnerDelegatedScopeAppSettings",
+      "name": "AndroidDeviceOwnerDelegatedScopeAppSettings",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "AndroidDeviceOwnerDelegatedScopeAppSetting",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not the user is allowed to enable to unknown sources setting.",
+      "jsonName": "appsAllowInstallFromUnknownSources",
+      "name": "AppsAllowInstallFromUnknownSources",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the value of the app auto update policy. Possible values are: notConfigured, userChoice, never, wiFiOnly, always.",
+      "jsonName": "appsAutoUpdatePolicy",
+      "name": "AppsAutoUpdatePolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AndroidDeviceOwnerAppAutoUpdatePolicyType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the permission policy for requests for runtime permissions if one is not defined for the app specifically. Possible values are: deviceDefault, prompt, autoGrant, autoDeny.",
+      "jsonName": "appsDefaultPermissionPolicy",
+      "name": "AppsDefaultPermissionPolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AndroidDeviceOwnerDefaultAppPermissionPolicyType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Whether or not to recommend all apps skip any first-time-use hints they may have added.",
+      "jsonName": "appsRecommendSkippingFirstUseHints",
+      "name": "AppsRecommendSkippingFirstUseHints",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A list of managed apps that will have their data cleared during a global sign-out in AAD shared device mode. This collection can contain a maximum of 500 elements.",
+      "jsonName": "azureAdSharedDeviceDataClearApps",
+      "name": "AzureAdSharedDeviceDataClearApps",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "AppListItem",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block a user from configuring bluetooth.",
+      "jsonName": "bluetoothBlockConfiguration",
+      "name": "BluetoothBlockConfiguration",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block a user from sharing contacts via bluetooth.",
+      "jsonName": "bluetoothBlockContactSharing",
+      "name": "BluetoothBlockContactSharing",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to disable the use of the camera.",
+      "jsonName": "cameraBlocked",
+      "name": "CameraBlocked",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block Wi-Fi tethering.",
+      "jsonName": "cellularBlockWiFiTethering",
+      "name": "CellularBlockWiFiTethering",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block users from any certificate credential configuration.",
+      "jsonName": "certificateCredentialConfigurationDisabled",
+      "name": "CertificateCredentialConfigurationDisabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not text copied from one profile (personal or work) can be pasted in the other.",
+      "jsonName": "crossProfilePoliciesAllowCopyPaste",
+      "name": "CrossProfilePoliciesAllowCopyPaste",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether data from one profile (personal or work) can be shared with apps in the other profile. Possible values are: notConfigured, crossProfileDataSharingBlocked, dataSharingFromWorkToPersonalBlocked, crossProfileDataSharingAllowed, unkownFutureValue.",
+      "jsonName": "crossProfilePoliciesAllowDataSharing",
+      "name": "CrossProfilePoliciesAllowDataSharing",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AndroidDeviceOwnerCrossProfileDataSharing",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not contacts stored in work profile are shown in personal profile contact searches/incoming calls.",
+      "jsonName": "crossProfilePoliciesShowWorkContactsInPersonalProfile",
+      "name": "CrossProfilePoliciesShowWorkContactsInPersonalProfile",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block a user from data roaming.",
+      "jsonName": "dataRoamingBlocked",
+      "name": "DataRoamingBlocked",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block the user from manually changing the date or time on the device",
+      "jsonName": "dateTimeConfigurationBlocked",
+      "name": "DateTimeConfigurationBlocked",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Represents the customized detailed help text provided to users when they attempt to modify managed settings on their device.",
+      "jsonName": "detailedHelpText",
+      "name": "DetailedHelpText",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AndroidDeviceOwnerUserFacingMessage",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the location setting configuration for fully managed devices (COBO) and corporate owned devices with a work profile (COPE). Possible values are: notConfigured, disabled, unknownFutureValue.",
+      "jsonName": "deviceLocationMode",
+      "name": "DeviceLocationMode",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AndroidDeviceOwnerLocationMode",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Represents the customized lock screen message provided to users when they attempt to modify managed settings on their device.",
+      "jsonName": "deviceOwnerLockScreenMessage",
+      "name": "DeviceOwnerLockScreenMessage",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AndroidDeviceOwnerUserFacingMessage",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Android Device Owner Enrollment Profile types.",
+      "jsonName": "enrollmentProfile",
+      "name": "EnrollmentProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AndroidDeviceOwnerEnrollmentProfileType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not the factory reset option in settings is disabled.",
+      "jsonName": "factoryResetBlocked",
+      "name": "FactoryResetBlocked",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "List of Google account emails that will be required to authenticate after a device is factory reset before it can be set up.",
+      "jsonName": "factoryResetDeviceAdministratorEmails",
+      "name": "FactoryResetDeviceAdministratorEmails",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Proxy is set up directly with host, port and excluded hosts.",
+      "jsonName": "globalProxy",
+      "name": "GlobalProxy",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AndroidDeviceOwnerGlobalProxy",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not google accounts will be blocked.",
+      "jsonName": "googleAccountsBlocked",
+      "name": "GoogleAccountsBlocked",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether a user can access the device's Settings app while in Kiosk Mode.",
+      "jsonName": "kioskCustomizationDeviceSettingsBlocked",
+      "name": "KioskCustomizationDeviceSettingsBlocked",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Whether the power menu is shown when a user long presses the Power button of a device in Kiosk Mode.",
+      "jsonName": "kioskCustomizationPowerButtonActionsBlocked",
+      "name": "KioskCustomizationPowerButtonActionsBlocked",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether system info and notifications are disabled in Kiosk Mode. Possible values are: notConfigured, notificationsAndSystemInfoEnabled, systemInfoOnly.",
+      "jsonName": "kioskCustomizationStatusBar",
+      "name": "KioskCustomizationStatusBar",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AndroidDeviceOwnerKioskCustomizationStatusBar",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether system error dialogs for crashed or unresponsive apps are shown in Kiosk Mode.",
+      "jsonName": "kioskCustomizationSystemErrorWarnings",
+      "name": "KioskCustomizationSystemErrorWarnings",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates which navigation features are enabled in Kiosk Mode. Possible values are: notConfigured, navigationEnabled, homeButtonOnly.",
+      "jsonName": "kioskCustomizationSystemNavigation",
+      "name": "KioskCustomizationSystemNavigation",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AndroidDeviceOwnerKioskCustomizationSystemNavigation",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Whether or not to enable app ordering in Kiosk Mode.",
+      "jsonName": "kioskModeAppOrderEnabled",
+      "name": "KioskModeAppOrderEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The ordering of items on Kiosk Mode Managed Home Screen. This collection can contain a maximum of 500 elements.",
+      "jsonName": "kioskModeAppPositions",
+      "name": "KioskModeAppPositions",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "AndroidDeviceOwnerKioskModeAppPositionItem",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A list of managed apps that will be shown when the device is in Kiosk Mode. This collection can contain a maximum of 500 elements.",
+      "jsonName": "kioskModeApps",
+      "name": "KioskModeApps",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "AppListItem",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Whether or not to alphabetize applications within a folder in Kiosk Mode.",
+      "jsonName": "kioskModeAppsInFolderOrderedByName",
+      "name": "KioskModeAppsInFolderOrderedByName",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Whether or not to allow a user to configure Bluetooth settings in Kiosk Mode.",
+      "jsonName": "kioskModeBluetoothConfigurationEnabled",
+      "name": "KioskModeBluetoothConfigurationEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Whether or not to allow a user to easy access to the debug menu in Kiosk Mode.",
+      "jsonName": "kioskModeDebugMenuEasyAccessEnabled",
+      "name": "KioskModeDebugMenuEasyAccessEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Exit code to allow a user to escape from Kiosk Mode when the device is in Kiosk Mode.",
+      "jsonName": "kioskModeExitCode",
+      "name": "KioskModeExitCode",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Whether or not to allow a user to use the flashlight in Kiosk Mode.",
+      "jsonName": "kioskModeFlashlightConfigurationEnabled",
+      "name": "KioskModeFlashlightConfigurationEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Folder icon configuration for managed home screen in Kiosk Mode. Possible values are: notConfigured, darkSquare, darkCircle, lightSquare, lightCircle.",
+      "jsonName": "kioskModeFolderIcon",
+      "name": "KioskModeFolderIcon",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AndroidDeviceOwnerKioskModeFolderIcon",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Number of rows for Managed Home Screen grid with app ordering enabled in Kiosk Mode. Valid values 1 to 9999999",
+      "jsonName": "kioskModeGridHeight",
+      "name": "KioskModeGridHeight",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Number of columns for Managed Home Screen grid with app ordering enabled in Kiosk Mode. Valid values 1 to 9999999",
+      "jsonName": "kioskModeGridWidth",
+      "name": "KioskModeGridWidth",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Icon size configuration for managed home screen in Kiosk Mode. Possible values are: notConfigured, smallest, small, regular, large, largest.",
+      "jsonName": "kioskModeIconSize",
+      "name": "KioskModeIconSize",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AndroidDeviceOwnerKioskModeIconSize",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Whether or not to lock home screen to the end user in Kiosk Mode.",
+      "jsonName": "kioskModeLockHomeScreen",
+      "name": "KioskModeLockHomeScreen",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A list of managed folders for a device in Kiosk Mode. This collection can contain a maximum of 500 elements.",
+      "jsonName": "kioskModeManagedFolders",
+      "name": "KioskModeManagedFolders",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "AndroidDeviceOwnerKioskModeManagedFolder",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Whether or not to automatically sign-out of MHS and Shared device mode applications after inactive for Managed Home Screen.",
+      "jsonName": "kioskModeManagedHomeScreenAutoSignout",
+      "name": "KioskModeManagedHomeScreenAutoSignout",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Number of seconds to give user notice before automatically signing them out for Managed Home Screen. Valid values 0 to 9999999",
+      "jsonName": "kioskModeManagedHomeScreenInactiveSignOutDelayInSeconds",
+      "name": "KioskModeManagedHomeScreenInactiveSignOutDelayInSeconds",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Number of seconds device is inactive before automatically signing user out for Managed Home Screen. Valid values 0 to 9999999",
+      "jsonName": "kioskModeManagedHomeScreenInactiveSignOutNoticeInSeconds",
+      "name": "KioskModeManagedHomeScreenInactiveSignOutNoticeInSeconds",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Complexity of PIN for sign-in session for Managed Home Screen. Possible values are: notConfigured, simple, complex.",
+      "jsonName": "kioskModeManagedHomeScreenPinComplexity",
+      "name": "KioskModeManagedHomeScreenPinComplexity",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "KioskModeManagedHomeScreenPinComplexity",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Whether or not require user to set a PIN for sign-in session for Managed Home Screen.",
+      "jsonName": "kioskModeManagedHomeScreenPinRequired",
+      "name": "KioskModeManagedHomeScreenPinRequired",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Whether or not required user to enter session PIN if screensaver has appeared for Managed Home Screen.",
+      "jsonName": "kioskModeManagedHomeScreenPinRequiredToResume",
+      "name": "KioskModeManagedHomeScreenPinRequiredToResume",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Custom URL background for sign-in screen for Managed Home Screen.",
+      "jsonName": "kioskModeManagedHomeScreenSignInBackground",
+      "name": "KioskModeManagedHomeScreenSignInBackground",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Custom URL branding logo for sign-in screen and session pin page for Managed Home Screen.",
+      "jsonName": "kioskModeManagedHomeScreenSignInBrandingLogo",
+      "name": "KioskModeManagedHomeScreenSignInBrandingLogo",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Whether or not show sign-in screen for Managed Home Screen.",
+      "jsonName": "kioskModeManagedHomeScreenSignInEnabled",
+      "name": "KioskModeManagedHomeScreenSignInEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Whether or not to display the Managed Settings entry point on the managed home screen in Kiosk Mode.",
+      "jsonName": "kioskModeManagedSettingsEntryDisabled",
+      "name": "KioskModeManagedSettingsEntryDisabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Whether or not to allow a user to change the media volume in Kiosk Mode.",
+      "jsonName": "kioskModeMediaVolumeConfigurationEnabled",
+      "name": "KioskModeMediaVolumeConfigurationEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Screen orientation configuration for managed home screen in Kiosk Mode. Possible values are: notConfigured, portrait, landscape, autoRotate.",
+      "jsonName": "kioskModeScreenOrientation",
+      "name": "KioskModeScreenOrientation",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AndroidDeviceOwnerKioskModeScreenOrientation",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Whether or not to enable screen saver mode or not in Kiosk Mode.",
+      "jsonName": "kioskModeScreenSaverConfigurationEnabled",
+      "name": "KioskModeScreenSaverConfigurationEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Whether or not the device screen should show the screen saver if audio/video is playing in Kiosk Mode.",
+      "jsonName": "kioskModeScreenSaverDetectMediaDisabled",
+      "name": "KioskModeScreenSaverDetectMediaDisabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The number of seconds that the device will display the screen saver for in Kiosk Mode. Valid values 0 to 9999999",
+      "jsonName": "kioskModeScreenSaverDisplayTimeInSeconds",
+      "name": "KioskModeScreenSaverDisplayTimeInSeconds",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "URL for an image that will be the device's screen saver in Kiosk Mode.",
+      "jsonName": "kioskModeScreenSaverImageUrl",
+      "name": "KioskModeScreenSaverImageUrl",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The number of seconds the device needs to be inactive for before the screen saver is shown in Kiosk Mode. Valid values 1 to 9999999",
+      "jsonName": "kioskModeScreenSaverStartDelayInSeconds",
+      "name": "KioskModeScreenSaverStartDelayInSeconds",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Whether or not to display application notification badges in Kiosk Mode.",
+      "jsonName": "kioskModeShowAppNotificationBadge",
+      "name": "KioskModeShowAppNotificationBadge",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Whether or not to allow a user to access basic device information.",
+      "jsonName": "kioskModeShowDeviceInfo",
+      "name": "KioskModeShowDeviceInfo",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Whether or not to use single app kiosk mode or multi-app kiosk mode. Possible values are: notConfigured, singleAppMode, multiAppMode.",
+      "jsonName": "kioskModeUseManagedHomeScreenApp",
+      "name": "KioskModeUseManagedHomeScreenApp",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "KioskModeType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Whether or not to display a virtual home button when the device is in Kiosk Mode.",
+      "jsonName": "kioskModeVirtualHomeButtonEnabled",
+      "name": "KioskModeVirtualHomeButtonEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether the virtual home button is a swipe up home button or a floating home button. Possible values are: notConfigured, swipeUp, floating.",
+      "jsonName": "kioskModeVirtualHomeButtonType",
+      "name": "KioskModeVirtualHomeButtonType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AndroidDeviceOwnerVirtualHomeButtonType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "URL to a publicly accessible image to use for the wallpaper when the device is in Kiosk Mode.",
+      "jsonName": "kioskModeWallpaperUrl",
+      "name": "KioskModeWallpaperUrl",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Whether or not to allow a user to configure Wi-Fi settings in Kiosk Mode.",
+      "jsonName": "kioskModeWiFiConfigurationEnabled",
+      "name": "KioskModeWiFiConfigurationEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The restricted set of WIFI SSIDs available for the user to configure in Kiosk Mode. This collection can contain a maximum of 500 elements.",
+      "jsonName": "kioskModeWifiAllowedSsids",
+      "name": "KioskModeWifiAllowedSsids",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not LocateDevice for devices with lost mode (COBO, COPE) is enabled.",
+      "jsonName": "locateDeviceLostModeEnabled",
+      "name": "LocateDeviceLostModeEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not LocateDevice for userless (COSU) devices is disabled.",
+      "jsonName": "locateDeviceUserlessDisabled",
+      "name": "LocateDeviceUserlessDisabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block unmuting the microphone on the device.",
+      "jsonName": "microphoneForceMute",
+      "name": "MicrophoneForceMute",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to you want configure Microsoft Launcher.",
+      "jsonName": "microsoftLauncherConfigurationEnabled",
+      "name": "MicrosoftLauncherConfigurationEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not the user can modify the wallpaper to personalize their device.",
+      "jsonName": "microsoftLauncherCustomWallpaperAllowUserModification",
+      "name": "MicrosoftLauncherCustomWallpaperAllowUserModification",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to configure the wallpaper on the targeted devices.",
+      "jsonName": "microsoftLauncherCustomWallpaperEnabled",
+      "name": "MicrosoftLauncherCustomWallpaperEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the URL for the image file to use as the wallpaper on the targeted devices.",
+      "jsonName": "microsoftLauncherCustomWallpaperImageUrl",
+      "name": "MicrosoftLauncherCustomWallpaperImageUrl",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not the user can modify the device dock configuration on the device.",
+      "jsonName": "microsoftLauncherDockPresenceAllowUserModification",
+      "name": "MicrosoftLauncherDockPresenceAllowUserModification",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not you want to configure the device dock. Possible values are: notConfigured, show, hide, disabled.",
+      "jsonName": "microsoftLauncherDockPresenceConfiguration",
+      "name": "MicrosoftLauncherDockPresenceConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "MicrosoftLauncherDockPresence",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not the user can modify the launcher feed on the device.",
+      "jsonName": "microsoftLauncherFeedAllowUserModification",
+      "name": "MicrosoftLauncherFeedAllowUserModification",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not you want to enable the launcher feed on the device.",
+      "jsonName": "microsoftLauncherFeedEnabled",
+      "name": "MicrosoftLauncherFeedEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the search bar placement configuration on the device. Possible values are: notConfigured, top, bottom, hide.",
+      "jsonName": "microsoftLauncherSearchBarPlacementConfiguration",
+      "name": "MicrosoftLauncherSearchBarPlacementConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "MicrosoftLauncherSearchBarPlacement",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not the device will allow connecting to a temporary network connection at boot time.",
+      "jsonName": "networkEscapeHatchAllowed",
+      "name": "NetworkEscapeHatchAllowed",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block NFC outgoing beam.",
+      "jsonName": "nfcBlockOutgoingBeam",
+      "name": "NfcBlockOutgoingBeam",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not the keyguard is disabled.",
+      "jsonName": "passwordBlockKeyguard",
+      "name": "PasswordBlockKeyguard",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "List of device keyguard features to block. This collection can contain a maximum of 11 elements.",
+      "jsonName": "passwordBlockKeyguardFeatures",
+      "name": "PasswordBlockKeyguardFeatures",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "AndroidKeyguardFeature",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the amount of time that a password can be set for before it expires and a new password will be required. Valid values 1 to 365",
+      "jsonName": "passwordExpirationDays",
+      "name": "PasswordExpirationDays",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the minimum length of the password required on the device. Valid values 4 to 16",
+      "jsonName": "passwordMinimumLength",
+      "name": "PasswordMinimumLength",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the minimum number of letter characters required for device password. Valid values 1 to 16",
+      "jsonName": "passwordMinimumLetterCharacters",
+      "name": "PasswordMinimumLetterCharacters",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the minimum number of lower case characters required for device password. Valid values 1 to 16",
+      "jsonName": "passwordMinimumLowerCaseCharacters",
+      "name": "PasswordMinimumLowerCaseCharacters",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the minimum number of non-letter characters required for device password. Valid values 1 to 16",
+      "jsonName": "passwordMinimumNonLetterCharacters",
+      "name": "PasswordMinimumNonLetterCharacters",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the minimum number of numeric characters required for device password. Valid values 1 to 16",
+      "jsonName": "passwordMinimumNumericCharacters",
+      "name": "PasswordMinimumNumericCharacters",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the minimum number of symbol characters required for device password. Valid values 1 to 16",
+      "jsonName": "passwordMinimumSymbolCharacters",
+      "name": "PasswordMinimumSymbolCharacters",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the minimum number of upper case letter characters required for device password. Valid values 1 to 16",
+      "jsonName": "passwordMinimumUpperCaseCharacters",
+      "name": "PasswordMinimumUpperCaseCharacters",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Minutes of inactivity before the screen times out.",
+      "jsonName": "passwordMinutesOfInactivityBeforeScreenTimeout",
+      "name": "PasswordMinutesOfInactivityBeforeScreenTimeout",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the length of password history, where the user will not be able to enter a new password that is the same as any password in the history. Valid values 0 to 24",
+      "jsonName": "passwordPreviousPasswordCountToBlock",
+      "name": "PasswordPreviousPasswordCountToBlock",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the timeout period after which a device must be unlocked using a form of strong authentication. Possible values are: deviceDefault, daily, unkownFutureValue.",
+      "jsonName": "passwordRequireUnlock",
+      "name": "PasswordRequireUnlock",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AndroidDeviceOwnerRequiredPasswordUnlock",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the minimum password quality required on the device. Possible values are: deviceDefault, required, numeric, numericComplex, alphabetic, alphanumeric, alphanumericWithSymbols, lowSecurityBiometric, customPassword.",
+      "jsonName": "passwordRequiredType",
+      "name": "PasswordRequiredType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AndroidDeviceOwnerRequiredPasswordType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the number of times a user can enter an incorrect password before the device is wiped. Valid values 4 to 11",
+      "jsonName": "passwordSignInFailureCountBeforeFactoryReset",
+      "name": "PasswordSignInFailureCountBeforeFactoryReset",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether the user can install apps from unknown sources on the personal profile.",
+      "jsonName": "personalProfileAppsAllowInstallFromUnknownSources",
+      "name": "PersonalProfileAppsAllowInstallFromUnknownSources",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether to disable the use of the camera on the personal profile.",
+      "jsonName": "personalProfileCameraBlocked",
+      "name": "PersonalProfileCameraBlocked",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Policy applied to applications in the personal profile. This collection can contain a maximum of 500 elements.",
+      "jsonName": "personalProfilePersonalApplications",
+      "name": "PersonalProfilePersonalApplications",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "AppListItem",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Used together with PersonalProfilePersonalApplications to control how apps in the personal profile are allowed or blocked. Possible values are: notConfigured, blockedApps, allowedApps.",
+      "jsonName": "personalProfilePlayStoreMode",
+      "name": "PersonalProfilePlayStoreMode",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PersonalProfilePersonalPlayStoreMode",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether to disable the capability to take screenshots on the personal profile.",
+      "jsonName": "personalProfileScreenCaptureBlocked",
+      "name": "PersonalProfileScreenCaptureBlocked",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the Play Store mode of the device. Possible values are: notConfigured, allowList, blockList.",
+      "jsonName": "playStoreMode",
+      "name": "PlayStoreMode",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AndroidDeviceOwnerPlayStoreMode",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to disable the capability to take screenshots.",
+      "jsonName": "screenCaptureBlocked",
+      "name": "ScreenCaptureBlocked",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Represents the security common criteria mode enabled provided to users when they attempt to modify managed settings on their device.",
+      "jsonName": "securityCommonCriteriaModeEnabled",
+      "name": "SecurityCommonCriteriaModeEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not the user is allowed to access developer settings like developer options and safe boot on the device.",
+      "jsonName": "securityDeveloperSettingsEnabled",
+      "name": "SecurityDeveloperSettingsEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not verify apps is required.",
+      "jsonName": "securityRequireVerifyApps",
+      "name": "SecurityRequireVerifyApps",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not location sharing is disabled for fully managed devices (COBO), and corporate owned devices with a work profile (COPE)",
+      "jsonName": "shareDeviceLocationDisabled",
+      "name": "ShareDeviceLocationDisabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Represents the customized short help text provided to users when they attempt to modify managed settings on their device.",
+      "jsonName": "shortHelpText",
+      "name": "ShortHelpText",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AndroidDeviceOwnerUserFacingMessage",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or the status bar is disabled, including notifications, quick settings and other screen overlays.",
+      "jsonName": "statusBarBlocked",
+      "name": "StatusBarBlocked",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "List of modes in which the device's display will stay powered-on. This collection can contain a maximum of 4 elements.",
+      "jsonName": "stayOnModes",
+      "name": "StayOnModes",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "AndroidDeviceOwnerBatteryPluggedMode",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to allow USB mass storage.",
+      "jsonName": "storageAllowUsb",
+      "name": "StorageAllowUsb",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block external media.",
+      "jsonName": "storageBlockExternalMedia",
+      "name": "StorageBlockExternalMedia",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block USB file transfer.",
+      "jsonName": "storageBlockUsbFileTransfer",
+      "name": "StorageBlockUsbFileTransfer",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the annually repeating time periods during which system updates are postponed. This collection can contain a maximum of 500 elements.",
+      "jsonName": "systemUpdateFreezePeriods",
+      "name": "SystemUpdateFreezePeriods",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "AndroidDeviceOwnerSystemUpdateFreezePeriod",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The type of system update configuration. Possible values are: deviceDefault, postpone, windowed, automatic.",
+      "jsonName": "systemUpdateInstallType",
+      "name": "SystemUpdateInstallType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AndroidDeviceOwnerSystemUpdateInstallType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the number of minutes after midnight that the system update window ends. Valid values 0 to 1440",
+      "jsonName": "systemUpdateWindowEndMinutesAfterMidnight",
+      "name": "SystemUpdateWindowEndMinutesAfterMidnight",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the number of minutes after midnight that the system update window starts. Valid values 0 to 1440",
+      "jsonName": "systemUpdateWindowStartMinutesAfterMidnight",
+      "name": "SystemUpdateWindowStartMinutesAfterMidnight",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Whether or not to block Android system prompt windows, like toasts, phone activities, and system alerts.",
+      "jsonName": "systemWindowsBlocked",
+      "name": "SystemWindowsBlocked",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not adding users and profiles is disabled.",
+      "jsonName": "usersBlockAdd",
+      "name": "UsersBlockAdd",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to disable removing other users from the device.",
+      "jsonName": "usersBlockRemove",
+      "name": "UsersBlockRemove",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not adjusting the master volume is disabled.",
+      "jsonName": "volumeBlockAdjustment",
+      "name": "VolumeBlockAdjustment",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "If an always on VPN package name is specified, whether or not to lock network traffic when that VPN is disconnected.",
+      "jsonName": "vpnAlwaysOnLockdownMode",
+      "name": "VpnAlwaysOnLockdownMode",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Android app package name for app that will handle an always-on VPN connection.",
+      "jsonName": "vpnAlwaysOnPackageIdentifier",
+      "name": "VpnAlwaysOnPackageIdentifier",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block the user from editing the wifi connection settings.",
+      "jsonName": "wifiBlockEditConfigurations",
+      "name": "WifiBlockEditConfigurations",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block the user from editing just the networks defined by the policy.",
+      "jsonName": "wifiBlockEditPolicyDefinedConfigurations",
+      "name": "WifiBlockEditPolicyDefinedConfigurations",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the number of days that a work profile password can be set before it expires and a new password will be required. Valid values 1 to 365",
+      "jsonName": "workProfilePasswordExpirationDays",
+      "name": "WorkProfilePasswordExpirationDays",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the minimum length of the work profile password. Valid values 4 to 16",
+      "jsonName": "workProfilePasswordMinimumLength",
+      "name": "WorkProfilePasswordMinimumLength",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the minimum number of letter characters required for the work profile password. Valid values 1 to 16",
+      "jsonName": "workProfilePasswordMinimumLetterCharacters",
+      "name": "WorkProfilePasswordMinimumLetterCharacters",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the minimum number of lower-case characters required for the work profile password. Valid values 1 to 16",
+      "jsonName": "workProfilePasswordMinimumLowerCaseCharacters",
+      "name": "WorkProfilePasswordMinimumLowerCaseCharacters",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the minimum number of non-letter characters required for the work profile password. Valid values 1 to 16",
+      "jsonName": "workProfilePasswordMinimumNonLetterCharacters",
+      "name": "WorkProfilePasswordMinimumNonLetterCharacters",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the minimum number of numeric characters required for the work profile password. Valid values 1 to 16",
+      "jsonName": "workProfilePasswordMinimumNumericCharacters",
+      "name": "WorkProfilePasswordMinimumNumericCharacters",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the minimum number of symbol characters required for the work profile password. Valid values 1 to 16",
+      "jsonName": "workProfilePasswordMinimumSymbolCharacters",
+      "name": "WorkProfilePasswordMinimumSymbolCharacters",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the minimum number of upper-case letter characters required for the work profile password. Valid values 1 to 16",
+      "jsonName": "workProfilePasswordMinimumUpperCaseCharacters",
+      "name": "WorkProfilePasswordMinimumUpperCaseCharacters",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the length of the work profile password history, where the user will not be able to enter a new password that is the same as any password in the history. Valid values 0 to 24",
+      "jsonName": "workProfilePasswordPreviousPasswordCountToBlock",
+      "name": "WorkProfilePasswordPreviousPasswordCountToBlock",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the timeout period after which a work profile must be unlocked using a form of strong authentication. Possible values are: deviceDefault, daily, unkownFutureValue.",
+      "jsonName": "workProfilePasswordRequireUnlock",
+      "name": "WorkProfilePasswordRequireUnlock",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AndroidDeviceOwnerRequiredPasswordUnlock",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the minimum password quality required on the work profile password. Possible values are: deviceDefault, required, numeric, numericComplex, alphabetic, alphanumeric, alphanumericWithSymbols, lowSecurityBiometric, customPassword.",
+      "jsonName": "workProfilePasswordRequiredType",
+      "name": "WorkProfilePasswordRequiredType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AndroidDeviceOwnerRequiredPasswordType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the number of times a user can enter an incorrect work profile password before the device is wiped. Valid values 4 to 11",
+      "jsonName": "workProfilePasswordSignInFailureCountBeforeFactoryReset",
+      "name": "WorkProfilePasswordSignInFailureCountBeforeFactoryReset",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceConfiguration",
+  "discriminatedTypeValue": "#microsoft.graph.androidDeviceOwnerGeneralDeviceConfiguration",
+  "typeHintIn": "ODataType"
+}

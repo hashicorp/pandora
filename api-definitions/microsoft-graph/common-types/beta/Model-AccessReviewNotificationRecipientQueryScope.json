@@ -1,0 +1,57 @@
+{
+  "name": "AccessReviewNotificationRecipientQueryScope",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Represents the query for who the recipients are. For example, /groups/{group id}/members for group members and /users/{user id} for a specific user.",
+      "jsonName": "query",
+      "name": "Query",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "In the scenario where reviewers need to be specified dynamically, indicates the relative source of the query. This property is only required if a relative query (that is, ./manager) is specified.",
+      "jsonName": "queryRoot",
+      "name": "QueryRoot",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the type of query. Allowed value is MicrosoftGraph.",
+      "jsonName": "queryType",
+      "name": "QueryType",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AccessReviewNotificationRecipientScope",
+  "discriminatedTypeValue": "#microsoft.graph.accessReviewNotificationRecipientQueryScope",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,25 @@
+{
+  "name": "EducationChannelResource",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "URL of the channel resource.",
+      "jsonName": "url",
+      "name": "Url",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "EducationResource",
+  "discriminatedTypeValue": "#microsoft.graph.educationChannelResource",
+  "typeHintIn": "ODataType"
+}

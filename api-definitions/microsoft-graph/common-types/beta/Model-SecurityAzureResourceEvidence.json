@@ -1,0 +1,57 @@
+{
+  "name": "SecurityAzureResourceEvidence",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The unique identifier for the Azure resource.",
+      "jsonName": "resourceId",
+      "name": "ResourceId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The name of the resource.",
+      "jsonName": "resourceName",
+      "name": "ResourceName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The type of the resource.",
+      "jsonName": "resourceType",
+      "name": "ResourceType",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SecurityAlertEvidence",
+  "discriminatedTypeValue": "#microsoft.graph.security.azureResourceEvidence",
+  "typeHintIn": "ODataType"
+}

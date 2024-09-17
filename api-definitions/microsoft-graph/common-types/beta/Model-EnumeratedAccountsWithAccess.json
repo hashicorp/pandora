@@ -1,0 +1,30 @@
+{
+  "name": "EnumeratedAccountsWithAccess",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "accounts",
+      "name": "Accounts",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "AuthorizationSystem",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AccountsWithAccess",
+  "discriminatedTypeValue": "#microsoft.graph.enumeratedAccountsWithAccess",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,229 @@
+{
+  "name": "Win32LobApp",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Contains properties for Windows architecture.",
+      "jsonName": "applicableArchitectures",
+      "name": "ApplicableArchitectures",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WindowsArchitecture",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The command line to install this app",
+      "jsonName": "installCommandLine",
+      "name": "InstallCommandLine",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The install experience for this app.",
+      "jsonName": "installExperience",
+      "name": "InstallExperience",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Win32LobAppInstallExperience",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The value for the minimum CPU speed which is required to install this app.",
+      "jsonName": "minimumCpuSpeedInMHz",
+      "name": "MinimumCpuSpeedInMHz",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The value for the minimum free disk space which is required to install this app.",
+      "jsonName": "minimumFreeDiskSpaceInMB",
+      "name": "MinimumFreeDiskSpaceInMB",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The value for the minimum physical memory which is required to install this app.",
+      "jsonName": "minimumMemoryInMB",
+      "name": "MinimumMemoryInMB",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The value for the minimum number of processors which is required to install this app.",
+      "jsonName": "minimumNumberOfProcessors",
+      "name": "MinimumNumberOfProcessors",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The value for the minimum supported windows release.",
+      "jsonName": "minimumSupportedWindowsRelease",
+      "name": "MinimumSupportedWindowsRelease",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The MSI details if this Win32 app is an MSI app.",
+      "jsonName": "msiInformation",
+      "name": "MsiInformation",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Win32LobAppMsiInformation",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The return codes for post installation behavior.",
+      "jsonName": "returnCodes",
+      "name": "ReturnCodes",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "Win32LobAppReturnCode",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The detection and requirement rules for this app.",
+      "jsonName": "rules",
+      "name": "Rules",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "Win32LobAppRule",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The relative path of the setup file in the encrypted Win32LobApp package.",
+      "jsonName": "setupFilePath",
+      "name": "SetupFilePath",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The command line to uninstall this app",
+      "jsonName": "uninstallCommandLine",
+      "name": "UninstallCommandLine",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "MobileLobApp",
+  "discriminatedTypeValue": "#microsoft.graph.win32LobApp",
+  "typeHintIn": "ODataType"
+}

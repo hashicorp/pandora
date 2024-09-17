@@ -1,0 +1,31 @@
+{
+  "name": "UserExperienceAnalyticsWorkFromAnywhereMetric",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The work from anywhere metric devices. Read-only.",
+      "jsonName": "metricDevices",
+      "name": "MetricDevices",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "UserExperienceAnalyticsWorkFromAnywhereDevice",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.userExperienceAnalyticsWorkFromAnywhereMetric",
+  "typeHintIn": "ODataType"
+}

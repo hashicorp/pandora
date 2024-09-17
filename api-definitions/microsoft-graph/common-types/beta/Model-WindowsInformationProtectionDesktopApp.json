@@ -1,0 +1,57 @@
+{
+  "name": "WindowsInformationProtectionDesktopApp",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The binary name.",
+      "jsonName": "binaryName",
+      "name": "BinaryName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The high binary version.",
+      "jsonName": "binaryVersionHigh",
+      "name": "BinaryVersionHigh",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The lower binary version.",
+      "jsonName": "binaryVersionLow",
+      "name": "BinaryVersionLow",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "WindowsInformationProtectionApp",
+  "discriminatedTypeValue": "#microsoft.graph.windowsInformationProtectionDesktopApp",
+  "typeHintIn": "ODataType"
+}

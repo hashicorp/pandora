@@ -1,0 +1,41 @@
+{
+  "name": "PolicySetAssignment",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Last modified time of the PolicySetAssignment.",
+      "jsonName": "lastModifiedDateTime",
+      "name": "LastModifiedDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The target group of PolicySetAssignment",
+      "jsonName": "target",
+      "name": "Target",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceAndAppManagementAssignmentTarget",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.policySetAssignment",
+  "typeHintIn": "ODataType"
+}

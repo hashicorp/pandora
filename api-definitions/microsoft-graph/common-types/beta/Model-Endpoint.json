@@ -1,0 +1,89 @@
+{
+  "name": "Endpoint",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Describes the capability that is associated with this resource. (for example, Messages, Conversations, etc.) Not nullable. Read-only.",
+      "jsonName": "capability",
+      "name": "Capability",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Application id of the publishing underlying service. Not nullable. Read-only.",
+      "jsonName": "providerId",
+      "name": "ProviderId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Name of the publishing underlying service. Read-only.",
+      "jsonName": "providerName",
+      "name": "ProviderName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "For Microsoft 365 groups, this is set to a well-known name for the resource (for example, Yammer.FeedURL etc.). Not nullable. Read-only.",
+      "jsonName": "providerResourceId",
+      "name": "ProviderResourceId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "URL of the published resource. Not nullable. Read-only.",
+      "jsonName": "uri",
+      "name": "Uri",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DirectoryObject",
+  "discriminatedTypeValue": "#microsoft.graph.endpoint",
+  "typeHintIn": "ODataType"
+}

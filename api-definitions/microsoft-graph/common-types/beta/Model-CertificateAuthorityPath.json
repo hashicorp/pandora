@@ -1,0 +1,31 @@
+{
+  "name": "CertificateAuthorityPath",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Defines the trusted certificate authorities for certificates that can be added to apps and service principals in the tenant.",
+      "jsonName": "certificateBasedApplicationConfigurations",
+      "name": "CertificateBasedApplicationConfigurations",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "CertificateBasedApplicationConfiguration",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.certificateAuthorityPath",
+  "typeHintIn": "ODataType"
+}

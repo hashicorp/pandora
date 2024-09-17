@@ -1,0 +1,25 @@
+{
+  "name": "AnonymousGuestConversationMember",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Unique ID that represents the user. Note: This ID can change if the user leaves and rejoins the meeting, or joins from a different device.",
+      "jsonName": "anonymousGuestId",
+      "name": "AnonymousGuestId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ConversationMember",
+  "discriminatedTypeValue": "#microsoft.graph.anonymousGuestConversationMember",
+  "typeHintIn": "ODataType"
+}

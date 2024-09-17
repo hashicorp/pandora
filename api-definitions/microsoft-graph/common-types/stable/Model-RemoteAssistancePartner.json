@@ -1,0 +1,73 @@
+{
+  "name": "RemoteAssistancePartner",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Display name of the partner.",
+      "jsonName": "displayName",
+      "name": "DisplayName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Timestamp of the last request sent to Intune by the TEM partner.",
+      "jsonName": "lastConnectionDateTime",
+      "name": "LastConnectionDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The current TeamViewer connector status",
+      "jsonName": "onboardingStatus",
+      "name": "OnboardingStatus",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "RemoteAssistanceOnboardingStatus",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "URL of the partner's onboarding portal, where an administrator can configure their Remote Assistance service.",
+      "jsonName": "onboardingUrl",
+      "name": "OnboardingUrl",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.remoteAssistancePartner",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,30 @@
+{
+  "name": "SecurityTriggerTypesRoot",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "retentionEventTypes",
+      "name": "RetentionEventTypes",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "SecurityRetentionEventType",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.security.triggerTypesRoot",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,41 @@
+{
+  "name": "WorkbookChartTitleFormat",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Represents the fill format of an object, which includes background formatting information. Read-only.",
+      "jsonName": "fill",
+      "name": "Fill",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WorkbookChartFill",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Represents the font attributes (font name, font size, color, etc.) for the current object. Read-only.",
+      "jsonName": "font",
+      "name": "Font",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WorkbookChartFont",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.workbookChartTitleFormat",
+  "typeHintIn": "ODataType"
+}

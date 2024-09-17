@@ -1,0 +1,73 @@
+{
+  "name": "AuthorizationSystemIdentity",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Navigation to the authorizationSystem object",
+      "jsonName": "authorizationSystem",
+      "name": "AuthorizationSystem",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AuthorizationSystem",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The name of the identity. Read-only. Supports $filter and (eq,contains).",
+      "jsonName": "displayName",
+      "name": "DisplayName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Unique ID of the identity within the external system. Read-only.",
+      "jsonName": "externalId",
+      "name": "ExternalId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Represents details of the source of the identity.",
+      "jsonName": "source",
+      "name": "Source",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AuthorizationSystemIdentitySource",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": true,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.authorizationSystemIdentity",
+  "typeHintIn": "ODataType"
+}

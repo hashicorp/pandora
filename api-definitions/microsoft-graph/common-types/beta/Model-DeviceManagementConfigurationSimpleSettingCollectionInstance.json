@@ -1,0 +1,31 @@
+{
+  "name": "DeviceManagementConfigurationSimpleSettingCollectionInstance",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Simple setting collection instance value",
+      "jsonName": "simpleSettingCollectionValue",
+      "name": "SimpleSettingCollectionValue",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "DeviceManagementConfigurationSimpleSettingValue",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceManagementConfigurationSettingInstance",
+  "discriminatedTypeValue": "#microsoft.graph.deviceManagementConfigurationSimpleSettingCollectionInstance",
+  "typeHintIn": "ODataType"
+}

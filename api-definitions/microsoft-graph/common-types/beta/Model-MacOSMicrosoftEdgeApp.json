@@ -1,0 +1,25 @@
+{
+  "name": "MacOSMicrosoftEdgeApp",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The enum to specify the channels for Microsoft Edge apps.",
+      "jsonName": "channel",
+      "name": "Channel",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "MicrosoftEdgeChannel",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "MobileApp",
+  "discriminatedTypeValue": "#microsoft.graph.macOSMicrosoftEdgeApp",
+  "typeHintIn": "ODataType"
+}

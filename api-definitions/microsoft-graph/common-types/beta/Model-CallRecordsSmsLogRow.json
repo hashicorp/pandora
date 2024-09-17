@@ -1,0 +1,217 @@
+{
+  "name": "CallRecordsSmsLogRow",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Amount of money or cost of the SMS that is charged.",
+      "jsonName": "callCharge",
+      "name": "CallCharge",
+      "objectDefinition": {
+        "type": "Float",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Currency used to calculate the cost of the call. For details, see ISO 4217.",
+      "jsonName": "currency",
+      "name": "Currency",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether the SMS was Domestic (within a country or region) or International (outside a country or region) based on the user's location.",
+      "jsonName": "destinationContext",
+      "name": "DestinationContext",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Country or region of a phone number that received the SMS.",
+      "jsonName": "destinationName",
+      "name": "DestinationName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Partially obfuscated phone number that received the SMS. For details, see E.164.",
+      "jsonName": "destinationNumber",
+      "name": "DestinationNumber",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The license used for the SMS.",
+      "jsonName": "licenseCapability",
+      "name": "LicenseCapability",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The date and time when the SMS was sent.",
+      "jsonName": "sentDateTime",
+      "name": "SentDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "SMS identifier. Not guaranteed to be unique.",
+      "jsonName": "smsId",
+      "name": "SmsId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Type of SMS such as outbound or inbound.",
+      "jsonName": "smsType",
+      "name": "SmsType",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Number of SMS units sent/received.",
+      "jsonName": "smsUnits",
+      "name": "SmsUnits",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Partially obfuscated phone number that sent the SMS. For details, see E.164.",
+      "jsonName": "sourceNumber",
+      "name": "SourceNumber",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Country code of the tenant. For details, see ISO 3166-1 alpha-2.",
+      "jsonName": "tenantCountryCode",
+      "name": "TenantCountryCode",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Country code of the user. For details, see ISO 3166-1 alpha-2.",
+      "jsonName": "userCountryCode",
+      "name": "UserCountryCode",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "CallRecordsCallLogRow",
+  "discriminatedTypeValue": "#microsoft.graph.callRecords.smsLogRow",
+  "typeHintIn": "ODataType"
+}

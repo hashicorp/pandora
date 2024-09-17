@@ -1,0 +1,4603 @@
+{
+  "name": "Windows10GeneralConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to Block the user from adding email accounts to the device that are not associated with a Microsoft account.",
+      "jsonName": "accountsBlockAddingNonMicrosoftAccountEmail",
+      "name": "AccountsBlockAddingNonMicrosoftAccountEmail",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values of a property",
+      "jsonName": "activateAppsWithVoice",
+      "name": "ActivateAppsWithVoice",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Enablement",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block the user from selecting an AntiTheft mode preference (Windows 10 Mobile only).",
+      "jsonName": "antiTheftModeBlocked",
+      "name": "AntiTheftModeBlocked",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This policy setting permits users to change installation options that typically are available only to system administrators.",
+      "jsonName": "appManagementMSIAllowUserControlOverInstall",
+      "name": "AppManagementMSIAllowUserControlOverInstall",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This policy setting directs Windows Installer to use elevated permissions when it installs any program on the system.",
+      "jsonName": "appManagementMSIAlwaysInstallWithElevatedPrivileges",
+      "name": "AppManagementMSIAlwaysInstallWithElevatedPrivileges",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "List of semi-colon delimited Package Family Names of Windows apps. Listed Windows apps are to be launched after logon.​",
+      "jsonName": "appManagementPackageFamilyNamesToLaunchAfterLogOn",
+      "name": "AppManagementPackageFamilyNamesToLaunchAfterLogOn",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "State Management Setting.",
+      "jsonName": "appsAllowTrustedAppsSideloading",
+      "name": "AppsAllowTrustedAppsSideloading",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "StateManagementSetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to disable the launch of all apps from Windows Store that came pre-installed or were downloaded.",
+      "jsonName": "appsBlockWindowsStoreOriginatedApps",
+      "name": "AppsBlockWindowsStoreOriginatedApps",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allows secondary authentication devices to work with Windows.",
+      "jsonName": "authenticationAllowSecondaryDevice",
+      "name": "AuthenticationAllowSecondaryDevice",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the preferred domain among available domains in the Azure AD tenant.",
+      "jsonName": "authenticationPreferredAzureADTenantDomainName",
+      "name": "AuthenticationPreferredAzureADTenantDomainName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values of a property",
+      "jsonName": "authenticationWebSignIn",
+      "name": "AuthenticationWebSignIn",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Enablement",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specify a list of allowed Bluetooth services and profiles in hex formatted strings.",
+      "jsonName": "bluetoothAllowedServices",
+      "name": "BluetoothAllowedServices",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Whether or not to Block the user from using bluetooth advertising.",
+      "jsonName": "bluetoothBlockAdvertising",
+      "name": "BluetoothBlockAdvertising",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Whether or not to Block the user from using bluetooth discoverable mode.",
+      "jsonName": "bluetoothBlockDiscoverableMode",
+      "name": "BluetoothBlockDiscoverableMode",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Whether or not to block specific bundled Bluetooth peripherals to automatically pair with the host device.",
+      "jsonName": "bluetoothBlockPrePairing",
+      "name": "BluetoothBlockPrePairing",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Whether or not to block the users from using Swift Pair and other proximity based scenarios.",
+      "jsonName": "bluetoothBlockPromptedProximalConnections",
+      "name": "BluetoothBlockPromptedProximalConnections",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Whether or not to Block the user from using bluetooth.",
+      "jsonName": "bluetoothBlocked",
+      "name": "BluetoothBlocked",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Whether or not to Block the user from accessing the camera of the device.",
+      "jsonName": "cameraBlocked",
+      "name": "CameraBlocked",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Whether or not to Block the user from using data over cellular while roaming.",
+      "jsonName": "cellularBlockDataWhenRoaming",
+      "name": "CellularBlockDataWhenRoaming",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Whether or not to Block the user from using VPN over cellular.",
+      "jsonName": "cellularBlockVpn",
+      "name": "CellularBlockVpn",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Whether or not to Block the user from using VPN when roaming over cellular.",
+      "jsonName": "cellularBlockVpnWhenRoaming",
+      "name": "CellularBlockVpnWhenRoaming",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values of the ConfigurationUsage list.",
+      "jsonName": "cellularData",
+      "name": "CellularData",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ConfigurationUsage",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Whether or not to Block the user from doing manual root certificate installation.",
+      "jsonName": "certificatesBlockManualRootCertificateInstallation",
+      "name": "CertificatesBlockManualRootCertificateInstallation",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the time zone to be applied to the device. This is the standard Windows name for the target time zone.",
+      "jsonName": "configureTimeZone",
+      "name": "ConfigureTimeZone",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Whether or not to block Connected Devices Service which enables discovery and connection to other devices, remote messaging, remote app sessions and other cross-device experiences.",
+      "jsonName": "connectedDevicesServiceBlocked",
+      "name": "ConnectedDevicesServiceBlocked",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Whether or not to Block the user from using copy paste.",
+      "jsonName": "copyPasteBlocked",
+      "name": "CopyPasteBlocked",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Whether or not to Block the user from using Cortana.",
+      "jsonName": "cortanaBlocked",
+      "name": "CortanaBlocked",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specify whether to allow or disallow the Federal Information Processing Standard (FIPS) policy.",
+      "jsonName": "cryptographyAllowFipsAlgorithmPolicy",
+      "name": "CryptographyAllowFipsAlgorithmPolicy",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This policy setting allows you to block direct memory access (DMA) for all hot pluggable PCI downstream ports until a user logs into Windows.",
+      "jsonName": "dataProtectionBlockDirectMemoryAccess",
+      "name": "DataProtectionBlockDirectMemoryAccess",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Whether or not to block end user access to Defender.",
+      "jsonName": "defenderBlockEndUserAccess",
+      "name": "DefenderBlockEndUserAccess",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allows or disallows Windows Defender On Access Protection functionality.",
+      "jsonName": "defenderBlockOnAccessProtection",
+      "name": "DefenderBlockOnAccessProtection",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values of Cloud Block Level",
+      "jsonName": "defenderCloudBlockLevel",
+      "name": "DefenderCloudBlockLevel",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DefenderCloudBlockLevelType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Timeout extension for file scanning by the cloud. Valid values 0 to 50",
+      "jsonName": "defenderCloudExtendedTimeout",
+      "name": "DefenderCloudExtendedTimeout",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Timeout extension for file scanning by the cloud. Valid values 0 to 50",
+      "jsonName": "defenderCloudExtendedTimeoutInSeconds",
+      "name": "DefenderCloudExtendedTimeoutInSeconds",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Number of days before deleting quarantined malware. Valid values 0 to 90",
+      "jsonName": "defenderDaysBeforeDeletingQuarantinedMalware",
+      "name": "DefenderDaysBeforeDeletingQuarantinedMalware",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets Defender’s actions to take on detected Malware per threat level.",
+      "jsonName": "defenderDetectedMalwareActions",
+      "name": "DefenderDetectedMalwareActions",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DefenderDetectedMalwareActions",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "When blocked, catch-up scans for scheduled full scans will be turned off.",
+      "jsonName": "defenderDisableCatchupFullScan",
+      "name": "DefenderDisableCatchupFullScan",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "When blocked, catch-up scans for scheduled quick scans will be turned off.",
+      "jsonName": "defenderDisableCatchupQuickScan",
+      "name": "DefenderDisableCatchupQuickScan",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "File extensions to exclude from scans and real time protection.",
+      "jsonName": "defenderFileExtensionsToExclude",
+      "name": "DefenderFileExtensionsToExclude",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Files and folder to exclude from scans and real time protection.",
+      "jsonName": "defenderFilesAndFoldersToExclude",
+      "name": "DefenderFilesAndFoldersToExclude",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values for monitoring file activity.",
+      "jsonName": "defenderMonitorFileActivity",
+      "name": "DefenderMonitorFileActivity",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DefenderMonitorFileActivity",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets Defender’s action to take on Potentially Unwanted Application (PUA), which includes software with behaviors of ad-injection, software bundling, persistent solicitation for payment or subscription, etc. Defender alerts user when PUA is being downloaded or attempts to install itself. Added in Windows 10 for desktop. Possible values are: deviceDefault, block, audit.",
+      "jsonName": "defenderPotentiallyUnwantedAppAction",
+      "name": "DefenderPotentiallyUnwantedAppAction",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DefenderPotentiallyUnwantedAppAction",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values of Defender PUA Protection",
+      "jsonName": "defenderPotentiallyUnwantedAppActionSetting",
+      "name": "DefenderPotentiallyUnwantedAppActionSetting",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DefenderProtectionType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Processes to exclude from scans and real time protection.",
+      "jsonName": "defenderProcessesToExclude",
+      "name": "DefenderProcessesToExclude",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values for prompting user for samples submission.",
+      "jsonName": "defenderPromptForSampleSubmission",
+      "name": "DefenderPromptForSampleSubmission",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DefenderPromptForSampleSubmission",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to require behavior monitoring.",
+      "jsonName": "defenderRequireBehaviorMonitoring",
+      "name": "DefenderRequireBehaviorMonitoring",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to require cloud protection.",
+      "jsonName": "defenderRequireCloudProtection",
+      "name": "DefenderRequireCloudProtection",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to require network inspection system.",
+      "jsonName": "defenderRequireNetworkInspectionSystem",
+      "name": "DefenderRequireNetworkInspectionSystem",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to require real time monitoring.",
+      "jsonName": "defenderRequireRealTimeMonitoring",
+      "name": "DefenderRequireRealTimeMonitoring",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to scan archive files.",
+      "jsonName": "defenderScanArchiveFiles",
+      "name": "DefenderScanArchiveFiles",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to scan downloads.",
+      "jsonName": "defenderScanDownloads",
+      "name": "DefenderScanDownloads",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to scan incoming mail messages.",
+      "jsonName": "defenderScanIncomingMail",
+      "name": "DefenderScanIncomingMail",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to scan mapped network drives during full scan.",
+      "jsonName": "defenderScanMappedNetworkDrivesDuringFullScan",
+      "name": "DefenderScanMappedNetworkDrivesDuringFullScan",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Max CPU usage percentage during scan. Valid values 0 to 100",
+      "jsonName": "defenderScanMaxCpu",
+      "name": "DefenderScanMaxCpu",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to scan files opened from a network folder.",
+      "jsonName": "defenderScanNetworkFiles",
+      "name": "DefenderScanNetworkFiles",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to scan removable drives during full scan.",
+      "jsonName": "defenderScanRemovableDrivesDuringFullScan",
+      "name": "DefenderScanRemovableDrivesDuringFullScan",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to scan scripts loaded in Internet Explorer browser.",
+      "jsonName": "defenderScanScriptsLoadedInInternetExplorer",
+      "name": "DefenderScanScriptsLoadedInInternetExplorer",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values for system scan type.",
+      "jsonName": "defenderScanType",
+      "name": "DefenderScanType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DefenderScanType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "When enabled, low CPU priority will be used during scheduled scans.",
+      "jsonName": "defenderScheduleScanEnableLowCpuPriority",
+      "name": "DefenderScheduleScanEnableLowCpuPriority",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The time to perform a daily quick scan.",
+      "jsonName": "defenderScheduledQuickScanTime",
+      "name": "DefenderScheduledQuickScanTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The defender time for the system scan.",
+      "jsonName": "defenderScheduledScanTime",
+      "name": "DefenderScheduledScanTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The signature update interval in hours. Specify 0 not to check. Valid values 0 to 24",
+      "jsonName": "defenderSignatureUpdateIntervalInHours",
+      "name": "DefenderSignatureUpdateIntervalInHours",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Checks for the user consent level in Windows Defender to send data. Possible values are: sendSafeSamplesAutomatically, alwaysPrompt, neverSend, sendAllSamplesAutomatically.",
+      "jsonName": "defenderSubmitSamplesConsentType",
+      "name": "DefenderSubmitSamplesConsentType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DefenderSubmitSamplesConsentType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values for a weekly schedule.",
+      "jsonName": "defenderSystemScanSchedule",
+      "name": "DefenderSystemScanSchedule",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WeeklySchedule",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "State Management Setting.",
+      "jsonName": "developerUnlockSetting",
+      "name": "DeveloperUnlockSetting",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "StateManagementSetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to Block the user from resetting their phone.",
+      "jsonName": "deviceManagementBlockFactoryResetOnMobile",
+      "name": "DeviceManagementBlockFactoryResetOnMobile",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to Block the user from doing manual un-enrollment from device management.",
+      "jsonName": "deviceManagementBlockManualUnenroll",
+      "name": "DeviceManagementBlockManualUnenroll",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allow the device to send diagnostic and usage telemetry data, such as Watson.",
+      "jsonName": "diagnosticsDataSubmissionMode",
+      "name": "DiagnosticsDataSubmissionMode",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DiagnosticDataSubmissionMode",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "List of legacy applications that have GDI DPI Scaling turned off.",
+      "jsonName": "displayAppListWithGdiDPIScalingTurnedOff",
+      "name": "DisplayAppListWithGdiDPIScalingTurnedOff",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "List of legacy applications that have GDI DPI Scaling turned on.",
+      "jsonName": "displayAppListWithGdiDPIScalingTurnedOn",
+      "name": "DisplayAppListWithGdiDPIScalingTurnedOn",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allow users to change Start pages on Edge. Use the EdgeHomepageUrls to specify the Start pages that the user would see by default when they open Edge.",
+      "jsonName": "edgeAllowStartPagesModification",
+      "name": "EdgeAllowStartPagesModification",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to prevent access to about flags on Edge browser.",
+      "jsonName": "edgeBlockAccessToAboutFlags",
+      "name": "EdgeBlockAccessToAboutFlags",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Block the address bar dropdown functionality in Microsoft Edge. Disable this settings to minimize network connections from Microsoft Edge to Microsoft services.",
+      "jsonName": "edgeBlockAddressBarDropdown",
+      "name": "EdgeBlockAddressBarDropdown",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block auto fill.",
+      "jsonName": "edgeBlockAutofill",
+      "name": "EdgeBlockAutofill",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Block Microsoft compatibility list in Microsoft Edge. This list from Microsoft helps Edge properly display sites with known compatibility issues.",
+      "jsonName": "edgeBlockCompatibilityList",
+      "name": "EdgeBlockCompatibilityList",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block developer tools in the Edge browser.",
+      "jsonName": "edgeBlockDeveloperTools",
+      "name": "EdgeBlockDeveloperTools",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to Block the user from making changes to Favorites.",
+      "jsonName": "edgeBlockEditFavorites",
+      "name": "EdgeBlockEditFavorites",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block extensions in the Edge browser.",
+      "jsonName": "edgeBlockExtensions",
+      "name": "EdgeBlockExtensions",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allow or prevent Edge from entering the full screen mode.",
+      "jsonName": "edgeBlockFullScreenMode",
+      "name": "EdgeBlockFullScreenMode",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block InPrivate browsing on corporate networks, in the Edge browser.",
+      "jsonName": "edgeBlockInPrivateBrowsing",
+      "name": "EdgeBlockInPrivateBrowsing",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to Block the user from using JavaScript.",
+      "jsonName": "edgeBlockJavaScript",
+      "name": "EdgeBlockJavaScript",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Block the collection of information by Microsoft for live tile creation when users pin a site to Start from Microsoft Edge.",
+      "jsonName": "edgeBlockLiveTileDataCollection",
+      "name": "EdgeBlockLiveTileDataCollection",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to Block password manager.",
+      "jsonName": "edgeBlockPasswordManager",
+      "name": "EdgeBlockPasswordManager",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block popups.",
+      "jsonName": "edgeBlockPopups",
+      "name": "EdgeBlockPopups",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Decide whether Microsoft Edge is prelaunched at Windows startup.",
+      "jsonName": "edgeBlockPrelaunch",
+      "name": "EdgeBlockPrelaunch",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Configure Edge to allow or block printing.",
+      "jsonName": "edgeBlockPrinting",
+      "name": "EdgeBlockPrinting",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Configure Edge to allow browsing history to be saved or to never save browsing history.",
+      "jsonName": "edgeBlockSavingHistory",
+      "name": "EdgeBlockSavingHistory",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block the user from adding new search engine or changing the default search engine.",
+      "jsonName": "edgeBlockSearchEngineCustomization",
+      "name": "EdgeBlockSearchEngineCustomization",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block the user from using the search suggestions in the address bar.",
+      "jsonName": "edgeBlockSearchSuggestions",
+      "name": "EdgeBlockSearchSuggestions",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to Block the user from sending the do not track header.",
+      "jsonName": "edgeBlockSendingDoNotTrackHeader",
+      "name": "EdgeBlockSendingDoNotTrackHeader",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to switch the intranet traffic from Edge to Internet Explorer. Note: the name of this property is misleading; the property is obsolete, use EdgeSendIntranetTrafficToInternetExplorer instead.",
+      "jsonName": "edgeBlockSendingIntranetTrafficToInternetExplorer",
+      "name": "EdgeBlockSendingIntranetTrafficToInternetExplorer",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether the user can sideload extensions.",
+      "jsonName": "edgeBlockSideloadingExtensions",
+      "name": "EdgeBlockSideloadingExtensions",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Configure whether Edge preloads the new tab page at Windows startup.",
+      "jsonName": "edgeBlockTabPreloading",
+      "name": "EdgeBlockTabPreloading",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Configure to load a blank page in Edge instead of the default New tab page and prevent users from changing it.",
+      "jsonName": "edgeBlockWebContentOnNewTabPage",
+      "name": "EdgeBlockWebContentOnNewTabPage",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to Block the user from using the Edge browser.",
+      "jsonName": "edgeBlocked",
+      "name": "EdgeBlocked",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Clear browsing data on exiting Microsoft Edge.",
+      "jsonName": "edgeClearBrowsingDataOnExit",
+      "name": "EdgeClearBrowsingDataOnExit",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values to specify which cookies are allowed in Microsoft Edge.",
+      "jsonName": "edgeCookiePolicy",
+      "name": "EdgeCookiePolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "EdgeCookiePolicy",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Block the Microsoft web page that opens on the first use of Microsoft Edge. This policy allows enterprises, like those enrolled in zero emissions configurations, to block this page.",
+      "jsonName": "edgeDisableFirstRunPage",
+      "name": "EdgeDisableFirstRunPage",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the enterprise mode site list location. Could be a local file, local network or http location.",
+      "jsonName": "edgeEnterpriseModeSiteListLocation",
+      "name": "EdgeEnterpriseModeSiteListLocation",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Generic visibility state.",
+      "jsonName": "edgeFavoritesBarVisibility",
+      "name": "EdgeFavoritesBarVisibility",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "VisibilitySetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The location of the favorites list to provision. Could be a local file, local network or http location.",
+      "jsonName": "edgeFavoritesListLocation",
+      "name": "EdgeFavoritesListLocation",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The first run URL for when Edge browser is opened for the first time.",
+      "jsonName": "edgeFirstRunUrl",
+      "name": "EdgeFirstRunUrl",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Causes the Home button to either hide, load the default Start page, load a New tab page, or a custom URL",
+      "jsonName": "edgeHomeButtonConfiguration",
+      "name": "EdgeHomeButtonConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "EdgeHomeButtonConfiguration",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Enable the Home button configuration.",
+      "jsonName": "edgeHomeButtonConfigurationEnabled",
+      "name": "EdgeHomeButtonConfigurationEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The list of URLs for homepages shodwn on MDM-enrolled devices on Edge browser.",
+      "jsonName": "edgeHomepageUrls",
+      "name": "EdgeHomepageUrls",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specify how the Microsoft Edge settings are restricted based on kiosk mode.",
+      "jsonName": "edgeKioskModeRestriction",
+      "name": "EdgeKioskModeRestriction",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "EdgeKioskModeRestrictionType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the time in minutes from the last user activity before Microsoft Edge kiosk resets.  Valid values are 0-1440. The default is 5. 0 indicates no reset. Valid values 0 to 1440",
+      "jsonName": "edgeKioskResetAfterIdleTimeInMinutes",
+      "name": "EdgeKioskResetAfterIdleTimeInMinutes",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specify the page opened when new tabs are created.",
+      "jsonName": "edgeNewTabPageURL",
+      "name": "EdgeNewTabPageURL",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values for the EdgeOpensWith setting.",
+      "jsonName": "edgeOpensWith",
+      "name": "EdgeOpensWith",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "EdgeOpenOptions",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allow or prevent users from overriding certificate errors.",
+      "jsonName": "edgePreventCertificateErrorOverride",
+      "name": "EdgePreventCertificateErrorOverride",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to Require the user to use the smart screen filter.",
+      "jsonName": "edgeRequireSmartScreen",
+      "name": "EdgeRequireSmartScreen",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specify the list of package family names of browser extensions that are required and cannot be turned off by the user.",
+      "jsonName": "edgeRequiredExtensionPackageFamilyNames",
+      "name": "EdgeRequiredExtensionPackageFamilyNames",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allows IT admins to set a default search engine for MDM-Controlled devices. Users can override this and change their default search engine provided the AllowSearchEngineCustomization policy is not set.",
+      "jsonName": "edgeSearchEngine",
+      "name": "EdgeSearchEngine",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "EdgeSearchEngineBase",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to switch the intranet traffic from Edge to Internet Explorer.",
+      "jsonName": "edgeSendIntranetTrafficToInternetExplorer",
+      "name": "EdgeSendIntranetTrafficToInternetExplorer",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "What message will be displayed by Edge before switching to Internet Explorer.",
+      "jsonName": "edgeShowMessageWhenOpeningInternetExplorerSites",
+      "name": "EdgeShowMessageWhenOpeningInternetExplorerSites",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "InternetExplorerMessageSetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Enable favorites sync between Internet Explorer and Microsoft Edge. Additions, deletions, modifications and order changes to favorites are shared between browsers.",
+      "jsonName": "edgeSyncFavoritesWithInternetExplorer",
+      "name": "EdgeSyncFavoritesWithInternetExplorer",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Type of browsing data sent to Microsoft 365 analytics",
+      "jsonName": "edgeTelemetryForMicrosoft365Analytics",
+      "name": "EdgeTelemetryForMicrosoft365Analytics",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "EdgeTelemetryMode",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allow users with administrative rights to delete all user data and settings using CTRL + Win + R at the device lock screen so that the device can be automatically re-configured and re-enrolled into management.",
+      "jsonName": "enableAutomaticRedeployment",
+      "name": "EnableAutomaticRedeployment",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This setting allows you to specify battery charge level at which Energy Saver is turned on. While on battery, Energy Saver is automatically turned on at (and below) the specified battery charge level. Valid input range (0-100). Valid values 0 to 100",
+      "jsonName": "energySaverOnBatteryThresholdPercentage",
+      "name": "EnergySaverOnBatteryThresholdPercentage",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This setting allows you to specify battery charge level at which Energy Saver is turned on. While plugged in, Energy Saver is automatically turned on at (and below) the specified battery charge level. Valid input range (0-100). Valid values 0 to 100",
+      "jsonName": "energySaverPluggedInThresholdPercentage",
+      "name": "EnergySaverPluggedInThresholdPercentage",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Endpoint for discovering cloud printers.",
+      "jsonName": "enterpriseCloudPrintDiscoveryEndPoint",
+      "name": "EnterpriseCloudPrintDiscoveryEndPoint",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Maximum number of printers that should be queried from a discovery endpoint. This is a mobile only setting. Valid values 1 to 65535",
+      "jsonName": "enterpriseCloudPrintDiscoveryMaxLimit",
+      "name": "EnterpriseCloudPrintDiscoveryMaxLimit",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "OAuth resource URI for printer discovery service as configured in Azure portal.",
+      "jsonName": "enterpriseCloudPrintMopriaDiscoveryResourceIdentifier",
+      "name": "EnterpriseCloudPrintMopriaDiscoveryResourceIdentifier",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Authentication endpoint for acquiring OAuth tokens.",
+      "jsonName": "enterpriseCloudPrintOAuthAuthority",
+      "name": "EnterpriseCloudPrintOAuthAuthority",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "GUID of a client application authorized to retrieve OAuth tokens from the OAuth Authority.",
+      "jsonName": "enterpriseCloudPrintOAuthClientIdentifier",
+      "name": "EnterpriseCloudPrintOAuthClientIdentifier",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "OAuth resource URI for print service as configured in the Azure portal.",
+      "jsonName": "enterpriseCloudPrintResourceIdentifier",
+      "name": "EnterpriseCloudPrintResourceIdentifier",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to enable device discovery UX.",
+      "jsonName": "experienceBlockDeviceDiscovery",
+      "name": "ExperienceBlockDeviceDiscovery",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to allow the error dialog from displaying if no SIM card is detected.",
+      "jsonName": "experienceBlockErrorDialogWhenNoSIM",
+      "name": "ExperienceBlockErrorDialogWhenNoSIM",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to enable task switching on the device.",
+      "jsonName": "experienceBlockTaskSwitcher",
+      "name": "ExperienceBlockTaskSwitcher",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allow(Not Configured) or prevent(Block) the syncing of Microsoft Edge Browser settings. Option to prevent syncing across devices, but allow user override.",
+      "jsonName": "experienceDoNotSyncBrowserSettings",
+      "name": "ExperienceDoNotSyncBrowserSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "BrowserSyncSetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values of a property",
+      "jsonName": "findMyFiles",
+      "name": "FindMyFiles",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Enablement",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block DVR and broadcasting.",
+      "jsonName": "gameDvrBlocked",
+      "name": "GameDvrBlocked",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Values for the InkWorkspaceAccess setting.",
+      "jsonName": "inkWorkspaceAccess",
+      "name": "InkWorkspaceAccess",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "InkAccessSetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "State Management Setting.",
+      "jsonName": "inkWorkspaceAccessState",
+      "name": "InkWorkspaceAccessState",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "StateManagementSetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specify whether to show recommended app suggestions in the ink workspace.",
+      "jsonName": "inkWorkspaceBlockSuggestedApps",
+      "name": "InkWorkspaceBlockSuggestedApps",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to Block the user from using internet sharing.",
+      "jsonName": "internetSharingBlocked",
+      "name": "InternetSharingBlocked",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to Block the user from location services.",
+      "jsonName": "locationServicesBlocked",
+      "name": "LocationServicesBlocked",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values of a property",
+      "jsonName": "lockScreenActivateAppsWithVoice",
+      "name": "LockScreenActivateAppsWithVoice",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Enablement",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specify whether to show a user-configurable setting to control the screen timeout while on the lock screen of Windows 10 Mobile devices. If this policy is set to Allow, the value set by lockScreenTimeoutInSeconds is ignored.",
+      "jsonName": "lockScreenAllowTimeoutConfiguration",
+      "name": "LockScreenAllowTimeoutConfiguration",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block action center notifications over lock screen.",
+      "jsonName": "lockScreenBlockActionCenterNotifications",
+      "name": "LockScreenBlockActionCenterNotifications",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not the user can interact with Cortana using speech while the system is locked.",
+      "jsonName": "lockScreenBlockCortana",
+      "name": "LockScreenBlockCortana",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether to allow toast notifications above the device lock screen.",
+      "jsonName": "lockScreenBlockToastNotifications",
+      "name": "LockScreenBlockToastNotifications",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Set the duration (in seconds) from the screen locking to the screen turning off for Windows 10 Mobile devices. Supported values are 11-1800. Valid values 11 to 1800",
+      "jsonName": "lockScreenTimeoutInSeconds",
+      "name": "LockScreenTimeoutInSeconds",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Disables the ability to quickly switch between users that are logged on simultaneously without logging off.",
+      "jsonName": "logonBlockFastUserSwitching",
+      "name": "LogonBlockFastUserSwitching",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block the MMS send/receive functionality on the device.",
+      "jsonName": "messagingBlockMMS",
+      "name": "MessagingBlockMMS",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block the RCS send/receive functionality on the device.",
+      "jsonName": "messagingBlockRichCommunicationServices",
+      "name": "MessagingBlockRichCommunicationServices",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block text message back up and restore and Messaging Everywhere.",
+      "jsonName": "messagingBlockSync",
+      "name": "MessagingBlockSync",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to Block Microsoft account settings sync.",
+      "jsonName": "microsoftAccountBlockSettingsSync",
+      "name": "MicrosoftAccountBlockSettingsSync",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to Block a Microsoft account.",
+      "jsonName": "microsoftAccountBlocked",
+      "name": "MicrosoftAccountBlocked",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Values for the SignInAssistantSettings.",
+      "jsonName": "microsoftAccountSignInAssistantSettings",
+      "name": "MicrosoftAccountSignInAssistantSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SignInAssistantOptions",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "If set, proxy settings will be applied to all processes and accounts in the device. Otherwise, it will be applied to the user account that’s enrolled into MDM.",
+      "jsonName": "networkProxyApplySettingsDeviceWide",
+      "name": "NetworkProxyApplySettingsDeviceWide",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Address to the proxy auto-config (PAC) script you want to use.",
+      "jsonName": "networkProxyAutomaticConfigurationUrl",
+      "name": "NetworkProxyAutomaticConfigurationUrl",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Disable automatic detection of settings. If enabled, the system will try to find the path to a proxy auto-config (PAC) script.",
+      "jsonName": "networkProxyDisableAutoDetect",
+      "name": "NetworkProxyDisableAutoDetect",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specifies manual proxy server settings.",
+      "jsonName": "networkProxyServer",
+      "name": "NetworkProxyServer",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Windows10NetworkProxyServer",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to Block the user from using near field communication.",
+      "jsonName": "nfcBlocked",
+      "name": "NfcBlocked",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets a value allowing IT admins to prevent apps and features from working with files on OneDrive.",
+      "jsonName": "oneDriveDisableFileSync",
+      "name": "OneDriveDisableFileSync",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specify whether PINs or passwords such as '1111' or '1234' are allowed. For Windows 10 desktops, it also controls the use of picture passwords.",
+      "jsonName": "passwordBlockSimple",
+      "name": "PasswordBlockSimple",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The password expiration in days. Valid values 0 to 730",
+      "jsonName": "passwordExpirationDays",
+      "name": "PasswordExpirationDays",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This security setting determines the period of time (in days) that a password must be used before the user can change it. Valid values 0 to 998",
+      "jsonName": "passwordMinimumAgeInDays",
+      "name": "PasswordMinimumAgeInDays",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The number of character sets required in the password.",
+      "jsonName": "passwordMinimumCharacterSetCount",
+      "name": "PasswordMinimumCharacterSetCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The minimum password length. Valid values 4 to 16",
+      "jsonName": "passwordMinimumLength",
+      "name": "PasswordMinimumLength",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The minutes of inactivity before the screen times out.",
+      "jsonName": "passwordMinutesOfInactivityBeforeScreenTimeout",
+      "name": "PasswordMinutesOfInactivityBeforeScreenTimeout",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The number of previous passwords to prevent reuse of. Valid values 0 to 50",
+      "jsonName": "passwordPreviousPasswordBlockCount",
+      "name": "PasswordPreviousPasswordBlockCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to require a password upon resuming from an idle state.",
+      "jsonName": "passwordRequireWhenResumeFromIdleState",
+      "name": "PasswordRequireWhenResumeFromIdleState",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to require the user to have a password.",
+      "jsonName": "passwordRequired",
+      "name": "PasswordRequired",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values of required passwords.",
+      "jsonName": "passwordRequiredType",
+      "name": "PasswordRequiredType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "RequiredPasswordType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The number of sign in failures before factory reset. Valid values 0 to 999",
+      "jsonName": "passwordSignInFailureCountBeforeFactoryReset",
+      "name": "PasswordSignInFailureCountBeforeFactoryReset",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A http or https Url to a jpg, jpeg or png image that needs to be downloaded and used as the Desktop Image or a file Url to a local image on the file system that needs to used as the Desktop Image.",
+      "jsonName": "personalizationDesktopImageUrl",
+      "name": "PersonalizationDesktopImageUrl",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A http or https Url to a jpg, jpeg or png image that neeeds to be downloaded and used as the Lock Screen Image or a file Url to a local image on the file system that needs to be used as the Lock Screen Image.",
+      "jsonName": "personalizationLockScreenImageUrl",
+      "name": "PersonalizationLockScreenImageUrl",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Power action types",
+      "jsonName": "powerButtonActionOnBattery",
+      "name": "PowerButtonActionOnBattery",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PowerActionType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Power action types",
+      "jsonName": "powerButtonActionPluggedIn",
+      "name": "PowerButtonActionPluggedIn",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PowerActionType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values of a property",
+      "jsonName": "powerHybridSleepOnBattery",
+      "name": "PowerHybridSleepOnBattery",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Enablement",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values of a property",
+      "jsonName": "powerHybridSleepPluggedIn",
+      "name": "PowerHybridSleepPluggedIn",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Enablement",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Power action types",
+      "jsonName": "powerLidCloseActionOnBattery",
+      "name": "PowerLidCloseActionOnBattery",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PowerActionType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Power action types",
+      "jsonName": "powerLidCloseActionPluggedIn",
+      "name": "PowerLidCloseActionPluggedIn",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PowerActionType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Power action types",
+      "jsonName": "powerSleepButtonActionOnBattery",
+      "name": "PowerSleepButtonActionOnBattery",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PowerActionType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Power action types",
+      "jsonName": "powerSleepButtonActionPluggedIn",
+      "name": "PowerSleepButtonActionPluggedIn",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PowerActionType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Prevent user installation of additional printers from printers settings.",
+      "jsonName": "printerBlockAddition",
+      "name": "PrinterBlockAddition",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Name (network host name) of an installed printer.",
+      "jsonName": "printerDefaultName",
+      "name": "PrinterDefaultName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Automatically provision printers based on their names (network host names).",
+      "jsonName": "printerNames",
+      "name": "PrinterNames",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates a list of applications with their access control levels over privacy data categories, and/or the default access levels per category. This collection can contain a maximum of 500 elements.",
+      "jsonName": "privacyAccessControls",
+      "name": "PrivacyAccessControls",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "WindowsPrivacyDataAccessControlItem",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "State Management Setting.",
+      "jsonName": "privacyAdvertisingId",
+      "name": "PrivacyAdvertisingId",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "StateManagementSetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to allow the automatic acceptance of the pairing and privacy user consent dialog when launching apps.",
+      "jsonName": "privacyAutoAcceptPairingAndConsentPrompts",
+      "name": "PrivacyAutoAcceptPairingAndConsentPrompts",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Blocks the usage of cloud based speech services for Cortana, Dictation, or Store applications.",
+      "jsonName": "privacyBlockActivityFeed",
+      "name": "PrivacyBlockActivityFeed",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block the usage of cloud based speech services for Cortana, Dictation, or Store applications.",
+      "jsonName": "privacyBlockInputPersonalization",
+      "name": "PrivacyBlockInputPersonalization",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Blocks the shared experiences/discovery of recently used resources in task switcher etc.",
+      "jsonName": "privacyBlockPublishUserActivities",
+      "name": "PrivacyBlockPublishUserActivities",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This policy prevents the privacy experience from launching during user logon for new and upgraded users.​",
+      "jsonName": "privacyDisableLaunchExperience",
+      "name": "PrivacyDisableLaunchExperience",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to Block the user from reset protection mode.",
+      "jsonName": "resetProtectionModeBlocked",
+      "name": "ResetProtectionModeBlocked",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specifies what level of safe search (filtering adult content) is required",
+      "jsonName": "safeSearchFilter",
+      "name": "SafeSearchFilter",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SafeSearchFilterType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to Block the user from taking Screenshots.",
+      "jsonName": "screenCaptureBlocked",
+      "name": "ScreenCaptureBlocked",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specifies if search can use diacritics.",
+      "jsonName": "searchBlockDiacritics",
+      "name": "SearchBlockDiacritics",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block the web search.",
+      "jsonName": "searchBlockWebResults",
+      "name": "SearchBlockWebResults",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specifies whether to use automatic language detection when indexing content and properties.",
+      "jsonName": "searchDisableAutoLanguageDetection",
+      "name": "SearchDisableAutoLanguageDetection",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to disable the search indexer backoff feature.",
+      "jsonName": "searchDisableIndexerBackoff",
+      "name": "SearchDisableIndexerBackoff",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block indexing of WIP-protected items to prevent them from appearing in search results for Cortana or Explorer.",
+      "jsonName": "searchDisableIndexingEncryptedItems",
+      "name": "SearchDisableIndexingEncryptedItems",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to allow users to add locations on removable drives to libraries and to be indexed.",
+      "jsonName": "searchDisableIndexingRemovableDrive",
+      "name": "SearchDisableIndexingRemovableDrive",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specifies if search can use location information.",
+      "jsonName": "searchDisableLocation",
+      "name": "SearchDisableLocation",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specifies if search can use location information.",
+      "jsonName": "searchDisableUseLocation",
+      "name": "SearchDisableUseLocation",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specifies minimum amount of hard drive space on the same drive as the index location before indexing stops.",
+      "jsonName": "searchEnableAutomaticIndexSizeManangement",
+      "name": "SearchEnableAutomaticIndexSizeManangement",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block remote queries of this computer’s index.",
+      "jsonName": "searchEnableRemoteQueries",
+      "name": "SearchEnableRemoteQueries",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specify whether to allow automatic device encryption during OOBE when the device is Azure AD joined (desktop only).",
+      "jsonName": "securityBlockAzureADJoinedDevicesAutoEncryption",
+      "name": "SecurityBlockAzureADJoinedDevicesAutoEncryption",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block access to Accounts in Settings app.",
+      "jsonName": "settingsBlockAccountsPage",
+      "name": "SettingsBlockAccountsPage",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block the user from installing provisioning packages.",
+      "jsonName": "settingsBlockAddProvisioningPackage",
+      "name": "SettingsBlockAddProvisioningPackage",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block access to Apps in Settings app.",
+      "jsonName": "settingsBlockAppsPage",
+      "name": "SettingsBlockAppsPage",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block the user from changing the language settings.",
+      "jsonName": "settingsBlockChangeLanguage",
+      "name": "SettingsBlockChangeLanguage",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block the user from changing power and sleep settings.",
+      "jsonName": "settingsBlockChangePowerSleep",
+      "name": "SettingsBlockChangePowerSleep",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block the user from changing the region settings.",
+      "jsonName": "settingsBlockChangeRegion",
+      "name": "SettingsBlockChangeRegion",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block the user from changing date and time settings.",
+      "jsonName": "settingsBlockChangeSystemTime",
+      "name": "SettingsBlockChangeSystemTime",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block access to Devices in Settings app.",
+      "jsonName": "settingsBlockDevicesPage",
+      "name": "SettingsBlockDevicesPage",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block access to Ease of Access in Settings app.",
+      "jsonName": "settingsBlockEaseOfAccessPage",
+      "name": "SettingsBlockEaseOfAccessPage",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block the user from editing the device name.",
+      "jsonName": "settingsBlockEditDeviceName",
+      "name": "SettingsBlockEditDeviceName",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block access to Gaming in Settings app.",
+      "jsonName": "settingsBlockGamingPage",
+      "name": "SettingsBlockGamingPage",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block access to Network \u0026 Internet in Settings app.",
+      "jsonName": "settingsBlockNetworkInternetPage",
+      "name": "SettingsBlockNetworkInternetPage",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block access to Personalization in Settings app.",
+      "jsonName": "settingsBlockPersonalizationPage",
+      "name": "SettingsBlockPersonalizationPage",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block access to Privacy in Settings app.",
+      "jsonName": "settingsBlockPrivacyPage",
+      "name": "SettingsBlockPrivacyPage",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block the runtime configuration agent from removing provisioning packages.",
+      "jsonName": "settingsBlockRemoveProvisioningPackage",
+      "name": "SettingsBlockRemoveProvisioningPackage",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block access to Settings app.",
+      "jsonName": "settingsBlockSettingsApp",
+      "name": "SettingsBlockSettingsApp",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block access to System in Settings app.",
+      "jsonName": "settingsBlockSystemPage",
+      "name": "SettingsBlockSystemPage",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block access to Time \u0026 Language in Settings app.",
+      "jsonName": "settingsBlockTimeLanguagePage",
+      "name": "SettingsBlockTimeLanguagePage",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block access to Update \u0026 Security in Settings app.",
+      "jsonName": "settingsBlockUpdateSecurityPage",
+      "name": "SettingsBlockUpdateSecurityPage",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block multiple users of the same app to share data.",
+      "jsonName": "sharedUserAppDataAllowed",
+      "name": "SharedUserAppDataAllowed",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "App Install control Setting",
+      "jsonName": "smartScreenAppInstallControl",
+      "name": "SmartScreenAppInstallControl",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AppInstallControlType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not users can override SmartScreen Filter warnings about potentially malicious websites.",
+      "jsonName": "smartScreenBlockPromptOverride",
+      "name": "SmartScreenBlockPromptOverride",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not users can override the SmartScreen Filter warnings about downloading unverified files",
+      "jsonName": "smartScreenBlockPromptOverrideForFiles",
+      "name": "SmartScreenBlockPromptOverrideForFiles",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This property will be deprecated in July 2019 and will be replaced by property SmartScreenAppInstallControl. Allows IT Admins to control whether users are allowed to install apps from places other than the Store.",
+      "jsonName": "smartScreenEnableAppInstallControl",
+      "name": "SmartScreenEnableAppInstallControl",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block the user from unpinning apps from taskbar.",
+      "jsonName": "startBlockUnpinningAppsFromTaskbar",
+      "name": "StartBlockUnpinningAppsFromTaskbar",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Type of start menu app list visibility.",
+      "jsonName": "startMenuAppListVisibility",
+      "name": "StartMenuAppListVisibility",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WindowsStartMenuAppListVisibilityType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Enabling this policy hides the change account setting from appearing in the user tile in the start menu.",
+      "jsonName": "startMenuHideChangeAccountSettings",
+      "name": "StartMenuHideChangeAccountSettings",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Enabling this policy hides the most used apps from appearing on the start menu and disables the corresponding toggle in the Settings app.",
+      "jsonName": "startMenuHideFrequentlyUsedApps",
+      "name": "StartMenuHideFrequentlyUsedApps",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Enabling this policy hides hibernate from appearing in the power button in the start menu.",
+      "jsonName": "startMenuHideHibernate",
+      "name": "StartMenuHideHibernate",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Enabling this policy hides lock from appearing in the user tile in the start menu.",
+      "jsonName": "startMenuHideLock",
+      "name": "StartMenuHideLock",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Enabling this policy hides the power button from appearing in the start menu.",
+      "jsonName": "startMenuHidePowerButton",
+      "name": "StartMenuHidePowerButton",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Enabling this policy hides recent jump lists from appearing on the start menu/taskbar and disables the corresponding toggle in the Settings app.",
+      "jsonName": "startMenuHideRecentJumpLists",
+      "name": "StartMenuHideRecentJumpLists",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Enabling this policy hides recently added apps from appearing on the start menu and disables the corresponding toggle in the Settings app.",
+      "jsonName": "startMenuHideRecentlyAddedApps",
+      "name": "StartMenuHideRecentlyAddedApps",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Enabling this policy hides 'Restart/Update and Restart' from appearing in the power button in the start menu.",
+      "jsonName": "startMenuHideRestartOptions",
+      "name": "StartMenuHideRestartOptions",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Enabling this policy hides shut down/update and shut down from appearing in the power button in the start menu.",
+      "jsonName": "startMenuHideShutDown",
+      "name": "StartMenuHideShutDown",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Enabling this policy hides sign out from appearing in the user tile in the start menu.",
+      "jsonName": "startMenuHideSignOut",
+      "name": "StartMenuHideSignOut",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Enabling this policy hides sleep from appearing in the power button in the start menu.",
+      "jsonName": "startMenuHideSleep",
+      "name": "StartMenuHideSleep",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Enabling this policy hides switch account from appearing in the user tile in the start menu.",
+      "jsonName": "startMenuHideSwitchAccount",
+      "name": "StartMenuHideSwitchAccount",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Enabling this policy hides the user tile from appearing in the start menu.",
+      "jsonName": "startMenuHideUserTile",
+      "name": "StartMenuHideUserTile",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This policy setting allows you to import Edge assets to be used with startMenuLayoutXml policy. Start layout can contain secondary tile from Edge app which looks for Edge local asset file. Edge local asset would not exist and cause Edge secondary tile to appear empty in this case. This policy only gets applied when startMenuLayoutXml policy is modified. The value should be a UTF-8 Base64 encoded byte array.",
+      "jsonName": "startMenuLayoutEdgeAssetsXml",
+      "name": "StartMenuLayoutEdgeAssetsXml",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allows admins to override the default Start menu layout and prevents the user from changing it. The layout is modified by specifying an XML file based on a layout modification schema. XML needs to be in a UTF8 encoded byte array format.",
+      "jsonName": "startMenuLayoutXml",
+      "name": "StartMenuLayoutXml",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Type of display modes for the start menu.",
+      "jsonName": "startMenuMode",
+      "name": "StartMenuMode",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WindowsStartMenuModeType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Generic visibility state.",
+      "jsonName": "startMenuPinnedFolderDocuments",
+      "name": "StartMenuPinnedFolderDocuments",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "VisibilitySetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Generic visibility state.",
+      "jsonName": "startMenuPinnedFolderDownloads",
+      "name": "StartMenuPinnedFolderDownloads",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "VisibilitySetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Generic visibility state.",
+      "jsonName": "startMenuPinnedFolderFileExplorer",
+      "name": "StartMenuPinnedFolderFileExplorer",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "VisibilitySetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Generic visibility state.",
+      "jsonName": "startMenuPinnedFolderHomeGroup",
+      "name": "StartMenuPinnedFolderHomeGroup",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "VisibilitySetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Generic visibility state.",
+      "jsonName": "startMenuPinnedFolderMusic",
+      "name": "StartMenuPinnedFolderMusic",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "VisibilitySetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Generic visibility state.",
+      "jsonName": "startMenuPinnedFolderNetwork",
+      "name": "StartMenuPinnedFolderNetwork",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "VisibilitySetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Generic visibility state.",
+      "jsonName": "startMenuPinnedFolderPersonalFolder",
+      "name": "StartMenuPinnedFolderPersonalFolder",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "VisibilitySetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Generic visibility state.",
+      "jsonName": "startMenuPinnedFolderPictures",
+      "name": "StartMenuPinnedFolderPictures",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "VisibilitySetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Generic visibility state.",
+      "jsonName": "startMenuPinnedFolderSettings",
+      "name": "StartMenuPinnedFolderSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "VisibilitySetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Generic visibility state.",
+      "jsonName": "startMenuPinnedFolderVideos",
+      "name": "StartMenuPinnedFolderVideos",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "VisibilitySetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to Block the user from using removable storage.",
+      "jsonName": "storageBlockRemovableStorage",
+      "name": "StorageBlockRemovableStorage",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicating whether or not to require encryption on a mobile device.",
+      "jsonName": "storageRequireMobileDeviceEncryption",
+      "name": "StorageRequireMobileDeviceEncryption",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether application data is restricted to the system drive.",
+      "jsonName": "storageRestrictAppDataToSystemVolume",
+      "name": "StorageRestrictAppDataToSystemVolume",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether the installation of applications is restricted to the system drive.",
+      "jsonName": "storageRestrictAppInstallToSystemVolume",
+      "name": "StorageRestrictAppInstallToSystemVolume",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the fully qualified domain name (FQDN) or IP address of a proxy server to forward Connected User Experiences and Telemetry requests.",
+      "jsonName": "systemTelemetryProxyServer",
+      "name": "SystemTelemetryProxyServer",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specify whether non-administrators can use Task Manager to end tasks.",
+      "jsonName": "taskManagerBlockEndTask",
+      "name": "TaskManagerBlockEndTask",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Whether the device is required to connect to the network.",
+      "jsonName": "tenantLockdownRequireNetworkDuringOutOfBoxExperience",
+      "name": "TenantLockdownRequireNetworkDuringOutOfBoxExperience",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to uninstall a fixed list of built-in Windows apps.",
+      "jsonName": "uninstallBuiltInApps",
+      "name": "UninstallBuiltInApps",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to Block the user from USB connection.",
+      "jsonName": "usbBlocked",
+      "name": "UsbBlocked",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to Block the user from voice recording.",
+      "jsonName": "voiceRecordingBlocked",
+      "name": "VoiceRecordingBlocked",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not user's localhost IP address is displayed while making phone calls using the WebRTC",
+      "jsonName": "webRtcBlockLocalhostIpAddress",
+      "name": "WebRtcBlockLocalhostIPAddress",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicating whether or not to block automatically connecting to Wi-Fi hotspots. Has no impact if Wi-Fi is blocked.",
+      "jsonName": "wiFiBlockAutomaticConnectHotspots",
+      "name": "WiFiBlockAutomaticConnectHotspots",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to Block the user from using Wi-Fi manual configuration.",
+      "jsonName": "wiFiBlockManualConfiguration",
+      "name": "WiFiBlockManualConfiguration",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to Block the user from using Wi-Fi.",
+      "jsonName": "wiFiBlocked",
+      "name": "WiFiBlocked",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specify how often devices scan for Wi-Fi networks. Supported values are 1-500, where 100 = default, and 500 = low frequency. Valid values 1 to 500",
+      "jsonName": "wiFiScanInterval",
+      "name": "WiFiScanInterval",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Windows 10 force update schedule for Apps.",
+      "jsonName": "windows10AppsForceUpdateSchedule",
+      "name": "Windows10AppsForceUpdateSchedule",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Windows10AppsForceUpdateSchedule",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allows IT admins to block experiences that are typically for consumers only, such as Start suggestions, Membership notifications, Post-OOBE app install and redirect tiles.",
+      "jsonName": "windowsSpotlightBlockConsumerSpecificFeatures",
+      "name": "WindowsSpotlightBlockConsumerSpecificFeatures",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Block suggestions from Microsoft that show after each OS clean install, upgrade or in an on-going basis to introduce users to what is new or changed",
+      "jsonName": "windowsSpotlightBlockOnActionCenter",
+      "name": "WindowsSpotlightBlockOnActionCenter",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Block personalized content in Windows spotlight based on user’s device usage.",
+      "jsonName": "windowsSpotlightBlockTailoredExperiences",
+      "name": "WindowsSpotlightBlockTailoredExperiences",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Block third party content delivered via Windows Spotlight",
+      "jsonName": "windowsSpotlightBlockThirdPartyNotifications",
+      "name": "WindowsSpotlightBlockThirdPartyNotifications",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Block Windows Spotlight Windows welcome experience",
+      "jsonName": "windowsSpotlightBlockWelcomeExperience",
+      "name": "WindowsSpotlightBlockWelcomeExperience",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allows IT admins to turn off the popup of Windows Tips.",
+      "jsonName": "windowsSpotlightBlockWindowsTips",
+      "name": "WindowsSpotlightBlockWindowsTips",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allows IT admins to turn off all Windows Spotlight features",
+      "jsonName": "windowsSpotlightBlocked",
+      "name": "WindowsSpotlightBlocked",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allows IT admind to set a predefined default search engine for MDM-Controlled devices",
+      "jsonName": "windowsSpotlightConfigureOnLockScreen",
+      "name": "WindowsSpotlightConfigureOnLockScreen",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WindowsSpotlightEnablementSettings",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block automatic update of apps from Windows Store.",
+      "jsonName": "windowsStoreBlockAutoUpdate",
+      "name": "WindowsStoreBlockAutoUpdate",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to Block the user from using the Windows store.",
+      "jsonName": "windowsStoreBlocked",
+      "name": "WindowsStoreBlocked",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to enable Private Store Only.",
+      "jsonName": "windowsStoreEnablePrivateStoreOnly",
+      "name": "WindowsStoreEnablePrivateStoreOnly",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to allow other devices from discovering this PC for projection.",
+      "jsonName": "wirelessDisplayBlockProjectionToThisDevice",
+      "name": "WirelessDisplayBlockProjectionToThisDevice",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to allow user input from wireless display receiver.",
+      "jsonName": "wirelessDisplayBlockUserInputFromReceiver",
+      "name": "WirelessDisplayBlockUserInputFromReceiver",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to require a PIN for new devices to initiate pairing.",
+      "jsonName": "wirelessDisplayRequirePinForPairing",
+      "name": "WirelessDisplayRequirePinForPairing",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceConfiguration",
+  "discriminatedTypeValue": "#microsoft.graph.windows10GeneralConfiguration",
+  "typeHintIn": "ODataType"
+}

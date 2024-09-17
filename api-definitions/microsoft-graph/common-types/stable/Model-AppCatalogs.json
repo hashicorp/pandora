@@ -1,0 +1,30 @@
+{
+  "name": "AppCatalogs",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "teamsApps",
+      "name": "TeamsApps",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "TeamsApp",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.appCatalogs",
+  "typeHintIn": "ODataType"
+}

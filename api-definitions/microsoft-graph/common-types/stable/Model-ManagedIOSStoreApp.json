@@ -1,0 +1,73 @@
+{
+  "name": "ManagedIOSStoreApp",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The Apple AppStoreUrl.",
+      "jsonName": "appStoreUrl",
+      "name": "AppStoreUrl",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Contains properties of the possible iOS device types the mobile app can run on.",
+      "jsonName": "applicableDeviceType",
+      "name": "ApplicableDeviceType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "IosDeviceType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The app's Bundle ID.",
+      "jsonName": "bundleId",
+      "name": "BundleId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Contains properties of the minimum operating system required for an iOS mobile app.",
+      "jsonName": "minimumSupportedOperatingSystem",
+      "name": "MinimumSupportedOperatingSystem",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "IosMinimumOperatingSystem",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ManagedApp",
+  "discriminatedTypeValue": "#microsoft.graph.managedIOSStoreApp",
+  "typeHintIn": "ODataType"
+}

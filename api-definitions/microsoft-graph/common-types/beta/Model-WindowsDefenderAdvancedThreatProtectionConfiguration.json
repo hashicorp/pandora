@@ -1,0 +1,121 @@
+{
+  "name": "WindowsDefenderAdvancedThreatProtectionConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Auto populate onboarding blob programmatically from Advanced Threat protection service",
+      "jsonName": "advancedThreatProtectionAutoPopulateOnboardingBlob",
+      "name": "AdvancedThreatProtectionAutoPopulateOnboardingBlob",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Windows Defender AdvancedThreatProtection Offboarding Blob.",
+      "jsonName": "advancedThreatProtectionOffboardingBlob",
+      "name": "AdvancedThreatProtectionOffboardingBlob",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Name of the file from which AdvancedThreatProtectionOffboardingBlob was obtained.",
+      "jsonName": "advancedThreatProtectionOffboardingFilename",
+      "name": "AdvancedThreatProtectionOffboardingFilename",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Windows Defender AdvancedThreatProtection Onboarding Blob.",
+      "jsonName": "advancedThreatProtectionOnboardingBlob",
+      "name": "AdvancedThreatProtectionOnboardingBlob",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Name of the file from which AdvancedThreatProtectionOnboardingBlob was obtained.",
+      "jsonName": "advancedThreatProtectionOnboardingFilename",
+      "name": "AdvancedThreatProtectionOnboardingFilename",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Windows Defender AdvancedThreatProtection 'Allow Sample Sharing' Rule",
+      "jsonName": "allowSampleSharing",
+      "name": "AllowSampleSharing",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Expedite Windows Defender Advanced Threat Protection telemetry reporting frequency.",
+      "jsonName": "enableExpeditedTelemetryReporting",
+      "name": "EnableExpeditedTelemetryReporting",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceConfiguration",
+  "discriminatedTypeValue": "#microsoft.graph.windowsDefenderAdvancedThreatProtectionConfiguration",
+  "typeHintIn": "ODataType"
+}

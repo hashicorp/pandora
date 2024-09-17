@@ -1,0 +1,48 @@
+{
+  "name": "CreateEntitlementManagementResourceEnvironmentResource",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Create new navigation property to resources for identityGovernance",
+  "expectedStatusCodes": [
+    201
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "IdentityGovernanceEntitlementManagementResourceEnvironmentId",
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "AccessPackageResource",
+    "referenceNameIsCommonType": true
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "AccessPackageResource",
+    "referenceNameIsCommonType": true
+  },
+  "uriSuffix": "/resources"
+}

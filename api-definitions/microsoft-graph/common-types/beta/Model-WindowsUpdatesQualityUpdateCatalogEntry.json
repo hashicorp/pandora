@@ -1,0 +1,126 @@
+{
+  "name": "WindowsUpdatesQualityUpdateCatalogEntry",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The catalog name of the content. Read-only.",
+      "jsonName": "catalogName",
+      "name": "CatalogName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Severity information of the Common Vulnerabilities and Exposures associated with the content.",
+      "jsonName": "cveSeverityInformation",
+      "name": "CveSeverityInformation",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WindowsUpdatesQualityUpdateCveSeverityInformation",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether the content can be deployed as an expedited quality update. Read-only.",
+      "jsonName": "isExpeditable",
+      "name": "IsExpeditable",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The operating system product revisions that are released as part of this quality update.",
+      "jsonName": "productRevisions",
+      "name": "ProductRevisions",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "WindowsUpdatesProductRevision",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The publishing cadence of the quality update. Possible values are: monthly, outOfBand, unknownFutureValue. Read-only.",
+      "jsonName": "qualityUpdateCadence",
+      "name": "QualityUpdateCadence",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WindowsUpdatesQualityUpdateCadence",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "qualityUpdateClassification",
+      "name": "QualityUpdateClassification",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WindowsUpdatesQualityUpdateClassification",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The short name of the content. Read-only.",
+      "jsonName": "shortName",
+      "name": "ShortName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "WindowsUpdatesSoftwareUpdateCatalogEntry",
+  "discriminatedTypeValue": "#microsoft.graph.windowsUpdates.qualityUpdateCatalogEntry",
+  "typeHintIn": "ODataType"
+}

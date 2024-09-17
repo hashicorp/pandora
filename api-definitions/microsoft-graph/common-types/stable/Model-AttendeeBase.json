@@ -1,0 +1,25 @@
+{
+  "name": "AttendeeBase",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The type of attendee. The possible values are: required, optional, resource. Currently if the attendee is a person, findMeetingTimes always considers the person is of the Required type.",
+      "jsonName": "type",
+      "name": "Type",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AttendeeType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": true,
+  "discriminatedParentModelName": "Recipient",
+  "discriminatedTypeValue": "#microsoft.graph.attendeeBase",
+  "typeHintIn": "ODataType"
+}

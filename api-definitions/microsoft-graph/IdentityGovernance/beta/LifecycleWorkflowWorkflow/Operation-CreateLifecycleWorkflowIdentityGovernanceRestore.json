@@ -1,0 +1,42 @@
+{
+  "name": "CreateLifecycleWorkflowIdentityGovernanceRestore",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Invoke action restore. Restore a workflow that has been deleted. You can only restore a workflow that was deleted within the last 30 days before Microsoft Entra ID automatically permanently deletes it.",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "IdentityGovernanceLifecycleWorkflowWorkflowId",
+  "resourceIdNameIsCommonType": true,
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "IdentityGovernanceWorkflow",
+    "referenceNameIsCommonType": true
+  },
+  "uriSuffix": "/identityGovernance.restore"
+}

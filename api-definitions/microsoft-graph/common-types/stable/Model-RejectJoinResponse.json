@@ -1,0 +1,24 @@
+{
+  "name": "RejectJoinResponse",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "reason",
+      "name": "Reason",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "RejectReason",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ParticipantJoiningResponse",
+  "discriminatedTypeValue": "#microsoft.graph.rejectJoinResponse",
+  "typeHintIn": "ODataType"
+}

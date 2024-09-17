@@ -1,0 +1,25 @@
+{
+  "name": "MicrosoftAccountUserConversationMember",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Microsoft Account ID of the user.",
+      "jsonName": "userId",
+      "name": "UserId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ConversationMember",
+  "discriminatedTypeValue": "#microsoft.graph.microsoftAccountUserConversationMember",
+  "typeHintIn": "ODataType"
+}

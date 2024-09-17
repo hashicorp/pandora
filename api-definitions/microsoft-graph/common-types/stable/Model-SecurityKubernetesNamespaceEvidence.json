@@ -1,0 +1,57 @@
+{
+  "name": "SecurityKubernetesNamespaceEvidence",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The namespace cluster.",
+      "jsonName": "cluster",
+      "name": "Cluster",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SecurityKubernetesClusterEvidence",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The labels for the Kubernetes pod.",
+      "jsonName": "labels",
+      "name": "Labels",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SecurityDictionary",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The namespace name.",
+      "jsonName": "name",
+      "name": "Name",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SecurityAlertEvidence",
+  "discriminatedTypeValue": "#microsoft.graph.security.kubernetesNamespaceEvidence",
+  "typeHintIn": "ODataType"
+}

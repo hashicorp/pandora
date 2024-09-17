@@ -1,0 +1,53 @@
+{
+  "name": "EnumeratedDeviceRegistrationMembership",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "List of groups that this policy applies to.",
+      "jsonName": "groups",
+      "name": "Groups",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "List of users that this policy applies to.",
+      "jsonName": "users",
+      "name": "Users",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceRegistrationMembership",
+  "discriminatedTypeValue": "#microsoft.graph.enumeratedDeviceRegistrationMembership",
+  "typeHintIn": "ODataType"
+}

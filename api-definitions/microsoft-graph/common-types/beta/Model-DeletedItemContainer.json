@@ -1,0 +1,31 @@
+{
+  "name": "DeletedItemContainer",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Deleted workflows that end up in the deletedItemsContainer.",
+      "jsonName": "workflows",
+      "name": "Workflows",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "IdentityGovernanceWorkflow",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.deletedItemContainer",
+  "typeHintIn": "ODataType"
+}

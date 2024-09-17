@@ -1,0 +1,31 @@
+{
+  "name": "GcpActionPermissionsDefinitionAction",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "List of actions.",
+      "jsonName": "actions",
+      "name": "Actions",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "GcpPermissionsDefinitionAction",
+  "discriminatedTypeValue": "#microsoft.graph.gcpActionPermissionsDefinitionAction",
+  "typeHintIn": "ODataType"
+}

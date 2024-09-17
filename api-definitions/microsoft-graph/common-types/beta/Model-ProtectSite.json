@@ -1,0 +1,39 @@
+{
+  "name": "ProtectSite",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "accessType",
+      "name": "AccessType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SiteAccessType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "conditionalAccessProtectionLevelId",
+      "name": "ConditionalAccessProtectionLevelId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "LabelActionBase",
+  "discriminatedTypeValue": "#microsoft.graph.protectSite",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,25 @@
+{
+  "name": "ChatMembersNotificationRecipient",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The unique identifier for the chat whose members should receive the notifications.",
+      "jsonName": "chatId",
+      "name": "ChatId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "TeamworkNotificationRecipient",
+  "discriminatedTypeValue": "#microsoft.graph.chatMembersNotificationRecipient",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,31 @@
+{
+  "name": "DeletedTeam",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The channels those are either shared with this deleted team or created in this deleted team.",
+      "jsonName": "channels",
+      "name": "Channels",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "Channel",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.deletedTeam",
+  "typeHintIn": "ODataType"
+}

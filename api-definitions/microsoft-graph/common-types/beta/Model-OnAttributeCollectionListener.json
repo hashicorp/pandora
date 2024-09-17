@@ -1,0 +1,25 @@
+{
+  "name": "OnAttributeCollectionListener",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Required. Configuration for what to invoke if the event resolves to this listener.",
+      "jsonName": "handler",
+      "name": "Handler",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "OnAttributeCollectionHandler",
+        "referenceNameIsCommonType": true
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AuthenticationEventListener",
+  "discriminatedTypeValue": "#microsoft.graph.onAttributeCollectionListener",
+  "typeHintIn": "ODataType"
+}

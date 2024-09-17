@@ -1,0 +1,79 @@
+{
+  "name": "MobileLobApp",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The internal committed content version.",
+      "jsonName": "committedContentVersion",
+      "name": "CommittedContentVersion",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The list of content versions for this app. This property is read-only.",
+      "jsonName": "contentVersions",
+      "name": "ContentVersions",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "MobileAppContent",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The name of the main Lob application file.",
+      "jsonName": "fileName",
+      "name": "FileName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The total size, including all uploaded files. This property is read-only.",
+      "jsonName": "size",
+      "name": "Size",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": true,
+  "discriminatedParentModelName": "MobileApp",
+  "discriminatedTypeValue": "#microsoft.graph.mobileLobApp",
+  "typeHintIn": "ODataType"
+}

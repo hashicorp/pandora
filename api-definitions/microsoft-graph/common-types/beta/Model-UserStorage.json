@@ -1,0 +1,24 @@
+{
+  "name": "UserStorage",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "quota",
+      "name": "Quota",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "UnifiedStorageQuota",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.userStorage",
+  "typeHintIn": "ODataType"
+}

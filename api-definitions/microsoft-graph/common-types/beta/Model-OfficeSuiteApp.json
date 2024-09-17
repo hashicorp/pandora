@@ -1,0 +1,229 @@
+{
+  "name": "OfficeSuiteApp",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The value to accept the EULA automatically on the enduser's device.",
+      "jsonName": "autoAcceptEula",
+      "name": "AutoAcceptEula",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The property to represent the apps which are excluded from the selected Office365 Product Id.",
+      "jsonName": "excludedApps",
+      "name": "ExcludedApps",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ExcludedApps",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The Enum to specify the level of display for the Installation Progress Setup UI on the Device.",
+      "jsonName": "installProgressDisplayLevel",
+      "name": "InstallProgressDisplayLevel",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "OfficeSuiteInstallProgressDisplayLevel",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The property to represent the locales which are installed when the apps from Office365 is installed. It uses standard RFC 6033. Ref: https://technet.microsoft.com/library/cc179219(v=office.16).aspx",
+      "jsonName": "localesToInstall",
+      "name": "LocalesToInstall",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The property to represent the XML configuration file that can be specified for Office ProPlus Apps. Takes precedence over all other properties. When present, the XML configuration file will be used to create the app.",
+      "jsonName": "officeConfigurationXml",
+      "name": "OfficeConfigurationXml",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Contains properties for Windows architecture.",
+      "jsonName": "officePlatformArchitecture",
+      "name": "OfficePlatformArchitecture",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WindowsArchitecture",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Describes the OfficeSuiteApp file format types that can be selected.",
+      "jsonName": "officeSuiteAppDefaultFileFormat",
+      "name": "OfficeSuiteAppDefaultFileFormat",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "OfficeSuiteDefaultFileFormatType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The Product Ids that represent the Office365 Suite SKU.",
+      "jsonName": "productIds",
+      "name": "ProductIds",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "OfficeProductId",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The property to determine whether to uninstall existing Office MSI if an Office365 app suite is deployed to the device or not.",
+      "jsonName": "shouldUninstallOlderVersionsOfOffice",
+      "name": "ShouldUninstallOlderVersionsOfOffice",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The property to represent the specific target version for the Office365 app suite that should be remained deployed on the devices.",
+      "jsonName": "targetVersion",
+      "name": "TargetVersion",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The Enum to specify the Office365 Updates Channel.",
+      "jsonName": "updateChannel",
+      "name": "UpdateChannel",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "OfficeUpdateChannel",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The property to represent the update version in which the specific target version is available for the Office365 app suite.",
+      "jsonName": "updateVersion",
+      "name": "UpdateVersion",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The property to represent that whether the shared computer activation is used not for Office365 app suite.",
+      "jsonName": "useSharedComputerActivation",
+      "name": "UseSharedComputerActivation",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "MobileApp",
+  "discriminatedTypeValue": "#microsoft.graph.officeSuiteApp",
+  "typeHintIn": "ODataType"
+}

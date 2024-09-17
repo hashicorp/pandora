@@ -1,0 +1,104 @@
+{
+  "name": "EventMessageRequest",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "True if the meeting organizer allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.",
+      "jsonName": "allowNewTimeProposals",
+      "name": "AllowNewTimeProposals",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "meetingRequestType",
+      "name": "MeetingRequestType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "MeetingRequestType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "If the meeting update changes the meeting end time, this property specifies the previous meeting end time.",
+      "jsonName": "previousEndDateTime",
+      "name": "PreviousEndDateTime",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DateTimeTimeZone",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "If the meeting update changes the meeting location, this property specifies the previous meeting location.",
+      "jsonName": "previousLocation",
+      "name": "PreviousLocation",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Location",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "If the meeting update changes the meeting start time, this property specifies the previous meeting start time.",
+      "jsonName": "previousStartDateTime",
+      "name": "PreviousStartDateTime",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DateTimeTimeZone",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Set to true if the sender would like the invitee to send a response to the requested meeting.",
+      "jsonName": "responseRequested",
+      "name": "ResponseRequested",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "EventMessage",
+  "discriminatedTypeValue": "#microsoft.graph.eventMessageRequest",
+  "typeHintIn": "ODataType"
+}

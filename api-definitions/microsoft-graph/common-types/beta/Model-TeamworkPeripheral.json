@@ -1,0 +1,57 @@
+{
+  "name": "TeamworkPeripheral",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Display name for the peripheral.",
+      "jsonName": "displayName",
+      "name": "DisplayName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The product ID of the device. Each product from a vendor has its own ID.",
+      "jsonName": "productId",
+      "name": "ProductId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The unique identifier for the vendor of the device. Each vendor has a unique ID.",
+      "jsonName": "vendorId",
+      "name": "VendorId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.teamworkPeripheral",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,31 @@
+{
+  "name": "SecurityRemoveContentHeaderAction",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The name of the UI element of the header to be removed.",
+      "jsonName": "uiElementNames",
+      "name": "UiElementNames",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SecurityInformationProtectionAction",
+  "discriminatedTypeValue": "#microsoft.graph.security.removeContentHeaderAction",
+  "typeHintIn": "ODataType"
+}

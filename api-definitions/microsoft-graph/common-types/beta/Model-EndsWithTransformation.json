@@ -1,0 +1,40 @@
+{
+  "name": "EndsWithTransformation",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "output",
+      "name": "Output",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "TransformationAttribute",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The value to be used as part of the transformation.",
+      "jsonName": "value",
+      "name": "Value",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "CustomClaimTransformation",
+  "discriminatedTypeValue": "#microsoft.graph.endsWithTransformation",
+  "typeHintIn": "ODataType"
+}

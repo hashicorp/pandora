@@ -1,0 +1,41 @@
+{
+  "name": "AndroidDeviceOwnerKioskModeApp",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Class name of application",
+      "jsonName": "className",
+      "name": "ClassName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Package name of application",
+      "jsonName": "package",
+      "name": "Package",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AndroidDeviceOwnerKioskModeFolderItem",
+  "discriminatedTypeValue": "#microsoft.graph.androidDeviceOwnerKioskModeApp",
+  "typeHintIn": "ODataType"
+}

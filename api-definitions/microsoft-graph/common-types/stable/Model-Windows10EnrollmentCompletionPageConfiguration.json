@@ -1,0 +1,25 @@
+{
+  "name": "Windows10EnrollmentCompletionPageConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "When TRUE, ESP (Enrollment Status Page) installs all required apps targeted during technician phase and ignores any failures for non-blocking apps. When FALSE, ESP fails on any error during app install. The default is false.",
+      "jsonName": "allowNonBlockingAppInstallation",
+      "name": "AllowNonBlockingAppInstallation",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceEnrollmentConfiguration",
+  "discriminatedTypeValue": "#microsoft.graph.windows10EnrollmentCompletionPageConfiguration",
+  "typeHintIn": "ODataType"
+}

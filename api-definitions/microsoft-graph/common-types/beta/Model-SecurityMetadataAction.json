@@ -1,0 +1,53 @@
+{
+  "name": "SecurityMetadataAction",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A collection of key-value pairs that should be added to the file.",
+      "jsonName": "metadataToAdd",
+      "name": "MetadataToAdd",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "SecurityKeyValuePair",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A collection of strings that indicate which keys to remove from the file metadata.",
+      "jsonName": "metadataToRemove",
+      "name": "MetadataToRemove",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SecurityInformationProtectionAction",
+  "discriminatedTypeValue": "#microsoft.graph.security.metadataAction",
+  "typeHintIn": "ODataType"
+}

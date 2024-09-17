@@ -1,0 +1,25 @@
+{
+  "name": "WindowsWebApp",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the Windows web app URL. Example: 'https://www.contoso.com'",
+      "jsonName": "appUrl",
+      "name": "AppUrl",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "MobileApp",
+  "discriminatedTypeValue": "#microsoft.graph.windowsWebApp",
+  "typeHintIn": "ODataType"
+}

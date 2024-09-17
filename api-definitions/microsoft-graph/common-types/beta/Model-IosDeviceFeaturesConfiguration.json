@@ -1,0 +1,267 @@
+{
+  "name": "IosDeviceFeaturesConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Asset tag information for the device, displayed on the login window and lock screen.",
+      "jsonName": "assetTagTemplate",
+      "name": "AssetTagTemplate",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets iOS Web Content Filter settings, supervised mode only",
+      "jsonName": "contentFilterSettings",
+      "name": "ContentFilterSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "IosWebContentFilterBase",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A list of app and folders to appear on the Home Screen Dock. This collection can contain a maximum of 500 elements.",
+      "jsonName": "homeScreenDockIcons",
+      "name": "HomeScreenDockIcons",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "IosHomeScreenItem",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the number of rows to render when configuring iOS home screen layout settings. If this value is configured, homeScreenGridWidth must be configured as well.",
+      "jsonName": "homeScreenGridHeight",
+      "name": "HomeScreenGridHeight",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the number of columns to render when configuring iOS home screen layout settings. If this value is configured, homeScreenGridHeight must be configured as well.",
+      "jsonName": "homeScreenGridWidth",
+      "name": "HomeScreenGridWidth",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A list of pages on the Home Screen. This collection can contain a maximum of 500 elements.",
+      "jsonName": "homeScreenPages",
+      "name": "HomeScreenPages",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "IosHomeScreenPage",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Identity Certificate for the renewal of Kerberos ticket used in single sign-on settings.",
+      "jsonName": "identityCertificateForClientAuthentication",
+      "name": "IdentityCertificateForClientAuthentication",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "IosCertificateProfileBase",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets a single sign-on extension profile.",
+      "jsonName": "iosSingleSignOnExtension",
+      "name": "IosSingleSignOnExtension",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "IosSingleSignOnExtension",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A footnote displayed on the login window and lock screen. Available in iOS 9.3.1 and later.",
+      "jsonName": "lockScreenFootnote",
+      "name": "LockScreenFootnote",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Notification settings for each bundle id. Applicable to devices in supervised mode only (iOS 9.3 and later). This collection can contain a maximum of 500 elements.",
+      "jsonName": "notificationSettings",
+      "name": "NotificationSettings",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "IosNotificationSettings",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets a single sign-on extension profile. Deprecated: use IOSSingleSignOnExtension instead.",
+      "jsonName": "singleSignOnExtension",
+      "name": "SingleSignOnExtension",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SingleSignOnExtension",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "PKINIT Certificate for the authentication with single sign-on extension settings.",
+      "jsonName": "singleSignOnExtensionPkinitCertificate",
+      "name": "SingleSignOnExtensionPkinitCertificate",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "IosCertificateProfileBase",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The Kerberos login settings that enable apps on receiving devices to authenticate smoothly.",
+      "jsonName": "singleSignOnSettings",
+      "name": "SingleSignOnSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "IosSingleSignOnSettings",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "An enum type for wallpaper display location specifier.",
+      "jsonName": "wallpaperDisplayLocation",
+      "name": "WallpaperDisplayLocation",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "IosWallpaperDisplayLocation",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A wallpaper image must be in either PNG or JPEG format. It requires a supervised device with iOS 8 or later version.",
+      "jsonName": "wallpaperImage",
+      "name": "WallpaperImage",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "MimeContent",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AppleDeviceFeaturesConfigurationBase",
+  "discriminatedTypeValue": "#microsoft.graph.iosDeviceFeaturesConfiguration",
+  "typeHintIn": "ODataType"
+}

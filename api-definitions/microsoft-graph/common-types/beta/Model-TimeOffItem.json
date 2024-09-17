@@ -1,0 +1,25 @@
+{
+  "name": "TimeOffItem",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "ID of the timeOffReason for this timeOffItem. Required.",
+      "jsonName": "timeOffReasonId",
+      "name": "TimeOffReasonId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ScheduleEntity",
+  "discriminatedTypeValue": "#microsoft.graph.timeOffItem",
+  "typeHintIn": "ODataType"
+}

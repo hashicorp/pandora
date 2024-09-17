@@ -1,0 +1,42 @@
+{
+  "name": "AddOwnerRef",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Add owner. Use this API to add an owner to an application by posting to the owners collection.",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "ApplicationId",
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ReferenceCreate",
+    "referenceNameIsCommonType": true
+  },
+  "uriSuffix": "/owners/$ref"
+}

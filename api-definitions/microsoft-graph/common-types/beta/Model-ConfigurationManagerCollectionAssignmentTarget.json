@@ -1,0 +1,25 @@
+{
+  "name": "ConfigurationManagerCollectionAssignmentTarget",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The collection Id that is the target of the assignment.",
+      "jsonName": "collectionId",
+      "name": "CollectionId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceAndAppManagementAssignmentTarget",
+  "discriminatedTypeValue": "#microsoft.graph.configurationManagerCollectionAssignmentTarget",
+  "typeHintIn": "ODataType"
+}

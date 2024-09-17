@@ -1,0 +1,25 @@
+{
+  "name": "EducationLinkedAssignmentResource",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "URL of the actual assignment.",
+      "jsonName": "url",
+      "name": "Url",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "EducationResource",
+  "discriminatedTypeValue": "#microsoft.graph.educationLinkedAssignmentResource",
+  "typeHintIn": "ODataType"
+}

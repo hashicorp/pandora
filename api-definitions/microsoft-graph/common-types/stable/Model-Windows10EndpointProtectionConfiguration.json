@@ -1,0 +1,603 @@
+{
+  "name": "Windows10EndpointProtectionConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values of AppLocker Application Control Types",
+      "jsonName": "appLockerApplicationControl",
+      "name": "AppLockerApplicationControl",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AppLockerApplicationControlType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allow persisting user generated data inside the App Guard Containter (favorites, cookies, web passwords, etc.)",
+      "jsonName": "applicationGuardAllowPersistence",
+      "name": "ApplicationGuardAllowPersistence",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allow printing to Local Printers from Container",
+      "jsonName": "applicationGuardAllowPrintToLocalPrinters",
+      "name": "ApplicationGuardAllowPrintToLocalPrinters",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allow printing to Network Printers from Container",
+      "jsonName": "applicationGuardAllowPrintToNetworkPrinters",
+      "name": "ApplicationGuardAllowPrintToNetworkPrinters",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allow printing to PDF from Container",
+      "jsonName": "applicationGuardAllowPrintToPDF",
+      "name": "ApplicationGuardAllowPrintToPDF",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allow printing to XPS from Container",
+      "jsonName": "applicationGuardAllowPrintToXPS",
+      "name": "ApplicationGuardAllowPrintToXPS",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values for applicationGuardBlockClipboardSharingType",
+      "jsonName": "applicationGuardBlockClipboardSharing",
+      "name": "ApplicationGuardBlockClipboardSharing",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ApplicationGuardBlockClipboardSharingType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values for applicationGuardBlockFileTransfer",
+      "jsonName": "applicationGuardBlockFileTransfer",
+      "name": "ApplicationGuardBlockFileTransfer",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ApplicationGuardBlockFileTransferType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Block enterprise sites to load non-enterprise content, such as third party plug-ins",
+      "jsonName": "applicationGuardBlockNonEnterpriseContent",
+      "name": "ApplicationGuardBlockNonEnterpriseContent",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Enable Windows Defender Application Guard",
+      "jsonName": "applicationGuardEnabled",
+      "name": "ApplicationGuardEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Force auditing will persist Windows logs and events to meet security/compliance criteria (sample events are user login-logoff, use of privilege rights, software installation, system changes, etc.)",
+      "jsonName": "applicationGuardForceAuditing",
+      "name": "ApplicationGuardForceAuditing",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allows the Admin to disable the warning prompt for other disk encryption on the user machines.",
+      "jsonName": "bitLockerDisableWarningForOtherDiskEncryption",
+      "name": "BitLockerDisableWarningForOtherDiskEncryption",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allows the admin to require encryption to be turned on using BitLocker. This policy is valid only for a mobile SKU.",
+      "jsonName": "bitLockerEnableStorageCardEncryptionOnMobile",
+      "name": "BitLockerEnableStorageCardEncryptionOnMobile",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allows the admin to require encryption to be turned on using BitLocker.",
+      "jsonName": "bitLockerEncryptDevice",
+      "name": "BitLockerEncryptDevice",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "BitLocker Removable Drive Policy.",
+      "jsonName": "bitLockerRemovableDrivePolicy",
+      "name": "BitLockerRemovableDrivePolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "BitLockerRemovableDrivePolicy",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "List of folder paths to be added to the list of protected folders",
+      "jsonName": "defenderAdditionalGuardedFolders",
+      "name": "DefenderAdditionalGuardedFolders",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "List of exe files and folders to be excluded from attack surface reduction rules",
+      "jsonName": "defenderAttackSurfaceReductionExcludedPaths",
+      "name": "DefenderAttackSurfaceReductionExcludedPaths",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Xml content containing information regarding exploit protection details.",
+      "jsonName": "defenderExploitProtectionXml",
+      "name": "DefenderExploitProtectionXml",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Name of the file from which DefenderExploitProtectionXml was obtained.",
+      "jsonName": "defenderExploitProtectionXmlFileName",
+      "name": "DefenderExploitProtectionXmlFileName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "List of paths to exe that are allowed to access protected folders",
+      "jsonName": "defenderGuardedFoldersAllowedAppPaths",
+      "name": "DefenderGuardedFoldersAllowedAppPaths",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block user from overriding Exploit Protection settings.",
+      "jsonName": "defenderSecurityCenterBlockExploitProtectionOverride",
+      "name": "DefenderSecurityCenterBlockExploitProtectionOverride",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Blocks stateful FTP connections to the device",
+      "jsonName": "firewallBlockStatefulFTP",
+      "name": "FirewallBlockStatefulFTP",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values for firewallCertificateRevocationListCheckMethod",
+      "jsonName": "firewallCertificateRevocationListCheckMethod",
+      "name": "FirewallCertificateRevocationListCheckMethod",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "FirewallCertificateRevocationListCheckMethodType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Configures IPSec exemptions to allow both IPv4 and IPv6 DHCP traffic",
+      "jsonName": "firewallIPSecExemptionsAllowDHCP",
+      "name": "FirewallIPSecExemptionsAllowDHCP",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Configures IPSec exemptions to allow ICMP",
+      "jsonName": "firewallIPSecExemptionsAllowICMP",
+      "name": "FirewallIPSecExemptionsAllowICMP",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Configures IPSec exemptions to allow neighbor discovery IPv6 ICMP type-codes",
+      "jsonName": "firewallIPSecExemptionsAllowNeighborDiscovery",
+      "name": "FirewallIPSecExemptionsAllowNeighborDiscovery",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Configures IPSec exemptions to allow router discovery IPv6 ICMP type-codes",
+      "jsonName": "firewallIPSecExemptionsAllowRouterDiscovery",
+      "name": "FirewallIPSecExemptionsAllowRouterDiscovery",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Configures the idle timeout for security associations, in seconds, from 300 to 3600 inclusive. This is the period after which security associations will expire and be deleted. Valid values 300 to 3600",
+      "jsonName": "firewallIdleTimeoutForSecurityAssociationInSeconds",
+      "name": "FirewallIdleTimeoutForSecurityAssociationInSeconds",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "If an authentication set is not fully supported by a keying module, direct the module to ignore only unsupported authentication suites rather than the entire set",
+      "jsonName": "firewallMergeKeyingModuleSettings",
+      "name": "FirewallMergeKeyingModuleSettings",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values for firewallPacketQueueingMethod",
+      "jsonName": "firewallPacketQueueingMethod",
+      "name": "FirewallPacketQueueingMethod",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "FirewallPacketQueueingMethodType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values for firewallPreSharedKeyEncodingMethod",
+      "jsonName": "firewallPreSharedKeyEncodingMethod",
+      "name": "FirewallPreSharedKeyEncodingMethod",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "FirewallPreSharedKeyEncodingMethodType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Configures the firewall profile settings for domain networks",
+      "jsonName": "firewallProfileDomain",
+      "name": "FirewallProfileDomain",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WindowsFirewallNetworkProfile",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Configures the firewall profile settings for private networks",
+      "jsonName": "firewallProfilePrivate",
+      "name": "FirewallProfilePrivate",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WindowsFirewallNetworkProfile",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Configures the firewall profile settings for public networks",
+      "jsonName": "firewallProfilePublic",
+      "name": "FirewallProfilePublic",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WindowsFirewallNetworkProfile",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allows IT Admins to control whether users can can ignore SmartScreen warnings and run malicious files.",
+      "jsonName": "smartScreenBlockOverrideForFiles",
+      "name": "SmartScreenBlockOverrideForFiles",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allows IT Admins to configure SmartScreen for Windows.",
+      "jsonName": "smartScreenEnableInShell",
+      "name": "SmartScreenEnableInShell",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceConfiguration",
+  "discriminatedTypeValue": "#microsoft.graph.windows10EndpointProtectionConfiguration",
+  "typeHintIn": "ODataType"
+}

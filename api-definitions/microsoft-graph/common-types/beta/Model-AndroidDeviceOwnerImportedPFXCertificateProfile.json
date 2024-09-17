@@ -1,0 +1,85 @@
+{
+  "name": "AndroidDeviceOwnerImportedPFXCertificateProfile",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Certificate access type. Possible values are: userApproval, specificApps, unknownFutureValue.",
+      "jsonName": "certificateAccessType",
+      "name": "CertificateAccessType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AndroidDeviceOwnerCertificateAccessType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "PFX Import Options.",
+      "jsonName": "intendedPurpose",
+      "name": "IntendedPurpose",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "IntendedPurpose",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Certificate state for devices. This collection can contain a maximum of 2147483647 elements.",
+      "jsonName": "managedDeviceCertificateStates",
+      "name": "ManagedDeviceCertificateStates",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "ManagedDeviceCertificateState",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Certificate access information. This collection can contain a maximum of 50 elements.",
+      "jsonName": "silentCertificateAccessDetails",
+      "name": "SilentCertificateAccessDetails",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "AndroidDeviceOwnerSilentCertificateAccess",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AndroidDeviceOwnerCertificateProfileBase",
+  "discriminatedTypeValue": "#microsoft.graph.androidDeviceOwnerImportedPFXCertificateProfile",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,159 @@
+{
+  "name": "MacOSSoftwareUpdateConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Update behavior options for macOS software updates.",
+      "jsonName": "allOtherUpdateBehavior",
+      "name": "AllOtherUpdateBehavior",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "MacOSSoftwareUpdateBehavior",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Update behavior options for macOS software updates.",
+      "jsonName": "configDataUpdateBehavior",
+      "name": "ConfigDataUpdateBehavior",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "MacOSSoftwareUpdateBehavior",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Update behavior options for macOS software updates.",
+      "jsonName": "criticalUpdateBehavior",
+      "name": "CriticalUpdateBehavior",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "MacOSSoftwareUpdateBehavior",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Custom Time windows when updates will be allowed or blocked. This collection can contain a maximum of 20 elements.",
+      "jsonName": "customUpdateTimeWindows",
+      "name": "CustomUpdateTimeWindows",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "CustomUpdateTimeWindow",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Update behavior options for macOS software updates.",
+      "jsonName": "firmwareUpdateBehavior",
+      "name": "FirmwareUpdateBehavior",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "MacOSSoftwareUpdateBehavior",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The maximum number of times the system allows the user to postpone an update before it’s installed. Supported values: 0 - 366. Valid values 0 to 365",
+      "jsonName": "maxUserDeferralsCount",
+      "name": "MaxUserDeferralsCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The scheduling priority for downloading and preparing the requested update. Default: Low. Possible values: Null, Low, High. Possible values are: low, high, unknownFutureValue.",
+      "jsonName": "priority",
+      "name": "Priority",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "MacOSPriority",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Update schedule type for macOS software updates.",
+      "jsonName": "updateScheduleType",
+      "name": "UpdateScheduleType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "MacOSSoftwareUpdateScheduleType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Minutes indicating UTC offset for each update time window",
+      "jsonName": "updateTimeWindowUtcOffsetInMinutes",
+      "name": "UpdateTimeWindowUtcOffsetInMinutes",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceConfiguration",
+  "discriminatedTypeValue": "#microsoft.graph.macOSSoftwareUpdateConfiguration",
+  "typeHintIn": "ODataType"
+}

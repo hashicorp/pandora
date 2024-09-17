@@ -1,0 +1,27 @@
+{
+  "name": "CreateDeviceCompliancePolicyScheduleActionsForRuleRequest",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "deviceComplianceScheduledActionForRules",
+      "name": "DeviceComplianceScheduledActionForRules",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "DeviceComplianceScheduledActionForRule",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

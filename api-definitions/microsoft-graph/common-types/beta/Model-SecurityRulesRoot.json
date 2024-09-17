@@ -1,0 +1,30 @@
+{
+  "name": "SecurityRulesRoot",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "detectionRules",
+      "name": "DetectionRules",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "SecurityDetectionRule",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.security.rulesRoot",
+  "typeHintIn": "ODataType"
+}

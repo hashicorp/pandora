@@ -1,0 +1,47 @@
+{
+  "name": "CreateAndroidManagedStoreAccountEnterpriseSettingsGooglePlayWebToken",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Invoke action createGooglePlayWebToken. Generates a web token that is used in an embeddable component.",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "CreateAndroidManagedStoreAccountEnterpriseSettingsGooglePlayWebTokenRequest",
+    "referenceNameIsCommonType": false
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "CreateAndroidManagedStoreAccountEnterpriseSettingsGooglePlayWebTokenResult",
+    "referenceNameIsCommonType": false
+  },
+  "uriSuffix": "/deviceManagement/androidManagedStoreAccountEnterpriseSettings/createGooglePlayWebToken"
+}

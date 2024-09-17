@@ -1,0 +1,41 @@
+{
+  "name": "GroupMembers",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The name of the group in Microsoft Entra ID. Read only.",
+      "jsonName": "description",
+      "name": "Description",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The ID of the group in Microsoft Entra ID.",
+      "jsonName": "groupId",
+      "name": "GroupId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SubjectSet",
+  "discriminatedTypeValue": "#microsoft.graph.groupMembers",
+  "typeHintIn": "ODataType"
+}

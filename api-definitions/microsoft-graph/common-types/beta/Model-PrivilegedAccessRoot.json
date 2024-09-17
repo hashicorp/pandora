@@ -1,0 +1,25 @@
+{
+  "name": "PrivilegedAccessRoot",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A group that's governed through Privileged Identity Management (PIM).",
+      "jsonName": "group",
+      "name": "Group",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PrivilegedAccessGroup",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.privilegedAccessRoot",
+  "typeHintIn": "ODataType"
+}

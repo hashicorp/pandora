@@ -1,0 +1,64 @@
+{
+  "name": "GetJoinedTeamPrimaryChannelMembersCount",
+  "contentType": "text/plain",
+  "description": "Get the number of the resource",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Filter",
+      "optional": true,
+      "required": false,
+      "field": "Filter",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    },
+    {
+      "Type": "Data",
+      "odataFieldName": "Search",
+      "optional": true,
+      "required": false,
+      "field": "Search",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "MeJoinedTeamId",
+  "resourceIdNameIsCommonType": true,
+  "responseObject": {
+    "type": "RawFile",
+    "nullable": false,
+    "referenceName": null,
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/primaryChannel/members/$count"
+}

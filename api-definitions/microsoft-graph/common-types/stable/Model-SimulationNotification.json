@@ -1,0 +1,25 @@
+{
+  "name": "SimulationNotification",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Target user type. Possible values are: unknown, clicked, compromised, allUsers, unknownFutureValue.",
+      "jsonName": "targettedUserType",
+      "name": "TargettedUserType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "TargettedUserType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "BaseEndUserNotification",
+  "discriminatedTypeValue": "#microsoft.graph.simulationNotification",
+  "typeHintIn": "ODataType"
+}

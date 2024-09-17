@@ -1,0 +1,25 @@
+{
+  "name": "WindowsDefenderScanActionResult",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Scan type either full scan or quick scan",
+      "jsonName": "scanType",
+      "name": "ScanType",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceActionResult",
+  "discriminatedTypeValue": "#microsoft.graph.windowsDefenderScanActionResult",
+  "typeHintIn": "ODataType"
+}

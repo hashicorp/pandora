@@ -1,0 +1,47 @@
+{
+  "name": "EnumeratedPreApprovedPermissions",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The list of id values for the specific resource-specific application permissions to match with. See the resourceSpecificApplicationPermissions property of the servicePrincipal object for the list of permissions.",
+      "jsonName": "permissionIds",
+      "name": "PermissionIds",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The appId of the resource application (the API). Required.",
+      "jsonName": "resourceApplicationId",
+      "name": "ResourceApplicationId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "PreApprovedPermissions",
+  "discriminatedTypeValue": "#microsoft.graph.enumeratedPreApprovedPermissions",
+  "typeHintIn": "ODataType"
+}

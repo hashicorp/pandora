@@ -1,0 +1,25 @@
+{
+  "name": "ProgramResource",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Type of the resource, indicating whether it is a group or an app.",
+      "jsonName": "type",
+      "name": "Type",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Identity",
+  "discriminatedTypeValue": "#microsoft.graph.programResource",
+  "typeHintIn": "ODataType"
+}

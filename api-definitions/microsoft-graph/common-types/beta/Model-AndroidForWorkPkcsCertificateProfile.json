@@ -1,0 +1,95 @@
+{
+  "name": "AndroidForWorkPkcsCertificateProfile",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "PKCS Certificate Template Name",
+      "jsonName": "certificateTemplateName",
+      "name": "CertificateTemplateName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "PKCS Certification Authority",
+      "jsonName": "certificationAuthority",
+      "name": "CertificationAuthority",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "PKCS Certification Authority Name",
+      "jsonName": "certificationAuthorityName",
+      "name": "CertificationAuthorityName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Certificate state for devices. This collection can contain a maximum of 2147483647 elements.",
+      "jsonName": "managedDeviceCertificateStates",
+      "name": "ManagedDeviceCertificateStates",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "ManagedDeviceCertificateState",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Custom String that defines the AAD Attribute.",
+      "jsonName": "subjectAlternativeNameFormatString",
+      "name": "SubjectAlternativeNameFormatString",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AndroidForWorkCertificateProfileBase",
+  "discriminatedTypeValue": "#microsoft.graph.androidForWorkPkcsCertificateProfile",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,40 @@
+{
+  "name": "SamlNameIdClaim",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "nameIdFormat",
+      "name": "NameIdFormat",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SamlNameIDFormat",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allows the specification of a service provider name qualifier reflected in the sAML response. The value provided must match one of the service provider names configured for the application and is only applicable for IdP-initiated applications (the sign-on URL should be empty for the IdP-initiated applications), in all other cases this value is ignored.",
+      "jsonName": "serviceProviderNameQualifier",
+      "name": "ServiceProviderNameQualifier",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "CustomClaimBase",
+  "discriminatedTypeValue": "#microsoft.graph.samlNameIdClaim",
+  "typeHintIn": "ODataType"
+}

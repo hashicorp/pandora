@@ -1,0 +1,53 @@
+{
+  "name": "MobileAppContent",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The collection of contained apps in a MobileLobApp acting as a package.",
+      "jsonName": "containedApps",
+      "name": "ContainedApps",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "MobileContainedApp",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The list of files for this app content version.",
+      "jsonName": "files",
+      "name": "Files",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "MobileAppContentFile",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.mobileAppContent",
+  "typeHintIn": "ODataType"
+}

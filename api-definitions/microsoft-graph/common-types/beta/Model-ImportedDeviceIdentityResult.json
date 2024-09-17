@@ -1,0 +1,25 @@
+{
+  "name": "ImportedDeviceIdentityResult",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Status of imported device identity",
+      "jsonName": "status",
+      "name": "Status",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ImportedDeviceIdentity",
+  "discriminatedTypeValue": "#microsoft.graph.importedDeviceIdentityResult",
+  "typeHintIn": "ODataType"
+}

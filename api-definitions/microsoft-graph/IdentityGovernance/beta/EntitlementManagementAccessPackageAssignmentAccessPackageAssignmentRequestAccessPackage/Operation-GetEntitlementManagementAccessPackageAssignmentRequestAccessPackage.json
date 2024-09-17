@@ -1,0 +1,68 @@
+{
+  "name": "GetEntitlementManagementAccessPackageAssignmentRequestAccessPackage",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Get accessPackage from identityGovernance. The access package associated with the accessPackageAssignmentRequest. An access package defines the collections of resource roles and the policies for how one or more users can get access to those resources. Read-only. Nullable. Supports $expand.",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Expand",
+      "optional": true,
+      "required": false,
+      "field": "Expand",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Expand"
+      }
+    },
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    },
+    {
+      "Type": "Data",
+      "odataFieldName": "Select",
+      "optional": true,
+      "required": false,
+      "field": "Select",
+      "optionsObjectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      }
+    }
+  ],
+  "resourceIdName": "IdentityGovernanceEntitlementManagementAccessPackageAssignmentIdAccessPackageAssignmentRequestId",
+  "resourceIdNameIsCommonType": true,
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "AccessPackage",
+    "referenceNameIsCommonType": true
+  },
+  "uriSuffix": "/accessPackage"
+}

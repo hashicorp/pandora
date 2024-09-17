@@ -1,0 +1,48 @@
+{
+  "name": "CreatePendingAccessReviewInstanceStageDecisionInstanceContactedReviewer",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Create new navigation property to contactedReviewers for users",
+  "expectedStatusCodes": [
+    201
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "UserIdPendingAccessReviewInstanceIdStageIdDecisionId",
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "AccessReviewReviewer",
+    "referenceNameIsCommonType": true
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "AccessReviewReviewer",
+    "referenceNameIsCommonType": true
+  },
+  "uriSuffix": "/instance/contactedReviewers"
+}

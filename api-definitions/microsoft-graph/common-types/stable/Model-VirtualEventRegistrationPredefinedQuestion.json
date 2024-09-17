@@ -1,0 +1,24 @@
+{
+  "name": "VirtualEventRegistrationPredefinedQuestion",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "label",
+      "name": "Label",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "VirtualEventRegistrationPredefinedQuestionLabel",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "VirtualEventRegistrationQuestionBase",
+  "discriminatedTypeValue": "#microsoft.graph.virtualEventRegistrationPredefinedQuestion",
+  "typeHintIn": "ODataType"
+}

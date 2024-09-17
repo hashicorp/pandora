@@ -1,0 +1,25 @@
+{
+  "name": "DeliveryOptimizationGroupIdCustom",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specifies an arbitrary group ID that the device belongs to",
+      "jsonName": "groupIdCustom",
+      "name": "GroupIdCustom",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeliveryOptimizationGroupIdSource",
+  "discriminatedTypeValue": "#microsoft.graph.deliveryOptimizationGroupIdCustom",
+  "typeHintIn": "ODataType"
+}

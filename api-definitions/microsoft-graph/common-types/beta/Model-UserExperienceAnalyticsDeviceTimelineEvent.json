@@ -1,0 +1,105 @@
+{
+  "name": "UserExperienceAnalyticsDeviceTimelineEvent",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The id of the device where the event occurred.",
+      "jsonName": "deviceId",
+      "name": "DeviceId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The time the event occured.",
+      "jsonName": "eventDateTime",
+      "name": "EventDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The details provided by the event, format depends on event type.",
+      "jsonName": "eventDetails",
+      "name": "EventDetails",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates device event level. Possible values are: None, Verbose, Information, Warning, Error, Critical",
+      "jsonName": "eventLevel",
+      "name": "EventLevel",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceEventLevel",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The name of the event. Examples include: BootEvent, LogonEvent, AppCrashEvent, AppHangEvent.",
+      "jsonName": "eventName",
+      "name": "EventName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The source of the event. Examples include: Intune, Sccm.",
+      "jsonName": "eventSource",
+      "name": "EventSource",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.userExperienceAnalyticsDeviceTimelineEvent",
+  "typeHintIn": "ODataType"
+}

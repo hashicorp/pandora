@@ -1,0 +1,41 @@
+{
+  "name": "EngagementAsyncOperation",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The type of the long-running operation. The possible values are: createCommunity, unknownFutureValue.",
+      "jsonName": "operationType",
+      "name": "OperationType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "EngagementAsyncOperationType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The ID of the object created or modified as a result of this async operation.",
+      "jsonName": "resourceId",
+      "name": "ResourceId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "LongRunningOperation",
+  "discriminatedTypeValue": "#microsoft.graph.engagementAsyncOperation",
+  "typeHintIn": "ODataType"
+}

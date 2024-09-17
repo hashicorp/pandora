@@ -1,0 +1,24 @@
+{
+  "name": "AddWatermark",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "orientation",
+      "name": "Orientation",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PageOrientation",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "MarkContent",
+  "discriminatedTypeValue": "#microsoft.graph.addWatermark",
+  "typeHintIn": "ODataType"
+}

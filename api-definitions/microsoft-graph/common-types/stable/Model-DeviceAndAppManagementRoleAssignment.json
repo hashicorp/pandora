@@ -1,0 +1,31 @@
+{
+  "name": "DeviceAndAppManagementRoleAssignment",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The list of ids of role member security groups. These are IDs from Azure Active Directory.",
+      "jsonName": "members",
+      "name": "Members",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "RoleAssignment",
+  "discriminatedTypeValue": "#microsoft.graph.deviceAndAppManagementRoleAssignment",
+  "typeHintIn": "ODataType"
+}

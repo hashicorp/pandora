@@ -1,0 +1,42 @@
+{
+  "name": "GetContactFolderChildFolderContactPhotoValue",
+  "contentType": "application/octet-stream",
+  "description": "Get media content for the navigation property photo from users. Optional contact picture. You can get or set a photo for a contact.",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "UserIdContactFolderIdChildFolderIdContactId",
+  "resourceIdNameIsCommonType": true,
+  "responseObject": {
+    "type": "RawFile",
+    "nullable": false,
+    "referenceName": null,
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/photo/$value"
+}

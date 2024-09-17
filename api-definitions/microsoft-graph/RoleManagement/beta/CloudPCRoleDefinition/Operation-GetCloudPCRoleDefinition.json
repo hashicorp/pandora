@@ -1,0 +1,67 @@
+{
+  "name": "GetCloudPCRoleDefinition",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Get unifiedRoleDefinition. Get the properties and relationships of a unifiedRoleDefinition object of an RBAC provider.  The following RBAC providers are currently supported:\n- Cloud PC \n- device management (Intune)\n- directory (Microsoft Entra directory roles)\n- entitlement management (Microsoft Entra entitlement management)\n- Exchange Online",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Expand",
+      "optional": true,
+      "required": false,
+      "field": "Expand",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Expand"
+      }
+    },
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    },
+    {
+      "Type": "Data",
+      "odataFieldName": "Select",
+      "optional": true,
+      "required": false,
+      "field": "Select",
+      "optionsObjectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      }
+    }
+  ],
+  "resourceIdName": "RoleManagementCloudPCRoleDefinitionId",
+  "resourceIdNameIsCommonType": true,
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "UnifiedRoleDefinition",
+    "referenceNameIsCommonType": true
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "PositiveReinforcementNotification",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Delivery preference. Possible values are: unknown, deliverImmedietly, deliverAfterCampaignEnd, unknownFutureValue.",
+      "jsonName": "deliveryPreference",
+      "name": "DeliveryPreference",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "NotificationDeliveryPreference",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "BaseEndUserNotification",
+  "discriminatedTypeValue": "#microsoft.graph.positiveReinforcementNotification",
+  "typeHintIn": "ODataType"
+}

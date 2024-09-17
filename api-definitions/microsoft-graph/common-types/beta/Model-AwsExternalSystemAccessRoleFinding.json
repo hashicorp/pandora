@@ -1,0 +1,61 @@
+{
+  "name": "AwsExternalSystemAccessRoleFinding",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The IDs of the accounts that this role is able to access.",
+      "jsonName": "accessibleSystemIds",
+      "name": "AccessibleSystemIds",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "permissionsCreepIndex",
+      "name": "PermissionsCreepIndex",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PermissionsCreepIndex",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "role",
+      "name": "Role",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AwsRole",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Finding",
+  "discriminatedTypeValue": "#microsoft.graph.awsExternalSystemAccessRoleFinding",
+  "typeHintIn": "ODataType"
+}

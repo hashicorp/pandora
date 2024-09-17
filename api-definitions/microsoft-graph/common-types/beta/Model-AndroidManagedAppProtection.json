@@ -1,0 +1,753 @@
+{
+  "name": "AndroidManagedAppProtection",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Semicolon seperated list of device manufacturers allowed, as a string, for the managed app to work.",
+      "jsonName": "allowedAndroidDeviceManufacturers",
+      "name": "AllowedAndroidDeviceManufacturers",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "List of device models allowed, as a string, for the managed app to work.",
+      "jsonName": "allowedAndroidDeviceModels",
+      "name": "AllowedAndroidDeviceModels",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Defines a managed app behavior, either block or warn, if the user is clocked out (non-working time). Possible values are: block, wipe, warn.",
+      "jsonName": "appActionIfAccountIsClockedOut",
+      "name": "AppActionIfAccountIsClockedOut",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ManagedAppRemediationAction",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "An admin initiated action to be applied on a managed app.",
+      "jsonName": "appActionIfAndroidDeviceManufacturerNotAllowed",
+      "name": "AppActionIfAndroidDeviceManufacturerNotAllowed",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ManagedAppRemediationAction",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "An admin initiated action to be applied on a managed app.",
+      "jsonName": "appActionIfAndroidDeviceModelNotAllowed",
+      "name": "AppActionIfAndroidDeviceModelNotAllowed",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ManagedAppRemediationAction",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "An admin initiated action to be applied on a managed app.",
+      "jsonName": "appActionIfAndroidSafetyNetAppsVerificationFailed",
+      "name": "AppActionIfAndroidSafetyNetAppsVerificationFailed",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ManagedAppRemediationAction",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "An admin initiated action to be applied on a managed app.",
+      "jsonName": "appActionIfAndroidSafetyNetDeviceAttestationFailed",
+      "name": "AppActionIfAndroidSafetyNetDeviceAttestationFailed",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ManagedAppRemediationAction",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "An admin initiated action to be applied on a managed app.",
+      "jsonName": "appActionIfDeviceLockNotSet",
+      "name": "AppActionIfDeviceLockNotSet",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ManagedAppRemediationAction",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "If the device does not have a passcode of high complexity or higher, trigger the stored action. Possible values are: block, wipe, warn.",
+      "jsonName": "appActionIfDevicePasscodeComplexityLessThanHigh",
+      "name": "AppActionIfDevicePasscodeComplexityLessThanHigh",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ManagedAppRemediationAction",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "If the device does not have a passcode of low complexity or higher, trigger the stored action. Possible values are: block, wipe, warn.",
+      "jsonName": "appActionIfDevicePasscodeComplexityLessThanLow",
+      "name": "AppActionIfDevicePasscodeComplexityLessThanLow",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ManagedAppRemediationAction",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "If the device does not have a passcode of medium complexity or higher, trigger the stored action. Possible values are: block, wipe, warn.",
+      "jsonName": "appActionIfDevicePasscodeComplexityLessThanMedium",
+      "name": "AppActionIfDevicePasscodeComplexityLessThanMedium",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ManagedAppRemediationAction",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Defines the behavior of a managed app when Samsung Knox Attestation is required. Possible values are null, warn, block \u0026 wipe. If the admin does not set this action, the default is null, which indicates this setting is not configured. Possible values are: block, wipe, warn.",
+      "jsonName": "appActionIfSamsungKnoxAttestationRequired",
+      "name": "AppActionIfSamsungKnoxAttestationRequired",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ManagedAppRemediationAction",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "If Keyboard Restriction is enabled, only keyboards in this approved list will be allowed. A key should be Android package id for a keyboard and value should be a friendly name",
+      "jsonName": "approvedKeyboards",
+      "name": "ApprovedKeyboards",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "KeyValuePair",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "List of apps to which the policy is deployed.",
+      "jsonName": "apps",
+      "name": "Apps",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "ManagedMobileApp",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether use of the biometric authentication is allowed in place of a pin if PinRequired is set to True.",
+      "jsonName": "biometricAuthenticationBlocked",
+      "name": "BiometricAuthenticationBlocked",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Maximum number of days Company Portal update can be deferred on the device or app access will be blocked.",
+      "jsonName": "blockAfterCompanyPortalUpdateDeferralInDays",
+      "name": "BlockAfterCompanyPortalUpdateDeferralInDays",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Whether the app should connect to the configured VPN on launch.",
+      "jsonName": "connectToVpnOnLaunch",
+      "name": "ConnectToVpnOnLaunch",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Friendly name of the preferred custom browser to open weblink on Android.",
+      "jsonName": "customBrowserDisplayName",
+      "name": "CustomBrowserDisplayName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Unique identifier of a custom browser to open weblink on Android.",
+      "jsonName": "customBrowserPackageId",
+      "name": "CustomBrowserPackageId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Friendly name of a custom dialer app to click-to-open a phone number on Android.",
+      "jsonName": "customDialerAppDisplayName",
+      "name": "CustomDialerAppDisplayName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "PackageId of a custom dialer app to click-to-open a phone number on Android.",
+      "jsonName": "customDialerAppPackageId",
+      "name": "CustomDialerAppPackageId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Count of apps to which the current policy is deployed.",
+      "jsonName": "deployedAppCount",
+      "name": "DeployedAppCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Navigation property to deployment summary of the configuration.",
+      "jsonName": "deploymentSummary",
+      "name": "DeploymentSummary",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ManagedAppPolicyDeploymentSummary",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Defines if any kind of lock must be required on android device",
+      "jsonName": "deviceLockRequired",
+      "name": "DeviceLockRequired",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "When this setting is enabled, app level encryption is disabled if device level encryption is enabled",
+      "jsonName": "disableAppEncryptionIfDeviceEncryptionIsEnabled",
+      "name": "DisableAppEncryptionIfDeviceEncryptionIsEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether application data for managed apps should be encrypted",
+      "jsonName": "encryptAppData",
+      "name": "EncryptAppData",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "App packages in this list will be exempt from the policy and will be able to receive data from managed apps.",
+      "jsonName": "exemptedAppPackages",
+      "name": "ExemptedAppPackages",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "KeyValuePair",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "If null, this setting will be ignored. If false both fingerprints and biometrics will not be enabled. If true, both fingerprints and biometrics will be enabled.",
+      "jsonName": "fingerprintAndBiometricEnabled",
+      "name": "FingerprintAndBiometricEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates if keyboard restriction is enabled. If enabled list of approved keyboards must be provided as well.",
+      "jsonName": "keyboardsRestricted",
+      "name": "KeyboardsRestricted",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "When a specific app redirection is enforced by protectedMessagingRedirectAppType in an App Protection Policy, this value defines the app name which is allowed to be used.",
+      "jsonName": "messagingRedirectAppDisplayName",
+      "name": "MessagingRedirectAppDisplayName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "When a specific app redirection is enforced by protectedMessagingRedirectAppType in an App Protection Policy, this value defines the app package id which is allowed to be used.",
+      "jsonName": "messagingRedirectAppPackageId",
+      "name": "MessagingRedirectAppPackageId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Minimum version of the Company portal that must be installed on the device or app access will be blocked",
+      "jsonName": "minimumRequiredCompanyPortalVersion",
+      "name": "MinimumRequiredCompanyPortalVersion",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Define the oldest required Android security patch level a user can have to gain secure access to the app.",
+      "jsonName": "minimumRequiredPatchVersion",
+      "name": "MinimumRequiredPatchVersion",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Minimum version of the Company portal that must be installed on the device or the user will receive a warning",
+      "jsonName": "minimumWarningCompanyPortalVersion",
+      "name": "MinimumWarningCompanyPortalVersion",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Define the oldest recommended Android security patch level a user can have for secure access to the app.",
+      "jsonName": "minimumWarningPatchVersion",
+      "name": "MinimumWarningPatchVersion",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Minimum version of the Company portal that must be installed on the device or the company data on the app will be wiped",
+      "jsonName": "minimumWipeCompanyPortalVersion",
+      "name": "MinimumWipeCompanyPortalVersion",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Android security patch level  less than or equal to the specified value will wipe the managed app and the associated company data.",
+      "jsonName": "minimumWipePatchVersion",
+      "name": "MinimumWipePatchVersion",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Require user to apply Class 3 Biometrics on their Android device.",
+      "jsonName": "requireClass3Biometrics",
+      "name": "RequireClass3Biometrics",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A PIN prompt will override biometric prompts if class 3 biometrics are updated on the device.",
+      "jsonName": "requirePinAfterBiometricChange",
+      "name": "RequirePinAfterBiometricChange",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "An admin enforced Android SafetyNet Device Attestation requirement on a managed app.",
+      "jsonName": "requiredAndroidSafetyNetAppsVerificationType",
+      "name": "RequiredAndroidSafetyNetAppsVerificationType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AndroidManagedAppSafetyNetAppsVerificationType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "An admin enforced Android SafetyNet Device Attestation requirement on a managed app.",
+      "jsonName": "requiredAndroidSafetyNetDeviceAttestationType",
+      "name": "RequiredAndroidSafetyNetDeviceAttestationType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AndroidManagedAppSafetyNetDeviceAttestationType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "An admin enforced Android SafetyNet evaluation type requirement on a managed app.",
+      "jsonName": "requiredAndroidSafetyNetEvaluationType",
+      "name": "RequiredAndroidSafetyNetEvaluationType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AndroidManagedAppSafetyNetEvaluationType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether a managed user can take screen captures of managed apps",
+      "jsonName": "screenCaptureBlocked",
+      "name": "ScreenCaptureBlocked",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Maximum number of days Company Portal update can be deferred on the device or the user will receive the warning",
+      "jsonName": "warnAfterCompanyPortalUpdateDeferralInDays",
+      "name": "WarnAfterCompanyPortalUpdateDeferralInDays",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Maximum number of days Company Portal update can be deferred on the device or the company data on the app will be wiped",
+      "jsonName": "wipeAfterCompanyPortalUpdateDeferralInDays",
+      "name": "WipeAfterCompanyPortalUpdateDeferralInDays",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "TargetedManagedAppProtection",
+  "discriminatedTypeValue": "#microsoft.graph.androidManagedAppProtection",
+  "typeHintIn": "ODataType"
+}

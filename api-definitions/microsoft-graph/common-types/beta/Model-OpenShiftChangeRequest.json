@@ -1,0 +1,25 @@
+{
+  "name": "OpenShiftChangeRequest",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "ID for the open shift.",
+      "jsonName": "openShiftId",
+      "name": "OpenShiftId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ScheduleChangeRequest",
+  "discriminatedTypeValue": "#microsoft.graph.openShiftChangeRequest",
+  "typeHintIn": "ODataType"
+}

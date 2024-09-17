@@ -1,0 +1,30 @@
+{
+  "name": "MuteParticipantsOperation",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "participants",
+      "name": "Participants",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "CommsOperation",
+  "discriminatedTypeValue": "#microsoft.graph.muteParticipantsOperation",
+  "typeHintIn": "ODataType"
+}

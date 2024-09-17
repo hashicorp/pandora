@@ -1,0 +1,41 @@
+{
+  "name": "DeviceManagementSettingStringLengthConstraint",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The maximum permitted string length",
+      "jsonName": "maximumLength",
+      "name": "MaximumLength",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The minimum permitted string length",
+      "jsonName": "minimumLength",
+      "name": "MinimumLength",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceManagementConstraint",
+  "discriminatedTypeValue": "#microsoft.graph.deviceManagementSettingStringLengthConstraint",
+  "typeHintIn": "ODataType"
+}

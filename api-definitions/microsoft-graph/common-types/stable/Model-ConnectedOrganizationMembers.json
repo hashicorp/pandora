@@ -1,0 +1,41 @@
+{
+  "name": "ConnectedOrganizationMembers",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The ID of the connected organization in entitlement management.",
+      "jsonName": "connectedOrganizationId",
+      "name": "ConnectedOrganizationId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The name of the connected organization.",
+      "jsonName": "description",
+      "name": "Description",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SubjectSet",
+  "discriminatedTypeValue": "#microsoft.graph.connectedOrganizationMembers",
+  "typeHintIn": "ODataType"
+}

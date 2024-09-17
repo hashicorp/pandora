@@ -1,0 +1,24 @@
+{
+  "name": "PartnersBillingFailedOperation",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "error",
+      "name": "Error",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PublicError",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "PartnersBillingOperation",
+  "discriminatedTypeValue": "#microsoft.graph.partners.billing.failedOperation",
+  "typeHintIn": "ODataType"
+}

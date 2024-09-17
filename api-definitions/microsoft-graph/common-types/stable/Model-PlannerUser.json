@@ -1,0 +1,53 @@
+{
+  "name": "PlannerUser",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Read-only. Nullable. Returns the plannerTasks assigned to the user.",
+      "jsonName": "plans",
+      "name": "Plans",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "PlannerPlan",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Read-only. Nullable. Returns the plannerPlans shared with the user.",
+      "jsonName": "tasks",
+      "name": "Tasks",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "PlannerTask",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.plannerUser",
+  "typeHintIn": "ODataType"
+}

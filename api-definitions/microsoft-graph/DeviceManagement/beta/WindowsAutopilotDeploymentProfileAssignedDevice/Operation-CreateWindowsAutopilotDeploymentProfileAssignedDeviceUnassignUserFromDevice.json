@@ -1,0 +1,36 @@
+{
+  "name": "CreateWindowsAutopilotDeploymentProfileAssignedDeviceUnassignUserFromDevice",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Invoke action unassignUserFromDevice. Unassigns the user from an Autopilot device.",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "DeviceManagementWindowsAutopilotDeploymentProfileIdAssignedDeviceId",
+  "resourceIdNameIsCommonType": true,
+  "uriSuffix": "/unassignUserFromDevice"
+}

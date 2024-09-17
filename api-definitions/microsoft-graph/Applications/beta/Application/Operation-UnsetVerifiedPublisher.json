@@ -1,0 +1,36 @@
+{
+  "name": "UnsetVerifiedPublisher",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Invoke action unsetVerifiedPublisher. Unset the verifiedPublisher previously set on an application, removing all verified publisher properties. For more information, see Publisher verification.",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "ApplicationId",
+  "resourceIdNameIsCommonType": true,
+  "uriSuffix": "/unsetVerifiedPublisher"
+}

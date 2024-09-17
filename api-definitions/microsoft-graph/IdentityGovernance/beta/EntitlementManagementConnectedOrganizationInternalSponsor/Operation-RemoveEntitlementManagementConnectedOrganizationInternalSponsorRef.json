@@ -1,0 +1,47 @@
+{
+  "name": "RemoveEntitlementManagementConnectedOrganizationInternalSponsorRef",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Remove connected organization internal sponsor. Remove a user or a group from the connected organization's internal sponsors. The internal sponsors are a set of users who can approve requests on behalf of other users from that connected organization.",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "DELETE",
+  "options": [
+    {
+      "Type": "Data",
+      "headerName": "If-Match",
+      "optional": true,
+      "required": false,
+      "field": "IfMatch",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "IdentityGovernanceEntitlementManagementConnectedOrganizationIdInternalSponsorId",
+  "resourceIdNameIsCommonType": true,
+  "uriSuffix": "/$ref"
+}

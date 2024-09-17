@@ -1,0 +1,25 @@
+{
+  "name": "IdentitySecurityDefaultsEnforcementPolicy",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "If set to true, Microsoft Entra security defaults are enabled for the tenant.",
+      "jsonName": "isEnabled",
+      "name": "IsEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "PolicyBase",
+  "discriminatedTypeValue": "#microsoft.graph.identitySecurityDefaultsEnforcementPolicy",
+  "typeHintIn": "ODataType"
+}

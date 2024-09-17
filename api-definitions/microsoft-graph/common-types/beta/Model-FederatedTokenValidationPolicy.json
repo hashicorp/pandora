@@ -1,0 +1,24 @@
+{
+  "name": "FederatedTokenValidationPolicy",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "validatingDomains",
+      "name": "ValidatingDomains",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ValidatingDomains",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DirectoryObject",
+  "discriminatedTypeValue": "#microsoft.graph.federatedTokenValidationPolicy",
+  "typeHintIn": "ODataType"
+}

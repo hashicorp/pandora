@@ -1,0 +1,24 @@
+{
+  "name": "DeviceManagementConfigurationGroupSettingInstance",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "groupSettingValue",
+      "name": "GroupSettingValue",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceManagementConfigurationGroupSettingValue",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceManagementConfigurationSettingInstance",
+  "discriminatedTypeValue": "#microsoft.graph.deviceManagementConfigurationGroupSettingInstance",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,105 @@
+{
+  "name": "GroupPolicyPresentationLongDecimalTextBox",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "An unsigned integer that specifies the initial value for the decimal text box. The default value is 1.",
+      "jsonName": "defaultValue",
+      "name": "DefaultValue",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "An unsigned long that specifies the maximum allowed value. The default value is 9999.",
+      "jsonName": "maxValue",
+      "name": "MaxValue",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "An unsigned long that specifies the minimum allowed value. The default value is 0.",
+      "jsonName": "minValue",
+      "name": "MinValue",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Requirement to enter a value in the parameter box. The default value is false.",
+      "jsonName": "required",
+      "name": "Required",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "If true, create a spin control; otherwise, create a text box for numeric entry. The default value is true.",
+      "jsonName": "spin",
+      "name": "Spin",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "An unsigned integer that specifies the increment of change for the spin control. The default value is 1.",
+      "jsonName": "spinStep",
+      "name": "SpinStep",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "GroupPolicyUploadedPresentation",
+  "discriminatedTypeValue": "#microsoft.graph.groupPolicyPresentationLongDecimalTextBox",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,31 @@
+{
+  "name": "SubjectRightsRequestEnumeratedMailboxLocation",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Collection of mailboxes that should be included in the search. Includes the user principal name (UPN) of each mailbox, for example, Monica.Thompson@contoso.com.",
+      "jsonName": "userPrincipalNames",
+      "name": "UserPrincipalNames",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SubjectRightsRequestMailboxLocation",
+  "discriminatedTypeValue": "#microsoft.graph.subjectRightsRequestEnumeratedMailboxLocation",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,41 @@
+{
+  "name": "DeliveryOptimizationBandwidthAbsolute",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the maximum download bandwidth in KiloBytes/second that the device can use across all concurrent download activities using Delivery Optimization. Valid values 0 to 4294967295",
+      "jsonName": "maximumDownloadBandwidthInKilobytesPerSecond",
+      "name": "MaximumDownloadBandwidthInKilobytesPerSecond",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the maximum upload bandwidth in KiloBytes/second that a device will use across all concurrent upload activity using Delivery Optimization (0-4000000). Valid values 0 to 4000000",
+      "jsonName": "maximumUploadBandwidthInKilobytesPerSecond",
+      "name": "MaximumUploadBandwidthInKilobytesPerSecond",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeliveryOptimizationBandwidth",
+  "discriminatedTypeValue": "#microsoft.graph.deliveryOptimizationBandwidthAbsolute",
+  "typeHintIn": "ODataType"
+}

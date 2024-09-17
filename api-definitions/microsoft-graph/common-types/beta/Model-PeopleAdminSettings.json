@@ -1,0 +1,63 @@
+{
+  "name": "PeopleAdminSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Represents administrator settings that manage the support for item insights in an organization.",
+      "jsonName": "itemInsights",
+      "name": "ItemInsights",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "InsightsSettings",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Contains a collection of the properties an administrator defined as visible on the Microsoft 365 profile card.",
+      "jsonName": "profileCardProperties",
+      "name": "ProfileCardProperties",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "ProfileCardProperty",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Represents administrator settings that manage the support of pronouns in an organization.",
+      "jsonName": "pronouns",
+      "name": "Pronouns",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PronounsSettings",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.peopleAdminSettings",
+  "typeHintIn": "ODataType"
+}

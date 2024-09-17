@@ -1,0 +1,25 @@
+{
+  "name": "DeviceManagementSettingRegexConstraint",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The RegEx pattern to match against",
+      "jsonName": "regex",
+      "name": "Regex",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceManagementConstraint",
+  "discriminatedTypeValue": "#microsoft.graph.deviceManagementSettingRegexConstraint",
+  "typeHintIn": "ODataType"
+}

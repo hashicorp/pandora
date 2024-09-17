@@ -1,0 +1,42 @@
+{
+  "name": "GetOnlineMeetingAlternativeRecording",
+  "contentType": "application/octet-stream",
+  "description": "Get alternativeRecording for the navigation property onlineMeetings from me. The content stream of the alternative recording of a Microsoft Teams live event. Read-only.",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "MeOnlineMeetingId",
+  "resourceIdNameIsCommonType": true,
+  "responseObject": {
+    "type": "RawFile",
+    "nullable": false,
+    "referenceName": null,
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/alternativeRecording"
+}

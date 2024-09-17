@@ -1,0 +1,137 @@
+{
+  "name": "EdiscoveryCaseExportOperation",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The name of the Azure storage location where the export will be stored. This only applies to exports stored in your own Azure storage location.",
+      "jsonName": "azureBlobContainer",
+      "name": "AzureBlobContainer",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The SAS token for the Azure storage location.  This only applies to exports stored in your own Azure storage location.",
+      "jsonName": "azureBlobToken",
+      "name": "AzureBlobToken",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The description provided for the export.",
+      "jsonName": "description",
+      "name": "Description",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The options provided for the export. For more information, see reviewSet: export. Possible values are: originalFiles, text, pdfReplacement, fileInfo, tags.",
+      "jsonName": "exportOptions",
+      "name": "ExportOptions",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "EdiscoveryExportOptions",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The options provided specify the structure of the export. For more information, see reviewSet: export. Possible values are: none, directory, pst.",
+      "jsonName": "exportStructure",
+      "name": "ExportStructure",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "EdiscoveryExportFileStructure",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The output folder ID.",
+      "jsonName": "outputFolderId",
+      "name": "OutputFolderId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The name provided for the export.",
+      "jsonName": "outputName",
+      "name": "OutputName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The review set the content is being exported from.",
+      "jsonName": "reviewSet",
+      "name": "ReviewSet",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "EdiscoveryReviewSet",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "EdiscoveryCaseOperation",
+  "discriminatedTypeValue": "#microsoft.graph.ediscovery.caseExportOperation",
+  "typeHintIn": "ODataType"
+}

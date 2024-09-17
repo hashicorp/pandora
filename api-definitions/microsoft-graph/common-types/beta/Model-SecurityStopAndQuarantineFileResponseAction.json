@@ -1,0 +1,24 @@
+{
+  "name": "SecurityStopAndQuarantineFileResponseAction",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "identifier",
+      "name": "Identifier",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SecurityStopAndQuarantineFileEntityIdentifier",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SecurityResponseAction",
+  "discriminatedTypeValue": "#microsoft.graph.security.stopAndQuarantineFileResponseAction",
+  "typeHintIn": "ODataType"
+}

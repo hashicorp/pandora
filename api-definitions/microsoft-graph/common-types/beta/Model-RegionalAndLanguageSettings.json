@@ -1,0 +1,127 @@
+{
+  "name": "RegionalAndLanguageSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Prioritized list of languages the user reads and authors in.Returned by default. Not nullable.",
+      "jsonName": "authoringLanguages",
+      "name": "AuthoringLanguages",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "LocaleInfo",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The  user's preferred user interface language (menus, buttons, ribbons, warning messages) for Microsoft web applications.Returned by default. Not nullable.",
+      "jsonName": "defaultDisplayLanguage",
+      "name": "DefaultDisplayLanguage",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "LocaleInfo",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The locale that drives the default date, time, and calendar formatting.Returned by default.",
+      "jsonName": "defaultRegionalFormat",
+      "name": "DefaultRegionalFormat",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "LocaleInfo",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The language a user expected to use as input for text to speech scenarios.Returned by default.",
+      "jsonName": "defaultSpeechInputLanguage",
+      "name": "DefaultSpeechInputLanguage",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "LocaleInfo",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The language a user expects to have documents, emails, and messages translated into.Returned by default.",
+      "jsonName": "defaultTranslationLanguage",
+      "name": "DefaultTranslationLanguage",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "LocaleInfo",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allows a user to override their defaultRegionalFormat with field specific formats.Returned by default.",
+      "jsonName": "regionalFormatOverrides",
+      "name": "RegionalFormatOverrides",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "RegionalFormatOverrides",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The user's preferred settings when consuming translated documents, emails, messages, and websites.Returned by default. Not nullable.",
+      "jsonName": "translationPreferences",
+      "name": "TranslationPreferences",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "TranslationPreferences",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.regionalAndLanguageSettings",
+  "typeHintIn": "ODataType"
+}

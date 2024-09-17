@@ -1,0 +1,41 @@
+{
+  "name": "PrivilegedAccessScheduleInstance",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "When the schedule instance ends, and is required.",
+      "jsonName": "endDateTime",
+      "name": "EndDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "When this instance starts, and is required.",
+      "jsonName": "startDateTime",
+      "name": "StartDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": true,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.privilegedAccessScheduleInstance",
+  "typeHintIn": "ODataType"
+}

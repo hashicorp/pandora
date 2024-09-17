@@ -1,0 +1,137 @@
+{
+  "name": "DeviceEnrollmentPlatformRestrictionsConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Android for work restrictions based on platform, platform operating system version, and device ownership",
+      "jsonName": "androidForWorkRestriction",
+      "name": "AndroidForWorkRestriction",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceEnrollmentPlatformRestriction",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Android restrictions based on platform, platform operating system version, and device ownership",
+      "jsonName": "androidRestriction",
+      "name": "AndroidRestriction",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceEnrollmentPlatformRestriction",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Ios restrictions based on platform, platform operating system version, and device ownership",
+      "jsonName": "iosRestriction",
+      "name": "IosRestriction",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceEnrollmentPlatformRestriction",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Mac restrictions based on platform, platform operating system version, and device ownership",
+      "jsonName": "macOSRestriction",
+      "name": "MacOSRestriction",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceEnrollmentPlatformRestriction",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Mac restrictions based on platform, platform operating system version, and device ownership",
+      "jsonName": "macRestriction",
+      "name": "MacRestriction",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceEnrollmentPlatformRestriction",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Windows Home Sku restrictions based on platform, platform operating system version, and device ownership",
+      "jsonName": "windowsHomeSkuRestriction",
+      "name": "WindowsHomeSkuRestriction",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceEnrollmentPlatformRestriction",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Windows mobile restrictions based on platform, platform operating system version, and device ownership",
+      "jsonName": "windowsMobileRestriction",
+      "name": "WindowsMobileRestriction",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceEnrollmentPlatformRestriction",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Windows restrictions based on platform, platform operating system version, and device ownership",
+      "jsonName": "windowsRestriction",
+      "name": "WindowsRestriction",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceEnrollmentPlatformRestriction",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceEnrollmentConfiguration",
+  "discriminatedTypeValue": "#microsoft.graph.deviceEnrollmentPlatformRestrictionsConfiguration",
+  "typeHintIn": "ODataType"
+}

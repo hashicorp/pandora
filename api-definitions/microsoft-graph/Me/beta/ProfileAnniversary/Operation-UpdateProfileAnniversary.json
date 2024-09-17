@@ -1,0 +1,41 @@
+{
+  "name": "UpdateProfileAnniversary",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Update personAnniversary. Update the properties of a personAnniversary object in a user's profile.",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "MeProfileAnniversaryId",
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "PersonAnnualEvent",
+    "referenceNameIsCommonType": true
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "name": "PlannerExternalTaskSource",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Nullable. An identifier for the scenario associated with this external source. This should be in reverse DNS format. For example, Contoso company owned application for customer support would have a value like 'com.constoso.customerSupport'.",
+      "jsonName": "contextScenarioId",
+      "name": "ContextScenarioId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specifies how an application should display the link to the associated plannerExternalTaskSource. The possible values are: none, default.",
+      "jsonName": "displayLinkType",
+      "name": "DisplayLinkType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PlannerExternalTaskSourceDisplayType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The segments of the name of the external experience. Segments represent a hierarchical structure that allows other apps to display the relationship.",
+      "jsonName": "displayNameSegments",
+      "name": "DisplayNameSegments",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Nullable. The id of the external entity's containing entity or context.",
+      "jsonName": "externalContextId",
+      "name": "ExternalContextId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Nullable. The id of the entity that an external service associates with a task.",
+      "jsonName": "externalObjectId",
+      "name": "ExternalObjectId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Nullable. The external Item Version for the object specified by the externalObjectId.",
+      "jsonName": "externalObjectVersion",
+      "name": "ExternalObjectVersion",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Nullable. URL of the user experience represented by the associated plannerExternalTaskSource.",
+      "jsonName": "webUrl",
+      "name": "WebUrl",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "PlannerTaskCreation",
+  "discriminatedTypeValue": "#microsoft.graph.plannerExternalTaskSource",
+  "typeHintIn": "ODataType"
+}

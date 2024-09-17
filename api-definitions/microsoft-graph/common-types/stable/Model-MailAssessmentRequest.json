@@ -1,0 +1,57 @@
+{
+  "name": "MailAssessmentRequest",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The reason for mail routed to its destination. Possible values are: none, mailFlowRule, safeSender, blockedSender, advancedSpamFiltering, domainAllowList, domainBlockList, notInAddressBook, firstTimeSender, autoPurgeToInbox, autoPurgeToJunk, autoPurgeToDeleted, outbound, notJunk, junk.",
+      "jsonName": "destinationRoutingReason",
+      "name": "DestinationRoutingReason",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "MailDestinationRoutingReason",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The resource URI of the mail message for assessment.",
+      "jsonName": "messageUri",
+      "name": "MessageUri",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The mail recipient whose policies are used to assess the mail.",
+      "jsonName": "recipientEmail",
+      "name": "RecipientEmail",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ThreatAssessmentRequest",
+  "discriminatedTypeValue": "#microsoft.graph.mailAssessmentRequest",
+  "typeHintIn": "ODataType"
+}

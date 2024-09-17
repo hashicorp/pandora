@@ -1,0 +1,3673 @@
+{
+  "name": "Windows10EndpointProtectionConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values of AppLocker Application Control Types",
+      "jsonName": "appLockerApplicationControl",
+      "name": "AppLockerApplicationControl",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AppLockerApplicationControlType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets whether applications inside Microsoft Defender Application Guard can access the device’s camera and microphone.",
+      "jsonName": "applicationGuardAllowCameraMicrophoneRedirection",
+      "name": "ApplicationGuardAllowCameraMicrophoneRedirection",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allow users to download files from Edge in the application guard container and save them on the host file system",
+      "jsonName": "applicationGuardAllowFileSaveOnHost",
+      "name": "ApplicationGuardAllowFileSaveOnHost",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allow persisting user generated data inside the App Guard Containter (favorites, cookies, web passwords, etc.)",
+      "jsonName": "applicationGuardAllowPersistence",
+      "name": "ApplicationGuardAllowPersistence",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allow printing to Local Printers from Container",
+      "jsonName": "applicationGuardAllowPrintToLocalPrinters",
+      "name": "ApplicationGuardAllowPrintToLocalPrinters",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allow printing to Network Printers from Container",
+      "jsonName": "applicationGuardAllowPrintToNetworkPrinters",
+      "name": "ApplicationGuardAllowPrintToNetworkPrinters",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allow printing to PDF from Container",
+      "jsonName": "applicationGuardAllowPrintToPDF",
+      "name": "ApplicationGuardAllowPrintToPDF",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allow printing to XPS from Container",
+      "jsonName": "applicationGuardAllowPrintToXPS",
+      "name": "ApplicationGuardAllowPrintToXPS",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allow application guard to use virtual GPU",
+      "jsonName": "applicationGuardAllowVirtualGPU",
+      "name": "ApplicationGuardAllowVirtualGPU",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values for applicationGuardBlockClipboardSharingType",
+      "jsonName": "applicationGuardBlockClipboardSharing",
+      "name": "ApplicationGuardBlockClipboardSharing",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ApplicationGuardBlockClipboardSharingType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values for applicationGuardBlockFileTransfer",
+      "jsonName": "applicationGuardBlockFileTransfer",
+      "name": "ApplicationGuardBlockFileTransfer",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ApplicationGuardBlockFileTransferType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Block enterprise sites to load non-enterprise content, such as third party plug-ins",
+      "jsonName": "applicationGuardBlockNonEnterpriseContent",
+      "name": "ApplicationGuardBlockNonEnterpriseContent",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allows certain device level Root Certificates to be shared with the Microsoft Defender Application Guard container.",
+      "jsonName": "applicationGuardCertificateThumbprints",
+      "name": "ApplicationGuardCertificateThumbprints",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Enable Windows Defender Application Guard",
+      "jsonName": "applicationGuardEnabled",
+      "name": "ApplicationGuardEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values for ApplicationGuardEnabledOptions",
+      "jsonName": "applicationGuardEnabledOptions",
+      "name": "ApplicationGuardEnabledOptions",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ApplicationGuardEnabledOptions",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Force auditing will persist Windows logs and events to meet security/compliance criteria (sample events are user login-logoff, use of privilege rights, software installation, system changes, etc.)",
+      "jsonName": "applicationGuardForceAuditing",
+      "name": "ApplicationGuardForceAuditing",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allows the admin to allow standard users to enable encrpytion during Azure AD Join.",
+      "jsonName": "bitLockerAllowStandardUserEncryption",
+      "name": "BitLockerAllowStandardUserEncryption",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allows the Admin to disable the warning prompt for other disk encryption on the user machines.",
+      "jsonName": "bitLockerDisableWarningForOtherDiskEncryption",
+      "name": "BitLockerDisableWarningForOtherDiskEncryption",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allows the admin to require encryption to be turned on using BitLocker. This policy is valid only for a mobile SKU.",
+      "jsonName": "bitLockerEnableStorageCardEncryptionOnMobile",
+      "name": "BitLockerEnableStorageCardEncryptionOnMobile",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allows the admin to require encryption to be turned on using BitLocker.",
+      "jsonName": "bitLockerEncryptDevice",
+      "name": "BitLockerEncryptDevice",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "BitLocker Fixed Drive Policy.",
+      "jsonName": "bitLockerFixedDrivePolicy",
+      "name": "BitLockerFixedDrivePolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "BitLockerFixedDrivePolicy",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "BitLocker recovery password rotation type",
+      "jsonName": "bitLockerRecoveryPasswordRotation",
+      "name": "BitLockerRecoveryPasswordRotation",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "BitLockerRecoveryPasswordRotationType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "BitLocker Removable Drive Policy.",
+      "jsonName": "bitLockerRemovableDrivePolicy",
+      "name": "BitLockerRemovableDrivePolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "BitLockerRemovableDrivePolicy",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "BitLocker System Drive Policy.",
+      "jsonName": "bitLockerSystemDrivePolicy",
+      "name": "BitLockerSystemDrivePolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "BitLockerSystemDrivePolicy",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "List of folder paths to be added to the list of protected folders",
+      "jsonName": "defenderAdditionalGuardedFolders",
+      "name": "DefenderAdditionalGuardedFolders",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values of Defender PUA Protection",
+      "jsonName": "defenderAdobeReaderLaunchChildProcess",
+      "name": "DefenderAdobeReaderLaunchChildProcess",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DefenderProtectionType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values of Defender PUA Protection",
+      "jsonName": "defenderAdvancedRansomewareProtectionType",
+      "name": "DefenderAdvancedRansomewareProtectionType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DefenderProtectionType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allows or disallows Windows Defender Behavior Monitoring functionality.",
+      "jsonName": "defenderAllowBehaviorMonitoring",
+      "name": "DefenderAllowBehaviorMonitoring",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "To best protect your PC, Windows Defender will send information to Microsoft about any problems it finds. Microsoft will analyze that information, learn more about problems affecting you and other customers, and offer improved solutions.",
+      "jsonName": "defenderAllowCloudProtection",
+      "name": "DefenderAllowCloudProtection",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allows or disallows user access to the Windows Defender UI. If disallowed, all Windows Defender notifications will also be suppressed.",
+      "jsonName": "defenderAllowEndUserAccess",
+      "name": "DefenderAllowEndUserAccess",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allows or disallows Windows Defender Intrusion Prevention functionality.",
+      "jsonName": "defenderAllowIntrusionPreventionSystem",
+      "name": "DefenderAllowIntrusionPreventionSystem",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allows or disallows Windows Defender On Access Protection functionality.",
+      "jsonName": "defenderAllowOnAccessProtection",
+      "name": "DefenderAllowOnAccessProtection",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allows or disallows Windows Defender Realtime Monitoring functionality.",
+      "jsonName": "defenderAllowRealTimeMonitoring",
+      "name": "DefenderAllowRealTimeMonitoring",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allows or disallows scanning of archives.",
+      "jsonName": "defenderAllowScanArchiveFiles",
+      "name": "DefenderAllowScanArchiveFiles",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allows or disallows Windows Defender IOAVP Protection functionality.",
+      "jsonName": "defenderAllowScanDownloads",
+      "name": "DefenderAllowScanDownloads",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allows or disallows a scanning of network files.",
+      "jsonName": "defenderAllowScanNetworkFiles",
+      "name": "DefenderAllowScanNetworkFiles",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allows or disallows a full scan of removable drives. During a quick scan, removable drives may still be scanned.",
+      "jsonName": "defenderAllowScanRemovableDrivesDuringFullScan",
+      "name": "DefenderAllowScanRemovableDrivesDuringFullScan",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allows or disallows Windows Defender Script Scanning functionality.",
+      "jsonName": "defenderAllowScanScriptsLoadedInInternetExplorer",
+      "name": "DefenderAllowScanScriptsLoadedInInternetExplorer",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "List of exe files and folders to be excluded from attack surface reduction rules",
+      "jsonName": "defenderAttackSurfaceReductionExcludedPaths",
+      "name": "DefenderAttackSurfaceReductionExcludedPaths",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allows or disallows user access to the Windows Defender UI. If disallowed, all Windows Defender notifications will also be suppressed.",
+      "jsonName": "defenderBlockEndUserAccess",
+      "name": "DefenderBlockEndUserAccess",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values of Defender Attack Surface Reduction Rules",
+      "jsonName": "defenderBlockPersistenceThroughWmiType",
+      "name": "DefenderBlockPersistenceThroughWmiType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DefenderAttackSurfaceType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This policy setting allows you to manage whether a check for new virus and spyware definitions will occur before running a scan.",
+      "jsonName": "defenderCheckForSignaturesBeforeRunningScan",
+      "name": "DefenderCheckForSignaturesBeforeRunningScan",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Added in Windows 10, version 1709. This policy setting determines how aggressive Windows Defender Antivirus will be in blocking and scanning suspicious files. Value type is integer. This feature requires the 'Join Microsoft MAPS' setting enabled in order to function. Possible values are: notConfigured, high, highPlus, zeroTolerance.",
+      "jsonName": "defenderCloudBlockLevel",
+      "name": "DefenderCloudBlockLevel",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DefenderCloudBlockLevelType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Added in Windows 10, version 1709. This feature allows Windows Defender Antivirus to block a suspicious file for up to 60 seconds, and scan it in the cloud to make sure it's safe. Value type is integer, range is 0 - 50. This feature depends on three other MAPS settings the must all be enabled- 'Configure the 'Block at First Sight' feature; 'Join Microsoft MAPS'; 'Send file samples when further analysis is required'. Valid values 0 to 50",
+      "jsonName": "defenderCloudExtendedTimeoutInSeconds",
+      "name": "DefenderCloudExtendedTimeoutInSeconds",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Time period (in days) that quarantine items will be stored on the system. Valid values 0 to 90",
+      "jsonName": "defenderDaysBeforeDeletingQuarantinedMalware",
+      "name": "DefenderDaysBeforeDeletingQuarantinedMalware",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allows an administrator to specify any valid threat severity levels and the corresponding default action ID to take.",
+      "jsonName": "defenderDetectedMalwareActions",
+      "name": "DefenderDetectedMalwareActions",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DefenderDetectedMalwareActions",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allows or disallows Windows Defender Behavior Monitoring functionality.",
+      "jsonName": "defenderDisableBehaviorMonitoring",
+      "name": "DefenderDisableBehaviorMonitoring",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This policy setting allows you to configure catch-up scans for scheduled full scans. A catch-up scan is a scan that is initiated because a regularly scheduled scan was missed. Usually these scheduled scans are missed because the computer was turned off at the scheduled time.",
+      "jsonName": "defenderDisableCatchupFullScan",
+      "name": "DefenderDisableCatchupFullScan",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This policy setting allows you to configure catch-up scans for scheduled quick scans. A catch-up scan is a scan that is initiated because a regularly scheduled scan was missed. Usually these scheduled scans are missed because the computer was turned off at the scheduled time.",
+      "jsonName": "defenderDisableCatchupQuickScan",
+      "name": "DefenderDisableCatchupQuickScan",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "To best protect your PC, Windows Defender will send information to Microsoft about any problems it finds. Microsoft will analyze that information, learn more about problems affecting you and other customers, and offer improved solutions.",
+      "jsonName": "defenderDisableCloudProtection",
+      "name": "DefenderDisableCloudProtection",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allows or disallows Windows Defender Intrusion Prevention functionality.",
+      "jsonName": "defenderDisableIntrusionPreventionSystem",
+      "name": "DefenderDisableIntrusionPreventionSystem",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allows or disallows Windows Defender On Access Protection functionality.",
+      "jsonName": "defenderDisableOnAccessProtection",
+      "name": "DefenderDisableOnAccessProtection",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allows or disallows Windows Defender Realtime Monitoring functionality.",
+      "jsonName": "defenderDisableRealTimeMonitoring",
+      "name": "DefenderDisableRealTimeMonitoring",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allows or disallows scanning of archives.",
+      "jsonName": "defenderDisableScanArchiveFiles",
+      "name": "DefenderDisableScanArchiveFiles",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allows or disallows Windows Defender IOAVP Protection functionality.",
+      "jsonName": "defenderDisableScanDownloads",
+      "name": "DefenderDisableScanDownloads",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allows or disallows a scanning of network files.",
+      "jsonName": "defenderDisableScanNetworkFiles",
+      "name": "DefenderDisableScanNetworkFiles",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allows or disallows a full scan of removable drives. During a quick scan, removable drives may still be scanned.",
+      "jsonName": "defenderDisableScanRemovableDrivesDuringFullScan",
+      "name": "DefenderDisableScanRemovableDrivesDuringFullScan",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allows or disallows Windows Defender Script Scanning functionality.",
+      "jsonName": "defenderDisableScanScriptsLoadedInInternetExplorer",
+      "name": "DefenderDisableScanScriptsLoadedInInternetExplorer",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values of Defender PUA Protection",
+      "jsonName": "defenderEmailContentExecution",
+      "name": "DefenderEmailContentExecution",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DefenderProtectionType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values of Defender Attack Surface Reduction Rules",
+      "jsonName": "defenderEmailContentExecutionType",
+      "name": "DefenderEmailContentExecutionType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DefenderAttackSurfaceType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This policy setting allows you to enable or disable low CPU priority for scheduled scans.",
+      "jsonName": "defenderEnableLowCpuPriority",
+      "name": "DefenderEnableLowCpuPriority",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allows or disallows scanning of email.",
+      "jsonName": "defenderEnableScanIncomingMail",
+      "name": "DefenderEnableScanIncomingMail",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allows or disallows a full scan of mapped network drives.",
+      "jsonName": "defenderEnableScanMappedNetworkDrivesDuringFullScan",
+      "name": "DefenderEnableScanMappedNetworkDrivesDuringFullScan",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Xml content containing information regarding exploit protection details.",
+      "jsonName": "defenderExploitProtectionXml",
+      "name": "DefenderExploitProtectionXml",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Name of the file from which DefenderExploitProtectionXml was obtained.",
+      "jsonName": "defenderExploitProtectionXmlFileName",
+      "name": "DefenderExploitProtectionXmlFileName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "File extensions to exclude from scans and real time protection.",
+      "jsonName": "defenderFileExtensionsToExclude",
+      "name": "DefenderFileExtensionsToExclude",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Files and folder to exclude from scans and real time protection.",
+      "jsonName": "defenderFilesAndFoldersToExclude",
+      "name": "DefenderFilesAndFoldersToExclude",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values of Folder Protection",
+      "jsonName": "defenderGuardMyFoldersType",
+      "name": "DefenderGuardMyFoldersType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "FolderProtectionType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "List of paths to exe that are allowed to access protected folders",
+      "jsonName": "defenderGuardedFoldersAllowedAppPaths",
+      "name": "DefenderGuardedFoldersAllowedAppPaths",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values of Defender PUA Protection",
+      "jsonName": "defenderNetworkProtectionType",
+      "name": "DefenderNetworkProtectionType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DefenderProtectionType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values of Defender PUA Protection",
+      "jsonName": "defenderOfficeAppsExecutableContentCreationOrLaunch",
+      "name": "DefenderOfficeAppsExecutableContentCreationOrLaunch",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DefenderProtectionType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values of Defender Attack Surface Reduction Rules",
+      "jsonName": "defenderOfficeAppsExecutableContentCreationOrLaunchType",
+      "name": "DefenderOfficeAppsExecutableContentCreationOrLaunchType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DefenderAttackSurfaceType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values of Defender PUA Protection",
+      "jsonName": "defenderOfficeAppsLaunchChildProcess",
+      "name": "DefenderOfficeAppsLaunchChildProcess",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DefenderProtectionType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values of Defender Attack Surface Reduction Rules",
+      "jsonName": "defenderOfficeAppsLaunchChildProcessType",
+      "name": "DefenderOfficeAppsLaunchChildProcessType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DefenderAttackSurfaceType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values of Defender PUA Protection",
+      "jsonName": "defenderOfficeAppsOtherProcessInjection",
+      "name": "DefenderOfficeAppsOtherProcessInjection",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DefenderProtectionType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values of Defender Attack Surface Reduction Rules",
+      "jsonName": "defenderOfficeAppsOtherProcessInjectionType",
+      "name": "DefenderOfficeAppsOtherProcessInjectionType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DefenderAttackSurfaceType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values of Defender PUA Protection",
+      "jsonName": "defenderOfficeCommunicationAppsLaunchChildProcess",
+      "name": "DefenderOfficeCommunicationAppsLaunchChildProcess",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DefenderProtectionType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values of Defender PUA Protection",
+      "jsonName": "defenderOfficeMacroCodeAllowWin32Imports",
+      "name": "DefenderOfficeMacroCodeAllowWin32Imports",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DefenderProtectionType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values of Defender Attack Surface Reduction Rules",
+      "jsonName": "defenderOfficeMacroCodeAllowWin32ImportsType",
+      "name": "DefenderOfficeMacroCodeAllowWin32ImportsType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DefenderAttackSurfaceType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Added in Windows 10, version 1607. Specifies the level of detection for potentially unwanted applications (PUAs). Windows Defender alerts you when potentially unwanted software is being downloaded or attempts to install itself on your computer. Possible values are: userDefined, enable, auditMode, warn, notConfigured.",
+      "jsonName": "defenderPotentiallyUnwantedAppAction",
+      "name": "DefenderPotentiallyUnwantedAppAction",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DefenderProtectionType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values of Defender PUA Protection",
+      "jsonName": "defenderPreventCredentialStealingType",
+      "name": "DefenderPreventCredentialStealingType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DefenderProtectionType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values of Defender PUA Protection",
+      "jsonName": "defenderProcessCreation",
+      "name": "DefenderProcessCreation",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DefenderProtectionType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values of Defender Attack Surface Reduction Rules",
+      "jsonName": "defenderProcessCreationType",
+      "name": "DefenderProcessCreationType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DefenderAttackSurfaceType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Processes to exclude from scans and real time protection.",
+      "jsonName": "defenderProcessesToExclude",
+      "name": "DefenderProcessesToExclude",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Controls which sets of files should be monitored. Possible values are: monitorAllFiles, monitorIncomingFilesOnly, monitorOutgoingFilesOnly.",
+      "jsonName": "defenderScanDirection",
+      "name": "DefenderScanDirection",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DefenderRealtimeScanDirection",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Represents the average CPU load factor for the Windows Defender scan (in percent). The default value is 50. Valid values 0 to 100",
+      "jsonName": "defenderScanMaxCpuPercentage",
+      "name": "DefenderScanMaxCpuPercentage",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Selects whether to perform a quick scan or full scan. Possible values are: userDefined, disabled, quick, full.",
+      "jsonName": "defenderScanType",
+      "name": "DefenderScanType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DefenderScanType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Selects the time of day that the Windows Defender quick scan should run. For example, a value of 0=12:00AM, a value of 60=1:00AM, a value of 120=2:00, and so on, up to a value of 1380=11:00PM. The default value is 120",
+      "jsonName": "defenderScheduledQuickScanTime",
+      "name": "DefenderScheduledQuickScanTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Selects the day that the Windows Defender scan should run. Possible values are: userDefined, everyday, sunday, monday, tuesday, wednesday, thursday, friday, saturday, noScheduledScan.",
+      "jsonName": "defenderScheduledScanDay",
+      "name": "DefenderScheduledScanDay",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WeeklySchedule",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Selects the time of day that the Windows Defender scan should run.",
+      "jsonName": "defenderScheduledScanTime",
+      "name": "DefenderScheduledScanTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values of Defender PUA Protection",
+      "jsonName": "defenderScriptDownloadedPayloadExecution",
+      "name": "DefenderScriptDownloadedPayloadExecution",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DefenderProtectionType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values of Defender Attack Surface Reduction Rules",
+      "jsonName": "defenderScriptDownloadedPayloadExecutionType",
+      "name": "DefenderScriptDownloadedPayloadExecutionType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DefenderAttackSurfaceType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values of Defender PUA Protection",
+      "jsonName": "defenderScriptObfuscatedMacroCode",
+      "name": "DefenderScriptObfuscatedMacroCode",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DefenderProtectionType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values of Defender Attack Surface Reduction Rules",
+      "jsonName": "defenderScriptObfuscatedMacroCodeType",
+      "name": "DefenderScriptObfuscatedMacroCodeType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DefenderAttackSurfaceType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block user from overriding Exploit Protection settings.",
+      "jsonName": "defenderSecurityCenterBlockExploitProtectionOverride",
+      "name": "DefenderSecurityCenterBlockExploitProtectionOverride",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Used to disable the display of the account protection area.",
+      "jsonName": "defenderSecurityCenterDisableAccountUI",
+      "name": "DefenderSecurityCenterDisableAccountUI",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Used to disable the display of the app and browser protection area.",
+      "jsonName": "defenderSecurityCenterDisableAppBrowserUI",
+      "name": "DefenderSecurityCenterDisableAppBrowserUI",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Used to disable the display of the Clear TPM button.",
+      "jsonName": "defenderSecurityCenterDisableClearTpmUI",
+      "name": "DefenderSecurityCenterDisableClearTpmUI",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Used to disable the display of the family options area.",
+      "jsonName": "defenderSecurityCenterDisableFamilyUI",
+      "name": "DefenderSecurityCenterDisableFamilyUI",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Used to disable the display of the hardware protection area.",
+      "jsonName": "defenderSecurityCenterDisableHardwareUI",
+      "name": "DefenderSecurityCenterDisableHardwareUI",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Used to disable the display of the device performance and health area.",
+      "jsonName": "defenderSecurityCenterDisableHealthUI",
+      "name": "DefenderSecurityCenterDisableHealthUI",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Used to disable the display of the firewall and network protection area.",
+      "jsonName": "defenderSecurityCenterDisableNetworkUI",
+      "name": "DefenderSecurityCenterDisableNetworkUI",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Used to disable the display of the notification area control. The user needs to either sign out and sign in or reboot the computer for this setting to take effect.",
+      "jsonName": "defenderSecurityCenterDisableNotificationAreaUI",
+      "name": "DefenderSecurityCenterDisableNotificationAreaUI",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Used to disable the display of the ransomware protection area.",
+      "jsonName": "defenderSecurityCenterDisableRansomwareUI",
+      "name": "DefenderSecurityCenterDisableRansomwareUI",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Used to disable the display of the secure boot area under Device security.",
+      "jsonName": "defenderSecurityCenterDisableSecureBootUI",
+      "name": "DefenderSecurityCenterDisableSecureBootUI",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Used to disable the display of the security process troubleshooting under Device security.",
+      "jsonName": "defenderSecurityCenterDisableTroubleshootingUI",
+      "name": "DefenderSecurityCenterDisableTroubleshootingUI",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Used to disable the display of the virus and threat protection area.",
+      "jsonName": "defenderSecurityCenterDisableVirusUI",
+      "name": "DefenderSecurityCenterDisableVirusUI",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Used to disable the display of update TPM Firmware when a vulnerable firmware is detected.",
+      "jsonName": "defenderSecurityCenterDisableVulnerableTpmFirmwareUpdateUI",
+      "name": "DefenderSecurityCenterDisableVulnerableTpmFirmwareUpdateUI",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The email address that is displayed to users.",
+      "jsonName": "defenderSecurityCenterHelpEmail",
+      "name": "DefenderSecurityCenterHelpEmail",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The phone number or Skype ID that is displayed to users.",
+      "jsonName": "defenderSecurityCenterHelpPhone",
+      "name": "DefenderSecurityCenterHelpPhone",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The help portal URL this is displayed to users.",
+      "jsonName": "defenderSecurityCenterHelpURL",
+      "name": "DefenderSecurityCenterHelpURL",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values for defenderSecurityCenterITContactDisplay",
+      "jsonName": "defenderSecurityCenterITContactDisplay",
+      "name": "DefenderSecurityCenterITContactDisplay",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DefenderSecurityCenterITContactDisplayType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values for defenderSecurityCenterNotificationsFromApp",
+      "jsonName": "defenderSecurityCenterNotificationsFromApp",
+      "name": "DefenderSecurityCenterNotificationsFromApp",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DefenderSecurityCenterNotificationsFromAppType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The company name that is displayed to the users.",
+      "jsonName": "defenderSecurityCenterOrganizationDisplayName",
+      "name": "DefenderSecurityCenterOrganizationDisplayName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the interval (in hours) that will be used to check for signatures, so instead of using the ScheduleDay and ScheduleTime the check for new signatures will be set according to the interval. Valid values 0 to 24",
+      "jsonName": "defenderSignatureUpdateIntervalInHours",
+      "name": "DefenderSignatureUpdateIntervalInHours",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Checks for the user consent level in Windows Defender to send data. Possible values are: sendSafeSamplesAutomatically, alwaysPrompt, neverSend, sendAllSamplesAutomatically.",
+      "jsonName": "defenderSubmitSamplesConsentType",
+      "name": "DefenderSubmitSamplesConsentType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DefenderSubmitSamplesConsentType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values of Defender PUA Protection",
+      "jsonName": "defenderUntrustedExecutable",
+      "name": "DefenderUntrustedExecutable",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DefenderProtectionType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values of Defender Attack Surface Reduction Rules",
+      "jsonName": "defenderUntrustedExecutableType",
+      "name": "DefenderUntrustedExecutableType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DefenderAttackSurfaceType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values of Defender PUA Protection",
+      "jsonName": "defenderUntrustedUSBProcess",
+      "name": "DefenderUntrustedUSBProcess",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DefenderProtectionType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values of Defender Attack Surface Reduction Rules",
+      "jsonName": "defenderUntrustedUSBProcessType",
+      "name": "DefenderUntrustedUSBProcessType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DefenderAttackSurfaceType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This property will be deprecated in May 2019 and will be replaced with property DeviceGuardSecureBootWithDMA. Specifies whether Platform Security Level is enabled at next reboot.",
+      "jsonName": "deviceGuardEnableSecureBootWithDMA",
+      "name": "DeviceGuardEnableSecureBootWithDMA",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Turns On Virtualization Based Security(VBS).",
+      "jsonName": "deviceGuardEnableVirtualizationBasedSecurity",
+      "name": "DeviceGuardEnableVirtualizationBasedSecurity",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values of a property",
+      "jsonName": "deviceGuardLaunchSystemGuard",
+      "name": "DeviceGuardLaunchSystemGuard",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Enablement",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values of Credential Guard settings.",
+      "jsonName": "deviceGuardLocalSystemAuthorityCredentialGuardSettings",
+      "name": "DeviceGuardLocalSystemAuthorityCredentialGuardSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceGuardLocalSystemAuthorityCredentialGuardType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values of Secure Boot with DMA",
+      "jsonName": "deviceGuardSecureBootWithDMA",
+      "name": "DeviceGuardSecureBootWithDMA",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SecureBootWithDMAType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values of the DmaGuardDeviceEnumerationPolicy.",
+      "jsonName": "dmaGuardDeviceEnumerationPolicy",
+      "name": "DmaGuardDeviceEnumerationPolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DmaGuardDeviceEnumerationPolicyType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Blocks stateful FTP connections to the device",
+      "jsonName": "firewallBlockStatefulFTP",
+      "name": "FirewallBlockStatefulFTP",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values for firewallCertificateRevocationListCheckMethod",
+      "jsonName": "firewallCertificateRevocationListCheckMethod",
+      "name": "FirewallCertificateRevocationListCheckMethod",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "FirewallCertificateRevocationListCheckMethodType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Configures IPSec exemptions to allow both IPv4 and IPv6 DHCP traffic",
+      "jsonName": "firewallIPSecExemptionsAllowDHCP",
+      "name": "FirewallIPSecExemptionsAllowDHCP",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Configures IPSec exemptions to allow ICMP",
+      "jsonName": "firewallIPSecExemptionsAllowICMP",
+      "name": "FirewallIPSecExemptionsAllowICMP",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Configures IPSec exemptions to allow neighbor discovery IPv6 ICMP type-codes",
+      "jsonName": "firewallIPSecExemptionsAllowNeighborDiscovery",
+      "name": "FirewallIPSecExemptionsAllowNeighborDiscovery",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Configures IPSec exemptions to allow router discovery IPv6 ICMP type-codes",
+      "jsonName": "firewallIPSecExemptionsAllowRouterDiscovery",
+      "name": "FirewallIPSecExemptionsAllowRouterDiscovery",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Configures IPSec exemptions to no exemptions",
+      "jsonName": "firewallIPSecExemptionsNone",
+      "name": "FirewallIPSecExemptionsNone",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Configures the idle timeout for security associations, in seconds, from 300 to 3600 inclusive. This is the period after which security associations will expire and be deleted. Valid values 300 to 3600",
+      "jsonName": "firewallIdleTimeoutForSecurityAssociationInSeconds",
+      "name": "FirewallIdleTimeoutForSecurityAssociationInSeconds",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "If an authentication set is not fully supported by a keying module, direct the module to ignore only unsupported authentication suites rather than the entire set",
+      "jsonName": "firewallMergeKeyingModuleSettings",
+      "name": "FirewallMergeKeyingModuleSettings",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values for firewallPacketQueueingMethod",
+      "jsonName": "firewallPacketQueueingMethod",
+      "name": "FirewallPacketQueueingMethod",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "FirewallPacketQueueingMethodType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values for firewallPreSharedKeyEncodingMethod",
+      "jsonName": "firewallPreSharedKeyEncodingMethod",
+      "name": "FirewallPreSharedKeyEncodingMethod",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "FirewallPreSharedKeyEncodingMethodType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Configures the firewall profile settings for domain networks",
+      "jsonName": "firewallProfileDomain",
+      "name": "FirewallProfileDomain",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WindowsFirewallNetworkProfile",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Configures the firewall profile settings for private networks",
+      "jsonName": "firewallProfilePrivate",
+      "name": "FirewallProfilePrivate",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WindowsFirewallNetworkProfile",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Configures the firewall profile settings for public networks",
+      "jsonName": "firewallProfilePublic",
+      "name": "FirewallProfilePublic",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WindowsFirewallNetworkProfile",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Configures the firewall rule settings. This collection can contain a maximum of 150 elements.",
+      "jsonName": "firewallRules",
+      "name": "FirewallRules",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "WindowsFirewallRule",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values for LanManagerAuthenticationLevel",
+      "jsonName": "lanManagerAuthenticationLevel",
+      "name": "LanManagerAuthenticationLevel",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "LanManagerAuthenticationLevel",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "If enabled,the SMB client will allow insecure guest logons. If not configured, the SMB client will reject insecure guest logons.",
+      "jsonName": "lanManagerWorkstationDisableInsecureGuestLogons",
+      "name": "LanManagerWorkstationDisableInsecureGuestLogons",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Define a different account name to be associated with the security identifier (SID) for the account 'Administrator'.",
+      "jsonName": "localSecurityOptionsAdministratorAccountName",
+      "name": "LocalSecurityOptionsAdministratorAccountName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values for LocalSecurityOptionsAdministratorElevationPromptBehavior",
+      "jsonName": "localSecurityOptionsAdministratorElevationPromptBehavior",
+      "name": "LocalSecurityOptionsAdministratorElevationPromptBehavior",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "LocalSecurityOptionsAdministratorElevationPromptBehaviorType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This security setting determines whether to allows anonymous users to perform certain activities, such as enumerating the names of domain accounts and network shares.",
+      "jsonName": "localSecurityOptionsAllowAnonymousEnumerationOfSAMAccountsAndShares",
+      "name": "LocalSecurityOptionsAllowAnonymousEnumerationOfSAMAccountsAndShares",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Block PKU2U authentication requests to this device to use online identities.",
+      "jsonName": "localSecurityOptionsAllowPKU2UAuthenticationRequests",
+      "name": "LocalSecurityOptionsAllowPKU2UAuthenticationRequests",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Edit the default Security Descriptor Definition Language string to allow or deny users and groups to make remote calls to the SAM.",
+      "jsonName": "localSecurityOptionsAllowRemoteCallsToSecurityAccountsManager",
+      "name": "LocalSecurityOptionsAllowRemoteCallsToSecurityAccountsManager",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "UI helper boolean for LocalSecurityOptionsAllowRemoteCallsToSecurityAccountsManager entity",
+      "jsonName": "localSecurityOptionsAllowRemoteCallsToSecurityAccountsManagerHelperBool",
+      "name": "LocalSecurityOptionsAllowRemoteCallsToSecurityAccountsManagerHelperBool",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This security setting determines whether a computer can be shut down without having to log on to Windows.",
+      "jsonName": "localSecurityOptionsAllowSystemToBeShutDownWithoutHavingToLogOn",
+      "name": "LocalSecurityOptionsAllowSystemToBeShutDownWithoutHavingToLogOn",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allow UIAccess apps to prompt for elevation without using the secure desktop.",
+      "jsonName": "localSecurityOptionsAllowUIAccessApplicationElevation",
+      "name": "LocalSecurityOptionsAllowUIAccessApplicationElevation",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allow UIAccess apps to prompt for elevation without using the secure desktop.Default is enabled",
+      "jsonName": "localSecurityOptionsAllowUIAccessApplicationsForSecureLocations",
+      "name": "LocalSecurityOptionsAllowUIAccessApplicationsForSecureLocations",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Prevent a portable computer from being undocked without having to log in.",
+      "jsonName": "localSecurityOptionsAllowUndockWithoutHavingToLogon",
+      "name": "LocalSecurityOptionsAllowUndockWithoutHavingToLogon",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Prevent users from adding new Microsoft accounts to this computer.",
+      "jsonName": "localSecurityOptionsBlockMicrosoftAccounts",
+      "name": "LocalSecurityOptionsBlockMicrosoftAccounts",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Enable Local accounts that are not password protected to log on from locations other than the physical device.Default is enabled",
+      "jsonName": "localSecurityOptionsBlockRemoteLogonWithBlankPassword",
+      "name": "LocalSecurityOptionsBlockRemoteLogonWithBlankPassword",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Enabling this settings allows only interactively logged on user to access CD-ROM media.",
+      "jsonName": "localSecurityOptionsBlockRemoteOpticalDriveAccess",
+      "name": "LocalSecurityOptionsBlockRemoteOpticalDriveAccess",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Restrict installing printer drivers as part of connecting to a shared printer to admins only.",
+      "jsonName": "localSecurityOptionsBlockUsersInstallingPrinterDrivers",
+      "name": "LocalSecurityOptionsBlockUsersInstallingPrinterDrivers",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This security setting determines whether the virtual memory pagefile is cleared when the system is shut down.",
+      "jsonName": "localSecurityOptionsClearVirtualMemoryPageFile",
+      "name": "LocalSecurityOptionsClearVirtualMemoryPageFile",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This security setting determines whether packet signing is required by the SMB client component.",
+      "jsonName": "localSecurityOptionsClientDigitallySignCommunicationsAlways",
+      "name": "LocalSecurityOptionsClientDigitallySignCommunicationsAlways",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "If this security setting is enabled, the Server Message Block (SMB) redirector is allowed to send plaintext passwords to non-Microsoft SMB servers that do not support password encryption during authentication.",
+      "jsonName": "localSecurityOptionsClientSendUnencryptedPasswordToThirdPartySMBServers",
+      "name": "LocalSecurityOptionsClientSendUnencryptedPasswordToThirdPartySMBServers",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "App installations requiring elevated privileges will prompt for admin credentials.Default is enabled",
+      "jsonName": "localSecurityOptionsDetectApplicationInstallationsAndPromptForElevation",
+      "name": "LocalSecurityOptionsDetectApplicationInstallationsAndPromptForElevation",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Determines whether the Local Administrator account is enabled or disabled.",
+      "jsonName": "localSecurityOptionsDisableAdministratorAccount",
+      "name": "LocalSecurityOptionsDisableAdministratorAccount",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This security setting determines whether the SMB client attempts to negotiate SMB packet signing.",
+      "jsonName": "localSecurityOptionsDisableClientDigitallySignCommunicationsIfServerAgrees",
+      "name": "LocalSecurityOptionsDisableClientDigitallySignCommunicationsIfServerAgrees",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Determines if the Guest account is enabled or disabled.",
+      "jsonName": "localSecurityOptionsDisableGuestAccount",
+      "name": "LocalSecurityOptionsDisableGuestAccount",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This security setting determines whether packet signing is required by the SMB server component.",
+      "jsonName": "localSecurityOptionsDisableServerDigitallySignCommunicationsAlways",
+      "name": "LocalSecurityOptionsDisableServerDigitallySignCommunicationsAlways",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This security setting determines whether the SMB server will negotiate SMB packet signing with clients that request it.",
+      "jsonName": "localSecurityOptionsDisableServerDigitallySignCommunicationsIfClientAgrees",
+      "name": "LocalSecurityOptionsDisableServerDigitallySignCommunicationsIfClientAgrees",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This security setting determines what additional permissions will be granted for anonymous connections to the computer.",
+      "jsonName": "localSecurityOptionsDoNotAllowAnonymousEnumerationOfSAMAccounts",
+      "name": "LocalSecurityOptionsDoNotAllowAnonymousEnumerationOfSAMAccounts",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Require CTRL+ALT+DEL to be pressed before a user can log on.",
+      "jsonName": "localSecurityOptionsDoNotRequireCtrlAltDel",
+      "name": "LocalSecurityOptionsDoNotRequireCtrlAltDel",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This security setting determines if, at the next password change, the LAN Manager (LM) hash value for the new password is stored. It’s not stored by default.",
+      "jsonName": "localSecurityOptionsDoNotStoreLANManagerHashValueOnNextPasswordChange",
+      "name": "LocalSecurityOptionsDoNotStoreLANManagerHashValueOnNextPasswordChange",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values for LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser",
+      "jsonName": "localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser",
+      "name": "LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUserType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Define a different account name to be associated with the security identifier (SID) for the account 'Guest'.",
+      "jsonName": "localSecurityOptionsGuestAccountName",
+      "name": "LocalSecurityOptionsGuestAccountName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Do not display the username of the last person who signed in on this device.",
+      "jsonName": "localSecurityOptionsHideLastSignedInUser",
+      "name": "LocalSecurityOptionsHideLastSignedInUser",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Do not display the username of the person signing in to this device after credentials are entered and before the device’s desktop is shown.",
+      "jsonName": "localSecurityOptionsHideUsernameAtSignIn",
+      "name": "LocalSecurityOptionsHideUsernameAtSignIn",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values for LocalSecurityOptionsInformationDisplayedOnLockScreen",
+      "jsonName": "localSecurityOptionsInformationDisplayedOnLockScreen",
+      "name": "LocalSecurityOptionsInformationDisplayedOnLockScreen",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "LocalSecurityOptionsInformationDisplayedOnLockScreenType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values for LocalSecurityOptionsInformationShownOnLockScreenType",
+      "jsonName": "localSecurityOptionsInformationShownOnLockScreen",
+      "name": "LocalSecurityOptionsInformationShownOnLockScreen",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "LocalSecurityOptionsInformationShownOnLockScreenType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Set message text for users attempting to log in.",
+      "jsonName": "localSecurityOptionsLogOnMessageText",
+      "name": "LocalSecurityOptionsLogOnMessageText",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Set message title for users attempting to log in.",
+      "jsonName": "localSecurityOptionsLogOnMessageTitle",
+      "name": "LocalSecurityOptionsLogOnMessageTitle",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Define maximum minutes of inactivity on the interactive desktop’s login screen until the screen saver runs. Valid values 0 to 9999",
+      "jsonName": "localSecurityOptionsMachineInactivityLimit",
+      "name": "LocalSecurityOptionsMachineInactivityLimit",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Define maximum minutes of inactivity on the interactive desktop’s login screen until the screen saver runs. Valid values 0 to 9999",
+      "jsonName": "localSecurityOptionsMachineInactivityLimitInMinutes",
+      "name": "LocalSecurityOptionsMachineInactivityLimitInMinutes",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values for LocalSecurityOptionsMinimumSessionSecurity",
+      "jsonName": "localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients",
+      "name": "LocalSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "LocalSecurityOptionsMinimumSessionSecurity",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values for LocalSecurityOptionsMinimumSessionSecurity",
+      "jsonName": "localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers",
+      "name": "LocalSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "LocalSecurityOptionsMinimumSessionSecurity",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Enforce PKI certification path validation for a given executable file before it is permitted to run.",
+      "jsonName": "localSecurityOptionsOnlyElevateSignedExecutables",
+      "name": "LocalSecurityOptionsOnlyElevateSignedExecutables",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "By default, this security setting restricts anonymous access to shares and pipes to the settings for named pipes that can be accessed anonymously and Shares that can be accessed anonymously",
+      "jsonName": "localSecurityOptionsRestrictAnonymousAccessToNamedPipesAndShares",
+      "name": "LocalSecurityOptionsRestrictAnonymousAccessToNamedPipesAndShares",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values for LocalSecurityOptionsSmartCardRemovalBehaviorType",
+      "jsonName": "localSecurityOptionsSmartCardRemovalBehavior",
+      "name": "LocalSecurityOptionsSmartCardRemovalBehavior",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "LocalSecurityOptionsSmartCardRemovalBehaviorType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values for LocalSecurityOptionsStandardUserElevationPromptBehavior",
+      "jsonName": "localSecurityOptionsStandardUserElevationPromptBehavior",
+      "name": "LocalSecurityOptionsStandardUserElevationPromptBehavior",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "LocalSecurityOptionsStandardUserElevationPromptBehaviorType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Enable all elevation requests to go to the interactive user's desktop rather than the secure desktop. Prompt behavior policy settings for admins and standard users are used.",
+      "jsonName": "localSecurityOptionsSwitchToSecureDesktopWhenPromptingForElevation",
+      "name": "LocalSecurityOptionsSwitchToSecureDesktopWhenPromptingForElevation",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Defines whether the built-in admin account uses Admin Approval Mode or runs all apps with full admin privileges.Default is enabled",
+      "jsonName": "localSecurityOptionsUseAdminApprovalMode",
+      "name": "LocalSecurityOptionsUseAdminApprovalMode",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Define whether Admin Approval Mode and all UAC policy settings are enabled, default is enabled",
+      "jsonName": "localSecurityOptionsUseAdminApprovalModeForAdministrators",
+      "name": "LocalSecurityOptionsUseAdminApprovalModeForAdministrators",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Virtualize file and registry write failures to per user locations",
+      "jsonName": "localSecurityOptionsVirtualizeFileAndRegistryWriteFailuresToPerUserLocations",
+      "name": "LocalSecurityOptionsVirtualizeFileAndRegistryWriteFailuresToPerUserLocations",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allows IT Admins to control whether users can can ignore SmartScreen warnings and run malicious files.",
+      "jsonName": "smartScreenBlockOverrideForFiles",
+      "name": "SmartScreenBlockOverrideForFiles",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allows IT Admins to configure SmartScreen for Windows.",
+      "jsonName": "smartScreenEnableInShell",
+      "name": "SmartScreenEnableInShell",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This user right is used by Credential Manager during Backup/Restore. Users' saved credentials might be compromised if this privilege is given to other entities. Only states NotConfigured and Allowed are supported",
+      "jsonName": "userRightsAccessCredentialManagerAsTrustedCaller",
+      "name": "UserRightsAccessCredentialManagerAsTrustedCaller",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceManagementUserRightsSetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This user right allows a process to impersonate any user without authentication. The process can therefore gain access to the same local resources as that user. Only states NotConfigured and Allowed are supported",
+      "jsonName": "userRightsActAsPartOfTheOperatingSystem",
+      "name": "UserRightsActAsPartOfTheOperatingSystem",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceManagementUserRightsSetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This user right determines which users and groups are allowed to connect to the computer over the network. State Allowed is supported.",
+      "jsonName": "userRightsAllowAccessFromNetwork",
+      "name": "UserRightsAllowAccessFromNetwork",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceManagementUserRightsSetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This user right determines which users can bypass file, directory, registry, and other persistent objects permissions when backing up files and directories. Only states NotConfigured and Allowed are supported",
+      "jsonName": "userRightsBackupData",
+      "name": "UserRightsBackupData",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceManagementUserRightsSetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This user right determines which users and groups are block from connecting to the computer over the network. State Block is supported.",
+      "jsonName": "userRightsBlockAccessFromNetwork",
+      "name": "UserRightsBlockAccessFromNetwork",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceManagementUserRightsSetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This user right determines which users and groups can change the time and date on the internal clock of the computer. Only states NotConfigured and Allowed are supported",
+      "jsonName": "userRightsChangeSystemTime",
+      "name": "UserRightsChangeSystemTime",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceManagementUserRightsSetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This security setting determines whether users can create global objects that are available to all sessions. Users who can create global objects could affect processes that run under other users' sessions, which could lead to application failure or data corruption. Only states NotConfigured and Allowed are supported",
+      "jsonName": "userRightsCreateGlobalObjects",
+      "name": "UserRightsCreateGlobalObjects",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceManagementUserRightsSetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This user right determines which users and groups can call an internal API to create and change the size of a page file. Only states NotConfigured and Allowed are supported",
+      "jsonName": "userRightsCreatePageFile",
+      "name": "UserRightsCreatePageFile",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceManagementUserRightsSetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This user right determines which accounts can be used by processes to create a directory object using the object manager. Only states NotConfigured and Allowed are supported",
+      "jsonName": "userRightsCreatePermanentSharedObjects",
+      "name": "UserRightsCreatePermanentSharedObjects",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceManagementUserRightsSetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This user right determines if the user can create a symbolic link from the computer to which they are logged on. Only states NotConfigured and Allowed are supported",
+      "jsonName": "userRightsCreateSymbolicLinks",
+      "name": "UserRightsCreateSymbolicLinks",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceManagementUserRightsSetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This user right determines which users/groups can be used by processes to create a token that can then be used to get access to any local resources when the process uses an internal API to create an access token. Only states NotConfigured and Allowed are supported",
+      "jsonName": "userRightsCreateToken",
+      "name": "UserRightsCreateToken",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceManagementUserRightsSetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This user right determines which users can attach a debugger to any process or to the kernel. Only states NotConfigured and Allowed are supported",
+      "jsonName": "userRightsDebugPrograms",
+      "name": "UserRightsDebugPrograms",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceManagementUserRightsSetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This user right determines which users can set the Trusted for Delegation setting on a user or computer object. Only states NotConfigured and Allowed are supported.",
+      "jsonName": "userRightsDelegation",
+      "name": "UserRightsDelegation",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceManagementUserRightsSetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This user right determines which users cannot log on to the computer. States NotConfigured, Blocked are supported",
+      "jsonName": "userRightsDenyLocalLogOn",
+      "name": "UserRightsDenyLocalLogOn",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceManagementUserRightsSetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This user right determines which accounts can be used by a process to add entries to the security log. The security log is used to trace unauthorized system access.  Only states NotConfigured and Allowed are supported.",
+      "jsonName": "userRightsGenerateSecurityAudits",
+      "name": "UserRightsGenerateSecurityAudits",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceManagementUserRightsSetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Assigning this user right to a user allows programs running on behalf of that user to impersonate a client. Requiring this user right for this kind of impersonation prevents an unauthorized user from convincing a client to connect to a service that they have created and then impersonating that client, which can elevate the unauthorized user's permissions to administrative or system levels. Only states NotConfigured and Allowed are supported.",
+      "jsonName": "userRightsImpersonateClient",
+      "name": "UserRightsImpersonateClient",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceManagementUserRightsSetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This user right determines which accounts can use a process with Write Property access to another process to increase the execution priority assigned to the other process. Only states NotConfigured and Allowed are supported.",
+      "jsonName": "userRightsIncreaseSchedulingPriority",
+      "name": "UserRightsIncreaseSchedulingPriority",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceManagementUserRightsSetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This user right determines which users can dynamically load and unload device drivers or other code in to kernel mode. Only states NotConfigured and Allowed are supported.",
+      "jsonName": "userRightsLoadUnloadDrivers",
+      "name": "UserRightsLoadUnloadDrivers",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceManagementUserRightsSetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This user right determines which users can log on to the computer. States NotConfigured, Allowed are supported",
+      "jsonName": "userRightsLocalLogOn",
+      "name": "UserRightsLocalLogOn",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceManagementUserRightsSetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This user right determines which accounts can use a process to keep data in physical memory, which prevents the system from paging the data to virtual memory on disk. Only states NotConfigured and Allowed are supported.",
+      "jsonName": "userRightsLockMemory",
+      "name": "UserRightsLockMemory",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceManagementUserRightsSetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This user right determines which users can specify object access auditing options for individual resources, such as files, Active Directory objects, and registry keys. Only states NotConfigured and Allowed are supported.",
+      "jsonName": "userRightsManageAuditingAndSecurityLogs",
+      "name": "UserRightsManageAuditingAndSecurityLogs",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceManagementUserRightsSetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This user right determines which users and groups can run maintenance tasks on a volume, such as remote defragmentation. Only states NotConfigured and Allowed are supported.",
+      "jsonName": "userRightsManageVolumes",
+      "name": "UserRightsManageVolumes",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceManagementUserRightsSetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This user right determines who can modify firmware environment values. Only states NotConfigured and Allowed are supported.",
+      "jsonName": "userRightsModifyFirmwareEnvironment",
+      "name": "UserRightsModifyFirmwareEnvironment",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceManagementUserRightsSetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This user right determines which user accounts can modify the integrity label of objects, such as files, registry keys, or processes owned by other users. Only states NotConfigured and Allowed are supported.",
+      "jsonName": "userRightsModifyObjectLabels",
+      "name": "UserRightsModifyObjectLabels",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceManagementUserRightsSetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This user right determines which users can use performance monitoring tools to monitor the performance of system processes. Only states NotConfigured and Allowed are supported.",
+      "jsonName": "userRightsProfileSingleProcess",
+      "name": "UserRightsProfileSingleProcess",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceManagementUserRightsSetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This user right determines which users and groups are prohibited from logging on as a Remote Desktop Services client. Only states NotConfigured and Blocked are supported",
+      "jsonName": "userRightsRemoteDesktopServicesLogOn",
+      "name": "UserRightsRemoteDesktopServicesLogOn",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceManagementUserRightsSetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This user right determines which users are allowed to shut down a computer from a remote location on the network. Misuse of this user right can result in a denial of service. Only states NotConfigured and Allowed are supported.",
+      "jsonName": "userRightsRemoteShutdown",
+      "name": "UserRightsRemoteShutdown",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceManagementUserRightsSetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This user right determines which users can bypass file, directory, registry, and other persistent objects permissions when restoring backed up files and directories, and determines which users can set any valid security principal as the owner of an object. Only states NotConfigured and Allowed are supported.",
+      "jsonName": "userRightsRestoreData",
+      "name": "UserRightsRestoreData",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceManagementUserRightsSetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This user right determines which users can take ownership of any securable object in the system, including Active Directory objects, files and folders, printers, registry keys, processes, and threads. Only states NotConfigured and Allowed are supported.",
+      "jsonName": "userRightsTakeOwnership",
+      "name": "UserRightsTakeOwnership",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceManagementUserRightsSetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Defender TamperProtection setting options",
+      "jsonName": "windowsDefenderTamperProtection",
+      "name": "WindowsDefenderTamperProtection",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WindowsDefenderTamperProtectionOptions",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values of xbox service start type",
+      "jsonName": "xboxServicesAccessoryManagementServiceStartupMode",
+      "name": "XboxServicesAccessoryManagementServiceStartupMode",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ServiceStartType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This setting determines whether xbox game save is enabled (1) or disabled (0).",
+      "jsonName": "xboxServicesEnableXboxGameSaveTask",
+      "name": "XboxServicesEnableXboxGameSaveTask",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values of xbox service start type",
+      "jsonName": "xboxServicesLiveAuthManagerServiceStartupMode",
+      "name": "XboxServicesLiveAuthManagerServiceStartupMode",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ServiceStartType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values of xbox service start type",
+      "jsonName": "xboxServicesLiveGameSaveServiceStartupMode",
+      "name": "XboxServicesLiveGameSaveServiceStartupMode",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ServiceStartType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values of xbox service start type",
+      "jsonName": "xboxServicesLiveNetworkingServiceStartupMode",
+      "name": "XboxServicesLiveNetworkingServiceStartupMode",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ServiceStartType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceConfiguration",
+  "discriminatedTypeValue": "#microsoft.graph.windows10EndpointProtectionConfiguration",
+  "typeHintIn": "ODataType"
+}

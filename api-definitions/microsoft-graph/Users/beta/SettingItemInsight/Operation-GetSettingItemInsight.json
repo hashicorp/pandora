@@ -1,0 +1,68 @@
+{
+  "name": "GetSettingItemInsight",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Get itemInsights from users. The user's settings for the visibility of meeting hour insights, and insights derived between a user and other items in Microsoft 365, such as documents or sites. Get userInsightsSettings through this navigation property.",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Expand",
+      "optional": true,
+      "required": false,
+      "field": "Expand",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Expand"
+      }
+    },
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    },
+    {
+      "Type": "Data",
+      "odataFieldName": "Select",
+      "optional": true,
+      "required": false,
+      "field": "Select",
+      "optionsObjectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      }
+    }
+  ],
+  "resourceIdName": "UserId",
+  "resourceIdNameIsCommonType": true,
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "UserInsightsSettings",
+    "referenceNameIsCommonType": true
+  },
+  "uriSuffix": "/settings/itemInsights"
+}

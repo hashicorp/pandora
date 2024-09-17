@@ -1,0 +1,25 @@
+{
+  "name": "WorkbookChartAxisTitleFormat",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Represents the font attributes, such as font name, font size, color, etc. of chart axis title object. Read-only.",
+      "jsonName": "font",
+      "name": "Font",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WorkbookChartFont",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.workbookChartAxisTitleFormat",
+  "typeHintIn": "ODataType"
+}

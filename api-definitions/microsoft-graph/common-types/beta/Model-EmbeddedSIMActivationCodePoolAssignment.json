@@ -1,0 +1,25 @@
+{
+  "name": "EmbeddedSIMActivationCodePoolAssignment",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Base type for assignment targets.",
+      "jsonName": "target",
+      "name": "Target",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceAndAppManagementAssignmentTarget",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.embeddedSIMActivationCodePoolAssignment",
+  "typeHintIn": "ODataType"
+}

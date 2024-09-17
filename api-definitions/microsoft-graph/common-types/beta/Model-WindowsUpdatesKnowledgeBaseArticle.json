@@ -1,0 +1,25 @@
+{
+  "name": "WindowsUpdatesKnowledgeBaseArticle",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The URL of the knowledge base article. Read-only.",
+      "jsonName": "url",
+      "name": "Url",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.windowsUpdates.knowledgeBaseArticle",
+  "typeHintIn": "ODataType"
+}

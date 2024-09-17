@@ -1,0 +1,24 @@
+{
+  "name": "NetworkaccessRelatedDevice",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "deviceId",
+      "name": "DeviceId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "NetworkaccessRelatedResource",
+  "discriminatedTypeValue": "#microsoft.graph.networkaccess.relatedDevice",
+  "typeHintIn": "ODataType"
+}

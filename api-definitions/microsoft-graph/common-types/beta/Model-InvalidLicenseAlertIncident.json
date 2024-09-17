@@ -1,0 +1,25 @@
+{
+  "name": "InvalidLicenseAlertIncident",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Status of the tenant's Microsoft Entra ID P2 license.",
+      "jsonName": "tenantLicenseStatus",
+      "name": "TenantLicenseStatus",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "UnifiedRoleManagementAlertIncident",
+  "discriminatedTypeValue": "#microsoft.graph.invalidLicenseAlertIncident",
+  "typeHintIn": "ODataType"
+}

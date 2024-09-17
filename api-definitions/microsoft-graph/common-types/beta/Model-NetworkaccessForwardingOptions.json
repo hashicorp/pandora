@@ -1,0 +1,24 @@
+{
+  "name": "NetworkaccessForwardingOptions",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "skipDnsLookupState",
+      "name": "SkipDnsLookupState",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "NetworkaccessStatus",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.networkaccess.forwardingOptions",
+  "typeHintIn": "ODataType"
+}

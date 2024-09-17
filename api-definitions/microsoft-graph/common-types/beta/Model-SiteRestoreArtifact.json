@@ -1,0 +1,57 @@
+{
+  "name": "SiteRestoreArtifact",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The new site identifier if the value of the destinationType property is new, and the existing site ID if the value is inPlace.",
+      "jsonName": "restoredSiteId",
+      "name": "RestoredSiteId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The name of the restored site.",
+      "jsonName": "restoredSiteName",
+      "name": "RestoredSiteName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The web URL of the restored site.",
+      "jsonName": "restoredSiteWebUrl",
+      "name": "RestoredSiteWebUrl",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "RestoreArtifactBase",
+  "discriminatedTypeValue": "#microsoft.graph.siteRestoreArtifact",
+  "typeHintIn": "ODataType"
+}

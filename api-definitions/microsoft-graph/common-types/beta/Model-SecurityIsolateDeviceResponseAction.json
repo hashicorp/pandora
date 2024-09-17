@@ -1,0 +1,39 @@
+{
+  "name": "SecurityIsolateDeviceResponseAction",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "identifier",
+      "name": "Identifier",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SecurityDeviceIdEntityIdentifier",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "isolationType",
+      "name": "IsolationType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SecurityIsolationType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SecurityResponseAction",
+  "discriminatedTypeValue": "#microsoft.graph.security.isolateDeviceResponseAction",
+  "typeHintIn": "ODataType"
+}

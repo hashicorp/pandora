@@ -1,0 +1,25 @@
+{
+  "name": "SiteProtectionRule",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Contains a site expression. For examples, see siteExpression example.",
+      "jsonName": "siteExpression",
+      "name": "SiteExpression",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ProtectionRuleBase",
+  "discriminatedTypeValue": "#microsoft.graph.siteProtectionRule",
+  "typeHintIn": "ODataType"
+}

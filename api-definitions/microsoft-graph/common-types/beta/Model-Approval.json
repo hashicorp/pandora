@@ -1,0 +1,31 @@
+{
+  "name": "Approval",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Used to represent the decision associated with a single step in the approval process configured in approvalStage.",
+      "jsonName": "steps",
+      "name": "Steps",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "ApprovalStep",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.approval",
+  "typeHintIn": "ODataType"
+}

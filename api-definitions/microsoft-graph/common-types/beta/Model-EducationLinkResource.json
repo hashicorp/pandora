@@ -1,0 +1,25 @@
+{
+  "name": "EducationLinkResource",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "URL to the resource.",
+      "jsonName": "link",
+      "name": "Link",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "EducationResource",
+  "discriminatedTypeValue": "#microsoft.graph.educationLinkResource",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,25 @@
+{
+  "name": "SecurityBaselineCategoryStateSummary",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The category name",
+      "jsonName": "displayName",
+      "name": "DisplayName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SecurityBaselineStateSummary",
+  "discriminatedTypeValue": "#microsoft.graph.securityBaselineCategoryStateSummary",
+  "typeHintIn": "ODataType"
+}

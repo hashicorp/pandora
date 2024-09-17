@@ -1,0 +1,36 @@
+{
+  "name": "AcceptAccessReviewDefinitionInstanceRecommendations",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Invoke action acceptRecommendations. Allows the acceptance of recommendations on all accessReviewInstanceDecisionItem objects that haven't been reviewed on an accessReviewInstance object for which the calling user is a reviewer.",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "IdentityGovernanceAccessReviewDefinitionIdInstanceId",
+  "resourceIdNameIsCommonType": true,
+  "uriSuffix": "/acceptRecommendations"
+}

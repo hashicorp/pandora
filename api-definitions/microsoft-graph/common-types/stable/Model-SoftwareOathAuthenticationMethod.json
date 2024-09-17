@@ -1,0 +1,25 @@
+{
+  "name": "SoftwareOathAuthenticationMethod",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The secret key of the method. Always returns null.",
+      "jsonName": "secretKey",
+      "name": "SecretKey",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AuthenticationMethod",
+  "discriminatedTypeValue": "#microsoft.graph.softwareOathAuthenticationMethod",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,48 @@
+{
+  "name": "EndTeamScheduleTimeCardBreak",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Invoke action endBreak. End the open break in a specific timeCard.",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "GroupIdTeamScheduleTimeCardId",
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "EndTeamScheduleTimeCardBreakRequest",
+    "referenceNameIsCommonType": false
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "TimeCard",
+    "referenceNameIsCommonType": true
+  },
+  "uriSuffix": "/endBreak"
+}

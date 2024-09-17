@@ -1,0 +1,31 @@
+{
+  "name": "Fido2CombinationConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A list of AAGUIDs allowed to be used as part of the specified authentication method combinations.",
+      "jsonName": "allowedAAGUIDs",
+      "name": "AllowedAAGUIDs",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AuthenticationCombinationConfiguration",
+  "discriminatedTypeValue": "#microsoft.graph.fido2CombinationConfiguration",
+  "typeHintIn": "ODataType"
+}

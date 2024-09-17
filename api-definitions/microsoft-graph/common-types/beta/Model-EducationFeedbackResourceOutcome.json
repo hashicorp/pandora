@@ -1,0 +1,41 @@
+{
+  "name": "EducationFeedbackResourceOutcome",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The actual feedback resource.",
+      "jsonName": "feedbackResource",
+      "name": "FeedbackResource",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "EducationResource",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The status of the feedback resource. The possible values are: notPublished, pendingPublish, published, failedPublish, unknownFutureValue.",
+      "jsonName": "resourceStatus",
+      "name": "ResourceStatus",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "EducationFeedbackResourceOutcomeStatus",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "EducationOutcome",
+  "discriminatedTypeValue": "#microsoft.graph.educationFeedbackResourceOutcome",
+  "typeHintIn": "ODataType"
+}

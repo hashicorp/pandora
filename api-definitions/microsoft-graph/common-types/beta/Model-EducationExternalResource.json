@@ -1,0 +1,25 @@
+{
+  "name": "EducationExternalResource",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Location of the resource. Required.",
+      "jsonName": "webUrl",
+      "name": "WebUrl",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "EducationResource",
+  "discriminatedTypeValue": "#microsoft.graph.educationExternalResource",
+  "typeHintIn": "ODataType"
+}

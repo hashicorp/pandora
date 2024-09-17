@@ -1,0 +1,46 @@
+{
+  "name": "DeleteEntitlementManagementCatalogCustomWorkflowExtension",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Delete accessPackageAssignmentRequestWorkflowExtension. Delete an accessPackageAssignmentRequestWorkflowExtension object. The custom workflow extension must first be removed from any associated policies before it can be deleted. Follow these steps to remove the custom workflow extension from any associated policies",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "DELETE",
+  "options": [
+    {
+      "Type": "Data",
+      "headerName": "If-Match",
+      "optional": true,
+      "required": false,
+      "field": "IfMatch",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "IdentityGovernanceEntitlementManagementCatalogIdCustomWorkflowExtensionId",
+  "resourceIdNameIsCommonType": true
+}

@@ -1,0 +1,41 @@
+{
+  "name": "UpdateConditionalAccessAuthenticationStrengthPolicyCombinationConfiguration",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Update authenticationCombinationConfiguration. Update the properties of an authenticationCombinationConfiguration object. \nThe properties can be for one of the following derived types:\n* fido2combinationConfigurations\n* x509certificatecombinationconfiguration",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "IdentityConditionalAccessAuthenticationStrengthPolicyIdCombinationConfigurationId",
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "AuthenticationCombinationConfiguration",
+    "referenceNameIsCommonType": true
+  }
+}

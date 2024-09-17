@@ -1,0 +1,25 @@
+{
+  "name": "AadSource",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Domain name",
+      "jsonName": "domain",
+      "name": "Domain",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AuthorizationSystemIdentitySource",
+  "discriminatedTypeValue": "#microsoft.graph.aadSource",
+  "typeHintIn": "ODataType"
+}

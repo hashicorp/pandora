@@ -1,0 +1,42 @@
+{
+  "name": "AcquireSynchronizationAccessToken",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Invoke action acquireAccessToken. Acquire an OAuth Access token to authorize the Microsoft Entra provisioning service to provision users into an application.",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "ServicePrincipalId",
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "AcquireSynchronizationAccessTokenRequest",
+    "referenceNameIsCommonType": false
+  },
+  "uriSuffix": "/synchronization/acquireAccessToken"
+}

@@ -1,0 +1,57 @@
+{
+  "name": "WindowsKioskDesktopApp",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Define the DesktopApplicationID of the app",
+      "jsonName": "desktopApplicationId",
+      "name": "DesktopApplicationId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Define the DesktopApplicationLinkPath of the app",
+      "jsonName": "desktopApplicationLinkPath",
+      "name": "DesktopApplicationLinkPath",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Define the path of a desktop app",
+      "jsonName": "path",
+      "name": "Path",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "WindowsKioskAppBase",
+  "discriminatedTypeValue": "#microsoft.graph.windowsKioskDesktopApp",
+  "typeHintIn": "ODataType"
+}

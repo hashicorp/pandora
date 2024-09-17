@@ -1,0 +1,79 @@
+{
+  "name": "IosUpdateConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Active Hours End (active hours mean the time window when updates install should not happen)",
+      "jsonName": "activeHoursEnd",
+      "name": "ActiveHoursEnd",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Active Hours Start (active hours mean the time window when updates install should not happen)",
+      "jsonName": "activeHoursStart",
+      "name": "ActiveHoursStart",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Days in week for which active hours are configured. This collection can contain a maximum of 7 elements.",
+      "jsonName": "scheduledInstallDays",
+      "name": "ScheduledInstallDays",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "DayOfWeek",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "UTC Time Offset indicated in minutes",
+      "jsonName": "utcTimeOffsetInMinutes",
+      "name": "UtcTimeOffsetInMinutes",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceConfiguration",
+  "discriminatedTypeValue": "#microsoft.graph.iosUpdateConfiguration",
+  "typeHintIn": "ODataType"
+}

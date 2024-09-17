@@ -1,0 +1,53 @@
+{
+  "name": "X509CertificateCombinationConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A list of allowed subject key identifier values.",
+      "jsonName": "allowedIssuerSkis",
+      "name": "AllowedIssuerSkis",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A list of allowed policy OIDs.",
+      "jsonName": "allowedPolicyOIDs",
+      "name": "AllowedPolicyOIDs",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AuthenticationCombinationConfiguration",
+  "discriminatedTypeValue": "#microsoft.graph.x509CertificateCombinationConfiguration",
+  "typeHintIn": "ODataType"
+}

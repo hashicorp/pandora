@@ -1,0 +1,57 @@
+{
+  "name": "VppTokenRevokeLicensesActionResult",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible types of reasons for an Apple Volume Purchase Program token action failure.",
+      "jsonName": "actionFailureReason",
+      "name": "ActionFailureReason",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "VppTokenActionFailureReason",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A count of the number of licenses that failed to revoke.",
+      "jsonName": "failedLicensesCount",
+      "name": "FailedLicensesCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A count of the number of licenses that were attempted to revoke.",
+      "jsonName": "totalLicensesCount",
+      "name": "TotalLicensesCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "VppTokenActionResult",
+  "discriminatedTypeValue": "#microsoft.graph.vppTokenRevokeLicensesActionResult",
+  "typeHintIn": "ODataType"
+}

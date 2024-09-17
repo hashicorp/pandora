@@ -1,0 +1,89 @@
+{
+  "name": "SecurityDetectionRule",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Complex type representing the actions taken when a detection is made by this rule.",
+      "jsonName": "detectionAction",
+      "name": "DetectionAction",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SecurityDetectionAction",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The ID of the detector that triggered the alert. Also see the 'detectorId' field in microsoft.graph.security.alert.",
+      "jsonName": "detectorId",
+      "name": "DetectorId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Complex type holding details about the last run of this rule.",
+      "jsonName": "lastRunDetails",
+      "name": "LastRunDetails",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SecurityRunDetails",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Complex type holding data about the advanced hunting query of this rule.",
+      "jsonName": "queryCondition",
+      "name": "QueryCondition",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SecurityQueryCondition",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Complex type holding data about the triggering schedule of this rule.",
+      "jsonName": "schedule",
+      "name": "Schedule",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SecurityRuleSchedule",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SecurityProtectionRule",
+  "discriminatedTypeValue": "#microsoft.graph.security.detectionRule",
+  "typeHintIn": "ODataType"
+}

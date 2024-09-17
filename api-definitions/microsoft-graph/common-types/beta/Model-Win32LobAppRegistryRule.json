@@ -1,0 +1,105 @@
+{
+  "name": "Win32LobAppRegistryRule",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A value indicating whether to search the 32-bit registry on 64-bit systems.",
+      "jsonName": "check32BitOn64System",
+      "name": "Check32BitOn64System",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The registry comparison value.",
+      "jsonName": "comparisonValue",
+      "name": "ComparisonValue",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The full path of the registry entry containing the value to detect.",
+      "jsonName": "keyPath",
+      "name": "KeyPath",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A list of possible operations for rules used to make determinations about an application based on registry keys or values. Unless noted, the values can be used with either detection or requirement rules.",
+      "jsonName": "operationType",
+      "name": "OperationType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Win32LobAppRegistryRuleOperationType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Contains properties for detection operator.",
+      "jsonName": "operator",
+      "name": "Operator",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Win32LobAppRuleOperator",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The name of the registry value to detect.",
+      "jsonName": "valueName",
+      "name": "ValueName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Win32LobAppRule",
+  "discriminatedTypeValue": "#microsoft.graph.win32LobAppRegistryRule",
+  "typeHintIn": "ODataType"
+}

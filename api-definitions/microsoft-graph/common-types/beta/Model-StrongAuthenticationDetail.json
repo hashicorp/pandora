@@ -1,0 +1,39 @@
+{
+  "name": "StrongAuthenticationDetail",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "encryptedPinHashHistory",
+      "name": "EncryptedPinHashHistory",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "proofupTime",
+      "name": "ProofupTime",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.strongAuthenticationDetail",
+  "typeHintIn": "ODataType"
+}

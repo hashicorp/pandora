@@ -1,0 +1,47 @@
+{
+  "name": "CreateProfileNote",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Create personAnnotation. Create a new personAnnotation object in a user's profile.",
+  "expectedStatusCodes": [
+    201
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "PersonAnnotation",
+    "referenceNameIsCommonType": true
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "PersonAnnotation",
+    "referenceNameIsCommonType": true
+  },
+  "uriSuffix": "/me/profile/notes"
+}

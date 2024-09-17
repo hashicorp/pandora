@@ -1,0 +1,73 @@
+{
+  "name": "MicrosoftTunnelHealthThreshold",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The threshold for being healthy based on default health status metrics: CPU usage healthy \u003c 50%, Memory usage healthy \u003c 50%, Disk space healthy \u003e 5GB, Latency healthy \u003c 10ms, health metrics can be customized. Read-only.",
+      "jsonName": "defaultHealthyThreshold",
+      "name": "DefaultHealthyThreshold",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The threshold for being unhealthy based on default health status metrics: CPU usage unhealthy \u003e 75%, Memory usage unhealthy \u003e 75%, Disk space \u003c 3GB, Latency unhealthy \u003e 20ms, health metrics can be customized. Read-only.",
+      "jsonName": "defaultUnhealthyThreshold",
+      "name": "DefaultUnhealthyThreshold",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The threshold for being healthy based on default health status metrics: CPU usage healthy \u003c 50%, Memory usage healthy \u003c 50%, Disk space healthy \u003e 5GB, Latency healthy \u003c 10ms, health metrics can be customized.",
+      "jsonName": "healthyThreshold",
+      "name": "HealthyThreshold",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The threshold for being unhealthy based on default health status metrics: CPU usage unhealthy \u003e 75%, Memory usage unhealthy \u003e 75%, Disk space \u003c 3GB, Latency Unhealthy \u003e 20ms, health metrics can be customized.",
+      "jsonName": "unhealthyThreshold",
+      "name": "UnhealthyThreshold",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.microsoftTunnelHealthThreshold",
+  "typeHintIn": "ODataType"
+}

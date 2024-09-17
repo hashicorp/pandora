@@ -1,0 +1,135 @@
+{
+  "name": "ListOwnedObjects",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Get ownedObjects from servicePrincipals. Directory objects that this service principal owns. Read-only. Nullable. Supports $expand, $select nested in $expand, and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "@odata.nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Count",
+      "optional": true,
+      "required": false,
+      "field": "Count",
+      "optionsObjectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      }
+    },
+    {
+      "Type": "Data",
+      "odataFieldName": "Expand",
+      "optional": true,
+      "required": false,
+      "field": "Expand",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Expand"
+      }
+    },
+    {
+      "Type": "Data",
+      "odataFieldName": "Filter",
+      "optional": true,
+      "required": false,
+      "field": "Filter",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "Data",
+      "odataFieldName": "OrderBy",
+      "optional": true,
+      "required": false,
+      "field": "OrderBy",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.OrderBy"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    },
+    {
+      "Type": "Data",
+      "odataFieldName": "Search",
+      "optional": true,
+      "required": false,
+      "field": "Search",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "Type": "Data",
+      "odataFieldName": "Select",
+      "optional": true,
+      "required": false,
+      "field": "Select",
+      "optionsObjectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      }
+    },
+    {
+      "Type": "Data",
+      "odataFieldName": "Skip",
+      "optional": true,
+      "required": false,
+      "field": "Skip",
+      "optionsObjectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      }
+    },
+    {
+      "Type": "Data",
+      "odataFieldName": "Top",
+      "optional": true,
+      "required": false,
+      "field": "Top",
+      "optionsObjectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "ServicePrincipalId",
+  "resourceIdNameIsCommonType": true,
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "DirectoryObject",
+    "referenceNameIsCommonType": true
+  },
+  "uriSuffix": "/ownedObjects"
+}

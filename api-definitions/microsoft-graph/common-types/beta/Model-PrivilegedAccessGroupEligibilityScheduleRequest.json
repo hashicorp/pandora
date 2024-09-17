@@ -1,0 +1,137 @@
+{
+  "name": "PrivilegedAccessGroupEligibilityScheduleRequest",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The identifier of membership or ownership eligibility relationship to the group. Required. The possible values are: owner, member, unknownFutureValue.",
+      "jsonName": "accessId",
+      "name": "AccessId",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PrivilegedAccessGroupRelationships",
+        "referenceNameIsCommonType": true
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "References the group that is the scope of the membership or ownership eligibility request through PIM for groups. Supports $expand and $select nested in $expand for select properties like id, displayName, and mail.",
+      "jsonName": "group",
+      "name": "Group",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Group",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The identifier of the group representing the scope of the membership and ownership eligibility through PIM for groups. Required.",
+      "jsonName": "groupId",
+      "name": "GroupId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "References the principal that's in the scope of the membership or ownership eligibility request through the group that's governed by PIM. Supports $expand and $select nested in $expand for id only.",
+      "jsonName": "principal",
+      "name": "Principal",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DirectoryObject",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The identifier of the principal whose membership or ownership eligibility to the group is managed through PIM for groups. Required.",
+      "jsonName": "principalId",
+      "name": "PrincipalId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "OData ID for `Principal` to bind to this entity",
+      "jsonName": "principal@odata.bind",
+      "name": "Principal_ODataBind",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Schedule created by this request.",
+      "jsonName": "targetSchedule",
+      "name": "TargetSchedule",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PrivilegedAccessGroupEligibilitySchedule",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The identifier of the schedule that's created from the eligibility request. Optional.",
+      "jsonName": "targetScheduleId",
+      "name": "TargetScheduleId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "PrivilegedAccessScheduleRequest",
+  "discriminatedTypeValue": "#microsoft.graph.privilegedAccessGroupEligibilityScheduleRequest",
+  "typeHintIn": "ODataType"
+}

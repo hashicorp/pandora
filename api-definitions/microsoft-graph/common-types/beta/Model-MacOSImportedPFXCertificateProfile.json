@@ -1,0 +1,63 @@
+{
+  "name": "MacOSImportedPFXCertificateProfile",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the deployment channel type used to deploy the configuration profile. Possible values are deviceChannel, userChannel. Possible values are: deviceChannel, userChannel, unknownFutureValue.",
+      "jsonName": "deploymentChannel",
+      "name": "DeploymentChannel",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AppleDeploymentChannel",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "PFX Import Options.",
+      "jsonName": "intendedPurpose",
+      "name": "IntendedPurpose",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "IntendedPurpose",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Certificate state for devices. This collection can contain a maximum of 2147483647 elements.",
+      "jsonName": "managedDeviceCertificateStates",
+      "name": "ManagedDeviceCertificateStates",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "ManagedDeviceCertificateState",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "MacOSCertificateProfileBase",
+  "discriminatedTypeValue": "#microsoft.graph.macOSImportedPFXCertificateProfile",
+  "typeHintIn": "ODataType"
+}

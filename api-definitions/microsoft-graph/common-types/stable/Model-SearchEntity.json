@@ -1,0 +1,75 @@
+{
+  "name": "SearchEntity",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Administrative answer in Microsoft Search results to define common acronyms in an organization.",
+      "jsonName": "acronyms",
+      "name": "Acronyms",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "SearchAcronym",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Administrative answer in Microsoft Search results for common search queries in an organization.",
+      "jsonName": "bookmarks",
+      "name": "Bookmarks",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "SearchBookmark",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Administrative answer in Microsoft Search results that provide answers for specific search keywords in an organization.",
+      "jsonName": "qnas",
+      "name": "Qnas",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "SearchQna",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.searchEntity",
+  "typeHintIn": "ODataType"
+}

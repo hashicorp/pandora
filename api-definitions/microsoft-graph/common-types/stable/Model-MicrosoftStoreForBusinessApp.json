@@ -1,0 +1,88 @@
+{
+  "name": "MicrosoftStoreForBusinessApp",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "licenseType",
+      "name": "LicenseType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "MicrosoftStoreForBusinessLicenseType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The app package identifier",
+      "jsonName": "packageIdentityName",
+      "name": "PackageIdentityName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The app product key",
+      "jsonName": "productKey",
+      "name": "ProductKey",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The total number of Microsoft Store for Business licenses.",
+      "jsonName": "totalLicenseCount",
+      "name": "TotalLicenseCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The number of Microsoft Store for Business licenses in use.",
+      "jsonName": "usedLicenseCount",
+      "name": "UsedLicenseCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "MobileApp",
+  "discriminatedTypeValue": "#microsoft.graph.microsoftStoreForBusinessApp",
+  "typeHintIn": "ODataType"
+}

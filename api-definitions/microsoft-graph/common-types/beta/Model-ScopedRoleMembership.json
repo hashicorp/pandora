@@ -1,0 +1,56 @@
+{
+  "name": "ScopedRoleMembership",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Unique identifier for the administrative unit that the directory role is scoped to",
+      "jsonName": "administrativeUnitId",
+      "name": "AdministrativeUnitId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Unique identifier for the directory role that the member is in.",
+      "jsonName": "roleId",
+      "name": "RoleId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "roleMemberInfo",
+      "name": "RoleMemberInfo",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Identity",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.scopedRoleMembership",
+  "typeHintIn": "ODataType"
+}

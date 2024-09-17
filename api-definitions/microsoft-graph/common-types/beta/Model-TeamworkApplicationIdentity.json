@@ -1,0 +1,25 @@
+{
+  "name": "TeamworkApplicationIdentity",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Type of application that is referenced. Possible values are: aadApplication, bot, tenantBot, office365Connector, and outgoingWebhook.",
+      "jsonName": "applicationIdentityType",
+      "name": "ApplicationIdentityType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "TeamworkApplicationIdentityType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Identity",
+  "discriminatedTypeValue": "#microsoft.graph.teamworkApplicationIdentity",
+  "typeHintIn": "ODataType"
+}

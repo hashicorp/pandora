@@ -1,0 +1,57 @@
+{
+  "name": "WindowsManagementAppHealthSummary",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Healthy device count.",
+      "jsonName": "healthyDeviceCount",
+      "name": "HealthyDeviceCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Unhealthy device count.",
+      "jsonName": "unhealthyDeviceCount",
+      "name": "UnhealthyDeviceCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Unknown device count.",
+      "jsonName": "unknownDeviceCount",
+      "name": "UnknownDeviceCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.windowsManagementAppHealthSummary",
+  "typeHintIn": "ODataType"
+}

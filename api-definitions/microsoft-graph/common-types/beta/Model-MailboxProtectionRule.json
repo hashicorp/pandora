@@ -1,0 +1,25 @@
+{
+  "name": "MailboxProtectionRule",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Contains a mailbox expression. For examples, see mailboxExpression examples.",
+      "jsonName": "mailboxExpression",
+      "name": "MailboxExpression",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ProtectionRuleBase",
+  "discriminatedTypeValue": "#microsoft.graph.mailboxProtectionRule",
+  "typeHintIn": "ODataType"
+}

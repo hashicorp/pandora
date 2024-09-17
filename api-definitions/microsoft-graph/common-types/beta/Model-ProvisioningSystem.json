@@ -1,0 +1,25 @@
+{
+  "name": "ProvisioningSystem",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Details of the system.",
+      "jsonName": "details",
+      "name": "Details",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DetailsInfo",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Identity",
+  "discriminatedTypeValue": "#microsoft.graph.provisioningSystem",
+  "typeHintIn": "ODataType"
+}

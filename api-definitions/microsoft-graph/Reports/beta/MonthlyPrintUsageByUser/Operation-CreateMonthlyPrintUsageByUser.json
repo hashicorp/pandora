@@ -1,0 +1,47 @@
+{
+  "name": "CreateMonthlyPrintUsageByUser",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Create new navigation property to monthlyPrintUsageByUser for reports",
+  "expectedStatusCodes": [
+    201
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "PrintUsageByUser",
+    "referenceNameIsCommonType": true
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "PrintUsageByUser",
+    "referenceNameIsCommonType": true
+  },
+  "uriSuffix": "/reports/monthlyPrintUsageByUser"
+}

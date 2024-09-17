@@ -1,0 +1,25 @@
+{
+  "name": "LocateDeviceActionResult",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "device location",
+      "jsonName": "deviceLocation",
+      "name": "DeviceLocation",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceGeoLocation",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceActionResult",
+  "discriminatedTypeValue": "#microsoft.graph.locateDeviceActionResult",
+  "typeHintIn": "ODataType"
+}

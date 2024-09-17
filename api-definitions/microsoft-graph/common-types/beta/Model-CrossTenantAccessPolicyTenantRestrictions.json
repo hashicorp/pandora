@@ -1,0 +1,25 @@
+{
+  "name": "CrossTenantAccessPolicyTenantRestrictions",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Defines the rule for filtering devices and whether devices satisfying the rule should be allowed or blocked. This property isn't supported on the server side yet.",
+      "jsonName": "devices",
+      "name": "Devices",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DevicesFilter",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "CrossTenantAccessPolicyB2BSetting",
+  "discriminatedTypeValue": "#microsoft.graph.crossTenantAccessPolicyTenantRestrictions",
+  "typeHintIn": "ODataType"
+}

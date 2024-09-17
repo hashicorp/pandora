@@ -1,0 +1,24 @@
+{
+  "name": "NetworkaccessCrossTenantAccessSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "networkPacketTaggingStatus",
+      "name": "NetworkPacketTaggingStatus",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "NetworkaccessStatus",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.networkaccess.crossTenantAccessSettings",
+  "typeHintIn": "ODataType"
+}

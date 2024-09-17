@@ -1,0 +1,25 @@
+{
+  "name": "UserSignInInsight",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates when the user last signed in",
+      "jsonName": "lastSignInDateTime",
+      "name": "LastSignInDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "GovernanceInsight",
+  "discriminatedTypeValue": "#microsoft.graph.userSignInInsight",
+  "typeHintIn": "ODataType"
+}

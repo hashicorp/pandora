@@ -1,0 +1,47 @@
+{
+  "name": "GetVirtualEndpointReportsRawRemoteConnectionReports",
+  "contentType": "application/octet-stream",
+  "description": "Invoke action getRawRemoteConnectionReports. Get the raw real-time remote connection report for a Cloud PC without any calculation, such as roundTripTime or available bandwidth, which are aggregated hourly from the raw event data.",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "GetVirtualEndpointReportsRawRemoteConnectionReportsRequest",
+    "referenceNameIsCommonType": false
+  },
+  "responseObject": {
+    "type": "RawFile",
+    "nullable": false,
+    "referenceName": null,
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/deviceManagement/virtualEndpoint/reports/getRawRemoteConnectionReports"
+}

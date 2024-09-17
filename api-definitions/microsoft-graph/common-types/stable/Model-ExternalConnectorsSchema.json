@@ -1,0 +1,47 @@
+{
+  "name": "ExternalConnectorsSchema",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Must be set to microsoft.graph.externalConnector.externalItem. Required.",
+      "jsonName": "baseType",
+      "name": "BaseType",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The properties defined for the items in the connection. The minimum number of properties is one, the maximum is 128.",
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "ExternalConnectorsProperty",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.externalConnectors.schema",
+  "typeHintIn": "ODataType"
+}

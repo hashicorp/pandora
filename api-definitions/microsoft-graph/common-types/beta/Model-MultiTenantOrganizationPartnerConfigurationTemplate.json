@@ -1,0 +1,120 @@
+{
+  "name": "MultiTenantOrganizationPartnerConfigurationTemplate",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Determines the partner-specific configuration for automatic user consent settings. Unless configured, the inboundAllowed and outboundAllowed properties are null and inherit from the default settings, which is always false.",
+      "jsonName": "automaticUserConsentSettings",
+      "name": "AutomaticUserConsentSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "InboundOutboundPolicyConfiguration",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Defines your partner-specific configuration for users from other organizations accessing your resources via Microsoft Entra B2B collaboration.",
+      "jsonName": "b2bCollaborationInbound",
+      "name": "B2bCollaborationInbound",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "CrossTenantAccessPolicyB2BSetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Defines your partner-specific configuration for users in your organization going outbound to access resources in another organization via Microsoft Entra B2B collaboration.",
+      "jsonName": "b2bCollaborationOutbound",
+      "name": "B2bCollaborationOutbound",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "CrossTenantAccessPolicyB2BSetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Defines your partner-specific configuration for users from other organizations accessing your resources via Azure B2B direct connect.",
+      "jsonName": "b2bDirectConnectInbound",
+      "name": "B2bDirectConnectInbound",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "CrossTenantAccessPolicyB2BSetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Defines your partner-specific configuration for users in your organization going outbound to access resources in another organization via Microsoft Entra B2B direct connect.",
+      "jsonName": "b2bDirectConnectOutbound",
+      "name": "B2bDirectConnectOutbound",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "CrossTenantAccessPolicyB2BSetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Determines the partner-specific configuration for trusting other Conditional Access claims from external Microsoft Entra organizations.",
+      "jsonName": "inboundTrust",
+      "name": "InboundTrust",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "CrossTenantAccessPolicyInboundTrust",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "templateApplicationLevel",
+      "name": "TemplateApplicationLevel",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "TemplateApplicationLevel",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.multiTenantOrganizationPartnerConfigurationTemplate",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,47 @@
+{
+  "name": "SecurityInformationProtection",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Read the Microsoft Purview Information Protection policy settings for the user or organization.",
+      "jsonName": "labelPolicySettings",
+      "name": "LabelPolicySettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SecurityInformationProtectionPolicySetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Read the Microsoft Purview Information Protection labels for the user or organization.",
+      "jsonName": "sensitivityLabels",
+      "name": "SensitivityLabels",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "SecuritySensitivityLabel",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.security.informationProtection",
+  "typeHintIn": "ODataType"
+}

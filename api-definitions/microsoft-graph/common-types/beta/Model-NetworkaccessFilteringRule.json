@@ -1,0 +1,46 @@
+{
+  "name": "NetworkaccessFilteringRule",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible destinations and types of destinations accessed by the user in accordance with the network filtering policy, such as IP addresses and FQDNs/URLs.",
+      "jsonName": "destinations",
+      "name": "Destinations",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "NetworkaccessRuleDestination",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "ruleType",
+      "name": "RuleType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "NetworkaccessNetworkDestinationType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": true,
+  "discriminatedParentModelName": "NetworkaccessPolicyRule",
+  "discriminatedTypeValue": "#microsoft.graph.networkaccess.filteringRule",
+  "typeHintIn": "ODataType"
+}

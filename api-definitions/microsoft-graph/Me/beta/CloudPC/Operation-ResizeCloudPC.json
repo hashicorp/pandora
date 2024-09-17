@@ -1,0 +1,42 @@
+{
+  "name": "ResizeCloudPC",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Invoke action resize. Upgrade or downgrade an existing Cloud PC to a configuration with a new virtual CPU (vCPU) and storage size.",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "MeCloudPCId",
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ResizeCloudPCRequest",
+    "referenceNameIsCommonType": false
+  },
+  "uriSuffix": "/resize"
+}

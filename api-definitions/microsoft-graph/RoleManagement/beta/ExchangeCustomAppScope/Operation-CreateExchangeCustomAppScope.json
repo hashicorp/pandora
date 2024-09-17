@@ -1,0 +1,47 @@
+{
+  "name": "CreateExchangeCustomAppScope",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Create customAppScope. Create a new customAppScope object for an RBAC provider. Currently only the Exchange Online RBAC provider is supported.",
+  "expectedStatusCodes": [
+    201
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "CustomAppScope",
+    "referenceNameIsCommonType": true
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "CustomAppScope",
+    "referenceNameIsCommonType": true
+  },
+  "uriSuffix": "/roleManagement/exchange/customAppScopes"
+}

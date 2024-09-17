@@ -1,0 +1,25 @@
+{
+  "name": "TeamMembersNotificationRecipient",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The unique identifier for the team whose members should receive the notification.",
+      "jsonName": "teamId",
+      "name": "TeamId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "TeamworkNotificationRecipient",
+  "discriminatedTypeValue": "#microsoft.graph.teamMembersNotificationRecipient",
+  "typeHintIn": "ODataType"
+}

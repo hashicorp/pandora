@@ -1,0 +1,24 @@
+{
+  "name": "WhatIfUserActionContext",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "userAction",
+      "name": "UserAction",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "UserAction",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ConditionalAccessContext",
+  "discriminatedTypeValue": "#microsoft.graph.whatIfUserActionContext",
+  "typeHintIn": "ODataType"
+}

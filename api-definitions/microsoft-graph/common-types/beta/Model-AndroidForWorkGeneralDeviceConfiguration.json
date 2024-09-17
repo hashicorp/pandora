@@ -1,0 +1,767 @@
+{
+  "name": "AndroidForWorkGeneralDeviceConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Determine domains allow-list for accounts that can be added to work profile.",
+      "jsonName": "allowedGoogleAccountDomains",
+      "name": "AllowedGoogleAccountDomains",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Prevent using unified password for unlocking device and work profile.",
+      "jsonName": "blockUnifiedPasswordForWorkProfile",
+      "name": "BlockUnifiedPasswordForWorkProfile",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block face unlock.",
+      "jsonName": "passwordBlockFaceUnlock",
+      "name": "PasswordBlockFaceUnlock",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block fingerprint unlock.",
+      "jsonName": "passwordBlockFingerprintUnlock",
+      "name": "PasswordBlockFingerprintUnlock",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block iris unlock.",
+      "jsonName": "passwordBlockIrisUnlock",
+      "name": "PasswordBlockIrisUnlock",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block Smart Lock and other trust agents.",
+      "jsonName": "passwordBlockTrustAgents",
+      "name": "PasswordBlockTrustAgents",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Number of days before the password expires. Valid values 1 to 365",
+      "jsonName": "passwordExpirationDays",
+      "name": "PasswordExpirationDays",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Minimum length of passwords. Valid values 4 to 16",
+      "jsonName": "passwordMinimumLength",
+      "name": "PasswordMinimumLength",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Minutes of inactivity before the screen times out.",
+      "jsonName": "passwordMinutesOfInactivityBeforeScreenTimeout",
+      "name": "PasswordMinutesOfInactivityBeforeScreenTimeout",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Number of previous passwords to block. Valid values 0 to 24",
+      "jsonName": "passwordPreviousPasswordBlockCount",
+      "name": "PasswordPreviousPasswordBlockCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Android For Work required password type.",
+      "jsonName": "passwordRequiredType",
+      "name": "PasswordRequiredType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AndroidForWorkRequiredPasswordType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Number of sign in failures allowed before factory reset. Valid values 1 to 16",
+      "jsonName": "passwordSignInFailureCountBeforeFactoryReset",
+      "name": "PasswordSignInFailureCountBeforeFactoryReset",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The password complexity types that can be set on Android. One of: NONE, LOW, MEDIUM, HIGH. This is an API targeted to Android 11+.",
+      "jsonName": "requiredPasswordComplexity",
+      "name": "RequiredPasswordComplexity",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AndroidRequiredPasswordComplexity",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Require the Android Verify apps feature is turned on.",
+      "jsonName": "securityRequireVerifyApps",
+      "name": "SecurityRequireVerifyApps",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Enable lockdown mode for always-on VPN.",
+      "jsonName": "vpnAlwaysOnPackageIdentifier",
+      "name": "VpnAlwaysOnPackageIdentifier",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Enable lockdown mode for always-on VPN.",
+      "jsonName": "vpnEnableAlwaysOnLockdownMode",
+      "name": "VpnEnableAlwaysOnLockdownMode",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "An enum representing possible values for account use in work profile.",
+      "jsonName": "workProfileAccountUse",
+      "name": "WorkProfileAccountUse",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AndroidWorkProfileAccountUse",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allow widgets from work profile apps.",
+      "jsonName": "workProfileAllowWidgets",
+      "name": "WorkProfileAllowWidgets",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Block users from adding/removing accounts in work profile.",
+      "jsonName": "workProfileBlockAddingAccounts",
+      "name": "WorkProfileBlockAddingAccounts",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Block work profile camera.",
+      "jsonName": "workProfileBlockCamera",
+      "name": "WorkProfileBlockCamera",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Block display work profile caller ID in personal profile.",
+      "jsonName": "workProfileBlockCrossProfileCallerId",
+      "name": "WorkProfileBlockCrossProfileCallerId",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Block work profile contacts availability in personal profile.",
+      "jsonName": "workProfileBlockCrossProfileContactsSearch",
+      "name": "WorkProfileBlockCrossProfileContactsSearch",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Boolean that indicates if the setting disallow cross profile copy/paste is enabled.",
+      "jsonName": "workProfileBlockCrossProfileCopyPaste",
+      "name": "WorkProfileBlockCrossProfileCopyPaste",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block notifications while device locked.",
+      "jsonName": "workProfileBlockNotificationsWhileDeviceLocked",
+      "name": "WorkProfileBlockNotificationsWhileDeviceLocked",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Prevent app installations from unknown sources in the personal profile.",
+      "jsonName": "workProfileBlockPersonalAppInstallsFromUnknownSources",
+      "name": "WorkProfileBlockPersonalAppInstallsFromUnknownSources",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Block screen capture in work profile.",
+      "jsonName": "workProfileBlockScreenCapture",
+      "name": "WorkProfileBlockScreenCapture",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allow bluetooth devices to access enterprise contacts.",
+      "jsonName": "workProfileBluetoothEnableContactSharing",
+      "name": "WorkProfileBluetoothEnableContactSharing",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Android For Work cross profile data sharing type.",
+      "jsonName": "workProfileDataSharingType",
+      "name": "WorkProfileDataSharingType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AndroidForWorkCrossProfileDataSharingType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Android For Work default app permission policy type.",
+      "jsonName": "workProfileDefaultAppPermissionPolicy",
+      "name": "WorkProfileDefaultAppPermissionPolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AndroidForWorkDefaultAppPermissionPolicyType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block face unlock for work profile.",
+      "jsonName": "workProfilePasswordBlockFaceUnlock",
+      "name": "WorkProfilePasswordBlockFaceUnlock",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block fingerprint unlock for work profile.",
+      "jsonName": "workProfilePasswordBlockFingerprintUnlock",
+      "name": "WorkProfilePasswordBlockFingerprintUnlock",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block iris unlock for work profile.",
+      "jsonName": "workProfilePasswordBlockIrisUnlock",
+      "name": "WorkProfilePasswordBlockIrisUnlock",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to block Smart Lock and other trust agents for work profile.",
+      "jsonName": "workProfilePasswordBlockTrustAgents",
+      "name": "WorkProfilePasswordBlockTrustAgents",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Number of days before the work profile password expires. Valid values 1 to 365",
+      "jsonName": "workProfilePasswordExpirationDays",
+      "name": "WorkProfilePasswordExpirationDays",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Minimum # of letter characters required in work profile password. Valid values 1 to 10",
+      "jsonName": "workProfilePasswordMinLetterCharacters",
+      "name": "WorkProfilePasswordMinLetterCharacters",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Minimum # of lower-case characters required in work profile password. Valid values 1 to 10",
+      "jsonName": "workProfilePasswordMinLowerCaseCharacters",
+      "name": "WorkProfilePasswordMinLowerCaseCharacters",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Minimum # of non-letter characters required in work profile password. Valid values 1 to 10",
+      "jsonName": "workProfilePasswordMinNonLetterCharacters",
+      "name": "WorkProfilePasswordMinNonLetterCharacters",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Minimum # of numeric characters required in work profile password. Valid values 1 to 10",
+      "jsonName": "workProfilePasswordMinNumericCharacters",
+      "name": "WorkProfilePasswordMinNumericCharacters",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Minimum # of symbols required in work profile password. Valid values 1 to 10",
+      "jsonName": "workProfilePasswordMinSymbolCharacters",
+      "name": "WorkProfilePasswordMinSymbolCharacters",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Minimum # of upper-case characters required in work profile password. Valid values 1 to 10",
+      "jsonName": "workProfilePasswordMinUpperCaseCharacters",
+      "name": "WorkProfilePasswordMinUpperCaseCharacters",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Minimum length of work profile password. Valid values 4 to 16",
+      "jsonName": "workProfilePasswordMinimumLength",
+      "name": "WorkProfilePasswordMinimumLength",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Minutes of inactivity before the screen times out.",
+      "jsonName": "workProfilePasswordMinutesOfInactivityBeforeScreenTimeout",
+      "name": "WorkProfilePasswordMinutesOfInactivityBeforeScreenTimeout",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Number of previous work profile passwords to block. Valid values 0 to 24",
+      "jsonName": "workProfilePasswordPreviousPasswordBlockCount",
+      "name": "WorkProfilePasswordPreviousPasswordBlockCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Android For Work required password type.",
+      "jsonName": "workProfilePasswordRequiredType",
+      "name": "WorkProfilePasswordRequiredType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AndroidForWorkRequiredPasswordType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Number of sign in failures allowed before work profile is removed and all corporate data deleted. Valid values 1 to 16",
+      "jsonName": "workProfilePasswordSignInFailureCountBeforeFactoryReset",
+      "name": "WorkProfilePasswordSignInFailureCountBeforeFactoryReset",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Password is required or not for work profile",
+      "jsonName": "workProfileRequirePassword",
+      "name": "WorkProfileRequirePassword",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The password complexity types that can be set on Android. One of: NONE, LOW, MEDIUM, HIGH. This is an API targeted to Android 11+.",
+      "jsonName": "workProfileRequiredPasswordComplexity",
+      "name": "WorkProfileRequiredPasswordComplexity",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AndroidRequiredPasswordComplexity",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceConfiguration",
+  "discriminatedTypeValue": "#microsoft.graph.androidForWorkGeneralDeviceConfiguration",
+  "typeHintIn": "ODataType"
+}

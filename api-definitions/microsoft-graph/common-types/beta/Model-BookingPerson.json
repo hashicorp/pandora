@@ -1,0 +1,25 @@
+{
+  "name": "BookingPerson",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The email address of the person.",
+      "jsonName": "emailAddress",
+      "name": "EmailAddress",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": true,
+  "discriminatedParentModelName": "BookingNamedEntity",
+  "discriminatedTypeValue": "#microsoft.graph.bookingPerson",
+  "typeHintIn": "ODataType"
+}

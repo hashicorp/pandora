@@ -1,0 +1,25 @@
+{
+  "name": "DeviceComplianceScriptRuleError",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Setting name for the rule with error.",
+      "jsonName": "settingName",
+      "name": "SettingName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceComplianceScriptError",
+  "discriminatedTypeValue": "#microsoft.graph.deviceComplianceScriptRuleError",
+  "typeHintIn": "ODataType"
+}

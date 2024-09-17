@@ -1,0 +1,25 @@
+{
+  "name": "KeyBooleanValuePair",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The Boolean value of the key-value pair.",
+      "jsonName": "value",
+      "name": "Value",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "KeyTypedValuePair",
+  "discriminatedTypeValue": "#microsoft.graph.keyBooleanValuePair",
+  "typeHintIn": "ODataType"
+}

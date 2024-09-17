@@ -1,0 +1,121 @@
+{
+  "name": "EdiscoveryEstimateStatisticsOperation",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The estimated count of items for the sourceCollection that matched the content query.",
+      "jsonName": "indexedItemCount",
+      "name": "IndexedItemCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The estimated size of items for the sourceCollection that matched the content query.",
+      "jsonName": "indexedItemsSize",
+      "name": "IndexedItemsSize",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The number of mailboxes that had search hits.",
+      "jsonName": "mailboxCount",
+      "name": "MailboxCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The number of mailboxes that had search hits.",
+      "jsonName": "siteCount",
+      "name": "SiteCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "eDiscovery collection, commonly known as a search.",
+      "jsonName": "sourceCollection",
+      "name": "SourceCollection",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "EdiscoverySourceCollection",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The estimated count of unindexed items for the collection.",
+      "jsonName": "unindexedItemCount",
+      "name": "UnindexedItemCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The estimated size of unindexed items for the collection.",
+      "jsonName": "unindexedItemsSize",
+      "name": "UnindexedItemsSize",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "EdiscoveryCaseOperation",
+  "discriminatedTypeValue": "#microsoft.graph.ediscovery.estimateStatisticsOperation",
+  "typeHintIn": "ODataType"
+}

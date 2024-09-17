@@ -1,0 +1,24 @@
+{
+  "name": "NetworkaccessForwardingPolicy",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "trafficForwardingType",
+      "name": "TrafficForwardingType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "NetworkaccessTrafficForwardingType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "NetworkaccessPolicy",
+  "discriminatedTypeValue": "#microsoft.graph.networkaccess.forwardingPolicy",
+  "typeHintIn": "ODataType"
+}

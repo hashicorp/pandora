@@ -1,0 +1,25 @@
+{
+  "name": "CallActivityStatistics",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Time spent on calls outside of working hours, which is based on the user's Outlook calendar setting for work hours. The value is represented in ISO 8601 format for durations.",
+      "jsonName": "afterHours",
+      "name": "AfterHours",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ActivityStatistics",
+  "discriminatedTypeValue": "#microsoft.graph.callActivityStatistics",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,40 @@
+{
+  "name": "MultiTenantOrganizationIdentitySyncPolicyTemplate",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "templateApplicationLevel",
+      "name": "TemplateApplicationLevel",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "TemplateApplicationLevel",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Defines whether users can be synchronized from the partner tenant.",
+      "jsonName": "userSyncInbound",
+      "name": "UserSyncInbound",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "CrossTenantUserSyncInbound",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.multiTenantOrganizationIdentitySyncPolicyTemplate",
+  "typeHintIn": "ODataType"
+}

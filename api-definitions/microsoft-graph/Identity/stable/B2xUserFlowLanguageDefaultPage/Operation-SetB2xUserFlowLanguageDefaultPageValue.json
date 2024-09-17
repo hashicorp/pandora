@@ -1,0 +1,52 @@
+{
+  "name": "SetB2xUserFlowLanguageDefaultPageValue",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Update media content for the navigation property defaultPages in identity. The unique identifier for an entity. Read-only.",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "PUT",
+  "options": [
+    {
+      "Type": "ContentType",
+      "optional": true,
+      "required": false,
+      "field": "ContentType",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    },
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "IdentityB2xUserFlowIdLanguageIdDefaultPageId",
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "RawFile",
+    "nullable": false,
+    "referenceName": null,
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/$value"
+}

@@ -1,0 +1,22 @@
+{
+  "name": "SyncExchangeConnectorRequest",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The type of Exchange Connector sync requested.",
+      "jsonName": "syncType",
+      "name": "SyncType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceManagementExchangeConnectorSyncType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

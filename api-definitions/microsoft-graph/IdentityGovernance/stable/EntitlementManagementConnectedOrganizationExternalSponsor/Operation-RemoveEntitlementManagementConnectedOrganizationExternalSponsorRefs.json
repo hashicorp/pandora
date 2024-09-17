@@ -1,0 +1,58 @@
+{
+  "name": "RemoveEntitlementManagementConnectedOrganizationExternalSponsorRefs",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Remove externalSponsors. Remove a user or a group from the connected organization's external sponsors. The external sponsors are a set of users who can approve requests on behalf of other users from that connected organization.",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "DELETE",
+  "options": [
+    {
+      "Type": "Data",
+      "optional": true,
+      "queryString": "@id",
+      "required": false,
+      "field": "Id",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "Type": "Data",
+      "headerName": "If-Match",
+      "optional": true,
+      "required": false,
+      "field": "IfMatch",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "IdentityGovernanceEntitlementManagementConnectedOrganizationId",
+  "resourceIdNameIsCommonType": true,
+  "uriSuffix": "/externalSponsors/$ref"
+}

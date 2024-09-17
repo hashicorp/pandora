@@ -1,0 +1,36 @@
+{
+  "name": "CreateVirtualEndpointOnPremisesConnectionRunHealthCheck",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Invoke action runHealthChecks. Run health checks on the cloudPcOnPremisesConnection object. It triggers a new health check for the cloudPcOnPremisesConnection (../resources/cloudpconpremisesconnection.md) object and changes the healthCheckStatus and [healthCheckStatusDetail properties when check finished.",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "DeviceManagementVirtualEndpointOnPremisesConnectionId",
+  "resourceIdNameIsCommonType": true,
+  "uriSuffix": "/runHealthChecks"
+}

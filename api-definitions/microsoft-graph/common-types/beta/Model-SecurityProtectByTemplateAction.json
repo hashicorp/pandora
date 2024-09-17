@@ -1,0 +1,25 @@
+{
+  "name": "SecurityProtectByTemplateAction",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The unique identifier for a protection template in Microsoft Purview Information Protection to apply to the content.",
+      "jsonName": "templateId",
+      "name": "TemplateId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SecurityInformationProtectionAction",
+  "discriminatedTypeValue": "#microsoft.graph.security.protectByTemplateAction",
+  "typeHintIn": "ODataType"
+}

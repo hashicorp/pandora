@@ -1,0 +1,105 @@
+{
+  "name": "Win32LobAppRegistryDetection",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A value indicating whether this registry path is for checking 32-bit app on 64-bit system",
+      "jsonName": "check32BitOn64System",
+      "name": "Check32BitOn64System",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Contains all supported registry data detection type.",
+      "jsonName": "detectionType",
+      "name": "DetectionType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Win32LobAppRegistryDetectionType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The registry detection value",
+      "jsonName": "detectionValue",
+      "name": "DetectionValue",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The registry key path to detect Win32 Line of Business (LoB) app",
+      "jsonName": "keyPath",
+      "name": "KeyPath",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Contains properties for detection operator.",
+      "jsonName": "operator",
+      "name": "Operator",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Win32LobAppDetectionOperator",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The registry value name",
+      "jsonName": "valueName",
+      "name": "ValueName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Win32LobAppDetection",
+  "discriminatedTypeValue": "#microsoft.graph.win32LobAppRegistryDetection",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,40 @@
+{
+  "name": "JoinTransformation",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "input2",
+      "name": "Input2",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "TransformationAttribute",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The separator value to be used.",
+      "jsonName": "separator",
+      "name": "Separator",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "CustomClaimTransformation",
+  "discriminatedTypeValue": "#microsoft.graph.joinTransformation",
+  "typeHintIn": "ODataType"
+}
