@@ -1,0 +1,47 @@
+{
+  "name": "CreateComanagedDeviceBulkSetCloudPCReviewStatus",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Invoke action bulkSetCloudPcReviewStatus. Set the review status of multiple Cloud PC devices with a single request that includes the IDs of Intune managed devices.",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "CreateComanagedDeviceBulkSetCloudPCReviewStatusRequest",
+    "referenceNameIsCommonType": false
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "CloudPCBulkRemoteActionResult",
+    "referenceNameIsCommonType": true
+  },
+  "uriSuffix": "/deviceManagement/comanagedDevices/bulkSetCloudPcReviewStatus"
+}

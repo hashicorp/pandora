@@ -1,0 +1,31 @@
+{
+  "name": "InferenceClassification",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A set of overrides for a user to always classify messages from specific senders in certain ways: focused, or other. Read-only. Nullable.",
+      "jsonName": "overrides",
+      "name": "Overrides",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "InferenceClassificationOverride",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.inferenceClassification",
+  "typeHintIn": "ODataType"
+}

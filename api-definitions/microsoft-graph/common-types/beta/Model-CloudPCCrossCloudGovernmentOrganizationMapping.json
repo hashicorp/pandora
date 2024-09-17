@@ -1,0 +1,31 @@
+{
+  "name": "CloudPCCrossCloudGovernmentOrganizationMapping",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The tenant ID in the Azure Government cloud corresponding to the GCC tenant in the public cloud. Currently, 1:1 mappings are supported, so this collection can only contain one tenant ID.",
+      "jsonName": "organizationIdsInUSGovCloud",
+      "name": "OrganizationIdsInUSGovCloud",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.cloudPcCrossCloudGovernmentOrganizationMapping",
+  "typeHintIn": "ODataType"
+}

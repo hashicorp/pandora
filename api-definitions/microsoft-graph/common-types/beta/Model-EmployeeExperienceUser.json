@@ -1,0 +1,30 @@
+{
+  "name": "EmployeeExperienceUser",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "learningCourseActivities",
+      "name": "LearningCourseActivities",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "LearningCourseActivity",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.employeeExperienceUser",
+  "typeHintIn": "ODataType"
+}

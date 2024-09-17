@@ -1,0 +1,67 @@
+{
+  "name": "GetMessage",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Get singleValueLegacyExtendedProperty. You can get a single resource instance expanded with a specific extended property, or a collection of resource instances\nthat include extended properties matching a filter. Using the query parameter $expand allows you to get the specified resource instance expanded with a specific extended\nproperty. Use a $filter and eq operator on the id property to specify the extended property. This is currently the only way to get the singleValueLegacyExtendedProperty object that represents an extended property. To get resource instances that have certain extended properties, use the $filter query parameter and apply an eq operator\non the id property. In addition, for numeric extended properties, apply one of the following operators on the value property:\neq, ne,ge, gt, le, or lt. For string-typed extended properties, apply a contains, startswith, eq, or ne operator on value. Filtering the string name (Name) in the id of an extended property is case-sensitive. Filtering the value property of an extended\nproperty is case-insensitive. The following user resources are supported: As well as the following group resources: See Extended properties overview for more information about when to use\nopen extensions or extended properties, and how to specify extended properties.",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Expand",
+      "optional": true,
+      "required": false,
+      "field": "Expand",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Expand"
+      }
+    },
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    },
+    {
+      "Type": "Data",
+      "odataFieldName": "Select",
+      "optional": true,
+      "required": false,
+      "field": "Select",
+      "optionsObjectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      }
+    }
+  ],
+  "resourceIdName": "MeMessageId",
+  "resourceIdNameIsCommonType": true,
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "Message",
+    "referenceNameIsCommonType": true
+  }
+}

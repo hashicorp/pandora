@@ -1,0 +1,57 @@
+{
+  "name": "RiskyServicePrincipalHistoryItem",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The activity related to service principal risk level change.",
+      "jsonName": "activity",
+      "name": "Activity",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "RiskServicePrincipalActivity",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The identifier of the actor of the operation.",
+      "jsonName": "initiatedBy",
+      "name": "InitiatedBy",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The identifier of the service principal.",
+      "jsonName": "servicePrincipalId",
+      "name": "ServicePrincipalId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "RiskyServicePrincipal",
+  "discriminatedTypeValue": "#microsoft.graph.riskyServicePrincipalHistoryItem",
+  "typeHintIn": "ODataType"
+}

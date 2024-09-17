@@ -1,0 +1,31 @@
+{
+  "name": "AuthorizationSystemTypeService",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "List of actions for the service in an authorization system that is onboarded to Permissions Management.",
+      "jsonName": "actions",
+      "name": "Actions",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "AuthorizationSystemTypeAction",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.authorizationSystemTypeService",
+  "typeHintIn": "ODataType"
+}

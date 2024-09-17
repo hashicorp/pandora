@@ -1,0 +1,25 @@
+{
+  "name": "BookingCurrency",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The currency symbol. For example, the currency symbol for the US dollar and for the Australian dollar is $.",
+      "jsonName": "symbol",
+      "name": "Symbol",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.bookingCurrency",
+  "typeHintIn": "ODataType"
+}

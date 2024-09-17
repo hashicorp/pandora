@@ -1,0 +1,25 @@
+{
+  "name": "AllPreApprovedPermissionsOnResourceApp",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The appId of the resource application (the API). Required.",
+      "jsonName": "resourceApplicationId",
+      "name": "ResourceApplicationId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "PreApprovedPermissions",
+  "discriminatedTypeValue": "#microsoft.graph.allPreApprovedPermissionsOnResourceApp",
+  "typeHintIn": "ODataType"
+}

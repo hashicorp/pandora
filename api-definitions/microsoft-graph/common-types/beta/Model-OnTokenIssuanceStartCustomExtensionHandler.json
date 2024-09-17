@@ -1,0 +1,39 @@
+{
+  "name": "OnTokenIssuanceStartCustomExtensionHandler",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "configuration",
+      "name": "Configuration",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "CustomExtensionOverwriteConfiguration",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "customExtension",
+      "name": "CustomExtension",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "OnTokenIssuanceStartCustomExtension",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "OnTokenIssuanceStartHandler",
+  "discriminatedTypeValue": "#microsoft.graph.onTokenIssuanceStartCustomExtensionHandler",
+  "typeHintIn": "ODataType"
+}

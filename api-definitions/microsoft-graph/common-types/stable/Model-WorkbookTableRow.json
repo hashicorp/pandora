@@ -1,0 +1,25 @@
+{
+  "name": "WorkbookTableRow",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Returns the index number of the row within the rows collection of the table. Zero-indexed. Read-only.",
+      "jsonName": "index",
+      "name": "Index",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.workbookTableRow",
+  "typeHintIn": "ODataType"
+}

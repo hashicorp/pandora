@@ -1,0 +1,48 @@
+{
+  "name": "MovePlannerPlanToContainer",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Invoke action moveToContainer. Move a planner plan object from one planner plan container to another. Planner plans can only be moved from a user container to a group container.",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "UserIdPlannerPlanId",
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "MovePlannerPlanToContainerRequest",
+    "referenceNameIsCommonType": false
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "PlannerPlan",
+    "referenceNameIsCommonType": true
+  },
+  "uriSuffix": "/moveToContainer"
+}

@@ -1,0 +1,57 @@
+{
+  "name": "WindowsUpdatesOperationalInsightsConnection",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The name of the Azure resource group that contains the Log Analytics workspace.",
+      "jsonName": "azureResourceGroupName",
+      "name": "AzureResourceGroupName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The Azure subscription ID that contains the Log Analytics workspace.",
+      "jsonName": "azureSubscriptionId",
+      "name": "AzureSubscriptionId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The name of the Log Analytics workspace.",
+      "jsonName": "workspaceName",
+      "name": "WorkspaceName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "WindowsUpdatesResourceConnection",
+  "discriminatedTypeValue": "#microsoft.graph.windowsUpdates.operationalInsightsConnection",
+  "typeHintIn": "ODataType"
+}

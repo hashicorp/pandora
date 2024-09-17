@@ -1,0 +1,24 @@
+{
+  "name": "PlannerRelationshipBasedUserType",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "role",
+      "name": "Role",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PlannerRelationshipUserRoles",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "PlannerTaskConfigurationRoleBase",
+  "discriminatedTypeValue": "#microsoft.graph.plannerRelationshipBasedUserType",
+  "typeHintIn": "ODataType"
+}

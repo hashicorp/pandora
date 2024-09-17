@@ -1,0 +1,57 @@
+{
+  "name": "OpenShift",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "An unpublished open shift.",
+      "jsonName": "draftOpenShift",
+      "name": "DraftOpenShift",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "OpenShiftItem",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "ID for the scheduling group that the open shift belongs to.",
+      "jsonName": "schedulingGroupId",
+      "name": "SchedulingGroupId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A published open shift.",
+      "jsonName": "sharedOpenShift",
+      "name": "SharedOpenShift",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "OpenShiftItem",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ChangeTrackedEntity",
+  "discriminatedTypeValue": "#microsoft.graph.openShift",
+  "typeHintIn": "ODataType"
+}

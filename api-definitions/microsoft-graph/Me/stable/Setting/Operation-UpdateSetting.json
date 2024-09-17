@@ -1,0 +1,41 @@
+{
+  "name": "UpdateSetting",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Update userSettings. Update the properties of the userSettings object. \nUsers in the same organization can have different settings based on their preference or on the organization policies. \nTo get the user current settings, see current user settings.",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "UserSettings",
+    "referenceNameIsCommonType": true
+  },
+  "uriSuffix": "/me/settings"
+}

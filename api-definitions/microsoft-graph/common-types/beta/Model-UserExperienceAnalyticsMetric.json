@@ -1,0 +1,25 @@
+{
+  "name": "UserExperienceAnalyticsMetric",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The unit of the user experience analytics metric. Examples: none, percentage, count, seconds, score.",
+      "jsonName": "unit",
+      "name": "Unit",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.userExperienceAnalyticsMetric",
+  "typeHintIn": "ODataType"
+}

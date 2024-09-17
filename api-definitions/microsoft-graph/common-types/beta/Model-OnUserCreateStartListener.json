@@ -1,0 +1,25 @@
+{
+  "name": "OnUserCreateStartListener",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Required. Configuration for what to invoke if the event resolves to this listener. This lets us define potential handler configurations per-event.",
+      "jsonName": "handler",
+      "name": "Handler",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "OnUserCreateStartHandler",
+        "referenceNameIsCommonType": true
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AuthenticationEventListener",
+  "discriminatedTypeValue": "#microsoft.graph.onUserCreateStartListener",
+  "typeHintIn": "ODataType"
+}

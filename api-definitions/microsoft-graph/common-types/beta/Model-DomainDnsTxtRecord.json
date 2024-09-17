@@ -1,0 +1,25 @@
+{
+  "name": "DomainDnsTxtRecord",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Value used when configuring the text property at the DNS host.",
+      "jsonName": "text",
+      "name": "Text",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DomainDnsRecord",
+  "discriminatedTypeValue": "#microsoft.graph.domainDnsTxtRecord",
+  "typeHintIn": "ODataType"
+}

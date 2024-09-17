@@ -1,0 +1,41 @@
+{
+  "name": "EducationPointsOutcome",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The numeric grade the teacher has given the student for this assignment.",
+      "jsonName": "points",
+      "name": "Points",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "EducationAssignmentPointsGrade",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A copy of the points property that is made when the grade is released to the student.",
+      "jsonName": "publishedPoints",
+      "name": "PublishedPoints",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "EducationAssignmentPointsGrade",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "EducationOutcome",
+  "discriminatedTypeValue": "#microsoft.graph.educationPointsOutcome",
+  "typeHintIn": "ODataType"
+}

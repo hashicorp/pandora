@@ -1,0 +1,36 @@
+{
+  "name": "RetryCloudPCPartnerAgentInstallation",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Invoke action retryPartnerAgentInstallation. Retry installation for the partner agents that failed to install on the Cloud PC. Service side checks which agent installation failed firstly and retry.",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "UserIdCloudPCId",
+  "resourceIdNameIsCommonType": true,
+  "uriSuffix": "/retryPartnerAgentInstallation"
+}

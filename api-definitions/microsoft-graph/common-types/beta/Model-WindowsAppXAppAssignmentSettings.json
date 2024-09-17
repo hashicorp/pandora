@@ -1,0 +1,25 @@
+{
+  "name": "WindowsAppXAppAssignmentSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Whether or not to use device execution context for Windows AppX mobile app.",
+      "jsonName": "useDeviceContext",
+      "name": "UseDeviceContext",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "MobileAppAssignmentSettings",
+  "discriminatedTypeValue": "#microsoft.graph.windowsAppXAppAssignmentSettings",
+  "typeHintIn": "ODataType"
+}

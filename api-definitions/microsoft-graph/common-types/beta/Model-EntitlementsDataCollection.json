@@ -1,0 +1,55 @@
+{
+  "name": "EntitlementsDataCollection",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Last transformation time of entitlements.",
+      "jsonName": "lastCollectionDateTime",
+      "name": "LastCollectionDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "permissionsModificationCapability",
+      "name": "PermissionsModificationCapability",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PermissionsModificationCapability",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "status",
+      "name": "Status",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DataCollectionStatus",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "EntitlementsDataCollectionInfo",
+  "discriminatedTypeValue": "#microsoft.graph.entitlementsDataCollection",
+  "typeHintIn": "ODataType"
+}

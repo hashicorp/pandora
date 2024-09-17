@@ -1,0 +1,25 @@
+{
+  "name": "UnifiedRoleManagementPolicyApprovalRule",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The settings for approval of the role assignment.",
+      "jsonName": "setting",
+      "name": "Setting",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ApprovalSettings",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "UnifiedRoleManagementPolicyRule",
+  "discriminatedTypeValue": "#microsoft.graph.unifiedRoleManagementPolicyApprovalRule",
+  "typeHintIn": "ODataType"
+}

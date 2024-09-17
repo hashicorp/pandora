@@ -1,0 +1,47 @@
+{
+  "name": "CreateAuthenticationEventsFlow",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Create authenticationEventsFlow. Create a new authenticationEventsFlow object that is of the type specified in the request body. The following derived subtypes are supported:\n- externalUsersSelfServiceSignupEventsFlow object type.",
+  "expectedStatusCodes": [
+    201
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "AuthenticationEventsFlow",
+    "referenceNameIsCommonType": true
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "AuthenticationEventsFlow",
+    "referenceNameIsCommonType": true
+  },
+  "uriSuffix": "/identity/authenticationEventsFlows"
+}

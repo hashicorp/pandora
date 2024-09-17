@@ -1,0 +1,41 @@
+{
+  "name": "DeliveryOptimizationBandwidthHoursWithPercentage",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Background download percentage hours.",
+      "jsonName": "bandwidthBackgroundPercentageHours",
+      "name": "BandwidthBackgroundPercentageHours",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeliveryOptimizationBandwidthBusinessHoursLimit",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Foreground download percentage hours.",
+      "jsonName": "bandwidthForegroundPercentageHours",
+      "name": "BandwidthForegroundPercentageHours",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeliveryOptimizationBandwidthBusinessHoursLimit",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeliveryOptimizationBandwidth",
+  "discriminatedTypeValue": "#microsoft.graph.deliveryOptimizationBandwidthHoursWithPercentage",
+  "typeHintIn": "ODataType"
+}

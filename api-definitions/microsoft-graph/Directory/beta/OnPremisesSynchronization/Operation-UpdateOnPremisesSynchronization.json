@@ -1,0 +1,41 @@
+{
+  "name": "UpdateOnPremisesSynchronization",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Update onPremisesDirectorySynchronization. Update the properties of an onPremisesDirectorySynchronization object.",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "DirectoryOnPremisesSynchronizationId",
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "OnPremisesDirectorySynchronization",
+    "referenceNameIsCommonType": true
+  }
+}

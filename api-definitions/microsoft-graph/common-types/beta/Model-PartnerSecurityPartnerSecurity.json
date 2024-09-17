@@ -1,0 +1,31 @@
+{
+  "name": "PartnerSecurityPartnerSecurity",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The security alerts or a vulnerability of a CSP partner's customer that the partner must be made aware of for further action.",
+      "jsonName": "securityAlerts",
+      "name": "SecurityAlerts",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "PartnerSecurityPartnerSecurityAlert",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.partner.security.partnerSecurity",
+  "typeHintIn": "ODataType"
+}

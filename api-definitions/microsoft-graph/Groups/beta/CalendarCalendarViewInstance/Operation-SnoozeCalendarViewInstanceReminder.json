@@ -1,0 +1,42 @@
+{
+  "name": "SnoozeCalendarViewInstanceReminder",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Invoke action snoozeReminder. Postpone a reminder for an event in a user calendar until a new time.",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "GroupIdCalendarCalendarViewIdInstanceId",
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "SnoozeCalendarViewInstanceReminderRequest",
+    "referenceNameIsCommonType": false
+  },
+  "uriSuffix": "/snoozeReminder"
+}

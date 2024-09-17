@@ -1,0 +1,73 @@
+{
+  "name": "MobileAppCatalogPackage",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The name of the product (example: \"Fabrikam for Business\"). Returned by default. Read-only. Supports: $filter, $search, $select. This property is read-only.",
+      "jsonName": "productDisplayName",
+      "name": "ProductDisplayName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The identifier of a specific product irrespective of version, or other attributes. Read-only. Returned by default. Supports: $filter, $select. This property is read-only.",
+      "jsonName": "productId",
+      "name": "ProductId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The name of the application catalog package publisher (example: \"Fabrikam\"). Returned by default. Read-only. Supports $filter, $search, $select. This property is read-only.",
+      "jsonName": "publisherDisplayName",
+      "name": "PublisherDisplayName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The name of the product version (example: \"1.2203.156\"). Returned by default. Read-only. Supports: $filter, $search, $select. This property is read-only.",
+      "jsonName": "versionDisplayName",
+      "name": "VersionDisplayName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": true,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.mobileAppCatalogPackage",
+  "typeHintIn": "ODataType"
+}

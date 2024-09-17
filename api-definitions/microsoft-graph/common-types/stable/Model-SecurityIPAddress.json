@@ -1,0 +1,73 @@
+{
+  "name": "SecurityIPAddress",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The details about the autonomous system to which this IP address belongs.",
+      "jsonName": "autonomousSystem",
+      "name": "AutonomousSystem",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SecurityAutonomousSystem",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The country/region for this IP address.",
+      "jsonName": "countryOrRegion",
+      "name": "CountryOrRegion",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The hosting company listed for this host.",
+      "jsonName": "hostingProvider",
+      "name": "HostingProvider",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The block of IP addresses this IP address belongs to.",
+      "jsonName": "netblock",
+      "name": "Netblock",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SecurityHost",
+  "discriminatedTypeValue": "#microsoft.graph.security.ipAddress",
+  "typeHintIn": "ODataType"
+}

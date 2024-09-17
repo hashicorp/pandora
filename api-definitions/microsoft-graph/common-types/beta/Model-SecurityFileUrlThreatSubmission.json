@@ -1,0 +1,25 @@
+{
+  "name": "SecurityFileUrlThreatSubmission",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "It specifies the URL of the file that needs to be submitted.",
+      "jsonName": "fileUrl",
+      "name": "FileUrl",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SecurityFileThreatSubmission",
+  "discriminatedTypeValue": "#microsoft.graph.security.fileUrlThreatSubmission",
+  "typeHintIn": "ODataType"
+}

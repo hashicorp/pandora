@@ -1,0 +1,25 @@
+{
+  "name": "ManagedAppProtectionPolicySetItem",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "TargetedAppManagementLevels of the ManagedAppPolicySetItem.",
+      "jsonName": "targetedAppManagementLevels",
+      "name": "TargetedAppManagementLevels",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "PolicySetItem",
+  "discriminatedTypeValue": "#microsoft.graph.managedAppProtectionPolicySetItem",
+  "typeHintIn": "ODataType"
+}

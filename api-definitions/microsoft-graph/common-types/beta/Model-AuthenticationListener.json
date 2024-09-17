@@ -1,0 +1,41 @@
+{
+  "name": "AuthenticationListener",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The priority of the listener. Determines the order of evaluation when an event has multiple listeners. The priority is evaluated from low to high.",
+      "jsonName": "priority",
+      "name": "Priority",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Filter based on the source of the authentication that is used to determine whether the listener is evaluated, and is currently limited to evaluations based on application the user is authenticating to.",
+      "jsonName": "sourceFilter",
+      "name": "SourceFilter",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AuthenticationSourceFilter",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": true,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.authenticationListener",
+  "typeHintIn": "ODataType"
+}

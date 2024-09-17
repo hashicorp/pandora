@@ -1,0 +1,73 @@
+{
+  "name": "TermStoreRelation",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The from [term] of the relation. The term from which the relationship is defined. A null value would indicate the relation is directly with the [set].",
+      "jsonName": "fromTerm",
+      "name": "FromTerm",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "TermStoreTerm",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The type of relation. Possible values are: pin, reuse.",
+      "jsonName": "relationship",
+      "name": "Relationship",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "TermStoreRelationType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The [set] in which the relation is relevant.",
+      "jsonName": "set",
+      "name": "Set",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "TermStoreSet",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The to [term] of the relation. The term to which the relationship is defined.",
+      "jsonName": "toTerm",
+      "name": "ToTerm",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "TermStoreTerm",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.termStore.relation",
+  "typeHintIn": "ODataType"
+}

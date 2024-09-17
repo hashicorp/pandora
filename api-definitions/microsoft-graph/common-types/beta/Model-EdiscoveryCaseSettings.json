@@ -1,0 +1,57 @@
+{
+  "name": "EdiscoveryCaseSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The OCR (Optical Character Recognition) settings for the case.",
+      "jsonName": "ocr",
+      "name": "Ocr",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "EdiscoveryOcrSettings",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The redundancy (near duplicate and email threading) detection settings for the case.",
+      "jsonName": "redundancyDetection",
+      "name": "RedundancyDetection",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "EdiscoveryRedundancyDetectionSettings",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The article Modeling (Themes) settings for the case.",
+      "jsonName": "topicModeling",
+      "name": "TopicModeling",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "EdiscoveryTopicModelingSettings",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.ediscovery.caseSettings",
+  "typeHintIn": "ODataType"
+}

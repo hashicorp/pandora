@@ -1,0 +1,41 @@
+{
+  "name": "WindowsDeviceADAccount",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Not yet documented",
+      "jsonName": "domainName",
+      "name": "DomainName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Not yet documented",
+      "jsonName": "userName",
+      "name": "UserName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "WindowsDeviceAccount",
+  "discriminatedTypeValue": "#microsoft.graph.windowsDeviceADAccount",
+  "typeHintIn": "ODataType"
+}

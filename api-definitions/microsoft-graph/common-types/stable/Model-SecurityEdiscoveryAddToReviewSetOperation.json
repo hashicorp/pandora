@@ -1,0 +1,41 @@
+{
+  "name": "SecurityEdiscoveryAddToReviewSetOperation",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "eDiscovery review set to which items matching source collection query gets added.",
+      "jsonName": "reviewSet",
+      "name": "ReviewSet",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SecurityEdiscoveryReviewSet",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "eDiscovery search that gets added to review set.",
+      "jsonName": "search",
+      "name": "Search",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SecurityEdiscoverySearch",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SecurityCaseOperation",
+  "discriminatedTypeValue": "#microsoft.graph.security.ediscoveryAddToReviewSetOperation",
+  "typeHintIn": "ODataType"
+}

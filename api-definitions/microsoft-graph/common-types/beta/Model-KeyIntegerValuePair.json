@@ -1,0 +1,25 @@
+{
+  "name": "KeyIntegerValuePair",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The integer value of the key-value pair.",
+      "jsonName": "value",
+      "name": "Value",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "KeyTypedValuePair",
+  "discriminatedTypeValue": "#microsoft.graph.keyIntegerValuePair",
+  "typeHintIn": "ODataType"
+}

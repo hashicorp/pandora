@@ -1,0 +1,25 @@
+{
+  "name": "Windows10EnterpriseModernAppManagementConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not to uninstall a fixed list of built-in Windows apps.",
+      "jsonName": "uninstallBuiltInApps",
+      "name": "UninstallBuiltInApps",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceConfiguration",
+  "discriminatedTypeValue": "#microsoft.graph.windows10EnterpriseModernAppManagementConfiguration",
+  "typeHintIn": "ODataType"
+}

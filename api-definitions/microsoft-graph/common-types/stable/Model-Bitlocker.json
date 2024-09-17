@@ -1,0 +1,31 @@
+{
+  "name": "Bitlocker",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The recovery keys associated with the bitlocker entity.",
+      "jsonName": "recoveryKeys",
+      "name": "RecoveryKeys",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "BitlockerRecoveryKey",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.bitlocker",
+  "typeHintIn": "ODataType"
+}

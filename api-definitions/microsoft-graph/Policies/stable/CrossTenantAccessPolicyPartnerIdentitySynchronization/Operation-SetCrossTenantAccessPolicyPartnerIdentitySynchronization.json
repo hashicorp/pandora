@@ -1,0 +1,42 @@
+{
+  "name": "SetCrossTenantAccessPolicyPartnerIdentitySynchronization",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Create identitySynchronization. Create a cross-tenant user synchronization policy for a partner-specific configuration.",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "PUT",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "PolicyCrossTenantAccessPolicyPartnerId",
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "CrossTenantIdentitySyncPolicyPartner",
+    "referenceNameIsCommonType": true
+  },
+  "uriSuffix": "/identitySynchronization"
+}

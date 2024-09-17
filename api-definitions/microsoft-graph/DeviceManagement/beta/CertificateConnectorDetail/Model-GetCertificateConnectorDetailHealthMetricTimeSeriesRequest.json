@@ -1,0 +1,21 @@
+{
+  "name": "GetCertificateConnectorDetailHealthMetricTimeSeriesRequest",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "timeSeries",
+      "name": "TimeSeries",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "TimeSeriesParameter",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

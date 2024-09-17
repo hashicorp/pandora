@@ -1,0 +1,25 @@
+{
+  "name": "Initiator",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Type of initiator. Possible values are: user, application, system, unknownFutureValue.",
+      "jsonName": "initiatorType",
+      "name": "InitiatorType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "InitiatorType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Identity",
+  "discriminatedTypeValue": "#microsoft.graph.initiator",
+  "typeHintIn": "ODataType"
+}

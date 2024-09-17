@@ -1,0 +1,57 @@
+{
+  "name": "DeviceComanagementAuthorityConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "CoManagement Authority configuration ConfigurationManagerAgentCommandLineArgument",
+      "jsonName": "configurationManagerAgentCommandLineArgument",
+      "name": "ConfigurationManagerAgentCommandLineArgument",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "CoManagement Authority configuration InstallConfigurationManagerAgent",
+      "jsonName": "installConfigurationManagerAgent",
+      "name": "InstallConfigurationManagerAgent",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "CoManagement Authority configuration ManagedDeviceAuthority",
+      "jsonName": "managedDeviceAuthority",
+      "name": "ManagedDeviceAuthority",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceEnrollmentConfiguration",
+  "discriminatedTypeValue": "#microsoft.graph.deviceComanagementAuthorityConfiguration",
+  "typeHintIn": "ODataType"
+}

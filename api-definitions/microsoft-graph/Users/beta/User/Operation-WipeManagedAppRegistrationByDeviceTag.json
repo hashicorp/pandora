@@ -1,0 +1,42 @@
+{
+  "name": "WipeManagedAppRegistrationByDeviceTag",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Invoke action wipeManagedAppRegistrationByDeviceTag. Issues a wipe operation on an app registration with specified device tag.",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "UserId",
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "WipeManagedAppRegistrationByDeviceTagRequest",
+    "referenceNameIsCommonType": false
+  },
+  "uriSuffix": "/wipeManagedAppRegistrationByDeviceTag"
+}

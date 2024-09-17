@@ -1,0 +1,47 @@
+{
+  "name": "DeviceManagementConfigurationChoiceSettingDefinition",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Default option for choice setting",
+      "jsonName": "defaultOptionId",
+      "name": "DefaultOptionId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Options for the setting that can be selected",
+      "jsonName": "options",
+      "name": "Options",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "DeviceManagementConfigurationOptionDefinition",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": true,
+  "discriminatedParentModelName": "DeviceManagementConfigurationSettingDefinition",
+  "discriminatedTypeValue": "#microsoft.graph.deviceManagementConfigurationChoiceSettingDefinition",
+  "typeHintIn": "ODataType"
+}

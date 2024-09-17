@@ -1,0 +1,25 @@
+{
+  "name": "EducationExcelResource",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Pointer to the Excel file object.",
+      "jsonName": "fileUrl",
+      "name": "FileUrl",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "EducationResource",
+  "discriminatedTypeValue": "#microsoft.graph.educationExcelResource",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,31 @@
+{
+  "name": "DeviceManagementConfigurationChoiceSettingCollectionInstance",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Choice setting collection value",
+      "jsonName": "choiceSettingCollectionValue",
+      "name": "ChoiceSettingCollectionValue",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "DeviceManagementConfigurationChoiceSettingValue",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceManagementConfigurationSettingInstance",
+  "discriminatedTypeValue": "#microsoft.graph.deviceManagementConfigurationChoiceSettingCollectionInstance",
+  "typeHintIn": "ODataType"
+}

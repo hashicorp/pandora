@@ -1,0 +1,41 @@
+{
+  "name": "DeviceManagementConfigurationChoiceSettingCollectionDefinition",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Maximum number of choices in the collection",
+      "jsonName": "maximumCount",
+      "name": "MaximumCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Minimum number of choices in the collection",
+      "jsonName": "minimumCount",
+      "name": "MinimumCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceManagementConfigurationChoiceSettingDefinition",
+  "discriminatedTypeValue": "#microsoft.graph.deviceManagementConfigurationChoiceSettingCollectionDefinition",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,57 @@
+{
+  "name": "Win32LobAppProductCodeDetection",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The product code of Win32 Line of Business (LoB) app.",
+      "jsonName": "productCode",
+      "name": "ProductCode",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The product version of Win32 Line of Business (LoB) app.",
+      "jsonName": "productVersion",
+      "name": "ProductVersion",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Contains properties for detection operator.",
+      "jsonName": "productVersionOperator",
+      "name": "ProductVersionOperator",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Win32LobAppDetectionOperator",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Win32LobAppDetection",
+  "discriminatedTypeValue": "#microsoft.graph.win32LobAppProductCodeDetection",
+  "typeHintIn": "ODataType"
+}

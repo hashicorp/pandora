@@ -1,0 +1,47 @@
+{
+  "name": "DeviceManagementConfigurationSimpleSettingCollectionInstanceTemplate",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Linked policy may append values which are not present in the template.",
+      "jsonName": "allowUnmanagedValues",
+      "name": "AllowUnmanagedValues",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Simple Setting Collection Value Template",
+      "jsonName": "simpleSettingCollectionValueTemplate",
+      "name": "SimpleSettingCollectionValueTemplate",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "DeviceManagementConfigurationSimpleSettingValueTemplate",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceManagementConfigurationSettingInstanceTemplate",
+  "discriminatedTypeValue": "#microsoft.graph.deviceManagementConfigurationSimpleSettingCollectionInstanceTemplate",
+  "typeHintIn": "ODataType"
+}

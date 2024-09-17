@@ -1,0 +1,25 @@
+{
+  "name": "DeviceManagementConfigurationReferenceSettingValue",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A note that admin can use to put some contextual information",
+      "jsonName": "note",
+      "name": "Note",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceManagementConfigurationStringSettingValue",
+  "discriminatedTypeValue": "#microsoft.graph.deviceManagementConfigurationReferenceSettingValue",
+  "typeHintIn": "ODataType"
+}

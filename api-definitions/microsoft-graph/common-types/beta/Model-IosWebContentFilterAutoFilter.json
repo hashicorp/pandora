@@ -1,0 +1,53 @@
+{
+  "name": "IosWebContentFilterAutoFilter",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Additional URLs allowed for access",
+      "jsonName": "allowedUrls",
+      "name": "AllowedUrls",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Additional URLs blocked for access",
+      "jsonName": "blockedUrls",
+      "name": "BlockedUrls",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "IosWebContentFilterBase",
+  "discriminatedTypeValue": "#microsoft.graph.iosWebContentFilterAutoFilter",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,42 @@
+{
+  "name": "CreateManagedDeviceTriggerConfigurationManagerAction",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Invoke action triggerConfigurationManagerAction. Trigger action on ConfigurationManager client",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "MeManagedDeviceId",
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "CreateManagedDeviceTriggerConfigurationManagerActionRequest",
+    "referenceNameIsCommonType": false
+  },
+  "uriSuffix": "/triggerConfigurationManagerAction"
+}

@@ -1,0 +1,41 @@
+{
+  "name": "ResellerDelegatedAdminRelationship",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The tenant ID of the indirect provider partner who created the relationship for the indirect reseller partner.",
+      "jsonName": "indirectProviderTenantId",
+      "name": "IndirectProviderTenantId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the indirect reseller partner consent status. true indicates that the partner has yet to review the relationship; false indicates that the partner has already provided consent by approving or rejecting the relationship.",
+      "jsonName": "isPartnerConsentPending",
+      "name": "IsPartnerConsentPending",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DelegatedAdminRelationship",
+  "discriminatedTypeValue": "#microsoft.graph.resellerDelegatedAdminRelationship",
+  "typeHintIn": "ODataType"
+}

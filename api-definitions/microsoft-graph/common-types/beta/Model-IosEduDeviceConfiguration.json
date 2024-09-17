@@ -1,0 +1,57 @@
+{
+  "name": "IosEduDeviceConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The Trusted Root and PFX certificates for Device",
+      "jsonName": "deviceCertificateSettings",
+      "name": "DeviceCertificateSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "IosEduCertificateSettings",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The Trusted Root and PFX certificates for Student",
+      "jsonName": "studentCertificateSettings",
+      "name": "StudentCertificateSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "IosEduCertificateSettings",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Trusted Root and PFX certificates for iOS EDU.",
+      "jsonName": "teacherCertificateSettings",
+      "name": "TeacherCertificateSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "IosEduCertificateSettings",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceConfiguration",
+  "discriminatedTypeValue": "#microsoft.graph.iosEduDeviceConfiguration",
+  "typeHintIn": "ODataType"
+}

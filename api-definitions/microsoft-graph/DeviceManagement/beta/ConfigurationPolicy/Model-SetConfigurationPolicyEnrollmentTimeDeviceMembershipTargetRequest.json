@@ -1,0 +1,27 @@
+{
+  "name": "SetConfigurationPolicyEnrollmentTimeDeviceMembershipTargetRequest",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "enrollmentTimeDeviceMembershipTargets",
+      "name": "EnrollmentTimeDeviceMembershipTargets",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "EnrollmentTimeDeviceMembershipTarget",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

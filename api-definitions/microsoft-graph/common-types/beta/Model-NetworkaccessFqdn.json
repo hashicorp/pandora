@@ -1,0 +1,25 @@
+{
+  "name": "NetworkaccessFqdn",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Defines the FQDN used in a destination for a rule.",
+      "jsonName": "value",
+      "name": "Value",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "NetworkaccessRuleDestination",
+  "discriminatedTypeValue": "#microsoft.graph.networkaccess.fqdn",
+  "typeHintIn": "ODataType"
+}

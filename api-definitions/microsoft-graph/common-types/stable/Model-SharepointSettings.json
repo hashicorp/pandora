@@ -1,0 +1,503 @@
+{
+  "name": "SharepointSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Collection of trusted domain GUIDs for the OneDrive sync app.",
+      "jsonName": "allowedDomainGuidsForSyncApp",
+      "name": "AllowedDomainGuidsForSyncApp",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Collection of managed paths available for site creation. Read-only.",
+      "jsonName": "availableManagedPathsForSiteCreation",
+      "name": "AvailableManagedPathsForSiteCreation",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The number of days for preserving a deleted user's OneDrive.",
+      "jsonName": "deletedUserPersonalSiteRetentionPeriodInDays",
+      "name": "DeletedUserPersonalSiteRetentionPeriodInDays",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Collection of file extensions not uploaded by the OneDrive sync app.",
+      "jsonName": "excludedFileExtensionsForSyncApp",
+      "name": "ExcludedFileExtensionsForSyncApp",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the idle session sign-out policies for the tenant.",
+      "jsonName": "idleSessionSignOut",
+      "name": "IdleSessionSignOut",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "IdleSessionSignOut",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the image tagging option for the tenant. Possible values are: disabled, basic, enhanced.",
+      "jsonName": "imageTaggingOption",
+      "name": "ImageTaggingOption",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ImageTaggingChoice",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether comments are allowed on modern site pages in SharePoint.",
+      "jsonName": "isCommentingOnSitePagesEnabled",
+      "name": "IsCommentingOnSitePagesEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether push notifications are enabled for OneDrive events.",
+      "jsonName": "isFileActivityNotificationEnabled",
+      "name": "IsFileActivityNotificationEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether legacy authentication protocols are enabled for the tenant.",
+      "jsonName": "isLegacyAuthProtocolsEnabled",
+      "name": "IsLegacyAuthProtocolsEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether if Fluid Framework is allowed on SharePoint sites.",
+      "jsonName": "isLoopEnabled",
+      "name": "IsLoopEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether files can be synced using the OneDrive sync app for Mac.",
+      "jsonName": "isMacSyncAppEnabled",
+      "name": "IsMacSyncAppEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether guests must sign in using the same account to which sharing invitations are sent.",
+      "jsonName": "isRequireAcceptingUserToMatchInvitedUserEnabled",
+      "name": "IsRequireAcceptingUserToMatchInvitedUserEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether guests are allowed to reshare files, folders, and sites they don't own.",
+      "jsonName": "isResharingByExternalUsersEnabled",
+      "name": "IsResharingByExternalUsersEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether mobile push notifications are enabled for SharePoint.",
+      "jsonName": "isSharePointMobileNotificationEnabled",
+      "name": "IsSharePointMobileNotificationEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether the newsfeed is allowed on the modern site pages in SharePoint.",
+      "jsonName": "isSharePointNewsfeedEnabled",
+      "name": "IsSharePointNewsfeedEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether users are allowed to create sites.",
+      "jsonName": "isSiteCreationEnabled",
+      "name": "IsSiteCreationEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether the UI commands for creating sites are shown.",
+      "jsonName": "isSiteCreationUIEnabled",
+      "name": "IsSiteCreationUIEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether creating new modern pages is allowed on SharePoint sites.",
+      "jsonName": "isSitePagesCreationEnabled",
+      "name": "IsSitePagesCreationEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether site storage space is automatically managed or if specific storage limits are set per site.",
+      "jsonName": "isSitesStorageLimitAutomatic",
+      "name": "IsSitesStorageLimitAutomatic",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether the sync button in OneDrive is hidden.",
+      "jsonName": "isSyncButtonHiddenOnPersonalSite",
+      "name": "IsSyncButtonHiddenOnPersonalSite",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether users are allowed to sync files only on PCs joined to specific domains.",
+      "jsonName": "isUnmanagedSyncAppForTenantRestricted",
+      "name": "IsUnmanagedSyncAppForTenantRestricted",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The default OneDrive storage limit for all new and existing users who are assigned a qualifying license. Measured in megabytes (MB).",
+      "jsonName": "personalSiteDefaultStorageLimitInMB",
+      "name": "PersonalSiteDefaultStorageLimitInMB",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Collection of email domains that are allowed for sharing outside the organization.",
+      "jsonName": "sharingAllowedDomainList",
+      "name": "SharingAllowedDomainList",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Collection of email domains that are blocked for sharing outside the organization.",
+      "jsonName": "sharingBlockedDomainList",
+      "name": "SharingBlockedDomainList",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Sharing capability for the tenant. Possible values are: disabled, externalUserSharingOnly, externalUserAndGuestSharing, existingExternalUserSharingOnly.",
+      "jsonName": "sharingCapability",
+      "name": "SharingCapability",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SharingCapabilities",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the external sharing mode for domains. Possible values are: none, allowList, blockList.",
+      "jsonName": "sharingDomainRestrictionMode",
+      "name": "SharingDomainRestrictionMode",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SharingDomainRestrictionMode",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The value of the team site managed path. This is the path under which new team sites will be created.",
+      "jsonName": "siteCreationDefaultManagedPath",
+      "name": "SiteCreationDefaultManagedPath",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The default storage quota for a new site upon creation. Measured in megabytes (MB).",
+      "jsonName": "siteCreationDefaultStorageLimitInMB",
+      "name": "SiteCreationDefaultStorageLimitInMB",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The default timezone of a tenant for newly created sites. For a list of possible values, see SPRegionalSettings.TimeZones property.",
+      "jsonName": "tenantDefaultTimezone",
+      "name": "TenantDefaultTimezone",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.sharepointSettings",
+  "typeHintIn": "ODataType"
+}

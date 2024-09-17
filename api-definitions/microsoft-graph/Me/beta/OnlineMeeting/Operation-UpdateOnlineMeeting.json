@@ -1,0 +1,41 @@
+{
+  "name": "UpdateOnlineMeeting",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Update onlineMeeting. Update the properties of the specified onlineMeeting object. Please see Request body section for the list of properties that support updating.",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "MeOnlineMeetingId",
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "OnlineMeeting",
+    "referenceNameIsCommonType": true
+  }
+}

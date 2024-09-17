@@ -1,0 +1,41 @@
+{
+  "name": "TooManyGlobalAdminsAssignedToTenantAlertConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The threshold for the number of accounts assigned the Global Administrator role in the tenant. Triggers an alert if the number of global administrators in the tenant reaches or crosses this threshold value.",
+      "jsonName": "globalAdminCountThreshold",
+      "name": "GlobalAdminCountThreshold",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Threshold of the percentage of global administrators out of all the role assignments in the tenant. Triggers an alert if the percentage in the tenant reaches or crosses this threshold value.",
+      "jsonName": "percentageOfGlobalAdminsOutOfRolesThreshold",
+      "name": "PercentageOfGlobalAdminsOutOfRolesThreshold",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "UnifiedRoleManagementAlertConfiguration",
+  "discriminatedTypeValue": "#microsoft.graph.tooManyGlobalAdminsAssignedToTenantAlertConfiguration",
+  "typeHintIn": "ODataType"
+}

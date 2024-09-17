@@ -1,0 +1,46 @@
+{
+  "name": "AwsActionsPermissionsDefinitionAction",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Defines AWS statements.",
+      "jsonName": "assignToRoleId",
+      "name": "AssignToRoleId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "statements",
+      "name": "Statements",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "AwsStatement",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AwsPermissionsDefinitionAction",
+  "discriminatedTypeValue": "#microsoft.graph.awsActionsPermissionsDefinitionAction",
+  "typeHintIn": "ODataType"
+}

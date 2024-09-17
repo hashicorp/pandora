@@ -1,0 +1,57 @@
+{
+  "name": "Win32CatalogApp",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The latest available catalog package the app is upgradeable to. This property is read-only.",
+      "jsonName": "latestUpgradeCatalogPackage",
+      "name": "LatestUpgradeCatalogPackage",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "MobileAppCatalogPackage",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The mobileAppCatalogPackageId property references the mobileAppCatalogPackage entity which contains information about an application catalog package that can be deployed to Intune-managed devices",
+      "jsonName": "mobileAppCatalogPackageId",
+      "name": "MobileAppCatalogPackageId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The current catalog package the app is synced from. This property is read-only.",
+      "jsonName": "referencedCatalogPackage",
+      "name": "ReferencedCatalogPackage",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "MobileAppCatalogPackage",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Win32LobApp",
+  "discriminatedTypeValue": "#microsoft.graph.win32CatalogApp",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,42 @@
+{
+  "name": "ValidateCustomAuthenticationExtensionAuthenticationConfiguration",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Invoke action validateAuthenticationConfiguration. An API to check validity of the endpoint and and authentication configuration for a customAuthenticationExtension.",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "IdentityCustomAuthenticationExtensionId",
+  "resourceIdNameIsCommonType": true,
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "AuthenticationConfigurationValidation",
+    "referenceNameIsCommonType": true
+  },
+  "uriSuffix": "/validateAuthenticationConfiguration"
+}

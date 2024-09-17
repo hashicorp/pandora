@@ -1,0 +1,36 @@
+{
+  "name": "CreateMonitoringAlertRecordDeviceManagementSetPortalNotificationAsSent",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Invoke action setPortalNotificationAsSent. Set the status of the notification associated with the specified alertRecord on the Microsoft EndPoint Manager admin center as sent, by setting the isPortalNotificationSent property of the portal notification to true.",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "DeviceManagementMonitoringAlertRecordId",
+  "resourceIdNameIsCommonType": true,
+  "uriSuffix": "/deviceManagement.setPortalNotificationAsSent"
+}

@@ -1,0 +1,42 @@
+{
+  "name": "CreateOnenotePageOnenotePatchContent",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Invoke action onenotePatchContent",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "GroupIdOnenotePageId",
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "CreateOnenotePageOnenotePatchContentRequest",
+    "referenceNameIsCommonType": false
+  },
+  "uriSuffix": "/onenotePatchContent"
+}

@@ -1,0 +1,89 @@
+{
+  "name": "UserExperienceAnalyticsBatteryHealthAppImpact",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Number of active devices for using that app over a 14-day period. Valid values 0 to 2147483647",
+      "jsonName": "activeDevices",
+      "name": "ActiveDevices",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "User friendly display name for the app. Eg: Outlook",
+      "jsonName": "appDisplayName",
+      "name": "AppDisplayName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "App name. Eg: oltk.exe",
+      "jsonName": "appName",
+      "name": "AppName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "App publisher. Eg: Microsoft Corporation",
+      "jsonName": "appPublisher",
+      "name": "AppPublisher",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "true if the user had active interaction with the app.",
+      "jsonName": "isForegroundApp",
+      "name": "IsForegroundApp",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.userExperienceAnalyticsBatteryHealthAppImpact",
+  "typeHintIn": "ODataType"
+}

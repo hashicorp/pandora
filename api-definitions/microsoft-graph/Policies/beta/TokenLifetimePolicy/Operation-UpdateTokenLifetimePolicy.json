@@ -1,0 +1,41 @@
+{
+  "name": "UpdateTokenLifetimePolicy",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Update tokenlifetimepolicy. Update the properties of a tokenLifetimePolicy object.",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "PolicyTokenLifetimePolicyId",
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "TokenLifetimePolicy",
+    "referenceNameIsCommonType": true
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "WindowsUpdatesDurationDrivenRolloutSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The target duration of the rollout. Given durationBetweenOffers and durationUntilDeploymentEnd, the system will automatically calculate how many devices are in each offering.",
+      "jsonName": "durationUntilDeploymentEnd",
+      "name": "DurationUntilDeploymentEnd",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "WindowsUpdatesGradualRolloutSettings",
+  "discriminatedTypeValue": "#microsoft.graph.windowsUpdates.durationDrivenRolloutSettings",
+  "typeHintIn": "ODataType"
+}

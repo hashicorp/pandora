@@ -1,0 +1,39 @@
+{
+  "name": "CloudPCDisasterRecoveryMicrosoftHostedNetworkSetting",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "regionGroup",
+      "name": "RegionGroup",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "CloudPCRegionGroup",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "regionName",
+      "name": "RegionName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "CloudPCDisasterRecoveryNetworkSetting",
+  "discriminatedTypeValue": "#microsoft.graph.cloudPcDisasterRecoveryMicrosoftHostedNetworkSetting",
+  "typeHintIn": "ODataType"
+}

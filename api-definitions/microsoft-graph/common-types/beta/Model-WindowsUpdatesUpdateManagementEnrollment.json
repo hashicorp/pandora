@@ -1,0 +1,24 @@
+{
+  "name": "WindowsUpdatesUpdateManagementEnrollment",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "updateCategory",
+      "name": "UpdateCategory",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WindowsUpdatesUpdateCategory",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "WindowsUpdatesUpdatableAssetEnrollment",
+  "discriminatedTypeValue": "#microsoft.graph.windowsUpdates.updateManagementEnrollment",
+  "typeHintIn": "ODataType"
+}

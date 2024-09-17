@@ -1,0 +1,25 @@
+{
+  "name": "PlannerBasicApprovalAttachment",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Read-only. The identifier of the approval in the approval service.",
+      "jsonName": "approvalId",
+      "name": "ApprovalId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "PlannerBaseApprovalAttachment",
+  "discriminatedTypeValue": "#microsoft.graph.plannerBasicApprovalAttachment",
+  "typeHintIn": "ODataType"
+}

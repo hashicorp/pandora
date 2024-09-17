@@ -1,0 +1,42 @@
+{
+  "name": "UpdateSettingItemInsight",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Update userInsightsSettings. Update the privacy settings for itemInsights and meeting hours insights of a user.",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "UserId",
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "UserInsightsSettings",
+    "referenceNameIsCommonType": true
+  },
+  "uriSuffix": "/settings/itemInsights"
+}

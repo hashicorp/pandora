@@ -1,0 +1,24 @@
+{
+  "name": "AwsIdentitySource",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "authorizationSystemInfo",
+      "name": "AuthorizationSystemInfo",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PermissionsDefinitionAuthorizationSystem",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "PermissionsDefinitionIdentitySource",
+  "discriminatedTypeValue": "#microsoft.graph.awsIdentitySource",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,41 @@
+{
+  "name": "AndroidDeviceOwnerKioskModeWeblink",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Display name for weblink",
+      "jsonName": "label",
+      "name": "Label",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Link for weblink",
+      "jsonName": "link",
+      "name": "Link",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AndroidDeviceOwnerKioskModeFolderItem",
+  "discriminatedTypeValue": "#microsoft.graph.androidDeviceOwnerKioskModeWeblink",
+  "typeHintIn": "ODataType"
+}

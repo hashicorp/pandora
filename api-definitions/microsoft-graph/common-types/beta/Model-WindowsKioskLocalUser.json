@@ -1,0 +1,25 @@
+{
+  "name": "WindowsKioskLocalUser",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The local user that will be locked to this kiosk configuration",
+      "jsonName": "userName",
+      "name": "UserName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "WindowsKioskUser",
+  "discriminatedTypeValue": "#microsoft.graph.windowsKioskLocalUser",
+  "typeHintIn": "ODataType"
+}

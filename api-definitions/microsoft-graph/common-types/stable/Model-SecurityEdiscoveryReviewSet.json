@@ -1,0 +1,31 @@
+{
+  "name": "SecurityEdiscoveryReviewSet",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Represents queries within the review set.",
+      "jsonName": "queries",
+      "name": "Queries",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "SecurityEdiscoveryReviewSetQuery",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SecurityDataSet",
+  "discriminatedTypeValue": "#microsoft.graph.security.ediscoveryReviewSet",
+  "typeHintIn": "ODataType"
+}

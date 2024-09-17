@@ -1,0 +1,89 @@
+{
+  "name": "UserExperienceAnalyticsBatteryHealthRuntimeDetails",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Number of active devices within the tenant. Valid values 0 to 2147483647",
+      "jsonName": "activeDevices",
+      "name": "ActiveDevices",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Number of devices whose active runtime is greater than 3 hours but lesser than 5 hours. Valid values 0 to 2147483647",
+      "jsonName": "batteryRuntimeFair",
+      "name": "BatteryRuntimeFair",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Number of devices  whose active runtime is greater than 5 hours. Valid values 0 to 2147483647",
+      "jsonName": "batteryRuntimeGood",
+      "name": "BatteryRuntimeGood",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Number of devices whose active runtime is lesser than 3 hours. Valid values 0 to 2147483647",
+      "jsonName": "batteryRuntimePoor",
+      "name": "BatteryRuntimePoor",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Recorded date time of this runtime details instance.",
+      "jsonName": "lastRefreshedDateTime",
+      "name": "LastRefreshedDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.userExperienceAnalyticsBatteryHealthRuntimeDetails",
+  "typeHintIn": "ODataType"
+}

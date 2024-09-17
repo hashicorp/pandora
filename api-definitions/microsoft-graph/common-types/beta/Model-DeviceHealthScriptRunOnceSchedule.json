@@ -1,0 +1,25 @@
+{
+  "name": "DeviceHealthScriptRunOnceSchedule",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The date the script is scheduled to run. This collection can contain a maximum of 20 elements.",
+      "jsonName": "date",
+      "name": "Date",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceHealthScriptTimeSchedule",
+  "discriminatedTypeValue": "#microsoft.graph.deviceHealthScriptRunOnceSchedule",
+  "typeHintIn": "ODataType"
+}

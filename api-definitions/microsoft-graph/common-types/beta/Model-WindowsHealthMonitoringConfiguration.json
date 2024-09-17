@@ -1,0 +1,57 @@
+{
+  "name": "WindowsHealthMonitoringConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values of a property",
+      "jsonName": "allowDeviceHealthMonitoring",
+      "name": "AllowDeviceHealthMonitoring",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Enablement",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specifies custom set of events collected from the device where health monitoring is enabled",
+      "jsonName": "configDeviceHealthMonitoringCustomScope",
+      "name": "ConfigDeviceHealthMonitoringCustomScope",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Device health monitoring scope",
+      "jsonName": "configDeviceHealthMonitoringScope",
+      "name": "ConfigDeviceHealthMonitoringScope",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WindowsHealthMonitoringScope",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceConfiguration",
+  "discriminatedTypeValue": "#microsoft.graph.windowsHealthMonitoringConfiguration",
+  "typeHintIn": "ODataType"
+}

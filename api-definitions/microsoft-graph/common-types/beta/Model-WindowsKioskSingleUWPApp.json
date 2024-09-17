@@ -1,0 +1,24 @@
+{
+  "name": "WindowsKioskSingleUWPApp",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "uwpApp",
+      "name": "UwpApp",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WindowsKioskUWPApp",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "WindowsKioskAppConfiguration",
+  "discriminatedTypeValue": "#microsoft.graph.windowsKioskSingleUWPApp",
+  "typeHintIn": "ODataType"
+}

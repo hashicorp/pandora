@@ -1,0 +1,25 @@
+{
+  "name": "GroupAssignmentTarget",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The group Id that is the target of the assignment.",
+      "jsonName": "groupId",
+      "name": "GroupId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": true,
+  "discriminatedParentModelName": "DeviceAndAppManagementAssignmentTarget",
+  "discriminatedTypeValue": "#microsoft.graph.groupAssignmentTarget",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,73 @@
+{
+  "name": "IndustryDataOneRosterApiDataConnector",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The API version of the OneRoster source. Example: 1.1, 1.2",
+      "jsonName": "apiVersion",
+      "name": "ApiVersion",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether the user specified to import optional contacts data.",
+      "jsonName": "isContactsEnabled",
+      "name": "IsContactsEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether the user specified to import optional demographics data.",
+      "jsonName": "isDemographicsEnabled",
+      "name": "IsDemographicsEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether the user specified to import optional flags data.",
+      "jsonName": "isFlagsEnabled",
+      "name": "IsFlagsEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "IndustryDataApiDataConnector",
+  "discriminatedTypeValue": "#microsoft.graph.industryData.oneRosterApiDataConnector",
+  "typeHintIn": "ODataType"
+}

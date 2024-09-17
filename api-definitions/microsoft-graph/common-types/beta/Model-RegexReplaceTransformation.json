@@ -1,0 +1,63 @@
+{
+  "name": "RegexReplaceTransformation",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Additional attributes that can be referenced within the replacement string.",
+      "jsonName": "additionalAttributes",
+      "name": "AdditionalAttributes",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "SourcedAttribute",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The regular expression to be applied on the input directory attribute or constant.",
+      "jsonName": "regex",
+      "name": "Regex",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The transformation output replacement pattern with regular expression output group and input parameter group reference.",
+      "jsonName": "replacement",
+      "name": "Replacement",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "CustomClaimTransformation",
+  "discriminatedTypeValue": "#microsoft.graph.regexReplaceTransformation",
+  "typeHintIn": "ODataType"
+}

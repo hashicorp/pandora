@@ -1,0 +1,149 @@
+{
+  "name": "IndustryDataInboundActivityResults",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Number of errors encountered while processing the inbound flow.",
+      "jsonName": "errors",
+      "name": "Errors",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Counts of active and inactive groups processed by the inbound flow.",
+      "jsonName": "groups",
+      "name": "Groups",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "IndustryDataIndustryDataRunEntityCountMetric",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Number of people matched to a Microsoft Entra user, by role.",
+      "jsonName": "matchedPeopleByRole",
+      "name": "MatchedPeopleByRole",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "IndustryDataIndustryDataRunRoleCountMetric",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Counts of active and inactive memberships processed by the inbound flow.",
+      "jsonName": "memberships",
+      "name": "Memberships",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "IndustryDataIndustryDataRunEntityCountMetric",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Counts of active and inactive organizations processed by the inbound flow.",
+      "jsonName": "organizations",
+      "name": "Organizations",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "IndustryDataIndustryDataRunEntityCountMetric",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Counts of active and inactive people processed by the inbound flow.",
+      "jsonName": "people",
+      "name": "People",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "IndustryDataIndustryDataRunEntityCountMetric",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Number of people not matched to a Microsoft Entra user, by role.",
+      "jsonName": "unmatchedPeopleByRole",
+      "name": "UnmatchedPeopleByRole",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "IndustryDataIndustryDataRunRoleCountMetric",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Number of warnings encountered while processing the inbound flow.",
+      "jsonName": "warnings",
+      "name": "Warnings",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "IndustryDataIndustryDataActivityStatistics",
+  "discriminatedTypeValue": "#microsoft.graph.industryData.inboundActivityResults",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,24 @@
+{
+  "name": "IndustryDataClassGroupProvisioningFlow",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "configuration",
+      "name": "Configuration",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "IndustryDataClassGroupConfiguration",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "IndustryDataProvisioningFlow",
+  "discriminatedTypeValue": "#microsoft.graph.industryData.classGroupProvisioningFlow",
+  "typeHintIn": "ODataType"
+}

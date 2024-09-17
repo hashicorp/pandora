@@ -1,0 +1,31 @@
+{
+  "name": "TenantRelationshipAccessPolicyBase",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The raw JSON definition of the cross-tenant access policy. Deprecated. Do not use.",
+      "jsonName": "definition",
+      "name": "Definition",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": true,
+  "discriminatedParentModelName": "PolicyBase",
+  "discriminatedTypeValue": "#microsoft.graph.tenantRelationshipAccessPolicyBase",
+  "typeHintIn": "ODataType"
+}

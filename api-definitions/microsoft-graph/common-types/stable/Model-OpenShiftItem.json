@@ -1,0 +1,25 @@
+{
+  "name": "OpenShiftItem",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Count of the number of slots for the given open shift.",
+      "jsonName": "openSlotCount",
+      "name": "OpenSlotCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ShiftItem",
+  "discriminatedTypeValue": "#microsoft.graph.openShiftItem",
+  "typeHintIn": "ODataType"
+}

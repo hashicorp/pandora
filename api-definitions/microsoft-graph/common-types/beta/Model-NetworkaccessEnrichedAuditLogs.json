@@ -1,0 +1,57 @@
+{
+  "name": "NetworkaccessEnrichedAuditLogs",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Exchange Online enriched audit logs settings.",
+      "jsonName": "exchange",
+      "name": "Exchange",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "NetworkaccessEnrichedAuditLogsSettings",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "SharePoint Online enriched audit logs settings.",
+      "jsonName": "sharepoint",
+      "name": "Sharepoint",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "NetworkaccessEnrichedAuditLogsSettings",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Teams enriched audit logs settings.",
+      "jsonName": "teams",
+      "name": "Teams",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "NetworkaccessEnrichedAuditLogsSettings",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.networkaccess.enrichedAuditLogs",
+  "typeHintIn": "ODataType"
+}

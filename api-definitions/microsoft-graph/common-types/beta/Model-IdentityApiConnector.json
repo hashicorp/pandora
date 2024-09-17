@@ -1,0 +1,57 @@
+{
+  "name": "IdentityApiConnector",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The object which describes the authentication configuration details for calling the API. Basic and PKCS 12 client certificate are supported.",
+      "jsonName": "authenticationConfiguration",
+      "name": "AuthenticationConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ApiAuthenticationConfigurationBase",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The name of the API connector.",
+      "jsonName": "displayName",
+      "name": "DisplayName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The URL of the API endpoint to call.",
+      "jsonName": "targetUrl",
+      "name": "TargetUrl",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.identityApiConnector",
+  "typeHintIn": "ODataType"
+}

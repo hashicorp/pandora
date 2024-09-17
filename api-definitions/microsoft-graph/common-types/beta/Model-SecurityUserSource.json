@@ -1,0 +1,57 @@
+{
+  "name": "SecurityUserSource",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Email address of the user's mailbox.",
+      "jsonName": "email",
+      "name": "Email",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specifies which sources are included in this group. Possible values are: mailbox, site.",
+      "jsonName": "includedSources",
+      "name": "IncludedSources",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SecuritySourceType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The URL of the user's OneDrive for Business site. Read-only.",
+      "jsonName": "siteWebUrl",
+      "name": "SiteWebUrl",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SecurityDataSource",
+  "discriminatedTypeValue": "#microsoft.graph.security.userSource",
+  "typeHintIn": "ODataType"
+}

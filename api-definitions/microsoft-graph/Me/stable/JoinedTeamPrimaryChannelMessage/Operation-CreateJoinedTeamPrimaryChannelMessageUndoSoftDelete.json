@@ -1,0 +1,36 @@
+{
+  "name": "CreateJoinedTeamPrimaryChannelMessageUndoSoftDelete",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Invoke action undoSoftDelete. Undo soft deletion of a single chatMessage or a chat message reply in a channel or a chat.",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "MeJoinedTeamIdPrimaryChannelMessageId",
+  "resourceIdNameIsCommonType": true,
+  "uriSuffix": "/undoSoftDelete"
+}

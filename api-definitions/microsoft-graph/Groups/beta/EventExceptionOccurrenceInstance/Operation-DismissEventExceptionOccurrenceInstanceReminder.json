@@ -1,0 +1,36 @@
+{
+  "name": "DismissEventExceptionOccurrenceInstanceReminder",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Invoke action dismissReminder. Dismiss a reminder that has been triggered for an event in a user calendar.",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "GroupIdEventIdExceptionOccurrenceIdInstanceId",
+  "resourceIdNameIsCommonType": true,
+  "uriSuffix": "/dismissReminder"
+}

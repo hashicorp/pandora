@@ -1,0 +1,25 @@
+{
+  "name": "NoTrainingNotificationSetting",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The notification for the user who is part of the simulation.",
+      "jsonName": "simulationNotification",
+      "name": "SimulationNotification",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SimulationNotification",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "EndUserNotificationSetting",
+  "discriminatedTypeValue": "#microsoft.graph.noTrainingNotificationSetting",
+  "typeHintIn": "ODataType"
+}

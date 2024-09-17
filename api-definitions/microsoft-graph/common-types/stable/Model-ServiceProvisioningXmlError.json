@@ -1,0 +1,25 @@
+{
+  "name": "ServiceProvisioningXmlError",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Error Information published by the Federated Service as an xml string.",
+      "jsonName": "errorDetail",
+      "name": "ErrorDetail",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ServiceProvisioningError",
+  "discriminatedTypeValue": "#microsoft.graph.serviceProvisioningXmlError",
+  "typeHintIn": "ODataType"
+}

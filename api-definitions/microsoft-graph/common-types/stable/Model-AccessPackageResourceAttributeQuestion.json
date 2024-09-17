@@ -1,0 +1,24 @@
+{
+  "name": "AccessPackageResourceAttributeQuestion",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "question",
+      "name": "Question",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AccessPackageQuestion",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AccessPackageResourceAttributeSource",
+  "discriminatedTypeValue": "#microsoft.graph.accessPackageResourceAttributeQuestion",
+  "typeHintIn": "ODataType"
+}

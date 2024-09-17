@@ -1,0 +1,57 @@
+{
+  "name": "TooManyGlobalAdminsAssignedToTenantAlertIncident",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Display name of the subject that the incident applies to.",
+      "jsonName": "assigneeDisplayName",
+      "name": "AssigneeDisplayName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The identifier of the subject that the incident applies to.",
+      "jsonName": "assigneeId",
+      "name": "AssigneeId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "User principal name of the subject that the incident applies to. Applies to user principals.",
+      "jsonName": "assigneeUserPrincipalName",
+      "name": "AssigneeUserPrincipalName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "UnifiedRoleManagementAlertIncident",
+  "discriminatedTypeValue": "#microsoft.graph.tooManyGlobalAdminsAssignedToTenantAlertIncident",
+  "typeHintIn": "ODataType"
+}

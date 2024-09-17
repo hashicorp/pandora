@@ -1,0 +1,42 @@
+{
+  "name": "CheckinDriveItem",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Invoke action checkin. Check in a checked out driveItem resource, which makes the version of the document available to others.",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "UserIdDriveIdItemId",
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "CheckinDriveItemRequest",
+    "referenceNameIsCommonType": false
+  },
+  "uriSuffix": "/checkin"
+}

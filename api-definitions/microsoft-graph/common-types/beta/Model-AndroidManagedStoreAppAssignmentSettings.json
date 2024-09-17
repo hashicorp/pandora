@@ -1,0 +1,47 @@
+{
+  "name": "AndroidManagedStoreAppAssignmentSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The track IDs to enable for this app assignment.",
+      "jsonName": "androidManagedStoreAppTrackIds",
+      "name": "AndroidManagedStoreAppTrackIds",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Prioritization for automatic updates of Android Managed Store apps set on assignment.",
+      "jsonName": "autoUpdateMode",
+      "name": "AutoUpdateMode",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AndroidManagedStoreAutoUpdateMode",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "MobileAppAssignmentSettings",
+  "discriminatedTypeValue": "#microsoft.graph.androidManagedStoreAppAssignmentSettings",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,25 @@
+{
+  "name": "WindowsFeatureUpdateCatalogItem",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The feature update version",
+      "jsonName": "version",
+      "name": "Version",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "WindowsUpdateCatalogItem",
+  "discriminatedTypeValue": "#microsoft.graph.windowsFeatureUpdateCatalogItem",
+  "typeHintIn": "ODataType"
+}

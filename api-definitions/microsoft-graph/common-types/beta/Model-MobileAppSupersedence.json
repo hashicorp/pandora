@@ -1,0 +1,57 @@
+{
+  "name": "MobileAppSupersedence",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The total number of apps directly or indirectly superseded by the child app. This property is read-only.",
+      "jsonName": "supersededAppCount",
+      "name": "SupersededAppCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the supersedence type associated with a relationship between two mobile apps.",
+      "jsonName": "supersedenceType",
+      "name": "SupersedenceType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "MobileAppSupersedenceType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The total number of apps directly or indirectly superseding the parent app. This property is read-only.",
+      "jsonName": "supersedingAppCount",
+      "name": "SupersedingAppCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "MobileAppRelationship",
+  "discriminatedTypeValue": "#microsoft.graph.mobileAppSupersedence",
+  "typeHintIn": "ODataType"
+}

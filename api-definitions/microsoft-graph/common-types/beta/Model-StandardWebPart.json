@@ -1,0 +1,57 @@
+{
+  "name": "StandardWebPart",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The instance identifier of the container text webPart. It only works for inline standard webPart in rich text webParts.",
+      "jsonName": "containerTextWebPartId",
+      "name": "ContainerTextWebPartId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Data of the webPart.",
+      "jsonName": "data",
+      "name": "Data",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WebPartData",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A Guid that indicates the webPart type.",
+      "jsonName": "webPartType",
+      "name": "WebPartType",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "WebPart",
+  "discriminatedTypeValue": "#microsoft.graph.standardWebPart",
+  "typeHintIn": "ODataType"
+}

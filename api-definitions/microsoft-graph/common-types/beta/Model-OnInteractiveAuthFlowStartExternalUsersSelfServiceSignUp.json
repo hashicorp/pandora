@@ -1,0 +1,25 @@
+{
+  "name": "OnInteractiveAuthFlowStartExternalUsersSelfServiceSignUp",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Optional. Specifies whether the authentication flow includes an option to sign up (create account) and sign in. Default value is false meaning only sign in is enabled.",
+      "jsonName": "isSignUpAllowed",
+      "name": "IsSignUpAllowed",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "OnInteractiveAuthFlowStartHandler",
+  "discriminatedTypeValue": "#microsoft.graph.onInteractiveAuthFlowStartExternalUsersSelfServiceSignUp",
+  "typeHintIn": "ODataType"
+}

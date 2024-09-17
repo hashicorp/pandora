@@ -1,0 +1,41 @@
+{
+  "name": "IosHomeScreenApp",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "BundleID of the app if isWebClip is false or the URL of a web clip if isWebClip is true.",
+      "jsonName": "bundleID",
+      "name": "BundleId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "When true, the bundle ID will be handled as a URL for a web clip.",
+      "jsonName": "isWebClip",
+      "name": "IsWebClip",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "IosHomeScreenItem",
+  "discriminatedTypeValue": "#microsoft.graph.iosHomeScreenApp",
+  "typeHintIn": "ODataType"
+}

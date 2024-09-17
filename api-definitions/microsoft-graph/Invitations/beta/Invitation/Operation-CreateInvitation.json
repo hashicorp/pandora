@@ -1,0 +1,47 @@
+{
+  "name": "CreateInvitation",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Create invitation. Create a new invitation or reset the redemption status for a guest user who already redeemed their invitation. The invitation adds an external user to the organization. The following options are available for creating an invitation",
+  "expectedStatusCodes": [
+    201
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "Invitation",
+    "referenceNameIsCommonType": true
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "Invitation",
+    "referenceNameIsCommonType": true
+  },
+  "uriSuffix": "/invitations"
+}

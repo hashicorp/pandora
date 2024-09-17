@@ -1,0 +1,31 @@
+{
+  "name": "OutlookUser",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A list of categories defined for the user.",
+      "jsonName": "masterCategories",
+      "name": "MasterCategories",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "OutlookCategory",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.outlookUser",
+  "typeHintIn": "ODataType"
+}

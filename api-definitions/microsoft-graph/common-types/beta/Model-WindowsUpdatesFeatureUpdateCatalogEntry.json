@@ -1,0 +1,41 @@
+{
+  "name": "WindowsUpdatesFeatureUpdateCatalogEntry",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The build number of the feature update. Read-only.",
+      "jsonName": "buildNumber",
+      "name": "BuildNumber",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The version of the feature update. Read-only.",
+      "jsonName": "version",
+      "name": "Version",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "WindowsUpdatesSoftwareUpdateCatalogEntry",
+  "discriminatedTypeValue": "#microsoft.graph.windowsUpdates.featureUpdateCatalogEntry",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,47 @@
+{
+  "name": "CreateConditionalAccessNamedLocation",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Create namedLocation. Create a new namedLocation object. Named locations can be either ipNamedLocation or countryNamedLocation objects.",
+  "expectedStatusCodes": [
+    201
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "NamedLocation",
+    "referenceNameIsCommonType": true
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "NamedLocation",
+    "referenceNameIsCommonType": true
+  },
+  "uriSuffix": "/identity/conditionalAccess/namedLocations"
+}

@@ -1,0 +1,31 @@
+{
+  "name": "EducationIdentityMatchingConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Mapping between the user account and the options to use to uniquely identify the user to update.",
+      "jsonName": "matchingOptions",
+      "name": "MatchingOptions",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "EducationIdentityMatchingOptions",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "EducationIdentitySynchronizationConfiguration",
+  "discriminatedTypeValue": "#microsoft.graph.educationIdentityMatchingConfiguration",
+  "typeHintIn": "ODataType"
+}

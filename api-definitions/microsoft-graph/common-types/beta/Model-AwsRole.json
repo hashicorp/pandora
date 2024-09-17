@@ -1,0 +1,39 @@
+{
+  "name": "AwsRole",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "roleType",
+      "name": "RoleType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AwsRoleType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "trustEntityType",
+      "name": "TrustEntityType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AwsRoleTrustEntityType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AwsIdentity",
+  "discriminatedTypeValue": "#microsoft.graph.awsRole",
+  "typeHintIn": "ODataType"
+}

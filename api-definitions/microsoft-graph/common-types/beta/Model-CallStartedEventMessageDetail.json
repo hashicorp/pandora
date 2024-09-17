@@ -1,0 +1,57 @@
+{
+  "name": "CallStartedEventMessageDetail",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Represents the call event type. Possible values are: call, meeting, screenShare, unknownFutureValue.",
+      "jsonName": "callEventType",
+      "name": "CallEventType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "TeamworkCallEventType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Unique identifier of the call.",
+      "jsonName": "callId",
+      "name": "CallId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Initiator of the event.",
+      "jsonName": "initiator",
+      "name": "Initiator",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "IdentitySet",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "EventMessageDetail",
+  "discriminatedTypeValue": "#microsoft.graph.callStartedEventMessageDetail",
+  "typeHintIn": "ODataType"
+}

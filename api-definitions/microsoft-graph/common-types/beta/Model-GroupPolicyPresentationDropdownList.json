@@ -1,0 +1,63 @@
+{
+  "name": "GroupPolicyPresentationDropdownList",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Localized string value identifying the default choice of the list of items.",
+      "jsonName": "defaultItem",
+      "name": "DefaultItem",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "GroupPolicyPresentationDropdownListItem",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Represents a set of localized display names and their associated values.",
+      "jsonName": "items",
+      "name": "Items",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "GroupPolicyPresentationDropdownListItem",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Requirement to enter a value in the parameter box. The default value is false.",
+      "jsonName": "required",
+      "name": "Required",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "GroupPolicyUploadedPresentation",
+  "discriminatedTypeValue": "#microsoft.graph.groupPolicyPresentationDropdownList",
+  "typeHintIn": "ODataType"
+}

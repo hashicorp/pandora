@@ -1,0 +1,24 @@
+{
+  "name": "CloudPCDisasterRecoveryAzureConnectionSetting",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "onPremisesConnectionId",
+      "name": "OnPremisesConnectionId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "CloudPCDisasterRecoveryNetworkSetting",
+  "discriminatedTypeValue": "#microsoft.graph.cloudPcDisasterRecoveryAzureConnectionSetting",
+  "typeHintIn": "ODataType"
+}

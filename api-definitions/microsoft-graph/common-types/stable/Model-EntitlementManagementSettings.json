@@ -1,0 +1,41 @@
+{
+  "name": "EntitlementManagementSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "If externalUserLifecycleAction is blockSignInAndDelete, the duration, typically many days, after an external user is blocked from sign in before their account is deleted.",
+      "jsonName": "durationUntilExternalUserDeletedAfterBlocked",
+      "name": "DurationUntilExternalUserDeletedAfterBlocked",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Automatic action that the service should take when an external user's last access package assignment is removed. The possible values are: none, blockSignIn, blockSignInAndDelete, unknownFutureValue.",
+      "jsonName": "externalUserLifecycleAction",
+      "name": "ExternalUserLifecycleAction",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AccessPackageExternalUserLifecycleAction",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.entitlementManagementSettings",
+  "typeHintIn": "ODataType"
+}

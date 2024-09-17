@@ -1,0 +1,25 @@
+{
+  "name": "DeviceManagementSettingRequiredConstraint",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "List of value which means not configured for the setting",
+      "jsonName": "notConfiguredValue",
+      "name": "NotConfiguredValue",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceManagementConstraint",
+  "discriminatedTypeValue": "#microsoft.graph.deviceManagementSettingRequiredConstraint",
+  "typeHintIn": "ODataType"
+}

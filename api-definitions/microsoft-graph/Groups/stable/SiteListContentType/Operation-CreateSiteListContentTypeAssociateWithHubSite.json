@@ -1,0 +1,42 @@
+{
+  "name": "CreateSiteListContentTypeAssociateWithHubSite",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Invoke action associateWithHubSites. Associate a published content type present in a content type hub with a list of hub sites.",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "GroupIdSiteIdListIdContentTypeId",
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "CreateSiteListContentTypeAssociateWithHubSiteRequest",
+    "referenceNameIsCommonType": false
+  },
+  "uriSuffix": "/associateWithHubSites"
+}

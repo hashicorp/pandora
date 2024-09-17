@@ -1,0 +1,25 @@
+{
+  "name": "PronounsSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "true to enable pronouns in the organization; otherwise, false. The default value is false, and pronouns are disabled.",
+      "jsonName": "isEnabledInOrganization",
+      "name": "IsEnabledInOrganization",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.pronounsSettings",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,25 @@
+{
+  "name": "WorkbookFilter",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The currently applied filter on the given column. Read-only.",
+      "jsonName": "criteria",
+      "name": "Criteria",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WorkbookFilterCriteria",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.workbookFilter",
+  "typeHintIn": "ODataType"
+}

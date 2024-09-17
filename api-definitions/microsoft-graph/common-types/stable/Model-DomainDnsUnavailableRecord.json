@@ -1,0 +1,25 @@
+{
+  "name": "DomainDnsUnavailableRecord",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Provides the reason why the DomainDnsUnavailableRecord entity is returned.",
+      "jsonName": "description",
+      "name": "Description",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DomainDnsRecord",
+  "discriminatedTypeValue": "#microsoft.graph.domainDnsUnavailableRecord",
+  "typeHintIn": "ODataType"
+}

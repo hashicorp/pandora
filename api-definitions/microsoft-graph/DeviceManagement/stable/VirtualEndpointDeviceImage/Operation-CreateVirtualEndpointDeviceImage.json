@@ -1,0 +1,47 @@
+{
+  "name": "CreateVirtualEndpointDeviceImage",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Create cloudPcDeviceImage. Create a new cloudPcDeviceImage object. Upload a custom OS image that you can later provision on Cloud PCs.",
+  "expectedStatusCodes": [
+    201
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "CloudPCDeviceImage",
+    "referenceNameIsCommonType": true
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "CloudPCDeviceImage",
+    "referenceNameIsCommonType": true
+  },
+  "uriSuffix": "/deviceManagement/virtualEndpoint/deviceImages"
+}

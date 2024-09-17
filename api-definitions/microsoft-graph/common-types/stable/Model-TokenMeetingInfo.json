@@ -1,0 +1,25 @@
+{
+  "name": "TokenMeetingInfo",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The token used to join the call.",
+      "jsonName": "token",
+      "name": "Token",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "MeetingInfo",
+  "discriminatedTypeValue": "#microsoft.graph.tokenMeetingInfo",
+  "typeHintIn": "ODataType"
+}

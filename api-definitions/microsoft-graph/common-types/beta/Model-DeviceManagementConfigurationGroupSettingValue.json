@@ -1,0 +1,31 @@
+{
+  "name": "DeviceManagementConfigurationGroupSettingValue",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Collection of child setting instances contained within this GroupSetting",
+      "jsonName": "children",
+      "name": "Children",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "DeviceManagementConfigurationSettingInstance",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceManagementConfigurationSettingValue",
+  "discriminatedTypeValue": "#microsoft.graph.deviceManagementConfigurationGroupSettingValue",
+  "typeHintIn": "ODataType"
+}

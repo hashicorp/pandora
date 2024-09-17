@@ -1,0 +1,24 @@
+{
+  "name": "SecuritySiteSource",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "site",
+      "name": "Site",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Site",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SecurityDataSource",
+  "discriminatedTypeValue": "#microsoft.graph.security.siteSource",
+  "typeHintIn": "ODataType"
+}
