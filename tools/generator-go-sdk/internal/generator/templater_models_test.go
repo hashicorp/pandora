@@ -32,7 +32,7 @@ func TestModelTemplaterSimple(t *testing.T) {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName: "somepackage",
 		models: map[string]models.SDKModel{
 			"Basic": {
@@ -71,6 +71,7 @@ import (
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/systemdata"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/zones"
+	"github.com/hashicorp/go-azure-sdk/sdk/nullable"
 )
 
 // acctests licence placeholder
@@ -105,7 +106,7 @@ func TestModelTemplaterWithDate(t *testing.T) {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName: "somepackage",
 		models: map[string]models.SDKModel{
 			"Basic": {
@@ -145,6 +146,7 @@ import (
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/systemdata"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/zones"
+	"github.com/hashicorp/go-azure-sdk/sdk/nullable"
 )
 
 // acctests licence placeholder
@@ -199,7 +201,7 @@ func TestModelTemplaterWithOptionalObject(t *testing.T) {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName: "somepackage",
 		models: map[string]models.SDKModel{
 			"Basic": {
@@ -258,6 +260,7 @@ import (
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/systemdata"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/zones"
+	"github.com/hashicorp/go-azure-sdk/sdk/nullable"
 )
 
 // acctests licence placeholder
@@ -267,6 +270,120 @@ type Basic struct {
 	BobcatRequired Bobcat ''json:"bobcatRequired"''
 	Name string ''json:"name"''
 }
+`, "''", "`")
+	assertTemplatedCodeMatches(t, expected, *actual)
+}
+
+func TestModelTemplaterWithReadOnlyField(t *testing.T) {
+	actual, err := modelsTemplater{
+		name: "Example",
+		model: models.SDKModel{
+			Fields: map[string]models.SDKField{
+				"Name": {
+					JsonName: "name",
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type: models.StringSDKObjectDefinitionType,
+					},
+					Required: true,
+				},
+				"Description": {
+					JsonName: "description",
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type: models.StringSDKObjectDefinitionType,
+					},
+					Optional: true,
+				},
+				"Type": {
+					JsonName: "type",
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type: models.StringSDKObjectDefinitionType,
+					},
+					ReadOnly: true,
+				},
+			},
+		},
+	}.template(GeneratorData{
+		packageName: "somepackage",
+		models: map[string]models.SDKModel{
+			"Example": {
+				Fields: map[string]models.SDKField{
+					"Name": {
+						JsonName: "name",
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
+						},
+						Required: true,
+					},
+					"Description": {
+						JsonName: "description",
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
+						},
+						Optional: true,
+					},
+					"Type": {
+						JsonName: "type",
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
+						},
+						ReadOnly: true,
+					},
+				},
+			},
+		},
+		source: AccTestLicenceType,
+	})
+	if err != nil {
+		t.Fatal(err.Error())
+	}
+	expected := strings.ReplaceAll(`package somepackage
+
+import (
+	"encoding/json"
+	"fmt"
+	"strings"
+	"time"
+	"github.com/hashicorp/go-azure-helpers/lang/dates"
+	"github.com/hashicorp/go-azure-helpers/resourcemanager/edgezones"
+	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
+	"github.com/hashicorp/go-azure-helpers/resourcemanager/systemdata"
+	"github.com/hashicorp/go-azure-helpers/resourcemanager/zones"
+	"github.com/hashicorp/go-azure-sdk/sdk/nullable"
+)
+
+// acctests licence placeholder
+
+type Example struct {
+	Description *string ''json:"description,omitempty"''
+	Name string ''json:"name"''
+	Type *string ''json:"type,omitempty"''
+}
+
+var _ json.Marshaler = Example{}
+
+func (s Example) MarshalJSON() ([]byte, error) {
+	type wrapper Example
+	wrapped := wrapper(s)
+	encoded, err := json.Marshal(wrapped)
+	if err != nil {
+		return nil, fmt.Errorf("marshaling Example: %+v", err)
+	}
+
+	var decoded map[string]interface{}
+	if err = json.Unmarshal(encoded, &decoded); err != nil {
+		return nil, fmt.Errorf("unmarshaling Example: %+v", err)
+	}
+
+	delete(decoded, "Type")
+	encoded, err = json.Marshal(decoded)
+
+	if err != nil {
+		return nil, fmt.Errorf("re-marshaling Example: %+v", err)
+	}
+
+	return encoded, nil
+}
+
 `, "''", "`")
 	assertTemplatedCodeMatches(t, expected, *actual)
 }

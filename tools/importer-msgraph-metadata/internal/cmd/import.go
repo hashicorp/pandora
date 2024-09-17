@@ -65,7 +65,6 @@ func (c ImportCommand) Run(args []string) int {
 
 	input := pipeline.RunInput{
 		ProviderPrefix: "azuread",
-		Logger:         logging.Log,
 
 		ConfigFilePath:     c.microsoftGraphConfigPath,
 		MetadataDirectory:  c.metadataDirectory,

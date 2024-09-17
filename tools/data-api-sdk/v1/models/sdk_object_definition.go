@@ -28,4 +28,7 @@ type SDKObjectDefinition struct {
 	// Simple type (e.g. a String/Integer), a Reference to a Constant/Model or a more complex object
 	// (e.g. a CommonSchema type [such as a SystemAssignedIdentity] - or a List/Dictionary).
 	Type SDKObjectDefinitionType `json:"type"`
+
+	// Nullable specifies that this type should be unset by sending `null` as the JSON value.
+	Nullable bool `json:"nullable"`
 }

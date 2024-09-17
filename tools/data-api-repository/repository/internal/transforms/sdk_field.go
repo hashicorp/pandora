@@ -49,19 +49,22 @@ func mapSDKFieldToRepository(fieldName string, input sdkModels.SDKField, isTypeH
 		return nil, fmt.Errorf("mapping the ObjectDefinition for field %q: %+v", fieldName, err)
 	}
 
+	var description *string
+	if input.Description != "" {
+		description = pointer.To(input.Description)
+	}
+
 	output := repositoryModels.ModelField{
 		ContainsDiscriminatedTypeValue: isTypeHint,
 		DateFormat:                     nil,
-		Description:                    nil,
-		// TODO this can be uncommented when #3325 has been fixed
-		// Description: input.Description,
-		JsonName:         input.JsonName,
-		Name:             fieldName,
-		ObjectDefinition: *objectDefinition,
-		Optional:         input.Optional,
-		ReadOnly:         input.ReadOnly,
-		Required:         input.Required,
-		Sensitive:        input.Sensitive,
+		Description:                    description,
+		JsonName:                       input.JsonName,
+		Name:                           fieldName,
+		ObjectDefinition:               *objectDefinition,
+		Optional:                       input.Optional,
+		ReadOnly:                       input.ReadOnly,
+		Required:                       input.Required,
+		Sensitive:                      input.Sensitive,
 	}
 	if input.DateFormat != nil {
 		dateFormat, err := mapSDKDateFormatToRepository(*input.DateFormat)

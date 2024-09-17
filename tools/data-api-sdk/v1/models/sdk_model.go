@@ -19,6 +19,9 @@ type SDKModel struct {
 	// NOTE: the Field Name is a valid Identifier.
 	Fields map[string]SDKField `json:"fields"`
 
+	// IsParent specifies whether this model is a known parent model, typically for discriminated child models.
+	IsParent bool
+
 	// ParentTypeName optionally specifies the name of the Parent Type for this Model.
 	// If a ParentTypeName is present then this SDKModel will be a Discriminated Implementation
 	// meaning that a TypeHintIn and TypeHintValue must also be specified in order to uniquely
@@ -35,5 +38,5 @@ func (m SDKModel) IsDiscriminatedImplementation() bool {
 // IsDiscriminatedParentType returns whether this SDKModel is a Discriminated Parent Type.
 // This means that this SDKModel will have associated Discriminated Implementations.
 func (m SDKModel) IsDiscriminatedParentType() bool {
-	return m.ParentTypeName == nil && m.FieldNameContainingDiscriminatedValue != nil
+	return m.IsParent || (m.ParentTypeName == nil && m.FieldNameContainingDiscriminatedValue != nil)
 }

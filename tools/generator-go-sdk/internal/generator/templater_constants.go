@@ -14,7 +14,7 @@ type constantsTemplater struct {
 	constantTemplateFunc func(name string, details models.SDKConstant, generateNormalizationFunction, usedInAResourceId bool) (*string, error)
 }
 
-func (c constantsTemplater) template(data ServiceGeneratorData) (*string, error) {
+func (c constantsTemplater) template(data GeneratorData) (*string, error) {
 	copyrightLines, err := copyrightLinesForSource(data.source)
 	if err != nil {
 		return nil, fmt.Errorf("retrieving copyright lines: %+v", err)
@@ -54,7 +54,11 @@ func (c constantsTemplater) template(data ServiceGeneratorData) (*string, error)
 
 	template := fmt.Sprintf(`package %[1]s
 
-import "strings"
+import (
+	"encoding/json"
+	"fmt"
+	"strings"
+)
 
 %[3]s
 

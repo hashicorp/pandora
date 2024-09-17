@@ -12,6 +12,9 @@ type SDKOperation struct {
 	// performing the Request for this Operation.
 	ContentType string `json:"contentType"`
 
+	// Description is used to write a comment for the operation method
+	Description string `json:"description"`
+
 	// ExpectedStatusCodes specifies the list of Status Codes which are expected to be
 	// returned by this Operation.
 	ExpectedStatusCodes []int `json:"expectedStatusCodes"`
@@ -48,6 +51,9 @@ type SDKOperation struct {
 	//   2. {formattedResourceId}{uriSuffix}
 	//   3. {uriSuffix}
 	ResourceIDName *string `json:"resourceIdName"`
+
+	// ResourceIDNameIsCommonType specifies whether the referenced ResourceIdName is a common type
+	ResourceIDNameIsCommonType *bool `json:"resourceIdNameIsCommonType,omitempty"`
 
 	// ResponseObject optionally specifies the Object which is expected to be returned in the
 	// HTTP Response. This is represented by an SDKObjectDefinition, which defines the shape

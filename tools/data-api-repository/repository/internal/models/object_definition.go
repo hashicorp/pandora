@@ -8,9 +8,14 @@ type ObjectDefinition struct {
 	// ObjectDefinitionType defines what kind of ObjectDefinition this is, such as a Reference, String or List
 	Type ObjectDefinitionType `json:"type"`
 
-	// NOTE: we could split this into ConstantName and ModelName in time, but not today.
+	// Nullable specifies that this type should be unset by sending `null` as the JSON value.
+	Nullable bool `json:"nullable"`
+
 	// ReferenceName is the name of the Constant or Model that this is a reference to
 	ReferenceName *string `json:"referenceName"`
+
+	// ReferenceNameIsCommonType indicates whether ReferenceName refers to a common type (true) or a type that is local to the service (false)
+	ReferenceNameIsCommonType *bool `json:"referenceNameIsCommonType"`
 
 	// NestedItem is a nested ObjectDefinition when Type is a Dictionary or List
 	// NOTE: that it's possible to have deeply-nested ObjectDefinitions, e.g. a List of a List of a Dictionary[String (key, fixed as a string) : Integer (value)

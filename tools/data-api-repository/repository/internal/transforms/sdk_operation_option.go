@@ -19,6 +19,7 @@ func mapSDKOperationOptionFromRepository(input repositoryModels.Option, knownDat
 
 	return &sdkModels.SDKOperationOption{
 		HeaderName:       input.HeaderName,
+		ODataFieldName:   input.ODataFieldName,
 		QueryStringName:  input.QueryString,
 		ObjectDefinition: *objectDefinition,
 		Required:         input.Required,
@@ -33,6 +34,7 @@ func mapSDKOperationOptionToRepository(fieldName string, input sdkModels.SDKOper
 
 	option := repositoryModels.Option{
 		HeaderName:       input.HeaderName,
+		ODataFieldName:   input.ODataFieldName,
 		QueryString:      input.QueryStringName,
 		Field:            fieldName,
 		ObjectDefinition: *objectDefinition,
