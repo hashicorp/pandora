@@ -39,7 +39,7 @@ func (g ResourceIDsStage) Generate(input *helpers.FileSystem, logger hclog.Logge
 		// {ServiceDirectory}/APIVersion/APIResource/ResourceId-{Name}.json
 		path := filepath.Join(g.APIVersion, g.APIResource, fmt.Sprintf("ResourceId-%s.json", resourceIDName))
 		logger.Trace(fmt.Sprintf("Staging to %s", path))
-		if err := input.Stage(path, *mapped); err != nil {
+		if err = input.Stage(path, *mapped); err != nil {
 			return fmt.Errorf("staging Resource ID %q: %+v", resourceIDName, err)
 		}
 	}

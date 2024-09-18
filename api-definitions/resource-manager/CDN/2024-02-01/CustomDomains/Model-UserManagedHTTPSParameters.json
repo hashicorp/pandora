@@ -1,0 +1,21 @@
+{
+  "name": "UserManagedHTTPSParameters",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "certificateSourceParameters",
+      "name": "CertificateSourceParameters",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "KeyVaultCertificateSourceParameters"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "CustomDomainHTTPSParameters",
+  "discriminatedTypeValue": "AzureKeyVault",
+  "typeHintIn": "CertificateSource"
+}

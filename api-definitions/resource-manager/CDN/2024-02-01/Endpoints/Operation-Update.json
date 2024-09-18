@@ -1,0 +1,19 @@
+{
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "EndpointId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "EndpointUpdateParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "Endpoint"
+  }
+}

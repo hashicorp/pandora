@@ -9,10 +9,13 @@ import (
 )
 
 type metaClientTemplater struct {
-	serviceName string
-	apiVersion  string
-	resources   map[string]models.APIResource
-	source      models.SourceDataOrigin
+	apiVersionDirectoryName string
+	apiVersionPackageName   string
+	baseClientPackage       string
+	resources               map[string]models.APIResource
+	serviceName             string
+	source                  models.SourceDataOrigin
+	sourceType              models.SourceDataType
 }
 
 func (m metaClientTemplater) template() (*string, error) {
@@ -34,7 +37,7 @@ func (m metaClientTemplater) template() (*string, error) {
 	for _, resourceName := range resourceNames {
 		variableName := fmt.Sprintf("%s%sClient", strings.ToLower(string(resourceName[0])), resourceName[1:])
 
-		imports = append(imports, fmt.Sprintf(`"github.com/hashicorp/go-azure-sdk/resource-manager/%s/%s/%s"`, strings.ToLower(m.serviceName), m.apiVersion, strings.ToLower(resourceName)))
+		imports = append(imports, fmt.Sprintf(`"github.com/hashicorp/go-azure-sdk/%s/%s/%s/%s"`, m.sourceType, strings.ToLower(m.serviceName), m.apiVersionDirectoryName, strings.ToLower(resourceName)))
 		fields = append(fields, fmt.Sprintf("%[1]s *%[2]s.%[1]sClient", resourceName, strings.ToLower(resourceName)))
 		clientInitializationTemplate := fmt.Sprintf(`%[1]s, err := %[2]s.New%[3]sClientWithBaseURI(sdkApi)
 if err != nil {
@@ -51,29 +54,31 @@ configureFunc(%[1]s.Client)
 	sort.Strings(fields)
 	sort.Strings(imports)
 
-	packageName := fmt.Sprintf("v%s", strings.ReplaceAll(m.apiVersion, "-", "_"))
-
 	out := fmt.Sprintf(`package %[1]s
 
-%[2]s
+%[3]s
 
 import (
+	"fmt"
+
+	"github.com/hashicorp/go-azure-sdk/sdk/client"
+	"github.com/hashicorp/go-azure-sdk/sdk/client/msgraph"
 	"github.com/hashicorp/go-azure-sdk/sdk/client/resourcemanager"
 	sdkEnv "github.com/hashicorp/go-azure-sdk/sdk/environments"
-	%[3]s
+	%[4]s
 )
 
 type Client struct {
-	%[4]s
+	%[5]s
 }
 
-func NewClientWithBaseURI(sdkApi sdkEnv.Api, configureFunc func(c *resourcemanager.Client)) (*Client, error) {
-	%[5]s
+func NewClientWithBaseURI(sdkApi sdkEnv.Api, configureFunc func(c *%[2]s.Client)) (*Client, error) {
+	%[6]s
 
 	return &Client{
-		%[6]s
+		%[7]s
 	}, nil
 }
-`, packageName, *copyrightLines, strings.Join(imports, "\n"), strings.Join(fields, "\n"), strings.Join(clientInitialization, "\n"), strings.Join(assignments, "\n"))
+`, m.apiVersionPackageName, m.baseClientPackage, *copyrightLines, strings.Join(imports, "\n"), strings.Join(fields, "\n"), strings.Join(clientInitialization, "\n"), strings.Join(assignments, "\n"))
 	return &out, nil
 }

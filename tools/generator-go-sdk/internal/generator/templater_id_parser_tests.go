@@ -18,7 +18,7 @@ type resourceIdTestsTemplater struct {
 	constantDetails map[string]models.SDKConstant
 }
 
-func (i resourceIdTestsTemplater) template(data ServiceGeneratorData) (*string, error) {
+func (i resourceIdTestsTemplater) template(data GeneratorData) (*string, error) {
 	res, err := i.generateTests(data.packageName, data.source)
 	if err != nil {
 		return nil, fmt.Errorf("while generating parser tests: %+v", err)

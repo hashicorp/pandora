@@ -1,0 +1,19 @@
+{
+  "name": "ResourcePredictionsProfile",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": true,
+      "jsonName": "kind",
+      "name": "Kind",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ResourcePredictionsProfileType"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "typeHintIn": "Kind"
+}

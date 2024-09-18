@@ -7,7 +7,7 @@ var _ templaterForResource = clientsAutoRestTemplater{}
 type clientsAutoRestTemplater struct {
 }
 
-func (c clientsAutoRestTemplater) template(data ServiceGeneratorData) (*string, error) {
+func (c clientsAutoRestTemplater) template(data GeneratorData) (*string, error) {
 	copyrightLines, err := copyrightLinesForSource(data.source)
 	if err != nil {
 		return nil, fmt.Errorf("retrieving copyright lines: %+v", err)

@@ -20,7 +20,7 @@ service "apicenter" {
 }
 service "apimanagement" {
   name      = "ApiManagement"
-  available = ["2022-08-01", "2023-03-01-preview", "2023-05-01-preview"]
+  available = ["2022-08-01", "2023-03-01-preview", "2023-05-01-preview", "2024-05-01"]
 }
 service "app" {
   name      = "ContainerApps"
@@ -85,6 +85,10 @@ service "blueprint" {
 service "botservice" {
   name      = "BotService"
   available = ["2022-09-15"]
+}
+service "cdn" {
+  name      = "CDN"
+  available = ["2024-02-01"]
 }
 service "chaos" {
   name      = "ChaosStudio"
@@ -196,6 +200,10 @@ service "deviceupdate" {
   name      = "DeviceUpdate"
   available = ["2022-10-01", "2023-07-01"]
 }
+service "devopsinfrastructure" {
+  name      = "DevOpsInfrastructure"
+  available = ["2024-04-04-preview"]
+}
 service "devtestlabs" {
   name      = "DevTestLab"
   available = ["2018-09-15"]
@@ -240,6 +248,10 @@ service "eventhub" {
 service "extendedlocation" {
   name      = "ExtendedLocation"
   available = ["2021-08-15"]
+}
+service "fabric" {
+  name      = "Fabric"
+  available = ["2023-11-01"]
 }
 service "fluidrelay" {
   name      = "FluidRelay"
@@ -362,6 +374,10 @@ service "mobilenetwork" {
   name      = "MobileNetwork"
   available = ["2022-11-01", "2023-06-01", "2023-09-01", "2024-02-01", "2024-04-01"]
 }
+service "mongocluster" {
+  name      = "MongoCluster"
+  available = ["2024-07-01"]
+}
 service "monitor" {
   name      = "Insights"
   available = ["2015-04-01", "2016-03-01", "2018-03-01", "2018-04-16", "2019-10-17-preview", "2020-10-01", "2021-05-01-preview", "2021-07-01-preview", "2021-08-01", "2021-09-01", "2022-06-01", "2022-10-01", "2023-01-01", "2023-03-15-preview", "2023-04-03", "2023-10-01", "2024-02-01"]
@@ -401,7 +417,7 @@ service "newrelic" {
 }
 service "nginx" {
   name      = "Nginx"
-  available = ["2024-01-01-preview"]
+  available = ["2024-01-01-preview", "2024-06-01-preview"]
 }
 service "notificationhubs" {
   name      = "NotificationHubs"
@@ -481,7 +497,7 @@ service "redis" {
 }
 service "redisenterprise" {
   name      = "RedisEnterprise"
-  available = ["2023-07-01", "2023-10-01-preview", "2023-11-01", "2024-02-01"]
+  available = ["2023-07-01", "2023-10-01-preview", "2023-11-01", "2024-02-01", "2024-06-01-preview"]
 }
 service "relay" {
   name      = "Relay"

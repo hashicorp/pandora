@@ -5,13 +5,14 @@ package tags
 
 import (
 	"fmt"
-	"github.com/getkin/kin-openapi/openapi3"
 	"strings"
+
+	"github.com/getkin/kin-openapi/openapi3"
 )
 
 type ServiceTags map[string][]string
 
-// parsetags returns a ServiceTags (map[string][]string) for the provided openapi3.Tags. Note that the resulting ServiceTags
+// Parse returns a ServiceTags (map[string][]string) for the provided openapi3.Tags. Note that the resulting ServiceTags
 // item values are not capitalized, singularized or otherwise cleaned up.
 func Parse(tags openapi3.Tags) (services ServiceTags, err error) {
 	services = make(map[string][]string, 0)

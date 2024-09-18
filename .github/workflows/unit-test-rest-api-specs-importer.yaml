@@ -4,8 +4,9 @@ on:
   pull_request:
     types: ['opened', 'synchronize']
     paths:
-      - '.github/workflows/**'
-      - 'config/**'
+      - '.github/workflows/unit-test-rest-api-specs-importer.yaml'
+      - 'config/resource-manager.hcl'
+      - 'config/resources/**'
       - 'submodules/rest-api-specs'
       - 'tools/importer-rest-api-specs/**'
 

@@ -62,8 +62,10 @@ func mapResourceIdSegmentFromRepository(input repositoryModels.ResourceIdSegment
 	}
 
 	if input.Type == repositoryModels.UserSpecifiedResourceIdSegmentType {
-		// TODO: store and load through the example value
-		exampleValue := fmt.Sprintf("%sValue", strings.TrimSuffix(input.Name, "Name"))
+		exampleValue := input.ExampleValue
+		if exampleValue == "" {
+			exampleValue = fmt.Sprintf("%sValue", strings.TrimSuffix(input.Name, "Name"))
+		}
 		segment := sdkModels.NewUserSpecifiedResourceIDSegment(input.Name, exampleValue)
 		return &segment, nil
 	}
@@ -129,8 +131,9 @@ func mapResourceIdSegmentToRepository(input sdkModels.ResourceIDSegment) (*repos
 
 	if input.Type == sdkModels.UserSpecifiedResourceIDSegmentType {
 		return &repositoryModels.ResourceIdSegment{
-			Type: repositoryModels.UserSpecifiedResourceIdSegmentType,
-			Name: input.Name,
+			Type:         repositoryModels.UserSpecifiedResourceIdSegmentType,
+			Name:         input.Name,
+			ExampleValue: input.ExampleValue,
 		}, nil
 	}
 

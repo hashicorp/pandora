@@ -1,0 +1,21 @@
+{
+  "name": "DeliveryRulePostArgsCondition",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "parameters",
+      "name": "Parameters",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PostArgsMatchConditionParameters"
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "discriminatedParentModelName": "DeliveryRuleCondition",
+  "discriminatedTypeValue": "PostArgs",
+  "typeHintIn": "Name"
+}

@@ -1,0 +1,31 @@
+{
+  "name": "SamplingSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "percentage",
+      "name": "Percentage",
+      "objectDefinition": {
+        "type": "Float",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "samplingType",
+      "name": "SamplingType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SamplingType"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

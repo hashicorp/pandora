@@ -1,0 +1,31 @@
+{
+  "name": "AuthorizationProviderOAuth2Settings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "grantTypes",
+      "name": "GrantTypes",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AuthorizationProviderOAuth2GrantTypes"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "redirectUrl",
+      "name": "RedirectUrl",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "name": "AfdRouteCacheConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "compressionSettings",
+      "name": "CompressionSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CompressionSettings"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "queryParameters",
+      "name": "QueryParameters",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "queryStringCachingBehavior",
+      "name": "QueryStringCachingBehavior",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AfdQueryStringCachingBehavior"
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ]
+}

@@ -27,6 +27,7 @@ func MapSDKModelFromRepository(input repositoryModels.Model) (*sdkModels.SDKMode
 		DiscriminatedValue:                    input.DiscriminatedTypeValue,
 		FieldNameContainingDiscriminatedValue: input.TypeHintIn,
 		Fields:                                fields,
+		IsParent:                              input.IsParent,
 		ParentTypeName:                        input.DiscriminatedParentModelName,
 	}, nil
 }
@@ -42,8 +43,9 @@ func MapSDKModelToRepository(modelName string, model sdkModels.SDKModel, parentM
 	}
 
 	dataApiModel := repositoryModels.Model{
-		Name:   modelName,
-		Fields: *fields,
+		Name:     modelName,
+		Fields:   *fields,
+		IsParent: model.IsParent,
 	}
 
 	// NOTE: `Parent` types don't get a `DiscriminatedValue`

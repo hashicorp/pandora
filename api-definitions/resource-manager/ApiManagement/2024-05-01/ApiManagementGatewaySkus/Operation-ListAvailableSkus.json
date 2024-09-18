@@ -1,0 +1,16 @@
+{
+  "name": "ListAvailableSkus",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "GatewayId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "GatewayResourceSkuResult"
+  },
+  "uriSuffix": "/skus"
+}

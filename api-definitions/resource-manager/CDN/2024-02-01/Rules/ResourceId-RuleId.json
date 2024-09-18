@@ -1,0 +1,61 @@
+{
+  "name": "RuleId",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CDN/profiles/{profileName}/ruleSets/{ruleSetName}/rules/{ruleName}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticResourceGroups",
+      "type": "Static",
+      "value": "resourceGroups"
+    },
+    {
+      "name": "resourceGroupName",
+      "type": "ResourceGroup"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftCDN",
+      "type": "ResourceProvider",
+      "value": "Microsoft.CDN"
+    },
+    {
+      "name": "staticProfiles",
+      "type": "Static",
+      "value": "profiles"
+    },
+    {
+      "name": "profileName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticRuleSets",
+      "type": "Static",
+      "value": "ruleSets"
+    },
+    {
+      "name": "ruleSetName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticRules",
+      "type": "Static",
+      "value": "rules"
+    },
+    {
+      "name": "ruleName",
+      "type": "UserSpecified"
+    }
+  ]
+}

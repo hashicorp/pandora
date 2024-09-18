@@ -1,0 +1,31 @@
+{
+  "name": "CreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": false,
+  "httpMethod": "PUT",
+  "options": [
+    {
+      "headerName": "If-Match",
+      "optional": true,
+      "required": false,
+      "field": "IfMatch",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "DocumentationId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "DocumentationContract"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "DocumentationContract"
+  }
+}

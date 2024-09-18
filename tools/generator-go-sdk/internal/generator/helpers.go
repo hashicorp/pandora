@@ -30,6 +30,20 @@ func alternateCasingOnEveryLetter(input string) string {
 	return output
 }
 
+func baseClientPackageForSdk(input models.SourceDataType) string {
+	switch input {
+	case models.MicrosoftGraphSourceDataType:
+		return "msgraph"
+	case models.ResourceManagerSourceDataType:
+		return "resourcemanager"
+	}
+	return "client"
+}
+
+func camelCase(input string) string {
+	return strings.ToLower(input[0:1]) + input[1:]
+}
+
 func capitalizeFirstLetter(input string) string {
 	return strings.ToUpper(input[0:1]) + strings.ToLower(input[1:])
 }
@@ -145,4 +159,26 @@ func wordifyString(input string) string {
 	}
 
 	return strings.TrimPrefix(output, " ")
+}
+
+// wrapOnWordBoundary attempts to wrap a string on whitespace to the specified maximum length, optionally
+// prefixing each line with the provided prefix (useful for comments).
+func wrapOnWordBoundary(in string, maxLength int, prefix string) string {
+	words := strings.Fields(in)
+	out := make([]string, 0)
+	currentLine := prefix
+
+	for _, word := range words {
+		if len(currentLine)+len(word) >= maxLength {
+			out = append(out, strings.TrimSpace(currentLine))
+			currentLine = prefix
+		}
+		currentLine = fmt.Sprintf("%s %s", currentLine, word)
+	}
+
+	if currentLine != prefix {
+		out = append(out, strings.TrimSpace(currentLine))
+	}
+
+	return strings.Join(out, "\n")
 }

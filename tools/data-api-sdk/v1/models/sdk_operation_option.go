@@ -9,6 +9,9 @@ type SDKOperationOption struct {
 	// HeaderName specifies the name of the HTTP Header associated with this Option.
 	HeaderName *string `json:"headerName,omitempty"`
 
+	// ODataFieldName specifies the name for the OData query string parameter associated with this Option.
+	ODataFieldName *string `json:"odataFieldName,omitempty"`
+
 	// QueryStringName specifies the name for the QueryString key associated with this Option.
 	QueryStringName *string `json:"queryStringName,omitempty"`
 

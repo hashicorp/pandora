@@ -8,8 +8,8 @@ import (
 	"sort"
 )
 
-func (s *ServiceGenerator) predicates(data ServiceGeneratorData) error {
-	modelNames := make(map[string]struct{}, 0)
+func (s *Generator) predicates(data GeneratorData) error {
+	modelNames := make(map[string]string)
 	for _, operation := range data.operations {
 		if operation.FieldContainingPaginationDetails == nil {
 			continue
@@ -23,7 +23,15 @@ func (s *ServiceGenerator) predicates(data ServiceGeneratorData) error {
 			continue
 		}
 
-		modelNames[*operation.ResponseObject.ReferenceName] = struct{}{}
+		modelNameWithPackage := *operation.ResponseObject.ReferenceName
+		if operation.ResponseObject.ReferenceNameIsCommonType != nil && *operation.ResponseObject.ReferenceNameIsCommonType {
+			if data.commonTypesPackageName == nil {
+				return fmt.Errorf("building predicate models: encountered a common model %q but `commonTypesPackageName` was nil", *operation.ResponseObject.ReferenceName)
+			}
+			modelNameWithPackage = fmt.Sprintf("%s.%s", *data.commonTypesPackageName, modelNameWithPackage)
+		}
+
+		modelNames[*operation.ResponseObject.ReferenceName] = modelNameWithPackage
 	}
 
 	sortedModelNames := make([]string, 0)
@@ -37,6 +45,7 @@ func (s *ServiceGenerator) predicates(data ServiceGeneratorData) error {
 	}
 
 	templater := predicateTemplater{
+		modelNames:       modelNames,
 		sortedModelNames: sortedModelNames,
 		models:           data.models,
 	}
