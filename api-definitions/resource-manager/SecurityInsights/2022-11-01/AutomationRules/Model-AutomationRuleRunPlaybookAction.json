@@ -7,7 +7,9 @@
       "name": "ActionConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PlaybookActionProperties"
+        "nullable": false,
+        "referenceName": "PlaybookActionProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "AutomationRuleAction",
   "discriminatedTypeValue": "RunPlaybook",
   "typeHintIn": "ActionType"

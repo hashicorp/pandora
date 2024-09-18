@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "AzureBlob CSI Driver settings for the storage profile.",
       "jsonName": "blobCSIDriver",
       "name": "BlobCSIDriver",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterStorageProfileBlobCSIDriver"
+        "nullable": false,
+        "referenceName": "ManagedClusterStorageProfileBlobCSIDriver",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "AzureDisk CSI Driver settings for the storage profile.",
       "jsonName": "diskCSIDriver",
       "name": "DiskCSIDriver",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterStorageProfileDiskCSIDriver"
+        "nullable": false,
+        "referenceName": "ManagedClusterStorageProfileDiskCSIDriver",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "AzureFile CSI Driver settings for the storage profile.",
       "jsonName": "fileCSIDriver",
       "name": "FileCSIDriver",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterStorageProfileFileCSIDriver"
+        "nullable": false,
+        "referenceName": "ManagedClusterStorageProfileFileCSIDriver",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,16 +51,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Snapshot Controller settings for the storage profile.",
       "jsonName": "snapshotController",
       "name": "SnapshotController",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterStorageProfileSnapshotController"
+        "nullable": false,
+        "referenceName": "ManagedClusterStorageProfileSnapshotController",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

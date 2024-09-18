@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Immutability Settings of a vault",
       "jsonName": "immutabilitySettings",
       "name": "ImmutabilitySettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ImmutabilitySettings"
+        "nullable": false,
+        "referenceName": "ImmutabilitySettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

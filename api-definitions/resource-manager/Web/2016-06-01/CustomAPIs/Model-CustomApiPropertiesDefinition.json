@@ -7,7 +7,9 @@
       "name": "ApiDefinitions",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiResourceDefinitions"
+        "nullable": false,
+        "referenceName": "ApiResourceDefinitions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ApiType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiType"
+        "nullable": false,
+        "referenceName": "ApiType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "BackendService",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiResourceBackendService"
+        "nullable": false,
+        "referenceName": "ApiResourceBackendService",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +48,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Brand color",
       "jsonName": "brandColor",
       "name": "BrandColor",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,14 +64,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The custom API capabilities",
       "jsonName": "capabilities",
       "name": "Capabilities",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -72,14 +86,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Connection parameters",
       "jsonName": "connectionParameters",
       "name": "ConnectionParameters",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ConnectionParameter"
+          "nullable": false,
+          "referenceName": "ConnectionParameter",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -89,11 +108,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The custom API description",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,11 +124,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The display name",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,11 +140,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The icon URI",
       "jsonName": "iconUri",
       "name": "IconUri",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,14 +156,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Runtime URLs",
       "jsonName": "runtimeUrls",
       "name": "RuntimeUrls",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -145,11 +178,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The JSON representation of the swagger",
       "jsonName": "swagger",
       "name": "Swagger",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -162,12 +198,15 @@
       "name": "WsdlDefinition",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WsdlDefinition"
+        "nullable": false,
+        "referenceName": "WsdlDefinition",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

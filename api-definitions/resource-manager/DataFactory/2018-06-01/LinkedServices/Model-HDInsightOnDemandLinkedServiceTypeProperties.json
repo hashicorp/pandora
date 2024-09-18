@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies additional storage accounts for the HDInsight linked service so that the Data Factory service can register them on your behalf.",
       "jsonName": "additionalLinkedServiceNames",
       "name": "AdditionalLinkedServiceNames",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "LinkedServiceReference"
+          "nullable": false,
+          "referenceName": "LinkedServiceReference",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The prefix of cluster name, postfix will be distinct with timestamp. Type: string (or Expression with resultType string).",
       "jsonName": "clusterNamePrefix",
       "name": "ClusterNamePrefix",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,7 +45,9 @@
       "name": "ClusterPassword",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecretBase"
+        "nullable": false,
+        "referenceName": "SecretBase",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +56,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource group where the cluster belongs. Type: string (or Expression with resultType string).",
       "jsonName": "clusterResourceGroup",
       "name": "ClusterResourceGroup",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -59,11 +72,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of worker/data nodes in the cluster. Suggestion value: 4. Type: int (or Expression with resultType int).",
       "jsonName": "clusterSize",
       "name": "ClusterSize",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -76,7 +92,9 @@
       "name": "ClusterSshPassword",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecretBase"
+        "nullable": false,
+        "referenceName": "SecretBase",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +103,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The username to SSH remotely connect to cluster’s node (for Linux). Type: string (or Expression with resultType string).",
       "jsonName": "clusterSshUserName",
       "name": "ClusterSshUserName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,11 +119,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The cluster type. Type: string (or Expression with resultType string).",
       "jsonName": "clusterType",
       "name": "ClusterType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,11 +135,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The username to access the cluster. Type: string (or Expression with resultType string).",
       "jsonName": "clusterUserName",
       "name": "ClusterUserName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,11 +151,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the core configuration parameters (as in core-site.xml) for the HDInsight cluster to be created.",
       "jsonName": "coreConfiguration",
       "name": "CoreConfiguration",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,7 +171,9 @@
       "name": "Credential",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CredentialReference"
+        "nullable": false,
+        "referenceName": "CredentialReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -150,11 +182,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the size of the data node for the HDInsight cluster.",
       "jsonName": "dataNodeSize",
       "name": "DataNodeSize",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -163,11 +198,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
       "jsonName": "encryptedCredential",
       "name": "EncryptedCredential",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -176,11 +214,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the HBase configuration parameters (hbase-site.xml) for the HDInsight cluster.",
       "jsonName": "hBaseConfiguration",
       "name": "HBaseConfiguration",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -193,7 +234,9 @@
       "name": "HcatalogLinkedServiceName",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LinkedServiceReference"
+        "nullable": false,
+        "referenceName": "LinkedServiceReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -202,11 +245,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the HDFS configuration parameters (hdfs-site.xml) for the HDInsight cluster.",
       "jsonName": "hdfsConfiguration",
       "name": "HdfsConfiguration",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -215,11 +261,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the size of the head node for the HDInsight cluster.",
       "jsonName": "headNodeSize",
       "name": "HeadNodeSize",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -228,11 +277,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the hive configuration parameters (hive-site.xml) for the HDInsight cluster.",
       "jsonName": "hiveConfiguration",
       "name": "HiveConfiguration",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -241,11 +293,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The customer’s subscription to host the cluster. Type: string (or Expression with resultType string).",
       "jsonName": "hostSubscriptionId",
       "name": "HostSubscriptionId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -258,7 +313,9 @@
       "name": "LinkedServiceName",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LinkedServiceReference"
+        "nullable": false,
+        "referenceName": "LinkedServiceReference",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -267,11 +324,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the MapReduce configuration parameters (mapred-site.xml) for the HDInsight cluster.",
       "jsonName": "mapReduceConfiguration",
       "name": "MapReduceConfiguration",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -280,11 +340,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the Oozie configuration parameters (oozie-site.xml) for the HDInsight cluster.",
       "jsonName": "oozieConfiguration",
       "name": "OozieConfiguration",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -293,14 +356,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Custom script actions to run on HDI ondemand cluster once it's up. Please refer to https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux?toc=%2Fen-us%2Fazure%2Fhdinsight%2Fr-server%2FTOC.json\u0026bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json#understanding-script-actions.",
       "jsonName": "scriptActions",
       "name": "ScriptActions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ScriptAction"
+          "nullable": false,
+          "referenceName": "ScriptAction",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -310,11 +378,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The service principal id for the hostSubscriptionId. Type: string (or Expression with resultType string).",
       "jsonName": "servicePrincipalId",
       "name": "ServicePrincipalId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -327,7 +398,9 @@
       "name": "ServicePrincipalKey",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecretBase"
+        "nullable": false,
+        "referenceName": "SecretBase",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -336,11 +409,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The version of spark if the cluster type is 'spark'. Type: string (or Expression with resultType string).",
       "jsonName": "sparkVersion",
       "name": "SparkVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -349,11 +425,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the Storm configuration parameters (storm-site.xml) for the HDInsight cluster.",
       "jsonName": "stormConfiguration",
       "name": "StormConfiguration",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -362,11 +441,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ARM resource ID for the subnet in the vNet. If virtualNetworkId was specified, then this property is required. Type: string (or Expression with resultType string).",
       "jsonName": "subnetName",
       "name": "SubnetName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -375,11 +457,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Tenant id/name to which the service principal belongs. Type: string (or Expression with resultType string).",
       "jsonName": "tenant",
       "name": "Tenant",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -388,11 +473,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The allowed idle time for the on-demand HDInsight cluster. Specifies how long the on-demand HDInsight cluster stays alive after completion of an activity run if there are no other active jobs in the cluster. The minimum value is 5 mins. Type: string (or Expression with resultType string).",
       "jsonName": "timeToLive",
       "name": "TimeToLive",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -401,11 +489,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Version of the HDInsight cluster.  Type: string (or Expression with resultType string).",
       "jsonName": "version",
       "name": "Version",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -414,11 +505,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ARM resource ID for the vNet to which the cluster should be joined after creation. Type: string (or Expression with resultType string).",
       "jsonName": "virtualNetworkId",
       "name": "VirtualNetworkId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -427,11 +521,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the Yarn configuration parameters (yarn-site.xml) for the HDInsight cluster.",
       "jsonName": "yarnConfiguration",
       "name": "YarnConfiguration",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -440,16 +537,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the size of the Zoo Keeper node for the HDInsight cluster.",
       "jsonName": "zookeeperNodeSize",
       "name": "ZookeeperNodeSize",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

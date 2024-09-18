@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Body logging settings.",
       "jsonName": "body",
       "name": "Body",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BodyDiagnosticSettings"
+        "nullable": false,
+        "referenceName": "BodyDiagnosticSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Data masking settings.",
       "jsonName": "dataMasking",
       "name": "DataMasking",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataMasking"
+        "nullable": false,
+        "referenceName": "DataMasking",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Array of HTTP Headers to log.",
       "jsonName": "headers",
       "name": "Headers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -44,5 +55,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

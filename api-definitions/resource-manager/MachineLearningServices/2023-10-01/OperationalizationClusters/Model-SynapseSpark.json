@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SynapseSparkProperties"
+        "nullable": false,
+        "referenceName": "SynapseSparkProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "Compute",
   "discriminatedTypeValue": "SynapseSpark",
   "typeHintIn": "ComputeType"

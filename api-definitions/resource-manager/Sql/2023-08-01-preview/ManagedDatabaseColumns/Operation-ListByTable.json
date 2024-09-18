@@ -1,6 +1,7 @@
 {
   "name": "ListByTable",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -22,7 +23,9 @@
   "resourceIdName": "SchemaTableId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DatabaseColumn"
+    "nullable": false,
+    "referenceName": "DatabaseColumn",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/columns"
 }

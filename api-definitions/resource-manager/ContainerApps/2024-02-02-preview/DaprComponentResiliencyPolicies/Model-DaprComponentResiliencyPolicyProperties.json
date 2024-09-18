@@ -7,7 +7,9 @@
       "name": "InboundPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DaprComponentResiliencyPolicyConfiguration"
+        "nullable": false,
+        "referenceName": "DaprComponentResiliencyPolicyConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "OutboundPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DaprComponentResiliencyPolicyConfiguration"
+        "nullable": false,
+        "referenceName": "DaprComponentResiliencyPolicyConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

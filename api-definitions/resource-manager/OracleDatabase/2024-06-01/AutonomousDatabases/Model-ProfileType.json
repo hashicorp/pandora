@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Consumer group used by the connection.",
       "jsonName": "consumerGroup",
       "name": "ConsumerGroup",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConsumerGroup"
+        "nullable": false,
+        "referenceName": "ConsumerGroup",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A user-friendly name for the connection.",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Host format used in connection string.",
       "jsonName": "hostFormat",
       "name": "HostFormat",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HostFormatType"
+        "nullable": false,
+        "referenceName": "HostFormatType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "True for a regional connection string, applicable to cross-region DG only.",
       "jsonName": "isRegional",
       "name": "IsRegional",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Protocol used by the connection.",
       "jsonName": "protocol",
       "name": "Protocol",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProtocolType"
+        "nullable": false,
+        "referenceName": "ProtocolType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies whether the listener performs a direct hand-off of the session, or redirects the session.",
       "jsonName": "sessionMode",
       "name": "SessionMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SessionModeType"
+        "nullable": false,
+        "referenceName": "SessionModeType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies whether the connection string is using the long (LONG), Easy Connect (EZCONNECT), or Easy Connect Plus (EZCONNECTPLUS) format.",
       "jsonName": "syntaxFormat",
       "name": "SyntaxFormat",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SyntaxFormatType"
+        "nullable": false,
+        "referenceName": "SyntaxFormatType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies whether the TLS handshake is using one-way (SERVER) or mutual (MUTUAL) authentication.",
       "jsonName": "tlsAuthentication",
       "name": "TlsAuthentication",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TlsAuthenticationType"
+        "nullable": false,
+        "referenceName": "TlsAuthenticationType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,16 +131,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Connection string value.",
       "jsonName": "value",
       "name": "Value",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,7 +7,9 @@
       "name": "Metadata",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +18,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The dashboard's part position.",
       "jsonName": "position",
       "name": "Position",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DashboardPartsPosition"
+        "nullable": false,
+        "referenceName": "DashboardPartsPosition",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,10 +22,14 @@
   "resourceIdName": "PolicyRestrictionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "PolicyRestrictionUpdateContract"
+    "nullable": false,
+    "referenceName": "PolicyRestrictionUpdateContract",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PolicyRestrictionContract"
+    "nullable": false,
+    "referenceName": "PolicyRestrictionContract",
+    "referenceNameIsCommonType": null
   }
 }

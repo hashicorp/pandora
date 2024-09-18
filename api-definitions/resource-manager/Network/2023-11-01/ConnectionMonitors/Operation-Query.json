@@ -1,6 +1,7 @@
 {
   "name": "Query",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,7 +11,9 @@
   "resourceIdName": "ConnectionMonitorId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ConnectionMonitorQueryResult"
+    "nullable": false,
+    "referenceName": "ConnectionMonitorQueryResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/query"
 }

@@ -7,7 +7,9 @@
       "name": "Encryption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EncryptionImages"
+        "nullable": false,
+        "referenceName": "EncryptionImages",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ExtendedLocation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GalleryExtendedLocation"
+        "nullable": false,
+        "referenceName": "GalleryExtendedLocation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +33,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The number of replicas of the Image Version to be created per extended location. This property is updatable.",
       "jsonName": "extendedLocationReplicaCount",
       "name": "ExtendedLocationReplicaCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +49,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the region.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,16 +65,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the storage account type to be used to store the image. This property is not updatable.",
       "jsonName": "storageAccountType",
       "name": "StorageAccountType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EdgeZoneStorageAccountType"
+        "nullable": false,
+        "referenceName": "EdgeZoneStorageAccountType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

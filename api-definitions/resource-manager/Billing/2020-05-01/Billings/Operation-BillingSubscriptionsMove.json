@@ -1,6 +1,7 @@
 {
   "name": "BillingSubscriptionsMove",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "BillingAccountBillingSubscriptionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "TransferBillingSubscriptionRequestProperties"
+    "nullable": false,
+    "referenceName": "TransferBillingSubscriptionRequestProperties",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BillingSubscription"
+    "nullable": false,
+    "referenceName": "BillingSubscription",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/move"
 }

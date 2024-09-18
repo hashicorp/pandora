@@ -1,6 +1,7 @@
 {
   "name": "ListByTrafficController",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "TrafficControllerId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Frontend"
+    "nullable": false,
+    "referenceName": "Frontend",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/frontends"
 }

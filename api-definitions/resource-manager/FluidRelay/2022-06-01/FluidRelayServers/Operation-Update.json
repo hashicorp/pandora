@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "FluidRelayServerId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "FluidRelayServerUpdate"
+    "nullable": false,
+    "referenceName": "FluidRelayServerUpdate",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "FluidRelayServer"
+    "nullable": false,
+    "referenceName": "FluidRelayServer",
+    "referenceNameIsCommonType": null
   }
 }

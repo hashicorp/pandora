@@ -1,6 +1,7 @@
 {
   "name": "WorkspaceManagedIdentitySqlControlSettingsGet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "WorkspaceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ManagedIdentitySqlControlSettingsModel"
+    "nullable": false,
+    "referenceName": "ManagedIdentitySqlControlSettingsModel",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/managedIdentitySqlControlSettings/default"
 }

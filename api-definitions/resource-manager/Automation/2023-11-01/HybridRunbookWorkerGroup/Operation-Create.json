@@ -1,6 +1,7 @@
 {
   "name": "Create",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "HybridRunbookWorkerGroupId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "HybridRunbookWorkerGroupCreateOrUpdateParameters"
+    "nullable": false,
+    "referenceName": "HybridRunbookWorkerGroupCreateOrUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "HybridRunbookWorkerGroup"
+    "nullable": false,
+    "referenceName": "HybridRunbookWorkerGroup",
+    "referenceNameIsCommonType": null
   }
 }

@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "DedicatedHostGroupId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "DedicatedHostGroupUpdate"
+    "nullable": false,
+    "referenceName": "DedicatedHostGroupUpdate",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DedicatedHostGroup"
+    "nullable": false,
+    "referenceName": "DedicatedHostGroup",
+    "referenceNameIsCommonType": null
   }
 }

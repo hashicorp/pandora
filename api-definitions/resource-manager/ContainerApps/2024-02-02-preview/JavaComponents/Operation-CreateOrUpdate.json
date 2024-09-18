@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "JavaComponentId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "JavaComponent"
+    "nullable": false,
+    "referenceName": "JavaComponent",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "JavaComponent"
+    "nullable": false,
+    "referenceName": "JavaComponent",
+    "referenceNameIsCommonType": null
   }
 }

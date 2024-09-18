@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "MachineId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "LicenseProfileUpdate"
+    "nullable": false,
+    "referenceName": "LicenseProfileUpdate",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "LicenseProfile"
+    "nullable": false,
+    "referenceName": "LicenseProfile",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/licenseProfiles/default"
 }

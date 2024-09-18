@@ -1,6 +1,7 @@
 {
   "name": "WorkspacePurgePurge",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     202
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "WorkspaceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "WorkspacePurgeBody"
+    "nullable": false,
+    "referenceName": "WorkspacePurgeBody",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "WorkspacePurgeResponse"
+    "nullable": false,
+    "referenceName": "WorkspacePurgeResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/purge"
 }

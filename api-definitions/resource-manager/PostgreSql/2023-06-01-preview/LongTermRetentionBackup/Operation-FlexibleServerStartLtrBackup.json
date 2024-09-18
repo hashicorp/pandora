@@ -1,6 +1,7 @@
 {
   "name": "FlexibleServerStartLtrBackup",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "FlexibleServerId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "LtrBackupRequest"
+    "nullable": false,
+    "referenceName": "LtrBackupRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "LtrBackupResponse"
+    "nullable": false,
+    "referenceName": "LtrBackupResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/startLtrBackup"
 }

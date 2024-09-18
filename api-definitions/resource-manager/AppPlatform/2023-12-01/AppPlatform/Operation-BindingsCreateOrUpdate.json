@@ -1,6 +1,7 @@
 {
   "name": "BindingsCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201,
@@ -11,10 +12,14 @@
   "resourceIdName": "BindingId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "BindingResource"
+    "nullable": false,
+    "referenceName": "BindingResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BindingResource"
+    "nullable": false,
+    "referenceName": "BindingResource",
+    "referenceNameIsCommonType": null
   }
 }

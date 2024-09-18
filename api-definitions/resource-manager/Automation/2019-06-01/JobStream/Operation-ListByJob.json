@@ -1,6 +1,7 @@
 {
   "name": "ListByJob",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -32,7 +33,9 @@
   "resourceIdName": "JobId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "JobStream"
+    "nullable": false,
+    "referenceName": "JobStream",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/streams"
 }

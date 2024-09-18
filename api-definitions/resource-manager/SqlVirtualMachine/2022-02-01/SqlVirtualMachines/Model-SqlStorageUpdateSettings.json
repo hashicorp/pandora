@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Disk configuration to apply to SQL Server.",
       "jsonName": "diskConfigurationType",
       "name": "DiskConfigurationType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiskConfigurationType"
+        "nullable": false,
+        "referenceName": "DiskConfigurationType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Virtual machine disk count.",
       "jsonName": "diskCount",
       "name": "DiskCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Device id of the first disk to be updated.",
       "jsonName": "startingDeviceId",
       "name": "StartingDeviceId",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

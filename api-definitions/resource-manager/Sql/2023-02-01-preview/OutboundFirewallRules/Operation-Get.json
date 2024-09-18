@@ -1,6 +1,7 @@
 {
   "name": "Get",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "OutboundFirewallRuleId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "OutboundFirewallRule"
+    "nullable": false,
+    "referenceName": "OutboundFirewallRule",
+    "referenceNameIsCommonType": null
   }
 }

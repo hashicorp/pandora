@@ -7,7 +7,9 @@
       "name": "AuthenticationMethod",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AuthenticationMethod"
+        "nullable": false,
+        "referenceName": "AuthenticationMethod",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +18,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "VpnServerConfiguration partial resource uri with which VirtualWan is associated to.",
       "jsonName": "vpnServerConfigurationResourceId",
       "name": "VpnServerConfigurationResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

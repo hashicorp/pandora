@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Alerts data type connection.",
       "jsonName": "alerts",
       "name": "Alerts",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataConnectorDataTypeCommon"
+        "nullable": false,
+        "referenceName": "DataConnectorDataTypeCommon",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Discovery log data type connection.",
       "jsonName": "discoveryLogs",
       "name": "DiscoveryLogs",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataConnectorDataTypeCommon"
+        "nullable": false,
+        "referenceName": "DataConnectorDataTypeCommon",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

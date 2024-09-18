@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Cloud Tiering.",
       "jsonName": "cloudTiering",
       "name": "CloudTiering",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FeatureStatus"
+        "nullable": false,
+        "referenceName": "FeatureStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Cloud tiering status. Only populated if cloud tiering is enabled.",
       "jsonName": "cloudTieringStatus",
       "name": "CloudTieringStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerEndpointCloudTieringStatus"
+        "nullable": false,
+        "referenceName": "ServerEndpointCloudTieringStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Friendly Name",
       "jsonName": "friendlyName",
       "name": "FriendlyName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Policy for how namespace and files are recalled during FastDr.",
       "jsonName": "initialDownloadPolicy",
       "name": "InitialDownloadPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InitialDownloadPolicy"
+        "nullable": false,
+        "referenceName": "InitialDownloadPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Policy for how the initial upload sync session is performed.",
       "jsonName": "initialUploadPolicy",
       "name": "InitialUploadPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InitialUploadPolicy"
+        "nullable": false,
+        "referenceName": "InitialUploadPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Resource Last Operation Name",
       "jsonName": "lastOperationName",
       "name": "LastOperationName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "ServerEndpoint lastWorkflowId",
       "jsonName": "lastWorkflowId",
       "name": "LastWorkflowId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Policy for enabling follow-the-sun business models: link local cache to cloud behavior to pre-populate before local access.",
       "jsonName": "localCacheMode",
       "name": "LocalCacheMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LocalCacheMode"
+        "nullable": false,
+        "referenceName": "LocalCacheMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,11 +131,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Offline data transfer",
       "jsonName": "offlineDataTransfer",
       "name": "OfflineDataTransfer",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FeatureStatus"
+        "nullable": false,
+        "referenceName": "FeatureStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -120,11 +147,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Offline data transfer share name",
       "jsonName": "offlineDataTransferShareName",
       "name": "OfflineDataTransferShareName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -133,11 +163,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Offline data transfer storage account resource ID",
       "jsonName": "offlineDataTransferStorageAccountResourceId",
       "name": "OfflineDataTransferStorageAccountResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -146,11 +179,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Offline data transfer storage account tenant ID",
       "jsonName": "offlineDataTransferStorageAccountTenantId",
       "name": "OfflineDataTransferStorageAccountTenantId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -159,11 +195,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "ServerEndpoint Provisioning State",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -172,11 +211,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Recall status. Only populated if cloud tiering is enabled.",
       "jsonName": "recallStatus",
       "name": "RecallStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerEndpointRecallStatus"
+        "nullable": false,
+        "referenceName": "ServerEndpointRecallStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -185,11 +227,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Server Endpoint provisioning status",
       "jsonName": "serverEndpointProvisioningStatus",
       "name": "ServerEndpointProvisioningStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerEndpointProvisioningStatus"
+        "nullable": false,
+        "referenceName": "ServerEndpointProvisioningStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -198,11 +243,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Server Local path.",
       "jsonName": "serverLocalPath",
       "name": "ServerLocalPath",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -211,11 +259,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Server name",
       "jsonName": "serverName",
       "name": "ServerName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -224,11 +275,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Server Resource Id.",
       "jsonName": "serverResourceId",
       "name": "ServerResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -237,11 +291,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Server Endpoint sync status",
       "jsonName": "syncStatus",
       "name": "SyncStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerEndpointSyncStatus"
+        "nullable": false,
+        "referenceName": "ServerEndpointSyncStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -250,11 +307,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Tier files older than days.",
       "jsonName": "tierFilesOlderThanDays",
       "name": "TierFilesOlderThanDays",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -263,16 +323,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Level of free space to be maintained by Cloud Tiering if it is enabled.",
       "jsonName": "volumeFreeSpacePercent",
       "name": "VolumeFreeSpacePercent",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

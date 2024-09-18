@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An XML configuration specification for a WebTest.",
       "jsonName": "Configuration",
       "name": "Configuration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WebTestPropertiesConfiguration"
+        "nullable": false,
+        "referenceName": "WebTestPropertiesConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "User defined description for this WebTest.",
       "jsonName": "Description",
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Is the test actively being monitored.",
       "jsonName": "Enabled",
       "name": "Enabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Interval in seconds between test runs for this WebTest. Default value is 300.",
       "jsonName": "Frequency",
       "name": "Frequency",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The kind of web test this is, valid choices are ping, multistep and standard.",
       "jsonName": "Kind",
       "name": "Kind",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WebTestKind"
+        "nullable": false,
+        "referenceName": "WebTestKind",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -68,14 +83,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of where to physically run the tests from to give global coverage for accessibility of your application.",
       "jsonName": "Locations",
       "name": "Locations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "WebTestGeolocation"
+          "nullable": false,
+          "referenceName": "WebTestGeolocation",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "User defined name if this WebTest.",
       "jsonName": "Name",
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -98,11 +121,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Current state of this component, whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,11 +137,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The collection of request properties",
       "jsonName": "Request",
       "name": "Request",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WebTestPropertiesRequest"
+        "nullable": false,
+        "referenceName": "WebTestPropertiesRequest",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,11 +153,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Allow for retries should this WebTest fail.",
       "jsonName": "RetryEnabled",
       "name": "RetryEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,11 +169,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Unique ID of this WebTest. This is typically the same value as the Name field.",
       "jsonName": "SyntheticMonitorId",
       "name": "SyntheticMonitorId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -150,11 +185,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Seconds until this WebTest will timeout and fail. Default value is 30.",
       "jsonName": "Timeout",
       "name": "Timeout",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -163,16 +201,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The collection of validation rule properties",
       "jsonName": "ValidationRules",
       "name": "ValidationRules",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WebTestPropertiesValidationRules"
+        "nullable": false,
+        "referenceName": "WebTestPropertiesValidationRules",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

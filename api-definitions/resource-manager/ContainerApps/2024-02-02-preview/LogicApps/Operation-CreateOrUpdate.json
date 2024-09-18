@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "LogicAppId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "LogicApp"
+    "nullable": false,
+    "referenceName": "LogicApp",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "LogicApp"
+    "nullable": false,
+    "referenceName": "LogicApp",
+    "referenceNameIsCommonType": null
   }
 }

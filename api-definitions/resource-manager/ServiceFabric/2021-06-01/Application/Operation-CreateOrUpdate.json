@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     202
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "ApplicationId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ApplicationResource"
+    "nullable": false,
+    "referenceName": "ApplicationResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ApplicationResource"
+    "nullable": false,
+    "referenceName": "ApplicationResource",
+    "referenceNameIsCommonType": null
   }
 }

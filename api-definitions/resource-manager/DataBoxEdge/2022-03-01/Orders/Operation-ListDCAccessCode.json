@@ -1,6 +1,7 @@
 {
   "name": "ListDCAccessCode",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "DataBoxEdgeDeviceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DCAccessCode"
+    "nullable": false,
+    "referenceName": "DCAccessCode",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/orders/default/listDCAccessCode"
 }

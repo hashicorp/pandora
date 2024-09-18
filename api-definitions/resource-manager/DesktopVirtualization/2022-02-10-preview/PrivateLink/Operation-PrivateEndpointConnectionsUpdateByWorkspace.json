@@ -1,6 +1,7 @@
 {
   "name": "PrivateEndpointConnectionsUpdateByWorkspace",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "WorkspacePrivateEndpointConnectionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "PrivateEndpointConnection"
+    "nullable": false,
+    "referenceName": "PrivateEndpointConnection",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PrivateEndpointConnectionWithSystemData"
+    "nullable": false,
+    "referenceName": "PrivateEndpointConnectionWithSystemData",
+    "referenceNameIsCommonType": null
   }
 }

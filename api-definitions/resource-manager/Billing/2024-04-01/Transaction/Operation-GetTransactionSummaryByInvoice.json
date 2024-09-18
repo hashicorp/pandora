@@ -1,6 +1,7 @@
 {
   "name": "GetTransactionSummaryByInvoice",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -31,7 +32,9 @@
   "resourceIdName": "BillingAccountInvoiceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "TransactionSummary"
+    "nullable": false,
+    "referenceName": "TransactionSummary",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/transactionSummary"
 }

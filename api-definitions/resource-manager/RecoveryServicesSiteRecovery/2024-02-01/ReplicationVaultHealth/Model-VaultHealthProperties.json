@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of the health detail of the containers in the vault.",
       "jsonName": "containersHealth",
       "name": "ContainersHealth",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceHealthSummary"
+        "nullable": false,
+        "referenceName": "ResourceHealthSummary",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of the health detail of the fabrics in the vault.",
       "jsonName": "fabricsHealth",
       "name": "FabricsHealth",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceHealthSummary"
+        "nullable": false,
+        "referenceName": "ResourceHealthSummary",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of the health detail of the protected items in the vault.",
       "jsonName": "protectedItemsHealth",
       "name": "ProtectedItemsHealth",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceHealthSummary"
+        "nullable": false,
+        "referenceName": "ResourceHealthSummary",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,14 +51,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of errors on the vault.",
       "jsonName": "vaultErrors",
       "name": "VaultErrors",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "HealthError"
+          "nullable": false,
+          "referenceName": "HealthError",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -57,5 +71,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

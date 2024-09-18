@@ -1,6 +1,7 @@
 {
   "name": "UpdateByBillingAccount",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "SavingsPlanId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SavingsPlanUpdateRequest"
+    "nullable": false,
+    "referenceName": "SavingsPlanUpdateRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SavingsPlanModel"
+    "nullable": false,
+    "referenceName": "SavingsPlanModel",
+    "referenceNameIsCommonType": null
   }
 }

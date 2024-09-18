@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Azure Active Directory configuration.",
       "jsonName": "aadProfile",
       "name": "AadProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterAADProfile"
+        "nullable": false,
+        "referenceName": "ManagedClusterAADProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The profile of managed cluster add-on.",
       "jsonName": "addonProfiles",
       "name": "AddonProfiles",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ManagedClusterAddonProfile"
+          "nullable": false,
+          "referenceName": "ManagedClusterAddonProfile",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,14 +41,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The agent pool properties.",
       "jsonName": "agentPoolProfiles",
       "name": "AgentPoolProfiles",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ManagedClusterAgentPoolProfile"
+          "nullable": false,
+          "referenceName": "ManagedClusterAgentPoolProfile",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,11 +63,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The access profile for managed cluster API server.",
       "jsonName": "apiServerAccessProfile",
       "name": "ApiServerAccessProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterAPIServerAccessProfile"
+        "nullable": false,
+        "referenceName": "ManagedClusterAPIServerAccessProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,11 +79,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Parameters to be applied to the cluster-autoscaler when enabled",
       "jsonName": "autoScalerProfile",
       "name": "AutoScalerProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterPropertiesAutoScalerProfile"
+        "nullable": false,
+        "referenceName": "ManagedClusterPropertiesAutoScalerProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,11 +95,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The auto upgrade configuration.",
       "jsonName": "autoUpgradeProfile",
       "name": "AutoUpgradeProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterAutoUpgradeProfile"
+        "nullable": false,
+        "referenceName": "ManagedClusterAutoUpgradeProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -93,7 +115,9 @@
       "name": "AzureMonitorProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterAzureMonitorProfile"
+        "nullable": false,
+        "referenceName": "ManagedClusterAzureMonitorProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,11 +126,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Azure Portal requires certain Cross-Origin Resource Sharing (CORS) headers to be sent in some responses, which Kubernetes APIServer doesn't handle by default. This special FQDN supports CORS, allowing the Azure Portal to function properly.",
       "jsonName": "azurePortalFQDN",
       "name": "AzurePortalFQDN",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,11 +142,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If kubernetesVersion was a fully specified version \u003cmajor.minor.patch\u003e, this field will be exactly equal to it. If kubernetesVersion was \u003cmajor.minor\u003e, this field will contain the full \u003cmajor.minor.patch\u003e version being used.",
       "jsonName": "currentKubernetesVersion",
       "name": "CurrentKubernetesVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,11 +158,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If set to true, getting static credentials will be disabled for this cluster. This must only be used on Managed Clusters that are AAD enabled. For more details see [disable local accounts](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts-preview).",
       "jsonName": "disableLocalAccounts",
       "name": "DisableLocalAccounts",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,11 +174,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This is of the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/diskEncryptionSets/{encryptionSetName}'",
       "jsonName": "diskEncryptionSetID",
       "name": "DiskEncryptionSetID",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -154,11 +190,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This cannot be updated once the Managed Cluster has been created.",
       "jsonName": "dnsPrefix",
       "name": "DnsPrefix",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -167,11 +206,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "(DEPRECATED) Whether to enable Kubernetes pod security policy (preview). PodSecurityPolicy was deprecated in Kubernetes v1.21, and removed from Kubernetes in v1.25. Learn more at https://aka.ms/k8s/psp and https://aka.ms/aks/psp.",
       "jsonName": "enablePodSecurityPolicy",
       "name": "EnablePodSecurityPolicy",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -180,11 +222,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether to enable Kubernetes Role-Based Access Control.",
       "jsonName": "enableRBAC",
       "name": "EnableRBAC",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -193,11 +238,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The FQDN of the master pool.",
       "jsonName": "fqdn",
       "name": "Fqdn",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -206,11 +254,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This cannot be updated once the Managed Cluster has been created.",
       "jsonName": "fqdnSubdomain",
       "name": "FqdnSubdomain",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -219,11 +270,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Configurations for provisioning the cluster with HTTP proxy servers.",
       "jsonName": "httpProxyConfig",
       "name": "HTTPProxyConfig",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterHTTPProxyConfig"
+        "nullable": false,
+        "referenceName": "ManagedClusterHTTPProxyConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -232,14 +286,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Identities associated with the cluster.",
       "jsonName": "identityProfile",
       "name": "IdentityProfile",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "UserAssignedIdentity"
+          "nullable": false,
+          "referenceName": "UserAssignedIdentity",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -249,11 +308,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Ingress profile for the managed cluster.",
       "jsonName": "ingressProfile",
       "name": "IngressProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterIngressProfile"
+        "nullable": false,
+        "referenceName": "ManagedClusterIngressProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -262,11 +324,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Both patch version \u003cmajor.minor.patch\u003e (e.g. 1.20.13) and \u003cmajor.minor\u003e (e.g. 1.20) are supported. When \u003cmajor.minor\u003e is specified, the latest supported GA patch version is chosen automatically. Updating the cluster with the same \u003cmajor.minor\u003e once it has been created (e.g. 1.14.x -\u003e 1.14) will not trigger an upgrade, even if a newer patch version is available. When you upgrade a supported AKS cluster, Kubernetes minor versions cannot be skipped. All upgrades must be performed sequentially by major version number. For example, upgrades between 1.14.x -\u003e 1.15.x or 1.15.x -\u003e 1.16.x are allowed, however 1.14.x -\u003e 1.16.x is not allowed. See [upgrading an AKS cluster](https://docs.microsoft.com/azure/aks/upgrade-cluster) for more details.",
       "jsonName": "kubernetesVersion",
       "name": "KubernetesVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -275,11 +340,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The profile for Linux VMs in the Managed Cluster.",
       "jsonName": "linuxProfile",
       "name": "LinuxProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContainerServiceLinuxProfile"
+        "nullable": false,
+        "referenceName": "ContainerServiceLinuxProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -288,11 +356,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The max number of agent pools for the managed cluster.",
       "jsonName": "maxAgentPools",
       "name": "MaxAgentPools",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -301,11 +372,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The network configuration profile.",
       "jsonName": "networkProfile",
       "name": "NetworkProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContainerServiceNetworkProfile"
+        "nullable": false,
+        "referenceName": "ContainerServiceNetworkProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -314,11 +388,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the resource group containing agent pool nodes.",
       "jsonName": "nodeResourceGroup",
       "name": "NodeResourceGroup",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -327,11 +404,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The OIDC issuer profile of the Managed Cluster.",
       "jsonName": "oidcIssuerProfile",
       "name": "OidcIssuerProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterOIDCIssuerProfile"
+        "nullable": false,
+        "referenceName": "ManagedClusterOIDCIssuerProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -340,11 +420,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "See [use AAD pod identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity) for more details on AAD pod identity integration.",
       "jsonName": "podIdentityProfile",
       "name": "PodIdentityProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterPodIdentityProfile"
+        "nullable": false,
+        "referenceName": "ManagedClusterPodIdentityProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -353,11 +436,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Power State of the cluster.",
       "jsonName": "powerState",
       "name": "PowerState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PowerState"
+        "nullable": false,
+        "referenceName": "PowerState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -366,11 +452,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The FQDN of private cluster.",
       "jsonName": "privateFQDN",
       "name": "PrivateFQDN",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -379,14 +468,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Private link resources associated with the cluster.",
       "jsonName": "privateLinkResources",
       "name": "PrivateLinkResources",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PrivateLinkResource"
+          "nullable": false,
+          "referenceName": "PrivateLinkResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -396,11 +490,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The current provisioning state.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -409,11 +506,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Allow or deny public network access for AKS",
       "jsonName": "publicNetworkAccess",
       "name": "PublicNetworkAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublicNetworkAccess"
+        "nullable": false,
+        "referenceName": "PublicNetworkAccess",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -422,11 +522,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resourceUID uniquely identifies ManagedClusters that reuse ARM ResourceIds (i.e: create, delete, create sequence)",
       "jsonName": "resourceUID",
       "name": "ResourceUID",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -435,11 +538,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Security profile for the managed cluster.",
       "jsonName": "securityProfile",
       "name": "SecurityProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterSecurityProfile"
+        "nullable": false,
+        "referenceName": "ManagedClusterSecurityProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -452,7 +558,9 @@
       "name": "ServiceMeshProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServiceMeshProfile"
+        "nullable": false,
+        "referenceName": "ServiceMeshProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -461,11 +569,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Information about a service principal identity for the cluster to use for manipulating Azure APIs.",
       "jsonName": "servicePrincipalProfile",
       "name": "ServicePrincipalProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterServicePrincipalProfile"
+        "nullable": false,
+        "referenceName": "ManagedClusterServicePrincipalProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -474,11 +585,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Storage profile for the managed cluster.",
       "jsonName": "storageProfile",
       "name": "StorageProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterStorageProfile"
+        "nullable": false,
+        "referenceName": "ManagedClusterStorageProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -487,11 +601,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The support plan for the Managed Cluster. If unspecified, the default is 'KubernetesOfficial'.",
       "jsonName": "supportPlan",
       "name": "SupportPlan",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KubernetesSupportPlan"
+        "nullable": false,
+        "referenceName": "KubernetesSupportPlan",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -500,11 +617,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Settings for upgrading a cluster.",
       "jsonName": "upgradeSettings",
       "name": "UpgradeSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterUpgradeSettings"
+        "nullable": false,
+        "referenceName": "ClusterUpgradeSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -513,11 +633,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The profile for Windows VMs in the Managed Cluster.",
       "jsonName": "windowsProfile",
       "name": "WindowsProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterWindowsProfile"
+        "nullable": false,
+        "referenceName": "ManagedClusterWindowsProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -530,12 +653,15 @@
       "name": "WorkloadAutoScalerProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterWorkloadAutoScalerProfile"
+        "nullable": false,
+        "referenceName": "ManagedClusterWorkloadAutoScalerProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

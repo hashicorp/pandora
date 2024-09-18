@@ -1,6 +1,7 @@
 {
   "name": "Refresh",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,7 +11,9 @@
   "resourceIdName": "VaultId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "VaultHealthDetails"
+    "nullable": false,
+    "referenceName": "VaultHealthDetails",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/replicationVaultHealth/default/refresh"
 }

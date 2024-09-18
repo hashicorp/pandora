@@ -1,6 +1,7 @@
 {
   "name": "ProjectEnvironmentTypesUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "EnvironmentTypeId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ProjectEnvironmentTypeUpdate"
+    "nullable": false,
+    "referenceName": "ProjectEnvironmentTypeUpdate",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ProjectEnvironmentType"
+    "nullable": false,
+    "referenceName": "ProjectEnvironmentType",
+    "referenceNameIsCommonType": null
   }
 }

@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The service mode of Web PubSub for Socket.IO. Values allowed: \r\n\"Default\": have your own backend Socket.IO server\r\n\"Serverless\": your application doesn't have a backend server",
       "jsonName": "serviceMode",
       "name": "ServiceMode",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

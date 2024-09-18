@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The policy that controls whether Azure marketplace purchases are allowed for a billing profile.",
       "jsonName": "marketplacePurchases",
       "name": "MarketplacePurchases",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MarketplacePurchasesPolicy"
+        "nullable": false,
+        "referenceName": "MarketplacePurchasesPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The policy that controls whether Azure reservation purchases are allowed for a billing profile.",
       "jsonName": "reservationPurchases",
       "name": "ReservationPurchases",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReservationPurchasesPolicy"
+        "nullable": false,
+        "referenceName": "ReservationPurchasesPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The policy that controls whether users with Azure RBAC access to a subscription can view its charges.",
       "jsonName": "viewCharges",
       "name": "ViewCharges",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ViewChargesPolicy"
+        "nullable": false,
+        "referenceName": "ViewChargesPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

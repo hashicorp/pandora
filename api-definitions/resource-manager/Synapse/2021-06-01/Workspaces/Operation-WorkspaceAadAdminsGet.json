@@ -1,6 +1,7 @@
 {
   "name": "WorkspaceAadAdminsGet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "WorkspaceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "WorkspaceAadAdminInfo"
+    "nullable": false,
+    "referenceName": "WorkspaceAadAdminInfo",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/administrators/activeDirectory"
 }

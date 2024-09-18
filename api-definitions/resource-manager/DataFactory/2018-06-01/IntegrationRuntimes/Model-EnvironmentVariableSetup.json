@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Add environment variable type properties.",
       "jsonName": "typeProperties",
       "name": "TypeProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnvironmentVariableSetupTypeProperties"
+        "nullable": false,
+        "referenceName": "EnvironmentVariableSetupTypeProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,6 +18,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "CustomSetupBase",
   "discriminatedTypeValue": "EnvironmentVariableSetup",
   "typeHintIn": "Type"

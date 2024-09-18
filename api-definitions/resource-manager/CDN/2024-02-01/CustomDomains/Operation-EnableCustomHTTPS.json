@@ -1,6 +1,7 @@
 {
   "name": "EnableCustomHTTPS",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "EndpointCustomDomainId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CustomDomainHTTPSParameters"
+    "nullable": false,
+    "referenceName": "CustomDomainHTTPSParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "CustomDomain"
+    "nullable": false,
+    "referenceName": "CustomDomain",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/enableCustomHttps"
 }

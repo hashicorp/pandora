@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Auto-pausing properties",
       "jsonName": "autoPause",
       "name": "AutoPause",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutoPauseProperties"
+        "nullable": false,
+        "referenceName": "AutoPauseProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Auto-scaling properties",
       "jsonName": "autoScale",
       "name": "AutoScale",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutoScaleProperties"
+        "nullable": false,
+        "referenceName": "AutoScaleProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The cache size",
       "jsonName": "cacheSize",
       "name": "CacheSize",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -43,11 +52,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time when the Big Data pool was created.",
       "jsonName": "creationDate",
       "name": "CreationDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -56,14 +68,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of custom libraries/packages associated with the spark pool.",
       "jsonName": "customLibraries",
       "name": "CustomLibraries",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "LibraryInfo"
+          "nullable": false,
+          "referenceName": "LibraryInfo",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -73,11 +90,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The default folder where Spark logs will be written.",
       "jsonName": "defaultSparkLogFolder",
       "name": "DefaultSparkLogFolder",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -86,11 +106,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Dynamic Executor Allocation",
       "jsonName": "dynamicExecutorAllocation",
       "name": "DynamicExecutorAllocation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DynamicExecutorAllocation"
+        "nullable": false,
+        "referenceName": "DynamicExecutorAllocation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -99,11 +122,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether autotune is required or not.",
       "jsonName": "isAutotuneEnabled",
       "name": "IsAutotuneEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -112,11 +138,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether compute isolation is required or not.",
       "jsonName": "isComputeIsolationEnabled",
       "name": "IsComputeIsolationEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -126,11 +155,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time when the Big Data pool was updated successfully.",
       "jsonName": "lastSucceededTimestamp",
       "name": "LastSucceededTimestamp",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -139,11 +171,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Library version requirements",
       "jsonName": "libraryRequirements",
       "name": "LibraryRequirements",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LibraryRequirements"
+        "nullable": false,
+        "referenceName": "LibraryRequirements",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -152,11 +187,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The number of nodes in the Big Data pool.",
       "jsonName": "nodeCount",
       "name": "NodeCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -165,11 +203,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The level of compute power that each node in the Big Data pool has.",
       "jsonName": "nodeSize",
       "name": "NodeSize",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NodeSize"
+        "nullable": false,
+        "referenceName": "NodeSize",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -178,11 +219,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The kind of nodes that the Big Data pool provides.",
       "jsonName": "nodeSizeFamily",
       "name": "NodeSizeFamily",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NodeSizeFamily"
+        "nullable": false,
+        "referenceName": "NodeSizeFamily",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -191,11 +235,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The state of the Big Data pool.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -204,11 +251,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether session level packages enabled.",
       "jsonName": "sessionLevelPackagesEnabled",
       "name": "SessionLevelPackagesEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -217,11 +267,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Spark configuration file to specify additional properties",
       "jsonName": "sparkConfigProperties",
       "name": "SparkConfigProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SparkConfigProperties"
+        "nullable": false,
+        "referenceName": "SparkConfigProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -230,11 +283,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Spark events folder",
       "jsonName": "sparkEventsFolder",
       "name": "SparkEventsFolder",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -243,16 +299,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Apache Spark version.",
       "jsonName": "sparkVersion",
       "name": "SparkVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

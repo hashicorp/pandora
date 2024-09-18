@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies that the scope of the extension is Cluster",
       "jsonName": "cluster",
       "name": "Cluster",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScopeCluster"
+        "nullable": false,
+        "referenceName": "ScopeCluster",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies that the scope of the extension is Namespace",
       "jsonName": "namespace",
       "name": "Namespace",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScopeNamespace"
+        "nullable": false,
+        "referenceName": "ScopeNamespace",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

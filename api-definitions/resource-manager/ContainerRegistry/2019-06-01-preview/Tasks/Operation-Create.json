@@ -1,6 +1,7 @@
 {
   "name": "Create",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "TaskId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "Task"
+    "nullable": false,
+    "referenceName": "Task",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Task"
+    "nullable": false,
+    "referenceName": "Task",
+    "referenceNameIsCommonType": null
   }
 }

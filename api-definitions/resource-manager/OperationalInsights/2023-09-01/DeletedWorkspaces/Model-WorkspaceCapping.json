@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The workspace daily quota for ingestion.",
       "jsonName": "dailyQuotaGb",
       "name": "DailyQuotaGb",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The status of data ingestion for this workspace.",
       "jsonName": "dataIngestionStatus",
       "name": "DataIngestionStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataIngestionStatus"
+        "nullable": false,
+        "referenceName": "DataIngestionStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The time when the quota will be rest.",
       "jsonName": "quotaNextResetTime",
       "name": "QuotaNextResetTime",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

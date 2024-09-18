@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "different billing cycles like MONTHLY/WEEKLY",
       "jsonName": "billingCycle",
       "name": "BillingCycle",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BillingCycle"
+        "nullable": false,
+        "referenceName": "BillingCycle",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -17,11 +20,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "date when plan was applied",
       "jsonName": "effectiveDate",
       "name": "EffectiveDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,11 +36,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "plan id as published by Liftr.PAN",
       "jsonName": "planId",
       "name": "PlanId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -43,16 +52,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "different usage type like PAYG/COMMITTED",
       "jsonName": "usageType",
       "name": "UsageType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UsageType"
+        "nullable": false,
+        "referenceName": "UsageType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

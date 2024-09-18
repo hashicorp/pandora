@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The column data type.",
       "jsonName": "columnType",
       "name": "ColumnType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ColumnDataType"
+        "nullable": false,
+        "referenceName": "ColumnDataType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether column value is computed or not",
       "jsonName": "isComputed",
       "name": "IsComputed",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

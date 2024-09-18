@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "AccessPolicyId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "AccessPolicyUpdateParameters"
+    "nullable": false,
+    "referenceName": "AccessPolicyUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AccessPolicyResource"
+    "nullable": false,
+    "referenceName": "AccessPolicyResource",
+    "referenceNameIsCommonType": null
   }
 }

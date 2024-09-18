@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The description of this Shared Image Gallery resource. This property is updatable.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +23,9 @@
       "name": "Identifier",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GalleryIdentifier"
+        "nullable": false,
+        "referenceName": "GalleryIdentifier",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +34,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The provisioning state, which only appears in the response.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +54,9 @@
       "name": "SharingProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SharingProfile"
+        "nullable": false,
+        "referenceName": "SharingProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,12 +69,15 @@
       "name": "SoftDeletePolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SoftDeletePolicy"
+        "nullable": false,
+        "referenceName": "SoftDeletePolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

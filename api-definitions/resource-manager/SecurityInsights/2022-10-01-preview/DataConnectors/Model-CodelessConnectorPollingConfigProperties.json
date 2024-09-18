@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describe the authentication type of the poller",
       "jsonName": "auth",
       "name": "Auth",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CodelessConnectorPollingAuthProperties"
+        "nullable": false,
+        "referenceName": "CodelessConnectorPollingAuthProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The poller active status",
       "jsonName": "isActive",
       "name": "IsActive",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describe the poll request paging config of the poller",
       "jsonName": "paging",
       "name": "Paging",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CodelessConnectorPollingPagingProperties"
+        "nullable": false,
+        "referenceName": "CodelessConnectorPollingPagingProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describe the poll request config parameters of the poller",
       "jsonName": "request",
       "name": "Request",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CodelessConnectorPollingRequestProperties"
+        "nullable": false,
+        "referenceName": "CodelessConnectorPollingRequestProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -55,16 +67,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describe the response config parameters of the poller",
       "jsonName": "response",
       "name": "Response",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CodelessConnectorPollingResponseProperties"
+        "nullable": false,
+        "referenceName": "CodelessConnectorPollingResponseProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

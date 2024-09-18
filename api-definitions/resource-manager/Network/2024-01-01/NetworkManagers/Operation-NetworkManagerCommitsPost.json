@@ -1,6 +1,7 @@
 {
   "name": "NetworkManagerCommitsPost",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "NetworkManagerId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "NetworkManagerCommit"
+    "nullable": false,
+    "referenceName": "NetworkManagerCommit",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "NetworkManagerCommit"
+    "nullable": false,
+    "referenceName": "NetworkManagerCommit",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/commit"
 }

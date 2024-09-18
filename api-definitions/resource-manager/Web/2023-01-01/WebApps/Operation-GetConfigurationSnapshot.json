@@ -1,6 +1,7 @@
 {
   "name": "GetConfigurationSnapshot",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "SnapshotId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SiteConfigResource"
+    "nullable": false,
+    "referenceName": "SiteConfigResource",
+    "referenceNameIsCommonType": null
   }
 }

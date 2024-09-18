@@ -1,6 +1,7 @@
 {
   "name": "ActionGroupsUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "ActionGroupId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ActionGroupPatchBody"
+    "nullable": false,
+    "referenceName": "ActionGroupPatchBody",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ActionGroupResource"
+    "nullable": false,
+    "referenceName": "ActionGroupResource",
+    "referenceNameIsCommonType": null
   }
 }

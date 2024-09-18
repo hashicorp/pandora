@@ -1,6 +1,7 @@
 {
   "name": "ListByCluster",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -22,7 +23,9 @@
   "resourceIdName": "ClusterId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Offer"
+    "nullable": false,
+    "referenceName": "Offer",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/offers"
 }

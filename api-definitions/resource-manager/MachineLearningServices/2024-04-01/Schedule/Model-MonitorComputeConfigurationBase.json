@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": true,
+      "description": "[Required] Specifies the type of signal to monitor.",
       "jsonName": "computeType",
       "name": "ComputeType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MonitorComputeType"
+        "nullable": false,
+        "referenceName": "MonitorComputeType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,5 +18,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "ComputeType"
 }

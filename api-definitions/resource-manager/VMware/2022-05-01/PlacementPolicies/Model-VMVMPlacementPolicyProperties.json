@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "placement policy affinity type",
       "jsonName": "affinityType",
       "name": "AffinityType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AffinityType"
+        "nullable": false,
+        "referenceName": "AffinityType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Virtual machine members list",
       "jsonName": "vmMembers",
       "name": "VMMembers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -32,6 +40,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "PlacementPolicyProperties",
   "discriminatedTypeValue": "VmVm",
   "typeHintIn": "Type"

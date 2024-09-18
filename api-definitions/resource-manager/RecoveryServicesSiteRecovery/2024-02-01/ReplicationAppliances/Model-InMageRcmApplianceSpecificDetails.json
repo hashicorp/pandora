@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of appliances.",
       "jsonName": "appliances",
       "name": "Appliances",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InMageRcmApplianceDetails"
+          "nullable": false,
+          "referenceName": "InMageRcmApplianceDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -19,6 +24,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ApplianceSpecificDetails",
   "discriminatedTypeValue": "InMageRcm",
   "typeHintIn": "InstanceType"

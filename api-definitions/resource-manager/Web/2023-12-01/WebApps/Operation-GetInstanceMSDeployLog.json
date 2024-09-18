@@ -1,6 +1,7 @@
 {
   "name": "GetInstanceMSDeployLog",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "InstanceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "MSDeployLog"
+    "nullable": false,
+    "referenceName": "MSDeployLog",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/extensions/mSDeploy/log"
 }

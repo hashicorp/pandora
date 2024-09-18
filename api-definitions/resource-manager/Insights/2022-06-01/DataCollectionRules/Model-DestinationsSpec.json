@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Azure Monitor Metrics destination.",
       "jsonName": "azureMonitorMetrics",
       "name": "AzureMonitorMetrics",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureMonitorMetricsDestination"
+        "nullable": false,
+        "referenceName": "AzureMonitorMetricsDestination",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of Event Hubs destinations.",
       "jsonName": "eventHubs",
       "name": "EventHubs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "EventHubDestination"
+          "nullable": false,
+          "referenceName": "EventHubDestination",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,14 +41,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of Event Hubs Direct destinations.",
       "jsonName": "eventHubsDirect",
       "name": "EventHubsDirect",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "EventHubDirectDestination"
+          "nullable": false,
+          "referenceName": "EventHubDirectDestination",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,14 +63,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of Log Analytics destinations.",
       "jsonName": "logAnalytics",
       "name": "LogAnalytics",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "LogAnalyticsDestination"
+          "nullable": false,
+          "referenceName": "LogAnalyticsDestination",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -67,14 +85,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of monitoring account destinations.",
       "jsonName": "monitoringAccounts",
       "name": "MonitoringAccounts",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MonitoringAccountDestination"
+          "nullable": false,
+          "referenceName": "MonitoringAccountDestination",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -84,14 +107,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of storage accounts destinations.",
       "jsonName": "storageAccounts",
       "name": "StorageAccounts",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "StorageBlobDestination"
+          "nullable": false,
+          "referenceName": "StorageBlobDestination",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -101,14 +129,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of Storage Blob Direct destinations. To be used only for sending data directly to store from the agent.",
       "jsonName": "storageBlobsDirect",
       "name": "StorageBlobsDirect",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "StorageBlobDestination"
+          "nullable": false,
+          "referenceName": "StorageBlobDestination",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -118,14 +151,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of Storage Table Direct destinations.",
       "jsonName": "storageTablesDirect",
       "name": "StorageTablesDirect",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "StorageTableDestination"
+          "nullable": false,
+          "referenceName": "StorageTableDestination",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -133,5 +171,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,7 +7,9 @@
       "name": "ClientRdpAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectionType"
+        "nullable": false,
+        "referenceName": "ConnectionType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ClientSshAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectionType"
+        "nullable": false,
+        "referenceName": "ConnectionType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "WebRdpAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectionType"
+        "nullable": false,
+        "referenceName": "ConnectionType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,12 +52,15 @@
       "name": "WebSshAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectionType"
+        "nullable": false,
+        "referenceName": "ConnectionType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

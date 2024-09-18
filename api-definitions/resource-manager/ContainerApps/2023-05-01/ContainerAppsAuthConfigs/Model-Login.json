@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "External URLs that can be redirected to as part of logging in or logging out of the app. Note that the query string part of the URL is ignored.\nThis is an advanced setting typically only needed by Windows Store application backends.\nNote that URLs within the current domain are always implicitly allowed.",
       "jsonName": "allowedExternalRedirectUrls",
       "name": "AllowedExternalRedirectUrls",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The configuration settings of the session cookie's expiration.",
       "jsonName": "cookieExpiration",
       "name": "CookieExpiration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CookieExpiration"
+        "nullable": false,
+        "referenceName": "CookieExpiration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The configuration settings of the nonce used in the login flow.",
       "jsonName": "nonce",
       "name": "Nonce",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Nonce"
+        "nullable": false,
+        "referenceName": "Nonce",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003ccode\u003etrue\u003c/code\u003e if the fragments from the request are preserved after the login request is made; otherwise, \u003ccode\u003efalse\u003c/code\u003e.",
       "jsonName": "preserveUrlFragmentsForLogins",
       "name": "PreserveUrlFragmentsForLogins",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,16 +73,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The routes that specify the endpoints used for login and logout requests.",
       "jsonName": "routes",
       "name": "Routes",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LoginRoutes"
+        "nullable": false,
+        "referenceName": "LoginRoutes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

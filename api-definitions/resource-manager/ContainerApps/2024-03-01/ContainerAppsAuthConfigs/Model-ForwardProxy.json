@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The convention used to determine the url of the request made.",
       "jsonName": "convention",
       "name": "Convention",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ForwardProxyConvention"
+        "nullable": false,
+        "referenceName": "ForwardProxyConvention",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the header containing the host of the request.",
       "jsonName": "customHostHeaderName",
       "name": "CustomHostHeaderName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the header containing the scheme of the request.",
       "jsonName": "customProtoHeaderName",
       "name": "CustomProtoHeaderName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

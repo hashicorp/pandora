@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "LoadTestId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "LoadTestResourceUpdate"
+    "nullable": false,
+    "referenceName": "LoadTestResourceUpdate",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "LoadTestResource"
+    "nullable": false,
+    "referenceName": "LoadTestResource",
+    "referenceNameIsCommonType": null
   }
 }

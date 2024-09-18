@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of azure resource Ids for azure virtual machines targeted by the software update configuration.",
       "jsonName": "azureVirtualMachines",
       "name": "AzureVirtualMachines",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Maximum time allowed for the software update configuration run. Duration needs to be specified using the format PT[n]H[n]M[n]S as per ISO8601",
       "jsonName": "duration",
       "name": "Duration",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Linux specific update configuration.",
       "jsonName": "linux",
       "name": "Linux",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LinuxProperties"
+        "nullable": false,
+        "referenceName": "LinuxProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,14 +57,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of names of non-azure machines targeted by the software update configuration.",
       "jsonName": "nonAzureComputerNames",
       "name": "NonAzureComputerNames",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -63,11 +79,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "operating system of target machines",
       "jsonName": "operatingSystem",
       "name": "OperatingSystem",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OperatingSystemType"
+        "nullable": false,
+        "referenceName": "OperatingSystemType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -76,11 +95,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Group targets for the software update configuration.",
       "jsonName": "targets",
       "name": "Targets",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TargetProperties"
+        "nullable": false,
+        "referenceName": "TargetProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,16 +111,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Windows specific update configuration.",
       "jsonName": "windows",
       "name": "Windows",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WindowsProperties"
+        "nullable": false,
+        "referenceName": "WindowsProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

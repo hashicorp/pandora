@@ -1,6 +1,7 @@
 {
   "name": "NatRulesCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "NatRuleId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "VpnGatewayNatRule"
+    "nullable": false,
+    "referenceName": "VpnGatewayNatRule",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "VpnGatewayNatRule"
+    "nullable": false,
+    "referenceName": "VpnGatewayNatRule",
+    "referenceNameIsCommonType": null
   }
 }

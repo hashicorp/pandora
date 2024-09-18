@@ -1,6 +1,7 @@
 {
   "name": "Validate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "ScopedRoleAssignmentScheduleRequestId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "RoleAssignmentScheduleRequest"
+    "nullable": false,
+    "referenceName": "RoleAssignmentScheduleRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "RoleAssignmentScheduleRequest"
+    "nullable": false,
+    "referenceName": "RoleAssignmentScheduleRequest",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/validate"
 }

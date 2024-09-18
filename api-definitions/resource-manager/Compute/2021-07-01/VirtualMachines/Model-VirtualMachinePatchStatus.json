@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The available patch summary of the latest assessment operation for the virtual machine.",
       "jsonName": "availablePatchSummary",
       "name": "AvailablePatchSummary",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AvailablePatchSummary"
+        "nullable": false,
+        "referenceName": "AvailablePatchSummary",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The enablement status of the specified patchMode",
       "jsonName": "configurationStatuses",
       "name": "ConfigurationStatuses",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InstanceViewStatus"
+          "nullable": false,
+          "referenceName": "InstanceViewStatus",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,16 +41,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The installation summary of the latest installation operation for the virtual machine.",
       "jsonName": "lastPatchInstallationSummary",
       "name": "LastPatchInstallationSummary",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LastPatchInstallationSummary"
+        "nullable": false,
+        "referenceName": "LastPatchInstallationSummary",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

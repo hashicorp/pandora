@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The properties that are associated with the CSV serialization type. Required on PUT (CreateOrReplace) requests.",
       "jsonName": "properties",
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CsvSerializationProperties"
+        "nullable": false,
+        "referenceName": "CsvSerializationProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +18,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "Serialization",
   "discriminatedTypeValue": "Csv",
   "typeHintIn": "Type"

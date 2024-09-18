@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "SecurityMLAnalyticsSettingId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SecurityMLAnalyticsSetting"
+    "nullable": false,
+    "referenceName": "SecurityMLAnalyticsSetting",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SecurityMLAnalyticsSetting"
+    "nullable": false,
+    "referenceName": "SecurityMLAnalyticsSetting",
+    "referenceNameIsCommonType": null
   }
 }

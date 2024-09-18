@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the block size(MB) when writing data to blob. Type: integer (or Expression with resultType integer).",
       "jsonName": "blockSizeInMB",
       "name": "BlockSizeInMB",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +18,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "StoreWriteSettings",
   "discriminatedTypeValue": "AzureBlobFSWriteSettings",
   "typeHintIn": "Type"

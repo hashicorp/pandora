@@ -7,7 +7,9 @@
       "name": "Deployment",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FunctionsDeployment"
+        "nullable": false,
+        "referenceName": "FunctionsDeployment",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Runtime",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FunctionsRuntime"
+        "nullable": false,
+        "referenceName": "FunctionsRuntime",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "ScaleAndConcurrency",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FunctionsScaleAndConcurrency"
+        "nullable": false,
+        "referenceName": "FunctionsScaleAndConcurrency",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

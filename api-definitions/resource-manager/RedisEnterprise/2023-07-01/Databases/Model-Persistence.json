@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Sets whether AOF is enabled.",
       "jsonName": "aofEnabled",
       "name": "AofEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Sets the frequency at which data is written to disk.",
       "jsonName": "aofFrequency",
       "name": "AofFrequency",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AofFrequency"
+        "nullable": false,
+        "referenceName": "AofFrequency",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Sets whether RDB is enabled.",
       "jsonName": "rdbEnabled",
       "name": "RdbEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,16 +51,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Sets the frequency at which a snapshot of the database is created.",
       "jsonName": "rdbFrequency",
       "name": "RdbFrequency",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RdbFrequency"
+        "nullable": false,
+        "referenceName": "RdbFrequency",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

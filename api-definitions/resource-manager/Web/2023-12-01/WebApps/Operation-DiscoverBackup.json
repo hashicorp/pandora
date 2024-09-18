@@ -1,6 +1,7 @@
 {
   "name": "DiscoverBackup",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "AppServiceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "RestoreRequest"
+    "nullable": false,
+    "referenceName": "RestoreRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "RestoreRequest"
+    "nullable": false,
+    "referenceName": "RestoreRequest",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/discoverbackup"
 }

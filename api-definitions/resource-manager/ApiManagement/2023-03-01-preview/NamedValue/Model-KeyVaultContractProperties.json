@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Null for SystemAssignedIdentity or Client Id for UserAssignedIdentity , which will be used to access key vault secret.",
       "jsonName": "identityClientId",
       "name": "IdentityClientId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Last time sync and refresh status of secret from key vault.",
       "jsonName": "lastStatus",
       "name": "LastStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KeyVaultLastAccessStatusContractProperties"
+        "nullable": false,
+        "referenceName": "KeyVaultLastAccessStatusContractProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires API Management service to be configured with aka.ms/apimmsi",
       "jsonName": "secretIdentifier",
       "name": "SecretIdentifier",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "Move",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "ProductId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "TransferProductRequestProperties"
+    "nullable": false,
+    "referenceName": "TransferProductRequestProperties",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Product"
+    "nullable": false,
+    "referenceName": "Product",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/move"
 }

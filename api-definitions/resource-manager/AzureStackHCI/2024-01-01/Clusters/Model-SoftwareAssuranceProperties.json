@@ -4,11 +4,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "TimeStamp denoting the latest SA benefit applicability is validated.",
       "jsonName": "lastUpdated",
       "name": "LastUpdated",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,11 +20,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Customer Intent for Software Assurance Benefit.",
       "jsonName": "softwareAssuranceIntent",
       "name": "SoftwareAssuranceIntent",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SoftwareAssuranceIntent"
+        "nullable": false,
+        "referenceName": "SoftwareAssuranceIntent",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,16 +36,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Status of the Software Assurance for the cluster.",
       "jsonName": "softwareAssuranceStatus",
       "name": "SoftwareAssuranceStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SoftwareAssuranceStatus"
+        "nullable": false,
+        "referenceName": "SoftwareAssuranceStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

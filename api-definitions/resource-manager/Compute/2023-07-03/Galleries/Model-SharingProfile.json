@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Information of community gallery if current gallery is shared to community.",
       "jsonName": "communityGalleryInfo",
       "name": "CommunityGalleryInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CommunityGalleryInfo"
+        "nullable": false,
+        "referenceName": "CommunityGalleryInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of sharing profile groups.",
       "jsonName": "groups",
       "name": "Groups",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SharingProfileGroup"
+          "nullable": false,
+          "referenceName": "SharingProfileGroup",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,16 +41,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This property allows you to specify the permission of sharing gallery. Possible values are: **Private,** **Groups,** **Community.**",
       "jsonName": "permissions",
       "name": "Permissions",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GallerySharingPermissionTypes"
+        "nullable": false,
+        "referenceName": "GallerySharingPermissionTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

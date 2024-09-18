@@ -7,7 +7,9 @@
       "name": "Pipeline",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TriggerPipelineReference"
+        "nullable": false,
+        "referenceName": "TriggerPipelineReference",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +18,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Chaining Trigger properties.",
       "jsonName": "typeProperties",
       "name": "TypeProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ChainingTriggerTypeProperties"
+        "nullable": false,
+        "referenceName": "ChainingTriggerTypeProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -28,6 +33,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "Trigger",
   "discriminatedTypeValue": "ChainingTrigger",
   "typeHintIn": "Type"

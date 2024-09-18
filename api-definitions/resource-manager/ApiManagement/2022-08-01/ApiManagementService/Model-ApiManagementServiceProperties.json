@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Additional datacenter locations of the API Management service.",
       "jsonName": "additionalLocations",
       "name": "AdditionalLocations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AdditionalLocation"
+          "nullable": false,
+          "referenceName": "AdditionalLocation",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Control Plane Apis version constraint for the API Management service.",
       "jsonName": "apiVersionConstraint",
       "name": "ApiVersionConstraint",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiVersionConstraint"
+        "nullable": false,
+        "referenceName": "ApiVersionConstraint",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,14 +41,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10.",
       "jsonName": "certificates",
       "name": "Certificates",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "CertificateConfiguration"
+          "nullable": false,
+          "referenceName": "CertificateConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -51,11 +64,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Creation UTC date of the API Management service.The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.",
       "jsonName": "createdAtUtc",
       "name": "CreatedAtUtc",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -64,14 +80,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Custom properties of the API Management service.\u003c/br\u003eSetting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2).\u003c/br\u003eSetting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1.\u003c/br\u003eSetting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.\u003c/br\u003eSetting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` can be used to disable just TLS 1.1 for communications with backends.\u003c/br\u003eSetting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` can be used to disable TLS 1.0 for communications with backends.\u003c/br\u003eSetting `Microsoft.WindowsAzure.ApiManagement.Gateway.Protocols.Server.Http2` can be used to enable HTTP2 protocol on an API Management service.\u003c/br\u003eNot specifying any of these properties on PATCH operation will reset omitted properties' values to their defaults. For all the settings except Http2 the default value is `True` if the service was created on or before April 1, 2018 and `False` otherwise. Http2 setting's default value is `False`.\u003c/br\u003e\u003c/br\u003eYou can disable any of the following ciphers by using settings `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.[cipher_name]`: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_128_GCM_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA. For example, `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256`:`false`. The default value is `true` for them.\u003c/br\u003e Note: The following ciphers can't be disabled since they are required by internal platform components: TLS_AES_256_GCM_SHA384,TLS_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256",
       "jsonName": "customProperties",
       "name": "CustomProperties",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -81,11 +102,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "DEveloper Portal endpoint URL of the API Management service.",
       "jsonName": "developerPortalUrl",
       "name": "DeveloperPortalUrl",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +118,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Property only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in master region.",
       "jsonName": "disableGateway",
       "name": "DisableGateway",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,11 +134,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Property only meant to be used for Consumption SKU Service. This enforces a client certificate to be presented on each request to the gateway. This also enables the ability to authenticate the certificate in the policy on the gateway.",
       "jsonName": "enableClientCertificate",
       "name": "EnableClientCertificate",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -120,11 +150,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gateway URL of the API Management service in the Default Region.",
       "jsonName": "gatewayRegionalUrl",
       "name": "GatewayRegionalUrl",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -133,11 +166,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gateway URL of the API Management service.",
       "jsonName": "gatewayUrl",
       "name": "GatewayUrl",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -146,14 +182,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Custom hostname configuration of the API Management service.",
       "jsonName": "hostnameConfigurations",
       "name": "HostnameConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "HostnameConfiguration"
+          "nullable": false,
+          "referenceName": "HostnameConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -163,11 +204,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Management API endpoint URL of the API Management service.",
       "jsonName": "managementApiUrl",
       "name": "ManagementApiUrl",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -176,11 +220,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Property can be used to enable NAT Gateway for this API Management service.",
       "jsonName": "natGatewayState",
       "name": "NatGatewayState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NatGatewayState"
+        "nullable": false,
+        "referenceName": "NatGatewayState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -189,11 +236,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Email address from which the notification will be sent.",
       "jsonName": "notificationSenderEmail",
       "name": "NotificationSenderEmail",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -202,14 +252,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Outbound public IPV4 address prefixes associated with NAT Gateway deployed service. Available only for Premium SKU on stv2 platform.",
       "jsonName": "outboundPublicIPAddresses",
       "name": "OutboundPublicIPAddresses",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -219,11 +274,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Compute Platform Version running the service in this location.",
       "jsonName": "platformVersion",
       "name": "PlatformVersion",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PlatformVersion"
+        "nullable": false,
+        "referenceName": "PlatformVersion",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -232,11 +290,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Publisher portal endpoint Url of the API Management service.",
       "jsonName": "portalUrl",
       "name": "PortalUrl",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -245,14 +306,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of Private Endpoint Connections of this service.",
       "jsonName": "privateEndpointConnections",
       "name": "PrivateEndpointConnections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RemotePrivateEndpointConnectionWrapper"
+          "nullable": false,
+          "referenceName": "RemotePrivateEndpointConnectionWrapper",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -262,14 +328,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Private Static Load Balanced IP addresses of the API Management service in Primary region which is deployed in an Internal Virtual Network. Available only for Basic, Standard, Premium and Isolated SKU.",
       "jsonName": "privateIPAddresses",
       "name": "PrivateIPAddresses",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -279,11 +350,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The current provisioning state of the API Management service which can be one of the following: Created/Activating/Succeeded/Updating/Failed/Stopped/Terminating/TerminationFailed/Deleted.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -292,11 +366,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Public Standard SKU IP V4 based IP address to be associated with Virtual Network deployed service in the region. Supported only for Developer and Premium SKU being deployed in Virtual Network.",
       "jsonName": "publicIpAddressId",
       "name": "PublicIPAddressId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -305,14 +382,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Public Static Load Balanced IP addresses of the API Management service in Primary region. Available only for Basic, Standard, Premium and Isolated SKU.",
       "jsonName": "publicIPAddresses",
       "name": "PublicIPAddresses",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -322,11 +404,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether or not public endpoint access is allowed for this API Management service.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'",
       "jsonName": "publicNetworkAccess",
       "name": "PublicNetworkAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublicNetworkAccess"
+        "nullable": false,
+        "referenceName": "PublicNetworkAccess",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -335,11 +420,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Publisher email.",
       "jsonName": "publisherEmail",
       "name": "PublisherEmail",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -348,11 +436,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Publisher name.",
       "jsonName": "publisherName",
       "name": "PublisherName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -361,11 +452,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Undelete Api Management Service if it was previously soft-deleted. If this flag is specified and set to True all other properties will be ignored.",
       "jsonName": "restore",
       "name": "Restore",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -374,11 +468,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "SCM endpoint URL of the API Management service.",
       "jsonName": "scmUrl",
       "name": "ScmUrl",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -387,11 +484,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The provisioning state of the API Management service, which is targeted by the long running operation started on the service.",
       "jsonName": "targetProvisioningState",
       "name": "TargetProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -400,11 +500,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Virtual network configuration of the API Management service.",
       "jsonName": "virtualNetworkConfiguration",
       "name": "VirtualNetworkConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualNetworkConfiguration"
+        "nullable": false,
+        "referenceName": "VirtualNetworkConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -413,16 +516,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.",
       "jsonName": "virtualNetworkType",
       "name": "VirtualNetworkType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualNetworkType"
+        "nullable": false,
+        "referenceName": "VirtualNetworkType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

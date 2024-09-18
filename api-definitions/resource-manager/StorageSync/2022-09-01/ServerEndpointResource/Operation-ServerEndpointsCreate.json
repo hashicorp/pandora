@@ -1,6 +1,7 @@
 {
   "name": "ServerEndpointsCreate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "ServerEndpointId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ServerEndpointCreateParameters"
+    "nullable": false,
+    "referenceName": "ServerEndpointCreateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ServerEndpoint"
+    "nullable": false,
+    "referenceName": "ServerEndpoint",
+    "referenceNameIsCommonType": null
   }
 }

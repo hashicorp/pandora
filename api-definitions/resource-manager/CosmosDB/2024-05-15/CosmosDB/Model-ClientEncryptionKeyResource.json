@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Encryption algorithm that will be used along with this client encryption key to encrypt/decrypt data.",
       "jsonName": "encryptionAlgorithm",
       "name": "EncryptionAlgorithm",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the ClientEncryptionKey",
       "jsonName": "id",
       "name": "Id",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Metadata for the wrapping provider that can be used to unwrap the wrapped client encryption key.",
       "jsonName": "keyWrapMetadata",
       "name": "KeyWrapMetadata",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KeyWrapMetadata"
+        "nullable": false,
+        "referenceName": "KeyWrapMetadata",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,16 +51,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Wrapped (encrypted) form of the key represented as a byte array.",
       "jsonName": "wrappedDataEncryptionKey",
       "name": "WrappedDataEncryptionKey",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

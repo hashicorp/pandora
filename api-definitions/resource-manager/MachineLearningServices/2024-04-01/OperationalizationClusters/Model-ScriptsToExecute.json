@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Script that's run only once during provision of the compute.",
       "jsonName": "creationScript",
       "name": "CreationScript",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScriptReference"
+        "nullable": false,
+        "referenceName": "ScriptReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Script that's run every time the machine starts.",
       "jsonName": "startupScript",
       "name": "StartupScript",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScriptReference"
+        "nullable": false,
+        "referenceName": "ScriptReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

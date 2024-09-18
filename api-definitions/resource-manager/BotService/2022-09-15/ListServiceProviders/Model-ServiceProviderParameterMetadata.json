@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "the constraints of the bot meta data.",
       "jsonName": "constraints",
       "name": "Constraints",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServiceProviderParameterMetadataConstraints"
+        "nullable": false,
+        "referenceName": "ServiceProviderParameterMetadataConstraints",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

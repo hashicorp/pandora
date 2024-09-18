@@ -1,6 +1,7 @@
 {
   "name": "GallerySharingProfileUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "SharedImageGalleryId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SharingUpdate"
+    "nullable": false,
+    "referenceName": "SharingUpdate",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SharingUpdate"
+    "nullable": false,
+    "referenceName": "SharingUpdate",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/share"
 }

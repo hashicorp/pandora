@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether NAPT is enabled for connections to this attached data network.",
       "jsonName": "enabled",
       "name": "Enabled",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NaptEnabled"
+        "nullable": false,
+        "referenceName": "NaptEnabled",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Maximum number of UDP and TCP pinholes that can be open simultaneously on the core interface. For 5G networks, this is the N6 interface. For 4G networks, this is the SGi interface.",
       "jsonName": "pinholeLimits",
       "name": "PinholeLimits",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Expiry times of inactive NAPT pinholes, in seconds. All timers must be at least 1 second.",
       "jsonName": "pinholeTimeouts",
       "name": "PinholeTimeouts",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PinholeTimeouts"
+        "nullable": false,
+        "referenceName": "PinholeTimeouts",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Range of port numbers to use as translated ports on each translated address.\nIf not specified and NAPT is enabled, this range defaults to 1,024 - 49,999.\n(Ports under 1,024 should not be used because these are special purpose ports reserved by IANA. Ports 50,000 and above are reserved for non-NAPT use.)",
       "jsonName": "portRange",
       "name": "PortRange",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PortRange"
+        "nullable": false,
+        "referenceName": "PortRange",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,16 +67,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The minimum time (in seconds) that will pass before a port that was used by a closed pinhole can be recycled for use by another pinhole. All hold times must be at least 1 second.",
       "jsonName": "portReuseHoldTime",
       "name": "PortReuseHoldTime",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PortReuseHoldTimes"
+        "nullable": false,
+        "referenceName": "PortReuseHoldTimes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

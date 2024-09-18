@@ -7,7 +7,9 @@
       "name": "OnboardingState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OnboardingState"
+        "nullable": false,
+        "referenceName": "OnboardingState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +18,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets parent GitHub Owner name.",
       "jsonName": "parentOwnerName",
       "name": "ParentOwnerName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +38,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DevOpsProvisioningState"
+        "nullable": false,
+        "referenceName": "DevOpsProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +49,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets resource status message.",
       "jsonName": "provisioningStatusMessage",
       "name": "ProvisioningStatusMessage",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -56,11 +66,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Gets or sets time when resource was last checked.",
       "jsonName": "provisioningStatusUpdateTimeUtc",
       "name": "ProvisioningStatusUpdateTimeUtc",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -69,11 +82,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets GitHub Full Name.\r\nRepository name, prefixed with Owner name.\r\nEg: \"my-org/new-repo-1\".",
       "jsonName": "repoFullName",
       "name": "RepoFullName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -82,11 +98,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets GitHub Repository id.\r\n\r\nThis is a numeric id defined by Github.\r\nEg: \"123456\".",
       "jsonName": "repoId",
       "name": "RepoId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -95,11 +114,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets GitHub Repository name.\r\nEg: \"new-repo-1\".",
       "jsonName": "repoName",
       "name": "RepoName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -108,16 +130,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets GitHub Repository url.",
       "jsonName": "repoUrl",
       "name": "RepoUrl",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

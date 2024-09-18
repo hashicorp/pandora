@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The rack definition that is intended to reflect only a single rack in a single rack cluster, or an aggregator rack in a multi-rack cluster.",
       "jsonName": "aggregatorOrSingleRackDefinition",
       "name": "AggregatorOrSingleRackDefinition",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RackDefinition"
+        "nullable": false,
+        "referenceName": "RackDefinition",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The customer-provided location information to identify where the cluster resides.",
       "jsonName": "clusterLocation",
       "name": "ClusterLocation",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The service principal to be used by the cluster during Arc Appliance installation.",
       "jsonName": "clusterServicePrincipal",
       "name": "ClusterServicePrincipal",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServicePrincipalInformation"
+        "nullable": false,
+        "referenceName": "ServicePrincipalInformation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The validation threshold indicating the allowable failures of compute machines during environment validation and deployment.",
       "jsonName": "computeDeploymentThreshold",
       "name": "ComputeDeploymentThreshold",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ValidationThreshold"
+        "nullable": false,
+        "referenceName": "ValidationThreshold",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,14 +67,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of rack definitions for the compute racks in a multi-rack\ncluster, or an empty list in a single-rack cluster.",
       "jsonName": "computeRackDefinitions",
       "name": "ComputeRackDefinitions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RackDefinition"
+          "nullable": false,
+          "referenceName": "RackDefinition",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -70,5 +87,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Array of network interfaces used for the network intent.",
       "jsonName": "adapter",
       "name": "Adapter",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Set Adapter PropertyOverrides for cluster.",
       "jsonName": "adapterPropertyOverrides",
       "name": "AdapterPropertyOverrides",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AdapterPropertyOverrides"
+        "nullable": false,
+        "referenceName": "AdapterPropertyOverrides",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the network intent you wish to create.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.",
       "jsonName": "overrideAdapterProperty",
       "name": "OverrideAdapterProperty",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.",
       "jsonName": "overrideQosPolicy",
       "name": "OverrideQosPolicy",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.",
       "jsonName": "overrideVirtualSwitchConfiguration",
       "name": "OverrideVirtualSwitchConfiguration",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Set QoS PolicyOverrides for cluster.",
       "jsonName": "qosPolicyOverrides",
       "name": "QosPolicyOverrides",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "QosPolicyOverrides"
+        "nullable": false,
+        "referenceName": "QosPolicyOverrides",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,14 +121,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of network traffic types. Only allowed values are 'Compute', 'Storage', 'Management'.",
       "jsonName": "trafficType",
       "name": "TrafficType",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -115,16 +143,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Set virtualSwitch ConfigurationOverrides for cluster.",
       "jsonName": "virtualSwitchConfigurationOverrides",
       "name": "VirtualSwitchConfigurationOverrides",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualSwitchConfigurationOverrides"
+        "nullable": false,
+        "referenceName": "VirtualSwitchConfigurationOverrides",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

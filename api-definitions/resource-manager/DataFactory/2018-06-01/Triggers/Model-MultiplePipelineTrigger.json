@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Pipelines that need to be started.",
       "jsonName": "pipelines",
       "name": "Pipelines",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TriggerPipelineReference"
+          "nullable": false,
+          "referenceName": "TriggerPipelineReference",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -19,6 +24,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "Trigger",
   "discriminatedTypeValue": "MultiplePipelineTrigger",
   "typeHintIn": "Type"

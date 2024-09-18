@@ -1,6 +1,7 @@
 {
   "name": "LinkNotificationHub",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "CommunicationServiceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "LinkNotificationHubParameters"
+    "nullable": false,
+    "referenceName": "LinkNotificationHubParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "LinkedNotificationHub"
+    "nullable": false,
+    "referenceName": "LinkedNotificationHub",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/linkNotificationHub"
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Sql DB data set mapping properties.",
       "jsonName": "properties",
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SqlDBTableDataSetMappingProperties"
+        "nullable": false,
+        "referenceName": "SqlDBTableDataSetMappingProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,6 +18,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "DataSetMapping",
   "discriminatedTypeValue": "SqlDBTable",
   "typeHintIn": "Kind"

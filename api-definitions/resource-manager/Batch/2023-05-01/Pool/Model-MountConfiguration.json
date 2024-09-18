@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This property is mutually exclusive with all other properties.",
       "jsonName": "azureBlobFileSystemConfiguration",
       "name": "AzureBlobFileSystemConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureBlobFileSystemConfiguration"
+        "nullable": false,
+        "referenceName": "AzureBlobFileSystemConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This property is mutually exclusive with all other properties.",
       "jsonName": "azureFileShareConfiguration",
       "name": "AzureFileShareConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureFileShareConfiguration"
+        "nullable": false,
+        "referenceName": "AzureFileShareConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This property is mutually exclusive with all other properties.",
       "jsonName": "cifsMountConfiguration",
       "name": "CifsMountConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CIFSMountConfiguration"
+        "nullable": false,
+        "referenceName": "CIFSMountConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,16 +51,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This property is mutually exclusive with all other properties.",
       "jsonName": "nfsMountConfiguration",
       "name": "NfsMountConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NFSMountConfiguration"
+        "nullable": false,
+        "referenceName": "NFSMountConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

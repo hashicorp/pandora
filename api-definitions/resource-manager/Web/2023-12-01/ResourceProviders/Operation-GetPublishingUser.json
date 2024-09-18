@@ -1,6 +1,7 @@
 {
   "name": "GetPublishingUser",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -8,7 +9,9 @@
   "httpMethod": "GET",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "User"
+    "nullable": false,
+    "referenceName": "User",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.Web/publishingUsers/web"
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The language extension custom image name.",
       "jsonName": "languageExtensionCustomImageName",
       "name": "LanguageExtensionCustomImageName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The language extension image name.",
       "jsonName": "languageExtensionImageName",
       "name": "LanguageExtensionImageName",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LanguageExtensionImageName"
+        "nullable": false,
+        "referenceName": "LanguageExtensionImageName",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The language extension name.",
       "jsonName": "languageExtensionName",
       "name": "LanguageExtensionName",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LanguageExtensionName"
+        "nullable": false,
+        "referenceName": "LanguageExtensionName",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The authentication credentials of the custom Open ID Connect provider.",
       "jsonName": "clientCredential",
       "name": "ClientCredential",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OpenIdConnectClientCredential"
+        "nullable": false,
+        "referenceName": "OpenIdConnectClientCredential",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The client id of the custom Open ID Connect provider.",
       "jsonName": "clientId",
       "name": "ClientId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The configuration settings of the endpoints used for the custom Open ID Connect provider.",
       "jsonName": "openIdConnectConfiguration",
       "name": "OpenIdConnectConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OpenIdConnectConfig"
+        "nullable": false,
+        "referenceName": "OpenIdConnectConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

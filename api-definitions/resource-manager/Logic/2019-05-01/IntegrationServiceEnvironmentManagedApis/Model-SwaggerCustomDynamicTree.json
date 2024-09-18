@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The tree on-browse configuration",
       "jsonName": "browse",
       "name": "Browse",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SwaggerCustomDynamicTreeCommand"
+        "nullable": false,
+        "referenceName": "SwaggerCustomDynamicTreeCommand",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The tree on-open configuration",
       "jsonName": "open",
       "name": "Open",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SwaggerCustomDynamicTreeCommand"
+        "nullable": false,
+        "referenceName": "SwaggerCustomDynamicTreeCommand",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The tree settings",
       "jsonName": "settings",
       "name": "Settings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SwaggerCustomDynamicTreeSettings"
+        "nullable": false,
+        "referenceName": "SwaggerCustomDynamicTreeSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

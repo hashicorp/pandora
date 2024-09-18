@@ -1,6 +1,7 @@
 {
   "name": "SqlResourcesCreateUpdateSqlUserDefinedFunction",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "UserDefinedFunctionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SqlUserDefinedFunctionCreateUpdateParameters"
+    "nullable": false,
+    "referenceName": "SqlUserDefinedFunctionCreateUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SqlUserDefinedFunctionGetResults"
+    "nullable": false,
+    "referenceName": "SqlUserDefinedFunctionGetResults",
+    "referenceNameIsCommonType": null
   }
 }

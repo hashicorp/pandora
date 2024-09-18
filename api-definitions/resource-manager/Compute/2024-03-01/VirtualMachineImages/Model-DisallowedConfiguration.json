@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "VM disk types which are disallowed.",
       "jsonName": "vmDiskType",
       "name": "VMDiskType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VMDiskTypes"
+        "nullable": false,
+        "referenceName": "VMDiskTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

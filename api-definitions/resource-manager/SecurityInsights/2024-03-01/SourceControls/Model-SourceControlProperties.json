@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Array of source control content types.",
       "jsonName": "contentTypes",
       "name": "ContentTypes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ContentType"
+          "nullable": false,
+          "referenceName": "ContentType",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A description of the source control",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The display name of the source control",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The id (a Guid) of the source control",
       "jsonName": "id",
       "name": "Id",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Information regarding the latest deployment for the source control.",
       "jsonName": "lastDeploymentInfo",
       "name": "LastDeploymentInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeploymentInfo"
+        "nullable": false,
+        "referenceName": "DeploymentInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Information regarding the pull request of the source control.",
       "jsonName": "pullRequest",
       "name": "PullRequest",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PullRequest"
+        "nullable": false,
+        "referenceName": "PullRequest",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The repository type of the source control",
       "jsonName": "repoType",
       "name": "RepoType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RepoType"
+        "nullable": false,
+        "referenceName": "RepoType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -98,11 +121,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Repository metadata.",
       "jsonName": "repository",
       "name": "Repository",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Repository"
+        "nullable": false,
+        "referenceName": "Repository",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -111,11 +137,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Repository access credentials. This is write-only object and it never returns back to a user.",
       "jsonName": "repositoryAccess",
       "name": "RepositoryAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RepositoryAccess"
+        "nullable": false,
+        "referenceName": "RepositoryAccess",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,11 +153,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Information regarding the resources created in user's repository.",
       "jsonName": "repositoryResourceInfo",
       "name": "RepositoryResourceInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RepositoryResourceInfo"
+        "nullable": false,
+        "referenceName": "RepositoryResourceInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,11 +169,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Service principal metadata.",
       "jsonName": "servicePrincipal",
       "name": "ServicePrincipal",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServicePrincipal"
+        "nullable": false,
+        "referenceName": "ServicePrincipal",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -150,16 +185,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The version number associated with the source control",
       "jsonName": "version",
       "name": "Version",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Version"
+        "nullable": false,
+        "referenceName": "Version",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

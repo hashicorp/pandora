@@ -1,6 +1,7 @@
 {
   "name": "PutHost",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     202
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "HostId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "HyperVHost"
+    "nullable": false,
+    "referenceName": "HyperVHost",
+    "referenceNameIsCommonType": null
   }
 }

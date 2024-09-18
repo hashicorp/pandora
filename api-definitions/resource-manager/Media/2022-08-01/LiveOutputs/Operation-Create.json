@@ -1,6 +1,7 @@
 {
   "name": "Create",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "LiveOutputId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "LiveOutput"
+    "nullable": false,
+    "referenceName": "LiveOutput",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "LiveOutput"
+    "nullable": false,
+    "referenceName": "LiveOutput",
+    "referenceNameIsCommonType": null
   }
 }

@@ -4,11 +4,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The ending of the time window for this HeatMap, exclusive.",
       "jsonName": "endTime",
       "name": "EndTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,14 +20,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The endpoints used in this HeatMap calculation.",
       "jsonName": "endpoints",
       "name": "Endpoints",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "HeatMapEndpoint"
+          "nullable": false,
+          "referenceName": "HeatMapEndpoint",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -35,11 +43,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The beginning of the time window for this HeatMap, inclusive.",
       "jsonName": "startTime",
       "name": "StartTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -48,14 +59,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The traffic flows produced in this HeatMap calculation.",
       "jsonName": "trafficFlows",
       "name": "TrafficFlows",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TrafficFlow"
+          "nullable": false,
+          "referenceName": "TrafficFlow",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -63,5 +79,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The auth type.",
       "jsonName": "authType",
       "name": "AuthType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AuthType"
+        "nullable": false,
+        "referenceName": "AuthType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The client type for configuration names.",
       "jsonName": "clientType",
       "name": "ClientType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClientType"
+        "nullable": false,
+        "referenceName": "ClientType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Deprecated, please use #/definitions/DaprConfigurationList instead",
       "jsonName": "daprProperties",
       "name": "DaprProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DaprProperties"
+        "nullable": false,
+        "referenceName": "DaprProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,14 +51,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The configuration names to be set in compute service environment.",
       "jsonName": "names",
       "name": "Names",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ConfigurationName"
+          "nullable": false,
+          "referenceName": "ConfigurationName",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates where the secrets in configuration from. Used when secrets are from Keyvault.",
       "jsonName": "secretType",
       "name": "SecretType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecretSourceType"
+        "nullable": false,
+        "referenceName": "SecretSourceType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,16 +89,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The target service provider name and resource name.",
       "jsonName": "targetService",
       "name": "TargetService",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

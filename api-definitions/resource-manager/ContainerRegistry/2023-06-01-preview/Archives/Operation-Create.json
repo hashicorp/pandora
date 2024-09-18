@@ -1,6 +1,7 @@
 {
   "name": "Create",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "ArchiveId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "Archive"
+    "nullable": false,
+    "referenceName": "Archive",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Archive"
+    "nullable": false,
+    "referenceName": "Archive",
+    "referenceNameIsCommonType": null
   }
 }

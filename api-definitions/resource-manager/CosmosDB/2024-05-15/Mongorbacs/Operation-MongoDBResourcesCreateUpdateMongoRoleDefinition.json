@@ -1,6 +1,7 @@
 {
   "name": "MongoDBResourcesCreateUpdateMongoRoleDefinition",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "MongodbRoleDefinitionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "MongoRoleDefinitionCreateUpdateParameters"
+    "nullable": false,
+    "referenceName": "MongoRoleDefinitionCreateUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "MongoRoleDefinitionGetResults"
+    "nullable": false,
+    "referenceName": "MongoRoleDefinitionGetResults",
+    "referenceNameIsCommonType": null
   }
 }

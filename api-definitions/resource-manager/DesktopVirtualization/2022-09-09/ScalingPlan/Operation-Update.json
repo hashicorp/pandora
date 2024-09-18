@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "ScalingPlanId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ScalingPlanPatch"
+    "nullable": false,
+    "referenceName": "ScalingPlanPatch",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ScalingPlan"
+    "nullable": false,
+    "referenceName": "ScalingPlan",
+    "referenceNameIsCommonType": null
   }
 }

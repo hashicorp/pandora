@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition",
       "jsonName": "assessmentType",
       "name": "AssessmentType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AssessmentType"
+        "nullable": false,
+        "referenceName": "AssessmentType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,10 +23,14 @@
       "name": "Categories",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Categories"
+          "nullable": false,
+          "referenceName": "Categories",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,11 +40,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Human readable description of the assessment",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +56,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "User friendly display name of the assessment",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -59,11 +72,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The implementation effort required to remediate this assessment",
       "jsonName": "implementationEffort",
       "name": "ImplementationEffort",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ImplementationEffort"
+        "nullable": false,
+        "referenceName": "ImplementationEffort",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,7 +92,9 @@
       "name": "PartnerData",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecurityAssessmentMetadataPartnerData"
+        "nullable": false,
+        "referenceName": "SecurityAssessmentMetadataPartnerData",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,7 +107,9 @@
       "name": "PlannedDeprecationDate",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,11 +118,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Azure resource ID of the policy definition that turns this assessment calculation on",
       "jsonName": "policyDefinitionId",
       "name": "PolicyDefinitionId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,11 +134,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "True if this assessment is in preview release status",
       "jsonName": "preview",
       "name": "Preview",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,7 +154,9 @@
       "name": "PublishDates",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecurityAssessmentMetadataPropertiesResponsePublishDates"
+        "nullable": false,
+        "referenceName": "SecurityAssessmentMetadataPropertiesResponsePublishDates",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,11 +165,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Human readable description of what you should do to mitigate this security issue",
       "jsonName": "remediationDescription",
       "name": "RemediationDescription",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -150,11 +181,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The severity level of the assessment",
       "jsonName": "severity",
       "name": "Severity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Severity"
+        "nullable": false,
+        "referenceName": "Severity",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -167,10 +201,14 @@
       "name": "Tactics",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Tactics"
+          "nullable": false,
+          "referenceName": "Tactics",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -184,10 +222,14 @@
       "name": "Techniques",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Techniques"
+          "nullable": false,
+          "referenceName": "Techniques",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -201,10 +243,14 @@
       "name": "Threats",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Threats"
+          "nullable": false,
+          "referenceName": "Threats",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -214,16 +260,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The user impact of the assessment",
       "jsonName": "userImpact",
       "name": "UserImpact",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UserImpact"
+        "nullable": false,
+        "referenceName": "UserImpact",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

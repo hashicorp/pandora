@@ -7,7 +7,9 @@
       "name": "ObjectType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +18,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Returns the Restore Ranges available on the Backup Instance.",
       "jsonName": "restorableTimeRanges",
       "name": "RestorableTimeRanges",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RestorableTimeRange"
+          "nullable": false,
+          "referenceName": "RestorableTimeRange",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -31,5 +38,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

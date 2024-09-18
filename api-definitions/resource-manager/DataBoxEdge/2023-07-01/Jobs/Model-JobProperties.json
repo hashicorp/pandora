@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Current stage of the update operation.",
       "jsonName": "currentStage",
       "name": "CurrentStage",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UpdateOperationStage"
+        "nullable": false,
+        "referenceName": "UpdateOperationStage",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The download progress.",
       "jsonName": "downloadProgress",
       "name": "DownloadProgress",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UpdateDownloadProgress"
+        "nullable": false,
+        "referenceName": "UpdateDownloadProgress",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Local share/remote container relative path to the error manifest file of the refresh.",
       "jsonName": "errorManifestFile",
       "name": "ErrorManifestFile",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If only subfolders need to be refreshed, then the subfolder path inside the share or container. (The path is empty if there are no subfolders.)",
       "jsonName": "folder",
       "name": "Folder",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The install progress.",
       "jsonName": "installProgress",
       "name": "InstallProgress",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UpdateInstallProgress"
+        "nullable": false,
+        "referenceName": "UpdateInstallProgress",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of the job.",
       "jsonName": "jobType",
       "name": "JobType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JobType"
+        "nullable": false,
+        "referenceName": "JobType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "ARM ID of the entity that was refreshed.",
       "jsonName": "refreshedEntityId",
       "name": "RefreshedEntityId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,16 +115,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Total number of errors encountered during the refresh process.",
       "jsonName": "totalRefreshErrors",
       "name": "TotalRefreshErrors",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

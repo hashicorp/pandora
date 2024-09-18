@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Field indicating sync type e.g. to sync only in case of failure or in all cases",
       "jsonName": "syncType",
       "name": "SyncType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SyncType"
+        "nullable": false,
+        "referenceName": "SyncType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

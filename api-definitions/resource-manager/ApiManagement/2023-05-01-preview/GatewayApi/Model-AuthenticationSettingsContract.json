@@ -7,7 +7,9 @@
       "name": "OAuth2",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OAuth2AuthenticationSettingsContract"
+        "nullable": false,
+        "referenceName": "OAuth2AuthenticationSettingsContract",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +18,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Collection of OAuth2 authentication settings included into this API.",
       "jsonName": "oAuth2AuthenticationSettings",
       "name": "OAuth2AuthenticationSettings",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "OAuth2AuthenticationSettingsContract"
+          "nullable": false,
+          "referenceName": "OAuth2AuthenticationSettingsContract",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,7 +44,9 @@
       "name": "Openid",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OpenIdAuthenticationSettingsContract"
+        "nullable": false,
+        "referenceName": "OpenIdAuthenticationSettingsContract",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,14 +55,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Collection of Open ID Connect authentication settings included into this API.",
       "jsonName": "openidAuthenticationSettings",
       "name": "OpenidAuthenticationSettings",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "OpenIdAuthenticationSettingsContract"
+          "nullable": false,
+          "referenceName": "OpenIdAuthenticationSettingsContract",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -61,5 +75,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

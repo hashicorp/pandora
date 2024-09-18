@@ -1,6 +1,7 @@
 {
   "name": "LongRunningBackupsGet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "BackupsV2Id",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ServerBackupV2"
+    "nullable": false,
+    "referenceName": "ServerBackupV2",
+    "referenceNameIsCommonType": null
   }
 }

@@ -1,0 +1,70 @@
+{
+  "name": "ServiceVNetAddons",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether the data plane components(log stream, app connect, remote debugging) in vnet injection instance could be accessed from internet.",
+      "jsonName": "dataPlanePublicEndpoint",
+      "name": "DataPlanePublicEndpoint",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether the log stream in vnet injection instance could be accessed from internet.",
+      "jsonName": "logStreamPublicEndpoint",
+      "name": "LogStreamPublicEndpoint",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Fully qualified resource Id of the Private DNS zone to link with the customer virtual network.",
+      "jsonName": "privateDnsZoneId",
+      "name": "PrivateDnsZoneId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether the vnet injection service enables private links for backend storage account and container registry.",
+      "jsonName": "privateStorageAccess",
+      "name": "PrivateStorageAccess",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PrivateStorageAccess",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

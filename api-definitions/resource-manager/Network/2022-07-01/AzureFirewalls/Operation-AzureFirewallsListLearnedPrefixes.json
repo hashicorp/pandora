@@ -1,6 +1,7 @@
 {
   "name": "AzureFirewallsListLearnedPrefixes",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,7 +11,9 @@
   "resourceIdName": "AzureFirewallId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "IPPrefixesList"
+    "nullable": false,
+    "referenceName": "IPPrefixesList",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/learnedIPPrefixes"
 }

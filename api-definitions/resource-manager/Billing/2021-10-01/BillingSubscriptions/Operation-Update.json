@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "BillingSubscriptionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "BillingSubscription"
+    "nullable": false,
+    "referenceName": "BillingSubscription",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BillingSubscription"
+    "nullable": false,
+    "referenceName": "BillingSubscription",
+    "referenceNameIsCommonType": null
   }
 }

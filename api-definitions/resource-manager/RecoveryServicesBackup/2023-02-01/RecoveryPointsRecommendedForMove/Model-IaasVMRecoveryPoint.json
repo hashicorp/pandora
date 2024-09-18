@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Is the session to recover items from this backup copy still active.",
       "jsonName": "isInstantIlrSessionActive",
       "name": "IsInstantIlrSessionActive",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether VM is with Managed Disks",
       "jsonName": "isManagedVirtualMachine",
       "name": "IsManagedVirtualMachine",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This flag denotes if any of the disks in the VM are using Private access network setting",
       "jsonName": "isPrivateAccessEnabledOnAnyDisk",
       "name": "IsPrivateAccessEnabledOnAnyDisk",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Identifies whether the VM was encrypted when the backup copy is created.",
       "jsonName": "isSourceVMEncrypted",
       "name": "IsSourceVMEncrypted",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Required details for recovering an encrypted VM. Applicable only when IsSourceVMEncrypted is true.",
       "jsonName": "keyAndSecret",
       "name": "KeyAndSecret",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KeyAndSecretDetails"
+        "nullable": false,
+        "referenceName": "KeyAndSecretDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Original Storage Account Option",
       "jsonName": "originalStorageAccountOption",
       "name": "OriginalStorageAccountOption",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "OS type",
       "jsonName": "osType",
       "name": "OsType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Additional information associated with this backup copy.",
       "jsonName": "recoveryPointAdditionalInfo",
       "name": "RecoveryPointAdditionalInfo",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,11 +131,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Disk configuration",
       "jsonName": "recoveryPointDiskConfiguration",
       "name": "RecoveryPointDiskConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RecoveryPointDiskConfiguration"
+        "nullable": false,
+        "referenceName": "RecoveryPointDiskConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -120,14 +147,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Eligibility of RP to be moved to another tier",
       "jsonName": "recoveryPointMoveReadinessInfo",
       "name": "RecoveryPointMoveReadinessInfo",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RecoveryPointMoveReadinessInfo"
+          "nullable": false,
+          "referenceName": "RecoveryPointMoveReadinessInfo",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -137,11 +169,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Properties of Recovery Point",
       "jsonName": "recoveryPointProperties",
       "name": "RecoveryPointProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RecoveryPointProperties"
+        "nullable": false,
+        "referenceName": "RecoveryPointProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -150,14 +185,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Recovery point tier information.",
       "jsonName": "recoveryPointTierDetails",
       "name": "RecoveryPointTierDetails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RecoveryPointTierInformationV2"
+          "nullable": false,
+          "referenceName": "RecoveryPointTierInformationV2",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -168,11 +208,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Time at which this backup copy was created.",
       "jsonName": "recoveryPointTime",
       "name": "RecoveryPointTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -181,11 +224,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Type of the backup copy.",
       "jsonName": "recoveryPointType",
       "name": "RecoveryPointType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -194,11 +240,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Security Type of the Disk",
       "jsonName": "securityType",
       "name": "SecurityType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -207,11 +256,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Storage type of the VM whose backup copy is created.",
       "jsonName": "sourceVMStorageType",
       "name": "SourceVMStorageType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -220,11 +272,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Virtual Machine Size",
       "jsonName": "virtualMachineSize",
       "name": "VirtualMachineSize",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -233,11 +288,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Identifies the zone of the VM at the time of backup. Applicable only for zone-pinned Vms",
       "jsonName": "zones",
       "name": "Zones",
       "objectDefinition": {
         "type": "Zones",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -245,6 +303,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "RecoveryPoint",
   "discriminatedTypeValue": "IaasVMRecoveryPoint",
   "typeHintIn": "ObjectType"

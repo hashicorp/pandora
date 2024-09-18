@@ -1,6 +1,7 @@
 {
   "name": "ListLinkableEnvironments",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,11 +11,15 @@
   "resourceIdName": "MonitorId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "LinkableEnvironmentRequest"
+    "nullable": false,
+    "referenceName": "LinkableEnvironmentRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "LinkableEnvironmentResponse"
+    "nullable": false,
+    "referenceName": "LinkableEnvironmentResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/listLinkableEnvironments"
 }

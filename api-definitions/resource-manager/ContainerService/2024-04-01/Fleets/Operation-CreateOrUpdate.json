@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -32,10 +33,14 @@
   "resourceIdName": "FleetId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "Fleet"
+    "nullable": false,
+    "referenceName": "Fleet",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Fleet"
+    "nullable": false,
+    "referenceName": "Fleet",
+    "referenceNameIsCommonType": null
   }
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The node image upgrade specs for the update run. It is only set in update run when `NodeImageSelection.type` is `Consistent`.",
       "jsonName": "nodeImageSelection",
       "name": "NodeImageSelection",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NodeImageSelectionStatus"
+        "nullable": false,
+        "referenceName": "NodeImageSelectionStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The stages composing an update run. Stages are run sequentially withing an UpdateRun.",
       "jsonName": "stages",
       "name": "Stages",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "UpdateStageStatus"
+          "nullable": false,
+          "referenceName": "UpdateStageStatus",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,16 +41,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The status of the UpdateRun.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UpdateStatus"
+        "nullable": false,
+        "referenceName": "UpdateStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

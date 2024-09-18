@@ -1,6 +1,7 @@
 {
   "name": "Create",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     201
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "PacketCaptureId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "PacketCapture"
+    "nullable": false,
+    "referenceName": "PacketCapture",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PacketCaptureResult"
+    "nullable": false,
+    "referenceName": "PacketCaptureResult",
+    "referenceNameIsCommonType": null
   }
 }

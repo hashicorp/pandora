@@ -1,6 +1,7 @@
 {
   "name": "EnvironmentTypesListByDevCenter",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -22,7 +23,9 @@
   "resourceIdName": "DevCenterId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "EnvironmentType"
+    "nullable": false,
+    "referenceName": "EnvironmentType",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/environmentTypes"
 }

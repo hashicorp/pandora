@@ -1,6 +1,7 @@
 {
   "name": "Copy",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "LongTermRetentionBackupId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CopyLongTermRetentionBackupParameters"
+    "nullable": false,
+    "referenceName": "CopyLongTermRetentionBackupParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "LongTermRetentionBackupOperationResult"
+    "nullable": false,
+    "referenceName": "LongTermRetentionBackupOperationResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/copy"
 }

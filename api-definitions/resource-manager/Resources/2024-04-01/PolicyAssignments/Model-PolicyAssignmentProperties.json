@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of policy assignment. Possible values are NotSpecified, System, SystemHidden, and Custom. Immutable.",
       "jsonName": "assignmentType",
       "name": "AssignmentType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AssignmentType"
+        "nullable": false,
+        "referenceName": "AssignmentType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The version of the policy definition to use.",
       "jsonName": "definitionVersion",
       "name": "DefinitionVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This message will be part of response in case of policy violation.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The display name of the policy assignment.",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.",
       "jsonName": "enforcementMode",
       "name": "EnforcementMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnforcementMode"
+        "nullable": false,
+        "referenceName": "EnforcementMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.",
       "jsonName": "metadata",
       "name": "Metadata",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,14 +99,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The messages that describe why a resource is non-compliant with the policy.",
       "jsonName": "nonComplianceMessages",
       "name": "NonComplianceMessages",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "NonComplianceMessage"
+          "nullable": false,
+          "referenceName": "NonComplianceMessage",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -98,14 +121,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The policy's excluded scopes.",
       "jsonName": "notScopes",
       "name": "NotScopes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -115,14 +143,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The policy property value override.",
       "jsonName": "overrides",
       "name": "Overrides",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Override"
+          "nullable": false,
+          "referenceName": "Override",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -132,14 +165,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The parameter values for the assigned policy rule. The keys are the parameter names.",
       "jsonName": "parameters",
       "name": "Parameters",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ParameterValuesValue"
+          "nullable": false,
+          "referenceName": "ParameterValuesValue",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -149,11 +187,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ID of the policy definition or policy set definition being assigned.",
       "jsonName": "policyDefinitionId",
       "name": "PolicyDefinitionId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -162,14 +203,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource selector list to filter policies by resource properties.",
       "jsonName": "resourceSelectors",
       "name": "ResourceSelectors",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ResourceSelector"
+          "nullable": false,
+          "referenceName": "ResourceSelector",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -179,16 +225,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The scope for the policy assignment.",
       "jsonName": "scope",
       "name": "Scope",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

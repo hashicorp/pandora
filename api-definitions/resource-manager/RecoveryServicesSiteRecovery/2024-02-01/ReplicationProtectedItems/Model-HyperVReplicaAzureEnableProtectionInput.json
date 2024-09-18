@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The DiskEncryptionSet ARM Id.",
       "jsonName": "diskEncryptionSetId",
       "name": "DiskEncryptionSetId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +23,9 @@
       "name": "DiskType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiskAccountType"
+        "nullable": false,
+        "referenceName": "DiskAccountType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +34,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of VHD Ids of disks to be protected.",
       "jsonName": "disksToInclude",
       "name": "DisksToInclude",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -46,14 +56,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The disks to include list for managed disks.",
       "jsonName": "disksToIncludeForManagedDisks",
       "name": "DisksToIncludeForManagedDisks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "HyperVReplicaAzureDiskInputDetails"
+          "nullable": false,
+          "referenceName": "HyperVReplicaAzureDiskInputDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -63,11 +78,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The selected option to enable RDP\\SSH on target vm after failover. String value of SrsDataContract.EnableRDPOnTargetOption enum.",
       "jsonName": "enableRdpOnTargetOption",
       "name": "EnableRdpOnTargetOption",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,11 +94,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Hyper-V host VM Id.",
       "jsonName": "hvHostVmId",
       "name": "HvHostVMId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,11 +110,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "License type.",
       "jsonName": "licenseType",
       "name": "LicenseType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LicenseType"
+        "nullable": false,
+        "referenceName": "LicenseType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,11 +126,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The storage account to be used for logging during replication.",
       "jsonName": "logStorageAccountId",
       "name": "LogStorageAccountId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,11 +142,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The OS type associated with VM.",
       "jsonName": "osType",
       "name": "OsType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,14 +158,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The tags for the seed managed disks.",
       "jsonName": "seedManagedDiskTags",
       "name": "SeedManagedDiskTags",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -145,11 +180,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The SQL Server license type.",
       "jsonName": "sqlServerLicenseType",
       "name": "SqlServerLicenseType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SqlServerLicenseType"
+        "nullable": false,
+        "referenceName": "SqlServerLicenseType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -158,11 +196,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The target availability set ARM Id for resource manager deployment.",
       "jsonName": "targetAvailabilitySetId",
       "name": "TargetAvailabilitySetId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -171,11 +212,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The target availability zone.",
       "jsonName": "targetAvailabilityZone",
       "name": "TargetAvailabilityZone",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -184,11 +228,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The selected target Azure network Id.",
       "jsonName": "targetAzureNetworkId",
       "name": "TargetAzureNetworkId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -197,11 +244,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The selected target Azure subnet Id.",
       "jsonName": "targetAzureSubnetId",
       "name": "TargetAzureSubnetId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -210,11 +260,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Id of the target resource group (for classic deployment) in which the failover VM is to be created.",
       "jsonName": "targetAzureV1ResourceGroupId",
       "name": "TargetAzureV1ResourceGroupId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -223,11 +276,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Id of the target resource group (for resource manager deployment) in which the failover VM is to be created.",
       "jsonName": "targetAzureV2ResourceGroupId",
       "name": "TargetAzureV2ResourceGroupId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -236,11 +292,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The target azure VM Name.",
       "jsonName": "targetAzureVmName",
       "name": "TargetAzureVMName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -249,14 +308,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The tags for the target managed disks.",
       "jsonName": "targetManagedDiskTags",
       "name": "TargetManagedDiskTags",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -266,14 +330,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The tags for the target NICs.",
       "jsonName": "targetNicTags",
       "name": "TargetNicTags",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -283,11 +352,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The proximity placement group ARM Id.",
       "jsonName": "targetProximityPlacementGroupId",
       "name": "TargetProximityPlacementGroupId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -296,11 +368,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The storage account Id.",
       "jsonName": "targetStorageAccountId",
       "name": "TargetStorageAccountId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -309,11 +384,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The target VM security profile.",
       "jsonName": "targetVmSecurityProfile",
       "name": "TargetVMSecurityProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecurityProfileProperties"
+        "nullable": false,
+        "referenceName": "SecurityProfileProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -322,11 +400,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The target VM size.",
       "jsonName": "targetVmSize",
       "name": "TargetVMSize",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -335,14 +416,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The target VM tags.",
       "jsonName": "targetVmTags",
       "name": "TargetVMTags",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -352,11 +438,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A value indicating whether managed disks should be used during failover.",
       "jsonName": "useManagedDisks",
       "name": "UseManagedDisks",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -365,11 +454,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A value indicating whether managed disks should be used during replication.",
       "jsonName": "useManagedDisksForReplication",
       "name": "UseManagedDisksForReplication",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -378,11 +470,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The OS name selected by user.",
       "jsonName": "userSelectedOSName",
       "name": "UserSelectedOSName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -391,11 +486,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The OS disk VHD id associated with VM.",
       "jsonName": "vhdId",
       "name": "VhdId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -404,11 +502,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The VM Name.",
       "jsonName": "vmName",
       "name": "VirtualMachineName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -416,6 +517,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "EnableProtectionProviderSpecificInput",
   "discriminatedTypeValue": "HyperVReplicaAzure",
   "typeHintIn": "InstanceType"

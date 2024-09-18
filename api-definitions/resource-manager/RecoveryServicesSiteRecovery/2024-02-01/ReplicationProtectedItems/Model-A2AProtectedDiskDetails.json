@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The disk level operations list.",
       "jsonName": "allowedDiskLevelOperation",
       "name": "AllowedDiskLevelOperation",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The data pending at source virtual machine in MB.",
       "jsonName": "dataPendingAtSourceAgentInMB",
       "name": "DataPendingAtSourceAgentInMB",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The data pending for replication in MB at staging account.",
       "jsonName": "dataPendingInStagingStorageAccountInMB",
       "name": "DataPendingInStagingStorageAccountInMB",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The KeyVault resource id for secret (BEK).",
       "jsonName": "dekKeyVaultArmId",
       "name": "DekKeyVaultArmId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The disk capacity in bytes.",
       "jsonName": "diskCapacityInBytes",
       "name": "DiskCapacityInBytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The disk name.",
       "jsonName": "diskName",
       "name": "DiskName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The disk state.",
       "jsonName": "diskState",
       "name": "DiskState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,11 +121,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of disk.",
       "jsonName": "diskType",
       "name": "DiskType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,11 +137,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The disk uri.",
       "jsonName": "diskUri",
       "name": "DiskUri",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,11 +153,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The failover name for the managed disk.",
       "jsonName": "failoverDiskName",
       "name": "FailoverDiskName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,11 +169,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A value indicating whether vm has encrypted os disk or not.",
       "jsonName": "isDiskEncrypted",
       "name": "IsDiskEncrypted",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -150,11 +185,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A value indicating whether disk key got encrypted or not.",
       "jsonName": "isDiskKeyEncrypted",
       "name": "IsDiskKeyEncrypted",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -163,11 +201,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The KeyVault resource id for key (KEK).",
       "jsonName": "kekKeyVaultArmId",
       "name": "KekKeyVaultArmId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -176,11 +217,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The key URL / identifier (KEK).",
       "jsonName": "keyIdentifier",
       "name": "KeyIdentifier",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -189,11 +233,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of the monitoring job. The progress is contained in MonitoringPercentageCompletion property.",
       "jsonName": "monitoringJobType",
       "name": "MonitoringJobType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -202,11 +249,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The percentage of the monitoring job. The type of the monitoring job is defined by MonitoringJobType property.",
       "jsonName": "monitoringPercentageCompletion",
       "name": "MonitoringPercentageCompletion",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -215,11 +265,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The primary disk storage account.",
       "jsonName": "primaryDiskAzureStorageAccountId",
       "name": "PrimaryDiskAzureStorageAccountId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -228,11 +281,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The primary staging storage account.",
       "jsonName": "primaryStagingAzureStorageAccountId",
       "name": "PrimaryStagingAzureStorageAccountId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -241,11 +297,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The recovery disk storage account.",
       "jsonName": "recoveryAzureStorageAccountId",
       "name": "RecoveryAzureStorageAccountId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -254,11 +313,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Recovery disk uri.",
       "jsonName": "recoveryDiskUri",
       "name": "RecoveryDiskUri",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -267,11 +329,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A value indicating whether resync is required for this disk.",
       "jsonName": "resyncRequired",
       "name": "ResyncRequired",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -280,11 +345,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The secret URL / identifier (BEK).",
       "jsonName": "secretIdentifier",
       "name": "SecretIdentifier",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -293,16 +361,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The test failover name for the managed disk.",
       "jsonName": "tfoDiskName",
       "name": "TfoDiskName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

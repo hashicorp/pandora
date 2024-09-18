@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether to include policies with the 'audit' effect in the results. Defaults to false.",
       "jsonName": "includeAuditEffect",
       "name": "IncludeAuditEffect",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of fields and values that should be evaluated for potential restrictions.",
       "jsonName": "pendingFields",
       "name": "PendingFields",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PendingField"
+          "nullable": false,
+          "referenceName": "PendingField",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,16 +41,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The information about the resource that will be evaluated.",
       "jsonName": "resourceDetails",
       "name": "ResourceDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CheckRestrictionsResourceDetails"
+        "nullable": false,
+        "referenceName": "CheckRestrictionsResourceDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

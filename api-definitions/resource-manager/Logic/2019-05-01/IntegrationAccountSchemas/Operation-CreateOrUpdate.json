@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "SchemaId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "IntegrationAccountSchema"
+    "nullable": false,
+    "referenceName": "IntegrationAccountSchema",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "IntegrationAccountSchema"
+    "nullable": false,
+    "referenceName": "IntegrationAccountSchema",
+    "referenceNameIsCommonType": null
   }
 }

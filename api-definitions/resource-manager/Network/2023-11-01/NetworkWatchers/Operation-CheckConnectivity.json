@@ -1,6 +1,7 @@
 {
   "name": "CheckConnectivity",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "NetworkWatcherId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ConnectivityParameters"
+    "nullable": false,
+    "referenceName": "ConnectivityParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ConnectivityInformation"
+    "nullable": false,
+    "referenceName": "ConnectivityInformation",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/connectivityCheck"
 }

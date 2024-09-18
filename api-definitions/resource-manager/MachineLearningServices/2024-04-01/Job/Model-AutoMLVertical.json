@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Log verbosity for the job.",
       "jsonName": "logVerbosity",
       "name": "LogVerbosity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LogVerbosity"
+        "nullable": false,
+        "referenceName": "LogVerbosity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Target column name: This is prediction values column.\r\nAlso known as label column name in context of classification tasks.",
       "jsonName": "targetColumnName",
       "name": "TargetColumnName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": true,
+      "description": "[Required] Task type for AutoMLJob.",
       "jsonName": "taskType",
       "name": "TaskType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TaskType"
+        "nullable": false,
+        "referenceName": "TaskType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "[Required] Training data input.",
       "jsonName": "trainingData",
       "name": "TrainingData",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MLTableJobInput"
+        "nullable": false,
+        "referenceName": "MLTableJobInput",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -54,5 +66,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "TaskType"
 }

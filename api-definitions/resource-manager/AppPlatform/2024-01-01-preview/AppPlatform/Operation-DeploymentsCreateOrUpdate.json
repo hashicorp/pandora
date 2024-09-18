@@ -1,6 +1,7 @@
 {
   "name": "DeploymentsCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201,
@@ -11,10 +12,14 @@
   "resourceIdName": "DeploymentId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "DeploymentResource"
+    "nullable": false,
+    "referenceName": "DeploymentResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DeploymentResource"
+    "nullable": false,
+    "referenceName": "DeploymentResource",
+    "referenceNameIsCommonType": null
   }
 }

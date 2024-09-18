@@ -1,6 +1,7 @@
 {
   "name": "ServerThreatProtectionSettingsGet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "FlexibleServerId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ServerThreatProtectionSettingsModel"
+    "nullable": false,
+    "referenceName": "ServerThreatProtectionSettingsModel",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/advancedThreatProtectionSettings/default"
 }

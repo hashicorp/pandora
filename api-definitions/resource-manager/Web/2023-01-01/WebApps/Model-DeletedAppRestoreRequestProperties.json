@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "ARM resource ID of the deleted app. Example:\n/subscriptions/{subId}/providers/Microsoft.Web/deletedSites/{deletedSiteId}",
       "jsonName": "deletedSiteId",
       "name": "DeletedSiteId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If true, deleted site configuration, in addition to content, will be restored.",
       "jsonName": "recoverConfiguration",
       "name": "RecoverConfiguration",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Point in time to restore the deleted app from, formatted as a DateTime string. \nIf unspecified, default value is the time that the app was deleted.",
       "jsonName": "snapshotTime",
       "name": "SnapshotTime",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,16 +51,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If true, the snapshot is retrieved from DRSecondary endpoint.",
       "jsonName": "useDRSecondary",
       "name": "UseDRSecondary",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

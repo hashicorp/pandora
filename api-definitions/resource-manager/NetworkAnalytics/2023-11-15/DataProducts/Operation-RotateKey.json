@@ -1,6 +1,7 @@
 {
   "name": "RotateKey",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     204
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "DataProductId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "KeyVaultInfo"
+    "nullable": false,
+    "referenceName": "KeyVaultInfo",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/rotateKey"
 }

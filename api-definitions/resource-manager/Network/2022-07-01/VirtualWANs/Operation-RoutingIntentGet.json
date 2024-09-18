@@ -1,6 +1,7 @@
 {
   "name": "RoutingIntentGet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "RoutingIntentId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "RoutingIntent"
+    "nullable": false,
+    "referenceName": "RoutingIntent",
+    "referenceNameIsCommonType": null
   }
 }

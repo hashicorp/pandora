@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The export dataset configuration.",
       "jsonName": "configuration",
       "name": "Configuration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExportDatasetConfiguration"
+        "nullable": false,
+        "referenceName": "ExportDatasetConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The granularity of rows in the export. Currently only 'Daily' is supported.",
       "jsonName": "granularity",
       "name": "Granularity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GranularityType"
+        "nullable": false,
+        "referenceName": "GranularityType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

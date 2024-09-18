@@ -1,6 +1,7 @@
 {
   "name": "SkusList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "NodeTypeId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "NodeTypeAvailableSku"
+    "nullable": false,
+    "referenceName": "NodeTypeAvailableSku",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/skus"
 }

@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The AML notification email settings.",
       "jsonName": "emailNotificationSettings",
       "name": "EmailNotificationSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MonitorEmailNotificationSettings"
+        "nullable": false,
+        "referenceName": "MonitorEmailNotificationSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

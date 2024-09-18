@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Patchable PropertieInformaticaOrganizationPropertiesUpdates of the Organization observability resource",
       "jsonName": "properties",
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerlessRuntimePropertiesCustomUpdate"
+        "nullable": false,
+        "referenceName": "ServerlessRuntimePropertiesCustomUpdate",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

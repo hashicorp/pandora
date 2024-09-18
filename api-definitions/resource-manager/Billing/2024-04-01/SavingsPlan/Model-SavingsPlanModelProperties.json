@@ -7,7 +7,9 @@
       "name": "AppliedScopeProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AppliedScopeProperties"
+        "nullable": false,
+        "referenceName": "AppliedScopeProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "AppliedScopeType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AppliedScopeType"
+        "nullable": false,
+        "referenceName": "AppliedScopeType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,11 +34,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "This is the DateTime when the savings plan benefit starts.",
       "jsonName": "benefitStartTime",
       "name": "BenefitStartTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,7 +54,9 @@
       "name": "BillingAccountId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -60,7 +69,9 @@
       "name": "BillingPlan",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BillingPlan"
+        "nullable": false,
+        "referenceName": "BillingPlan",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -73,7 +84,9 @@
       "name": "BillingProfileId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -86,7 +99,9 @@
       "name": "BillingScopeId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -99,7 +114,9 @@
       "name": "Commitment",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Commitment"
+        "nullable": false,
+        "referenceName": "Commitment",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -112,7 +129,9 @@
       "name": "CustomerId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -125,7 +144,9 @@
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -134,11 +155,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The provisioning state of the savings plan for display, e.g. Succeeded",
       "jsonName": "displayProvisioningState",
       "name": "DisplayProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -148,11 +172,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "DateTime of the savings plan starting when this version is effective from.",
       "jsonName": "effectiveDateTime",
       "name": "EffectiveDateTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -162,11 +189,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "This is the date-time when the savings plan will expire.",
       "jsonName": "expiryDateTime",
       "name": "ExpiryDateTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -179,7 +209,9 @@
       "name": "ExtendedStatusInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExtendedStatusInfo"
+        "nullable": false,
+        "referenceName": "ExtendedStatusInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -192,7 +224,9 @@
       "name": "ProductCode",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -205,7 +239,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -215,11 +251,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Date time when the savings plan was purchased.",
       "jsonName": "purchaseDateTime",
       "name": "PurchaseDateTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -232,7 +271,9 @@
       "name": "Renew",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -245,7 +286,9 @@
       "name": "RenewDestination",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -258,7 +301,9 @@
       "name": "RenewProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RenewProperties"
+        "nullable": false,
+        "referenceName": "RenewProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -271,7 +316,9 @@
       "name": "RenewSource",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -284,7 +331,9 @@
       "name": "Term",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SavingsPlanTerm"
+        "nullable": false,
+        "referenceName": "SavingsPlanTerm",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -293,11 +342,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The applied scope type of the savings plan for display, e.g. Shared",
       "jsonName": "userFriendlyAppliedScopeType",
       "name": "UserFriendlyAppliedScopeType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -310,12 +362,15 @@
       "name": "Utilization",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Utilization"
+        "nullable": false,
+        "referenceName": "Utilization",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

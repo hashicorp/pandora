@@ -7,7 +7,9 @@
       "name": "BranchConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TargetBranchConfiguration"
+        "nullable": false,
+        "referenceName": "TargetBranchConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +18,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets list of categories and severity levels.",
       "jsonName": "categoryConfigurations",
       "name": "CategoryConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "CategoryConfiguration"
+          "nullable": false,
+          "referenceName": "CategoryConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,7 +44,9 @@
       "name": "InheritFromParentState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InheritFromParentState"
+        "nullable": false,
+        "referenceName": "InheritFromParentState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,12 +59,15 @@
       "name": "State",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ActionableRemediationState"
+        "nullable": false,
+        "referenceName": "ActionableRemediationState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

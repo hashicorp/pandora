@@ -1,6 +1,7 @@
 {
   "name": "ExportConfigurationsUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "ExportConfigurationId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ApplicationInsightsComponentExportRequest"
+    "nullable": false,
+    "referenceName": "ApplicationInsightsComponentExportRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ApplicationInsightsComponentExportConfiguration"
+    "nullable": false,
+    "referenceName": "ApplicationInsightsComponentExportConfiguration",
+    "referenceNameIsCommonType": null
   }
 }

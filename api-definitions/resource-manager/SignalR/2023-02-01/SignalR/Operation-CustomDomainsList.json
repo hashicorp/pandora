@@ -1,6 +1,7 @@
 {
   "name": "CustomDomainsList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "SignalRId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "CustomDomain"
+    "nullable": false,
+    "referenceName": "CustomDomain",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/customDomains"
 }

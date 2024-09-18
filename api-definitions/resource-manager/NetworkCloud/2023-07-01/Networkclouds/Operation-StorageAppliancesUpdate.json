@@ -1,6 +1,7 @@
 {
   "name": "StorageAppliancesUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "StorageApplianceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "StorageAppliancePatchParameters"
+    "nullable": false,
+    "referenceName": "StorageAppliancePatchParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "StorageAppliance"
+    "nullable": false,
+    "referenceName": "StorageAppliance",
+    "referenceNameIsCommonType": null
   }
 }

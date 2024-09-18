@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "FeatureStoreEntityVersionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "FeaturestoreEntityVersionResource"
+    "nullable": false,
+    "referenceName": "FeaturestoreEntityVersionResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "FeaturestoreEntityVersionResource"
+    "nullable": false,
+    "referenceName": "FeaturestoreEntityVersionResource",
+    "referenceNameIsCommonType": null
   }
 }

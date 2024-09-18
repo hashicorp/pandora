@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Mode of running the CDC: batch vs continuous.",
       "jsonName": "mode",
       "name": "Mode",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +23,15 @@
       "name": "Recurrence",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MapperPolicyRecurrence"
+        "nullable": false,
+        "referenceName": "MapperPolicyRecurrence",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

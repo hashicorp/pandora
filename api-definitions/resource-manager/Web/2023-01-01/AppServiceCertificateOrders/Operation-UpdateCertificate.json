@@ -1,6 +1,7 @@
 {
   "name": "UpdateCertificate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "CertificateId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "AppServiceCertificatePatchResource"
+    "nullable": false,
+    "referenceName": "AppServiceCertificatePatchResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AppServiceCertificateResource"
+    "nullable": false,
+    "referenceName": "AppServiceCertificateResource",
+    "referenceNameIsCommonType": null
   }
 }

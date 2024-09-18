@@ -1,6 +1,7 @@
 {
   "name": "Start",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "JobId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "JobExecutionTemplate"
+    "nullable": false,
+    "referenceName": "JobExecutionTemplate",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "JobExecutionBase"
+    "nullable": false,
+    "referenceName": "JobExecutionBase",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/start"
 }

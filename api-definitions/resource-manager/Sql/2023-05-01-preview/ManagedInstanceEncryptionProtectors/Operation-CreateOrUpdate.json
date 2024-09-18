@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "SqlManagedInstanceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ManagedInstanceEncryptionProtector"
+    "nullable": false,
+    "referenceName": "ManagedInstanceEncryptionProtector",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ManagedInstanceEncryptionProtector"
+    "nullable": false,
+    "referenceName": "ManagedInstanceEncryptionProtector",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/encryptionProtector/current"
 }

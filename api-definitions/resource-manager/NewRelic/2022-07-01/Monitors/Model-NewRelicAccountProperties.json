@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "NewRelic Account Information",
       "jsonName": "accountInfo",
       "name": "AccountInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AccountInfo"
+        "nullable": false,
+        "referenceName": "AccountInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "NewRelic Organization Information",
       "jsonName": "organizationInfo",
       "name": "OrganizationInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OrganizationInfo"
+        "nullable": false,
+        "referenceName": "OrganizationInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "date when plan was applied",
       "jsonName": "singleSignOnProperties",
       "name": "SingleSignOnProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NewRelicSingleSignOnProperties"
+        "nullable": false,
+        "referenceName": "NewRelicSingleSignOnProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,16 +51,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "User id",
       "jsonName": "userId",
       "name": "UserId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

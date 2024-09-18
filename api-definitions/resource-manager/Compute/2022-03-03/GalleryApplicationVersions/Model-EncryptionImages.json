@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of encryption specifications for data disk images.",
       "jsonName": "dataDiskImages",
       "name": "DataDiskImages",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DataDiskImageEncryption"
+          "nullable": false,
+          "referenceName": "DataDiskImageEncryption",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,12 +29,15 @@
       "name": "OsDiskImage",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OSDiskImageEncryption"
+        "nullable": false,
+        "referenceName": "OSDiskImageEncryption",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

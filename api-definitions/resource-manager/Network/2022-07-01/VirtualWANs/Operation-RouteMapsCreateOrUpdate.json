@@ -1,6 +1,7 @@
 {
   "name": "RouteMapsCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "RouteMapId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "RouteMap"
+    "nullable": false,
+    "referenceName": "RouteMap",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "RouteMap"
+    "nullable": false,
+    "referenceName": "RouteMap",
+    "referenceNameIsCommonType": null
   }
 }

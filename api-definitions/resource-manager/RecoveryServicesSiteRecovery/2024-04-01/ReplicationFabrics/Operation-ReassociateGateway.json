@@ -1,6 +1,7 @@
 {
   "name": "ReassociateGateway",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "ReplicationFabricId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "FailoverProcessServerRequest"
+    "nullable": false,
+    "referenceName": "FailoverProcessServerRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Fabric"
+    "nullable": false,
+    "referenceName": "Fabric",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/reassociateGateway"
 }

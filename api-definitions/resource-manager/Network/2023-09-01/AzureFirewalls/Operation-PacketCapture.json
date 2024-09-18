@@ -1,6 +1,7 @@
 {
   "name": "PacketCapture",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     202
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "AzureFirewallId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "FirewallPacketCaptureParameters"
+    "nullable": false,
+    "referenceName": "FirewallPacketCaptureParameters",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/packetCapture"
 }

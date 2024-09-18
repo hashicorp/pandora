@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "ElasticSanId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ElasticSanUpdate"
+    "nullable": false,
+    "referenceName": "ElasticSanUpdate",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ElasticSan"
+    "nullable": false,
+    "referenceName": "ElasticSan",
+    "referenceNameIsCommonType": null
   }
 }

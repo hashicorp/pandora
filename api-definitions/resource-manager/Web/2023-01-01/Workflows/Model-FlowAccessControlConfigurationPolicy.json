@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The allowed caller IP address ranges.",
       "jsonName": "allowedCallerIpAddresses",
       "name": "AllowedCallerIPAddresses",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IPAddressRange"
+          "nullable": false,
+          "referenceName": "IPAddressRange",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,16 +25,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The authentication policies for workflow.",
       "jsonName": "openAuthenticationPolicies",
       "name": "OpenAuthenticationPolicies",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OpenAuthenticationAccessPolicies"
+        "nullable": false,
+        "referenceName": "OpenAuthenticationAccessPolicies",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

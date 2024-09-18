@@ -1,6 +1,7 @@
 {
   "name": "BuildServiceBuilderListDeployments",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "BuilderId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DeploymentList"
+    "nullable": false,
+    "referenceName": "DeploymentList",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/listUsingDeployments"
 }

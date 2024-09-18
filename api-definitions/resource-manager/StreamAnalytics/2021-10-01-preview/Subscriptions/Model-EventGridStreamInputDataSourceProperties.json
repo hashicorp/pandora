@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of Event Types that are supported by the Event Grid adapter.",
       "jsonName": "eventTypes",
       "name": "EventTypes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the Event Grid schema type.",
       "jsonName": "schema",
       "name": "Schema",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EventGridEventSchemaType"
+        "nullable": false,
+        "referenceName": "EventGridEventSchemaType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,14 +41,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.",
       "jsonName": "storageAccounts",
       "name": "StorageAccounts",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "StorageAccount"
+          "nullable": false,
+          "referenceName": "StorageAccount",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,16 +63,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Subscribers for the Event Grid. Currently only EventHub Subscriber is supported.",
       "jsonName": "subscriber",
       "name": "Subscriber",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EventHubV2StreamInputDataSource"
+        "nullable": false,
+        "referenceName": "EventHubV2StreamInputDataSource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

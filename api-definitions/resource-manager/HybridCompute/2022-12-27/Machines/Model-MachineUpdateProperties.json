@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The info of the machine w.r.t Agent Upgrade",
       "jsonName": "agentUpgrade",
       "name": "AgentUpgrade",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AgentUpgrade"
+        "nullable": false,
+        "referenceName": "AgentUpgrade",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The metadata of the cloud environment (Azure/GCP/AWS/OCI...).",
       "jsonName": "cloudMetadata",
       "name": "CloudMetadata",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CloudMetadata"
+        "nullable": false,
+        "referenceName": "CloudMetadata",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +39,9 @@
       "name": "LocationData",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LocationData"
+        "nullable": false,
+        "referenceName": "LocationData",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +54,9 @@
       "name": "OsProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OSProfile"
+        "nullable": false,
+        "referenceName": "OSProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +65,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource id of the parent cluster (Azure HCI) this machine is assigned to, if any.",
       "jsonName": "parentClusterResourceId",
       "name": "ParentClusterResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,16 +81,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource id of the private link scope this machine is assigned to, if any.",
       "jsonName": "privateLinkScopeResourceId",
       "name": "PrivateLinkScopeResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

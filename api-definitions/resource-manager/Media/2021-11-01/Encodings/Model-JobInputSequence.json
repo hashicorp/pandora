@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "JobInputs that make up the timeline.",
       "jsonName": "inputs",
       "name": "Inputs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "JobInputClip"
+          "nullable": false,
+          "referenceName": "JobInputClip",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -19,6 +24,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "JobInput",
   "discriminatedTypeValue": "#Microsoft.Media.JobInputSequence",
   "typeHintIn": "OdataType"

@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,10 +22,14 @@
   "resourceIdName": "DatasetId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "DatasetResource"
+    "nullable": false,
+    "referenceName": "DatasetResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DatasetResource"
+    "nullable": false,
+    "referenceName": "DatasetResource",
+    "referenceNameIsCommonType": null
   }
 }

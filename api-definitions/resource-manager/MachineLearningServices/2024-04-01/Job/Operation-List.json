@@ -1,6 +1,7 @@
 {
   "name": "List",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -62,7 +63,9 @@
   "resourceIdName": "WorkspaceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "JobBaseResource"
+    "nullable": false,
+    "referenceName": "JobBaseResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/jobs"
 }

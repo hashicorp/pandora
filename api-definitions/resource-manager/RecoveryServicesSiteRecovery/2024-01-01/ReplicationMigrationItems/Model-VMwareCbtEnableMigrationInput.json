@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The confidential VM key vault Id for ADE installation.",
       "jsonName": "confidentialVmKeyVaultId",
       "name": "ConfidentialVMKeyVaultId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The data mover run as account Id.",
       "jsonName": "dataMoverRunAsAccountId",
       "name": "DataMoverRunAsAccountId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The disks to include list.",
       "jsonName": "disksToInclude",
       "name": "DisksToInclude",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VMwareCbtDiskInput"
+          "nullable": false,
+          "referenceName": "VMwareCbtDiskInput",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "License type.",
       "jsonName": "licenseType",
       "name": "LicenseType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LicenseType"
+        "nullable": false,
+        "referenceName": "LicenseType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The license type for Linux VM's.",
       "jsonName": "linuxLicenseType",
       "name": "LinuxLicenseType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LinuxLicenseType"
+        "nullable": false,
+        "referenceName": "LinuxLicenseType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A value indicating whether auto resync is to be done.",
       "jsonName": "performAutoResync",
       "name": "PerformAutoResync",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A value indicating whether bulk SQL RP registration to be done.",
       "jsonName": "performSqlBulkRegistration",
       "name": "PerformSqlBulkRegistration",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,14 +121,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The tags for the seed disks.",
       "jsonName": "seedDiskTags",
       "name": "SeedDiskTags",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -115,11 +143,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The snapshot run as account Id.",
       "jsonName": "snapshotRunAsAccountId",
       "name": "SnapshotRunAsAccountId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -128,11 +159,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The SQL Server license type.",
       "jsonName": "sqlServerLicenseType",
       "name": "SqlServerLicenseType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SqlServerLicenseType"
+        "nullable": false,
+        "referenceName": "SqlServerLicenseType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,11 +175,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The target availability set ARM Id.",
       "jsonName": "targetAvailabilitySetId",
       "name": "TargetAvailabilitySetId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -154,11 +191,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The target availability zone.",
       "jsonName": "targetAvailabilityZone",
       "name": "TargetAvailabilityZone",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -167,11 +207,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The target boot diagnostics storage account ARM Id.",
       "jsonName": "targetBootDiagnosticsStorageAccountId",
       "name": "TargetBootDiagnosticsStorageAccountId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -180,14 +223,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The tags for the target disks.",
       "jsonName": "targetDiskTags",
       "name": "TargetDiskTags",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -197,11 +245,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The target network ARM Id.",
       "jsonName": "targetNetworkId",
       "name": "TargetNetworkId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -210,14 +261,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The tags for the target NICs.",
       "jsonName": "targetNicTags",
       "name": "TargetNicTags",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -227,11 +283,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The target proximity placement group ARM Id.",
       "jsonName": "targetProximityPlacementGroupId",
       "name": "TargetProximityPlacementGroupId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -240,11 +299,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The target resource group ARM Id.",
       "jsonName": "targetResourceGroupId",
       "name": "TargetResourceGroupId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -253,11 +315,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The target subnet name.",
       "jsonName": "targetSubnetName",
       "name": "TargetSubnetName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -266,11 +331,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The target VM name.",
       "jsonName": "targetVmName",
       "name": "TargetVMName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -279,11 +347,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The target VM security profile.",
       "jsonName": "targetVmSecurityProfile",
       "name": "TargetVMSecurityProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VMwareCbtSecurityProfileProperties"
+        "nullable": false,
+        "referenceName": "VMwareCbtSecurityProfileProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -292,11 +363,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The target VM size.",
       "jsonName": "targetVmSize",
       "name": "TargetVMSize",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -305,14 +379,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The target VM tags.",
       "jsonName": "targetVmTags",
       "name": "TargetVMTags",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -322,11 +401,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The selected test network ARM Id.",
       "jsonName": "testNetworkId",
       "name": "TestNetworkId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -335,11 +417,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The selected test subnet name.",
       "jsonName": "testSubnetName",
       "name": "TestSubnetName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -348,11 +433,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The OS name selected by user.",
       "jsonName": "userSelectedOSName",
       "name": "UserSelectedOSName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -361,11 +449,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ARM Id of the VM discovered in VMware.",
       "jsonName": "vmwareMachineId",
       "name": "VMwareMachineId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -373,6 +464,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "EnableMigrationProviderSpecificInput",
   "discriminatedTypeValue": "VMwareCbt",
   "typeHintIn": "InstanceType"

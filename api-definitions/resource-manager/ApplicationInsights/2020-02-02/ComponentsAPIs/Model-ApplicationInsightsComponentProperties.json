@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Application Insights Unique ID for your Application.",
       "jsonName": "AppId",
       "name": "AppId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The unique ID of your application. This field mirrors the 'Name' field and cannot be changed.",
       "jsonName": "ApplicationId",
       "name": "ApplicationId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Type of application being monitored.",
       "jsonName": "Application_Type",
       "name": "ApplicationType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationType"
+        "nullable": false,
+        "referenceName": "ApplicationType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Application Insights component connection string.",
       "jsonName": "ConnectionString",
       "name": "ConnectionString",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -56,11 +68,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Creation Date for the Application Insights component, in ISO 8601 format.",
       "jsonName": "CreationDate",
       "name": "CreationDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -69,11 +84,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Disable IP masking.",
       "jsonName": "DisableIpMasking",
       "name": "DisableIPMasking",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -82,11 +100,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Disable Non-AAD based Auth.",
       "jsonName": "DisableLocalAuth",
       "name": "DisableLocalAuth",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -95,11 +116,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.",
       "jsonName": "Flow_Type",
       "name": "FlowType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FlowType"
+        "nullable": false,
+        "referenceName": "FlowType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -108,11 +132,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Force users to create their own storage account for profiler and debugger.",
       "jsonName": "ForceCustomerStorageForProfiler",
       "name": "ForceCustomerStorageForProfiler",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -121,11 +148,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.",
       "jsonName": "HockeyAppId",
       "name": "HockeyAppId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -134,11 +164,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Token used to authenticate communications with between Application Insights and HockeyApp.",
       "jsonName": "HockeyAppToken",
       "name": "HockeyAppToken",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -147,11 +180,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Purge data immediately after 30 days.",
       "jsonName": "ImmediatePurgeDataOn30Days",
       "name": "ImmediatePurgeDataOn30Days",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -160,11 +196,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the flow of the ingestion.",
       "jsonName": "IngestionMode",
       "name": "IngestionMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IngestionMode"
+        "nullable": false,
+        "referenceName": "IngestionMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -173,11 +212,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Application Insights Instrumentation key. A read-only value that applications can use to identify the destination for all telemetry sent to Azure Application Insights. This value will be supplied upon construction of each new Application Insights component.",
       "jsonName": "InstrumentationKey",
       "name": "InstrumentationKey",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -187,11 +229,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The date which the component got migrated to LA, in ISO 8601 format.",
       "jsonName": "LaMigrationDate",
       "name": "LaMigrationDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -200,11 +245,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Application name.",
       "jsonName": "Name",
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -213,14 +261,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of linked private link scope resources.",
       "jsonName": "PrivateLinkScopedResources",
       "name": "PrivateLinkScopedResources",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PrivateLinkScopedResource"
+          "nullable": false,
+          "referenceName": "PrivateLinkScopedResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -230,11 +283,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Current state of this component: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -243,11 +299,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The network access type for accessing Application Insights ingestion.",
       "jsonName": "publicNetworkAccessForIngestion",
       "name": "PublicNetworkAccessForIngestion",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublicNetworkAccessType"
+        "nullable": false,
+        "referenceName": "PublicNetworkAccessType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -256,11 +315,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The network access type for accessing Application Insights query.",
       "jsonName": "publicNetworkAccessForQuery",
       "name": "PublicNetworkAccessForQuery",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublicNetworkAccessType"
+        "nullable": false,
+        "referenceName": "PublicNetworkAccessType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -269,11 +331,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.",
       "jsonName": "Request_Source",
       "name": "RequestSource",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RequestSource"
+        "nullable": false,
+        "referenceName": "RequestSource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -282,11 +347,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Retention period in days.",
       "jsonName": "RetentionInDays",
       "name": "RetentionInDays",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -295,11 +363,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.",
       "jsonName": "SamplingPercentage",
       "name": "SamplingPercentage",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -308,11 +379,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Azure Tenant Id.",
       "jsonName": "TenantId",
       "name": "TenantId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -321,16 +395,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Resource Id of the log analytics workspace which the data will be ingested to. This property is required to create an application with this API version. Applications from older versions will not have this property.",
       "jsonName": "WorkspaceResourceId",
       "name": "WorkspaceResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

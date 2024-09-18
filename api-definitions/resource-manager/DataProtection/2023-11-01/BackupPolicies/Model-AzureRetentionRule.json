@@ -7,7 +7,9 @@
       "name": "IsDefault",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "Lifecycles",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SourceLifeCycle"
+          "nullable": false,
+          "referenceName": "SourceLifeCycle",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -32,6 +38,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "BasePolicyRule",
   "discriminatedTypeValue": "AzureRetentionRule",
   "typeHintIn": "ObjectType"

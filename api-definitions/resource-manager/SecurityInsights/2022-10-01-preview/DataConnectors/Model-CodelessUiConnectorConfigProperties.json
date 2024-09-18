@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Connector Availability Status",
       "jsonName": "availability",
       "name": "Availability",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Availability"
+        "nullable": false,
+        "referenceName": "Availability",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Define the way the connector check connectivity",
       "jsonName": "connectivityCriteria",
       "name": "ConnectivityCriteria",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ConnectivityCriteria"
+          "nullable": false,
+          "referenceName": "ConnectivityCriteria",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An optional custom image to be used when displaying the connector within Azure Sentinel's connector's gallery",
       "jsonName": "customImage",
       "name": "CustomImage",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,14 +57,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Data types to check for last data received",
       "jsonName": "dataTypes",
       "name": "DataTypes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "LastDataReceivedDataType"
+          "nullable": false,
+          "referenceName": "LastDataReceivedDataType",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -63,11 +79,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Connector description",
       "jsonName": "descriptionMarkdown",
       "name": "DescriptionMarkdown",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -76,14 +95,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The graph query to show the current data status",
       "jsonName": "graphQueries",
       "name": "GraphQueries",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "GraphQueries"
+          "nullable": false,
+          "referenceName": "GraphQueries",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -93,11 +117,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the table the connector will insert the data to",
       "jsonName": "graphQueriesTableName",
       "name": "GraphQueriesTableName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -106,14 +133,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Instruction steps to enable the connector",
       "jsonName": "instructionSteps",
       "name": "InstructionSteps",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InstructionSteps"
+          "nullable": false,
+          "referenceName": "InstructionSteps",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -123,11 +155,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Permissions required for the connector",
       "jsonName": "permissions",
       "name": "Permissions",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Permissions"
+        "nullable": false,
+        "referenceName": "Permissions",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -136,11 +171,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Connector publisher name",
       "jsonName": "publisher",
       "name": "Publisher",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -149,14 +187,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The sample queries for the connector",
       "jsonName": "sampleQueries",
       "name": "SampleQueries",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SampleQueries"
+          "nullable": false,
+          "referenceName": "SampleQueries",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -166,16 +209,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Connector blade title",
       "jsonName": "title",
       "name": "Title",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "VolumeQuotaRuleId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "VolumeQuotaRulePatch"
+    "nullable": false,
+    "referenceName": "VolumeQuotaRulePatch",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "VolumeQuotaRule"
+    "nullable": false,
+    "referenceName": "VolumeQuotaRule",
+    "referenceNameIsCommonType": null
   }
 }

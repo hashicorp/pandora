@@ -1,6 +1,7 @@
 {
   "name": "List",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,11 +11,15 @@
   "resourceIdName": "ProtectedItemId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ListRecoveryPointsRecommendedForMoveRequest"
+    "nullable": false,
+    "referenceName": "ListRecoveryPointsRecommendedForMoveRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "RecoveryPointResource"
+    "nullable": false,
+    "referenceName": "RecoveryPointResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/recoveryPointsRecommendedForMove"
 }

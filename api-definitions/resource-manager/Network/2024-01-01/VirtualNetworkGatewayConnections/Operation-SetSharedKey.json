@@ -1,6 +1,7 @@
 {
   "name": "SetSharedKey",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,11 +11,15 @@
   "resourceIdName": "ConnectionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ConnectionSharedKey"
+    "nullable": false,
+    "referenceName": "ConnectionSharedKey",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ConnectionSharedKey"
+    "nullable": false,
+    "referenceName": "ConnectionSharedKey",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/sharedkey"
 }

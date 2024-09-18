@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Certificate information.",
       "jsonName": "certificate",
       "name": "Certificate",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CertificateInformation"
+        "nullable": false,
+        "referenceName": "CertificateInformation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Certificate Password.",
       "jsonName": "certificatePassword",
       "name": "CertificatePassword",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Base64 Encoded certificate.",
       "jsonName": "encodedCertificate",
       "name": "EncodedCertificate",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,16 +51,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The System.Security.Cryptography.x509certificates.StoreName certificate store location. Only Root and CertificateAuthority are valid locations.",
       "jsonName": "storeName",
       "name": "StoreName",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StoreName"
+        "nullable": false,
+        "referenceName": "StoreName",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

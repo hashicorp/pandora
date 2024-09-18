@@ -1,6 +1,7 @@
 {
   "name": "AppsGetResourceUploadUrl",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "AppId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ResourceUploadDefinition"
+    "nullable": false,
+    "referenceName": "ResourceUploadDefinition",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/getResourceUploadUrl"
 }

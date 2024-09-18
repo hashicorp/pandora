@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003ccode\u003efalse\u003c/code\u003e if the Apple provider should not be enabled despite the set registration; otherwise, \u003ccode\u003etrue\u003c/code\u003e.",
       "jsonName": "enabled",
       "name": "Enabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The configuration settings of the login flow.",
       "jsonName": "login",
       "name": "Login",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LoginScopes"
+        "nullable": false,
+        "referenceName": "LoginScopes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The configuration settings of the Apple registration.",
       "jsonName": "registration",
       "name": "Registration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AppleRegistration"
+        "nullable": false,
+        "referenceName": "AppleRegistration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

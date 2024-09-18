@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "ClientGroupId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ClientGroup"
+    "nullable": false,
+    "referenceName": "ClientGroup",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ClientGroup"
+    "nullable": false,
+    "referenceName": "ClientGroup",
+    "referenceNameIsCommonType": null
   }
 }

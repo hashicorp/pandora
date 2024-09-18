@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -22,10 +23,14 @@
   "resourceIdName": "ConnectionMonitorId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ConnectionMonitor"
+    "nullable": false,
+    "referenceName": "ConnectionMonitor",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ConnectionMonitorResult"
+    "nullable": false,
+    "referenceName": "ConnectionMonitorResult",
+    "referenceNameIsCommonType": null
   }
 }

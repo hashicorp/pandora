@@ -1,6 +1,7 @@
 {
   "name": "PatchSite",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "HyperVSiteId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "HyperVSite"
+    "nullable": false,
+    "referenceName": "HyperVSite",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "HyperVSite"
+    "nullable": false,
+    "referenceName": "HyperVSite",
+    "referenceNameIsCommonType": null
   }
 }

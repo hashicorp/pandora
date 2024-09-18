@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Information about the author of the workbook template.",
       "jsonName": "author",
       "name": "Author",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Workbook galleries supported by the template.",
       "jsonName": "galleries",
       "name": "Galleries",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "WorkbookTemplateGallery"
+          "nullable": false,
+          "referenceName": "WorkbookTemplateGallery",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -33,17 +41,24 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Key value pair of localized gallery. Each key is the locale code of languages supported by the Azure portal.",
       "jsonName": "localized",
       "name": "Localized",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "List",
+          "nullable": false,
           "referenceName": null,
+          "referenceNameIsCommonType": null,
           "nestedItem": {
             "type": "Reference",
-            "referenceName": "WorkbookTemplateLocalizedGallery"
+            "nullable": false,
+            "referenceName": "WorkbookTemplateLocalizedGallery",
+            "referenceNameIsCommonType": null
           }
         }
       },
@@ -54,11 +69,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Priority of the template. Determines which template to open when a workbook gallery is opened in viewer mode.",
       "jsonName": "priority",
       "name": "Priority",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -67,16 +85,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Valid JSON object containing workbook template payload.",
       "jsonName": "templateData",
       "name": "TemplateData",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

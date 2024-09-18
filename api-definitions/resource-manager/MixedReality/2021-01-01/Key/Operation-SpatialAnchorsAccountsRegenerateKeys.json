@@ -1,6 +1,7 @@
 {
   "name": "SpatialAnchorsAccountsRegenerateKeys",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "SpatialAnchorsAccountId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "AccountKeyRegenerateRequest"
+    "nullable": false,
+    "referenceName": "AccountKeyRegenerateRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AccountKeys"
+    "nullable": false,
+    "referenceName": "AccountKeys",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/regenerateKeys"
 }

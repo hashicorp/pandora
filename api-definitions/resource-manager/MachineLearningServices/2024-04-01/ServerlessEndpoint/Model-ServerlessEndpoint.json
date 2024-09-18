@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "[Required] Specifies the authentication mode for the Serverless endpoint.",
       "jsonName": "authMode",
       "name": "AuthMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerlessInferenceEndpointAuthMode"
+        "nullable": false,
+        "referenceName": "ServerlessInferenceEndpointAuthMode",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the content safety options. If omitted, the default content safety settings will be configured",
       "jsonName": "contentSafety",
       "name": "ContentSafety",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContentSafety"
+        "nullable": false,
+        "referenceName": "ContentSafety",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The current state of the ServerlessEndpoint.",
       "jsonName": "endpointState",
       "name": "EndpointState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerlessEndpointState"
+        "nullable": false,
+        "referenceName": "ServerlessEndpointState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The inference uri to target when making requests against the serverless endpoint",
       "jsonName": "inferenceEndpoint",
       "name": "InferenceEndpoint",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerlessInferenceEndpoint"
+        "nullable": false,
+        "referenceName": "ServerlessInferenceEndpoint",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The MarketplaceSubscription Azure ID associated to this ServerlessEndpoint.",
       "jsonName": "marketplaceSubscriptionId",
       "name": "MarketplaceSubscriptionId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The model settings (model id) for the model being serviced on the ServerlessEndpoint.",
       "jsonName": "modelSettings",
       "name": "ModelSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ModelSettings"
+        "nullable": false,
+        "referenceName": "ModelSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,16 +99,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provisioning state for the endpoint.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EndpointProvisioningState"
+        "nullable": false,
+        "referenceName": "EndpointProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

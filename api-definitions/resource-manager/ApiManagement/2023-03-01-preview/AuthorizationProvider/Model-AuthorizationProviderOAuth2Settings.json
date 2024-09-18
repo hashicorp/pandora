@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "OAuth2 settings",
       "jsonName": "grantTypes",
       "name": "GrantTypes",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AuthorizationProviderOAuth2GrantTypes"
+        "nullable": false,
+        "referenceName": "AuthorizationProviderOAuth2GrantTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Redirect URL to be set in the OAuth application.",
       "jsonName": "redirectUrl",
       "name": "RedirectUrl",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

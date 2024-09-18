@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Source of account creation",
       "jsonName": "accountCreationSource",
       "name": "AccountCreationSource",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AccountCreationSource"
+        "nullable": false,
+        "referenceName": "AccountCreationSource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Liftr resource category",
       "jsonName": "liftrResourceCategory",
       "name": "LiftrResourceCategory",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LiftrResourceCategories"
+        "nullable": false,
+        "referenceName": "LiftrResourceCategories",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Liftr resource preference. The priority of the resource.",
       "jsonName": "liftrResourcePreference",
       "name": "LiftrResourcePreference",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Marketplace Subscription Id",
       "jsonName": "marketplaceSubscriptionId",
       "name": "MarketplaceSubscriptionId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "NewRelic Organization properties of the resource",
       "jsonName": "marketplaceSubscriptionStatus",
       "name": "MarketplaceSubscriptionStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MarketplaceSubscriptionStatus"
+        "nullable": false,
+        "referenceName": "MarketplaceSubscriptionStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "MonitoringStatus of the resource",
       "jsonName": "monitoringStatus",
       "name": "MonitoringStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MonitoringStatus"
+        "nullable": false,
+        "referenceName": "MonitoringStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "MarketplaceSubscriptionStatus of the resource",
       "jsonName": "newRelicAccountProperties",
       "name": "NewRelicAccountProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NewRelicAccountProperties"
+        "nullable": false,
+        "referenceName": "NewRelicAccountProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Source of org creation",
       "jsonName": "orgCreationSource",
       "name": "OrgCreationSource",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OrgCreationSource"
+        "nullable": false,
+        "referenceName": "OrgCreationSource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,11 +131,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Plan details",
       "jsonName": "planData",
       "name": "PlanData",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PlanData"
+        "nullable": false,
+        "referenceName": "PlanData",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -120,11 +147,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provisioning State of the resource",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -133,11 +163,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Status of Azure Subscription where Marketplace SaaS is located.",
       "jsonName": "saaSAzureSubscriptionStatus",
       "name": "SaaSAzureSubscriptionStatus",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -146,11 +179,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "State of the Azure Subscription containing the monitor resource",
       "jsonName": "subscriptionState",
       "name": "SubscriptionState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -159,16 +195,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "User Info",
       "jsonName": "userInfo",
       "name": "UserInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UserInfo"
+        "nullable": false,
+        "referenceName": "UserInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Analytical storage specific properties.",
       "jsonName": "analyticalStorageConfiguration",
       "name": "AnalyticalStorageConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AnalyticalStorageConfiguration"
+        "nullable": false,
+        "referenceName": "AnalyticalStorageConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "API specific properties. Currently, supported only for MongoDB API.",
       "jsonName": "apiProperties",
       "name": "ApiProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiProperties"
+        "nullable": false,
+        "referenceName": "ApiProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The object representing the policy for taking backups on an account.",
       "jsonName": "backupPolicy",
       "name": "BackupPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BackupPolicy"
+        "nullable": false,
+        "referenceName": "BackupPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,14 +51,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of Cosmos DB capabilities for the account",
       "jsonName": "capabilities",
       "name": "Capabilities",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Capability"
+          "nullable": false,
+          "referenceName": "Capability",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The object that represents all properties related to capacity enforcement on an account.",
       "jsonName": "capacity",
       "name": "Capacity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Capacity"
+        "nullable": false,
+        "referenceName": "Capacity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The cassandra connector offer type for the Cosmos DB database C* account.",
       "jsonName": "connectorOffer",
       "name": "ConnectorOffer",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectorOffer"
+        "nullable": false,
+        "referenceName": "ConnectorOffer",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The consistency policy for the Cosmos DB account.",
       "jsonName": "consistencyPolicy",
       "name": "ConsistencyPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConsistencyPolicy"
+        "nullable": false,
+        "referenceName": "ConsistencyPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,14 +121,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The CORS policy for the Cosmos DB database account.",
       "jsonName": "cors",
       "name": "Cors",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "CorsPolicy"
+          "nullable": false,
+          "referenceName": "CorsPolicy",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -115,11 +143,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enum to indicate the mode of account creation.",
       "jsonName": "createMode",
       "name": "CreateMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CreateMode"
+        "nullable": false,
+        "referenceName": "CreateMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,11 +159,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the status of the Customer Managed Key feature on the account. In case there are errors, the property provides troubleshooting guidance.",
       "jsonName": "customerManagedKeyStatus",
       "name": "CustomerManagedKeyStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CustomerManagedKeyStatus"
+        "nullable": false,
+        "referenceName": "CustomerManagedKeyStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,11 +175,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The offer type for the database",
       "jsonName": "databaseAccountOfferType",
       "name": "DatabaseAccountOfferType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DatabaseAccountOfferType"
+        "nullable": false,
+        "referenceName": "DatabaseAccountOfferType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -154,11 +191,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The default identity for accessing key vault used in features like customer managed keys. The default identity needs to be explicitly set by the users. It can be \"FirstPartyIdentity\", \"SystemAssignedIdentity\" and more.",
       "jsonName": "defaultIdentity",
       "name": "DefaultIdentity",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -167,11 +207,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Disable write operations on metadata resources (databases, containers, throughput) via account keys",
       "jsonName": "disableKeyBasedMetadataWriteAccess",
       "name": "DisableKeyBasedMetadataWriteAccess",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -180,11 +223,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication.",
       "jsonName": "disableLocalAuth",
       "name": "DisableLocalAuth",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -193,11 +239,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Flag to indicate whether to enable storage analytics.",
       "jsonName": "enableAnalyticalStorage",
       "name": "EnableAnalyticalStorage",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -206,11 +255,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.",
       "jsonName": "enableAutomaticFailover",
       "name": "EnableAutomaticFailover",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -219,11 +271,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Flag to indicate enabling/disabling of Burst Capacity feature on the account",
       "jsonName": "enableBurstCapacity",
       "name": "EnableBurstCapacity",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -232,11 +287,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enables the cassandra connector on the Cosmos DB C* account",
       "jsonName": "enableCassandraConnector",
       "name": "EnableCassandraConnector",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -245,11 +303,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Flag to indicate whether Free Tier is enabled.",
       "jsonName": "enableFreeTier",
       "name": "EnableFreeTier",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -258,11 +319,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enables the account to write in multiple locations",
       "jsonName": "enableMultipleWriteLocations",
       "name": "EnableMultipleWriteLocations",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -271,11 +335,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Flag to indicate enabling/disabling of Partition Merge feature on the account",
       "jsonName": "enablePartitionMerge",
       "name": "EnablePartitionMerge",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -284,14 +351,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of IpRules.",
       "jsonName": "ipRules",
       "name": "IPRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IPAddressOrRange"
+          "nullable": false,
+          "referenceName": "IPAddressOrRange",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -301,11 +373,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Flag to indicate whether to enable/disable Virtual Network ACL rules.",
       "jsonName": "isVirtualNetworkFilterEnabled",
       "name": "IsVirtualNetworkFilterEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -314,11 +389,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The URI of the key vault",
       "jsonName": "keyVaultKeyUri",
       "name": "KeyVaultKeyUri",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -327,11 +405,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This property is ignored during the update/create operation, as the metadata is read-only. The object represents the metadata for the Account Keys of the Cosmos DB account.",
       "jsonName": "keysMetadata",
       "name": "KeysMetadata",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DatabaseAccountKeysMetadata"
+        "nullable": false,
+        "referenceName": "DatabaseAccountKeysMetadata",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -340,14 +421,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An array that contains the georeplication locations enabled for the Cosmos DB account.",
       "jsonName": "locations",
       "name": "Locations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Location"
+          "nullable": false,
+          "referenceName": "Location",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -357,11 +443,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the minimum allowed Tls version. The default value is Tls 1.2. Cassandra and Mongo APIs only work with Tls 1.2.",
       "jsonName": "minimalTlsVersion",
       "name": "MinimalTlsVersion",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MinimalTlsVersion"
+        "nullable": false,
+        "referenceName": "MinimalTlsVersion",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -370,11 +459,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates what services are allowed to bypass firewall checks.",
       "jsonName": "networkAclBypass",
       "name": "NetworkAclBypass",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkAclBypass"
+        "nullable": false,
+        "referenceName": "NetworkAclBypass",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -383,14 +475,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An array that contains the Resource Ids for Network Acl Bypass for the Cosmos DB account.",
       "jsonName": "networkAclBypassResourceIds",
       "name": "NetworkAclBypassResourceIds",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -400,11 +497,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether requests from Public Network are allowed",
       "jsonName": "publicNetworkAccess",
       "name": "PublicNetworkAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublicNetworkAccess"
+        "nullable": false,
+        "referenceName": "PublicNetworkAccess",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -413,11 +513,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Parameters to indicate the information about the restore.",
       "jsonName": "restoreParameters",
       "name": "RestoreParameters",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RestoreParameters"
+        "nullable": false,
+        "referenceName": "RestoreParameters",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -426,14 +529,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of Virtual Network ACL rules configured for the Cosmos DB account.",
       "jsonName": "virtualNetworkRules",
       "name": "VirtualNetworkRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VirtualNetworkRule"
+          "nullable": false,
+          "referenceName": "VirtualNetworkRule",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -441,5 +549,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

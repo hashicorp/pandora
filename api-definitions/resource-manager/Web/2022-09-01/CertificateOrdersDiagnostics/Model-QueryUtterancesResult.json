@@ -7,7 +7,9 @@
       "name": "SampleUtterance",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SampleUtterance"
+        "nullable": false,
+        "referenceName": "SampleUtterance",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +18,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Score of a sample utterance.",
       "jsonName": "score",
       "name": "Score",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

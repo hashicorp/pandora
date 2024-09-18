@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201,
@@ -11,6 +12,8 @@
   "resourceIdName": "DnsAliasId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ServerDnsAlias"
+    "nullable": false,
+    "referenceName": "ServerDnsAlias",
+    "referenceNameIsCommonType": null
   }
 }

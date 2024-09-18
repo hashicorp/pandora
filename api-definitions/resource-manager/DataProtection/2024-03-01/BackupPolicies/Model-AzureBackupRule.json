@@ -7,7 +7,9 @@
       "name": "BackupParameters",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BackupParameters"
+        "nullable": false,
+        "referenceName": "BackupParameters",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DataStore",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataStoreInfoBase"
+        "nullable": false,
+        "referenceName": "DataStoreInfoBase",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Trigger",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TriggerContext"
+        "nullable": false,
+        "referenceName": "TriggerContext",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -41,6 +47,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "BasePolicyRule",
   "discriminatedTypeValue": "AzureBackupRule",
   "typeHintIn": "ObjectType"

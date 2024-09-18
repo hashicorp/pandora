@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The current notification mode for this signal.",
       "jsonName": "notificationTypes",
       "name": "NotificationTypes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MonitoringNotificationType"
+          "nullable": false,
+          "referenceName": "MonitoringNotificationType",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Property dictionary. Properties can be added, but not removed or altered.",
       "jsonName": "properties",
       "name": "Properties",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,11 +47,14 @@
     },
     {
       "containsDiscriminatedTypeValue": true,
+      "description": "[Required] Specifies the type of signal to monitor.",
       "jsonName": "signalType",
       "name": "SignalType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MonitoringSignalType"
+        "nullable": false,
+        "referenceName": "MonitoringSignalType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -49,5 +62,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "SignalType"
 }

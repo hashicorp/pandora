@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "SqlManagedInstanceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ManagedServerSecurityAlertPolicy"
+    "nullable": false,
+    "referenceName": "ManagedServerSecurityAlertPolicy",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ManagedServerSecurityAlertPolicy"
+    "nullable": false,
+    "referenceName": "ManagedServerSecurityAlertPolicy",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/securityAlertPolicies/default"
 }

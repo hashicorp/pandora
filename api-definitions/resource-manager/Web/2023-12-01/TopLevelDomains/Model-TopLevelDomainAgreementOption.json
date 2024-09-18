@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If \u003ccode\u003etrue\u003c/code\u003e, then the list of agreements will include agreements for domain transfer as well; otherwise, \u003ccode\u003efalse\u003c/code\u003e.",
       "jsonName": "forTransfer",
       "name": "ForTransfer",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If \u003ccode\u003etrue\u003c/code\u003e, then the list of agreements will include agreements for domain privacy as well; otherwise, \u003ccode\u003efalse\u003c/code\u003e.",
       "jsonName": "includePrivacy",
       "name": "IncludePrivacy",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

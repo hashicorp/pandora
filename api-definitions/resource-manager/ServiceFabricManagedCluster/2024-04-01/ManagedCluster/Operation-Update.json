@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "ManagedClusterId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ManagedClusterUpdateParameters"
+    "nullable": false,
+    "referenceName": "ManagedClusterUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ManagedCluster"
+    "nullable": false,
+    "referenceName": "ManagedCluster",
+    "referenceNameIsCommonType": null
   }
 }

@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of the ACR token resource IDs used to authenticate clients to the connected registry.",
       "jsonName": "clientTokenIds",
       "name": "ClientTokenIds",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The logging properties of the connected registry.",
       "jsonName": "logging",
       "name": "Logging",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LoggingProperties"
+        "nullable": false,
+        "referenceName": "LoggingProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,14 +41,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of notifications subscription information for the connected registry.",
       "jsonName": "notificationsList",
       "name": "NotificationsList",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,16 +63,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The sync properties of the connected registry with its parent.",
       "jsonName": "syncProperties",
       "name": "SyncProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SyncUpdateProperties"
+        "nullable": false,
+        "referenceName": "SyncUpdateProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

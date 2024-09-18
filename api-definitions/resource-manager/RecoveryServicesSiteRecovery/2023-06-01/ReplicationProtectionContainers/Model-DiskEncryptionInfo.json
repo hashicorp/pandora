@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The recovery KeyVault reference for secret.",
       "jsonName": "diskEncryptionKeyInfo",
       "name": "DiskEncryptionKeyInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiskEncryptionKeyInfo"
+        "nullable": false,
+        "referenceName": "DiskEncryptionKeyInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The recovery KeyVault reference for key.",
       "jsonName": "keyEncryptionKeyInfo",
       "name": "KeyEncryptionKeyInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KeyEncryptionKeyInfo"
+        "nullable": false,
+        "referenceName": "KeyEncryptionKeyInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

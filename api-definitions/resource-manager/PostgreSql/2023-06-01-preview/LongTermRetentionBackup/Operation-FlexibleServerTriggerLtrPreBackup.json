@@ -1,6 +1,7 @@
 {
   "name": "FlexibleServerTriggerLtrPreBackup",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "FlexibleServerId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "BackupRequestBase"
+    "nullable": false,
+    "referenceName": "BackupRequestBase",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "LtrPreBackupResponse"
+    "nullable": false,
+    "referenceName": "LtrPreBackupResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/ltrPreBackup"
 }

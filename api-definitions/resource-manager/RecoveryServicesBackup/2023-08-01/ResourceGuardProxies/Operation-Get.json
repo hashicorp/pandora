@@ -1,6 +1,7 @@
 {
   "name": "Get",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "VaultId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ResourceGuardProxyBaseResource"
+    "nullable": false,
+    "referenceName": "ResourceGuardProxyBaseResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/backupResourceGuardProxies"
 }

@@ -7,7 +7,9 @@
       "name": "LinkedInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LinkedIntegrationRuntimeType"
+        "nullable": false,
+        "referenceName": "LinkedIntegrationRuntimeType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +18,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An alternative option to ensure interactive authoring function when your self-hosted integration runtime is unable to establish a connection with Azure Relay.",
       "jsonName": "selfContainedInteractiveAuthoringEnabled",
       "name": "SelfContainedInteractiveAuthoringEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

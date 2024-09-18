@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An array of references to IP addresses defined in network interfaces.",
       "jsonName": "backendIPConfigurations",
       "name": "BackendIPConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "NetworkInterfaceIPConfiguration"
+          "nullable": false,
+          "referenceName": "NetworkInterfaceIPConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Amount of seconds Load Balancer waits for before sending RESET to client and backend address.",
       "jsonName": "drainPeriodInSeconds",
       "name": "DrainPeriodInSeconds",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,14 +41,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An array of references to inbound NAT rules that use this backend address pool.",
       "jsonName": "inboundNatRules",
       "name": "InboundNatRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SubResource"
+          "nullable": false,
+          "referenceName": "SubResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,14 +63,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An array of backend addresses.",
       "jsonName": "loadBalancerBackendAddresses",
       "name": "LoadBalancerBackendAddresses",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "LoadBalancerBackendAddress"
+          "nullable": false,
+          "referenceName": "LoadBalancerBackendAddress",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -67,14 +85,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An array of references to load balancing rules that use this backend address pool.",
       "jsonName": "loadBalancingRules",
       "name": "LoadBalancingRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SubResource"
+          "nullable": false,
+          "referenceName": "SubResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -84,11 +107,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The location of the backend address pool.",
       "jsonName": "location",
       "name": "Location",
       "objectDefinition": {
         "type": "Location",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -101,7 +127,9 @@
       "name": "OutboundRule",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -110,14 +138,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An array of references to outbound rules that use this backend address pool.",
       "jsonName": "outboundRules",
       "name": "OutboundRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SubResource"
+          "nullable": false,
+          "referenceName": "SubResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -131,7 +164,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -140,11 +175,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Backend address synchronous mode for the backend pool",
       "jsonName": "syncMode",
       "name": "SyncMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SyncMode"
+        "nullable": false,
+        "referenceName": "SyncMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -153,14 +191,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An array of gateway load balancer tunnel interfaces.",
       "jsonName": "tunnelInterfaces",
       "name": "TunnelInterfaces",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "GatewayLoadBalancerTunnelInterface"
+          "nullable": false,
+          "referenceName": "GatewayLoadBalancerTunnelInterface",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -174,12 +217,15 @@
       "name": "VirtualNetwork",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

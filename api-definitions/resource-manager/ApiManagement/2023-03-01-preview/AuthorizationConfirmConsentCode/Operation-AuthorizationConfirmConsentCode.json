@@ -1,6 +1,7 @@
 {
   "name": "AuthorizationConfirmConsentCode",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "AuthorizationId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "AuthorizationConfirmConsentCodeRequestContract"
+    "nullable": false,
+    "referenceName": "AuthorizationConfirmConsentCodeRequestContract",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/confirmConsentCode"
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This is only returned when the certificate provisioningState is 'Failed'.",
       "jsonName": "deleteCertificateError",
       "name": "DeleteCertificateError",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeleteCertificateError"
+        "nullable": false,
+        "referenceName": "DeleteCertificateError",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.",
       "jsonName": "format",
       "name": "Format",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CertificateFormat"
+        "nullable": false,
+        "referenceName": "CertificateFormat",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The previous provisioned state of the resource",
       "jsonName": "previousProvisioningState",
       "name": "PreviousProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CertificateProvisioningState"
+        "nullable": false,
+        "referenceName": "CertificateProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,7 +56,9 @@
       "name": "PreviousProvisioningStateTransitionTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -60,7 +71,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CertificateProvisioningState"
+        "nullable": false,
+        "referenceName": "CertificateProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -74,7 +87,9 @@
       "name": "ProvisioningStateTransitionTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -83,11 +98,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The public key of the certificate.",
       "jsonName": "publicData",
       "name": "PublicData",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -96,11 +114,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This must match the thumbprint from the name.",
       "jsonName": "thumbprint",
       "name": "Thumbprint",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -109,16 +130,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This must match the first portion of the certificate name. Currently required to be 'SHA1'.",
       "jsonName": "thumbprintAlgorithm",
       "name": "ThumbprintAlgorithm",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

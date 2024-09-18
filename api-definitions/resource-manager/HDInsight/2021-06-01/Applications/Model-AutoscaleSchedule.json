@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Days of the week for a schedule-based autoscale rule",
       "jsonName": "days",
       "name": "Days",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DaysOfWeek"
+          "nullable": false,
+          "referenceName": "DaysOfWeek",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,12 +29,15 @@
       "name": "TimeAndCapacity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutoscaleTimeAndCapacity"
+        "nullable": false,
+        "referenceName": "AutoscaleTimeAndCapacity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

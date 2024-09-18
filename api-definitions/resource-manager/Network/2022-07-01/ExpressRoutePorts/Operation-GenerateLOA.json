@@ -1,6 +1,7 @@
 {
   "name": "GenerateLOA",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "ExpressRoutePortId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "GenerateExpressRoutePortsLOARequest"
+    "nullable": false,
+    "referenceName": "GenerateExpressRoutePortsLOARequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "GenerateExpressRoutePortsLOAResult"
+    "nullable": false,
+    "referenceName": "GenerateExpressRoutePortsLOAResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/generateLoa"
 }

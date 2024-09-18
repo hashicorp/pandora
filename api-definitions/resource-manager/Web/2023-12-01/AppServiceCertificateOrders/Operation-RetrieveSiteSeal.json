@@ -1,6 +1,7 @@
 {
   "name": "RetrieveSiteSeal",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "CertificateOrderId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SiteSealRequest"
+    "nullable": false,
+    "referenceName": "SiteSealRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SiteSeal"
+    "nullable": false,
+    "referenceName": "SiteSeal",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/retrieveSiteSeal"
 }

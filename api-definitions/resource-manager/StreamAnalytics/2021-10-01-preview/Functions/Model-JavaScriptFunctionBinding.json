@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The binding properties associated with a JavaScript function.",
       "jsonName": "properties",
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JavaScriptFunctionBindingProperties"
+        "nullable": false,
+        "referenceName": "JavaScriptFunctionBindingProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +18,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "FunctionBinding",
   "discriminatedTypeValue": "Microsoft.StreamAnalytics/JavascriptUdf",
   "typeHintIn": "Type"

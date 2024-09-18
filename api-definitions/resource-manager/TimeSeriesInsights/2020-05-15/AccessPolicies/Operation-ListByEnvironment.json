@@ -1,6 +1,7 @@
 {
   "name": "ListByEnvironment",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "EnvironmentId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AccessPolicyListResponse"
+    "nullable": false,
+    "referenceName": "AccessPolicyListResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/accessPolicies"
 }

@@ -1,6 +1,7 @@
 {
   "name": "GetDnsService",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "DnsServiceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "WorkloadNetworkDnsService"
+    "nullable": false,
+    "referenceName": "WorkloadNetworkDnsService",
+    "referenceNameIsCommonType": null
   }
 }

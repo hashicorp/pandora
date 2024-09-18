@@ -1,6 +1,7 @@
 {
   "name": "DatabaseListMetrics",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,7 +22,9 @@
   "resourceIdName": "DatabaseId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "MetricListResult"
+    "nullable": false,
+    "referenceName": "MetricListResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/metrics"
 }

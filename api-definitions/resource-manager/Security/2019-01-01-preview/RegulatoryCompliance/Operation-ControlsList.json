@@ -1,6 +1,7 @@
 {
   "name": "ControlsList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -22,7 +23,9 @@
   "resourceIdName": "RegulatoryComplianceStandardId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "RegulatoryComplianceControl"
+    "nullable": false,
+    "referenceName": "RegulatoryComplianceControl",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/regulatoryComplianceControls"
 }

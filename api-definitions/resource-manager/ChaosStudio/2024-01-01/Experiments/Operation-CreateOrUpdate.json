@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "ExperimentId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "Experiment"
+    "nullable": false,
+    "referenceName": "Experiment",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Experiment"
+    "nullable": false,
+    "referenceName": "Experiment",
+    "referenceNameIsCommonType": null
   }
 }

@@ -1,6 +1,7 @@
 {
   "name": "GetByUser",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "PaymentMethodId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PaymentMethod"
+    "nullable": false,
+    "referenceName": "PaymentMethod",
+    "referenceNameIsCommonType": null
   }
 }

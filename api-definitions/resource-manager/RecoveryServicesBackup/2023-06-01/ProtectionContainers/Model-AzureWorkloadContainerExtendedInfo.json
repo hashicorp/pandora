@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Host Os Name in case of Stand Alone and Cluster Name in case of distributed container.",
       "jsonName": "hostServerName",
       "name": "HostServerName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Inquiry Status for the container.",
       "jsonName": "inquiryInfo",
       "name": "InquiryInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InquiryInfo"
+        "nullable": false,
+        "referenceName": "InquiryInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of the nodes in case of distributed container.",
       "jsonName": "nodesList",
       "name": "NodesList",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DistributedNodesInfo"
+          "nullable": false,
+          "referenceName": "DistributedNodesInfo",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -44,5 +55,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

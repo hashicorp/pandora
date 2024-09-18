@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdateStaticSiteCustomDomain",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "CustomDomainId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "StaticSiteCustomDomainRequestPropertiesARMResource"
+    "nullable": false,
+    "referenceName": "StaticSiteCustomDomainRequestPropertiesARMResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "StaticSiteCustomDomainOverviewARMResource"
+    "nullable": false,
+    "referenceName": "StaticSiteCustomDomainOverviewARMResource",
+    "referenceNameIsCommonType": null
   }
 }

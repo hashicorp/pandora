@@ -1,6 +1,7 @@
 {
   "name": "ListKeys",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "AccountId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "MapsAccountKeys"
+    "nullable": false,
+    "referenceName": "MapsAccountKeys",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/listKeys"
 }

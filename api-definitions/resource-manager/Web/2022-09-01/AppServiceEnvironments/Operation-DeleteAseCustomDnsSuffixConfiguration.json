@@ -1,6 +1,7 @@
 {
   "name": "DeleteAseCustomDnsSuffixConfiguration",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     204
@@ -10,7 +11,9 @@
   "resourceIdName": "AppServiceEnvironmentId",
   "responseObject": {
     "type": "RawObject",
-    "referenceName": null
+    "nullable": false,
+    "referenceName": null,
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/configurations/customdnssuffix"
 }

@@ -1,6 +1,7 @@
 {
   "name": "ValidateBackend",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     202,
     204
@@ -10,7 +11,9 @@
   "resourceIdName": "LinkedBackendId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "StaticSiteLinkedBackendARMResource"
+    "nullable": false,
+    "referenceName": "StaticSiteLinkedBackendARMResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/validate"
 }

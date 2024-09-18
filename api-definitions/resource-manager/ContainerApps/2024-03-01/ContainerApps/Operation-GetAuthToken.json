@@ -1,6 +1,7 @@
 {
   "name": "GetAuthToken",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "ContainerAppId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ContainerAppAuthToken"
+    "nullable": false,
+    "referenceName": "ContainerAppAuthToken",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/getAuthtoken"
 }

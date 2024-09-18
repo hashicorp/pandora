@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "KeyVaultId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "VaultCreateOrUpdateParameters"
+    "nullable": false,
+    "referenceName": "VaultCreateOrUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Vault"
+    "nullable": false,
+    "referenceName": "Vault",
+    "referenceNameIsCommonType": null
   }
 }

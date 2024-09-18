@@ -1,6 +1,7 @@
 {
   "name": "CloudServicesNetworksUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "CloudServicesNetworkId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CloudServicesNetworkPatchParameters"
+    "nullable": false,
+    "referenceName": "CloudServicesNetworkPatchParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "CloudServicesNetwork"
+    "nullable": false,
+    "referenceName": "CloudServicesNetwork",
+    "referenceNameIsCommonType": null
   }
 }

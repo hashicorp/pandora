@@ -1,6 +1,7 @@
 {
   "name": "MigrateToIPBased",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "LoadBalancerId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "MigrateLoadBalancerToIPBasedRequest"
+    "nullable": false,
+    "referenceName": "MigrateLoadBalancerToIPBasedRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "MigratedPools"
+    "nullable": false,
+    "referenceName": "MigratedPools",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/migrateToIpBased"
 }

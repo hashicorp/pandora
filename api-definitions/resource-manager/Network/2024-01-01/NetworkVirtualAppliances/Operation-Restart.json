@@ -1,6 +1,7 @@
 {
   "name": "Restart",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "NetworkVirtualApplianceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "NetworkVirtualApplianceInstanceIds"
+    "nullable": false,
+    "referenceName": "NetworkVirtualApplianceInstanceIds",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "NetworkVirtualApplianceInstanceIds"
+    "nullable": false,
+    "referenceName": "NetworkVirtualApplianceInstanceIds",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/restart"
 }

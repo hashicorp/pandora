@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An enum that represents the format of the local timestamp property that needs to be set.",
       "jsonName": "format",
       "name": "Format",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LocalTimestampFormat"
+        "nullable": false,
+        "referenceName": "LocalTimestampFormat",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.",
       "jsonName": "timeZoneOffset",
       "name": "TimeZoneOffset",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LocalTimestampTimeZoneOffset"
+        "nullable": false,
+        "referenceName": "LocalTimestampTimeZoneOffset",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

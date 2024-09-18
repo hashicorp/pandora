@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The cooldown period of a session in seconds.",
       "jsonName": "cooldownPeriodInSeconds",
       "name": "CooldownPeriodInSeconds",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The execution type of the session pool.",
       "jsonName": "executionType",
       "name": "ExecutionType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExecutionType"
+        "nullable": false,
+        "referenceName": "ExecutionType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

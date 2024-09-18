@@ -1,6 +1,7 @@
 {
   "name": "AzureDevOpsProjectsList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "AzureDevOpsOrgId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AzureDevOpsProject"
+    "nullable": false,
+    "referenceName": "AzureDevOpsProject",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/projects"
 }

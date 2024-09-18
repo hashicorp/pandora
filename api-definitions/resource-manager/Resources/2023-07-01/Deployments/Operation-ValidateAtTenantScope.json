@@ -1,6 +1,7 @@
 {
   "name": "ValidateAtTenantScope",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "DeploymentId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ScopedDeployment"
+    "nullable": false,
+    "referenceName": "ScopedDeployment",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DeploymentValidateResult"
+    "nullable": false,
+    "referenceName": "DeploymentValidateResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/validate"
 }

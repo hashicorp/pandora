@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "BillingAccountId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "BillingAccountPatch"
+    "nullable": false,
+    "referenceName": "BillingAccountPatch",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BillingAccount"
+    "nullable": false,
+    "referenceName": "BillingAccount",
+    "referenceNameIsCommonType": null
   }
 }

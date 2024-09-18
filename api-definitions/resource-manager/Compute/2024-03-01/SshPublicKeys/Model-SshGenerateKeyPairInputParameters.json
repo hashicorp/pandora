@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The encryption type of the SSH keys to be generated. See SshEncryptionTypes for possible set of values. If not provided, will default to RSA",
       "jsonName": "encryptionType",
       "name": "EncryptionType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SshEncryptionTypes"
+        "nullable": false,
+        "referenceName": "SshEncryptionTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

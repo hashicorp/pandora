@@ -1,6 +1,7 @@
 {
   "name": "RestorableTimeRangesFind",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "BackupInstanceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "AzureBackupFindRestorableTimeRangesRequest"
+    "nullable": false,
+    "referenceName": "AzureBackupFindRestorableTimeRangesRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AzureBackupFindRestorableTimeRangesResponseResource"
+    "nullable": false,
+    "referenceName": "AzureBackupFindRestorableTimeRangesResponseResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/findRestorableTimeRanges"
 }

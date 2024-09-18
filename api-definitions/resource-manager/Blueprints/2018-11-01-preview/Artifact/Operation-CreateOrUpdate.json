@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     201
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "ArtifactScopedId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "Artifact"
+    "nullable": false,
+    "referenceName": "Artifact",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Artifact"
+    "nullable": false,
+    "referenceName": "Artifact",
+    "referenceNameIsCommonType": null
   }
 }

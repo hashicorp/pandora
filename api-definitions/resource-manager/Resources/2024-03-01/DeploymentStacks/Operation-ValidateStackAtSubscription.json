@@ -1,6 +1,7 @@
 {
   "name": "ValidateStackAtSubscription",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "DeploymentStackId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "DeploymentStack"
+    "nullable": false,
+    "referenceName": "DeploymentStack",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DeploymentStackValidateResult"
+    "nullable": false,
+    "referenceName": "DeploymentStackValidateResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/validate"
 }

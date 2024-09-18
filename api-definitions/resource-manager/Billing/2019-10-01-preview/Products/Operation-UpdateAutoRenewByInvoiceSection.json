@@ -1,6 +1,7 @@
 {
   "name": "UpdateAutoRenewByInvoiceSection",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "InvoiceSectionProductId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "UpdateAutoRenewRequest"
+    "nullable": false,
+    "referenceName": "UpdateAutoRenewRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "UpdateAutoRenewOperation"
+    "nullable": false,
+    "referenceName": "UpdateAutoRenewOperation",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/updateAutoRenew"
 }

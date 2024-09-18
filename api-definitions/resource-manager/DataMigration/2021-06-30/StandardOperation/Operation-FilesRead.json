@@ -1,6 +1,7 @@
 {
   "name": "FilesRead",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "FileId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "FileStorageInfo"
+    "nullable": false,
+    "referenceName": "FileStorageInfo",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/read"
 }

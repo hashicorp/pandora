@@ -1,6 +1,7 @@
 {
   "name": "GetAuthToken",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "ManagedEnvironmentId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "EnvironmentAuthToken"
+    "nullable": false,
+    "referenceName": "EnvironmentAuthToken",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/getAuthtoken"
 }

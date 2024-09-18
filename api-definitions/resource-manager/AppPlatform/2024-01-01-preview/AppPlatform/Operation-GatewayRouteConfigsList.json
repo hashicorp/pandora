@@ -1,6 +1,7 @@
 {
   "name": "GatewayRouteConfigsList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "GatewayId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "GatewayRouteConfigResource"
+    "nullable": false,
+    "referenceName": "GatewayRouteConfigResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/routeConfigs"
 }

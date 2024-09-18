@@ -1,6 +1,7 @@
 {
   "name": "GetCommandResult",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,6 +11,8 @@
   "resourceIdName": "CommandResultId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "RunCommandResult"
+    "nullable": false,
+    "referenceName": "RunCommandResult",
+    "referenceNameIsCommonType": null
   }
 }

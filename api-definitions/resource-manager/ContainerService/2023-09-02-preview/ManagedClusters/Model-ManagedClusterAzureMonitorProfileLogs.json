@@ -7,7 +7,9 @@
       "name": "AppMonitoring",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterAzureMonitorProfileAppMonitoring"
+        "nullable": false,
+        "referenceName": "ManagedClusterAzureMonitorProfileAppMonitoring",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "ContainerInsights",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterAzureMonitorProfileContainerInsights"
+        "nullable": false,
+        "referenceName": "ManagedClusterAzureMonitorProfileContainerInsights",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

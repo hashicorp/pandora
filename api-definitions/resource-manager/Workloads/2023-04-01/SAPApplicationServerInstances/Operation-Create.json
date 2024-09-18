@@ -1,6 +1,7 @@
 {
   "name": "Create",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "ApplicationInstanceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SAPApplicationServerInstance"
+    "nullable": false,
+    "referenceName": "SAPApplicationServerInstance",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SAPApplicationServerInstance"
+    "nullable": false,
+    "referenceName": "SAPApplicationServerInstance",
+    "referenceNameIsCommonType": null
   }
 }

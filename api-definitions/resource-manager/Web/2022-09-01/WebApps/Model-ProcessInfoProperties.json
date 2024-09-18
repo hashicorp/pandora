@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Child process list.",
       "jsonName": "children",
       "name": "Children",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Command line.",
       "jsonName": "command_line",
       "name": "CommandLine",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Deployment name.",
       "jsonName": "deployment_name",
       "name": "DeploymentName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Description of process.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,14 +73,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of environment variables.",
       "jsonName": "environment_variables",
       "name": "EnvironmentVariables",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -76,11 +95,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "File name of this process.",
       "jsonName": "file_name",
       "name": "FileName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,11 +111,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Handle count.",
       "jsonName": "handle_count",
       "name": "HandleCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,11 +127,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "HRef URI.",
       "jsonName": "href",
       "name": "Href",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,11 +143,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "ARM Identifier for deployment.",
       "jsonName": "identifier",
       "name": "Identifier",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,11 +159,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "IIS Profile timeout (seconds).",
       "jsonName": "iis_profile_timeout_in_seconds",
       "name": "IisProfileTimeoutInSeconds",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,11 +175,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Is the IIS Profile running?",
       "jsonName": "is_iis_profile_running",
       "name": "IsIisProfileRunning",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -154,11 +191,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Is profile running?",
       "jsonName": "is_profile_running",
       "name": "IsProfileRunning",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -167,11 +207,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Is this the SCM site?",
       "jsonName": "is_scm_site",
       "name": "IsScmSite",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -180,11 +223,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Is this a Web Job?",
       "jsonName": "is_webjob",
       "name": "IsWebjob",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -193,11 +239,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Minidump URI.",
       "jsonName": "minidump",
       "name": "Minidump",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -206,11 +255,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Module count.",
       "jsonName": "module_count",
       "name": "ModuleCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -219,14 +271,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of modules.",
       "jsonName": "modules",
       "name": "Modules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ProcessModuleInfo"
+          "nullable": false,
+          "referenceName": "ProcessModuleInfo",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -236,11 +293,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Non-paged system memory.",
       "jsonName": "non_paged_system_memory",
       "name": "NonPagedSystemMemory",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -249,14 +309,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of open files.",
       "jsonName": "open_file_handles",
       "name": "OpenFileHandles",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -266,11 +331,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Paged memory.",
       "jsonName": "paged_memory",
       "name": "PagedMemory",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -279,11 +347,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Paged system memory.",
       "jsonName": "paged_system_memory",
       "name": "PagedSystemMemory",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -292,11 +363,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Parent process.",
       "jsonName": "parent",
       "name": "Parent",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -305,11 +379,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Peak paged memory.",
       "jsonName": "peak_paged_memory",
       "name": "PeakPagedMemory",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -318,11 +395,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Peak virtual memory usage.",
       "jsonName": "peak_virtual_memory",
       "name": "PeakVirtualMemory",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -331,11 +411,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Peak working set.",
       "jsonName": "peak_working_set",
       "name": "PeakWorkingSet",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -344,11 +427,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Private memory size.",
       "jsonName": "private_memory",
       "name": "PrivateMemory",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -357,11 +443,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Privileged CPU time.",
       "jsonName": "privileged_cpu_time",
       "name": "PrivilegedCpuTime",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -371,11 +460,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Start time.",
       "jsonName": "start_time",
       "name": "StartTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -384,11 +476,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Thread count.",
       "jsonName": "thread_count",
       "name": "ThreadCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -397,14 +492,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Thread list.",
       "jsonName": "threads",
       "name": "Threads",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ProcessThreadInfo"
+          "nullable": false,
+          "referenceName": "ProcessThreadInfo",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -415,11 +515,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Time stamp.",
       "jsonName": "time_stamp",
       "name": "TimeStamp",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -428,11 +531,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Total CPU time.",
       "jsonName": "total_cpu_time",
       "name": "TotalCpuTime",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -441,11 +547,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "User CPU time.",
       "jsonName": "user_cpu_time",
       "name": "UserCpuTime",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -454,11 +563,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "User name.",
       "jsonName": "user_name",
       "name": "UserName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -467,11 +579,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Virtual memory size.",
       "jsonName": "virtual_memory",
       "name": "VirtualMemory",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -480,16 +595,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Working set.",
       "jsonName": "working_set",
       "name": "WorkingSet",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

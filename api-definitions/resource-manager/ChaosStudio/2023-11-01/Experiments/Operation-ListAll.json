@@ -1,6 +1,7 @@
 {
   "name": "ListAll",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -32,7 +33,9 @@
   "resourceIdName": "SubscriptionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Experiment"
+    "nullable": false,
+    "referenceName": "Experiment",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.Chaos/experiments"
 }

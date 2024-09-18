@@ -1,6 +1,7 @@
 {
   "name": "CommitmentPlansUpdatePlan",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "CommitmentPlanId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "PatchResourceTagsAndSku"
+    "nullable": false,
+    "referenceName": "PatchResourceTagsAndSku",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "CommitmentPlan"
+    "nullable": false,
+    "referenceName": "CommitmentPlan",
+    "referenceNameIsCommonType": null
   }
 }

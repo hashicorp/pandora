@@ -1,6 +1,7 @@
 {
   "name": "WorkspaceTagProductLinkCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "TagProductLinkId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "TagProductLinkContract"
+    "nullable": false,
+    "referenceName": "TagProductLinkContract",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "TagProductLinkContract"
+    "nullable": false,
+    "referenceName": "TagProductLinkContract",
+    "referenceNameIsCommonType": null
   }
 }

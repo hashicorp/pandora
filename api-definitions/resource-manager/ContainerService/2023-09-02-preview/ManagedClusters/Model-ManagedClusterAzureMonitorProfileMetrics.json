@@ -7,7 +7,9 @@
       "name": "AppMonitoringOpenTelemetryMetrics",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterAzureMonitorProfileAppMonitoringOpenTelemetryMetrics"
+        "nullable": false,
+        "referenceName": "ManagedClusterAzureMonitorProfileAppMonitoringOpenTelemetryMetrics",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +18,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether to enable the Prometheus collector",
       "jsonName": "enabled",
       "name": "Enabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,12 +38,15 @@
       "name": "KubeStateMetrics",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterAzureMonitorProfileKubeStateMetrics"
+        "nullable": false,
+        "referenceName": "ManagedClusterAzureMonitorProfileKubeStateMetrics",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

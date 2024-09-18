@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The maximum software version of the platform where this packet core version can be deployed.",
       "jsonName": "maximumPlatformSoftwareVersion",
       "name": "MaximumPlatformSoftwareVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The minimum software version of the platform where this packet core version can be deployed.",
       "jsonName": "minimumPlatformSoftwareVersion",
       "name": "MinimumPlatformSoftwareVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether this version is obsoleted for this platform.",
       "jsonName": "obsoleteVersion",
       "name": "ObsoleteVersion",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ObsoleteVersion"
+        "nullable": false,
+        "referenceName": "ObsoleteVersion",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The platform type where this version can be deployed.",
       "jsonName": "platformType",
       "name": "PlatformType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PlatformType"
+        "nullable": false,
+        "referenceName": "PlatformType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether this is the recommended version for this platform.",
       "jsonName": "recommendedVersion",
       "name": "RecommendedVersion",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RecommendedVersion"
+        "nullable": false,
+        "referenceName": "RecommendedVersion",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,16 +83,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The state of this packet core control plane version on this platform.",
       "jsonName": "versionState",
       "name": "VersionState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VersionState"
+        "nullable": false,
+        "referenceName": "VersionState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

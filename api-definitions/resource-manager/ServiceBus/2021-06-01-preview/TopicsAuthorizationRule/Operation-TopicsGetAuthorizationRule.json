@@ -1,6 +1,7 @@
 {
   "name": "TopicsGetAuthorizationRule",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "TopicAuthorizationRuleId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SBAuthorizationRule"
+    "nullable": false,
+    "referenceName": "SBAuthorizationRule",
+    "referenceNameIsCommonType": null
   }
 }

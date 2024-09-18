@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "IntegrationServiceEnvironmentId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "IntegrationServiceEnvironment"
+    "nullable": false,
+    "referenceName": "IntegrationServiceEnvironment",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "IntegrationServiceEnvironment"
+    "nullable": false,
+    "referenceName": "IntegrationServiceEnvironment",
+    "referenceNameIsCommonType": null
   }
 }

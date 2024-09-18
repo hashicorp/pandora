@@ -1,6 +1,7 @@
 {
   "name": "Delete",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     202,
     204
@@ -10,6 +11,8 @@
   "resourceIdName": "FileImportId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "FileImport"
+    "nullable": false,
+    "referenceName": "FileImport",
+    "referenceNameIsCommonType": null
   }
 }

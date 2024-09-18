@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IncludedQuantityUtilizationSummaryProperties"
+        "nullable": false,
+        "referenceName": "IncludedQuantityUtilizationSummaryProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "BenefitUtilizationSummary",
   "discriminatedTypeValue": "IncludedQuantity",
   "typeHintIn": "Kind"

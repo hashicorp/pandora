@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "NamespaceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "RelayNamespace"
+    "nullable": false,
+    "referenceName": "RelayNamespace",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "RelayNamespace"
+    "nullable": false,
+    "referenceName": "RelayNamespace",
+    "referenceNameIsCommonType": null
   }
 }

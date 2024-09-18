@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "ExtensionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "MachineExtensionUpdate"
+    "nullable": false,
+    "referenceName": "MachineExtensionUpdate",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "MachineExtension"
+    "nullable": false,
+    "referenceName": "MachineExtension",
+    "referenceNameIsCommonType": null
   }
 }

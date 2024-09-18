@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.",
       "jsonName": "keyEncryptionKeyIdentity",
       "name": "KeyEncryptionKeyIdentity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CustomerManagedKeyEncryptionKeyEncryptionKeyIdentity"
+        "nullable": false,
+        "referenceName": "CustomerManagedKeyEncryptionKeyEncryptionKeyIdentity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "key encryption key Url, versioned or non-versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.",
       "jsonName": "keyEncryptionKeyUrl",
       "name": "KeyEncryptionKeyUrl",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

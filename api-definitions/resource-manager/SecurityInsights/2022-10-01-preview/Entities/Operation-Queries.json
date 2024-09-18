@@ -1,6 +1,7 @@
 {
   "name": "Queries",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,7 +22,9 @@
   "resourceIdName": "EntityId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "GetQueriesResponse"
+    "nullable": false,
+    "referenceName": "GetQueriesResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/queries"
 }

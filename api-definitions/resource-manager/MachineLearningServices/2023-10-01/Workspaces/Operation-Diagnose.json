@@ -1,6 +1,7 @@
 {
   "name": "Diagnose",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "WorkspaceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "DiagnoseWorkspaceParameters"
+    "nullable": false,
+    "referenceName": "DiagnoseWorkspaceParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DiagnoseResponseResult"
+    "nullable": false,
+    "referenceName": "DiagnoseResponseResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/diagnose"
 }

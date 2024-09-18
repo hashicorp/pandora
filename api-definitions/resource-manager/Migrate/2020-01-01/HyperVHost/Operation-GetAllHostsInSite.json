@@ -1,6 +1,7 @@
 {
   "name": "GetAllHostsInSite",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -22,7 +23,9 @@
   "resourceIdName": "HyperVSiteId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "HyperVHost"
+    "nullable": false,
+    "referenceName": "HyperVHost",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/hosts"
 }

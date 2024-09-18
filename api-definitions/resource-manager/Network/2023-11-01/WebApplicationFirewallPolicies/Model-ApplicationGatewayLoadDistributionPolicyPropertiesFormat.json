@@ -7,7 +7,9 @@
       "name": "LoadDistributionAlgorithm",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationGatewayLoadDistributionAlgorithm"
+        "nullable": false,
+        "referenceName": "ApplicationGatewayLoadDistributionAlgorithm",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +18,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Load Distribution Targets resource of an application gateway.",
       "jsonName": "loadDistributionTargets",
       "name": "LoadDistributionTargets",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewayLoadDistributionTarget"
+          "nullable": false,
+          "referenceName": "ApplicationGatewayLoadDistributionTarget",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,12 +44,15 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

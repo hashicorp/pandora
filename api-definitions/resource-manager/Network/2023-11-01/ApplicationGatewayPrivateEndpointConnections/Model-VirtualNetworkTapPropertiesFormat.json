@@ -7,7 +7,9 @@
       "name": "DestinationLoadBalancerFrontEndIPConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FrontendIPConfiguration"
+        "nullable": false,
+        "referenceName": "FrontendIPConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DestinationNetworkInterfaceIPConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkInterfaceIPConfiguration"
+        "nullable": false,
+        "referenceName": "NetworkInterfaceIPConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +33,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The VXLAN destination port that will receive the tapped traffic.",
       "jsonName": "destinationPort",
       "name": "DestinationPort",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,14 +49,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the list of resource IDs for the network interface IP configuration that needs to be tapped.",
       "jsonName": "networkInterfaceTapConfigurations",
       "name": "NetworkInterfaceTapConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "NetworkInterfaceTapConfiguration"
+          "nullable": false,
+          "referenceName": "NetworkInterfaceTapConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -63,7 +75,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,16 +86,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource GUID property of the virtual network tap resource.",
       "jsonName": "resourceGuid",
       "name": "ResourceGuid",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

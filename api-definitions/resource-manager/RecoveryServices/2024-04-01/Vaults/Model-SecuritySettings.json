@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Immutability Settings of a vault",
       "jsonName": "immutabilitySettings",
       "name": "ImmutabilitySettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ImmutabilitySettings"
+        "nullable": false,
+        "referenceName": "ImmutabilitySettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "MUA Settings of a vault",
       "jsonName": "multiUserAuthorization",
       "name": "MultiUserAuthorization",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MultiUserAuthorization"
+        "nullable": false,
+        "referenceName": "MultiUserAuthorization",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Soft delete Settings of a vault",
       "jsonName": "softDeleteSettings",
       "name": "SoftDeleteSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SoftDeleteSettings"
+        "nullable": false,
+        "referenceName": "SoftDeleteSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

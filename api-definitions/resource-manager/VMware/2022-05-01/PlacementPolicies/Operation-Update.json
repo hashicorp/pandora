@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "PlacementPolicyId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "PlacementPolicyUpdate"
+    "nullable": false,
+    "referenceName": "PlacementPolicyUpdate",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PlacementPolicy"
+    "nullable": false,
+    "referenceName": "PlacementPolicy",
+    "referenceNameIsCommonType": null
   }
 }

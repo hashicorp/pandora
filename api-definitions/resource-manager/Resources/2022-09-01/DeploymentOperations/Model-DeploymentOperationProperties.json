@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The duration of the operation.",
       "jsonName": "duration",
       "name": "Duration",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the current provisioning operation.",
       "jsonName": "provisioningOperation",
       "name": "ProvisioningOperation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningOperation"
+        "nullable": false,
+        "referenceName": "ProvisioningOperation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The state of the provisioning.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The HTTP request message.",
       "jsonName": "request",
       "name": "Request",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HTTPMessage"
+        "nullable": false,
+        "referenceName": "HTTPMessage",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The HTTP response message.",
       "jsonName": "response",
       "name": "Response",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HTTPMessage"
+        "nullable": false,
+        "referenceName": "HTTPMessage",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Deployment operation service request id.",
       "jsonName": "serviceRequestId",
       "name": "ServiceRequestId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Operation status code from the resource provider. This property may not be set if a response has not yet been received.",
       "jsonName": "statusCode",
       "name": "StatusCode",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Operation status message from the resource provider. This property is optional.  It will only be provided if an error was received from the resource provider.",
       "jsonName": "statusMessage",
       "name": "StatusMessage",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StatusMessage"
+        "nullable": false,
+        "referenceName": "StatusMessage",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,11 +131,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The target resource.",
       "jsonName": "targetResource",
       "name": "TargetResource",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TargetResource"
+        "nullable": false,
+        "referenceName": "TargetResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -121,16 +148,20 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The date and time of the operation.",
       "jsonName": "timestamp",
       "name": "Timestamp",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

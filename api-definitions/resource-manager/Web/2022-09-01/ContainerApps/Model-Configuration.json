@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "ActiveRevisionsMode controls how active revisions are handled for the Container app:\n\u003clist\u003e\u003citem\u003eMultiple: multiple revisions can be active. If no value if provided, this is the default\u003c/item\u003e\u003citem\u003eSingle: Only one revision can be active at a time. Revision weights can not be used in this mode\u003c/item\u003e\u003c/list\u003e",
       "jsonName": "activeRevisionsMode",
       "name": "ActiveRevisionsMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ActiveRevisionsMode"
+        "nullable": false,
+        "referenceName": "ActiveRevisionsMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Ingress configurations.",
       "jsonName": "ingress",
       "name": "Ingress",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Ingress"
+        "nullable": false,
+        "referenceName": "Ingress",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Collection of private container registry credentials for containers used by the Container app",
       "jsonName": "registries",
       "name": "Registries",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RegistryCredentials"
+          "nullable": false,
+          "referenceName": "RegistryCredentials",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -46,14 +57,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Collection of secrets used by a Container app",
       "jsonName": "secrets",
       "name": "Secrets",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Secret"
+          "nullable": false,
+          "referenceName": "Secret",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -61,5 +77,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

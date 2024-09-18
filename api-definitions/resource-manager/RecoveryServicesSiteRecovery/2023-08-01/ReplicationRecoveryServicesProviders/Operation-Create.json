@@ -1,6 +1,7 @@
 {
   "name": "Create",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "ReplicationRecoveryServicesProviderId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "AddRecoveryServicesProviderInput"
+    "nullable": false,
+    "referenceName": "AddRecoveryServicesProviderInput",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "RecoveryServicesProvider"
+    "nullable": false,
+    "referenceName": "RecoveryServicesProvider",
+    "referenceNameIsCommonType": null
   }
 }

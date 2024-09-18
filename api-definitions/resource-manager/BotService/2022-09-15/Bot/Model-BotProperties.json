@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Contains resource all settings defined as key/value pairs.",
       "jsonName": "allSettings",
       "name": "AllSettings",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The hint (e.g. keyVault secret resourceId) on how to fetch the app secret",
       "jsonName": "appPasswordHint",
       "name": "AppPasswordHint",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The CMK encryption status",
       "jsonName": "cmekEncryptionStatus",
       "name": "CmekEncryptionStatus",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The CMK Url",
       "jsonName": "cmekKeyVaultUrl",
       "name": "CmekKeyVaultUrl",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,14 +73,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Collection of channels for which the bot is configured",
       "jsonName": "configuredChannels",
       "name": "ConfiguredChannels",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -76,11 +95,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The description of the bot",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,11 +111,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Application Insights key",
       "jsonName": "developerAppInsightKey",
       "name": "DeveloperAppInsightKey",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,11 +127,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Application Insights Api Key",
       "jsonName": "developerAppInsightsApiKey",
       "name": "DeveloperAppInsightsApiKey",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,11 +143,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Application Insights App Id",
       "jsonName": "developerAppInsightsApplicationId",
       "name": "DeveloperAppInsightsApplicationId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,11 +159,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication.",
       "jsonName": "disableLocalAuth",
       "name": "DisableLocalAuth",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,11 +175,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Name of the bot",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -154,14 +191,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Collection of channels for which the bot is enabled",
       "jsonName": "enabledChannels",
       "name": "EnabledChannels",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -171,11 +213,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The bot's endpoint",
       "jsonName": "endpoint",
       "name": "Endpoint",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -184,11 +229,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The bot's endpoint version",
       "jsonName": "endpointVersion",
       "name": "EndpointVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -197,11 +245,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Icon Url of the bot",
       "jsonName": "iconUrl",
       "name": "IconUrl",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -210,11 +261,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether Cmek is enabled",
       "jsonName": "isCmekEnabled",
       "name": "IsCmekEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -223,11 +277,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether the bot is developerAppInsightsApiKey set",
       "jsonName": "isDeveloperAppInsightsApiKeySet",
       "name": "IsDeveloperAppInsightsApiKeySet",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -236,11 +293,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether the bot is streaming supported",
       "jsonName": "isStreamingSupported",
       "name": "IsStreamingSupported",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -249,14 +309,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Collection of LUIS App Ids",
       "jsonName": "luisAppIds",
       "name": "LuisAppIds",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -266,11 +331,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The LUIS Key",
       "jsonName": "luisKey",
       "name": "LuisKey",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -279,11 +347,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The bot's manifest url",
       "jsonName": "manifestUrl",
       "name": "ManifestUrl",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -292,11 +363,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Token used to migrate non Azure bot to azure subscription",
       "jsonName": "migrationToken",
       "name": "MigrationToken",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -305,11 +379,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Microsoft App Id for the bot",
       "jsonName": "msaAppId",
       "name": "MsaAppId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -318,11 +395,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Microsoft App Managed Identity Resource Id for the bot",
       "jsonName": "msaAppMSIResourceId",
       "name": "MsaAppMSIResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -331,11 +411,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Microsoft App Tenant Id for the bot",
       "jsonName": "msaAppTenantId",
       "name": "MsaAppTenantId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -344,11 +427,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Microsoft App Type for the bot",
       "jsonName": "msaAppType",
       "name": "MsaAppType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MsaAppType"
+        "nullable": false,
+        "referenceName": "MsaAppType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -357,11 +443,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The hint to browser (e.g. protocol handler) on how to open the bot for authoring",
       "jsonName": "openWithHint",
       "name": "OpenWithHint",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -370,14 +459,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Contains resource parameters defined as key/value pairs.",
       "jsonName": "parameters",
       "name": "Parameters",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -387,14 +481,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of Private Endpoint Connections configured for the bot",
       "jsonName": "privateEndpointConnections",
       "name": "PrivateEndpointConnections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PrivateEndpointConnection"
+          "nullable": false,
+          "referenceName": "PrivateEndpointConnection",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -404,11 +503,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provisioning state of the resource",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -417,11 +519,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether the bot is in an isolated network",
       "jsonName": "publicNetworkAccess",
       "name": "PublicNetworkAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublicNetworkAccess"
+        "nullable": false,
+        "referenceName": "PublicNetworkAccess",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -430,11 +535,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Publishing credentials of the resource",
       "jsonName": "publishingCredentials",
       "name": "PublishingCredentials",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -443,11 +551,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The channel schema transformation version for the bot",
       "jsonName": "schemaTransformationVersion",
       "name": "SchemaTransformationVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -456,11 +567,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The storage resourceId for the bot",
       "jsonName": "storageResourceId",
       "name": "StorageResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -469,16 +583,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Tenant Id for the bot",
       "jsonName": "tenantId",
       "name": "TenantId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

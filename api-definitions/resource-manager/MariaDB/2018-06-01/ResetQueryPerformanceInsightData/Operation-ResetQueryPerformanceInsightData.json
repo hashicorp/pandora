@@ -1,6 +1,7 @@
 {
   "name": "ResetQueryPerformanceInsightData",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "ServerId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "QueryPerformanceInsightResetDataResult"
+    "nullable": false,
+    "referenceName": "QueryPerformanceInsightResetDataResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/resetQueryPerformanceInsightData"
 }

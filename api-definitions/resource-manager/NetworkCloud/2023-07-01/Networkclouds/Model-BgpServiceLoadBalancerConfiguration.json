@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The association of IP address pools to the communities and peers, allowing for announcement of IPs.",
       "jsonName": "bgpAdvertisements",
       "name": "BgpAdvertisements",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "BgpAdvertisement"
+          "nullable": false,
+          "referenceName": "BgpAdvertisement",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of additional BgpPeer entities that the Kubernetes cluster will peer with. All peering must be explicitly defined.",
       "jsonName": "bgpPeers",
       "name": "BgpPeers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ServiceLoadBalancerBgpPeer"
+          "nullable": false,
+          "referenceName": "ServiceLoadBalancerBgpPeer",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,11 +47,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The indicator to specify if the load balancer peers with the network fabric.",
       "jsonName": "fabricPeeringEnabled",
       "name": "FabricPeeringEnabled",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FabricPeeringEnabled"
+        "nullable": false,
+        "referenceName": "FabricPeeringEnabled",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,14 +63,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of pools of IP addresses that can be allocated to Load Balancer services.",
       "jsonName": "ipAddressPools",
       "name": "IPAddressPools",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IPAddressPool"
+          "nullable": false,
+          "referenceName": "IPAddressPool",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -65,5 +83,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

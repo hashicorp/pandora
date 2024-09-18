@@ -1,6 +1,7 @@
 {
   "name": "UpdateAuthSettingsV2",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "AppServiceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SiteAuthSettingsV2"
+    "nullable": false,
+    "referenceName": "SiteAuthSettingsV2",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SiteAuthSettingsV2"
+    "nullable": false,
+    "referenceName": "SiteAuthSettingsV2",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/config/authsettingsV2"
 }

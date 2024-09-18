@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The information of AAD security group.",
       "jsonName": "clientGroupInfo",
       "name": "ClientGroupInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClientGroupInfo"
+        "nullable": false,
+        "referenceName": "ClientGroupInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The configurations that need to be overriden.",
       "jsonName": "configurationOverride",
       "name": "ConfigurationOverride",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -31,5 +39,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

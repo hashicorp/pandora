@@ -1,6 +1,7 @@
 {
   "name": "DatabasesForceLinkToReplicationGroup",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     202
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "DatabaseId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ForceLinkParameters"
+    "nullable": false,
+    "referenceName": "ForceLinkParameters",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/forceLinkToReplicationGroup"
 }

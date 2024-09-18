@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of event (i.e. AutoShutdown, Cost)",
       "jsonName": "eventName",
       "name": "EventName",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NotificationChannelEventType"
+        "nullable": false,
+        "referenceName": "NotificationChannelEventType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Properties for the notification in json format.",
       "jsonName": "jsonPayload",
       "name": "JsonPayload",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The binding properties associated with an Azure Machine learning web service.",
       "jsonName": "properties",
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureMachineLearningServiceFunctionBindingProperties"
+        "nullable": false,
+        "referenceName": "AzureMachineLearningServiceFunctionBindingProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +18,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "FunctionBinding",
   "discriminatedTypeValue": "Microsoft.MachineLearningServices",
   "typeHintIn": "Type"

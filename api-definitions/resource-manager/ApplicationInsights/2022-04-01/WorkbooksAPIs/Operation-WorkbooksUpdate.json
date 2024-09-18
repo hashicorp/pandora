@@ -1,6 +1,7 @@
 {
   "name": "WorkbooksUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -22,10 +23,14 @@
   "resourceIdName": "WorkbookId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "WorkbookUpdateParameters"
+    "nullable": false,
+    "referenceName": "WorkbookUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Workbook"
+    "nullable": false,
+    "referenceName": "Workbook",
+    "referenceNameIsCommonType": null
   }
 }

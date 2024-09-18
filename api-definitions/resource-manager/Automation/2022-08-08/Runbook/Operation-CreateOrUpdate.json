@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "RunbookId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "RunbookCreateOrUpdateParameters"
+    "nullable": false,
+    "referenceName": "RunbookCreateOrUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Runbook"
+    "nullable": false,
+    "referenceName": "Runbook",
+    "referenceNameIsCommonType": null
   }
 }

@@ -1,6 +1,7 @@
 {
   "name": "GetProperties",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,6 +22,8 @@
   "resourceIdName": "StorageAccountId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "StorageAccount"
+    "nullable": false,
+    "referenceName": "StorageAccount",
+    "referenceNameIsCommonType": null
   }
 }

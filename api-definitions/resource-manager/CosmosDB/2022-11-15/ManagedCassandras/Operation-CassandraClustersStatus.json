@@ -1,6 +1,7 @@
 {
   "name": "CassandraClustersStatus",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "CassandraClusterId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "CassandraClusterPublicStatus"
+    "nullable": false,
+    "referenceName": "CassandraClusterPublicStatus",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/status"
 }

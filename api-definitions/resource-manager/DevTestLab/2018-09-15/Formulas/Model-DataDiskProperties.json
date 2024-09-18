@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies options to attach a new disk to the virtual machine.",
       "jsonName": "attachNewDataDiskOptions",
       "name": "AttachNewDataDiskOptions",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AttachNewDataDiskOptions"
+        "nullable": false,
+        "referenceName": "AttachNewDataDiskOptions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the existing lab disk id to attach to virtual machine.",
       "jsonName": "existingLabDiskId",
       "name": "ExistingLabDiskId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Caching option for a data disk (i.e. None, ReadOnly, ReadWrite).",
       "jsonName": "hostCaching",
       "name": "HostCaching",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HostCachingOptions"
+        "nullable": false,
+        "referenceName": "HostCachingOptions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

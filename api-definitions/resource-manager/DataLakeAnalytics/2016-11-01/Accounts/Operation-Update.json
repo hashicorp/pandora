@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201,
@@ -11,10 +12,14 @@
   "resourceIdName": "AccountId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "UpdateDataLakeAnalyticsAccountParameters"
+    "nullable": false,
+    "referenceName": "UpdateDataLakeAnalyticsAccountParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DataLakeAnalyticsAccount"
+    "nullable": false,
+    "referenceName": "DataLakeAnalyticsAccount",
+    "referenceNameIsCommonType": null
   }
 }

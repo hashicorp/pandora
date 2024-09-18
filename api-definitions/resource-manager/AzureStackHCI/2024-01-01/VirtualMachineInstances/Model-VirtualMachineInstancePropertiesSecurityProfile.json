@@ -7,7 +7,9 @@
       "name": "EnableTPM",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +18,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the SecurityType of the virtual machine. EnableTPM and SecureBootEnabled must be set to true for SecurityType to function.",
       "jsonName": "securityType",
       "name": "SecurityType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecurityTypes"
+        "nullable": false,
+        "referenceName": "SecurityTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +38,15 @@
       "name": "UefiSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineInstancePropertiesSecurityProfileUefiSettings"
+        "nullable": false,
+        "referenceName": "VirtualMachineInstancePropertiesSecurityProfileUefiSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

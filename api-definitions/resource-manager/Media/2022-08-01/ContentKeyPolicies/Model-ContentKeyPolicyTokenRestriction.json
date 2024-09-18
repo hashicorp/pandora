@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of alternative verification keys.",
       "jsonName": "alternateVerificationKeys",
       "name": "AlternateVerificationKeys",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ContentKeyPolicyRestrictionTokenKey"
+          "nullable": false,
+          "referenceName": "ContentKeyPolicyRestrictionTokenKey",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The audience for the token.",
       "jsonName": "audience",
       "name": "Audience",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The token issuer.",
       "jsonName": "issuer",
       "name": "Issuer",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The OpenID connect discovery document.",
       "jsonName": "openIdConnectDiscoveryDocument",
       "name": "OpenIdConnectDiscoveryDocument",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The primary verification key.",
       "jsonName": "primaryVerificationKey",
       "name": "PrimaryVerificationKey",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContentKeyPolicyRestrictionTokenKey"
+        "nullable": false,
+        "referenceName": "ContentKeyPolicyRestrictionTokenKey",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -72,14 +89,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of required token claims.",
       "jsonName": "requiredClaims",
       "name": "RequiredClaims",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ContentKeyPolicyTokenClaim"
+          "nullable": false,
+          "referenceName": "ContentKeyPolicyTokenClaim",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -89,11 +111,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of token.",
       "jsonName": "restrictionTokenType",
       "name": "RestrictionTokenType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContentKeyPolicyRestrictionTokenType"
+        "nullable": false,
+        "referenceName": "ContentKeyPolicyRestrictionTokenType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -101,6 +126,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ContentKeyPolicyRestriction",
   "discriminatedTypeValue": "#Microsoft.Media.ContentKeyPolicyTokenRestriction",
   "typeHintIn": "OdataType"

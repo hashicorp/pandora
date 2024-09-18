@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Cluster capacity data for compute resources (Memory and GPU).",
       "jsonName": "clusterComputeCapacityInfo",
       "name": "ClusterComputeCapacityInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterCapacityViewData"
+        "nullable": false,
+        "referenceName": "ClusterCapacityViewData",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Cluster capacity data for storage resources (CSV).",
       "jsonName": "clusterStorageCapacityInfo",
       "name": "ClusterStorageCapacityInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterStorageViewData"
+        "nullable": false,
+        "referenceName": "ClusterStorageViewData",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The dictionary of individual node names and node capacities in the cluster.",
       "jsonName": "nodeCapacityInfos",
       "name": "NodeCapacityInfos",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "HostCapacity"
+          "nullable": false,
+          "referenceName": "HostCapacity",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -47,16 +58,20 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Timestamp of request in UTC",
       "jsonName": "timeStamp",
       "name": "TimeStamp",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

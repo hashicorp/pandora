@@ -1,6 +1,7 @@
 {
   "name": "MoveRecoveryPoint",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     202
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "RecoveryPointId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "MoveRPAcrossTiersRequest"
+    "nullable": false,
+    "referenceName": "MoveRPAcrossTiersRequest",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/move"
 }

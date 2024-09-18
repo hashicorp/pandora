@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A rule based on private bytes.",
       "jsonName": "privateBytesInKB",
       "name": "PrivateBytesInKB",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A rule based on total requests.",
       "jsonName": "requests",
       "name": "Requests",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RequestsBasedTrigger"
+        "nullable": false,
+        "referenceName": "RequestsBasedTrigger",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A rule based on request execution time.",
       "jsonName": "slowRequests",
       "name": "SlowRequests",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SlowRequestsBasedTrigger"
+        "nullable": false,
+        "referenceName": "SlowRequestsBasedTrigger",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,14 +51,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A rule based on multiple Slow Requests Rule with path",
       "jsonName": "slowRequestsWithPath",
       "name": "SlowRequestsWithPath",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SlowRequestsBasedTrigger"
+          "nullable": false,
+          "referenceName": "SlowRequestsBasedTrigger",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -59,14 +73,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A rule based on status codes.",
       "jsonName": "statusCodes",
       "name": "StatusCodes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "StatusCodesBasedTrigger"
+          "nullable": false,
+          "referenceName": "StatusCodesBasedTrigger",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -76,14 +95,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A rule based on status codes ranges.",
       "jsonName": "statusCodesRange",
       "name": "StatusCodesRange",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "StatusCodesRangeBasedTrigger"
+          "nullable": false,
+          "referenceName": "StatusCodesRangeBasedTrigger",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -91,5 +115,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

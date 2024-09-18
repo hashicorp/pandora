@@ -1,6 +1,7 @@
 {
   "name": "Delete",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     202,
     204
@@ -10,7 +11,9 @@
   "resourceIdName": "ReplicationProtectionContainerMappingId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "RemoveProtectionContainerMappingInput"
+    "nullable": false,
+    "referenceName": "RemoveProtectionContainerMappingInput",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/remove"
 }

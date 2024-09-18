@@ -7,7 +7,9 @@
       "name": "AutoUpdate",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IntegrationRuntimeAutoUpdate"
+        "nullable": false,
+        "referenceName": "IntegrationRuntimeAutoUpdate",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +18,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The time offset (in hours) in the day, e.g., PT03H is 3 hours. The integration runtime auto update will happen on that time.",
       "jsonName": "updateDelayOffset",
       "name": "UpdateDelayOffset",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

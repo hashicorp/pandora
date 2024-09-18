@@ -1,6 +1,7 @@
 {
   "name": "ListLogs",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -52,7 +53,9 @@
   "resourceIdName": "SyncGroupId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SyncGroupLogProperties"
+    "nullable": false,
+    "referenceName": "SyncGroupLogProperties",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/logs"
 }

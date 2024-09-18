@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The integration runtime capabilities dictionary",
       "jsonName": "capabilities",
       "name": "Capabilities",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Maximum concurrent jobs on the integration runtime node.",
       "jsonName": "concurrentJobsLimit",
       "name": "ConcurrentJobsLimit",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,11 +42,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time at which the integration runtime will expire in ISO8601 format.",
       "jsonName": "expiryTime",
       "name": "ExpiryTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,11 +58,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "URI for the host machine of the integration runtime.",
       "jsonName": "hostServiceUri",
       "name": "HostServiceUri",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -60,11 +74,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether this node is the active dispatcher for integration runtime requests.",
       "jsonName": "isActiveDispatcher",
       "name": "IsActiveDispatcher",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -74,11 +91,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The most recent time at which the integration runtime was connected in ISO8601 format.",
       "jsonName": "lastConnectTime",
       "name": "LastConnectTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -88,11 +108,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The last time for the integration runtime node update end.",
       "jsonName": "lastEndUpdateTime",
       "name": "LastEndUpdateTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,11 +125,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time the node last started up.",
       "jsonName": "lastStartTime",
       "name": "LastStartTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -116,11 +142,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The last time for the integration runtime node update start.",
       "jsonName": "lastStartUpdateTime",
       "name": "LastStartUpdateTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -130,11 +159,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The integration runtime node last stop time.",
       "jsonName": "lastStopTime",
       "name": "LastStopTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -143,11 +175,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The result of the last integration runtime node update.",
       "jsonName": "lastUpdateResult",
       "name": "LastUpdateResult",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IntegrationRuntimeUpdateResult"
+        "nullable": false,
+        "referenceName": "IntegrationRuntimeUpdateResult",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -156,11 +191,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Machine name of the integration runtime node.",
       "jsonName": "machineName",
       "name": "MachineName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -169,11 +207,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The maximum concurrent jobs in this integration runtime.",
       "jsonName": "maxConcurrentJobs",
       "name": "MaxConcurrentJobs",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -182,11 +223,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the integration runtime node.",
       "jsonName": "nodeName",
       "name": "NodeName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -196,11 +240,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time at which the integration runtime node was registered in ISO8601 format.",
       "jsonName": "registerTime",
       "name": "RegisterTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -209,11 +256,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Status of the integration runtime node.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SelfHostedIntegrationRuntimeNodeStatus"
+        "nullable": false,
+        "referenceName": "SelfHostedIntegrationRuntimeNodeStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -222,11 +272,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Version of the integration runtime node.",
       "jsonName": "version",
       "name": "Version",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -235,16 +288,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Status of the integration runtime node version.",
       "jsonName": "versionStatus",
       "name": "VersionStatus",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

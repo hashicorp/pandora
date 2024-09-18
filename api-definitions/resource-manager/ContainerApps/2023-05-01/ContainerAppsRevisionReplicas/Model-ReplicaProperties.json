@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The containers collection under a replica.",
       "jsonName": "containers",
       "name": "Containers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ReplicaContainer"
+          "nullable": false,
+          "referenceName": "ReplicaContainer",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -21,11 +26,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Timestamp describing when the pod was created by controller",
       "jsonName": "createdTime",
       "name": "CreatedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,14 +42,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The init containers collection under a replica.",
       "jsonName": "initContainers",
       "name": "InitContainers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ReplicaContainer"
+          "nullable": false,
+          "referenceName": "ReplicaContainer",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -51,11 +64,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Current running state of the replica",
       "jsonName": "runningState",
       "name": "RunningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContainerAppReplicaRunningState"
+        "nullable": false,
+        "referenceName": "ContainerAppReplicaRunningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -64,16 +80,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The details of replica current running state",
       "jsonName": "runningStateDetails",
       "name": "RunningStateDetails",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Perimeter info for nsp association.",
       "jsonName": "networkSecurityPerimeter",
       "name": "NetworkSecurityPerimeter",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkSecurityPerimeterInfo"
+        "nullable": false,
+        "referenceName": "NetworkSecurityPerimeterInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Nsp profile configuration, access rules and diagnostic settings.",
       "jsonName": "profile",
       "name": "Profile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkSecurityPerimeterConfigurationProfile"
+        "nullable": false,
+        "referenceName": "NetworkSecurityPerimeterConfigurationProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provisioning issues to reflect status when attempting to retrieve nsp profile configuration.",
       "jsonName": "provisioningIssues",
       "name": "ProvisioningIssues",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "NetworkSecurityPerimeterConfigurationIssues"
+          "nullable": false,
+          "referenceName": "NetworkSecurityPerimeterConfigurationIssues",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provisioning state to reflect configuration state and indicate status of nsp profile configuration retrieval.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkSecurityPerimeterConfigProvisioningState"
+        "nullable": false,
+        "referenceName": "NetworkSecurityPerimeterConfigProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,16 +73,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Nsp association name and access mode of association.",
       "jsonName": "resourceAssociation",
       "name": "ResourceAssociation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceAssociation"
+        "nullable": false,
+        "referenceName": "ResourceAssociation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

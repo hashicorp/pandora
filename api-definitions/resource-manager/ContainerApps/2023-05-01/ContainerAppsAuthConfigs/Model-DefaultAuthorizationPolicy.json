@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The configuration settings of the Azure Active Directory allowed applications.",
       "jsonName": "allowedApplications",
       "name": "AllowedApplications",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,16 +25,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The configuration settings of the Azure Active Directory allowed principals.",
       "jsonName": "allowedPrincipals",
       "name": "AllowedPrincipals",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AllowedPrincipals"
+        "nullable": false,
+        "referenceName": "AllowedPrincipals",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

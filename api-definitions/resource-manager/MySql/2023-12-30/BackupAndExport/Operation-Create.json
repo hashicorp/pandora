@@ -1,6 +1,7 @@
 {
   "name": "Create",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "FlexibleServerId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "BackupAndExportRequest"
+    "nullable": false,
+    "referenceName": "BackupAndExportRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BackupAndExportResponse"
+    "nullable": false,
+    "referenceName": "BackupAndExportResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/backupAndExport"
 }

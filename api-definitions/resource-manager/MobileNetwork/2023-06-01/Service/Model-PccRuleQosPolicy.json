@@ -7,7 +7,9 @@
       "name": "AllocationAndRetentionPriorityLevel",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Fiveqi",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "GuaranteedBitRate",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Ambr"
+        "nullable": false,
+        "referenceName": "Ambr",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "MaximumBitRate",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Ambr"
+        "nullable": false,
+        "referenceName": "Ambr",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "PreemptionCapability",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PreemptionCapability"
+        "nullable": false,
+        "referenceName": "PreemptionCapability",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,12 +82,15 @@
       "name": "PreemptionVulnerability",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PreemptionVulnerability"
+        "nullable": false,
+        "referenceName": "PreemptionVulnerability",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

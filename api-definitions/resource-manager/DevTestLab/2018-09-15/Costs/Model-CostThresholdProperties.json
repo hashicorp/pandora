@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether this threshold will be displayed on cost charts.",
       "jsonName": "displayOnChart",
       "name": "DisplayOnChart",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CostThresholdStatus"
+        "nullable": false,
+        "referenceName": "CostThresholdStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the datetime when notifications were last sent for this threshold.",
       "jsonName": "notificationSent",
       "name": "NotificationSent",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The value of the percentage cost threshold.",
       "jsonName": "percentageThreshold",
       "name": "PercentageThreshold",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PercentageCostThresholdProperties"
+        "nullable": false,
+        "referenceName": "PercentageCostThresholdProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether notifications will be sent when this threshold is exceeded.",
       "jsonName": "sendNotificationWhenExceeded",
       "name": "SendNotificationWhenExceeded",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CostThresholdStatus"
+        "nullable": false,
+        "referenceName": "CostThresholdStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,16 +67,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ID of the cost threshold item.",
       "jsonName": "thresholdId",
       "name": "ThresholdId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

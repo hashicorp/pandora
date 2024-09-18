@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": true,
+      "description": "Defines the source of the SSL certificate.",
       "jsonName": "certificateSource",
       "name": "CertificateSource",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CertificateSource"
+        "nullable": false,
+        "referenceName": "CertificateSource",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "TLS protocol version that will be used for Https",
       "jsonName": "minimumTlsVersion",
       "name": "MinimumTlsVersion",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MinimumTlsVersion"
+        "nullable": false,
+        "referenceName": "MinimumTlsVersion",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Defines the TLS extension protocol that is used for secure delivery.",
       "jsonName": "protocolType",
       "name": "ProtocolType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProtocolType"
+        "nullable": false,
+        "referenceName": "ProtocolType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -41,5 +50,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "CertificateSource"
 }

@@ -1,6 +1,7 @@
 {
   "name": "SqlPoolWorkloadClassifierList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "WorkloadGroupId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "WorkloadClassifier"
+    "nullable": false,
+    "referenceName": "WorkloadClassifier",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/workloadClassifiers"
 }

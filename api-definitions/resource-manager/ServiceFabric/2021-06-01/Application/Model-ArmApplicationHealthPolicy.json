@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether warnings are treated with the same severity as errors.",
       "jsonName": "considerWarningAsError",
       "name": "ConsiderWarningAsError",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The health policy used by default to evaluate the health of a service type.",
       "jsonName": "defaultServiceTypeHealthPolicy",
       "name": "DefaultServiceTypeHealthPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ArmServiceTypeHealthPolicy"
+        "nullable": false,
+        "referenceName": "ArmServiceTypeHealthPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The maximum allowed percentage of unhealthy deployed applications. Allowed values are Byte values from zero to 100.\nThe percentage represents the maximum tolerated percentage of deployed applications that can be unhealthy before the application is considered in error.\nThis is calculated by dividing the number of unhealthy deployed applications over the number of nodes where the application is currently deployed on in the cluster.\nThe computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.\n",
       "jsonName": "maxPercentUnhealthyDeployedApplications",
       "name": "MaxPercentUnhealthyDeployedApplications",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,14 +51,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The map with service type health policy per service type name. The map is empty by default.",
       "jsonName": "serviceTypeHealthPolicyMap",
       "name": "ServiceTypeHealthPolicyMap",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ArmServiceTypeHealthPolicy"
+          "nullable": false,
+          "referenceName": "ArmServiceTypeHealthPolicy",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -57,5 +71,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

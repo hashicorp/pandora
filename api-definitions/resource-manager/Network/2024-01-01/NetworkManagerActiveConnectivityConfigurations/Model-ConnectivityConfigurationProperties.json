@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Groups for configuration",
       "jsonName": "appliesToGroups",
       "name": "AppliesToGroups",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ConnectivityGroupItem"
+          "nullable": false,
+          "referenceName": "ConnectivityGroupItem",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Connectivity topology type.",
       "jsonName": "connectivityTopology",
       "name": "ConnectivityTopology",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectivityTopology"
+        "nullable": false,
+        "referenceName": "ConnectivityTopology",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Flag if need to remove current existing peerings.",
       "jsonName": "deleteExistingPeering",
       "name": "DeleteExistingPeering",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeleteExistingPeering"
+        "nullable": false,
+        "referenceName": "DeleteExistingPeering",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A description of the connectivity configuration.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,14 +73,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of hubItems",
       "jsonName": "hubs",
       "name": "Hubs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Hub"
+          "nullable": false,
+          "referenceName": "Hub",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -76,11 +95,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Flag if global mesh is supported.",
       "jsonName": "isGlobal",
       "name": "IsGlobal",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IsGlobal"
+        "nullable": false,
+        "referenceName": "IsGlobal",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -93,7 +115,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,16 +126,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Unique identifier for this resource.",
       "jsonName": "resourceGuid",
       "name": "ResourceGuid",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The application state.",
       "jsonName": "applicationState",
       "name": "ApplicationState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The application type.",
       "jsonName": "applicationType",
       "name": "ApplicationType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +39,9 @@
       "name": "ComputeProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ComputeProfile"
+        "nullable": false,
+        "referenceName": "ComputeProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +50,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The application create date time.",
       "jsonName": "createdDate",
       "name": "CreatedDate",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,14 +66,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of errors.",
       "jsonName": "errors",
       "name": "Errors",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Errors"
+          "nullable": false,
+          "referenceName": "Errors",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -72,14 +88,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of application HTTPS endpoints.",
       "jsonName": "httpsEndpoints",
       "name": "HTTPSEndpoints",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGetHTTPSEndpoint"
+          "nullable": false,
+          "referenceName": "ApplicationGetHTTPSEndpoint",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -89,14 +110,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of install script actions.",
       "jsonName": "installScriptActions",
       "name": "InstallScriptActions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RuntimeScriptAction"
+          "nullable": false,
+          "referenceName": "RuntimeScriptAction",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -106,11 +132,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The marketplace identifier.",
       "jsonName": "marketplaceIdentifier",
       "name": "MarketplaceIdentifier",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -119,14 +148,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The private link configurations.",
       "jsonName": "privateLinkConfigurations",
       "name": "PrivateLinkConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PrivateLinkConfiguration"
+          "nullable": false,
+          "referenceName": "PrivateLinkConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -136,11 +170,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The provisioning state of the application.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -149,14 +186,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of application SSH endpoints.",
       "jsonName": "sshEndpoints",
       "name": "SshEndpoints",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGetEndpoint"
+          "nullable": false,
+          "referenceName": "ApplicationGetEndpoint",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -166,14 +208,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of uninstall script actions.",
       "jsonName": "uninstallScriptActions",
       "name": "UninstallScriptActions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RuntimeScriptAction"
+          "nullable": false,
+          "referenceName": "RuntimeScriptAction",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -181,5 +228,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

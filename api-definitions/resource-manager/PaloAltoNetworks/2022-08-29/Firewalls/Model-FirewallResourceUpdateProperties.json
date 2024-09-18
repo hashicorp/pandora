@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Associated Rulestack",
       "jsonName": "associatedRulestack",
       "name": "AssociatedRulestack",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RulestackDetails"
+        "nullable": false,
+        "referenceName": "RulestackDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "DNS settings for Firewall",
       "jsonName": "dnsSettings",
       "name": "DnsSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DNSSettings"
+        "nullable": false,
+        "referenceName": "DNSSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Frontend settings for Firewall",
       "jsonName": "frontEndSettings",
       "name": "FrontEndSettings",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "FrontendSetting"
+          "nullable": false,
+          "referenceName": "FrontendSetting",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Panorama Managed: Default is False. Default will be CloudSec managed",
       "jsonName": "isPanoramaManaged",
       "name": "IsPanoramaManaged",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BooleanEnum"
+        "nullable": false,
+        "referenceName": "BooleanEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Marketplace details",
       "jsonName": "marketplaceDetails",
       "name": "MarketplaceDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MarketplaceDetails"
+        "nullable": false,
+        "referenceName": "MarketplaceDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Network settings",
       "jsonName": "networkProfile",
       "name": "NetworkProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkProfile"
+        "nullable": false,
+        "referenceName": "NetworkProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "panEtag info",
       "jsonName": "panEtag",
       "name": "PanEtag",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,11 +121,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Panorama Configuration",
       "jsonName": "panoramaConfig",
       "name": "PanoramaConfig",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PanoramaConfig"
+        "nullable": false,
+        "referenceName": "PanoramaConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,16 +137,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Billing plan information.",
       "jsonName": "planData",
       "name": "PlanData",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PlanData"
+        "nullable": false,
+        "referenceName": "PlanData",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

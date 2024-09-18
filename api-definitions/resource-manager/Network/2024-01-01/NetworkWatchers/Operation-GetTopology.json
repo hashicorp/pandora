@@ -1,6 +1,7 @@
 {
   "name": "GetTopology",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "NetworkWatcherId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "TopologyParameters"
+    "nullable": false,
+    "referenceName": "TopologyParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Topology"
+    "nullable": false,
+    "referenceName": "Topology",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/topology"
 }

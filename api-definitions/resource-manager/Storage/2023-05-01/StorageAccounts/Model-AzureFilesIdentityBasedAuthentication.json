@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Required if directoryServiceOptions are AD, optional if they are AADKERB.",
       "jsonName": "activeDirectoryProperties",
       "name": "ActiveDirectoryProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ActiveDirectoryProperties"
+        "nullable": false,
+        "referenceName": "ActiveDirectoryProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Default share permission for users using Kerberos authentication if RBAC role is not assigned.",
       "jsonName": "defaultSharePermission",
       "name": "DefaultSharePermission",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefaultSharePermission"
+        "nullable": false,
+        "referenceName": "DefaultSharePermission",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the directory service used. Note that this enum may be extended in the future.",
       "jsonName": "directoryServiceOptions",
       "name": "DirectoryServiceOptions",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DirectoryServiceOptions"
+        "nullable": false,
+        "referenceName": "DirectoryServiceOptions",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

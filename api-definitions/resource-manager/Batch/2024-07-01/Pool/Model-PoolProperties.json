@@ -7,7 +7,9 @@
       "name": "AllocationState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AllocationState"
+        "nullable": false,
+        "referenceName": "AllocationState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -21,7 +23,9 @@
       "name": "AllocationStateTransitionTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,14 +34,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of application licenses must be a subset of available Batch service application licenses. If a license is requested which is not supported, pool creation will fail.",
       "jsonName": "applicationLicenses",
       "name": "ApplicationLicenses",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -47,14 +56,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Changes to application package references affect all new compute nodes joining the pool, but do not affect compute nodes that are already in the pool until they are rebooted or reimaged. There is a maximum of 10 application package references on any given pool.",
       "jsonName": "applicationPackages",
       "name": "ApplicationPackages",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationPackageReference"
+          "nullable": false,
+          "referenceName": "ApplicationPackageReference",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -64,11 +78,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This property is set only if the pool automatically scales, i.e. autoScaleSettings are used.",
       "jsonName": "autoScaleRun",
       "name": "AutoScaleRun",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutoScaleRun"
+        "nullable": false,
+        "referenceName": "AutoScaleRun",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -77,14 +94,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.\n\nWarning: This property is deprecated and will be removed after February, 2024. Please use the [Azure KeyVault Extension](https://learn.microsoft.com/azure/batch/batch-certificate-migration-guide) instead.",
       "jsonName": "certificates",
       "name": "Certificates",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "CertificateReference"
+          "nullable": false,
+          "referenceName": "CertificateReference",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -99,7 +121,9 @@
       "name": "CreationTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -112,7 +136,9 @@
       "name": "CurrentDedicatedNodes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -125,7 +151,9 @@
       "name": "CurrentLowPriorityNodes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -138,7 +166,9 @@
       "name": "CurrentNodeCommunicationMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NodeCommunicationMode"
+        "nullable": false,
+        "referenceName": "NodeCommunicationMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -151,7 +181,9 @@
       "name": "DeploymentConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeploymentConfiguration"
+        "nullable": false,
+        "referenceName": "DeploymentConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -160,11 +192,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The display name need not be unique and can contain any Unicode characters up to a maximum length of 1024.",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -173,11 +208,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to 'Disabled'.",
       "jsonName": "interNodeCommunication",
       "name": "InterNodeCommunication",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InterNodeCommunicationState"
+        "nullable": false,
+        "referenceName": "InterNodeCommunicationState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -187,11 +225,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "This is the last time at which the pool level data, such as the targetDedicatedNodes or autoScaleSettings, changed. It does not factor in node-level changes such as a compute node changing state.",
       "jsonName": "lastModified",
       "name": "LastModified",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -200,14 +241,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Batch service does not assign any meaning to metadata; it is solely for the use of user code.",
       "jsonName": "metadata",
       "name": "Metadata",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MetadataItem"
+          "nullable": false,
+          "referenceName": "MetadataItem",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -217,14 +263,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This supports Azure Files, NFS, CIFS/SMB, and Blobfuse.",
       "jsonName": "mountConfiguration",
       "name": "MountConfiguration",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MountConfiguration"
+          "nullable": false,
+          "referenceName": "MountConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -238,7 +289,9 @@
       "name": "NetworkConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkConfiguration"
+        "nullable": false,
+        "referenceName": "NetworkConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -251,7 +304,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PoolProvisioningState"
+        "nullable": false,
+        "referenceName": "PoolProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -265,7 +320,9 @@
       "name": "ProvisioningStateTransitionTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -278,7 +335,9 @@
       "name": "ResizeOperationStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResizeOperationStatus"
+        "nullable": false,
+        "referenceName": "ResizeOperationStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -287,14 +346,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The user-defined tags to be associated with the Azure Batch Pool. When specified, these tags are propagated to the backing Azure resources associated with the pool. This property can only be specified when the Batch account was created with the poolAllocationMode property set to 'UserSubscription'.",
       "jsonName": "resourceTags",
       "name": "ResourceTags",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -308,7 +372,9 @@
       "name": "ScaleSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScaleSettings"
+        "nullable": false,
+        "referenceName": "ScaleSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -317,11 +383,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "In an PATCH (update) operation, this property can be set to an empty object to remove the start task from the pool.",
       "jsonName": "startTask",
       "name": "StartTask",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StartTask"
+        "nullable": false,
+        "referenceName": "StartTask",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -330,11 +399,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If omitted, the default value is Default.",
       "jsonName": "targetNodeCommunicationMode",
       "name": "TargetNodeCommunicationMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NodeCommunicationMode"
+        "nullable": false,
+        "referenceName": "NodeCommunicationMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -343,11 +415,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If not specified, the default is spread.",
       "jsonName": "taskSchedulingPolicy",
       "name": "TaskSchedulingPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TaskSchedulingPolicy"
+        "nullable": false,
+        "referenceName": "TaskSchedulingPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -356,11 +431,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The default value is 1. The maximum value is the smaller of 4 times the number of cores of the vmSize of the pool or 256.",
       "jsonName": "taskSlotsPerNode",
       "name": "TaskSlotsPerNode",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -373,7 +451,9 @@
       "name": "UpgradePolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UpgradePolicy"
+        "nullable": false,
+        "referenceName": "UpgradePolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -386,10 +466,14 @@
       "name": "UserAccounts",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "UserAccount"
+          "nullable": false,
+          "referenceName": "UserAccount",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -399,16 +483,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "For information about available VM sizes, see Sizes for Virtual Machines (Linux) (https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) or Sizes for Virtual Machines (Windows) (https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).",
       "jsonName": "vmSize",
       "name": "VMSize",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

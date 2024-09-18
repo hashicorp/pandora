@@ -1,6 +1,7 @@
 {
   "name": "Initiate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     202
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "JitNetworkAccessPolicyId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "JitNetworkAccessPolicyInitiateRequest"
+    "nullable": false,
+    "referenceName": "JitNetworkAccessPolicyInitiateRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "JitNetworkAccessRequest"
+    "nullable": false,
+    "referenceName": "JitNetworkAccessRequest",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/initiate"
 }

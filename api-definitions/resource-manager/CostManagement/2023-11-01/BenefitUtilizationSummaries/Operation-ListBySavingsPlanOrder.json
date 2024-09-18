@@ -1,6 +1,7 @@
 {
   "name": "ListBySavingsPlanOrder",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -32,7 +33,9 @@
   "resourceIdName": "SavingsPlanOrderId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BenefitUtilizationSummary"
+    "nullable": false,
+    "referenceName": "BenefitUtilizationSummary",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.CostManagement/benefitUtilizationSummaries"
 }

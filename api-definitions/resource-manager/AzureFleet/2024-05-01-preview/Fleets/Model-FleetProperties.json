@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Compute Profile to use for running user's workloads.",
       "jsonName": "computeProfile",
       "name": "ComputeProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ComputeProfile"
+        "nullable": false,
+        "referenceName": "ComputeProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The status of the last operation.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Configuration Options for Regular instances in Compute Fleet.",
       "jsonName": "regularPriorityProfile",
       "name": "RegularPriorityProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RegularPriorityProfile"
+        "nullable": false,
+        "referenceName": "RegularPriorityProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Configuration Options for Spot instances in Compute Fleet.",
       "jsonName": "spotPriorityProfile",
       "name": "SpotPriorityProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SpotPriorityProfile"
+        "nullable": false,
+        "referenceName": "SpotPriorityProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -56,11 +68,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Specifies the time at which the Compute Fleet is created.",
       "jsonName": "timeCreated",
       "name": "TimeCreated",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -69,11 +84,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the ID which uniquely identifies a Compute Fleet.",
       "jsonName": "uniqueId",
       "name": "UniqueId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -82,14 +100,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of VM sizes supported for Compute Fleet",
       "jsonName": "vmSizesProfile",
       "name": "VMSizesProfile",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VMSizeProfile"
+          "nullable": false,
+          "referenceName": "VMSizeProfile",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -97,5 +120,6 @@
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

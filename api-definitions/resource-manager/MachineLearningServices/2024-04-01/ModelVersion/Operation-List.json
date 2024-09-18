@@ -1,6 +1,7 @@
 {
   "name": "List",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -112,7 +113,9 @@
   "resourceIdName": "ModelId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ModelVersionResource"
+    "nullable": false,
+    "referenceName": "ModelVersionResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/versions"
 }

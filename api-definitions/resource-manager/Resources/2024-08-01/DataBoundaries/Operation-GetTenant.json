@@ -1,6 +1,7 @@
 {
   "name": "GetTenant",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -8,7 +9,9 @@
   "httpMethod": "GET",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DataBoundaryDefinition"
+    "nullable": false,
+    "referenceName": "DataBoundaryDefinition",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.Resources/dataBoundaries/default"
 }

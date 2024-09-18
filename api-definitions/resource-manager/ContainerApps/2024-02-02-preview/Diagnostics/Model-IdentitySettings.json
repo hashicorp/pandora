@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource ID of a user-assigned managed identity that is assigned to the Container App, or 'system' for system-assigned identity.",
       "jsonName": "identity",
       "name": "Identity",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Use to select the lifecycle stages of a Container App during which the Managed Identity should be available.",
       "jsonName": "lifecycle",
       "name": "Lifecycle",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IdentitySettingsLifeCycle"
+        "nullable": false,
+        "referenceName": "IdentitySettingsLifeCycle",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,7 +7,9 @@
       "name": "Request",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HTTPMessageDiagnostic"
+        "nullable": false,
+        "referenceName": "HTTPMessageDiagnostic",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "Response",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HTTPMessageDiagnostic"
+        "nullable": false,
+        "referenceName": "HTTPMessageDiagnostic",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

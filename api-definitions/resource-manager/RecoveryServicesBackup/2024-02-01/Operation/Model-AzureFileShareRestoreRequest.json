@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Options to resolve copy conflicts.",
       "jsonName": "copyOptions",
       "name": "CopyOptions",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CopyOptions"
+        "nullable": false,
+        "referenceName": "CopyOptions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Type of this recovery.",
       "jsonName": "recoveryType",
       "name": "RecoveryType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RecoveryType"
+        "nullable": false,
+        "referenceName": "RecoveryType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of Source Files/Folders(which need to recover) and TargetFolderPath details",
       "jsonName": "restoreFileSpecs",
       "name": "RestoreFileSpecs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RestoreFileSpecs"
+          "nullable": false,
+          "referenceName": "RestoreFileSpecs",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Restore Type (FullShareRestore or ItemLevelRestore)",
       "jsonName": "restoreRequestType",
       "name": "RestoreRequestType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RestoreRequestType"
+        "nullable": false,
+        "referenceName": "RestoreRequestType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Source storage account ARM Id",
       "jsonName": "sourceResourceId",
       "name": "SourceResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Target File Share Details",
       "jsonName": "targetDetails",
       "name": "TargetDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TargetAFSRestoreInfo"
+        "nullable": false,
+        "referenceName": "TargetAFSRestoreInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -84,6 +104,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "RestoreRequest",
   "discriminatedTypeValue": "AzureFileShareRestoreRequest",
   "typeHintIn": "ObjectType"

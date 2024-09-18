@@ -1,6 +1,7 @@
 {
   "name": "ListByImage",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "ImageId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ImageVersion"
+    "nullable": false,
+    "referenceName": "ImageVersion",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/versions"
 }

@@ -1,6 +1,7 @@
 {
   "name": "ListEventTypes",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "ScopeId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "EventTypesListResult"
+    "nullable": false,
+    "referenceName": "EventTypesListResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.EventGrid/eventTypes"
 }

@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "TopicId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "TopicUpdateParameters"
+    "nullable": false,
+    "referenceName": "TopicUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Topic"
+    "nullable": false,
+    "referenceName": "Topic",
+    "referenceNameIsCommonType": null
   }
 }

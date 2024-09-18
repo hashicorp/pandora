@@ -1,6 +1,7 @@
 {
   "name": "Create",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "AttestationProvidersId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "AttestationServiceCreationParams"
+    "nullable": false,
+    "referenceName": "AttestationServiceCreationParams",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AttestationProviders"
+    "nullable": false,
+    "referenceName": "AttestationProviders",
+    "referenceNameIsCommonType": null
   }
 }

@@ -1,6 +1,7 @@
 {
   "name": "ContainerRegistriesValidate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "ContainerRegistryId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ContainerRegistryProperties"
+    "nullable": false,
+    "referenceName": "ContainerRegistryProperties",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ContainerRegistryValidateResult"
+    "nullable": false,
+    "referenceName": "ContainerRegistryValidateResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/validate"
 }

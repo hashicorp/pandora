@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AdminPropertiesFormat"
+        "nullable": false,
+        "referenceName": "AdminPropertiesFormat",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ActiveBaseSecurityAdminRule",
   "discriminatedTypeValue": "Custom",
   "typeHintIn": "Kind"

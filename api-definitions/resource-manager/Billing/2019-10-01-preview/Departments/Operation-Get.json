@@ -1,6 +1,7 @@
 {
   "name": "Get",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -31,6 +32,8 @@
   "resourceIdName": "DepartmentId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Department"
+    "nullable": false,
+    "referenceName": "Department",
+    "referenceNameIsCommonType": null
   }
 }

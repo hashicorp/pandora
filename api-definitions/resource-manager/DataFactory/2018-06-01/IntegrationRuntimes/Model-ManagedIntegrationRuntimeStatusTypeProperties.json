@@ -4,11 +4,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time at which the integration runtime was created, in ISO8601 format.",
       "jsonName": "createTime",
       "name": "CreateTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,11 +20,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The last operation result that occurred on this integration runtime.",
       "jsonName": "lastOperation",
       "name": "LastOperation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedIntegrationRuntimeOperationResult"
+        "nullable": false,
+        "referenceName": "ManagedIntegrationRuntimeOperationResult",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,14 +36,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of nodes for managed integration runtime.",
       "jsonName": "nodes",
       "name": "Nodes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ManagedIntegrationRuntimeNode"
+          "nullable": false,
+          "referenceName": "ManagedIntegrationRuntimeNode",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -47,14 +58,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The errors that occurred on this integration runtime.",
       "jsonName": "otherErrors",
       "name": "OtherErrors",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ManagedIntegrationRuntimeError"
+          "nullable": false,
+          "referenceName": "ManagedIntegrationRuntimeError",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -62,5 +78,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

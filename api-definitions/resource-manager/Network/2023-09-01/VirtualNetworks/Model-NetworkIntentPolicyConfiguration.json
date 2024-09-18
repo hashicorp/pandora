@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the Network Intent Policy for storing in target subscription.",
       "jsonName": "networkIntentPolicyName",
       "name": "NetworkIntentPolicyName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Source network intent policy.",
       "jsonName": "sourceNetworkIntentPolicy",
       "name": "SourceNetworkIntentPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkIntentPolicy"
+        "nullable": false,
+        "referenceName": "NetworkIntentPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

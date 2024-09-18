@@ -1,6 +1,7 @@
 {
   "name": "UpdateDiagnosticRemoteSupportSettings",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "DataBoxEdgeDeviceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "DiagnosticRemoteSupportSettings"
+    "nullable": false,
+    "referenceName": "DiagnosticRemoteSupportSettings",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DiagnosticRemoteSupportSettings"
+    "nullable": false,
+    "referenceName": "DiagnosticRemoteSupportSettings",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/diagnosticRemoteSupportSettings/default"
 }

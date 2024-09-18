@@ -1,6 +1,7 @@
 {
   "name": "ListInvitations",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "httpMethod": "GET",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ConsumerInvitation"
+    "nullable": false,
+    "referenceName": "ConsumerInvitation",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.DataShare/listInvitations"
 }

@@ -7,7 +7,9 @@
       "name": "AdditionalSignatures",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UefiKeySignatures"
+        "nullable": false,
+        "referenceName": "UefiKeySignatures",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +18,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the template(s) that contains default UEFI key signatures that will be added to the image.",
       "jsonName": "signatureTemplateNames",
       "name": "SignatureTemplateNames",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "UefiSignatureTemplateName"
+          "nullable": false,
+          "referenceName": "UefiSignatureTemplateName",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -31,5 +38,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "NetworkWatchersGetFlowLogStatus",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "NetworkWatcherId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "FlowLogStatusParameters"
+    "nullable": false,
+    "referenceName": "FlowLogStatusParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "FlowLogInformation"
+    "nullable": false,
+    "referenceName": "FlowLogInformation",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/queryFlowLogStatus"
 }

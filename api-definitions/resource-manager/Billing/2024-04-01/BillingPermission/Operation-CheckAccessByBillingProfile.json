@@ -1,6 +1,7 @@
 {
   "name": "CheckAccessByBillingProfile",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,14 +10,20 @@
   "resourceIdName": "BillingProfileId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CheckAccessRequest"
+    "nullable": false,
+    "referenceName": "CheckAccessRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "List",
+    "nullable": false,
     "referenceName": null,
+    "referenceNameIsCommonType": null,
     "nestedItem": {
       "type": "Reference",
-      "referenceName": "CheckAccessResponse"
+      "nullable": false,
+      "referenceName": "CheckAccessResponse",
+      "referenceNameIsCommonType": null
     }
   },
   "uriSuffix": "/checkAccess"

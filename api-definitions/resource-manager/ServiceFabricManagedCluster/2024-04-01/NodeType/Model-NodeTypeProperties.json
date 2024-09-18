@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Additional managed data disks.",
       "jsonName": "additionalDataDisks",
       "name": "AdditionalDataDisks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VMSSDataDisk"
+          "nullable": false,
+          "referenceName": "VMSSDataDisk",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the settings for any additional secondary network interfaces to attach to the node type.",
       "jsonName": "additionalNetworkInterfaceConfigurations",
       "name": "AdditionalNetworkInterfaceConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AdditionalNetworkInterfaceConfiguration"
+          "nullable": false,
+          "referenceName": "AdditionalNetworkInterfaceConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,11 +47,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The range of ports from which cluster assigned port to Service Fabric applications.",
       "jsonName": "applicationPorts",
       "name": "ApplicationPorts",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EndpointRangeDescription"
+        "nullable": false,
+        "referenceName": "EndpointRangeDescription",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,14 +63,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.",
       "jsonName": "capacities",
       "name": "Capacities",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -67,11 +85,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the computer name prefix. Limited to 9 characters. If specified, allows for a longer name to be specified for the node type name.",
       "jsonName": "computerNamePrefix",
       "name": "ComputerNamePrefix",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -80,11 +101,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Managed data disk letter. It can not use the reserved letter C or D and it can not change after created.",
       "jsonName": "dataDiskLetter",
       "name": "DataDiskLetter",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -93,11 +117,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Disk size for the managed disk attached to the vms on the node type in GBs.",
       "jsonName": "dataDiskSizeGB",
       "name": "DataDiskSizeGB",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -106,11 +133,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Managed data disk type. Specifies the storage account type for the managed disk",
       "jsonName": "dataDiskType",
       "name": "DataDiskType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiskType"
+        "nullable": false,
+        "referenceName": "DiskType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -119,11 +149,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the resource id of the DSCP configuration to apply to the node type network interface.",
       "jsonName": "dscpConfigurationId",
       "name": "DscpConfigurationId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -132,11 +165,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies whether the network interface is accelerated networking-enabled.",
       "jsonName": "enableAcceleratedNetworking",
       "name": "EnableAcceleratedNetworking",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -145,11 +181,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enable or disable the Host Encryption for the virtual machines on the node type. This will enable the encryption for all the disks including Resource/Temp disk at host itself. Default: The Encryption at host will be disabled unless this property is set to true for the resource.",
       "jsonName": "enableEncryptionAtHost",
       "name": "EnableEncryptionAtHost",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -158,11 +197,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies whether each node is allocated its own public IPv4 address. This is only supported on secondary node types with custom Load Balancers.",
       "jsonName": "enableNodePublicIP",
       "name": "EnableNodePublicIP",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -171,11 +213,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies whether each node is allocated its own public IPv6 address. This is only supported on secondary node types with custom Load Balancers.",
       "jsonName": "enableNodePublicIPv6",
       "name": "EnableNodePublicIPv6",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -184,11 +229,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies whether the node type should be overprovisioned. It is only allowed for stateless node types.",
       "jsonName": "enableOverProvisioning",
       "name": "EnableOverProvisioning",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -197,11 +245,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The range of ephemeral ports that nodes in this node type should be configured with.",
       "jsonName": "ephemeralPorts",
       "name": "EphemeralPorts",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EndpointRangeDescription"
+        "nullable": false,
+        "referenceName": "EndpointRangeDescription",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -210,11 +261,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the eviction policy for virtual machines in a SPOT node type. Default is Delete.",
       "jsonName": "evictionPolicy",
       "name": "EvictionPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EvictionPolicyType"
+        "nullable": false,
+        "referenceName": "EvictionPolicyType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -223,14 +277,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the node type uses its own frontend configurations instead of the default one for the cluster. This setting can only be specified for non-primary node types and can not be added or removed after the node type is created.",
       "jsonName": "frontendConfigurations",
       "name": "FrontendConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "FrontendConfiguration"
+          "nullable": false,
+          "referenceName": "FrontendConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -240,11 +299,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the full host group resource Id. This property is used for deploying on azure dedicated hosts.",
       "jsonName": "hostGroupId",
       "name": "HostGroupId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -253,11 +315,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the Service Fabric system services for the cluster will run on this node type. This setting cannot be changed once the node type is created.",
       "jsonName": "isPrimary",
       "name": "IsPrimary",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -266,11 +331,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether the node type will be Spot Virtual Machines. Azure will allocate the VMs if there is capacity available and the VMs can be evicted at any time.",
       "jsonName": "isSpotVM",
       "name": "IsSpotVM",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -279,11 +347,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates if the node type can only host Stateless workloads.",
       "jsonName": "isStateless",
       "name": "IsStateless",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -292,11 +363,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates if scale set associated with the node type can be composed of multiple placement groups.",
       "jsonName": "multiplePlacementGroups",
       "name": "MultiplePlacementGroups",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -305,14 +379,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the NAT configuration on default public Load Balancer for the node type. This is only supported for node types use the default public Load Balancer.",
       "jsonName": "natConfigurations",
       "name": "NatConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "NodeTypeNatConfig"
+          "nullable": false,
+          "referenceName": "NodeTypeNatConfig",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -322,11 +401,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the resource id of a NAT Gateway to attach to the subnet of this node type. Node type must use custom load balancer.",
       "jsonName": "natGatewayId",
       "name": "NatGatewayId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -335,14 +417,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Network Security Rules for this node type. This setting can only be specified for node types that are configured with frontend configurations.",
       "jsonName": "networkSecurityRules",
       "name": "NetworkSecurityRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "NetworkSecurityRule"
+          "nullable": false,
+          "referenceName": "NetworkSecurityRule",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -352,14 +439,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.",
       "jsonName": "placementProperties",
       "name": "PlacementProperties",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -369,11 +461,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The provisioning state of the node type resource.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedResourceProvisioningState"
+        "nullable": false,
+        "referenceName": "ManagedResourceProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -382,11 +477,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies whether secure boot should be enabled on the nodeType. Can only be used with TrustedLaunch SecurityType",
       "jsonName": "secureBootEnabled",
       "name": "SecureBootEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -395,11 +493,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the security type of the nodeType. Only Standard and TrustedLaunch are currently supported",
       "jsonName": "securityType",
       "name": "SecurityType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecurityType"
+        "nullable": false,
+        "referenceName": "SecurityType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -408,11 +509,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the service artifact reference id used to set same image version for all virtual machines in the scale set when using 'latest' image version.",
       "jsonName": "serviceArtifactReferenceId",
       "name": "ServiceArtifactReferenceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -421,11 +525,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the time duration after which the platform will not try to restore the VMSS SPOT instances specified as ISO 8601.",
       "jsonName": "spotRestoreTimeout",
       "name": "SpotRestoreTimeout",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -434,11 +541,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the resource id of the subnet for the node type.",
       "jsonName": "subnetId",
       "name": "SubnetId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -447,11 +557,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies whether the use public load balancer. If not specified and the node type doesn't have its own frontend configuration, it will be attached to the default load balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is true, then the frontend has to be an Internal Load Balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is false or not set, then the custom load balancer must include a public load balancer to provide outbound connectivity.",
       "jsonName": "useDefaultPublicLoadBalancer",
       "name": "UseDefaultPublicLoadBalancer",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -460,11 +573,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether to use ephemeral os disk. The sku selected on the vmSize property needs to support this feature.",
       "jsonName": "useEphemeralOSDisk",
       "name": "UseEphemeralOSDisk",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -473,11 +589,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies whether to use the temporary disk for the service fabric data root, in which case no managed data disk will be attached and the temporary disk will be used. It is only allowed for stateless node types.",
       "jsonName": "useTempDataDisk",
       "name": "UseTempDataDisk",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -486,14 +605,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Set of extensions that should be installed onto the virtual machines.",
       "jsonName": "vmExtensions",
       "name": "VMExtensions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VMSSExtension"
+          "nullable": false,
+          "referenceName": "VMSSExtension",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -503,11 +627,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The offer type of the Azure Virtual Machines Marketplace image. For example, UbuntuServer or WindowsServer.",
       "jsonName": "vmImageOffer",
       "name": "VMImageOffer",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -516,11 +643,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use. In the Azure portal, find the marketplace image that you want to use and then click Want to deploy programmatically, Get Started -\u003e. Enter any required information and then click Save.",
       "jsonName": "vmImagePlan",
       "name": "VMImagePlan",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VMImagePlan"
+        "nullable": false,
+        "referenceName": "VMImagePlan",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -529,11 +659,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The publisher of the Azure Virtual Machines Marketplace image. For example, Canonical or MicrosoftWindowsServer.",
       "jsonName": "vmImagePublisher",
       "name": "VMImagePublisher",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -542,11 +675,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the resource id of the vm image. This parameter is used for custom vm image.",
       "jsonName": "vmImageResourceId",
       "name": "VMImageResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -555,11 +691,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The SKU of the Azure Virtual Machines Marketplace image. For example, 14.04.0-LTS or 2012-R2-Datacenter.",
       "jsonName": "vmImageSku",
       "name": "VMImageSku",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -568,11 +707,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The version of the Azure Virtual Machines Marketplace image. A value of 'latest' can be specified to select the latest version of an image. If omitted, the default is 'latest'.",
       "jsonName": "vmImageVersion",
       "name": "VMImageVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -581,11 +723,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The number of nodes in the node type. \u003cbr /\u003e\u003cbr /\u003e**Values:** \u003cbr /\u003e-1 - Use when auto scale rules are configured or sku.capacity is defined \u003cbr /\u003e 0 - Not supported \u003cbr /\u003e \u003e0 - Use for manual scale.",
       "jsonName": "vmInstanceCount",
       "name": "VMInstanceCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -594,11 +739,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Identities to assign to the virtual machine scale set under the node type.",
       "jsonName": "vmManagedIdentity",
       "name": "VMManagedIdentity",
       "objectDefinition": {
         "type": "UserAssignedIdentityList",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -607,14 +755,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The secrets to install in the virtual machines.",
       "jsonName": "vmSecrets",
       "name": "VMSecrets",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VaultSecretGroup"
+          "nullable": false,
+          "referenceName": "VaultSecretGroup",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -624,14 +777,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the actions to be performed on the vms before bootstrapping the service fabric runtime.",
       "jsonName": "vmSetupActions",
       "name": "VMSetupActions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VMSetupAction"
+          "nullable": false,
+          "referenceName": "VMSetupAction",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -641,11 +799,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the resource id of the vm shared galleries image. This parameter is used for custom vm image.",
       "jsonName": "vmSharedGalleryImageId",
       "name": "VMSharedGalleryImageId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -654,11 +815,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The size of virtual machines in the pool. All virtual machines in a pool are the same size. For example, Standard_D3.",
       "jsonName": "vmSize",
       "name": "VMSize",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -667,16 +831,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the availability zones where the node type would span across. If the cluster is not spanning across availability zones, initiates az migration for the cluster.",
       "jsonName": "zones",
       "name": "Zones",
       "objectDefinition": {
         "type": "Zones",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

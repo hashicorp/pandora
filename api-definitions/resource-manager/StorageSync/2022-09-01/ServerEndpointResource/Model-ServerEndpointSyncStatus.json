@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Background data download activity",
       "jsonName": "backgroundDataDownloadActivity",
       "name": "BackgroundDataDownloadActivity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerEndpointBackgroundDataDownloadActivity"
+        "nullable": false,
+        "referenceName": "ServerEndpointBackgroundDataDownloadActivity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Combined Health Status.",
       "jsonName": "combinedHealth",
       "name": "CombinedHealth",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerEndpointHealthState"
+        "nullable": false,
+        "referenceName": "ServerEndpointHealthState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Download sync activity",
       "jsonName": "downloadActivity",
       "name": "DownloadActivity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerEndpointSyncActivityStatus"
+        "nullable": false,
+        "referenceName": "ServerEndpointSyncActivityStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Download Health Status.",
       "jsonName": "downloadHealth",
       "name": "DownloadHealth",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerEndpointHealthState"
+        "nullable": false,
+        "referenceName": "ServerEndpointHealthState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Download Status",
       "jsonName": "downloadStatus",
       "name": "DownloadStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerEndpointSyncSessionStatus"
+        "nullable": false,
+        "referenceName": "ServerEndpointSyncSessionStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -69,11 +84,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Last Updated Timestamp",
       "jsonName": "lastUpdatedTimestamp",
       "name": "LastUpdatedTimestamp",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -82,11 +100,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Offline Data Transfer State",
       "jsonName": "offlineDataTransferStatus",
       "name": "OfflineDataTransferStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerEndpointOfflineDataTransferState"
+        "nullable": false,
+        "referenceName": "ServerEndpointOfflineDataTransferState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -95,11 +116,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Sync activity",
       "jsonName": "syncActivity",
       "name": "SyncActivity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerEndpointSyncActivityState"
+        "nullable": false,
+        "referenceName": "ServerEndpointSyncActivityState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -108,11 +132,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Total count of persistent files not syncing (combined upload + download).",
       "jsonName": "totalPersistentFilesNotSyncingCount",
       "name": "TotalPersistentFilesNotSyncingCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -121,11 +148,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Upload sync activity",
       "jsonName": "uploadActivity",
       "name": "UploadActivity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerEndpointSyncActivityStatus"
+        "nullable": false,
+        "referenceName": "ServerEndpointSyncActivityStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -134,11 +164,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Upload Health Status.",
       "jsonName": "uploadHealth",
       "name": "UploadHealth",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerEndpointHealthState"
+        "nullable": false,
+        "referenceName": "ServerEndpointHealthState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -147,16 +180,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Upload Status",
       "jsonName": "uploadStatus",
       "name": "UploadStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerEndpointSyncSessionStatus"
+        "nullable": false,
+        "referenceName": "ServerEndpointSyncSessionStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

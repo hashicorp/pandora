@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The table data archive retention in days. Calculated as (totalRetentionInDays-retentionInDays)",
       "jsonName": "archiveRetentionInDays",
       "name": "ArchiveRetentionInDays",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The timestamp that table plan was last modified (UTC).",
       "jsonName": "lastPlanModifiedDate",
       "name": "LastPlanModifiedDate",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Instruct the system how to handle and charge the logs ingested to this table.",
       "jsonName": "plan",
       "name": "Plan",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TablePlanEnum"
+        "nullable": false,
+        "referenceName": "TablePlanEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Table's current provisioning state. If set to 'updating', indicates a resource lock due to ongoing operation, forbidding any update to the table until the ongoing operation is concluded.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningStateEnum"
+        "nullable": false,
+        "referenceName": "ProvisioningStateEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Parameters of the restore operation that initiated this table.",
       "jsonName": "restoredLogs",
       "name": "RestoredLogs",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RestoredLogs"
+        "nullable": false,
+        "referenceName": "RestoredLogs",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Search job execution statistics.",
       "jsonName": "resultStatistics",
       "name": "ResultStatistics",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResultStatistics"
+        "nullable": false,
+        "referenceName": "ResultStatistics",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The table retention in days, between 4 and 730. Setting this property to -1 will default to the workspace retention.",
       "jsonName": "retentionInDays",
       "name": "RetentionInDays",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "True - Value originates from workspace retention in days, False - Customer specific.",
       "jsonName": "retentionInDaysAsDefault",
       "name": "RetentionInDaysAsDefault",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,11 +131,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Table schema.",
       "jsonName": "schema",
       "name": "Schema",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Schema"
+        "nullable": false,
+        "referenceName": "Schema",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -120,11 +147,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Parameters of the search job that initiated this table.",
       "jsonName": "searchResults",
       "name": "SearchResults",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SearchResults"
+        "nullable": false,
+        "referenceName": "SearchResults",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -133,11 +163,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The table total retention in days, between 4 and 4383. Setting this property to -1 will default to table retention.",
       "jsonName": "totalRetentionInDays",
       "name": "TotalRetentionInDays",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -146,16 +179,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "True - Value originates from retention in days, False - Customer specific.",
       "jsonName": "totalRetentionInDaysAsDefault",
       "name": "TotalRetentionInDaysAsDefault",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "SettingsRuleList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "WorkspaceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "OutboundRuleBasicResource"
+    "nullable": false,
+    "referenceName": "OutboundRuleBasicResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/outboundRules"
 }

@@ -1,6 +1,7 @@
 {
   "name": "Stop",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     202
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "ScopeId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "StopVirtualMachineOptions"
+    "nullable": false,
+    "referenceName": "StopVirtualMachineOptions",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.ScVmm/virtualMachineInstances/default/stop"
 }

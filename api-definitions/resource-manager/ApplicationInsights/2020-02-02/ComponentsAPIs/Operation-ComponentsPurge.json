@@ -1,6 +1,7 @@
 {
   "name": "ComponentsPurge",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     202
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "ComponentId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ComponentPurgeBody"
+    "nullable": false,
+    "referenceName": "ComponentPurgeBody",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ComponentPurgeResponse"
+    "nullable": false,
+    "referenceName": "ComponentPurgeResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/purge"
 }

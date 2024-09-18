@@ -1,6 +1,7 @@
 {
   "name": "Create",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201,
@@ -11,10 +12,14 @@
   "resourceIdName": "EndpointCustomDomainId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CustomDomainParameters"
+    "nullable": false,
+    "referenceName": "CustomDomainParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "CustomDomain"
+    "nullable": false,
+    "referenceName": "CustomDomain",
+    "referenceNameIsCommonType": null
   }
 }

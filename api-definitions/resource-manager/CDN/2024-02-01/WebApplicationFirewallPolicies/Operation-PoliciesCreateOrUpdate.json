@@ -1,6 +1,7 @@
 {
   "name": "PoliciesCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201,
@@ -11,10 +12,14 @@
   "resourceIdName": "CdnWebApplicationFirewallPolicyId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CdnWebApplicationFirewallPolicy"
+    "nullable": false,
+    "referenceName": "CdnWebApplicationFirewallPolicy",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "CdnWebApplicationFirewallPolicy"
+    "nullable": false,
+    "referenceName": "CdnWebApplicationFirewallPolicy",
+    "referenceNameIsCommonType": null
   }
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The available data types for the connector.",
       "jsonName": "dataTypes",
       "name": "DataTypes",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AlertsDataTypeOfDataConnector"
+        "nullable": false,
+        "referenceName": "AlertsDataTypeOfDataConnector",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The tenant id to connect to, and get the data from.",
       "jsonName": "tenantId",
       "name": "TenantId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

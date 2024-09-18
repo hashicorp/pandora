@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Application logs configuration.",
       "jsonName": "applicationLogs",
       "name": "ApplicationLogs",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationLogsConfig"
+        "nullable": false,
+        "referenceName": "ApplicationLogsConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Detailed error messages configuration.",
       "jsonName": "detailedErrorMessages",
       "name": "DetailedErrorMessages",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnabledConfig"
+        "nullable": false,
+        "referenceName": "EnabledConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Failed requests tracing configuration.",
       "jsonName": "failedRequestsTracing",
       "name": "FailedRequestsTracing",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnabledConfig"
+        "nullable": false,
+        "referenceName": "EnabledConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,16 +51,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "HTTP logs configuration.",
       "jsonName": "httpLogs",
       "name": "HTTPLogs",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HTTPLogsConfig"
+        "nullable": false,
+        "referenceName": "HTTPLogsConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

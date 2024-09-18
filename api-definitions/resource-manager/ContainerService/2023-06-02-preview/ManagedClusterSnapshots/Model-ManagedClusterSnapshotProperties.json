@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "CreationData to be used to specify the source resource ID to create this snapshot.",
       "jsonName": "creationData",
       "name": "CreationData",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CreationData"
+        "nullable": false,
+        "referenceName": "CreationData",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "What the properties will be showed when getting managed cluster snapshot. Those properties are read-only.",
       "jsonName": "managedClusterPropertiesReadOnly",
       "name": "ManagedClusterPropertiesReadOnly",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterPropertiesForSnapshot"
+        "nullable": false,
+        "referenceName": "ManagedClusterPropertiesForSnapshot",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +39,15 @@
       "name": "SnapshotType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SnapshotType"
+        "nullable": false,
+        "referenceName": "SnapshotType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

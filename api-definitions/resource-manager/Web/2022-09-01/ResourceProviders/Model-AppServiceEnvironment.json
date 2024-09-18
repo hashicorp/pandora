@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Custom settings for changing the behavior of the App Service Environment.",
       "jsonName": "clusterSettings",
       "name": "ClusterSettings",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "NameValuePair"
+          "nullable": false,
+          "referenceName": "NameValuePair",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +29,9 @@
       "name": "CustomDnsSuffixConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CustomDnsSuffixConfiguration"
+        "nullable": false,
+        "referenceName": "CustomDnsSuffixConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +40,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Dedicated Host Count",
       "jsonName": "dedicatedHostCount",
       "name": "DedicatedHostCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +56,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "DNS suffix of the App Service Environment.",
       "jsonName": "dnsSuffix",
       "name": "DnsSuffix",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +72,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Scale factor for front-ends.",
       "jsonName": "frontEndScaleFactor",
       "name": "FrontEndScaleFactor",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +88,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Flag that displays whether an ASE has linux workers or not",
       "jsonName": "hasLinuxWorkers",
       "name": "HasLinuxWorkers",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +104,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of IP SSL addresses reserved for the App Service Environment.",
       "jsonName": "ipsslAddressCount",
       "name": "IPsslAddressCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,11 +120,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.",
       "jsonName": "internalLoadBalancingMode",
       "name": "InternalLoadBalancingMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LoadBalancingMode"
+        "nullable": false,
+        "referenceName": "LoadBalancingMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,11 +136,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Maximum number of VMs in the App Service Environment.",
       "jsonName": "maximumNumberOfMachines",
       "name": "MaximumNumberOfMachines",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,11 +152,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of front-end instances.",
       "jsonName": "multiRoleCount",
       "name": "MultiRoleCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,11 +168,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Front-end VM size, e.g. \"Medium\", \"Large\".",
       "jsonName": "multiSize",
       "name": "MultiSize",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -154,7 +188,9 @@
       "name": "NetworkingConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AseV3NetworkingConfiguration"
+        "nullable": false,
+        "referenceName": "AseV3NetworkingConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -163,11 +199,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provisioning state of the App Service Environment.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -176,11 +215,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Current status of the App Service Environment.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HostingEnvironmentStatus"
+        "nullable": false,
+        "referenceName": "HostingEnvironmentStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -189,11 +231,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003ccode\u003etrue\u003c/code\u003e if the App Service Environment is suspended; otherwise, \u003ccode\u003efalse\u003c/code\u003e. The environment can be suspended, e.g. when the management endpoint is no longer available\n (most likely because NSG blocked the incoming traffic).",
       "jsonName": "suspended",
       "name": "Suspended",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -202,11 +247,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether an upgrade is available for this App Service Environment.",
       "jsonName": "upgradeAvailability",
       "name": "UpgradeAvailability",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UpgradeAvailability"
+        "nullable": false,
+        "referenceName": "UpgradeAvailability",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -215,11 +263,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Upgrade Preference",
       "jsonName": "upgradePreference",
       "name": "UpgradePreference",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UpgradePreference"
+        "nullable": false,
+        "referenceName": "UpgradePreference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -228,14 +279,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "User added ip ranges to whitelist on ASE db",
       "jsonName": "userWhitelistedIpRanges",
       "name": "UserWhitelistedIPRanges",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -245,11 +301,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Description of the Virtual Network.",
       "jsonName": "virtualNetwork",
       "name": "VirtualNetwork",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualNetworkProfile"
+        "nullable": false,
+        "referenceName": "VirtualNetworkProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -258,16 +317,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether or not this App Service Environment is zone-redundant.",
       "jsonName": "zoneRedundant",
       "name": "ZoneRedundant",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

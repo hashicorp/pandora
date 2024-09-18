@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The character encoding.",
       "jsonName": "characterEncoding",
       "name": "CharacterEncoding",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The EDIFACT frame setting characterSet.",
       "jsonName": "characterSet",
       "name": "CharacterSet",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EdifactCharacterSet"
+        "nullable": false,
+        "referenceName": "EdifactCharacterSet",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The component separator.",
       "jsonName": "componentSeparator",
       "name": "ComponentSeparator",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The data element separator.",
       "jsonName": "dataElementSeparator",
       "name": "DataElementSeparator",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The EDIFACT frame setting decimal indicator.",
       "jsonName": "decimalPointIndicator",
       "name": "DecimalPointIndicator",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EdifactDecimalIndicator"
+        "nullable": false,
+        "referenceName": "EdifactDecimalIndicator",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The protocol version.",
       "jsonName": "protocolVersion",
       "name": "ProtocolVersion",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The release indicator.",
       "jsonName": "releaseIndicator",
       "name": "ReleaseIndicator",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The repetition separator.",
       "jsonName": "repetitionSeparator",
       "name": "RepetitionSeparator",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -107,11 +131,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The segment terminator.",
       "jsonName": "segmentTerminator",
       "name": "SegmentTerminator",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -120,11 +147,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The EDIFACT frame setting segment terminator suffix.",
       "jsonName": "segmentTerminatorSuffix",
       "name": "SegmentTerminatorSuffix",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SegmentTerminatorSuffix"
+        "nullable": false,
+        "referenceName": "SegmentTerminatorSuffix",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -133,16 +163,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The service code list directory version.",
       "jsonName": "serviceCodeListDirectoryVersion",
       "name": "ServiceCodeListDirectoryVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

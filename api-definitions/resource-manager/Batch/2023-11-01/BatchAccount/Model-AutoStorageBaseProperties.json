@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The authentication mode which the Batch service will use to manage the auto-storage account.",
       "jsonName": "authenticationMode",
       "name": "AuthenticationMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutoStorageAuthenticationMode"
+        "nullable": false,
+        "referenceName": "AutoStorageAuthenticationMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The identity referenced here must be assigned to pools which have compute nodes that need access to auto-storage.",
       "jsonName": "nodeIdentityReference",
       "name": "NodeIdentityReference",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ComputeNodeIdentityReference"
+        "nullable": false,
+        "referenceName": "ComputeNodeIdentityReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource ID of the storage account to be used for auto-storage account.",
       "jsonName": "storageAccountId",
       "name": "StorageAccountId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

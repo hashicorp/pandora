@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Web Application Firewall (WAF) and security policy mapping for the profile upgrade",
       "jsonName": "wafMappingList",
       "name": "WafMappingList",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ProfileChangeSkuWafMapping"
+          "nullable": false,
+          "referenceName": "ProfileChangeSkuWafMapping",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -18,5 +23,6 @@
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

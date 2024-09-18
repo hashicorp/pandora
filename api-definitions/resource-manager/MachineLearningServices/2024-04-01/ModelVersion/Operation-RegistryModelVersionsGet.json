@@ -1,6 +1,7 @@
 {
   "name": "RegistryModelVersionsGet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "RegistryModelVersionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ModelVersionResource"
+    "nullable": false,
+    "referenceName": "ModelVersionResource",
+    "referenceNameIsCommonType": null
   }
 }

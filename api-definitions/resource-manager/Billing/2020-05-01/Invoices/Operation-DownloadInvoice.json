@@ -1,6 +1,7 @@
 {
   "name": "DownloadInvoice",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -22,7 +23,9 @@
   "resourceIdName": "BillingAccountInvoiceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DownloadUrl"
+    "nullable": false,
+    "referenceName": "DownloadUrl",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/download"
 }

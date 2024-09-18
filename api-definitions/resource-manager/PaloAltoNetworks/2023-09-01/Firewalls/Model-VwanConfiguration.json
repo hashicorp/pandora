@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "IP of trust subnet for UDR",
       "jsonName": "ipOfTrustSubnetForUdr",
       "name": "IPOfTrustSubnetForUdr",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IPAddress"
+        "nullable": false,
+        "referenceName": "IPAddress",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Network Virtual Appliance resource ID ",
       "jsonName": "networkVirtualApplianceId",
       "name": "NetworkVirtualApplianceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Trust Subnet",
       "jsonName": "trustSubnet",
       "name": "TrustSubnet",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IPAddressSpace"
+        "nullable": false,
+        "referenceName": "IPAddressSpace",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Untrust Subnet",
       "jsonName": "unTrustSubnet",
       "name": "UnTrustSubnet",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IPAddressSpace"
+        "nullable": false,
+        "referenceName": "IPAddressSpace",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,16 +67,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "vHub Address",
       "jsonName": "vHub",
       "name": "VHub",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IPAddressSpace"
+        "nullable": false,
+        "referenceName": "IPAddressSpace",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "List",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -102,7 +103,9 @@
   "resourceIdName": "FeatureSetId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "FeaturesetVersionResource"
+    "nullable": false,
+    "referenceName": "FeaturesetVersionResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/versions"
 }

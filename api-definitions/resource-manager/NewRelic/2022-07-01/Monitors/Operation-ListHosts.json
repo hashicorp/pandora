@@ -1,6 +1,7 @@
 {
   "name": "ListHosts",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,11 +11,15 @@
   "resourceIdName": "MonitorId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "HostsGetRequest"
+    "nullable": false,
+    "referenceName": "HostsGetRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "VMInfo"
+    "nullable": false,
+    "referenceName": "VMInfo",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/listHosts"
 }

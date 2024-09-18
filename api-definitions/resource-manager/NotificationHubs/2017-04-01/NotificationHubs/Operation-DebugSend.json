@@ -1,6 +1,7 @@
 {
   "name": "DebugSend",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     201
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "NotificationHubId",
   "requestObject": {
     "type": "RawObject",
-    "referenceName": null
+    "nullable": false,
+    "referenceName": null,
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DebugSendResponse"
+    "nullable": false,
+    "referenceName": "DebugSendResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/debugsend"
 }

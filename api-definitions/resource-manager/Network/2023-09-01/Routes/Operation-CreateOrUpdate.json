@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "RouteId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "Route"
+    "nullable": false,
+    "referenceName": "Route",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Route"
+    "nullable": false,
+    "referenceName": "Route",
+    "referenceNameIsCommonType": null
   }
 }

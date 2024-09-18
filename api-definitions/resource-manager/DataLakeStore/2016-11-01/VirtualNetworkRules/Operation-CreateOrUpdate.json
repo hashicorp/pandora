@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "VirtualNetworkRuleId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CreateOrUpdateVirtualNetworkRuleParameters"
+    "nullable": false,
+    "referenceName": "CreateOrUpdateVirtualNetworkRuleParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "VirtualNetworkRule"
+    "nullable": false,
+    "referenceName": "VirtualNetworkRule",
+    "referenceNameIsCommonType": null
   }
 }

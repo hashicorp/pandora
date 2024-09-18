@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The allowed regions for the lab creator to use when creating labs using this lab plan.",
       "jsonName": "allowedRegions",
       "name": "AllowedRegions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +29,9 @@
       "name": "DefaultAutoShutdownProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutoShutdownProfile"
+        "nullable": false,
+        "referenceName": "AutoShutdownProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,7 +44,9 @@
       "name": "DefaultConnectionProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectionProfile"
+        "nullable": false,
+        "referenceName": "ConnectionProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +55,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The lab plan network profile. To enforce lab network policies they must be defined here and cannot be changed when there are existing labs associated with this lab plan.",
       "jsonName": "defaultNetworkProfile",
       "name": "DefaultNetworkProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LabPlanNetworkProfile"
+        "nullable": false,
+        "referenceName": "LabPlanNetworkProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +75,9 @@
       "name": "LinkedLmsInstance",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,7 +90,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,7 +105,9 @@
       "name": "SharedGalleryId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,16 +116,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Support contact information and instructions for users of the lab plan. This information is displayed to lab owners and virtual machine users for all labs in the lab plan.",
       "jsonName": "supportInfo",
       "name": "SupportInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SupportInfo"
+        "nullable": false,
+        "referenceName": "SupportInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

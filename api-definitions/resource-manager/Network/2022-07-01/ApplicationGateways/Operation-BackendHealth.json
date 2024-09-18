@@ -1,6 +1,7 @@
 {
   "name": "BackendHealth",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -22,7 +23,9 @@
   "resourceIdName": "ApplicationGatewayId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ApplicationGatewayBackendHealth"
+    "nullable": false,
+    "referenceName": "ApplicationGatewayBackendHealth",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/backendhealth"
 }

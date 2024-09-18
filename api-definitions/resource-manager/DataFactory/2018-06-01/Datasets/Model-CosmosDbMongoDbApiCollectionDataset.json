@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "CosmosDB (MongoDB API) database dataset properties.",
       "jsonName": "typeProperties",
       "name": "TypeProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CosmosDbMongoDbApiCollectionDatasetTypeProperties"
+        "nullable": false,
+        "referenceName": "CosmosDbMongoDbApiCollectionDatasetTypeProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,6 +18,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "Dataset",
   "discriminatedTypeValue": "CosmosDbMongoDbApiCollection",
   "typeHintIn": "Type"

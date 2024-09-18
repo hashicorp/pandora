@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Aggregate state of Arc Extensions across the nodes in this HCI cluster.",
       "jsonName": "aggregateState",
       "name": "AggregateState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExtensionAggregateState"
+        "nullable": false,
+        "referenceName": "ExtensionAggregateState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Parameters specific to this extension type.",
       "jsonName": "extensionParameters",
       "name": "ExtensionParameters",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExtensionParameters"
+        "nullable": false,
+        "referenceName": "ExtensionParameters",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates if the extension is managed by azure or the user.",
       "jsonName": "managedBy",
       "name": "ManagedBy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExtensionManagedBy"
+        "nullable": false,
+        "referenceName": "ExtensionManagedBy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,14 +51,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "State of Arc Extension in each of the nodes.",
       "jsonName": "perNodeExtensionDetails",
       "name": "PerNodeExtensionDetails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PerNodeExtensionState"
+          "nullable": false,
+          "referenceName": "PerNodeExtensionState",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -59,16 +73,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provisioning state of the Extension proxy resource.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The storage configuration provides the connection details that allows the Time Series Insights service to connect to the customer storage account that is used to store the environment's data.",
       "jsonName": "storageConfiguration",
       "name": "StorageConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Gen2StorageConfigurationInput"
+        "nullable": false,
+        "referenceName": "Gen2StorageConfigurationInput",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of event properties which will be used to define the environment's time series id.",
       "jsonName": "timeSeriesIdProperties",
       "name": "TimeSeriesIdProperties",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TimeSeriesIdProperty"
+          "nullable": false,
+          "referenceName": "TimeSeriesIdProperty",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -33,16 +41,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.",
       "jsonName": "warmStoreConfiguration",
       "name": "WarmStoreConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WarmStoreConfigurationProperties"
+        "nullable": false,
+        "referenceName": "WarmStoreConfigurationProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

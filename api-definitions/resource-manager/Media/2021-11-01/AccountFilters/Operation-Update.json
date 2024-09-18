@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "AccountFilterId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "AccountFilter"
+    "nullable": false,
+    "referenceName": "AccountFilter",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AccountFilter"
+    "nullable": false,
+    "referenceName": "AccountFilter",
+    "referenceNameIsCommonType": null
   }
 }

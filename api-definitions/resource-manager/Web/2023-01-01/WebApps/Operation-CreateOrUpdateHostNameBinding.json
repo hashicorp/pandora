@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdateHostNameBinding",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "HostNameBindingId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "HostNameBinding"
+    "nullable": false,
+    "referenceName": "HostNameBinding",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "HostNameBinding"
+    "nullable": false,
+    "referenceName": "HostNameBinding",
+    "referenceNameIsCommonType": null
   }
 }

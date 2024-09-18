@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     202
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "IotAppId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "AppPatch"
+    "nullable": false,
+    "referenceName": "AppPatch",
+    "referenceNameIsCommonType": null
   }
 }

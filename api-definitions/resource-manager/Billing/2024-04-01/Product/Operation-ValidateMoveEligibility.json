@@ -1,6 +1,7 @@
 {
   "name": "ValidateMoveEligibility",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "ProductId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "MoveProductRequest"
+    "nullable": false,
+    "referenceName": "MoveProductRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "MoveProductEligibilityResult"
+    "nullable": false,
+    "referenceName": "MoveProductEligibilityResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/validateMoveEligibility"
 }

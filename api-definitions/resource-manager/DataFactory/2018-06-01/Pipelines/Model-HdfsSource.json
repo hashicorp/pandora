@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies Distcp-related settings.",
       "jsonName": "distcpSettings",
       "name": "DistcpSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DistcpSettings"
+        "nullable": false,
+        "referenceName": "DistcpSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If true, files under the folder path will be read recursively. Default is true. Type: boolean (or Expression with resultType boolean).",
       "jsonName": "recursive",
       "name": "Recursive",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -28,6 +34,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "CopySource",
   "discriminatedTypeValue": "HdfsSource",
   "typeHintIn": "Type"

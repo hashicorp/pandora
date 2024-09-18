@@ -1,6 +1,7 @@
 {
   "name": "WorkflowRunActionRequestHistoriesList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "ActionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "RequestHistory"
+    "nullable": false,
+    "referenceName": "RequestHistory",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/requestHistories"
 }

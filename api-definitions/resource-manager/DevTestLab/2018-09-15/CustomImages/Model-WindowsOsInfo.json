@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The state of the Windows OS (i.e. NonSysprepped, SysprepRequested, SysprepApplied).",
       "jsonName": "windowsOsState",
       "name": "WindowsOsState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WindowsOsState"
+        "nullable": false,
+        "referenceName": "WindowsOsState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Edge Profile of the resource",
       "jsonName": "edgeProfile",
       "name": "EdgeProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EdgeProfile"
+        "nullable": false,
+        "referenceName": "EdgeProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Local Edge Management Status",
       "jsonName": "localManagementStatus",
       "name": "LocalManagementStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RoleStatus"
+        "nullable": false,
+        "referenceName": "RoleStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Role status.",
       "jsonName": "roleStatus",
       "name": "RoleStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RoleStatus"
+        "nullable": false,
+        "referenceName": "RoleStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

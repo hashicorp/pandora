@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "GatewayId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ApiManagementGatewayUpdateParameters"
+    "nullable": false,
+    "referenceName": "ApiManagementGatewayUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ApiManagementGatewayResource"
+    "nullable": false,
+    "referenceName": "ApiManagementGatewayResource",
+    "referenceNameIsCommonType": null
   }
 }

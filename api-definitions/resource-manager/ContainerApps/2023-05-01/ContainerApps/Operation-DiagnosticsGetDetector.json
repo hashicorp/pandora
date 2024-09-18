@@ -1,6 +1,7 @@
 {
   "name": "DiagnosticsGetDetector",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "DetectorId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Diagnostics"
+    "nullable": false,
+    "referenceName": "Diagnostics",
+    "referenceNameIsCommonType": null
   }
 }

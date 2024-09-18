@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdateSecuritySettings",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     202,
     204
@@ -10,7 +11,9 @@
   "resourceIdName": "DataBoxEdgeDeviceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SecuritySettings"
+    "nullable": false,
+    "referenceName": "SecuritySettings",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/securitySettings/default/update"
 }

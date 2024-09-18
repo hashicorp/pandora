@@ -1,6 +1,7 @@
 {
   "name": "SubscriptionOperationGet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,6 +11,8 @@
   "resourceIdName": "SubscriptionOperationId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SubscriptionCreationResult"
+    "nullable": false,
+    "referenceName": "SubscriptionCreationResult",
+    "referenceNameIsCommonType": null
   }
 }

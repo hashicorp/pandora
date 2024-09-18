@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": true,
+      "description": "[Required] Specifies the type of distribution framework.",
       "jsonName": "distributionType",
       "name": "DistributionType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DistributionType"
+        "nullable": false,
+        "referenceName": "DistributionType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,5 +18,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "DistributionType"
 }

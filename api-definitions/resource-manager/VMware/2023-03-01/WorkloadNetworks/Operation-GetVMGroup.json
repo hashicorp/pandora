@@ -1,6 +1,7 @@
 {
   "name": "GetVMGroup",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "VMGroupId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "WorkloadNetworkVMGroup"
+    "nullable": false,
+    "referenceName": "WorkloadNetworkVMGroup",
+    "referenceNameIsCommonType": null
   }
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "SSH public key certificate used to authenticate with the VM through ssh. The\nkey needs to be at least 2048-bit and in ssh-rsa format. For creating ssh keys,\nsee [Create SSH keys on Linux and Mac for Linux VMs in\nAzure]https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).",
       "jsonName": "keyData",
       "name": "KeyData",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the full path on the created VM where ssh public key is stored. If\nthe file already exists, the specified key is appended to the file. Example:\n/home/user/.ssh/authorized_keys",
       "jsonName": "path",
       "name": "Path",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

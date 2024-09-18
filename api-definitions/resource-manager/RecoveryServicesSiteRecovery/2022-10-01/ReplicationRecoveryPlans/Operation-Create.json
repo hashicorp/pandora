@@ -1,6 +1,7 @@
 {
   "name": "Create",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "ReplicationRecoveryPlanId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CreateRecoveryPlanInput"
+    "nullable": false,
+    "referenceName": "CreateRecoveryPlanInput",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "RecoveryPlan"
+    "nullable": false,
+    "referenceName": "RecoveryPlan",
+    "referenceNameIsCommonType": null
   }
 }

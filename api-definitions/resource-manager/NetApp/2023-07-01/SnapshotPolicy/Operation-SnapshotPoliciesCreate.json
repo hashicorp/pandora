@@ -1,6 +1,7 @@
 {
   "name": "SnapshotPoliciesCreate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "SnapshotPolicyId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SnapshotPolicy"
+    "nullable": false,
+    "referenceName": "SnapshotPolicy",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SnapshotPolicy"
+    "nullable": false,
+    "referenceName": "SnapshotPolicy",
+    "referenceNameIsCommonType": null
   }
 }

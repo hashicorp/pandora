@@ -1,6 +1,7 @@
 {
   "name": "PoliciesCreateOrUpdateByBillingProfile",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,11 +11,15 @@
   "resourceIdName": "BillingProfileId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "BillingProfilePolicy"
+    "nullable": false,
+    "referenceName": "BillingProfilePolicy",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BillingProfilePolicy"
+    "nullable": false,
+    "referenceName": "BillingProfilePolicy",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/policies/default"
 }

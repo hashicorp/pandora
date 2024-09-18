@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "QueueId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SBQueue"
+    "nullable": false,
+    "referenceName": "SBQueue",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SBQueue"
+    "nullable": false,
+    "referenceName": "SBQueue",
+    "referenceNameIsCommonType": null
   }
 }
