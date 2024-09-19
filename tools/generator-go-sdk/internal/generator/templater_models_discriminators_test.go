@@ -114,9 +114,9 @@ func UnmarshalModeOfTransitImplementation(input []byte) (ModeOfTransit, error) {
 		return nil, fmt.Errorf("unmarshaling ModeOfTransit into map[string]interface: %+v", err)
 	}
 
-	value, ok := temp["type"].(string)
-	if !ok {
-		return nil, nil
+	var value string
+	if v, ok := temp["type"]; ok {
+		value = fmt.Sprintf("%v", v)
 	}
 
 	if strings.EqualFold(value, "car") {
@@ -524,10 +524,11 @@ func (s FirstImplementation) MarshalJSON() ([]byte, error) {
 var _ json.Unmarshaler = &FirstImplementation{}
 
 func (s *FirstImplementation) UnmarshalJSON(bytes []byte) error {
-	type alias FirstImplementation
-	var decoded alias
+	var decoded struct {
+		Type string ''json:"type"''
+	}
 	if err := json.Unmarshal(bytes, &decoded); err != nil {
-		return fmt.Errorf("unmarshaling into FirstImplementation: %+v", err)
+		return fmt.Errorf("unmarshaling: %+v", err)
 	}
 
 	s.Type = decoded.Type
