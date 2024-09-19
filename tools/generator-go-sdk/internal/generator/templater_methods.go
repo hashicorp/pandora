@@ -589,6 +589,14 @@ func (c methodsPandoraTemplater) requestOptions() (*string, error) {
 	}
 	if len(c.operation.Options) > 0 {
 		items = append(items, "OptionsObject: options")
+
+		// Look for a RetryFunc option
+		for optionName, option := range c.operation.Options {
+			if option.RetryFunc {
+				items = append(items, fmt.Sprintf("RetryFunc: options.%s", optionName))
+				break
+			}
+		}
 	}
 	if c.operation.FieldContainingPaginationDetails != nil {
 		items = append(items, fmt.Sprintf("Pager: &%sCustomPager{}", c.operationName))
@@ -830,6 +838,12 @@ func (c methodsPandoraTemplater) optionsStruct(data GeneratorData) (*string, err
 	headerAssignments := make([]string, 0)
 
 	for optionName, option := range c.operation.Options {
+		// When the option specifies a RequestRetryFunc, skip normal handling of the option
+		if option.RetryFunc {
+			properties = append(properties, fmt.Sprintf("%s client.RequestRetryFunc", optionName))
+			continue
+		}
+
 		optionType, err := helpers.GolangTypeForSDKOperationOptionObjectDefinition(option.ObjectDefinition)
 		if err != nil {
 			return nil, fmt.Errorf("determining golang type name for option %q's ObjectDefinition: %+v", optionName, err)
