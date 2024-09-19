@@ -180,7 +180,7 @@ func (p pipelineForService) RunImport() error {
 			if len(resource.Paths) > 0 {
 				path = resource.Paths[0].ID()
 			}
-			logging.Warnf("Resource %q with no category was encountered for %q Service (API Version %q) at path: %s", resource.Name, p.service, p.apiVersion, path)
+			logging.Warnf("Resource %q (service %s, version %q) with no category was encountered at path: %s", resource.Name, p.service, p.apiVersion, path)
 		}
 	}
 
