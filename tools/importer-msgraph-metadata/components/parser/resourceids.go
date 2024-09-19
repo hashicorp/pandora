@@ -192,7 +192,7 @@ func (r ResourceId) FullyQualifiedResourceName(suffixQualification *string) (*st
 				}
 			}
 
-			if i == len(r.Segments)+1 {
+			if i == len(r.Segments)-1 {
 				// Explicitly pluralize a $ref segment when the previous segment was a label and plural
 				if segment.Type == SegmentODataReference && segment.Value == "$ref" && r.Segments[i-1].plural {
 					segmentName = normalize.Pluralize(segmentName)
