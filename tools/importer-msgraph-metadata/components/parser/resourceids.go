@@ -62,6 +62,16 @@ func (ri ResourceIds) MatchIdOrAncestor(resourceId ResourceId) (*ResourceIdMatch
 	return nil, false
 }
 
+// ResourceId represents a unique path in Microsoft Graph that represents a resource. Resource IDs comprise a non-zero
+// number of segments, the last of which must always of type SegmentUserValue (i.e. specified by the user).
+// Whilst paths in Microsoft Graph can comprise different types of object identifiers, we currently only support simple
+// SegmentUserValue segments where the entire slug is provided. For example, these two paths are functionally equivalent:
+//
+//	/applications/{id}/federatedIdentityCredentials/{federatedIdentityCredentialId}
+//	/applications(appId='{appId}')/federatedIdentityCredentials/{federatedIdentityCredentialName}
+//
+// however we only support the first style, where the user-provided portion of each SegmentUserValue comprises the entire
+// slug. Complex segments such as `(appId='{appId}')` are not supported at this time.
 type ResourceId struct {
 	Name     string
 	Service  string
@@ -141,7 +151,7 @@ func (r ResourceId) FullyQualifiedResourceName(suffixQualification *string) (*st
 	verb := ""
 	for i, segment := range r.Segments {
 		if segment.Type == SegmentAction || segment.Type == SegmentLabel || segment.Type == SegmentODataReference {
-			newName := normalize.CleanName(segment.Value)
+			segmentName := normalize.CleanName(segment.Value)
 			shouldSingularize := false
 
 			if segment.Type == SegmentLabel {
@@ -153,40 +163,44 @@ func (r ResourceId) FullyQualifiedResourceName(suffixQualification *string) (*st
 					shouldSingularize = false
 				}
 
-				if len(r.Segments) > i+1 && r.Segments[i+1].Type != SegmentUserValue {
-					// Look for a verb match in the next segment, if it exists and is not a SegmentUserValue
-					// Example: in the following ID, we want to _not_ singularize the `jobs` label
-					//          /applications/{applicationId}/synchronization/jobs/validateCredentials
-					if _, ok := normalize.Verbs.Match(normalize.CleanName(r.Segments[i+1].Value)); ok {
+				if len(r.Segments) == i+2 {
+					if r.Segments[i+1].Type != SegmentUserValue {
+						// Look for a verb match in the final segment if is not a SegmentUserValue
+						// Example: in the following ID, we want to _not_ singularize the `jobs` label
+						//          /applications/{applicationId}/synchronization/jobs/validateCredentials
+						if _, ok := normalize.Verbs.Match(normalize.CleanName(r.Segments[i+1].Value)); ok {
+							shouldSingularize = false
+						}
+					}
+
+					if r.Segments[i+1].Type == SegmentODataReference && (r.Segments[i+1].Value == "$count") {
+						// $count indicates a plural entity (noting that this only applies when the current
+						// segment is a label and not user-specified).
 						shouldSingularize = false
 					}
 				}
+			}
 
-				if len(r.Segments) > i+1 && r.Segments[i+1].Type == SegmentODataReference && (r.Segments[i+1].Value == "$count") {
-					// $count indicates a plural entity (noting that this only applies when the current
-					// segment is a label and not user-specified).
+			if i == len(r.Segments)+1 {
+				// Explicitly pluralize a $ref segment when the previous segment was a label and plural
+				if segment.Type == SegmentODataReference && segment.Value == "$ref" && r.Segments[i-1].plural {
+					segmentName = normalize.Pluralize(segmentName)
+					shouldSingularize = false
+				}
+
+				// Note we intentionally match verbs on any segment type, not just SegmentTypeAction
+				if v, ok := normalize.Verbs.Match(segmentName); ok && verb == "" {
+					verb = *v
+					segmentName = segmentName[len(verb):]
 					shouldSingularize = false
 				}
 			}
 
-			// Explicitly pluralize a $ref segment when the previous segment was a label and plural
-			if segment.Type == SegmentODataReference && segment.Value == "$ref" && r.Segments[i-1].plural {
-				newName = normalize.Pluralize(newName)
-				shouldSingularize = false
-			}
-
-			// Note we intentionally match verbs on any segment type, not just SegmentTypeAction
-			if v, ok := normalize.Verbs.Match(newName); ok && verb == "" {
-				verb = *v
-				newName = newName[len(verb):]
-				shouldSingularize = false
-			}
-
 			if shouldSingularize {
-				newName = normalize.Singularize(newName)
+				segmentName = normalize.Singularize(segmentName)
 			}
 
-			name = name + newName
+			name = name + segmentName
 		} else if segment.Type == SegmentUserValue && suffixQualification != nil {
 			name = name + *suffixQualification
 		}
@@ -270,7 +284,7 @@ func (r ResourceId) FindResourceName() (*string, bool) {
 	return r2.FullyQualifiedResourceName(pointer.To(ResourceSuffix))
 }
 
-// FindResourceIdName returns a short name for the ResourceId. This currently has the same behavior as FindResourceName
+// FindResourceIdName returns a short name for the ResourceId. This currently has the same behavior as FullyQualifiedResourceName
 // but may be changed in future if the ResourceId needs to be distinctly named.
 func (r ResourceId) FindResourceIdName() (*string, bool) {
 	name, ok := r.FullyQualifiedResourceName(pointer.To(ResourceIdSuffix))
@@ -378,9 +392,8 @@ func NewResourceId(path string, tags []string) (id ResourceId) {
 
 		if strings.HasPrefix(s, "{") && strings.HasSuffix(s, "}") {
 			value := s[1 : len(s)-1]
-			value = normalize.CleanName(value)
-			field := value
-			value = strings.ToLower(value[0:1]) + value[1:]
+			field := normalize.CleanName(value)
+			value = normalize.CleanNameCamel(value)
 			segment = ResourceIdSegment{
 				Type:  SegmentUserValue,
 				Value: fmt.Sprintf("{%s}", value),

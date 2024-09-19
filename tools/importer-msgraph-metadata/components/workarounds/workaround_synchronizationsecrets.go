@@ -64,7 +64,7 @@ func (workaroundSynchronizationSecrets) Process(apiVersion, serviceName string, 
 			PaginationField: pointer.To("@odata.nextLink"),
 			ResourceId:      resourceId,
 			UriSuffix:       uriSuffix,
-			Responses: parser.Responses{
+			Responses: []parser.Response{
 				{
 					Status:        http.StatusOK,
 					ContentType:   pointer.To("application/json"),

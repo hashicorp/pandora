@@ -21,6 +21,9 @@ func TestDeDuplicate(t *testing.T) {
 		// non-duplicate - not preceding and not from beginning
 		"UserAccountPasswordAccountPolicy": "UserAccountPasswordAccountPolicy",
 
+		// single duplicate word at end of name, so must be retained
+		"UserCountCount": "UserCountCount",
+
 		// duplicate from beginning, but at end of name, so must be retained
 		"SynchronizationSecretKeyStringValuePairSynchronizationSecret": "SynchronizationSecretKeyStringValuePairSynchronizationSecret",
 

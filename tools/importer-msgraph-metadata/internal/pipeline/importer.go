@@ -7,7 +7,6 @@ import (
 	"fmt"
 	"path/filepath"
 
-	"github.com/davecgh/go-spew/spew"
 	"github.com/getkin/kin-openapi/openapi3"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/parser"
@@ -51,7 +50,7 @@ func runImportForVersion(input RunInput, apiVersion, openApiFile, metadataGitSha
 		repo:            input.Repo,
 	}
 
-	logging.Infof("Loading OpenAPI3 definitions for API version %q", apiVersion)
+	logging.Infof("Loading OpenAPI3 definitions for API version %q...", apiVersion)
 	p.spec, err = openapi3.NewLoader().LoadFromFile(filepath.Join(input.MetadataDirectory, openApiFile))
 	if err != nil {
 		return err
@@ -69,7 +68,7 @@ func runImportForVersion(input RunInput, apiVersion, openApiFile, metadataGitSha
 		return err
 	}
 
-	logging.Infof("Applying workarounds for invalid type definitions..")
+	logging.Infof("Applying data workarounds...")
 	if err = workarounds.ApplyWorkarounds(p.apiVersion, p.models, p.constants, p.resourceIds); err != nil {
 		return err
 	}
@@ -157,7 +156,7 @@ func runImportForVersion(input RunInput, apiVersion, openApiFile, metadataGitSha
 }
 
 func (p pipelineForService) RunImport() error {
-	logging.Infof("Parsing resources for %q", p.service)
+	logging.Infof("Parsing resources for %q...", p.service)
 	resources, err := p.parseResources(p.resourceIds, p.models, p.constants)
 	if err != nil {
 		return err
@@ -181,7 +180,7 @@ func (p pipelineForService) RunImport() error {
 			if len(resource.Paths) > 0 {
 				path = resource.Paths[0].ID()
 			}
-			logging.Warnf(spew.Sprintf("Resource with no category was encountered for %q at %q: %#v", p.service, path, *resource))
+			logging.Warnf("Resource %q with no category was encountered for %q Service (API Version %q) at path: %s", resource.Name, p.service, p.apiVersion, path)
 		}
 	}
 

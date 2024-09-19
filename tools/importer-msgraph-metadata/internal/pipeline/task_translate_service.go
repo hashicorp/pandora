@@ -59,15 +59,20 @@ func (p pipelineForService) translateServiceToDataApiSdkTypes() (*sdkModels.Serv
 
 			var requestObject *sdkModels.SDKObjectDefinition
 
-			if operation.RequestModel != nil {
-				schemaName := *operation.RequestModel
+			if operation.RequestModelName != nil {
+				schemaName := *operation.RequestModelName
 				requestObjectIsCommonType := true
 
-				if !p.models.Found(schemaName) {
-					return nil, fmt.Errorf("request model %q was not found for operation: %s", schemaName, operation.Name)
+				var model *parser.Model
+				if operation.RequestModel != nil {
+					model = operation.RequestModel
+				} else if p.models.Found(schemaName) {
+					model = p.models[schemaName]
 				}
 
-				model := p.models[schemaName]
+				if model == nil {
+					return nil, fmt.Errorf("request model %q was not found for operation: %s", schemaName, operation.Name)
+				}
 
 				if !model.Common {
 					requestObjectIsCommonType = false
@@ -75,7 +80,7 @@ func (p pipelineForService) translateServiceToDataApiSdkTypes() (*sdkModels.Serv
 				}
 
 				requestObject = &sdkModels.SDKObjectDefinition{
-					ReferenceName:             pointer.To(normalize.CleanName(*operation.RequestModel)),
+					ReferenceName:             pointer.To(normalize.CleanName(*operation.RequestModelName)),
 					ReferenceNameIsCommonType: &requestObjectIsCommonType,
 					Type:                      sdkModels.ReferenceSDKObjectDefinitionType,
 				}

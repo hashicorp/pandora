@@ -26,6 +26,10 @@ var workarounds = []dataWorkaround{
 // within that service and/or to resource IDs (which are shared across all services). Note that each of these are passed
 // in as maps, so changes propagate to the underlying object.
 var serviceWorkarounds = []serviceWorkaround{
+	// Broad blacklist for incompatible resources
+	workaroundBlacklist{},
+
+	// Service-specific workarounds
 	workaroundSynchronizationSecrets{},
 }
 
