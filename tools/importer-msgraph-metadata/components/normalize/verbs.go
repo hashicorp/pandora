@@ -34,7 +34,8 @@ var Verbs = operationVerbs{
 	"Enable",
 	"End",
 	"Erase",
-	"Export",
+	//"Export", // clashes with `/deviceManagement/reports/exportJobs`
+	"Evaluate",
 	"Extract",
 	"Forward",
 	"Find",

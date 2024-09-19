@@ -5,6 +5,7 @@ package pipeline
 
 import (
 	"fmt"
+	"sort"
 	"strconv"
 	"strings"
 
@@ -19,6 +20,7 @@ const directoryObjectSchemaName = "microsoft.graph.directoryObject"
 
 func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, models parser.Models, constants parser.Constants) (resources parser.Resources, err error) {
 	resources = make(parser.Resources)
+
 	for pathKey, pathItem := range p.spec.Paths {
 		path := strings.Clone(pathKey)
 		operations := pathItem.Operations()
@@ -126,7 +128,7 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 		}
 
 		// Skip this path when the uriSuffix contains a user-specified value. This should ordinarily not occur, but
-		// can happen when no parent resource ID has been matched, for example if a resource ID was blacklisted.
+		// can happen when no resource ID has been matched, for example if a resource ID was blacklisted.
 		if uriSuffix != nil {
 			if uriSuffixParsed := parser.NewResourceId(*uriSuffix, operationTags); uriSuffixParsed.HasUserValue() {
 				logging.Infof(fmt.Sprintf("Skipping URI suffix containing user value in resource %q (service %q, version %q): %q", resourceName, p.service, p.apiVersion, *uriSuffix))
@@ -140,7 +142,7 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 			}
 
 			listOperation := false
-			responses := make(parser.Responses, 0)
+			responses := make([]parser.Response, 0)
 			if operation.Responses != nil {
 				for stat, resp := range operation.Responses {
 					var status int
@@ -303,7 +305,7 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 
 			// Determine prefixes to trim from the operation name
 			prefixesToTrim := []string{
-				normalize.CleanName(p.service),
+				//normalize.CleanName(p.service),
 				normalize.Singularize(normalize.CleanName(p.service)),
 			}
 			if resourceId != nil && uriSuffix == nil {
@@ -349,12 +351,12 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 				operationName = fmt.Sprintf("Get%s", normalize.Singularize(operationName))
 
 			case parser.OperationTypeCreate:
-				if _, ok = normalize.Verbs.Match(shortResourceName); ok {
-					operationName = normalize.Singularize(operationName)
-				} else if lastSegment.Type == parser.SegmentODataReference {
-					operationName = fmt.Sprintf("Add%s", normalize.Singularize(operationName))
-				} else {
-					operationName = fmt.Sprintf("Create%s", normalize.Singularize(operationName))
+				if _, ok = normalize.Verbs.Match(shortResourceName); !ok {
+					if lastSegment.Type == parser.SegmentODataReference {
+						operationName = fmt.Sprintf("Add%s", normalize.Singularize(operationName))
+					} else {
+						operationName = fmt.Sprintf("Create%s", normalize.Singularize(operationName))
+					}
 				}
 
 			case parser.OperationTypeCreateUpdate:
@@ -372,9 +374,9 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 			}
 
 			// Now that we have determined the operation name, we can rename any ad-hoc response models accordingly and
-			// persist them in the global constants or models map. We _might_ have more than one ad-hoc response model,
-			// so for subsequent ones we just append an integer to ensure the resulting SDK code compiles. Ad-hoc
-			// response models are those that are described in the response but don't exist as a formal constant/model.
+			// persist them in the global constants or models map. Though unlikely, we _might_ have more than one ad-hoc
+			// response model, so for any subsequent ones we just append an integer to ensure the resulting SDK code compiles.
+			// Ad-hoc response models are those that are described in the response but don't exist as a formal constant/model.
 			if len(responses) > 0 {
 				usedNames := make(map[string]struct{})
 
@@ -414,6 +416,7 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 
 			// Determine request model
 			var requestContentType, requestModelName *string
+			var requestModel *parser.Model
 			var requestType *parser.DataType
 			if operation.RequestBody != nil && operation.RequestBody.Value != nil {
 				for contentType, content := range operation.RequestBody.Value.Content {
@@ -429,17 +432,12 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 						break
 					}
 
-					// Try to locate model from ref
-					var requestModel *parser.Model
-					if referencedSchemaName := parser.TrimRefPrefix(content.Schema.Ref); referencedSchemaName != "" {
-						if models.Found(referencedSchemaName) {
-							requestModel = models[referencedSchemaName]
-							requestModelName = &referencedSchemaName
-						}
-					}
+					// Try to locate a common model from ref
+					if referencedSchemaName := parser.TrimRefPrefix(content.Schema.Ref); referencedSchemaName != "" && models.Found(referencedSchemaName) {
+						requestModelName = &referencedSchemaName
 
-					// If no model was found, build one
-					if requestModel == nil && content.Schema != nil {
+					} else if content.Schema != nil {
+						// If no model was found, build one
 						requestModelName = pointer.To(fmt.Sprintf("%sRequest", operationName))
 
 						model, constant, err := parser.ModelOrConstant(*requestModelName, content.Schema, false)
@@ -453,7 +451,7 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 							return nil, fmt.Errorf("building request model: received a nil model")
 						}
 
-						models[*requestModelName] = model
+						requestModel = model
 					}
 
 					break
@@ -461,10 +459,10 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 			}
 
 			// Determine request options
-			var requestHeaders *parser.Headers
-			var requestParams *parser.Params
-			headers := make(parser.Headers, 0)
-			params := make(parser.Params, 0)
+			var requestHeaders *[]parser.Header
+			var requestParams *[]parser.Param
+			headers := make([]parser.Header, 0)
+			params := make([]parser.Param, 0)
 			for _, param := range operation.Parameters {
 				if param.Value == nil || param.Value.Schema == nil || param.Value.Schema.Value == nil {
 					continue
@@ -505,16 +503,16 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 			// Construct a description for the operation method
 			descriptionChunks := make([]string, 0)
 			if operation.Summary != "" {
-				descriptionChunks = append(descriptionChunks, operation.Summary)
+				descriptionChunks = append(descriptionChunks, strings.TrimSpace(operation.Summary))
 			}
 			if operation.Description != "" {
-				descriptionChunks = append(descriptionChunks, operation.Description)
+				descriptionChunks = append(descriptionChunks, strings.TrimSpace(operation.Description))
 			}
 
 			// Trim a trailing colon/semicolon from descriptions because they are confusing
 			operationDescription := strings.Join(descriptionChunks, ". ")
-			operationDescription = strings.TrimPrefix(operationDescription, ":")
-			operationDescription = strings.TrimPrefix(operationDescription, ";")
+			operationDescription = strings.TrimSuffix(operationDescription, ":")
+			operationDescription = strings.TrimSuffix(operationDescription, ";")
 
 			resources[resourceName].Operations = append(resources[resourceName].Operations, parser.Operation{
 				Name:               operationName,
@@ -524,7 +522,8 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 				ResourceId:         resourceId,
 				UriSuffix:          uriSuffix,
 				RequestContentType: requestContentType,
-				RequestModel:       requestModelName,
+				RequestModelName:   requestModelName,
+				RequestModel:       requestModel,
 				RequestHeaders:     requestHeaders,
 				RequestParams:      requestParams,
 				RequestType:        requestType,
@@ -565,7 +564,7 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 		}
 	}
 
-	// Clean up categories
+	// Clean up category names
 	for _, resource := range resources {
 		if resource.Service == "" || resource.Category == "" {
 			continue
@@ -584,6 +583,92 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 		// TODO: Figure out whether we can do this safely; causes clobbering in identityGovernance, e.g.
 		// EntitlementManagementAccessPackageResourceRoleScopeClient vs EntitlementManagementAccessPackageAccessPackageResourceRoleScopeClient
 		//resource.Category = normalize.DeDuplicateName(resource.Category)
+	}
+
+	// Look for resources with no operations, as well as duplicate operations. For duplicate operations drop the one with the
+	// shortest path. This can happen when very similar paths resolve to the same resource name, and they have conflicting
+	// operation types. For example, if we get two paths like these...
+	//   /policies/featureRolloutPolicies/{featureRolloutPolicyId}/appliesTo
+	//   /policies/featureRolloutPolicies/{featureRolloutPolicyId}/appliesTo/{directoryObjectId}
+	// ...and they both have a DELETE operation, then these will end up as operations in the same resource, and one of them
+	// will clobber the other when these are persisted as API Definitions. This leads to flapping diffs, since the resources
+	// are read from a map where the order is nondeterministic. Since we cannot support both operations due to this naming
+	// conflict, we'll do the least undesirable thing and pick the one with the longest path, since this choice is deterministic
+	// and the longer path is likely to be more specific and thus provide a more useful operation in the generated SDK.
+	resourcesToDelete := make([]string, 0)
+	for resourceName, resource := range resources {
+		// Skip resources with no operations and mark for deletion
+		if len(resource.Operations) == 0 {
+			resourcesToDelete = append(resourcesToDelete, resourceName)
+			continue
+		}
+
+		// Build a map of operations by name so we can sort through any duplicates per operation name
+		collectedOperations := make(map[string][]parser.Operation)
+		for _, operation := range resource.Operations {
+			if _, ok := collectedOperations[operation.Name]; !ok {
+				collectedOperations[operation.Name] = make([]parser.Operation, 0)
+			}
+			collectedOperations[operation.Name] = append(collectedOperations[operation.Name], operation)
+		}
+
+		newOperations := make([]parser.Operation, 0, len(resource.Operations))
+
+		// Iterate collected operations (grouped by operation name) to find duplicates
+		for _, operations := range collectedOperations {
+			if len(operations) == 1 {
+				newOperations = append(newOperations, operations[0])
+				continue
+			}
+
+			// First sort the operations (having the same name) by path length descending (longest first), and then by the
+			// length of the resource ID name if the paths have equal lengths
+			sort.SliceStable(operations, func(i int, j int) bool {
+				var path1, path2, idName1, idName2 string
+
+				if id := operations[i].ResourceId; id != nil {
+					path1 = id.ID()
+					idName1 = id.Name
+				}
+				if suffix := operations[i].UriSuffix; suffix != nil {
+					path1 += *suffix
+				}
+
+				if id := operations[j].ResourceId; id != nil {
+					path2 = id.ID()
+					idName2 = id.Name
+				}
+				if suffix := operations[j].UriSuffix; suffix != nil {
+					path2 += *suffix
+				}
+
+				if len(path1) > len(path2) {
+					return true
+				}
+
+				return len(idName1) > len(idName2)
+			})
+
+			// Any operations in this slice after the first operation will be duplicates (due to sorting above, operations
+			// with longer paths will be encountered first and thus retained). We are iterating here so that we can log
+			// any dropped operations.
+			for i, operation := range operations {
+				if i > 0 {
+					logging.Infof("Dropping duplicate operation %q (resource %q, service %s, version %q)", operation.Name, resourceName, p.service, p.apiVersion)
+					continue
+				}
+
+				newOperations = append(newOperations, operation)
+			}
+		}
+
+		resource.Operations = newOperations
+	}
+
+	// Delete resources with no operations
+	for _, resourceName := range resourcesToDelete {
+		logging.Infof("Deleting resource %q (service %q, version %q) because it has no operations", resourceName, p.service, p.apiVersion)
+		delete(resources, resourceName)
 	}
 
 	return
