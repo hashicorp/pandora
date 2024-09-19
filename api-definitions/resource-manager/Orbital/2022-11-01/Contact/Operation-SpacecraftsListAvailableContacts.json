@@ -1,6 +1,7 @@
 {
   "name": "SpacecraftsListAvailableContacts",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -11,11 +12,15 @@
   "resourceIdName": "SpacecraftId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ContactParameters"
+    "nullable": false,
+    "referenceName": "ContactParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AvailableContacts"
+    "nullable": false,
+    "referenceName": "AvailableContacts",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/listAvailableContacts"
 }

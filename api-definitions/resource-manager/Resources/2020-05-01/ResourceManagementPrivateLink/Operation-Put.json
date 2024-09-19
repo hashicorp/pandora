@@ -1,6 +1,7 @@
 {
   "name": "Put",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "ResourceManagementPrivateLinkId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ResourceManagementPrivateLinkLocation"
+    "nullable": false,
+    "referenceName": "ResourceManagementPrivateLinkLocation",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ResourceManagementPrivateLink"
+    "nullable": false,
+    "referenceName": "ResourceManagementPrivateLink",
+    "referenceNameIsCommonType": null
   }
 }

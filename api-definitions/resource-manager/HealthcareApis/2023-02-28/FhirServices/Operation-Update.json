@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "FhirServiceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "FhirServicePatchResource"
+    "nullable": false,
+    "referenceName": "FhirServicePatchResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "FhirService"
+    "nullable": false,
+    "referenceName": "FhirService",
+    "referenceNameIsCommonType": null
   }
 }

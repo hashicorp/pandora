@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201,
@@ -11,10 +12,14 @@
   "resourceIdName": "AppServiceEnvironmentId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "AppServiceEnvironmentResource"
+    "nullable": false,
+    "referenceName": "AppServiceEnvironmentResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AppServiceEnvironmentResource"
+    "nullable": false,
+    "referenceName": "AppServiceEnvironmentResource",
+    "referenceNameIsCommonType": null
   }
 }

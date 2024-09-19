@@ -7,7 +7,9 @@
       "name": "AmfId",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AmfId"
+        "nullable": false,
+        "referenceName": "AmfId",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +18,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "5G Temporary Mobile Subscriber Identity",
       "jsonName": "fivegTmsi",
       "name": "FivegTmsi",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,12 +38,15 @@
       "name": "Plmn",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PlmnId"
+        "nullable": false,
+        "referenceName": "PlmnId",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

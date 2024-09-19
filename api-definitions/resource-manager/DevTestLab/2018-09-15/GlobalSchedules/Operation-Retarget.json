@@ -1,6 +1,7 @@
 {
   "name": "Retarget",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,7 +11,9 @@
   "resourceIdName": "ScheduleId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "RetargetScheduleProperties"
+    "nullable": false,
+    "referenceName": "RetargetScheduleProperties",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/retarget"
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Verify client certificate issuer name on the application gateway.",
       "jsonName": "verifyClientCertIssuerDN",
       "name": "VerifyClientCertIssuerDN",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Verify client certificate revocation status.",
       "jsonName": "verifyClientRevocation",
       "name": "VerifyClientRevocation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationGatewayClientRevocationOptions"
+        "nullable": false,
+        "referenceName": "ApplicationGatewayClientRevocationOptions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

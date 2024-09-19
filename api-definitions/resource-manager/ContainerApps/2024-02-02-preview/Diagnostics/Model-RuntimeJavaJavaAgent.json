@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enable java agent injection for the java app.",
       "jsonName": "enabled",
       "name": "Enabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Capabilities on the java logging scenario.",
       "jsonName": "logging",
       "name": "Logging",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RuntimeJavaJavaAgentLogging"
+        "nullable": false,
+        "referenceName": "RuntimeJavaJavaAgentLogging",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "ConfigurationStoresListDeleted",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "SubscriptionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DeletedConfigurationStore"
+    "nullable": false,
+    "referenceName": "DeletedConfigurationStore",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.AppConfiguration/deletedConfigurationStores"
 }

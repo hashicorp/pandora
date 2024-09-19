@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Profile of the HA Proxy load balancer.",
       "jsonName": "loadBalancerProfile",
       "name": "LoadBalancerProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkProfileLoadBalancerProfile"
+        "nullable": false,
+        "referenceName": "NetworkProfileLoadBalancerProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Network policy used for building Kubernetes network. Possible values include: 'calico'.",
       "jsonName": "networkPolicy",
       "name": "NetworkPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkPolicy"
+        "nullable": false,
+        "referenceName": "NetworkPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A CIDR notation IP Address range from which to assign pod IPs.",
       "jsonName": "podCidr",
       "name": "PodCidr",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

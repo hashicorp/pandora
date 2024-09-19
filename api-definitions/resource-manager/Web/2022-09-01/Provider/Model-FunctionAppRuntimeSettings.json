@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Application Insights settings associated with the minor version.",
       "jsonName": "appInsightsSettings",
       "name": "AppInsightsSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AppInsightsWebAppStackSettings"
+        "nullable": false,
+        "referenceName": "AppInsightsWebAppStackSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Application settings associated with the minor version.",
       "jsonName": "appSettingsDictionary",
       "name": "AppSettingsDictionary",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -34,11 +42,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "End-of-life date for the minor version.",
       "jsonName": "endOfLifeDate",
       "name": "EndOfLifeDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,11 +58,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "GitHub Actions settings associated with the minor version.",
       "jsonName": "gitHubActionSettings",
       "name": "GitHubActionSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GitHubActionWebAppStackSettings"
+        "nullable": false,
+        "referenceName": "GitHubActionWebAppStackSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -60,11 +74,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003ccode\u003etrue\u003c/code\u003e if the stack version is auto-updated; otherwise, \u003ccode\u003efalse\u003c/code\u003e.",
       "jsonName": "isAutoUpdate",
       "name": "IsAutoUpdate",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -73,11 +90,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003ccode\u003etrue\u003c/code\u003e if the minor version the default; otherwise, \u003ccode\u003efalse\u003c/code\u003e.",
       "jsonName": "isDefault",
       "name": "IsDefault",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -86,11 +106,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003ccode\u003etrue\u003c/code\u003e if the stack is deprecated; otherwise, \u003ccode\u003efalse\u003c/code\u003e.",
       "jsonName": "isDeprecated",
       "name": "IsDeprecated",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -99,11 +122,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003ccode\u003etrue\u003c/code\u003e if the minor version is early-access; otherwise, \u003ccode\u003efalse\u003c/code\u003e.",
       "jsonName": "isEarlyAccess",
       "name": "IsEarlyAccess",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -112,11 +138,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003ccode\u003etrue\u003c/code\u003e if the stack should be hidden; otherwise, \u003ccode\u003efalse\u003c/code\u003e.",
       "jsonName": "isHidden",
       "name": "IsHidden",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -125,11 +154,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003ccode\u003etrue\u003c/code\u003e if the stack is in preview; otherwise, \u003ccode\u003efalse\u003c/code\u003e.",
       "jsonName": "isPreview",
       "name": "IsPreview",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -138,11 +170,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003ccode\u003etrue\u003c/code\u003e if remote debugging is supported for the stack; otherwise, \u003ccode\u003efalse\u003c/code\u003e.",
       "jsonName": "remoteDebuggingSupported",
       "name": "RemoteDebuggingSupported",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -151,11 +186,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Function App stack minor version (runtime only).",
       "jsonName": "runtimeVersion",
       "name": "RuntimeVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -164,11 +202,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Configuration settings associated with the minor version.",
       "jsonName": "siteConfigPropertiesDictionary",
       "name": "SiteConfigPropertiesDictionary",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SiteConfigPropertiesDictionary"
+        "nullable": false,
+        "referenceName": "SiteConfigPropertiesDictionary",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -177,14 +218,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of supported Functions extension versions.",
       "jsonName": "supportedFunctionsExtensionVersions",
       "name": "SupportedFunctionsExtensionVersions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -192,5 +238,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

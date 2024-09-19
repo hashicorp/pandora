@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Additional information for this backup item.",
       "jsonName": "extendedInfo",
       "name": "ExtendedInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureIaaSVMProtectedItemExtendedInfo"
+        "nullable": false,
+        "referenceName": "AzureIaaSVMProtectedItemExtendedInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +23,9 @@
       "name": "ExtendedProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExtendedProperties"
+        "nullable": false,
+        "referenceName": "ExtendedProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +34,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Friendly name of the VM represented by this backup item.",
       "jsonName": "friendlyName",
       "name": "FriendlyName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,14 +50,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Health details on this backup item.",
       "jsonName": "healthDetails",
       "name": "HealthDetails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ResourceHealthDetails"
+          "nullable": false,
+          "referenceName": "ResourceHealthDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -59,11 +72,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Health status of protected item.",
       "jsonName": "healthStatus",
       "name": "HealthStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HealthStatus"
+        "nullable": false,
+        "referenceName": "HealthStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,14 +88,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Health details of different KPIs",
       "jsonName": "kpisHealths",
       "name": "KpisHealths",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "KPIResourceHealthDetails"
+          "nullable": false,
+          "referenceName": "KPIResourceHealthDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -89,11 +110,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Last backup operation status.",
       "jsonName": "lastBackupStatus",
       "name": "LastBackupStatus",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -103,11 +127,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Timestamp of the last backup operation on this backup item.",
       "jsonName": "lastBackupTime",
       "name": "LastBackupTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -116,11 +143,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Data ID of the protected item.",
       "jsonName": "protectedItemDataId",
       "name": "ProtectedItemDataId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -129,11 +159,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Backup state of this backup item.",
       "jsonName": "protectionState",
       "name": "ProtectionState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProtectionState"
+        "nullable": false,
+        "referenceName": "ProtectionState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -142,11 +175,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Backup status of this backup item.",
       "jsonName": "protectionStatus",
       "name": "ProtectionStatus",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -155,11 +191,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Fully qualified ARM ID of the virtual machine represented by this item.",
       "jsonName": "virtualMachineId",
       "name": "VirtualMachineId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -167,6 +206,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ProtectedItem",
   "discriminatedTypeValue": "AzureIaaSVMProtectedItem",
   "typeHintIn": "ProtectedItemType"

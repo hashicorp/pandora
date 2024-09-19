@@ -1,6 +1,7 @@
 {
   "name": "ExecuteSiteDetector",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -41,7 +42,9 @@
   "resourceIdName": "DiagnosticDetectorId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DiagnosticDetectorResponse"
+    "nullable": false,
+    "referenceName": "DiagnosticDetectorResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/execute"
 }

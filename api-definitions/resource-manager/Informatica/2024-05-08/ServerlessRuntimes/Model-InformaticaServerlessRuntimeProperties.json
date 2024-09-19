@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "String KV pairs indicating Advanced custom properties.",
       "jsonName": "advancedCustomProperties",
       "name": "AdvancedCustomProperties",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AdvancedCustomProperties"
+          "nullable": false,
+          "referenceName": "AdvancedCustomProperties",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Application type of the Serverless Runtime environment.",
       "jsonName": "applicationType",
       "name": "ApplicationType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationType"
+        "nullable": false,
+        "referenceName": "ApplicationType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Compute units of the serverless runtime.",
       "jsonName": "computeUnits",
       "name": "ComputeUnits",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "description of the serverless runtime.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Serverless Execution timeout",
       "jsonName": "executionTimeout",
       "name": "ExecutionTimeout",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Platform type of the Serverless Runtime.",
       "jsonName": "platform",
       "name": "Platform",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PlatformType"
+        "nullable": false,
+        "referenceName": "PlatformType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provisioning State of the resource.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,11 +121,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Serverless account creation location",
       "jsonName": "serverlessAccountLocation",
       "name": "ServerlessAccountLocation",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -111,11 +137,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Serverless config properties",
       "jsonName": "serverlessRuntimeConfig",
       "name": "ServerlessRuntimeConfig",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerlessRuntimeConfigProperties"
+        "nullable": false,
+        "referenceName": "ServerlessRuntimeConfigProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,11 +153,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Informatica Serverless Network profile properties.",
       "jsonName": "serverlessRuntimeNetworkProfile",
       "name": "ServerlessRuntimeNetworkProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerlessRuntimeNetworkProfile"
+        "nullable": false,
+        "referenceName": "ServerlessRuntimeNetworkProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,14 +169,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Serverless Runtime Tags",
       "jsonName": "serverlessRuntimeTags",
       "name": "ServerlessRuntimeTags",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ServerlessRuntimeTag"
+          "nullable": false,
+          "referenceName": "ServerlessRuntimeTag",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -154,11 +191,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Serverless runtime user context properties",
       "jsonName": "serverlessRuntimeUserContextProperties",
       "name": "ServerlessRuntimeUserContextProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerlessRuntimeUserContextProperties"
+        "nullable": false,
+        "referenceName": "ServerlessRuntimeUserContextProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -167,16 +207,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Supplementary file location.",
       "jsonName": "supplementaryFileLocation",
       "name": "SupplementaryFileLocation",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

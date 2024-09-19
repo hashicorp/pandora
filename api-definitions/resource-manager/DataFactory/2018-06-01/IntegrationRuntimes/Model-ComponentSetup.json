@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Install 3rd party component type properties.",
       "jsonName": "typeProperties",
       "name": "TypeProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LicensedComponentSetupTypeProperties"
+        "nullable": false,
+        "referenceName": "LicensedComponentSetupTypeProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,6 +18,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "CustomSetupBase",
   "discriminatedTypeValue": "ComponentSetup",
   "typeHintIn": "Type"

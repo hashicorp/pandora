@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of managed instance pairs in the failover group.",
       "jsonName": "managedInstancePairs",
       "name": "ManagedInstancePairs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ManagedInstancePairInfo"
+          "nullable": false,
+          "referenceName": "ManagedInstancePairInfo",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Partner region information for the failover group.",
       "jsonName": "partnerRegions",
       "name": "PartnerRegions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PartnerRegionInfo"
+          "nullable": false,
+          "referenceName": "PartnerRegionInfo",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -37,11 +47,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Read-only endpoint of the failover group instance.",
       "jsonName": "readOnlyEndpoint",
       "name": "ReadOnlyEndpoint",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InstanceFailoverGroupReadOnlyEndpoint"
+        "nullable": false,
+        "referenceName": "InstanceFailoverGroupReadOnlyEndpoint",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,11 +63,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Read-write endpoint of the failover group instance.",
       "jsonName": "readWriteEndpoint",
       "name": "ReadWriteEndpoint",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InstanceFailoverGroupReadWriteEndpoint"
+        "nullable": false,
+        "referenceName": "InstanceFailoverGroupReadWriteEndpoint",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -63,11 +79,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Local replication role of the failover group instance.",
       "jsonName": "replicationRole",
       "name": "ReplicationRole",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InstanceFailoverGroupReplicationRole"
+        "nullable": false,
+        "referenceName": "InstanceFailoverGroupReplicationRole",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,11 +95,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Replication state of the failover group instance.",
       "jsonName": "replicationState",
       "name": "ReplicationState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,16 +111,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Type of the geo-secondary instance. Set 'Standby' if the instance is used as a DR option only.",
       "jsonName": "secondaryType",
       "name": "SecondaryType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecondaryInstanceType"
+        "nullable": false,
+        "referenceName": "SecondaryInstanceType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

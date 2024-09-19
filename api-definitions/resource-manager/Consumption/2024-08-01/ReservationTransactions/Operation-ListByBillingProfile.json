@@ -1,6 +1,7 @@
 {
   "name": "ListByBillingProfile",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -22,7 +23,9 @@
   "resourceIdName": "BillingProfileId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ModernReservationTransaction"
+    "nullable": false,
+    "referenceName": "ModernReservationTransaction",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.Consumption/reservationTransactions"
 }

@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of available minor versions of the data product resource.",
       "jsonName": "availableMinorVersions",
       "name": "AvailableMinorVersions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Resource links which exposed to the customer to query the data.",
       "jsonName": "consumptionEndpoints",
       "name": "ConsumptionEndpoints",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConsumptionEndpointsProperties"
+        "nullable": false,
+        "referenceName": "ConsumptionEndpointsProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Current configured minor version of the data product resource.",
       "jsonName": "currentMinorVersion",
       "name": "CurrentMinorVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Customer managed encryption key details for data product.",
       "jsonName": "customerEncryptionKey",
       "name": "CustomerEncryptionKey",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EncryptionKeyDetails"
+        "nullable": false,
+        "referenceName": "EncryptionKeyDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Flag to enable customer managed key encryption for data product.",
       "jsonName": "customerManagedKeyEncryptionEnabled",
       "name": "CustomerManagedKeyEncryptionEnabled",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ControlState"
+        "nullable": false,
+        "referenceName": "ControlState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Documentation link for the data product based on definition file.",
       "jsonName": "documentation",
       "name": "Documentation",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Key vault url.",
       "jsonName": "keyVaultUrl",
       "name": "KeyVaultUrl",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,11 +121,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Major version of data product.",
       "jsonName": "majorVersion",
       "name": "MajorVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -111,11 +137,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Managed resource group configuration.",
       "jsonName": "managedResourceGroupConfiguration",
       "name": "ManagedResourceGroupConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedResourceGroupConfiguration"
+        "nullable": false,
+        "referenceName": "ManagedResourceGroupConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,11 +153,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Network rule set for data product.",
       "jsonName": "networkacls",
       "name": "Networkacls",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataProductNetworkAcls"
+        "nullable": false,
+        "referenceName": "DataProductNetworkAcls",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,14 +169,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of name or email associated with data product resource deployment.",
       "jsonName": "owners",
       "name": "Owners",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -154,11 +191,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Flag to enable or disable private link for data product resource.",
       "jsonName": "privateLinksEnabled",
       "name": "PrivateLinksEnabled",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ControlState"
+        "nullable": false,
+        "referenceName": "ControlState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -167,11 +207,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Product name of data product.",
       "jsonName": "product",
       "name": "Product",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -180,11 +223,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Latest provisioning state  of data product.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -193,11 +239,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Flag to enable or disable public access of data product resource.",
       "jsonName": "publicNetworkAccess",
       "name": "PublicNetworkAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ControlState"
+        "nullable": false,
+        "referenceName": "ControlState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -206,11 +255,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Data product publisher name.",
       "jsonName": "publisher",
       "name": "Publisher",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -219,11 +271,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Purview account url for data product to connect to.",
       "jsonName": "purviewAccount",
       "name": "PurviewAccount",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -232,11 +287,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Purview collection url for data product to connect to.",
       "jsonName": "purviewCollection",
       "name": "PurviewCollection",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -245,11 +303,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Flag to enable or disable redundancy for data product.",
       "jsonName": "redundancy",
       "name": "Redundancy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ControlState"
+        "nullable": false,
+        "referenceName": "ControlState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -258,16 +319,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource GUID property of the data product resource.",
       "jsonName": "resourceGuid",
       "name": "ResourceGuid",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

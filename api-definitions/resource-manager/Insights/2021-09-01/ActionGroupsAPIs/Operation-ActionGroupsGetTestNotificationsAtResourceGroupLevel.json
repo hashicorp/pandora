@@ -1,6 +1,7 @@
 {
   "name": "ActionGroupsGetTestNotificationsAtResourceGroupLevel",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "ProviderNotificationStatusId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "TestNotificationDetailsResponse"
+    "nullable": false,
+    "referenceName": "TestNotificationDetailsResponse",
+    "referenceNameIsCommonType": null
   }
 }

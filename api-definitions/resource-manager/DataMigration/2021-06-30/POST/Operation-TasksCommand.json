@@ -1,6 +1,7 @@
 {
   "name": "TasksCommand",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "TaskId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CommandProperties"
+    "nullable": false,
+    "referenceName": "CommandProperties",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "CommandProperties"
+    "nullable": false,
+    "referenceName": "CommandProperties",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/command"
 }

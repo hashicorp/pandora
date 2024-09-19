@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Application logs to blob storage configuration.",
       "jsonName": "azureBlobStorage",
       "name": "AzureBlobStorage",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureBlobStorageApplicationLogsConfig"
+        "nullable": false,
+        "referenceName": "AzureBlobStorageApplicationLogsConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Application logs to azure table storage configuration.",
       "jsonName": "azureTableStorage",
       "name": "AzureTableStorage",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureTableStorageApplicationLogsConfig"
+        "nullable": false,
+        "referenceName": "AzureTableStorageApplicationLogsConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Application logs to file system configuration.",
       "jsonName": "fileSystem",
       "name": "FileSystem",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FileSystemApplicationLogsConfig"
+        "nullable": false,
+        "referenceName": "FileSystemApplicationLogsConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

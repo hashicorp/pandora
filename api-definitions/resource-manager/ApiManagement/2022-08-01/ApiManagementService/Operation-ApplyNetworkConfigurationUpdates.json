@@ -1,6 +1,7 @@
 {
   "name": "ApplyNetworkConfigurationUpdates",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "ServiceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ApiManagementServiceApplyNetworkConfigurationParameters"
+    "nullable": false,
+    "referenceName": "ApiManagementServiceApplyNetworkConfigurationParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ApiManagementServiceResource"
+    "nullable": false,
+    "referenceName": "ApiManagementServiceResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/applynetworkconfigurationupdates"
 }

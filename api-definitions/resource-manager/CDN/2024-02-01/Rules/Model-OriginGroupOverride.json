@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Protocol this rule will use when forwarding traffic to backends.",
       "jsonName": "forwardingProtocol",
       "name": "ForwardingProtocol",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ForwardingProtocol"
+        "nullable": false,
+        "referenceName": "ForwardingProtocol",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "defines the OriginGroup that would override the DefaultOriginGroup on route.",
       "jsonName": "originGroup",
       "name": "OriginGroup",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceReference"
+        "nullable": false,
+        "referenceName": "ResourceReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

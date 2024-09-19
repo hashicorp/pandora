@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Boolean indicating whether static routes on this connection are automatically propagate to route tables which this connection propagates to.",
       "jsonName": "propagateStaticRoutes",
       "name": "PropagateStaticRoutes",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Parameter determining whether NVA in spoke vnet is bypassed for traffic with destination in spoke.",
       "jsonName": "vnetLocalRouteOverrideCriteria",
       "name": "VnetLocalRouteOverrideCriteria",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VnetLocalRouteOverrideCriteria"
+        "nullable": false,
+        "referenceName": "VnetLocalRouteOverrideCriteria",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

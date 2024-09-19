@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Address prefixes in the CIDR format for inbound rules",
       "jsonName": "addressPrefixes",
       "name": "AddressPrefixes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Direction of Access Rule",
       "jsonName": "direction",
       "name": "Direction",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NspAccessRuleDirection"
+        "nullable": false,
+        "referenceName": "NspAccessRuleDirection",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,14 +41,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "FQDN for outbound rules",
       "jsonName": "fullyQualifiedDomainNames",
       "name": "FullyQualifiedDomainNames",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,14 +63,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "NetworkSecurityPerimeters for inbound rules",
       "jsonName": "networkSecurityPerimeters",
       "name": "NetworkSecurityPerimeters",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "NetworkSecurityPerimeter"
+          "nullable": false,
+          "referenceName": "NetworkSecurityPerimeter",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -67,14 +85,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Subscriptions for inbound rules",
       "jsonName": "subscriptions",
       "name": "Subscriptions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "NspAccessRulePropertiesSubscriptionsInlined"
+          "nullable": false,
+          "referenceName": "NspAccessRulePropertiesSubscriptionsInlined",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -82,5 +105,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

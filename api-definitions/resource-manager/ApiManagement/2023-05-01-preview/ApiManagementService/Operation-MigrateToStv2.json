@@ -1,6 +1,7 @@
 {
   "name": "MigrateToStv2",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "ServiceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "MigrateToStv2Contract"
+    "nullable": false,
+    "referenceName": "MigrateToStv2Contract",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ApiManagementServiceResource"
+    "nullable": false,
+    "referenceName": "ApiManagementServiceResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/migrateToStv2"
 }

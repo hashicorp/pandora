@@ -1,6 +1,7 @@
 {
   "name": "Create",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,6 +11,8 @@
   "resourceIdName": "VersionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ArchiveVersion"
+    "nullable": false,
+    "referenceName": "ArchiveVersion",
+    "referenceNameIsCommonType": null
   }
 }

@@ -1,6 +1,7 @@
 {
   "name": "GetSlot",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "SlotId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Site"
+    "nullable": false,
+    "referenceName": "Site",
+    "referenceNameIsCommonType": null
   }
 }

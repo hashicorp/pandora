@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Has definition for data in this report config.",
       "jsonName": "dataSet",
       "name": "DataSet",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReportConfigDataset"
+        "nullable": false,
+        "referenceName": "ReportConfigDataset",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If true, report includes monetary commitment.",
       "jsonName": "includeMonetaryCommitment",
       "name": "IncludeMonetaryCommitment",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Has time period for pulling data for the report.",
       "jsonName": "timePeriod",
       "name": "TimePeriod",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReportConfigTimePeriod"
+        "nullable": false,
+        "referenceName": "ReportConfigTimePeriod",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The time frame for pulling data for the report. If custom, then a specific time period must be provided.",
       "jsonName": "timeframe",
       "name": "Timeframe",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReportTimeframeType"
+        "nullable": false,
+        "referenceName": "ReportTimeframeType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -55,16 +67,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of the report. Usage represents actual usage, forecast represents forecasted data and UsageAndForecast represents both usage and forecasted data. Actual usage and forecasted data can be differentiated based on dates.",
       "jsonName": "type",
       "name": "Type",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReportType"
+        "nullable": false,
+        "referenceName": "ReportType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

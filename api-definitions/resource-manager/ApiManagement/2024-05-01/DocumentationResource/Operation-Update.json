@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,10 +22,14 @@
   "resourceIdName": "DocumentationId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "DocumentationUpdateContract"
+    "nullable": false,
+    "referenceName": "DocumentationUpdateContract",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DocumentationContract"
+    "nullable": false,
+    "referenceName": "DocumentationContract",
+    "referenceNameIsCommonType": null
   }
 }

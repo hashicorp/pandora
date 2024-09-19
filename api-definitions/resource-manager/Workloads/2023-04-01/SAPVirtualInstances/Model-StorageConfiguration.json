@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The properties of the transport directory attached to the VIS. The default for transportFileShareConfiguration is the createAndMount flow if storage configuration is missing.",
       "jsonName": "transportFileShareConfiguration",
       "name": "TransportFileShareConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FileShareConfiguration"
+        "nullable": false,
+        "referenceName": "FileShareConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

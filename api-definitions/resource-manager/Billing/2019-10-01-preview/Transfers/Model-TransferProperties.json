@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ID of the billing account to which the product is billed after the transfer request is completed.",
       "jsonName": "billingAccountId",
       "name": "BillingAccountId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ID of the billing profile to which the product will be billed after the transfer.",
       "jsonName": "billingProfileId",
       "name": "BillingProfileId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The email ID of the user who canceled the transfer request.",
       "jsonName": "canceledBy",
       "name": "CanceledBy",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -43,11 +52,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time at which the transfer request was created.",
       "jsonName": "creationTime",
       "name": "CreationTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -56,14 +68,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Detailed transfer status.",
       "jsonName": "detailedTransferStatus",
       "name": "DetailedTransferStatus",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DetailedTransferStatus"
+          "nullable": false,
+          "referenceName": "DetailedTransferStatus",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -74,11 +91,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time at which the transfer request expires.",
       "jsonName": "expirationTime",
       "name": "ExpirationTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -87,11 +107,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of customer who sent the transfer request.",
       "jsonName": "initiatorCustomerType",
       "name": "InitiatorCustomerType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -100,11 +123,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The email ID of the user who sent the transfer request.",
       "jsonName": "initiatorEmailId",
       "name": "InitiatorEmailId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -113,11 +139,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ID of the invoice section to which the product is billed after the transfer request is completed.",
       "jsonName": "invoiceSectionId",
       "name": "InvoiceSectionId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -127,11 +156,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time at which the transfer request was last modified.",
       "jsonName": "lastModifiedTime",
       "name": "LastModifiedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -140,11 +172,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The email ID of the user to whom the transfer request was sent.",
       "jsonName": "recipientEmailId",
       "name": "RecipientEmailId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -153,11 +188,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Optional MPN ID of the reseller for transfer requests that are sent from a Microsoft Partner Agreement billing account.",
       "jsonName": "resellerId",
       "name": "ResellerId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -166,11 +204,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Optional name of the reseller for transfer requests that are sent from Microsoft Partner Agreement billing account.",
       "jsonName": "resellerName",
       "name": "ResellerName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -179,16 +220,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Overall transfer status.",
       "jsonName": "transferStatus",
       "name": "TransferStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TransferStatus"
+        "nullable": false,
+        "referenceName": "TransferStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

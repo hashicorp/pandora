@@ -1,6 +1,7 @@
 {
   "name": "ConfigurationsCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "ScopedFluxConfigurationId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "FluxConfiguration"
+    "nullable": false,
+    "referenceName": "FluxConfiguration",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "FluxConfiguration"
+    "nullable": false,
+    "referenceName": "FluxConfiguration",
+    "referenceNameIsCommonType": null
   }
 }

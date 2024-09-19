@@ -1,6 +1,7 @@
 {
   "name": "Get",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "IntegrationServiceEnvironmentId",
   "responseObject": {
     "type": "Dictionary",
+    "nullable": false,
     "referenceName": null,
+    "referenceNameIsCommonType": null,
     "nestedItem": {
       "type": "Reference",
-      "referenceName": "IntegrationServiceEnvironmentSubnetNetworkHealth"
+      "nullable": false,
+      "referenceName": "IntegrationServiceEnvironmentSubnetNetworkHealth",
+      "referenceNameIsCommonType": null
     }
   },
   "uriSuffix": "/health/network"

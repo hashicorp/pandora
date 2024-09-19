@@ -1,6 +1,7 @@
 {
   "name": "List",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "ExpressRouteCircuitPeeringId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PeerExpressRouteCircuitConnection"
+    "nullable": false,
+    "referenceName": "PeerExpressRouteCircuitConnection",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/peerConnections"
 }

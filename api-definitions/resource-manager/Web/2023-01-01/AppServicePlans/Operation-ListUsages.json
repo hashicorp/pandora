@@ -1,6 +1,7 @@
 {
   "name": "ListUsages",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -22,7 +23,9 @@
   "resourceIdName": "AppServicePlanId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "CsmUsageQuota"
+    "nullable": false,
+    "referenceName": "CsmUsageQuota",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/usages"
 }

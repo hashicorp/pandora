@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Anomaly Security ML Analytics Settings properties",
       "jsonName": "properties",
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AnomalySecurityMLAnalyticsSettingsProperties"
+        "nullable": false,
+        "referenceName": "AnomalySecurityMLAnalyticsSettingsProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +18,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "SecurityMLAnalyticsSetting",
   "discriminatedTypeValue": "Anomaly",
   "typeHintIn": "Kind"

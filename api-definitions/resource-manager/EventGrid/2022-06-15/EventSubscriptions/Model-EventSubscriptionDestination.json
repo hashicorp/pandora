@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": true,
+      "description": "Type of the endpoint for the event subscription destination.",
       "jsonName": "endpointType",
       "name": "EndpointType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EndpointType"
+        "nullable": false,
+        "referenceName": "EndpointType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,5 +18,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "EndpointType"
 }

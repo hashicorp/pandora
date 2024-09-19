@@ -1,6 +1,7 @@
 {
   "name": "RoleBindingsList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "KubernetesClusterId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "TrustedAccessRoleBinding"
+    "nullable": false,
+    "referenceName": "TrustedAccessRoleBinding",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/trustedAccessRoleBindings"
 }

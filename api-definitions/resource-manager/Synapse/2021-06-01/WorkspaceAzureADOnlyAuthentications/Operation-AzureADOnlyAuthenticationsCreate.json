@@ -1,6 +1,7 @@
 {
   "name": "AzureADOnlyAuthenticationsCreate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201,
@@ -11,11 +12,15 @@
   "resourceIdName": "WorkspaceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "AzureADOnlyAuthentication"
+    "nullable": false,
+    "referenceName": "AzureADOnlyAuthentication",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AzureADOnlyAuthentication"
+    "nullable": false,
+    "referenceName": "AzureADOnlyAuthentication",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/azureADOnlyAuthentications/default"
 }

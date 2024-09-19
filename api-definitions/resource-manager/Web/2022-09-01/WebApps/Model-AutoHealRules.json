@@ -7,7 +7,9 @@
       "name": "Actions",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutoHealActions"
+        "nullable": false,
+        "referenceName": "AutoHealActions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "Triggers",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutoHealTriggers"
+        "nullable": false,
+        "referenceName": "AutoHealTriggers",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

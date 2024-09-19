@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The provisioning state, which only appears in the response.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +23,9 @@
       "name": "PublishingProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GalleryArtifactPublishingProfileBase"
+        "nullable": false,
+        "referenceName": "GalleryArtifactPublishingProfileBase",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +38,9 @@
       "name": "ReplicationStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReplicationStatus"
+        "nullable": false,
+        "referenceName": "ReplicationStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,12 +53,15 @@
       "name": "StorageProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GalleryImageVersionStorageProfile"
+        "nullable": false,
+        "referenceName": "GalleryImageVersionStorageProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

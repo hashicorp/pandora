@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "VirtualHardDiskId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "VirtualHardDisksUpdateRequest"
+    "nullable": false,
+    "referenceName": "VirtualHardDisksUpdateRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "VirtualHardDisks"
+    "nullable": false,
+    "referenceName": "VirtualHardDisks",
+    "referenceNameIsCommonType": null
   }
 }

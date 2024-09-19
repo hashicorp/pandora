@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The indication of whether this network will or will not perform IP address management and allocate IP addresses when attached.",
       "jsonName": "ipamEnabled",
       "name": "IPamEnabled",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "L3NetworkConfigurationIPamEnabled"
+        "nullable": false,
+        "referenceName": "L3NetworkConfigurationIPamEnabled",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource ID of the network that is being configured for attachment.",
       "jsonName": "networkId",
       "name": "NetworkId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The indicator of how this network will be utilized by the Kubernetes cluster.",
       "jsonName": "pluginType",
       "name": "PluginType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KubernetesPluginType"
+        "nullable": false,
+        "referenceName": "KubernetesPluginType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

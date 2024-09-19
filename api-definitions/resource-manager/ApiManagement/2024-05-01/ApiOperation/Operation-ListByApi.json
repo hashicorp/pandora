@@ -1,6 +1,7 @@
 {
   "name": "ListByApi",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -52,7 +53,9 @@
   "resourceIdName": "ApiId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "OperationContract"
+    "nullable": false,
+    "referenceName": "OperationContract",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/operations"
 }

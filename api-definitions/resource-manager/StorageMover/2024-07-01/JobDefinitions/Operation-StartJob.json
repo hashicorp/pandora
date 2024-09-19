@@ -1,6 +1,7 @@
 {
   "name": "StartJob",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "JobDefinitionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "JobRunResourceId"
+    "nullable": false,
+    "referenceName": "JobRunResourceId",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/startJob"
 }

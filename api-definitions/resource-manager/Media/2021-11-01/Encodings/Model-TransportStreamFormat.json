@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .",
       "jsonName": "outputFiles",
       "name": "OutputFiles",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "OutputFile"
+          "nullable": false,
+          "referenceName": "OutputFile",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -19,6 +24,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "Format",
   "discriminatedTypeValue": "#Microsoft.Media.TransportStreamFormat",
   "typeHintIn": "OdataType"

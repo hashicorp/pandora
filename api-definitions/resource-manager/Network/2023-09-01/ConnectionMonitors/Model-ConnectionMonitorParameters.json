@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Determines if the connection monitor will start automatically once created.",
       "jsonName": "autoStart",
       "name": "AutoStart",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describes the destination of connection monitor.",
       "jsonName": "destination",
       "name": "Destination",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectionMonitorDestination"
+        "nullable": false,
+        "referenceName": "ConnectionMonitorDestination",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of connection monitor endpoints.",
       "jsonName": "endpoints",
       "name": "Endpoints",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ConnectionMonitorEndpoint"
+          "nullable": false,
+          "referenceName": "ConnectionMonitorEndpoint",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Monitoring interval in seconds.",
       "jsonName": "monitoringIntervalInSeconds",
       "name": "MonitoringIntervalInSeconds",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Optional notes to be associated with the connection monitor.",
       "jsonName": "notes",
       "name": "Notes",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,14 +89,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of connection monitor outputs.",
       "jsonName": "outputs",
       "name": "Outputs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ConnectionMonitorOutput"
+          "nullable": false,
+          "referenceName": "ConnectionMonitorOutput",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -89,11 +111,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describes the source of connection monitor.",
       "jsonName": "source",
       "name": "Source",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectionMonitorSource"
+        "nullable": false,
+        "referenceName": "ConnectionMonitorSource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,14 +127,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of connection monitor test configurations.",
       "jsonName": "testConfigurations",
       "name": "TestConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ConnectionMonitorTestConfiguration"
+          "nullable": false,
+          "referenceName": "ConnectionMonitorTestConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -119,14 +149,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of connection monitor test groups.",
       "jsonName": "testGroups",
       "name": "TestGroups",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ConnectionMonitorTestGroup"
+          "nullable": false,
+          "referenceName": "ConnectionMonitorTestGroup",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -134,5 +169,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

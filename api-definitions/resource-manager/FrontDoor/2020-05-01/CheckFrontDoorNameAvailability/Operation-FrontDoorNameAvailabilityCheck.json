@@ -1,6 +1,7 @@
 {
   "name": "FrontDoorNameAvailabilityCheck",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -8,11 +9,15 @@
   "httpMethod": "POST",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CheckNameAvailabilityInput"
+    "nullable": false,
+    "referenceName": "CheckNameAvailabilityInput",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "CheckNameAvailabilityOutput"
+    "nullable": false,
+    "referenceName": "CheckNameAvailabilityOutput",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.Network/checkFrontDoorNameAvailability"
 }

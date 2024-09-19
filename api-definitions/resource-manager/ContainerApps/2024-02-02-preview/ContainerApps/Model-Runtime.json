@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": ".NET app configuration",
       "jsonName": "dotnet",
       "name": "Dotnet",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RuntimeDotnet"
+        "nullable": false,
+        "referenceName": "RuntimeDotnet",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Java app configuration",
       "jsonName": "java",
       "name": "Java",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RuntimeJava"
+        "nullable": false,
+        "referenceName": "RuntimeJava",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

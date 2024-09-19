@@ -1,6 +1,7 @@
 {
   "name": "UpdateTags",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "SpacecraftId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "TagsObject"
+    "nullable": false,
+    "referenceName": "TagsObject",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Spacecraft"
+    "nullable": false,
+    "referenceName": "Spacecraft",
+    "referenceNameIsCommonType": null
   }
 }

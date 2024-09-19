@@ -7,7 +7,9 @@
       "name": "Error",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiError"
+        "nullable": false,
+        "referenceName": "ApiError",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +18,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The rolling upgrade policies applied for this upgrade.",
       "jsonName": "policy",
       "name": "Policy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RollingUpgradePolicy"
+        "nullable": false,
+        "referenceName": "RollingUpgradePolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +34,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Information about the number of virtual machine instances in each upgrade state.",
       "jsonName": "progress",
       "name": "Progress",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RollingUpgradeProgressInfo"
+        "nullable": false,
+        "referenceName": "RollingUpgradeProgressInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,16 +50,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Information about the current running state of the overall upgrade.",
       "jsonName": "runningStatus",
       "name": "RunningStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RollingUpgradeRunningStatus"
+        "nullable": false,
+        "referenceName": "RollingUpgradeRunningStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

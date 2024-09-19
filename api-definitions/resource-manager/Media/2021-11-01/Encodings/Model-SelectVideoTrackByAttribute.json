@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The TrackAttribute to filter the tracks by.",
       "jsonName": "attribute",
       "name": "Attribute",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TrackAttribute"
+        "nullable": false,
+        "referenceName": "TrackAttribute",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of AttributeFilter to apply to the TrackAttribute in order to select the tracks.",
       "jsonName": "filter",
       "name": "Filter",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AttributeFilter"
+        "nullable": false,
+        "referenceName": "AttributeFilter",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The value to filter the tracks by.  Only used when AttributeFilter.ValueEquals is specified for the Filter property. For TrackAttribute.Bitrate, this should be an integer value in bits per second (e.g: '1500000').  The TrackAttribute.Language is not supported for video tracks.",
       "jsonName": "filterValue",
       "name": "FilterValue",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -41,6 +50,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "TrackDescriptor",
   "discriminatedTypeValue": "#Microsoft.Media.SelectVideoTrackByAttribute",
   "typeHintIn": "OdataType"

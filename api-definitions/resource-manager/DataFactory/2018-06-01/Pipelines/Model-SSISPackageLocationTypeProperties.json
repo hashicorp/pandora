@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The package access credential.",
       "jsonName": "accessCredential",
       "name": "AccessCredential",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SSISAccessCredential"
+        "nullable": false,
+        "referenceName": "SSISAccessCredential",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The embedded child package list.",
       "jsonName": "childPackages",
       "name": "ChildPackages",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SSISChildPackage"
+          "nullable": false,
+          "referenceName": "SSISChildPackage",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The configuration file access credential.",
       "jsonName": "configurationAccessCredential",
       "name": "ConfigurationAccessCredential",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SSISAccessCredential"
+        "nullable": false,
+        "referenceName": "SSISAccessCredential",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The configuration file of the package execution. Type: string (or Expression with resultType string).",
       "jsonName": "configurationPath",
       "name": "ConfigurationPath",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The embedded package content. Type: string (or Expression with resultType string).",
       "jsonName": "packageContent",
       "name": "PackageContent",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The embedded package last modified date.",
       "jsonName": "packageLastModifiedDate",
       "name": "PackageLastModifiedDate",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The package name.",
       "jsonName": "packageName",
       "name": "PackageName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,12 +125,15 @@
       "name": "PackagePassword",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecretBase"
+        "nullable": false,
+        "referenceName": "SecretBase",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

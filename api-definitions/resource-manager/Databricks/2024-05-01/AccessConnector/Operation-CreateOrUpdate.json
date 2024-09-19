@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "AccessConnectorId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "AccessConnector"
+    "nullable": false,
+    "referenceName": "AccessConnector",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AccessConnector"
+    "nullable": false,
+    "referenceName": "AccessConnector",
+    "referenceNameIsCommonType": null
   }
 }

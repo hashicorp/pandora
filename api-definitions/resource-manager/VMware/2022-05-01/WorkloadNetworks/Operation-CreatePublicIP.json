@@ -1,6 +1,7 @@
 {
   "name": "CreatePublicIP",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "PublicIPId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "WorkloadNetworkPublicIP"
+    "nullable": false,
+    "referenceName": "WorkloadNetworkPublicIP",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "WorkloadNetworkPublicIP"
+    "nullable": false,
+    "referenceName": "WorkloadNetworkPublicIP",
+    "referenceNameIsCommonType": null
   }
 }

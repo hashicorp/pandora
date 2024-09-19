@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The stream bit rate for the audio track.",
       "jsonName": "bitRate",
       "name": "BitRate",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The DASH specific setting for the audio track.",
       "jsonName": "dashSettings",
       "name": "DashSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DashSettings"
+        "nullable": false,
+        "referenceName": "DashSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The display name of the audio track on a video player. In HLS, this maps to the NAME attribute of EXT-X-MEDIA.",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The file name to the source file. This file is located in the storage container of the asset.",
       "jsonName": "fileName",
       "name": "FileName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The HLS specific setting for the audio track.",
       "jsonName": "hlsSettings",
       "name": "HlsSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HlsSettings"
+        "nullable": false,
+        "referenceName": "HlsSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The RFC5646 language code for the audio track.",
       "jsonName": "languageCode",
       "name": "LanguageCode",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The MPEG-4 audio track ID for the audio track.",
       "jsonName": "mpeg4TrackId",
       "name": "Mpeg4TrackId",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -93,6 +114,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "TrackBase",
   "discriminatedTypeValue": "#Microsoft.Media.AudioTrack",
   "typeHintIn": "OdataType"

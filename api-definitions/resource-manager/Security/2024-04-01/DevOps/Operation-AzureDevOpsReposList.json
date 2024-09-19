@@ -1,6 +1,7 @@
 {
   "name": "AzureDevOpsReposList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "ProjectId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AzureDevOpsRepository"
+    "nullable": false,
+    "referenceName": "AzureDevOpsRepository",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/repos"
 }

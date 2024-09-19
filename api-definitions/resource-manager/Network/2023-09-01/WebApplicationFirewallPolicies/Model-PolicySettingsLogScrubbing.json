@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The rules that are applied to the logs for scrubbing.",
       "jsonName": "scrubbingRules",
       "name": "ScrubbingRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "WebApplicationFirewallScrubbingRules"
+          "nullable": false,
+          "referenceName": "WebApplicationFirewallScrubbingRules",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,16 +25,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "State of the log scrubbing config. Default value is Enabled.",
       "jsonName": "state",
       "name": "State",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WebApplicationFirewallScrubbingState"
+        "nullable": false,
+        "referenceName": "WebApplicationFirewallScrubbingState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

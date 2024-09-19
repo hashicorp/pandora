@@ -1,6 +1,7 @@
 {
   "name": "CassandraDataCentersList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "CassandraClusterId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ListDataCenters"
+    "nullable": false,
+    "referenceName": "ListDataCenters",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/dataCenters"
 }

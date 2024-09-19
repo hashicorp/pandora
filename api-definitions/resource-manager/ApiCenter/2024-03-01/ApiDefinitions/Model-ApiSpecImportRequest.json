@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Format of the API specification source.",
       "jsonName": "format",
       "name": "Format",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiSpecImportSourceFormat"
+        "nullable": false,
+        "referenceName": "ApiSpecImportSourceFormat",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "API specification details.",
       "jsonName": "specification",
       "name": "Specification",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiSpecImportRequestSpecification"
+        "nullable": false,
+        "referenceName": "ApiSpecImportRequestSpecification",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Value of the API specification source.",
       "jsonName": "value",
       "name": "Value",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

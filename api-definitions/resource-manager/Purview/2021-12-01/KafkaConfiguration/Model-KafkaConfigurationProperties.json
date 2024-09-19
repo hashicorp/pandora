@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Consumer group for hook event hub.",
       "jsonName": "consumerGroup",
       "name": "ConsumerGroup",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Credentials to access event hub.",
       "jsonName": "credentials",
       "name": "Credentials",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Credentials"
+        "nullable": false,
+        "referenceName": "Credentials",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Optional partition Id for notification event hub. If not set, all partitions will be leveraged.",
       "jsonName": "eventHubPartitionId",
       "name": "EventHubPartitionId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +55,9 @@
       "name": "EventHubResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +66,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The event hub type.",
       "jsonName": "eventHubType",
       "name": "EventHubType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EventHubType"
+        "nullable": false,
+        "referenceName": "EventHubType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +82,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The state of the event streaming service",
       "jsonName": "eventStreamingState",
       "name": "EventStreamingState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EventStreamingState"
+        "nullable": false,
+        "referenceName": "EventStreamingState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,16 +98,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The event streaming service type",
       "jsonName": "eventStreamingType",
       "name": "EventStreamingType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EventStreamingType"
+        "nullable": false,
+        "referenceName": "EventStreamingType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

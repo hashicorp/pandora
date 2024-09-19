@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates if protectable item is auto-protectable",
       "jsonName": "isAutoProtectable",
       "name": "IsAutoProtectable",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates if protectable item is auto-protected",
       "jsonName": "isAutoProtected",
       "name": "IsAutoProtected",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name for instance or AG",
       "jsonName": "parentName",
       "name": "ParentName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Parent Unique Name is added to provide the service formatted URI Name of the Parent\r\nOnly Applicable for data bases where the parent would be either Instance or a SQL AG.",
       "jsonName": "parentUniqueName",
       "name": "ParentUniqueName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Pre-backup validation for protectable objects",
       "jsonName": "prebackupvalidation",
       "name": "Prebackupvalidation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PreBackupValidation"
+        "nullable": false,
+        "referenceName": "PreBackupValidation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Host/Cluster Name for instance or AG",
       "jsonName": "serverName",
       "name": "ServerName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "For instance or AG, indicates number of DB's present",
       "jsonName": "subinquireditemcount",
       "name": "Subinquireditemcount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "For instance or AG, indicates number of DB's to be protected",
       "jsonName": "subprotectableitemcount",
       "name": "Subprotectableitemcount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -106,6 +130,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "WorkloadProtectableItem",
   "discriminatedTypeValue": "SAPAseSystem",
   "typeHintIn": "ProtectableItemType"

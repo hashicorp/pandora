@@ -1,6 +1,7 @@
 {
   "name": "ListGeoRegions",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -52,7 +53,9 @@
   "resourceIdName": "SubscriptionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "GeoRegion"
+    "nullable": false,
+    "referenceName": "GeoRegion",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.Web/geoRegions"
 }

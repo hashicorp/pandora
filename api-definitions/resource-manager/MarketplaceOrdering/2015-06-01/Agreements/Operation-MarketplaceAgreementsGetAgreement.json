@@ -1,6 +1,7 @@
 {
   "name": "MarketplaceAgreementsGetAgreement",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "PlanId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "OldAgreementTerms"
+    "nullable": false,
+    "referenceName": "OldAgreementTerms",
+    "referenceNameIsCommonType": null
   }
 }

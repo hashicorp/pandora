@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Backend pools available to routing rules.",
       "jsonName": "backendPools",
       "name": "BackendPools",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "BackendPool"
+          "nullable": false,
+          "referenceName": "BackendPool",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Settings for all backendPools",
       "jsonName": "backendPoolsSettings",
       "name": "BackendPoolsSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BackendPoolsSettings"
+        "nullable": false,
+        "referenceName": "BackendPoolsSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The host that each frontendEndpoint must CNAME to.",
       "jsonName": "cname",
       "name": "Cname",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'",
       "jsonName": "enabledState",
       "name": "EnabledState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FrontDoorEnabledState"
+        "nullable": false,
+        "referenceName": "FrontDoorEnabledState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A friendly name for the frontDoor",
       "jsonName": "friendlyName",
       "name": "FriendlyName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Id of the frontdoor.",
       "jsonName": "frontdoorId",
       "name": "FrontdoorId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,14 +105,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Frontend endpoints available to routing rules.",
       "jsonName": "frontendEndpoints",
       "name": "FrontendEndpoints",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "FrontendEndpoint"
+          "nullable": false,
+          "referenceName": "FrontendEndpoint",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -102,14 +127,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Health probe settings associated with this Front Door instance.",
       "jsonName": "healthProbeSettings",
       "name": "HealthProbeSettings",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "HealthProbeSettingsModel"
+          "nullable": false,
+          "referenceName": "HealthProbeSettingsModel",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -119,14 +149,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Load balancing settings associated with this Front Door instance.",
       "jsonName": "loadBalancingSettings",
       "name": "LoadBalancingSettings",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "LoadBalancingSettingsModel"
+          "nullable": false,
+          "referenceName": "LoadBalancingSettingsModel",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -136,11 +171,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provisioning state of the Front Door.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -149,11 +187,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Resource status of the Front Door.",
       "jsonName": "resourceState",
       "name": "ResourceState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FrontDoorResourceState"
+        "nullable": false,
+        "referenceName": "FrontDoorResourceState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -162,14 +203,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Routing rules associated with this Front Door.",
       "jsonName": "routingRules",
       "name": "RoutingRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RoutingRule"
+          "nullable": false,
+          "referenceName": "RoutingRule",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -179,14 +225,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Rules Engine Configurations available to routing rules.",
       "jsonName": "rulesEngines",
       "name": "RulesEngines",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RulesEngine"
+          "nullable": false,
+          "referenceName": "RulesEngine",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -194,5 +245,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

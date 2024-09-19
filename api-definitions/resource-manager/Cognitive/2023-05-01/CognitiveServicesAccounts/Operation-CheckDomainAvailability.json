@@ -1,6 +1,7 @@
 {
   "name": "CheckDomainAvailability",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "SubscriptionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CheckDomainAvailabilityParameter"
+    "nullable": false,
+    "referenceName": "CheckDomainAvailabilityParameter",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DomainAvailability"
+    "nullable": false,
+    "referenceName": "DomainAvailability",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.CognitiveServices/checkDomainAvailability"
 }

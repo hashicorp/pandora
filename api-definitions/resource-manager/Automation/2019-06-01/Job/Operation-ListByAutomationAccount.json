@@ -1,6 +1,7 @@
 {
   "name": "ListByAutomationAccount",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -32,7 +33,9 @@
   "resourceIdName": "AutomationAccountId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "JobCollectionItem"
+    "nullable": false,
+    "referenceName": "JobCollectionItem",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/jobs"
 }

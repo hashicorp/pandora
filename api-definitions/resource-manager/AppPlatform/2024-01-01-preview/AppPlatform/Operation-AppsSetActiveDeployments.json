@@ -1,6 +1,7 @@
 {
   "name": "AppsSetActiveDeployments",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "AppId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ActiveDeploymentCollection"
+    "nullable": false,
+    "referenceName": "ActiveDeploymentCollection",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AppResource"
+    "nullable": false,
+    "referenceName": "AppResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/setActiveDeployments"
 }

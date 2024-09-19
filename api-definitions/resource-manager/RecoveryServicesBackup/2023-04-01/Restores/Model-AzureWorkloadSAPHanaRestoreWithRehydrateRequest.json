@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Workload specific property bag.",
       "jsonName": "propertyBag",
       "name": "PropertyBag",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Defines whether the current recovery mode is file restore or database restore",
       "jsonName": "recoveryMode",
       "name": "RecoveryMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RecoveryMode"
+        "nullable": false,
+        "referenceName": "RecoveryMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "RP Rehydration Info",
       "jsonName": "recoveryPointRehydrationInfo",
       "name": "RecoveryPointRehydrationInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RecoveryPointRehydrationInfo"
+        "nullable": false,
+        "referenceName": "RecoveryPointRehydrationInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Type of this recovery.",
       "jsonName": "recoveryType",
       "name": "RecoveryType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RecoveryType"
+        "nullable": false,
+        "referenceName": "RecoveryType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Fully qualified ARM ID of the VM on which workload that was running is being recovered.",
       "jsonName": "sourceResourceId",
       "name": "SourceResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Details of target database",
       "jsonName": "targetInfo",
       "name": "TargetInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TargetRestoreInfo"
+        "nullable": false,
+        "referenceName": "TargetRestoreInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This is the complete ARM Id of the target VM\r\nFor e.g. /subscriptions/{subId}/resourcegroups/{rg}/provider/Microsoft.Compute/virtualmachines/{vm}",
       "jsonName": "targetVirtualMachineId",
       "name": "TargetVirtualMachineId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -97,6 +120,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "RestoreRequest",
   "discriminatedTypeValue": "AzureWorkloadSAPHanaRestoreWithRehydrateRequest",
   "typeHintIn": "ObjectType"

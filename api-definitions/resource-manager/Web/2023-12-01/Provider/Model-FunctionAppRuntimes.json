@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Linux-specific settings associated with the minor version.",
       "jsonName": "linuxRuntimeSettings",
       "name": "LinuxRuntimeSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FunctionAppRuntimeSettings"
+        "nullable": false,
+        "referenceName": "FunctionAppRuntimeSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Windows-specific settings associated with the minor version.",
       "jsonName": "windowsRuntimeSettings",
       "name": "WindowsRuntimeSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FunctionAppRuntimeSettings"
+        "nullable": false,
+        "referenceName": "FunctionAppRuntimeSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

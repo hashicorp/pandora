@@ -1,6 +1,7 @@
 {
   "name": "List",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -31,7 +32,9 @@
   ],
   "responseObject": {
     "type": "Reference",
-    "referenceName": "EventData"
+    "nullable": false,
+    "referenceName": "EventData",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.Insights/eventtypes/management/values"
 }

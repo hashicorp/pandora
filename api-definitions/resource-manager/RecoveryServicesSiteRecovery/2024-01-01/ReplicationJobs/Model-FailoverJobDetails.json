@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The test VM details.",
       "jsonName": "protectedItemDetails",
       "name": "ProtectedItemDetails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "FailoverReplicationProtectedItemDetails"
+          "nullable": false,
+          "referenceName": "FailoverReplicationProtectedItemDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -19,6 +24,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "JobDetails",
   "discriminatedTypeValue": "FailoverJobDetails",
   "typeHintIn": "InstanceType"

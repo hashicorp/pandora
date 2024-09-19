@@ -1,6 +1,7 @@
 {
   "name": "ConnectedClusterUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "ConnectedClusterId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ConnectedClusterPatch"
+    "nullable": false,
+    "referenceName": "ConnectedClusterPatch",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ConnectedCluster"
+    "nullable": false,
+    "referenceName": "ConnectedCluster",
+    "referenceNameIsCommonType": null
   }
 }

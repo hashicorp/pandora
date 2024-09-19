@@ -1,6 +1,7 @@
 {
   "name": "AnalyticsItemsGet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -31,7 +32,9 @@
   "resourceIdName": "ProviderComponentId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ApplicationInsightsComponentAnalyticsItem"
+    "nullable": false,
+    "referenceName": "ApplicationInsightsComponentAnalyticsItem",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/item"
 }

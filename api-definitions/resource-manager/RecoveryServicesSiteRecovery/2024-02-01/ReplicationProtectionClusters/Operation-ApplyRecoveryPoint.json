@@ -1,6 +1,7 @@
 {
   "name": "ApplyRecoveryPoint",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "ReplicationProtectionClusterId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ApplyClusterRecoveryPointInput"
+    "nullable": false,
+    "referenceName": "ApplyClusterRecoveryPointInput",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ReplicationProtectionCluster"
+    "nullable": false,
+    "referenceName": "ReplicationProtectionCluster",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/applyRecoveryPoint"
 }

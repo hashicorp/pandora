@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Configuration parameters used for performing automatic OS Upgrade.",
       "jsonName": "automaticOSUpgradePolicy",
       "name": "AutomaticOSUpgradePolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutomaticOSUpgradePolicy"
+        "nullable": false,
+        "referenceName": "AutomaticOSUpgradePolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the mode of an upgrade to virtual machines in the scale set.\u003cbr /\u003e\u003cbr /\u003e Possible values are:\u003cbr /\u003e\u003cbr /\u003e **Manual** - You  control the application of updates to virtual machines in the scale set. You do this by using the manualUpgrade action.\u003cbr /\u003e\u003cbr /\u003e **Automatic** - All virtual machines in the scale set are  automatically updated at the same time.",
       "jsonName": "mode",
       "name": "Mode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UpgradeMode"
+        "nullable": false,
+        "referenceName": "UpgradeMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The configuration parameters used while performing a rolling upgrade.",
       "jsonName": "rollingUpgradePolicy",
       "name": "RollingUpgradePolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RollingUpgradePolicy"
+        "nullable": false,
+        "referenceName": "RollingUpgradePolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

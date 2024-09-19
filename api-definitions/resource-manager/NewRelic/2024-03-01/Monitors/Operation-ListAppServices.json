@@ -1,6 +1,7 @@
 {
   "name": "ListAppServices",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,11 +11,15 @@
   "resourceIdName": "MonitorId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "AppServicesGetRequest"
+    "nullable": false,
+    "referenceName": "AppServicesGetRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AppServiceInfo"
+    "nullable": false,
+    "referenceName": "AppServiceInfo",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/listAppServices"
 }

@@ -1,6 +1,7 @@
 {
   "name": "APIKeysDelete",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "ApiKeyId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ApplicationInsightsComponentAPIKey"
+    "nullable": false,
+    "referenceName": "ApplicationInsightsComponentAPIKey",
+    "referenceNameIsCommonType": null
   }
 }

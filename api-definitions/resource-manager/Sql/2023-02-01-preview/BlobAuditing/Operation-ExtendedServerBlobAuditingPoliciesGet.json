@@ -1,6 +1,7 @@
 {
   "name": "ExtendedServerBlobAuditingPoliciesGet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "SqlServerId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ExtendedServerBlobAuditingPolicy"
+    "nullable": false,
+    "referenceName": "ExtendedServerBlobAuditingPolicy",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/extendedAuditingSettings/default"
 }

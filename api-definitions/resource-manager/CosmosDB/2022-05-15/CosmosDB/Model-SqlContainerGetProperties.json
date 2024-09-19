@@ -7,7 +7,9 @@
       "name": "Options",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OptionsResource"
+        "nullable": false,
+        "referenceName": "OptionsResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "Resource",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SqlContainerGetPropertiesResource"
+        "nullable": false,
+        "referenceName": "SqlContainerGetPropertiesResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

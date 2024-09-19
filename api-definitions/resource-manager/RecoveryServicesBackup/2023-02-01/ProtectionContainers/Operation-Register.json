@@ -1,6 +1,7 @@
 {
   "name": "Register",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "ProtectionContainerId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ProtectionContainerResource"
+    "nullable": false,
+    "referenceName": "ProtectionContainerResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ProtectionContainerResource"
+    "nullable": false,
+    "referenceName": "ProtectionContainerResource",
+    "referenceNameIsCommonType": null
   }
 }

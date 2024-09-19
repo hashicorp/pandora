@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The percentage of cache space allocated for this storage target",
       "jsonName": "allocationPercentage",
       "name": "AllocationPercentage",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Properties when targetType is blobNfs.",
       "jsonName": "blobNfs",
       "name": "BlobNfs",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BlobNfsTarget"
+        "nullable": false,
+        "referenceName": "BlobNfsTarget",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Properties when targetType is clfs.",
       "jsonName": "clfs",
       "name": "Clfs",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClfsTarget"
+        "nullable": false,
+        "referenceName": "ClfsTarget",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,14 +51,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of cache namespace junctions to target for namespace associations.",
       "jsonName": "junctions",
       "name": "Junctions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "NamespaceJunction"
+          "nullable": false,
+          "referenceName": "NamespaceJunction",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Properties when targetType is nfs3.",
       "jsonName": "nfs3",
       "name": "Nfs3",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Nfs3Target"
+        "nullable": false,
+        "referenceName": "Nfs3Target",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningStateType"
+        "nullable": false,
+        "referenceName": "ProvisioningStateType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Storage target operational state.",
       "jsonName": "state",
       "name": "State",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OperationalStateType"
+        "nullable": false,
+        "referenceName": "OperationalStateType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,11 +121,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Type of the Storage Target.",
       "jsonName": "targetType",
       "name": "TargetType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StorageTargetType"
+        "nullable": false,
+        "referenceName": "StorageTargetType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -111,16 +137,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Properties when targetType is unknown.",
       "jsonName": "unknown",
       "name": "Unknown",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UnknownTarget"
+        "nullable": false,
+        "referenceName": "UnknownTarget",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

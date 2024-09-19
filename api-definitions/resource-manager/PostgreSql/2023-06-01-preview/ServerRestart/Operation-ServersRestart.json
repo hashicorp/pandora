@@ -1,6 +1,7 @@
 {
   "name": "ServersRestart",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,7 +11,9 @@
   "resourceIdName": "FlexibleServerId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "RestartParameter"
+    "nullable": false,
+    "referenceName": "RestartParameter",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/restart"
 }

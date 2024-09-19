@@ -1,6 +1,7 @@
 {
   "name": "GetSiteDetectorSlot",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "SlotDiagnosticDetectorId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DetectorDefinitionResource"
+    "nullable": false,
+    "referenceName": "DetectorDefinitionResource",
+    "referenceNameIsCommonType": null
   }
 }

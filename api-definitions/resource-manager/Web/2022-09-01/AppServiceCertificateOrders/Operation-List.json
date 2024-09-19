@@ -1,6 +1,7 @@
 {
   "name": "List",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "SubscriptionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AppServiceCertificateOrder"
+    "nullable": false,
+    "referenceName": "AppServiceCertificateOrder",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.CertificateRegistration/certificateOrders"
 }

@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "ResourceProviderId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ResourceProvidersUpdate"
+    "nullable": false,
+    "referenceName": "ResourceProvidersUpdate",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "CustomRPManifest"
+    "nullable": false,
+    "referenceName": "CustomRPManifest",
+    "referenceNameIsCommonType": null
   }
 }

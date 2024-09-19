@@ -7,7 +7,9 @@
       "name": "ConnectVia",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IntegrationRuntimeReference"
+        "nullable": false,
+        "referenceName": "IntegrationRuntimeReference",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +18,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The environment path to execute the SSIS package. Type: string (or Expression with resultType string).",
       "jsonName": "environmentPath",
       "name": "EnvironmentPath",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +34,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The package execution credential.",
       "jsonName": "executionCredential",
       "name": "ExecutionCredential",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SSISExecutionCredential"
+        "nullable": false,
+        "referenceName": "SSISExecutionCredential",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +50,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "SSIS package execution log location.",
       "jsonName": "logLocation",
       "name": "LogLocation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SSISLogLocation"
+        "nullable": false,
+        "referenceName": "SSISLogLocation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +66,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The logging level of SSIS package execution. Type: string (or Expression with resultType string).",
       "jsonName": "loggingLevel",
       "name": "LoggingLevel",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,17 +82,24 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The package level connection managers to execute the SSIS package.",
       "jsonName": "packageConnectionManagers",
       "name": "PackageConnectionManagers",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Dictionary",
+          "nullable": false,
           "referenceName": null,
+          "referenceNameIsCommonType": null,
           "nestedItem": {
             "type": "Reference",
-            "referenceName": "SSISExecutionParameter"
+            "nullable": false,
+            "referenceName": "SSISExecutionParameter",
+            "referenceNameIsCommonType": null
           }
         }
       },
@@ -89,11 +110,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "SSIS package location.",
       "jsonName": "packageLocation",
       "name": "PackageLocation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SSISPackageLocation"
+        "nullable": false,
+        "referenceName": "SSISPackageLocation",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -102,14 +126,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The package level parameters to execute the SSIS package.",
       "jsonName": "packageParameters",
       "name": "PackageParameters",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SSISExecutionParameter"
+          "nullable": false,
+          "referenceName": "SSISExecutionParameter",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -119,17 +148,24 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The project level connection managers to execute the SSIS package.",
       "jsonName": "projectConnectionManagers",
       "name": "ProjectConnectionManagers",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Dictionary",
+          "nullable": false,
           "referenceName": null,
+          "referenceNameIsCommonType": null,
           "nestedItem": {
             "type": "Reference",
-            "referenceName": "SSISExecutionParameter"
+            "nullable": false,
+            "referenceName": "SSISExecutionParameter",
+            "referenceNameIsCommonType": null
           }
         }
       },
@@ -140,14 +176,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The project level parameters to execute the SSIS package.",
       "jsonName": "projectParameters",
       "name": "ProjectParameters",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SSISExecutionParameter"
+          "nullable": false,
+          "referenceName": "SSISExecutionParameter",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -157,14 +198,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The property overrides to execute the SSIS package.",
       "jsonName": "propertyOverrides",
       "name": "PropertyOverrides",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SSISPropertyOverride"
+          "nullable": false,
+          "referenceName": "SSISPropertyOverride",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -174,16 +220,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the runtime to execute SSIS package. The value should be \"x86\" or \"x64\". Type: string (or Expression with resultType string).",
       "jsonName": "runtime",
       "name": "Runtime",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

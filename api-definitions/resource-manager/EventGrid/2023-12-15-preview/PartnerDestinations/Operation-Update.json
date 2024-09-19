@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201,
@@ -11,10 +12,14 @@
   "resourceIdName": "PartnerDestinationId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "PartnerDestinationUpdateParameters"
+    "nullable": false,
+    "referenceName": "PartnerDestinationUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PartnerDestination"
+    "nullable": false,
+    "referenceName": "PartnerDestination",
+    "referenceNameIsCommonType": null
   }
 }

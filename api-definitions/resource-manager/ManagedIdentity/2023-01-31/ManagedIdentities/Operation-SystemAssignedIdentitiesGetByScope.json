@@ -1,6 +1,7 @@
 {
   "name": "SystemAssignedIdentitiesGetByScope",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "ScopeId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SystemAssignedIdentity"
+    "nullable": false,
+    "referenceName": "SystemAssignedIdentity",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.ManagedIdentity/identities/default"
 }

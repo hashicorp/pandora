@@ -1,6 +1,7 @@
 {
   "name": "ListByService",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "ServiceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PortalConfigContract"
+    "nullable": false,
+    "referenceName": "PortalConfigContract",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/portalConfigs"
 }

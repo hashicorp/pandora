@@ -1,6 +1,7 @@
 {
   "name": "Start",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -22,7 +23,9 @@
   "resourceIdName": "UpdateRunId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "UpdateRun"
+    "nullable": false,
+    "referenceName": "UpdateRun",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/start"
 }

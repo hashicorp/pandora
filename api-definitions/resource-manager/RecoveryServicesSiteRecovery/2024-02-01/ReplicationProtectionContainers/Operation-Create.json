@@ -1,6 +1,7 @@
 {
   "name": "Create",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "ReplicationProtectionContainerId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CreateProtectionContainerInput"
+    "nullable": false,
+    "referenceName": "CreateProtectionContainerInput",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ProtectionContainer"
+    "nullable": false,
+    "referenceName": "ProtectionContainer",
+    "referenceNameIsCommonType": null
   }
 }

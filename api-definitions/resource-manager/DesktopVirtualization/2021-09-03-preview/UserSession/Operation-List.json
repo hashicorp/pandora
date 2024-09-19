@@ -1,6 +1,7 @@
 {
   "name": "List",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "SessionHostId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "UserSession"
+    "nullable": false,
+    "referenceName": "UserSession",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/userSessions"
 }

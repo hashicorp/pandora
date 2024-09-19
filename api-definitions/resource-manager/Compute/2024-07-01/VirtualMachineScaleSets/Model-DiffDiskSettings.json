@@ -7,7 +7,9 @@
       "name": "Option",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiffDiskOptions"
+        "nullable": false,
+        "referenceName": "DiffDiskOptions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "Placement",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiffDiskPlacement"
+        "nullable": false,
+        "referenceName": "DiffDiskPlacement",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

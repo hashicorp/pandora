@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the last operation.",
       "jsonName": "operationName",
       "name": "OperationName",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OperationName"
+        "nullable": false,
+        "referenceName": "OperationName",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Operation status.",
       "jsonName": "operationStatus",
       "name": "OperationStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OperationStatus"
+        "nullable": false,
+        "referenceName": "OperationStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,11 +36,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Time of the last operation.",
       "jsonName": "operationTime",
       "name": "OperationTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -43,16 +52,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Trigger of operation.",
       "jsonName": "operationTrigger",
       "name": "OperationTrigger",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OperationTrigger"
+        "nullable": false,
+        "referenceName": "OperationTrigger",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

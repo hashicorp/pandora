@@ -1,6 +1,7 @@
 {
   "name": "TasksList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -22,7 +23,9 @@
   "resourceIdName": "ProjectId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ProjectTask"
+    "nullable": false,
+    "referenceName": "ProjectTask",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/tasks"
 }

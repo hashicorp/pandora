@@ -1,6 +1,7 @@
 {
   "name": "SqlResourcesCreateUpdateClientEncryptionKey",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "ClientEncryptionKeyId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ClientEncryptionKeyCreateUpdateParameters"
+    "nullable": false,
+    "referenceName": "ClientEncryptionKeyCreateUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ClientEncryptionKeyGetResults"
+    "nullable": false,
+    "referenceName": "ClientEncryptionKeyGetResults",
+    "referenceNameIsCommonType": null
   }
 }

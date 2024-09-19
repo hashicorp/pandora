@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     204
   ],
@@ -21,7 +22,9 @@
   "resourceIdName": "ServiceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "PortalDelegationSettings"
+    "nullable": false,
+    "referenceName": "PortalDelegationSettings",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/portalsettings/delegation"
 }

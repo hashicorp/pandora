@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies settings for copy activity log.",
       "jsonName": "copyActivityLogSettings",
       "name": "CopyActivityLogSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CopyActivityLogSettings"
+        "nullable": false,
+        "referenceName": "CopyActivityLogSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies whether to enable copy activity log. Type: boolean (or Expression with resultType boolean).",
       "jsonName": "enableCopyActivityLog",
       "name": "EnableCopyActivityLog",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Log location settings customer needs to provide when enabling log.",
       "jsonName": "logLocationSettings",
       "name": "LogLocationSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LogLocationSettings"
+        "nullable": false,
+        "referenceName": "LogLocationSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of container definitions for the Container App.",
       "jsonName": "containers",
       "name": "Containers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Container"
+          "nullable": false,
+          "referenceName": "Container",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +29,9 @@
       "name": "Dapr",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Dapr"
+        "nullable": false,
+        "referenceName": "Dapr",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +40,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "User friendly suffix that is appended to the revision name",
       "jsonName": "revisionSuffix",
       "name": "RevisionSuffix",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,12 +60,15 @@
       "name": "Scale",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Scale"
+        "nullable": false,
+        "referenceName": "Scale",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

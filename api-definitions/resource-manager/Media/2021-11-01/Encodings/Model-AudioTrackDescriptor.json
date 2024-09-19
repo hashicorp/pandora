@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Optional designation for single channel audio tracks.  Can be used to combine the tracks into stereo or multi-channel audio tracks.",
       "jsonName": "channelMapping",
       "name": "ChannelMapping",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ChannelMapping"
+        "nullable": false,
+        "referenceName": "ChannelMapping",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +18,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "TrackDescriptor",
   "discriminatedTypeValue": "#Microsoft.Media.AudioTrackDescriptor",
   "typeHintIn": "OdataType"

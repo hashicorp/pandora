@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "RaiPolicyId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "RaiPolicy"
+    "nullable": false,
+    "referenceName": "RaiPolicy",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "RaiPolicy"
+    "nullable": false,
+    "referenceName": "RaiPolicy",
+    "referenceNameIsCommonType": null
   }
 }

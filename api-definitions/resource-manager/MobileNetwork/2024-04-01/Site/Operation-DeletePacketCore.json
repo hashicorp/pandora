@@ -1,6 +1,7 @@
 {
   "name": "DeletePacketCore",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,7 +11,9 @@
   "resourceIdName": "SiteId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SiteDeletePacketCore"
+    "nullable": false,
+    "referenceName": "SiteDeletePacketCore",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/deletePacketCore"
 }

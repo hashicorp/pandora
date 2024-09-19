@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Array of per-item errors coming from the last sync session.",
       "jsonName": "filesNotSyncingErrors",
       "name": "FilesNotSyncingErrors",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ServerEndpointFilesNotSyncingError"
+          "nullable": false,
+          "referenceName": "ServerEndpointFilesNotSyncingError",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Sync mode",
       "jsonName": "lastSyncMode",
       "name": "LastSyncMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerEndpointSyncMode"
+        "nullable": false,
+        "referenceName": "ServerEndpointSyncMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Last sync per item error count.",
       "jsonName": "lastSyncPerItemErrorCount",
       "name": "LastSyncPerItemErrorCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Last sync result (HResult)",
       "jsonName": "lastSyncResult",
       "name": "LastSyncResult",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -60,11 +74,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Last sync success timestamp",
       "jsonName": "lastSyncSuccessTimestamp",
       "name": "LastSyncSuccessTimestamp",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -74,11 +91,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Last sync timestamp",
       "jsonName": "lastSyncTimestamp",
       "name": "LastSyncTimestamp",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -87,11 +107,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Count of persistent files not syncing.",
       "jsonName": "persistentFilesNotSyncingCount",
       "name": "PersistentFilesNotSyncingCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -100,16 +123,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Count of transient files not syncing.",
       "jsonName": "transientFilesNotSyncingCount",
       "name": "TransientFilesNotSyncingCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

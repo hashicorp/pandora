@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The path to the Active Directory Organizational Unit container object prepared for the deployment. ",
       "jsonName": "adouPath",
       "name": "AdouPath",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Observability config to deploy AzureStackHCI Cluster.",
       "jsonName": "cluster",
       "name": "Cluster",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeploymentCluster"
+        "nullable": false,
+        "referenceName": "DeploymentCluster",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "FQDN to deploy cluster",
       "jsonName": "domainFqdn",
       "name": "DomainFqdn",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "HostNetwork config to deploy AzureStackHCI Cluster.",
       "jsonName": "hostNetwork",
       "name": "HostNetwork",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HostNetwork"
+        "nullable": false,
+        "referenceName": "HostNetwork",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,14 +67,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "InfrastructureNetwork config to deploy AzureStackHCI Cluster.",
       "jsonName": "infrastructureNetwork",
       "name": "InfrastructureNetwork",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InfrastructureNetwork"
+          "nullable": false,
+          "referenceName": "InfrastructureNetwork",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "naming prefix to deploy cluster.",
       "jsonName": "namingPrefix",
       "name": "NamingPrefix",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Observability config to deploy AzureStackHCI Cluster.",
       "jsonName": "observability",
       "name": "Observability",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Observability"
+        "nullable": false,
+        "referenceName": "Observability",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,11 +121,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "OptionalServices config to deploy AzureStackHCI Cluster.",
       "jsonName": "optionalServices",
       "name": "OptionalServices",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OptionalServices"
+        "nullable": false,
+        "referenceName": "OptionalServices",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,14 +137,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "list of physical nodes config to deploy AzureStackHCI Cluster.",
       "jsonName": "physicalNodes",
       "name": "PhysicalNodes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PhysicalNodes"
+          "nullable": false,
+          "referenceName": "PhysicalNodes",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -128,11 +159,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The URI to the keyvault / secret store.",
       "jsonName": "secretsLocation",
       "name": "SecretsLocation",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,11 +175,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "SecuritySettings to deploy AzureStackHCI Cluster.",
       "jsonName": "securitySettings",
       "name": "SecuritySettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeploymentSecuritySettings"
+        "nullable": false,
+        "referenceName": "DeploymentSecuritySettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -154,16 +191,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Storage config to deploy AzureStackHCI Cluster.",
       "jsonName": "storage",
       "name": "Storage",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Storage"
+        "nullable": false,
+        "referenceName": "Storage",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

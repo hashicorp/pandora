@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "ServerId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ServerSecurityAlertPolicy"
+    "nullable": false,
+    "referenceName": "ServerSecurityAlertPolicy",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ServerSecurityAlertPolicy"
+    "nullable": false,
+    "referenceName": "ServerSecurityAlertPolicy",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/securityAlertPolicies/default"
 }

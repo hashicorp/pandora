@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Resource name of the attached database configuration in the follower cluster.",
       "jsonName": "attachedDatabaseConfigurationName",
       "name": "AttachedDatabaseConfigurationName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Resource id of the cluster that follows a database owned by this cluster.",
       "jsonName": "clusterResourceId",
       "name": "ClusterResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The database name owned by this cluster that was followed. * in case following all databases.",
       "jsonName": "databaseName",
       "name": "DatabaseName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +55,9 @@
       "name": "DatabaseShareOrigin",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DatabaseShareOrigin"
+        "nullable": false,
+        "referenceName": "DatabaseShareOrigin",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,16 +66,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Table level sharing specifications",
       "jsonName": "tableLevelSharingProperties",
       "name": "TableLevelSharingProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TableLevelSharingProperties"
+        "nullable": false,
+        "referenceName": "TableLevelSharingProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

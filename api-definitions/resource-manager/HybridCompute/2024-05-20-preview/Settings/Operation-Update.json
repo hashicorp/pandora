@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "ScopedSettingId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "Settings"
+    "nullable": false,
+    "referenceName": "Settings",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Settings"
+    "nullable": false,
+    "referenceName": "Settings",
+    "referenceNameIsCommonType": null
   }
 }

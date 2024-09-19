@@ -1,6 +1,7 @@
 {
   "name": "ChangeAccessTierByResourceGroup",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "LongTermRetentionDatabaseLongTermRetentionBackupId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ChangeLongTermRetentionBackupAccessTierParameters"
+    "nullable": false,
+    "referenceName": "ChangeLongTermRetentionBackupAccessTierParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "LongTermRetentionBackup"
+    "nullable": false,
+    "referenceName": "LongTermRetentionBackup",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/changeAccessTier"
 }

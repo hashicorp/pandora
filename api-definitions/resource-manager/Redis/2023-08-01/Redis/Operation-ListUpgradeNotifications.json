@@ -1,6 +1,7 @@
 {
   "name": "ListUpgradeNotifications",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -22,7 +23,9 @@
   "resourceIdName": "RediId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "UpgradeNotification"
+    "nullable": false,
+    "referenceName": "UpgradeNotification",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/listUpgradeNotifications"
 }

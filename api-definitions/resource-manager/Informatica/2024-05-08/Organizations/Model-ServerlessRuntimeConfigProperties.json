@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The List of Informatica Serverless Runtime CDI Config Properties.",
       "jsonName": "cdiConfigProps",
       "name": "CdiConfigProps",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "CdiConfigProps"
+          "nullable": false,
+          "referenceName": "CdiConfigProps",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The List of Informatica Serverless Runtime CDIE Config Properties.",
       "jsonName": "cdieConfigProps",
       "name": "CdieConfigProps",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "CdiConfigProps"
+          "nullable": false,
+          "referenceName": "CdiConfigProps",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -35,5 +45,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

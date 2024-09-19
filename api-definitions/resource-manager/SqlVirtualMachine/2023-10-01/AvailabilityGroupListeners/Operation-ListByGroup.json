@@ -1,6 +1,7 @@
 {
   "name": "ListByGroup",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "SqlVirtualMachineGroupId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AvailabilityGroupListener"
+    "nullable": false,
+    "referenceName": "AvailabilityGroupListener",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/availabilityGroupListeners"
 }

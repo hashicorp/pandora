@@ -1,6 +1,7 @@
 {
   "name": "AccessPolicyGet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "AccessPolicyId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "RedisCacheAccessPolicy"
+    "nullable": false,
+    "referenceName": "RedisCacheAccessPolicy",
+    "referenceNameIsCommonType": null
   }
 }

@@ -1,6 +1,7 @@
 {
   "name": "GetMetricStatus",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "MonitorId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "MetricsStatusRequest"
+    "nullable": false,
+    "referenceName": "MetricsStatusRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "MetricsStatusResponse"
+    "nullable": false,
+    "referenceName": "MetricsStatusResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/getMetricStatus"
 }

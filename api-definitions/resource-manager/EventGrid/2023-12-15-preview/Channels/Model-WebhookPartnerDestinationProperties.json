@@ -7,7 +7,9 @@
       "name": "ClientAuthentication",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PartnerClientAuthentication"
+        "nullable": false,
+        "referenceName": "PartnerClientAuthentication",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +18,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The base URL that represents the endpoint of the partner destination.",
       "jsonName": "endpointBaseUrl",
       "name": "EndpointBaseUrl",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +34,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The URL that represents the endpoint of the partner destination.",
       "jsonName": "endpointUrl",
       "name": "EndpointUrl",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

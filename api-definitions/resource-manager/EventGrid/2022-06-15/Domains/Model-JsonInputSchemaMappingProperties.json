@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The mapping information for the DataVersion property of the Event Grid Event.",
       "jsonName": "dataVersion",
       "name": "DataVersion",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JsonFieldWithDefault"
+        "nullable": false,
+        "referenceName": "JsonFieldWithDefault",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The mapping information for the EventTime property of the Event Grid Event.",
       "jsonName": "eventTime",
       "name": "EventTime",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JsonField"
+        "nullable": false,
+        "referenceName": "JsonField",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The mapping information for the EventType property of the Event Grid Event.",
       "jsonName": "eventType",
       "name": "EventType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JsonFieldWithDefault"
+        "nullable": false,
+        "referenceName": "JsonFieldWithDefault",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The mapping information for the Id property of the Event Grid Event.",
       "jsonName": "id",
       "name": "Id",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JsonField"
+        "nullable": false,
+        "referenceName": "JsonField",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The mapping information for the Subject property of the Event Grid Event.",
       "jsonName": "subject",
       "name": "Subject",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JsonFieldWithDefault"
+        "nullable": false,
+        "referenceName": "JsonFieldWithDefault",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,16 +83,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The mapping information for the Topic property of the Event Grid Event.",
       "jsonName": "topic",
       "name": "Topic",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JsonField"
+        "nullable": false,
+        "referenceName": "JsonField",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

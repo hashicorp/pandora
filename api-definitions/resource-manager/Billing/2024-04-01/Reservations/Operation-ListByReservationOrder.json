@@ -1,6 +1,7 @@
 {
   "name": "ListByReservationOrder",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "ReservationOrderId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Reservation"
+    "nullable": false,
+    "referenceName": "Reservation",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/reservations"
 }

@@ -1,6 +1,7 @@
 {
   "name": "List",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -22,7 +23,9 @@
   "resourceIdName": "IntegrationAccountId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "IntegrationAccountCertificate"
+    "nullable": false,
+    "referenceName": "IntegrationAccountCertificate",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/certificates"
 }

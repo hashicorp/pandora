@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "PrincipalAssignmentId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ClusterPrincipalAssignment"
+    "nullable": false,
+    "referenceName": "ClusterPrincipalAssignment",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ClusterPrincipalAssignment"
+    "nullable": false,
+    "referenceName": "ClusterPrincipalAssignment",
+    "referenceNameIsCommonType": null
   }
 }

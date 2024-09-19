@@ -1,6 +1,7 @@
 {
   "name": "ListKeys",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,7 +22,9 @@
   "resourceIdName": "StorageAccountId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "StorageAccountListKeysResult"
+    "nullable": false,
+    "referenceName": "StorageAccountListKeysResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/listKeys"
 }

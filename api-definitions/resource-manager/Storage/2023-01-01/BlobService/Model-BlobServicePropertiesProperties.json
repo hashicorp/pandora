@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Deprecated in favor of isVersioningEnabled property.",
       "jsonName": "automaticSnapshotPolicyEnabled",
       "name": "AutomaticSnapshotPolicyEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The blob service properties for change feed events.",
       "jsonName": "changeFeed",
       "name": "ChangeFeed",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ChangeFeed"
+        "nullable": false,
+        "referenceName": "ChangeFeed",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +39,9 @@
       "name": "ContainerDeleteRetentionPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeleteRetentionPolicy"
+        "nullable": false,
+        "referenceName": "DeleteRetentionPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +54,9 @@
       "name": "Cors",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CorsRules"
+        "nullable": false,
+        "referenceName": "CorsRules",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +65,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "DefaultServiceVersion indicates the default version to use for requests to the Blob service if an incoming request’s version is not specified. Possible values include version 2008-10-27 and all more recent versions.",
       "jsonName": "defaultServiceVersion",
       "name": "DefaultServiceVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +85,9 @@
       "name": "DeleteRetentionPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeleteRetentionPolicy"
+        "nullable": false,
+        "referenceName": "DeleteRetentionPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +96,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Versioning is enabled if set to true.",
       "jsonName": "isVersioningEnabled",
       "name": "IsVersioningEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +112,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The blob service property to configure last access time based tracking policy.",
       "jsonName": "lastAccessTimeTrackingPolicy",
       "name": "LastAccessTimeTrackingPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LastAccessTimeTrackingPolicy"
+        "nullable": false,
+        "referenceName": "LastAccessTimeTrackingPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,16 +128,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The blob service properties for blob restore policy.",
       "jsonName": "restorePolicy",
       "name": "RestorePolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RestorePolicyProperties"
+        "nullable": false,
+        "referenceName": "RestorePolicyProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "HybridRunbookWorkerGroupId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "HybridRunbookWorkerGroupUpdateParameters"
+    "nullable": false,
+    "referenceName": "HybridRunbookWorkerGroupUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "HybridRunbookWorkerGroup"
+    "nullable": false,
+    "referenceName": "HybridRunbookWorkerGroup",
+    "referenceNameIsCommonType": null
   }
 }

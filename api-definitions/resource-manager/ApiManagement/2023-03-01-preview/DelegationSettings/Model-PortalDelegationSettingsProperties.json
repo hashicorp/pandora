@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Subscriptions delegation settings.",
       "jsonName": "subscriptions",
       "name": "Subscriptions",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubscriptionsDelegationSettingsProperties"
+        "nullable": false,
+        "referenceName": "SubscriptionsDelegationSettingsProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A delegation Url.",
       "jsonName": "url",
       "name": "Url",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "User registration delegation settings.",
       "jsonName": "userRegistration",
       "name": "UserRegistration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RegistrationDelegationSettingsProperties"
+        "nullable": false,
+        "referenceName": "RegistrationDelegationSettingsProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,16 +51,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A base64-encoded validation key to validate, that a request is coming from Azure API Management.",
       "jsonName": "validationKey",
       "name": "ValidationKey",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of filtering tags to be used for capturing metrics.",
       "jsonName": "filteringTags",
       "name": "FilteringTags",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "FilteringTag"
+          "nullable": false,
+          "referenceName": "FilteringTag",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Flag specifying if metrics should be sent for the Monitor resource.",
       "jsonName": "sendMetrics",
       "name": "SendMetrics",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SendMetricsStatus"
+        "nullable": false,
+        "referenceName": "SendMetricsStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,16 +41,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "User Email",
       "jsonName": "userEmail",
       "name": "UserEmail",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

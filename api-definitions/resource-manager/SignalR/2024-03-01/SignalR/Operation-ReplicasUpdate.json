@@ -1,6 +1,7 @@
 {
   "name": "ReplicasUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "ReplicaId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "Replica"
+    "nullable": false,
+    "referenceName": "Replica",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Replica"
+    "nullable": false,
+    "referenceName": "Replica",
+    "referenceNameIsCommonType": null
   }
 }

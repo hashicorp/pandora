@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Error Details for this upgrade if there are any.",
       "jsonName": "error",
       "name": "Error",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiError"
+        "nullable": false,
+        "referenceName": "ApiError",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Counts of the VMs in each state.",
       "jsonName": "progress",
       "name": "Progress",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RollingUpgradeProgressInfo"
+        "nullable": false,
+        "referenceName": "RollingUpgradeProgressInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Information about OS rollback if performed",
       "jsonName": "rollbackInfo",
       "name": "RollbackInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RollbackStatusInfo"
+        "nullable": false,
+        "referenceName": "RollbackStatusInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Information about the overall status of the upgrade operation.",
       "jsonName": "runningStatus",
       "name": "RunningStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UpgradeOperationHistoryStatus"
+        "nullable": false,
+        "referenceName": "UpgradeOperationHistoryStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Invoker of the Upgrade Operation",
       "jsonName": "startedBy",
       "name": "StartedBy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UpgradeOperationInvoker"
+        "nullable": false,
+        "referenceName": "UpgradeOperationInvoker",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,16 +83,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Image Reference details",
       "jsonName": "targetImageReference",
       "name": "TargetImageReference",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ImageReference"
+        "nullable": false,
+        "referenceName": "ImageReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

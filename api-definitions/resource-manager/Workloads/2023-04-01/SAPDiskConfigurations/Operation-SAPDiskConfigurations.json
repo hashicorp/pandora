@@ -1,6 +1,7 @@
 {
   "name": "SAPDiskConfigurations",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "LocationId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SAPDiskConfigurationsRequest"
+    "nullable": false,
+    "referenceName": "SAPDiskConfigurationsRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SAPDiskConfigurationsResult"
+    "nullable": false,
+    "referenceName": "SAPDiskConfigurationsResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/sapVirtualInstanceMetadata/default/getDiskConfigurations"
 }

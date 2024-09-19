@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault",
       "jsonName": "keySource",
       "name": "KeySource",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EncryptionKeySource"
+        "nullable": false,
+        "referenceName": "EncryptionKeySource",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Key Vault input properties for encryption.",
       "jsonName": "keyVaultProperties",
       "name": "KeyVaultProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EncryptionV2KeyVaultProperties"
+        "nullable": false,
+        "referenceName": "EncryptionV2KeyVaultProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

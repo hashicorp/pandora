@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "ServerlessEndpointId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "PartialMinimalTrackedResourceWithSkuAndIdentity"
+    "nullable": false,
+    "referenceName": "PartialMinimalTrackedResourceWithSkuAndIdentity",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ServerlessEndpointTrackedResource"
+    "nullable": false,
+    "referenceName": "ServerlessEndpointTrackedResource",
+    "referenceNameIsCommonType": null
   }
 }

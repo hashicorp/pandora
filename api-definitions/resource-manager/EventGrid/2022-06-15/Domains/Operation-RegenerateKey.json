@@ -1,6 +1,7 @@
 {
   "name": "RegenerateKey",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "DomainId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "DomainRegenerateKeyRequest"
+    "nullable": false,
+    "referenceName": "DomainRegenerateKeyRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DomainSharedAccessKeys"
+    "nullable": false,
+    "referenceName": "DomainSharedAccessKeys",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/regenerateKey"
 }

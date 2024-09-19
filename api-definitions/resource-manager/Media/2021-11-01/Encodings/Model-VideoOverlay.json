@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An optional rectangular window used to crop the overlay image or video.",
       "jsonName": "cropRectangle",
       "name": "CropRectangle",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Rectangle"
+        "nullable": false,
+        "referenceName": "Rectangle",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The opacity of the overlay. This is a value in the range [0 - 1.0]. Default is 1.0 which mean the overlay is opaque.",
       "jsonName": "opacity",
       "name": "Opacity",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The location in the input video where the overlay is applied.",
       "jsonName": "position",
       "name": "Position",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Rectangle"
+        "nullable": false,
+        "referenceName": "Rectangle",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -41,6 +50,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "Overlay",
   "discriminatedTypeValue": "#Microsoft.Media.VideoOverlay",
   "typeHintIn": "OdataType"

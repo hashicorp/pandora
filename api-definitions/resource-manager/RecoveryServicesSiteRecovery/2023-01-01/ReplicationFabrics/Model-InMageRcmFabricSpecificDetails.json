@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of agent details.",
       "jsonName": "agentDetails",
       "name": "AgentDetails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AgentDetails"
+          "nullable": false,
+          "referenceName": "AgentDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The control plane Uri.",
       "jsonName": "controlPlaneUri",
       "name": "ControlPlaneUri",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The data plane Uri.",
       "jsonName": "dataPlaneUri",
       "name": "DataPlaneUri",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,14 +57,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of DRAs.",
       "jsonName": "dras",
       "name": "Dras",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DraDetails"
+          "nullable": false,
+          "referenceName": "DraDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -63,14 +79,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of Mars agents.",
       "jsonName": "marsAgents",
       "name": "MarsAgents",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MarsAgentDetails"
+          "nullable": false,
+          "referenceName": "MarsAgentDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -80,11 +101,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ARM Id of the physical site.",
       "jsonName": "physicalSiteId",
       "name": "PhysicalSiteId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -93,14 +117,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of process servers.",
       "jsonName": "processServers",
       "name": "ProcessServers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ProcessServerDetails"
+          "nullable": false,
+          "referenceName": "ProcessServerDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -110,14 +139,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of push installers.",
       "jsonName": "pushInstallers",
       "name": "PushInstallers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PushInstallerDetails"
+          "nullable": false,
+          "referenceName": "PushInstallerDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -127,14 +161,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of RCM proxies.",
       "jsonName": "rcmProxies",
       "name": "RcmProxies",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RcmProxyDetails"
+          "nullable": false,
+          "referenceName": "RcmProxyDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -144,14 +183,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of replication agents.",
       "jsonName": "replicationAgents",
       "name": "ReplicationAgents",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ReplicationAgentDetails"
+          "nullable": false,
+          "referenceName": "ReplicationAgentDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -161,14 +205,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of reprotect agents.",
       "jsonName": "reprotectAgents",
       "name": "ReprotectAgents",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ReprotectAgentDetails"
+          "nullable": false,
+          "referenceName": "ReprotectAgentDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -178,11 +227,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The service container Id.",
       "jsonName": "serviceContainerId",
       "name": "ServiceContainerId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -191,11 +243,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The service endpoint.",
       "jsonName": "serviceEndpoint",
       "name": "ServiceEndpoint",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -204,11 +259,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The service resource Id.",
       "jsonName": "serviceResourceId",
       "name": "ServiceResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -217,11 +275,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The source agent identity details.",
       "jsonName": "sourceAgentIdentityDetails",
       "name": "SourceAgentIdentityDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IdentityProviderDetails"
+        "nullable": false,
+        "referenceName": "IdentityProviderDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -230,11 +291,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ARM Id of the VMware site.",
       "jsonName": "vmwareSiteId",
       "name": "VMwareSiteId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -242,6 +306,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "FabricSpecificDetails",
   "discriminatedTypeValue": "InMageRcm",
   "typeHintIn": "InstanceType"

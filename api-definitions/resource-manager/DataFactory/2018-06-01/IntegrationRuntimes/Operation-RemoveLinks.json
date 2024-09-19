@@ -1,6 +1,7 @@
 {
   "name": "RemoveLinks",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "IntegrationRuntimeId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "LinkedIntegrationRuntimeRequest"
+    "nullable": false,
+    "referenceName": "LinkedIntegrationRuntimeRequest",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/removeLinks"
 }

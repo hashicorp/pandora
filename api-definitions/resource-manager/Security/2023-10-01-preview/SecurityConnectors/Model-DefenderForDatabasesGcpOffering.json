@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ARC autoprovisioning configuration",
       "jsonName": "arcAutoProvisioning",
       "name": "ArcAutoProvisioning",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderForDatabasesGcpOfferingArcAutoProvisioning"
+        "nullable": false,
+        "referenceName": "DefenderForDatabasesGcpOfferingArcAutoProvisioning",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The native cloud connection configuration",
       "jsonName": "defenderForDatabasesArcAutoProvisioning",
       "name": "DefenderForDatabasesArcAutoProvisioning",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderForDatabasesGcpOfferingDefenderForDatabasesArcAutoProvisioning"
+        "nullable": false,
+        "referenceName": "DefenderForDatabasesGcpOfferingDefenderForDatabasesArcAutoProvisioning",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -28,6 +34,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "CloudOffering",
   "discriminatedTypeValue": "DefenderForDatabasesGcp",
   "typeHintIn": "OfferingType"

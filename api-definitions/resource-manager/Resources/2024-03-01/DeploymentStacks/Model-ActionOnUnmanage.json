@@ -7,7 +7,9 @@
       "name": "ManagementGroups",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeploymentStacksDeleteDetachEnum"
+        "nullable": false,
+        "referenceName": "DeploymentStacksDeleteDetachEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ResourceGroups",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeploymentStacksDeleteDetachEnum"
+        "nullable": false,
+        "referenceName": "DeploymentStacksDeleteDetachEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "Resources",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeploymentStacksDeleteDetachEnum"
+        "nullable": false,
+        "referenceName": "DeploymentStacksDeleteDetachEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

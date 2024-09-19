@@ -1,6 +1,7 @@
 {
   "name": "GetSiteAnalysis",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "AnalysisId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AnalysisDefinition"
+    "nullable": false,
+    "referenceName": "AnalysisDefinition",
+    "referenceNameIsCommonType": null
   }
 }

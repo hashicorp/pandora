@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Dynatrace Account Information",
       "jsonName": "accountInfo",
       "name": "AccountInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AccountInfo"
+        "nullable": false,
+        "referenceName": "AccountInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Dynatrace Environment Information",
       "jsonName": "environmentInfo",
       "name": "EnvironmentInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnvironmentInfo"
+        "nullable": false,
+        "referenceName": "EnvironmentInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The details of a Dynatrace single sign-on.",
       "jsonName": "singleSignOnProperties",
       "name": "SingleSignOnProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DynatraceSingleSignOnProperties"
+        "nullable": false,
+        "referenceName": "DynatraceSingleSignOnProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,16 +51,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "User id",
       "jsonName": "userId",
       "name": "UserId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

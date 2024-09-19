@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of available upgrade versions for agent pools.",
       "jsonName": "agentPoolProfiles",
       "name": "AgentPoolProfiles",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ManagedClusterPoolUpgradeProfile"
+          "nullable": false,
+          "referenceName": "ManagedClusterPoolUpgradeProfile",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -20,16 +25,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of available upgrade versions for the control plane.",
       "jsonName": "controlPlaneProfile",
       "name": "ControlPlaneProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterPoolUpgradeProfile"
+        "nullable": false,
+        "referenceName": "ManagedClusterPoolUpgradeProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

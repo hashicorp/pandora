@@ -1,6 +1,7 @@
 {
   "name": "UserSubscriptionGet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "UserSubscriptions2Id",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SubscriptionContract"
+    "nullable": false,
+    "referenceName": "SubscriptionContract",
+    "referenceNameIsCommonType": null
   }
 }

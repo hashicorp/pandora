@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Change Detection Mode. Applies to a directory specified in directoryPath parameter.",
       "jsonName": "changeDetectionMode",
       "name": "ChangeDetectionMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ChangeDetectionMode"
+        "nullable": false,
+        "referenceName": "ChangeDetectionMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Relative path to a directory Azure File share for which change detection is to be performed.",
       "jsonName": "directoryPath",
       "name": "DirectoryPath",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Array of relative paths on the Azure File share to be included in the change detection. Can be files and directories.",
       "jsonName": "paths",
       "name": "Paths",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -44,5 +55,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

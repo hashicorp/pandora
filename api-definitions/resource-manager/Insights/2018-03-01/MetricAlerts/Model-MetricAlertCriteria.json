@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": true,
+      "description": "specifies the type of the alert criteria.",
       "jsonName": "odata.type",
       "name": "OdataType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Odatatype"
+        "nullable": false,
+        "referenceName": "Odatatype",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,5 +18,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "OdataType"
 }

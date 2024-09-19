@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "OriginId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "OriginUpdateParameters"
+    "nullable": false,
+    "referenceName": "OriginUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Origin"
+    "nullable": false,
+    "referenceName": "Origin",
+    "referenceNameIsCommonType": null
   }
 }

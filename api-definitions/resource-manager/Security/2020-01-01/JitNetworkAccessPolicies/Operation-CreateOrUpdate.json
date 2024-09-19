@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "JitNetworkAccessPolicyId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "JitNetworkAccessPolicy"
+    "nullable": false,
+    "referenceName": "JitNetworkAccessPolicy",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "JitNetworkAccessPolicy"
+    "nullable": false,
+    "referenceName": "JitNetworkAccessPolicy",
+    "referenceNameIsCommonType": null
   }
 }

@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of SSH public keys used to authenticate with Linux-based VMs. A maximum of 1 key may be specified.",
       "jsonName": "publicKeys",
       "name": "PublicKeys",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ContainerServiceSshPublicKey"
+          "nullable": false,
+          "referenceName": "ContainerServiceSshPublicKey",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -18,5 +23,6 @@
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

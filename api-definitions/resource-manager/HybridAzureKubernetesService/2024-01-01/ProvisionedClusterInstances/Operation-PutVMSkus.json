@@ -1,6 +1,7 @@
 {
   "name": "PutVMSkus",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,11 +11,15 @@
   "resourceIdName": "ScopeId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "VMSkuProfile"
+    "nullable": false,
+    "referenceName": "VMSkuProfile",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "VMSkuProfile"
+    "nullable": false,
+    "referenceName": "VMSkuProfile",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.HybridContainerService/skus/default"
 }

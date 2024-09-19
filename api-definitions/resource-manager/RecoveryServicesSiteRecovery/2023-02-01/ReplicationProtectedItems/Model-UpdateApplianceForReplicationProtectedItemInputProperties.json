@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The provider specific input to update replication protected item.",
       "jsonName": "providerSpecificDetails",
       "name": "ProviderSpecificDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UpdateApplianceForReplicationProtectedItemProviderSpecificInput"
+        "nullable": false,
+        "referenceName": "UpdateApplianceForReplicationProtectedItemProviderSpecificInput",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The target appliance Id.",
       "jsonName": "targetApplianceId",
       "name": "TargetApplianceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

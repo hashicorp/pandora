@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of add-on features to enable in the cluster.",
       "jsonName": "addOnFeatures",
       "name": "AddOnFeatures",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AddOnFeatures"
+          "nullable": false,
+          "referenceName": "AddOnFeatures",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The policy used to clean up unused versions.",
       "jsonName": "applicationTypeVersionsCleanupPolicy",
       "name": "ApplicationTypeVersionsCleanupPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationTypeVersionsCleanupPolicy"
+        "nullable": false,
+        "referenceName": "ApplicationTypeVersionsCleanupPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The certificate to use for securing the cluster. The certificate provided will be used for  node to node security within the cluster, SSL certificate for cluster management endpoint and default  admin client.",
       "jsonName": "certificate",
       "name": "Certificate",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CertificateDescription"
+        "nullable": false,
+        "referenceName": "CertificateDescription",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,7 +61,9 @@
       "name": "CertificateCommonNames",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerCertificateCommonNames"
+        "nullable": false,
+        "referenceName": "ServerCertificateCommonNames",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,14 +72,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of client certificates referenced by common name that are allowed to manage the cluster. This will overwrite the existing list.",
       "jsonName": "clientCertificateCommonNames",
       "name": "ClientCertificateCommonNames",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ClientCertificateCommonName"
+          "nullable": false,
+          "referenceName": "ClientCertificateCommonName",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -76,14 +94,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of client certificates referenced by thumbprint that are allowed to manage the cluster. This will overwrite the existing list.",
       "jsonName": "clientCertificateThumbprints",
       "name": "ClientCertificateThumbprints",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ClientCertificateThumbprint"
+          "nullable": false,
+          "referenceName": "ClientCertificateThumbprint",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -93,11 +116,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](https://learn.microsoft.com/rest/api/servicefabric/cluster-versions/list). To get the list of available version for existing clusters use **availableClusterVersions**.",
       "jsonName": "clusterCodeVersion",
       "name": "ClusterCodeVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -106,11 +132,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates if the event store service is enabled.",
       "jsonName": "eventStoreServiceEnabled",
       "name": "EventStoreServiceEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -119,14 +148,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of custom fabric settings to configure the cluster. This will overwrite the existing list.",
       "jsonName": "fabricSettings",
       "name": "FabricSettings",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SettingsSectionDescription"
+          "nullable": false,
+          "referenceName": "SettingsSectionDescription",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -136,11 +170,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates if infrastructure service manager is enabled.",
       "jsonName": "infrastructureServiceManager",
       "name": "InfrastructureServiceManager",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -149,14 +186,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of node types in the cluster. This will overwrite the existing list.",
       "jsonName": "nodeTypes",
       "name": "NodeTypes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "NodeTypeDescription"
+          "nullable": false,
+          "referenceName": "NodeTypeDescription",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -166,14 +208,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates a list of notification channels for cluster events.",
       "jsonName": "notifications",
       "name": "Notifications",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Notification"
+          "nullable": false,
+          "referenceName": "Notification",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -187,7 +234,9 @@
       "name": "ReliabilityLevel",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReliabilityLevel"
+        "nullable": false,
+        "referenceName": "ReliabilityLevel",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -196,11 +245,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The server certificate used by reverse proxy.",
       "jsonName": "reverseProxyCertificate",
       "name": "ReverseProxyCertificate",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CertificateDescription"
+        "nullable": false,
+        "referenceName": "CertificateDescription",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -213,7 +265,9 @@
       "name": "SfZonalUpgradeMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SfZonalUpgradeMode"
+        "nullable": false,
+        "referenceName": "SfZonalUpgradeMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -222,11 +276,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The policy to use when upgrading the cluster.",
       "jsonName": "upgradeDescription",
       "name": "UpgradeDescription",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterUpgradePolicy"
+        "nullable": false,
+        "referenceName": "ClusterUpgradePolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -239,7 +296,9 @@
       "name": "UpgradeMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UpgradeMode"
+        "nullable": false,
+        "referenceName": "UpgradeMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -249,11 +308,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The end timestamp of pause runtime version upgrades on the cluster (UTC).",
       "jsonName": "upgradePauseEndTimestampUtc",
       "name": "UpgradePauseEndTimestampUtc",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -263,11 +325,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The start timestamp to pause runtime version upgrades on the cluster (UTC).",
       "jsonName": "upgradePauseStartTimestampUtc",
       "name": "UpgradePauseStartTimestampUtc",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -276,11 +341,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0. Only applies when **upgradeMode** is set to 'Automatic'.",
       "jsonName": "upgradeWave",
       "name": "UpgradeWave",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterUpgradeCadence"
+        "nullable": false,
+        "referenceName": "ClusterUpgradeCadence",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -293,7 +361,9 @@
       "name": "VMSSZonalUpgradeMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VMSSZonalUpgradeMode"
+        "nullable": false,
+        "referenceName": "VMSSZonalUpgradeMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -302,16 +372,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Boolean to pause automatic runtime version upgrades to the cluster.",
       "jsonName": "waveUpgradePaused",
       "name": "WaveUpgradePaused",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

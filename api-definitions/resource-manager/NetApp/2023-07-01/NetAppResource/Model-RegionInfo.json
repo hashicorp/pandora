@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provides logical availability zone mappings for the subscription for a region.",
       "jsonName": "availabilityZoneMappings",
       "name": "AvailabilityZoneMappings",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RegionInfoAvailabilityZoneMappingsInlined"
+          "nullable": false,
+          "referenceName": "RegionInfoAvailabilityZoneMappingsInlined",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,16 +25,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provides storage to network proximity information in the region.",
       "jsonName": "storageToNetworkProximity",
       "name": "StorageToNetworkProximity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RegionStorageToNetworkProximity"
+        "nullable": false,
+        "referenceName": "RegionStorageToNetworkProximity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

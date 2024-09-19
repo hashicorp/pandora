@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Frequency of period in terms of 'Hour', 'Minute' or 'Second'.",
       "jsonName": "frequency",
       "name": "Frequency",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FrequencyType"
+        "nullable": false,
+        "referenceName": "FrequencyType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Actual interval value as per chosen frequency.",
       "jsonName": "interval",
       "name": "Interval",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

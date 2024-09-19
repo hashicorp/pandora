@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201,
@@ -11,11 +12,15 @@
   "resourceIdName": "SqlServerId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ServerAzureADOnlyAuthentication"
+    "nullable": false,
+    "referenceName": "ServerAzureADOnlyAuthentication",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ServerAzureADOnlyAuthentication"
+    "nullable": false,
+    "referenceName": "ServerAzureADOnlyAuthentication",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/azureADOnlyAuthentications/default"
 }

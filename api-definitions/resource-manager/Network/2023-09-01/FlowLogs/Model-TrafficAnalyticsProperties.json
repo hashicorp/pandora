@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Parameters that define the configuration of traffic analytics.",
       "jsonName": "networkWatcherFlowAnalyticsConfiguration",
       "name": "NetworkWatcherFlowAnalyticsConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TrafficAnalyticsConfigurationProperties"
+        "nullable": false,
+        "referenceName": "TrafficAnalyticsConfigurationProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

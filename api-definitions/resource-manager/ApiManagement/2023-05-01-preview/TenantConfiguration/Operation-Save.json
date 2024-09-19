@@ -1,6 +1,7 @@
 {
   "name": "Save",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "ServiceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SaveConfigurationParameter"
+    "nullable": false,
+    "referenceName": "SaveConfigurationParameter",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "OperationResultContract"
+    "nullable": false,
+    "referenceName": "OperationResultContract",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/tenant/configuration/save"
 }

@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Gen2EnvironmentResourceProperties"
+        "nullable": false,
+        "referenceName": "Gen2EnvironmentResourceProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "EnvironmentResource",
   "discriminatedTypeValue": "Gen2",
   "typeHintIn": "Kind"

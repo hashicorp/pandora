@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": true,
+      "description": "The mode to create a new server.",
       "jsonName": "createMode",
       "name": "CreateMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CreateMode"
+        "nullable": false,
+        "referenceName": "CreateMode",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enforce a minimal Tls version for the server.",
       "jsonName": "minimalTlsVersion",
       "name": "MinimalTlsVersion",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MinimalTlsVersionEnum"
+        "nullable": false,
+        "referenceName": "MinimalTlsVersionEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enable ssl enforcement or not when connect to server.",
       "jsonName": "sslEnforcement",
       "name": "SslEnforcement",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SslEnforcementEnum"
+        "nullable": false,
+        "referenceName": "SslEnforcementEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Storage profile of a server.",
       "jsonName": "storageProfile",
       "name": "StorageProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StorageProfile"
+        "nullable": false,
+        "referenceName": "StorageProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Server version.",
       "jsonName": "version",
       "name": "Version",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerVersion"
+        "nullable": false,
+        "referenceName": "ServerVersion",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -67,5 +82,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "CreateMode"
 }

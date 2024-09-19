@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specify what happens to the public IP address when the VM is deleted",
       "jsonName": "deleteOption",
       "name": "DeleteOption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeleteOptions"
+        "nullable": false,
+        "referenceName": "DeleteOptions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The dns settings to be applied on the publicIP addresses .",
       "jsonName": "dnsSettings",
       "name": "DnsSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachinePublicIPAddressDnsSettingsConfiguration"
+        "nullable": false,
+        "referenceName": "VirtualMachinePublicIPAddressDnsSettingsConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of IP tags associated with the public IP address.",
       "jsonName": "ipTags",
       "name": "IPTags",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VirtualMachineIPTag"
+          "nullable": false,
+          "referenceName": "VirtualMachineIPTag",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The idle timeout of the public IP address.",
       "jsonName": "idleTimeoutInMinutes",
       "name": "IdleTimeoutInMinutes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Available from Api-Version 2019-07-01 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4. Possible values are: 'IPv4' and 'IPv6'.",
       "jsonName": "publicIPAddressVersion",
       "name": "PublicIPAddressVersion",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IPVersions"
+        "nullable": false,
+        "referenceName": "IPVersions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specify the public IP allocation type",
       "jsonName": "publicIPAllocationMethod",
       "name": "PublicIPAllocationMethod",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublicIPAllocationMethod"
+        "nullable": false,
+        "referenceName": "PublicIPAllocationMethod",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,16 +105,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The PublicIPPrefix from which to allocate publicIP addresses.",
       "jsonName": "publicIPPrefix",
       "name": "PublicIPPrefix",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

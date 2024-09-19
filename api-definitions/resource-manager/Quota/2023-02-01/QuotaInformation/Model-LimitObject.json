@@ -7,7 +7,9 @@
       "name": "LimitType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "QuotaLimitTypes"
+        "nullable": false,
+        "referenceName": "QuotaLimitTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +18,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The quota/limit value",
       "jsonName": "value",
       "name": "Value",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -28,6 +33,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "LimitJsonObject",
   "discriminatedTypeValue": "LimitValue",
   "typeHintIn": "LimitObjectType"

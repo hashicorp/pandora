@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.",
       "jsonName": "options",
       "name": "Options",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CreateUpdateOptions"
+        "nullable": false,
+        "referenceName": "CreateUpdateOptions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The standard JSON format of a MongoDB database",
       "jsonName": "resource",
       "name": "Resource",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MongoDBDatabaseResource"
+        "nullable": false,
+        "referenceName": "MongoDBDatabaseResource",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

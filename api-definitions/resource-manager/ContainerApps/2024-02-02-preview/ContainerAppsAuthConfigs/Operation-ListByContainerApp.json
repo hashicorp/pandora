@@ -1,6 +1,7 @@
 {
   "name": "ListByContainerApp",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "ContainerAppId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AuthConfig"
+    "nullable": false,
+    "referenceName": "AuthConfig",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/authConfigs"
 }

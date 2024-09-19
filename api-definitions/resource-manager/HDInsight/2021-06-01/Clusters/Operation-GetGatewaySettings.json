@@ -1,6 +1,7 @@
 {
   "name": "GetGatewaySettings",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "HDInsightClusterId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "GatewaySettings"
+    "nullable": false,
+    "referenceName": "GatewaySettings",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/getGatewaySettings"
 }

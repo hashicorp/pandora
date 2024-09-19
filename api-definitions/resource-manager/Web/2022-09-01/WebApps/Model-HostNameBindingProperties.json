@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Azure resource name.",
       "jsonName": "azureResourceName",
       "name": "AzureResourceName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Azure resource type.",
       "jsonName": "azureResourceType",
       "name": "AzureResourceType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureResourceType"
+        "nullable": false,
+        "referenceName": "AzureResourceType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Custom DNS record type.",
       "jsonName": "customHostNameDnsRecordType",
       "name": "CustomHostNameDnsRecordType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CustomHostNameDnsRecordType"
+        "nullable": false,
+        "referenceName": "CustomHostNameDnsRecordType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Fully qualified ARM domain resource URI.",
       "jsonName": "domainId",
       "name": "DomainId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Hostname type.",
       "jsonName": "hostNameType",
       "name": "HostNameType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HostNameType"
+        "nullable": false,
+        "referenceName": "HostNameType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "App Service app name.",
       "jsonName": "siteName",
       "name": "SiteName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "SSL type",
       "jsonName": "sslState",
       "name": "SslState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SslState"
+        "nullable": false,
+        "referenceName": "SslState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "SSL certificate thumbprint",
       "jsonName": "thumbprint",
       "name": "Thumbprint",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,16 +131,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Virtual IP address assigned to the hostname if IP based SSL is enabled.",
       "jsonName": "virtualIP",
       "name": "VirtualIP",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

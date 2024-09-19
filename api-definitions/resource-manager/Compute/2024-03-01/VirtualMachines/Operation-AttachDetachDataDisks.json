@@ -1,6 +1,7 @@
 {
   "name": "AttachDetachDataDisks",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "VirtualMachineId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "AttachDetachDataDisksRequest"
+    "nullable": false,
+    "referenceName": "AttachDetachDataDisksRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "StorageProfile"
+    "nullable": false,
+    "referenceName": "StorageProfile",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/attachDetachDataDisks"
 }

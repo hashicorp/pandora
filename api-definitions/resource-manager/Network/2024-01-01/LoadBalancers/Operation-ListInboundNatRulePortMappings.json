@@ -1,6 +1,7 @@
 {
   "name": "ListInboundNatRulePortMappings",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "BackendAddressPoolId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "QueryInboundNatRulePortMappingRequest"
+    "nullable": false,
+    "referenceName": "QueryInboundNatRulePortMappingRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BackendAddressInboundNatRulePortMappings"
+    "nullable": false,
+    "referenceName": "BackendAddressInboundNatRulePortMappings",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/queryInboundNatRulePortMapping"
 }

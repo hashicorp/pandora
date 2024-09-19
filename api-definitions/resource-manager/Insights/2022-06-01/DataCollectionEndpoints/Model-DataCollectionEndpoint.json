@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The endpoint used by clients to access their configuration.",
       "jsonName": "configurationAccess",
       "name": "ConfigurationAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConfigurationAccessEndpointSpec"
+        "nullable": false,
+        "referenceName": "ConfigurationAccessEndpointSpec",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Description of the data collection endpoint.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Failover configuration on this endpoint. This property is READ-ONLY.",
       "jsonName": "failoverConfiguration",
       "name": "FailoverConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FailoverConfigurationSpec"
+        "nullable": false,
+        "referenceName": "FailoverConfigurationSpec",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The immutable ID of this data collection endpoint resource. This property is READ-ONLY.",
       "jsonName": "immutableId",
       "name": "ImmutableId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The endpoint used by clients to ingest logs.",
       "jsonName": "logsIngestion",
       "name": "LogsIngestion",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LogsIngestionEndpointSpec"
+        "nullable": false,
+        "referenceName": "LogsIngestionEndpointSpec",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Metadata for the resource. This property is READ-ONLY.",
       "jsonName": "metadata",
       "name": "Metadata",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Metadata"
+        "nullable": false,
+        "referenceName": "Metadata",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The endpoint used by clients to ingest metrics.",
       "jsonName": "metricsIngestion",
       "name": "MetricsIngestion",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MetricsIngestionEndpointSpec"
+        "nullable": false,
+        "referenceName": "MetricsIngestionEndpointSpec",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Network access control rules for the endpoints.",
       "jsonName": "networkAcls",
       "name": "NetworkAcls",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkRuleSet"
+        "nullable": false,
+        "referenceName": "NetworkRuleSet",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,14 +131,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of Azure Monitor Private Link Scope Resources to which this data collection endpoint resource is associated. This property is READ-ONLY.",
       "jsonName": "privateLinkScopedResources",
       "name": "PrivateLinkScopedResources",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PrivateLinkScopedResource"
+          "nullable": false,
+          "referenceName": "PrivateLinkScopedResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -124,16 +153,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource provisioning state. This property is READ-ONLY.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KnownDataCollectionEndpointProvisioningState"
+        "nullable": false,
+        "referenceName": "KnownDataCollectionEndpointProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

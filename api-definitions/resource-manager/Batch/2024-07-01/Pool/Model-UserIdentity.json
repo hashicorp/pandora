@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The userName and autoUser properties are mutually exclusive; you must specify one but not both.",
       "jsonName": "autoUser",
       "name": "AutoUser",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutoUserSpecification"
+        "nullable": false,
+        "referenceName": "AutoUserSpecification",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The userName and autoUser properties are mutually exclusive; you must specify one but not both.",
       "jsonName": "userName",
       "name": "UserName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

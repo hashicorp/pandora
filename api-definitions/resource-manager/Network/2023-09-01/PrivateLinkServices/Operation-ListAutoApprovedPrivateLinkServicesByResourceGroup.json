@@ -1,6 +1,7 @@
 {
   "name": "ListAutoApprovedPrivateLinkServicesByResourceGroup",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "ProviderLocationId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AutoApprovedPrivateLinkService"
+    "nullable": false,
+    "referenceName": "AutoApprovedPrivateLinkService",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/autoApprovedPrivateLinkServices"
 }

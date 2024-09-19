@@ -1,6 +1,7 @@
 {
   "name": "OperationStatusList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "ScopeId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "OperationStatusResult"
+    "nullable": false,
+    "referenceName": "OperationStatusResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.KubernetesConfiguration/operations"
 }

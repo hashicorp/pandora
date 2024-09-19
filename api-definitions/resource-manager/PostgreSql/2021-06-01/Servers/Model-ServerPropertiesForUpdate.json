@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The password of the administrator login.",
       "jsonName": "administratorLoginPassword",
       "name": "AdministratorLoginPassword",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Backup properties of a server.",
       "jsonName": "backup",
       "name": "Backup",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Backup"
+        "nullable": false,
+        "referenceName": "Backup",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The mode to update a new PostgreSQL server.",
       "jsonName": "createMode",
       "name": "CreateMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CreateModeForUpdate"
+        "nullable": false,
+        "referenceName": "CreateModeForUpdate",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "High availability properties of a server.",
       "jsonName": "highAvailability",
       "name": "HighAvailability",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HighAvailability"
+        "nullable": false,
+        "referenceName": "HighAvailability",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Maintenance window properties of a server.",
       "jsonName": "maintenanceWindow",
       "name": "MaintenanceWindow",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MaintenanceWindow"
+        "nullable": false,
+        "referenceName": "MaintenanceWindow",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,16 +83,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Storage properties of a server.",
       "jsonName": "storage",
       "name": "Storage",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Storage"
+        "nullable": false,
+        "referenceName": "Storage",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

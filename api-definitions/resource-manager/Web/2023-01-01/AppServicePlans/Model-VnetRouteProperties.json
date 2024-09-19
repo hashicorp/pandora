@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.",
       "jsonName": "endAddress",
       "name": "EndAddress",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of route this is:\nDEFAULT - By default, every app has routes to the local address ranges specified by RFC1918\nINHERITED - Routes inherited from the real Virtual Network routes\nSTATIC - Static route set on the app only\n\nThese values will be used for syncing an app's routes with those from a Virtual Network.",
       "jsonName": "routeType",
       "name": "RouteType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RouteType"
+        "nullable": false,
+        "referenceName": "RouteType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.",
       "jsonName": "startAddress",
       "name": "StartAddress",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "AssetsListContainerSas",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "AssetId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ListContainerSasInput"
+    "nullable": false,
+    "referenceName": "ListContainerSasInput",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AssetContainerSas"
+    "nullable": false,
+    "referenceName": "AssetContainerSas",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/listContainerSas"
 }

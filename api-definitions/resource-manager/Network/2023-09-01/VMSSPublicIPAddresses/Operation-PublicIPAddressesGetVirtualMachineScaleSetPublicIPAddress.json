@@ -1,6 +1,7 @@
 {
   "name": "PublicIPAddressesGetVirtualMachineScaleSetPublicIPAddress",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,6 +22,8 @@
   "resourceIdName": "VirtualMachineScaleSetPublicIPAddressId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PublicIPAddress"
+    "nullable": false,
+    "referenceName": "PublicIPAddress",
+    "referenceNameIsCommonType": null
   }
 }

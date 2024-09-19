@@ -1,6 +1,7 @@
 {
   "name": "FirewallPolicyRuleCollectionGroupDraftsCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,11 +11,15 @@
   "resourceIdName": "RuleCollectionGroupId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "FirewallPolicyRuleCollectionGroupDraft"
+    "nullable": false,
+    "referenceName": "FirewallPolicyRuleCollectionGroupDraft",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "FirewallPolicyRuleCollectionGroupDraft"
+    "nullable": false,
+    "referenceName": "FirewallPolicyRuleCollectionGroupDraft",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/ruleCollectionGroupDrafts/default"
 }

@@ -1,6 +1,7 @@
 {
   "name": "AccessPoliciesCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "AccessPolicyId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "AccessPolicyEntity"
+    "nullable": false,
+    "referenceName": "AccessPolicyEntity",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AccessPolicyEntity"
+    "nullable": false,
+    "referenceName": "AccessPolicyEntity",
+    "referenceNameIsCommonType": null
   }
 }

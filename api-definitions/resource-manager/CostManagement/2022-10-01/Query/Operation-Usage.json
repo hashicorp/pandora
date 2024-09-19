@@ -1,6 +1,7 @@
 {
   "name": "Usage",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     204
@@ -10,11 +11,15 @@
   "resourceIdName": "ScopeId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "QueryDefinition"
+    "nullable": false,
+    "referenceName": "QueryDefinition",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "QueryResult"
+    "nullable": false,
+    "referenceName": "QueryResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.CostManagement/query"
 }

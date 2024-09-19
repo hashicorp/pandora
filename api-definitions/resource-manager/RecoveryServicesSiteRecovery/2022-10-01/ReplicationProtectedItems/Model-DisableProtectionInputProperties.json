@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Disable protection reason. It can have values NotSpecified/MigrationComplete.",
       "jsonName": "disableProtectionReason",
       "name": "DisableProtectionReason",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DisableProtectionReason"
+        "nullable": false,
+        "referenceName": "DisableProtectionReason",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Replication provider specific input.",
       "jsonName": "replicationProviderInput",
       "name": "ReplicationProviderInput",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DisableProtectionProviderSpecificInput"
+        "nullable": false,
+        "referenceName": "DisableProtectionProviderSpecificInput",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

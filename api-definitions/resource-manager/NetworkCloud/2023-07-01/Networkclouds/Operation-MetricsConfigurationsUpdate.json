@@ -1,6 +1,7 @@
 {
   "name": "MetricsConfigurationsUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "MetricsConfigurationId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ClusterMetricsConfigurationPatchParameters"
+    "nullable": false,
+    "referenceName": "ClusterMetricsConfigurationPatchParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ClusterMetricsConfiguration"
+    "nullable": false,
+    "referenceName": "ClusterMetricsConfiguration",
+    "referenceNameIsCommonType": null
   }
 }

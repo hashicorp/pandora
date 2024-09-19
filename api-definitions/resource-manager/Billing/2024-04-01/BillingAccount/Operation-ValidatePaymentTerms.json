@@ -1,6 +1,7 @@
 {
   "name": "ValidatePaymentTerms",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,15 +10,21 @@
   "resourceIdName": "BillingAccountId",
   "requestObject": {
     "type": "List",
+    "nullable": false,
     "referenceName": null,
+    "referenceNameIsCommonType": null,
     "nestedItem": {
       "type": "Reference",
-      "referenceName": "PaymentTerm"
+      "nullable": false,
+      "referenceName": "PaymentTerm",
+      "referenceNameIsCommonType": null
     }
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PaymentTermsEligibilityResult"
+    "nullable": false,
+    "referenceName": "PaymentTermsEligibilityResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/validatePaymentTerms"
 }

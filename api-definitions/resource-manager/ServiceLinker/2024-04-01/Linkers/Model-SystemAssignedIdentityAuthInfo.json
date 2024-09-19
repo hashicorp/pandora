@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether to clean up previous operation when Linker is updating or deleting",
       "jsonName": "deleteOrUpdateBehavior",
       "name": "DeleteOrUpdateBehavior",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeleteOrUpdateBehavior"
+        "nullable": false,
+        "referenceName": "DeleteOrUpdateBehavior",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Optional, this value specifies the Azure role to be assigned",
       "jsonName": "roles",
       "name": "Roles",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Username created in the database which is mapped to a user in AAD.",
       "jsonName": "userName",
       "name": "UserName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -45,6 +56,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "AuthInfoBase",
   "discriminatedTypeValue": "systemAssignedIdentity",
   "typeHintIn": "AuthType"

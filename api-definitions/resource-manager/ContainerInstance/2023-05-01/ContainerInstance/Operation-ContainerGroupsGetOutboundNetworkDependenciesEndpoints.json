@@ -1,6 +1,7 @@
 {
   "name": "ContainerGroupsGetOutboundNetworkDependenciesEndpoints",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "ContainerGroupId",
   "responseObject": {
     "type": "List",
+    "nullable": false,
     "referenceName": null,
+    "referenceNameIsCommonType": null,
     "nestedItem": {
       "type": "String",
-      "referenceName": null
+      "nullable": false,
+      "referenceName": null,
+      "referenceNameIsCommonType": null
     }
   },
   "uriSuffix": "/outboundNetworkDependenciesEndpoints"

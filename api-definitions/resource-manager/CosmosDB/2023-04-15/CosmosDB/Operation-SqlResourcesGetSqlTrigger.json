@@ -1,6 +1,7 @@
 {
   "name": "SqlResourcesGetSqlTrigger",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "TriggerId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SqlTriggerGetResults"
+    "nullable": false,
+    "referenceName": "SqlTriggerGetResults",
+    "referenceNameIsCommonType": null
   }
 }

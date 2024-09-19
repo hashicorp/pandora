@@ -1,6 +1,7 @@
 {
   "name": "ProvisionedClusterInstancesCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,11 +11,15 @@
   "resourceIdName": "ScopeId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ProvisionedCluster"
+    "nullable": false,
+    "referenceName": "ProvisionedCluster",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ProvisionedCluster"
+    "nullable": false,
+    "referenceName": "ProvisionedCluster",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.HybridContainerService/provisionedClusterInstances/default"
 }

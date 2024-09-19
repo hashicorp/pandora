@@ -1,6 +1,7 @@
 {
   "name": "ListByUser",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -71,7 +72,9 @@
   ],
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BillingRequest"
+    "nullable": false,
+    "referenceName": "BillingRequest",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.Billing/billingRequests"
 }

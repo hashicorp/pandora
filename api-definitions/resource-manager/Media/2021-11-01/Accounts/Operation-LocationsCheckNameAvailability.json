@@ -1,6 +1,7 @@
 {
   "name": "LocationsCheckNameAvailability",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "LocationId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CheckNameAvailabilityInput"
+    "nullable": false,
+    "referenceName": "CheckNameAvailabilityInput",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "EntityNameAvailabilityCheckOutput"
+    "nullable": false,
+    "referenceName": "EntityNameAvailabilityCheckOutput",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/checkNameAvailability"
 }

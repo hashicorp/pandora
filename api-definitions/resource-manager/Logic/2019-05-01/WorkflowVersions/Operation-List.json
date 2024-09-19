@@ -1,6 +1,7 @@
 {
   "name": "List",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -22,7 +23,9 @@
   "resourceIdName": "WorkflowId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "WorkflowVersion"
+    "nullable": false,
+    "referenceName": "WorkflowVersion",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/versions"
 }

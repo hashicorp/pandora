@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The first quality.",
       "jsonName": "firstQuality",
       "name": "FirstQuality",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FirstQuality"
+        "nullable": false,
+        "referenceName": "FirstQuality",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The presentation time range.",
       "jsonName": "presentationTimeRange",
       "name": "PresentationTimeRange",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PresentationTimeRange"
+        "nullable": false,
+        "referenceName": "PresentationTimeRange",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The tracks selection conditions.",
       "jsonName": "tracks",
       "name": "Tracks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "FilterTrackSelection"
+          "nullable": false,
+          "referenceName": "FilterTrackSelection",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -44,5 +55,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

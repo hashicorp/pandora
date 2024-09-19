@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the capacity reservation group resource id that should be used for\nallocating the virtual machine or scaleset vm instances provided enough\ncapacity has been reserved. Please refer to https://aka.ms/CapacityReservation\nfor more details.",
       "jsonName": "capacityReservationGroup",
       "name": "CapacityReservationGroup",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

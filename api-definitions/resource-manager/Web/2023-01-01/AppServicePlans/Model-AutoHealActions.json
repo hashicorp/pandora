@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Predefined action to be taken.",
       "jsonName": "actionType",
       "name": "ActionType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutoHealActionType"
+        "nullable": false,
+        "referenceName": "AutoHealActionType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +23,9 @@
       "name": "CustomAction",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutoHealCustomAction"
+        "nullable": false,
+        "referenceName": "AutoHealCustomAction",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +34,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Minimum time the process must execute\nbefore taking the action",
       "jsonName": "minProcessExecutionTime",
       "name": "MinProcessExecutionTime",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

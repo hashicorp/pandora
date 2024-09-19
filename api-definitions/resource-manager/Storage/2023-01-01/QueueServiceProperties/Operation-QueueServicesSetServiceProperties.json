@@ -1,6 +1,7 @@
 {
   "name": "QueueServicesSetServiceProperties",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "StorageAccountId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "QueueServiceProperties"
+    "nullable": false,
+    "referenceName": "QueueServiceProperties",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "QueueServiceProperties"
+    "nullable": false,
+    "referenceName": "QueueServiceProperties",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/queueServices/default"
 }

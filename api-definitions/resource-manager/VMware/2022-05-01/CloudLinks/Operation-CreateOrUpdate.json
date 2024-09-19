@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "CloudLinkId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CloudLink"
+    "nullable": false,
+    "referenceName": "CloudLink",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "CloudLink"
+    "nullable": false,
+    "referenceName": "CloudLink",
+    "referenceNameIsCommonType": null
   }
 }

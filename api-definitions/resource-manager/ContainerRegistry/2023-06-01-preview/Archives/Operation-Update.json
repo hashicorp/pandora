@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "ArchiveId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ArchiveUpdateParameters"
+    "nullable": false,
+    "referenceName": "ArchiveUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Archive"
+    "nullable": false,
+    "referenceName": "Archive",
+    "referenceNameIsCommonType": null
   }
 }

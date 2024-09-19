@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Destination port range to specify particular destination ports for TCP rules.",
       "jsonName": "destinationPortRange",
       "name": "DestinationPortRange",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PortRange"
+        "nullable": false,
+        "referenceName": "PortRange",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Conceptually, this is the range of IP addresses that a packet coming into the instance can come from.",
       "jsonName": "source",
       "name": "Source",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

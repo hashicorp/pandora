@@ -1,6 +1,7 @@
 {
   "name": "PacketCoreControlPlanesReinstall",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,7 +11,9 @@
   "resourceIdName": "PacketCoreControlPlaneId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AsyncOperationStatus"
+    "nullable": false,
+    "referenceName": "AsyncOperationStatus",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/reinstall"
 }

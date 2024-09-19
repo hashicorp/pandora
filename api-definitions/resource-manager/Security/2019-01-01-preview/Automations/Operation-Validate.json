@@ -1,6 +1,7 @@
 {
   "name": "Validate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "AutomationId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "Automation"
+    "nullable": false,
+    "referenceName": "Automation",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AutomationValidationStatus"
+    "nullable": false,
+    "referenceName": "AutomationValidationStatus",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/validate"
 }

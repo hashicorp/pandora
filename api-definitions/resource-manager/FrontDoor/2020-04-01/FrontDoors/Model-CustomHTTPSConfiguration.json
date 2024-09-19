@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Defines the source of the SSL certificate",
       "jsonName": "certificateSource",
       "name": "CertificateSource",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FrontDoorCertificateSource"
+        "nullable": false,
+        "referenceName": "FrontDoorCertificateSource",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Parameters required for enabling SSL with Front Door-managed certificates (if certificateSource=FrontDoor)",
       "jsonName": "frontDoorCertificateSourceParameters",
       "name": "FrontDoorCertificateSourceParameters",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FrontDoorCertificateSourceParameters"
+        "nullable": false,
+        "referenceName": "FrontDoorCertificateSourceParameters",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "KeyVault certificate source parameters (if certificateSource=AzureKeyVault)",
       "jsonName": "keyVaultCertificateSourceParameters",
       "name": "KeyVaultCertificateSourceParameters",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KeyVaultCertificateSourceParameters"
+        "nullable": false,
+        "referenceName": "KeyVaultCertificateSourceParameters",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The minimum TLS version required from the clients to establish an SSL handshake with Front Door.",
       "jsonName": "minimumTlsVersion",
       "name": "MinimumTlsVersion",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MinimumTLSVersion"
+        "nullable": false,
+        "referenceName": "MinimumTLSVersion",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -55,16 +67,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Defines the TLS extension protocol that is used for secure delivery",
       "jsonName": "protocolType",
       "name": "ProtocolType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FrontDoorTlsProtocolType"
+        "nullable": false,
+        "referenceName": "FrontDoorTlsProtocolType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,7 +7,9 @@
       "name": "NetworkFeatures",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkFeatures"
+        "nullable": false,
+        "referenceName": "NetworkFeatures",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "NetworkSiblingSetId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "NetworkSiblingSetStateId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,14 +48,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of NIC information",
       "jsonName": "nicInfoList",
       "name": "NicInfoList",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "NicInfo"
+          "nullable": false,
+          "referenceName": "NicInfo",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -63,7 +74,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkSiblingSetProvisioningState"
+        "nullable": false,
+        "referenceName": "NetworkSiblingSetProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,12 +89,15 @@
       "name": "SubnetId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

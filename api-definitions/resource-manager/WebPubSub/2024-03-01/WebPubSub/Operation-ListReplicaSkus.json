@@ -1,6 +1,7 @@
 {
   "name": "ListReplicaSkus",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "ReplicaId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Sku"
+    "nullable": false,
+    "referenceName": "Sku",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/skus"
 }

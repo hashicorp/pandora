@@ -1,6 +1,7 @@
 {
   "name": "VirtualHubsGetEffectiveVirtualHubRoutes",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "VirtualHubId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "EffectiveRoutesParameters"
+    "nullable": false,
+    "referenceName": "EffectiveRoutesParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "VirtualHubEffectiveRouteList"
+    "nullable": false,
+    "referenceName": "VirtualHubEffectiveRouteList",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/effectiveRoutes"
 }

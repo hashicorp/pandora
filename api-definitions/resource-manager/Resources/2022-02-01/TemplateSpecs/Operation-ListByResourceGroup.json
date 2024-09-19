@@ -1,6 +1,7 @@
 {
   "name": "ListByResourceGroup",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -22,7 +23,9 @@
   "resourceIdName": "ResourceGroupId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "TemplateSpec"
+    "nullable": false,
+    "referenceName": "TemplateSpec",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.Resources/templateSpecs"
 }

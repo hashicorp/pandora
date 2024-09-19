@@ -1,6 +1,7 @@
 {
   "name": "AccountsListUsages",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -22,7 +23,9 @@
   "resourceIdName": "AccountId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Usage"
+    "nullable": false,
+    "referenceName": "Usage",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/usages"
 }

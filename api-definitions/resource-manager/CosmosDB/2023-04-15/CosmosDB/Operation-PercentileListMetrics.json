@@ -1,6 +1,7 @@
 {
   "name": "PercentileListMetrics",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,7 +22,9 @@
   "resourceIdName": "DatabaseAccountId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PercentileMetricListResult"
+    "nullable": false,
+    "referenceName": "PercentileMetricListResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/percentile/metrics"
 }

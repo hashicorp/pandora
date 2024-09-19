@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": true,
+      "description": "The multi cloud account's membership type in the organization",
       "jsonName": "organizationMembershipType",
       "name": "OrganizationMembershipType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OrganizationMembershipType"
+        "nullable": false,
+        "referenceName": "OrganizationMembershipType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,5 +18,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "OrganizationMembershipType"
 }

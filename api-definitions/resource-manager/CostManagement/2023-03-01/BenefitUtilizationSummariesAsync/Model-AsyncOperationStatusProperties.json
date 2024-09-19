@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Sas url to the async benefit utilization summaries report. Will be empty if the report is in Running or Failed state.",
       "jsonName": "reportUrl",
       "name": "ReportUrl",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BenefitUtilizationSummaryReportSchema"
+        "nullable": false,
+        "referenceName": "BenefitUtilizationSummaryReportSchema",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Sas url to async benefit utilization summaries report in secondary storage in case of primary outage. Will be empty if the report is in Running or Failed state.",
       "jsonName": "secondaryReportUrl",
       "name": "SecondaryReportUrl",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BenefitUtilizationSummaryReportSchema"
+        "nullable": false,
+        "referenceName": "BenefitUtilizationSummaryReportSchema",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,16 +36,20 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The date that the sas url provided in reportUrl expires.",
       "jsonName": "validUntil",
       "name": "ValidUntil",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

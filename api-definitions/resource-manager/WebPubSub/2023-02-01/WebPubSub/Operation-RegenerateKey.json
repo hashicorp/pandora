@@ -1,6 +1,7 @@
 {
   "name": "RegenerateKey",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     202
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "WebPubSubId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "RegenerateKeyParameters"
+    "nullable": false,
+    "referenceName": "RegenerateKeyParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "WebPubSubKeys"
+    "nullable": false,
+    "referenceName": "WebPubSubKeys",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/regenerateKey"
 }

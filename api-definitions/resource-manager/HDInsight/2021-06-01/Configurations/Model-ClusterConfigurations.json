@@ -3,17 +3,24 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The configuration object for the specified configuration for the specified cluster.",
       "jsonName": "configurations",
       "name": "Configurations",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Dictionary",
+          "nullable": false,
           "referenceName": null,
+          "referenceNameIsCommonType": null,
           "nestedItem": {
             "type": "String",
-            "referenceName": null
+            "nullable": false,
+            "referenceName": null,
+            "referenceNameIsCommonType": null
           }
         }
       },
@@ -22,5 +29,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

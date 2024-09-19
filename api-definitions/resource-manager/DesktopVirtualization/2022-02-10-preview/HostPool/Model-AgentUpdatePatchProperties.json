@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The time zone for updating the agent components. Valid time zones can be found here: https://docs.microsoft.com/en-us/dotnet/api/system.timezoneinfo.findsystemtimezonebyid?view=net-5.0. A time zone must be specified if useSessionHostLocalTime is false.",
       "jsonName": "maintenanceWindowTimeZone",
       "name": "MaintenanceWindowTimeZone",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The maintenance windows (day and time) for updating the agent components. At least 1 window must be specified. Optionally, a 2nd window can be specified.",
       "jsonName": "maintenanceWindows",
       "name": "MaintenanceWindows",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MaintenanceWindowPatchProperties"
+          "nullable": false,
+          "referenceName": "MaintenanceWindowPatchProperties",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The preferred mechanism for updating the agent components. This is either Scheduled or Default.",
       "jsonName": "type",
       "name": "Type",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SessionHostComponentUpdateType"
+        "nullable": false,
+        "referenceName": "SessionHostComponentUpdateType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,16 +57,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Boolean indicating whether to update the agent components in the local time zone of each session host in the host pool. By default, this is false.",
       "jsonName": "useSessionHostLocalTime",
       "name": "UseSessionHostLocalTime",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

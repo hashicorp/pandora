@@ -7,7 +7,9 @@
       "name": "Destination",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +18,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of next hops for the destination.",
       "jsonName": "nextHops",
       "name": "NextHops",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IPv4RouteNextHop"
+          "nullable": false,
+          "referenceName": "IPv4RouteNextHop",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -31,5 +38,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

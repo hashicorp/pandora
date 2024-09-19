@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Set of days of the week on which this schedule is active.",
       "jsonName": "daysOfWeek",
       "name": "DaysOfWeek",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DayOfWeek"
+          "nullable": false,
+          "referenceName": "DayOfWeek",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Load balancing algorithm for off-peak period.",
       "jsonName": "offPeakLoadBalancingAlgorithm",
       "name": "OffPeakLoadBalancingAlgorithm",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SessionHostLoadBalancingAlgorithm"
+        "nullable": false,
+        "referenceName": "SessionHostLoadBalancingAlgorithm",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Starting time for off-peak period.",
       "jsonName": "offPeakStartTime",
       "name": "OffPeakStartTime",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Time"
+        "nullable": false,
+        "referenceName": "Time",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Load balancing algorithm for peak period.",
       "jsonName": "peakLoadBalancingAlgorithm",
       "name": "PeakLoadBalancingAlgorithm",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SessionHostLoadBalancingAlgorithm"
+        "nullable": false,
+        "referenceName": "SessionHostLoadBalancingAlgorithm",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Starting time for peak period.",
       "jsonName": "peakStartTime",
       "name": "PeakStartTime",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Time"
+        "nullable": false,
+        "referenceName": "Time",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Capacity threshold for ramp down period.",
       "jsonName": "rampDownCapacityThresholdPct",
       "name": "RampDownCapacityThresholdPct",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Should users be logged off forcefully from hosts.",
       "jsonName": "rampDownForceLogoffUsers",
       "name": "RampDownForceLogoffUsers",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,11 +121,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Load balancing algorithm for ramp down period.",
       "jsonName": "rampDownLoadBalancingAlgorithm",
       "name": "RampDownLoadBalancingAlgorithm",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SessionHostLoadBalancingAlgorithm"
+        "nullable": false,
+        "referenceName": "SessionHostLoadBalancingAlgorithm",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,11 +137,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Minimum host percentage for ramp down period.",
       "jsonName": "rampDownMinimumHostsPct",
       "name": "RampDownMinimumHostsPct",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,11 +153,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Notification message for users during ramp down period.",
       "jsonName": "rampDownNotificationMessage",
       "name": "RampDownNotificationMessage",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,11 +169,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Starting time for ramp down period.",
       "jsonName": "rampDownStartTime",
       "name": "RampDownStartTime",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Time"
+        "nullable": false,
+        "referenceName": "Time",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -150,11 +185,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies when to stop hosts during ramp down period.",
       "jsonName": "rampDownStopHostsWhen",
       "name": "RampDownStopHostsWhen",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StopHostsWhen"
+        "nullable": false,
+        "referenceName": "StopHostsWhen",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -163,11 +201,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of minutes to wait to stop hosts during ramp down period.",
       "jsonName": "rampDownWaitTimeMinutes",
       "name": "RampDownWaitTimeMinutes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -176,11 +217,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Capacity threshold for ramp up period.",
       "jsonName": "rampUpCapacityThresholdPct",
       "name": "RampUpCapacityThresholdPct",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -189,11 +233,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Load balancing algorithm for ramp up period.",
       "jsonName": "rampUpLoadBalancingAlgorithm",
       "name": "RampUpLoadBalancingAlgorithm",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SessionHostLoadBalancingAlgorithm"
+        "nullable": false,
+        "referenceName": "SessionHostLoadBalancingAlgorithm",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -202,11 +249,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Minimum host percentage for ramp up period.",
       "jsonName": "rampUpMinimumHostsPct",
       "name": "RampUpMinimumHostsPct",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -215,16 +265,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Starting time for ramp up period.",
       "jsonName": "rampUpStartTime",
       "name": "RampUpStartTime",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Time"
+        "nullable": false,
+        "referenceName": "Time",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

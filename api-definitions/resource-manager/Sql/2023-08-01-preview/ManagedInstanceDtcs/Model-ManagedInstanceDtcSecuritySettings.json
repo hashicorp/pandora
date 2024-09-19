@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Allow SNA LU 6.2 Transactions to managed instance DTC.",
       "jsonName": "snaLu6point2TransactionsEnabled",
       "name": "SnaLu6point2TransactionsEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Transaction Manager communication settings of managed instance DTC.",
       "jsonName": "transactionManagerCommunicationSettings",
       "name": "TransactionManagerCommunicationSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedInstanceDtcTransactionManagerCommunicationSettings"
+        "nullable": false,
+        "referenceName": "ManagedInstanceDtcTransactionManagerCommunicationSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Default timeout for XA Transactions (in seconds).",
       "jsonName": "xaTransactionsDefaultTimeout",
       "name": "XaTransactionsDefaultTimeout",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Allow XA Transactions to managed instance DTC.",
       "jsonName": "xaTransactionsEnabled",
       "name": "XaTransactionsEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,16 +67,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Maximum timeout for XA Transactions (in seconds).",
       "jsonName": "xaTransactionsMaximumTimeout",
       "name": "XaTransactionsMaximumTimeout",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

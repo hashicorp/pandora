@@ -1,6 +1,7 @@
 {
   "name": "ListByManagedClusters",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "ManagedClusterId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "NodeType"
+    "nullable": false,
+    "referenceName": "NodeType",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/nodeTypes"
 }

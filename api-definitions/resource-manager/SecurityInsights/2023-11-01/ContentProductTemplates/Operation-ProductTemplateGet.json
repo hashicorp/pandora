@@ -1,6 +1,7 @@
 {
   "name": "ProductTemplateGet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "ContentProductTemplateId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ProductTemplateModel"
+    "nullable": false,
+    "referenceName": "ProductTemplateModel",
+    "referenceNameIsCommonType": null
   }
 }

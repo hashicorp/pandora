@@ -1,6 +1,7 @@
 {
   "name": "LocationsValidateClusterCreateRequest",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "LocationId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ClusterCreateRequestValidationParameters"
+    "nullable": false,
+    "referenceName": "ClusterCreateRequestValidationParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ClusterCreateValidationResult"
+    "nullable": false,
+    "referenceName": "ClusterCreateValidationResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/validateCreateRequest"
 }

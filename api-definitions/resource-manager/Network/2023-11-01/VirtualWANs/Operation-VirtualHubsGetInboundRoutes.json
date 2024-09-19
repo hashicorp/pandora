@@ -1,6 +1,7 @@
 {
   "name": "VirtualHubsGetInboundRoutes",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "VirtualHubId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "GetInboundRoutesParameters"
+    "nullable": false,
+    "referenceName": "GetInboundRoutesParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "EffectiveRouteMapRouteList"
+    "nullable": false,
+    "referenceName": "EffectiveRouteMapRouteList",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/inboundRoutes"
 }

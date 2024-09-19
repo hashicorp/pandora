@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The detailed status of the long running operation.",
       "jsonName": "operationStatus",
       "name": "OperationStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualNetworkPropertiesStatusOperationStatus"
+        "nullable": false,
+        "referenceName": "VirtualNetworkPropertiesStatusOperationStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

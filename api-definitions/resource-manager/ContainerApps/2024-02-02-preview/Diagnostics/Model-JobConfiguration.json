@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Trigger configuration of an event driven job.",
       "jsonName": "eventTriggerConfig",
       "name": "EventTriggerConfig",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JobConfigurationEventTriggerConfig"
+        "nullable": false,
+        "referenceName": "JobConfigurationEventTriggerConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Optional settings for Managed Identities that are assigned to the Container App Job. If a Managed Identity is not specified here, default settings will be used.",
       "jsonName": "identitySettings",
       "name": "IdentitySettings",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IdentitySettings"
+          "nullable": false,
+          "referenceName": "IdentitySettings",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Manual trigger configuration for a single execution job. Properties replicaCompletionCount and parallelism would be set to 1 by default",
       "jsonName": "manualTriggerConfig",
       "name": "ManualTriggerConfig",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JobConfigurationManualTriggerConfig"
+        "nullable": false,
+        "referenceName": "JobConfigurationManualTriggerConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,14 +57,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Collection of private container registry credentials used by a Container apps job",
       "jsonName": "registries",
       "name": "Registries",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RegistryCredentials"
+          "nullable": false,
+          "referenceName": "RegistryCredentials",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -63,11 +79,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Maximum number of retries before failing the job.",
       "jsonName": "replicaRetryLimit",
       "name": "ReplicaRetryLimit",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,11 +95,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Maximum number of seconds a replica is allowed to run.",
       "jsonName": "replicaTimeout",
       "name": "ReplicaTimeout",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -89,11 +111,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Cron formatted repeating trigger schedule (\"* * * * *\") for cronjobs. Properties completions and parallelism would be set to 1 by default",
       "jsonName": "scheduleTriggerConfig",
       "name": "ScheduleTriggerConfig",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JobConfigurationScheduleTriggerConfig"
+        "nullable": false,
+        "referenceName": "JobConfigurationScheduleTriggerConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,14 +127,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Collection of secrets used by a Container Apps Job",
       "jsonName": "secrets",
       "name": "Secrets",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Secret"
+          "nullable": false,
+          "referenceName": "Secret",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -119,16 +149,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Trigger type of the job",
       "jsonName": "triggerType",
       "name": "TriggerType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TriggerType"
+        "nullable": false,
+        "referenceName": "TriggerType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

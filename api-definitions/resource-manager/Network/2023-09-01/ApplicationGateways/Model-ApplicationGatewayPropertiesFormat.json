@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Authentication certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).",
       "jsonName": "authenticationCertificates",
       "name": "AuthenticationCertificates",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewayAuthenticationCertificate"
+          "nullable": false,
+          "referenceName": "ApplicationGatewayAuthenticationCertificate",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Autoscale Configuration.",
       "jsonName": "autoscaleConfiguration",
       "name": "AutoscaleConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationGatewayAutoscaleConfiguration"
+        "nullable": false,
+        "referenceName": "ApplicationGatewayAutoscaleConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,14 +41,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Backend address pool of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).",
       "jsonName": "backendAddressPools",
       "name": "BackendAddressPools",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewayBackendAddressPool"
+          "nullable": false,
+          "referenceName": "ApplicationGatewayBackendAddressPool",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,14 +63,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Backend http settings of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).",
       "jsonName": "backendHttpSettingsCollection",
       "name": "BackendHTTPSettingsCollection",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewayBackendHTTPSettings"
+          "nullable": false,
+          "referenceName": "ApplicationGatewayBackendHTTPSettings",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -67,14 +85,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Backend settings of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).",
       "jsonName": "backendSettingsCollection",
       "name": "BackendSettingsCollection",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewayBackendSettings"
+          "nullable": false,
+          "referenceName": "ApplicationGatewayBackendSettings",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -84,14 +107,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Custom error configurations of the application gateway resource.",
       "jsonName": "customErrorConfigurations",
       "name": "CustomErrorConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewayCustomError"
+          "nullable": false,
+          "referenceName": "ApplicationGatewayCustomError",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -101,11 +129,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The default predefined SSL Policy applied on the application gateway resource.",
       "jsonName": "defaultPredefinedSslPolicy",
       "name": "DefaultPredefinedSslPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationGatewaySslPolicyName"
+        "nullable": false,
+        "referenceName": "ApplicationGatewaySslPolicyName",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -114,11 +145,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether FIPS is enabled on the application gateway resource.",
       "jsonName": "enableFips",
       "name": "EnableFips",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -127,11 +161,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether HTTP2 is enabled on the application gateway resource.",
       "jsonName": "enableHttp2",
       "name": "EnableHTTP2",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -144,7 +181,9 @@
       "name": "FirewallPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -153,11 +192,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If true, associates a firewall policy with an application gateway regardless whether the policy differs from the WAF Config.",
       "jsonName": "forceFirewallPolicyAssociation",
       "name": "ForceFirewallPolicyAssociation",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -166,14 +208,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Frontend IP addresses of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).",
       "jsonName": "frontendIPConfigurations",
       "name": "FrontendIPConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewayFrontendIPConfiguration"
+          "nullable": false,
+          "referenceName": "ApplicationGatewayFrontendIPConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -183,14 +230,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Frontend ports of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).",
       "jsonName": "frontendPorts",
       "name": "FrontendPorts",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewayFrontendPort"
+          "nullable": false,
+          "referenceName": "ApplicationGatewayFrontendPort",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -200,14 +252,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Subnets of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).",
       "jsonName": "gatewayIPConfigurations",
       "name": "GatewayIPConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewayIPConfiguration"
+          "nullable": false,
+          "referenceName": "ApplicationGatewayIPConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -217,11 +274,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Global Configuration.",
       "jsonName": "globalConfiguration",
       "name": "GlobalConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationGatewayGlobalConfiguration"
+        "nullable": false,
+        "referenceName": "ApplicationGatewayGlobalConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -230,14 +290,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Http listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).",
       "jsonName": "httpListeners",
       "name": "HTTPListeners",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewayHTTPListener"
+          "nullable": false,
+          "referenceName": "ApplicationGatewayHTTPListener",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -247,14 +312,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).",
       "jsonName": "listeners",
       "name": "Listeners",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewayListener"
+          "nullable": false,
+          "referenceName": "ApplicationGatewayListener",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -264,14 +334,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Load distribution policies of the application gateway resource.",
       "jsonName": "loadDistributionPolicies",
       "name": "LoadDistributionPolicies",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewayLoadDistributionPolicy"
+          "nullable": false,
+          "referenceName": "ApplicationGatewayLoadDistributionPolicy",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -281,11 +356,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Operational state of the application gateway resource.",
       "jsonName": "operationalState",
       "name": "OperationalState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationGatewayOperationalState"
+        "nullable": false,
+        "referenceName": "ApplicationGatewayOperationalState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -294,14 +372,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Private Endpoint connections on application gateway.",
       "jsonName": "privateEndpointConnections",
       "name": "PrivateEndpointConnections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewayPrivateEndpointConnection"
+          "nullable": false,
+          "referenceName": "ApplicationGatewayPrivateEndpointConnection",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -311,14 +394,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "PrivateLink configurations on application gateway.",
       "jsonName": "privateLinkConfigurations",
       "name": "PrivateLinkConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewayPrivateLinkConfiguration"
+          "nullable": false,
+          "referenceName": "ApplicationGatewayPrivateLinkConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -328,14 +416,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Probes of the application gateway resource.",
       "jsonName": "probes",
       "name": "Probes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewayProbe"
+          "nullable": false,
+          "referenceName": "ApplicationGatewayProbe",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -349,7 +442,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -358,14 +453,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Redirect configurations of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).",
       "jsonName": "redirectConfigurations",
       "name": "RedirectConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewayRedirectConfiguration"
+          "nullable": false,
+          "referenceName": "ApplicationGatewayRedirectConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -375,14 +475,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Request routing rules of the application gateway resource.",
       "jsonName": "requestRoutingRules",
       "name": "RequestRoutingRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewayRequestRoutingRule"
+          "nullable": false,
+          "referenceName": "ApplicationGatewayRequestRoutingRule",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -392,11 +497,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource GUID property of the application gateway resource.",
       "jsonName": "resourceGuid",
       "name": "ResourceGuid",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -405,14 +513,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Rewrite rules for the application gateway resource.",
       "jsonName": "rewriteRuleSets",
       "name": "RewriteRuleSets",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewayRewriteRuleSet"
+          "nullable": false,
+          "referenceName": "ApplicationGatewayRewriteRuleSet",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -422,14 +535,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Routing rules of the application gateway resource.",
       "jsonName": "routingRules",
       "name": "RoutingRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewayRoutingRule"
+          "nullable": false,
+          "referenceName": "ApplicationGatewayRoutingRule",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -439,11 +557,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "SKU of the application gateway resource.",
       "jsonName": "sku",
       "name": "Sku",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationGatewaySku"
+        "nullable": false,
+        "referenceName": "ApplicationGatewaySku",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -452,14 +573,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "SSL certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).",
       "jsonName": "sslCertificates",
       "name": "SslCertificates",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewaySslCertificate"
+          "nullable": false,
+          "referenceName": "ApplicationGatewaySslCertificate",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -469,11 +595,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "SSL policy of the application gateway resource.",
       "jsonName": "sslPolicy",
       "name": "SslPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationGatewaySslPolicy"
+        "nullable": false,
+        "referenceName": "ApplicationGatewaySslPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -482,14 +611,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "SSL profiles of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).",
       "jsonName": "sslProfiles",
       "name": "SslProfiles",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewaySslProfile"
+          "nullable": false,
+          "referenceName": "ApplicationGatewaySslProfile",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -499,14 +633,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Trusted client certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).",
       "jsonName": "trustedClientCertificates",
       "name": "TrustedClientCertificates",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewayTrustedClientCertificate"
+          "nullable": false,
+          "referenceName": "ApplicationGatewayTrustedClientCertificate",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -516,14 +655,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Trusted Root certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).",
       "jsonName": "trustedRootCertificates",
       "name": "TrustedRootCertificates",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewayTrustedRootCertificate"
+          "nullable": false,
+          "referenceName": "ApplicationGatewayTrustedRootCertificate",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -533,14 +677,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "URL path map of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).",
       "jsonName": "urlPathMaps",
       "name": "UrlPathMaps",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewayUrlPathMap"
+          "nullable": false,
+          "referenceName": "ApplicationGatewayUrlPathMap",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -550,16 +699,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Web application firewall configuration.",
       "jsonName": "webApplicationFirewallConfiguration",
       "name": "WebApplicationFirewallConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationGatewayWebApplicationFirewallConfiguration"
+        "nullable": false,
+        "referenceName": "ApplicationGatewayWebApplicationFirewallConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

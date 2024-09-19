@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The cluster definition.",
       "jsonName": "clusterDefinition",
       "name": "ClusterDefinition",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterDefinition"
+        "nullable": false,
+        "referenceName": "ClusterDefinition",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The version of the cluster.",
       "jsonName": "clusterVersion",
       "name": "ClusterVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The compute isolation properties.",
       "jsonName": "computeIsolationProperties",
       "name": "ComputeIsolationProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ComputeIsolationProperties"
+        "nullable": false,
+        "referenceName": "ComputeIsolationProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The compute profile.",
       "jsonName": "computeProfile",
       "name": "ComputeProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ComputeProfile"
+        "nullable": false,
+        "referenceName": "ComputeProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The disk encryption properties.",
       "jsonName": "diskEncryptionProperties",
       "name": "DiskEncryptionProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiskEncryptionProperties"
+        "nullable": false,
+        "referenceName": "DiskEncryptionProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The encryption-in-transit properties.",
       "jsonName": "encryptionInTransitProperties",
       "name": "EncryptionInTransitProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EncryptionInTransitProperties"
+        "nullable": false,
+        "referenceName": "EncryptionInTransitProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The cluster kafka rest proxy configuration.",
       "jsonName": "kafkaRestProperties",
       "name": "KafkaRestProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KafkaRestProperties"
+        "nullable": false,
+        "referenceName": "KafkaRestProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The minimal supported tls version.",
       "jsonName": "minSupportedTlsVersion",
       "name": "MinSupportedTlsVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,11 +131,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The network properties.",
       "jsonName": "networkProperties",
       "name": "NetworkProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkProperties"
+        "nullable": false,
+        "referenceName": "NetworkProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -120,11 +147,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of operating system.",
       "jsonName": "osType",
       "name": "OsType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OSType"
+        "nullable": false,
+        "referenceName": "OSType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -133,14 +163,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The private link configurations.",
       "jsonName": "privateLinkConfigurations",
       "name": "PrivateLinkConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PrivateLinkConfiguration"
+          "nullable": false,
+          "referenceName": "PrivateLinkConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -150,11 +185,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The security profile.",
       "jsonName": "securityProfile",
       "name": "SecurityProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecurityProfile"
+        "nullable": false,
+        "referenceName": "SecurityProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -163,11 +201,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The storage profile.",
       "jsonName": "storageProfile",
       "name": "StorageProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StorageProfile"
+        "nullable": false,
+        "referenceName": "StorageProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -176,16 +217,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The cluster tier.",
       "jsonName": "tier",
       "name": "Tier",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Tier"
+        "nullable": false,
+        "referenceName": "Tier",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

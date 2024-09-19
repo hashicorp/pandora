@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The region at the root of the hierarchy from all the regions in the hierarchy can be retrieved.",
       "jsonName": "geographicHierarchy",
       "name": "GeographicHierarchy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Region"
+        "nullable": false,
+        "referenceName": "Region",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

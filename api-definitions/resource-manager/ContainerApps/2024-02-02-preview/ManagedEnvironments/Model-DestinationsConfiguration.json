@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Open telemetry datadog destination configuration",
       "jsonName": "dataDogConfiguration",
       "name": "DataDogConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataDogConfiguration"
+        "nullable": false,
+        "referenceName": "DataDogConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Open telemetry otlp configurations",
       "jsonName": "otlpConfigurations",
       "name": "OtlpConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "OtlpConfiguration"
+          "nullable": false,
+          "referenceName": "OtlpConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -31,5 +39,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

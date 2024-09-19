@@ -1,6 +1,7 @@
 {
   "name": "GetMetricRules",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "MonitorId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "MetricsRequest"
+    "nullable": false,
+    "referenceName": "MetricsRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "MetricRules"
+    "nullable": false,
+    "referenceName": "MetricRules",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/getMetricRules"
 }

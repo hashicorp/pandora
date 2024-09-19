@@ -7,10 +7,14 @@
       "name": "Files",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "NginxConfigurationFile"
+          "nullable": false,
+          "referenceName": "NginxConfigurationFile",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "Package",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NginxConfigurationPackage"
+        "nullable": false,
+        "referenceName": "NginxConfigurationPackage",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,10 +43,14 @@
       "name": "ProtectedFiles",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "NginxConfigurationFile"
+          "nullable": false,
+          "referenceName": "NginxConfigurationFile",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,16 +60,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The root file of the NGINX config file(s). It must match one of the files' filepath.",
       "jsonName": "rootFile",
       "name": "RootFile",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "ListRegionalByResourceGroupForTopicType",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -32,7 +33,9 @@
   "resourceIdName": "ProviderLocationTopicTypeId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "EventSubscription"
+    "nullable": false,
+    "referenceName": "EventSubscription",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/eventSubscriptions"
 }

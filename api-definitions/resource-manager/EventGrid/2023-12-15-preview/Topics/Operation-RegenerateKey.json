@@ -1,6 +1,7 @@
 {
   "name": "RegenerateKey",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "TopicId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "TopicRegenerateKeyRequest"
+    "nullable": false,
+    "referenceName": "TopicRegenerateKeyRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "TopicSharedAccessKeys"
+    "nullable": false,
+    "referenceName": "TopicSharedAccessKeys",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/regenerateKey"
 }

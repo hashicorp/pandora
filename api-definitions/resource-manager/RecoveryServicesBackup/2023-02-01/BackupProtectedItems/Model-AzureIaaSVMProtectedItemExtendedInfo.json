@@ -4,11 +4,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The latest backup copy available for this backup item in archive tier",
       "jsonName": "newestRecoveryPointInArchive",
       "name": "NewestRecoveryPointInArchive",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -18,11 +21,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The oldest backup copy available for this backup item across all tiers.",
       "jsonName": "oldestRecoveryPoint",
       "name": "OldestRecoveryPoint",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -32,11 +38,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The oldest backup copy available for this backup item in archive tier",
       "jsonName": "oldestRecoveryPointInArchive",
       "name": "OldestRecoveryPointInArchive",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +55,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The oldest backup copy available for this backup item in vault tier",
       "jsonName": "oldestRecoveryPointInVault",
       "name": "OldestRecoveryPointInVault",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +71,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies if backup policy associated with the backup item is inconsistent.",
       "jsonName": "policyInconsistent",
       "name": "PolicyInconsistent",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,16 +87,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of backup copies available for this backup item.",
       "jsonName": "recoveryPointCount",
       "name": "RecoveryPointCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

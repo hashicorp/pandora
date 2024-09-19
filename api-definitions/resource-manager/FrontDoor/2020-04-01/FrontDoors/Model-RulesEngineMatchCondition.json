@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describes if this is negate condition or not",
       "jsonName": "negateCondition",
       "name": "NegateCondition",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Match values to match against. The operator will apply to each value in here with OR semantics. If any of them match the variable with the given operator this match condition is considered a match.",
       "jsonName": "rulesEngineMatchValue",
       "name": "RulesEngineMatchValue",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Match Variable",
       "jsonName": "rulesEngineMatchVariable",
       "name": "RulesEngineMatchVariable",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RulesEngineMatchVariable"
+        "nullable": false,
+        "referenceName": "RulesEngineMatchVariable",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describes operator to apply to the match condition.",
       "jsonName": "rulesEngineOperator",
       "name": "RulesEngineOperator",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RulesEngineOperator"
+        "nullable": false,
+        "referenceName": "RulesEngineOperator",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of selector in RequestHeader or RequestBody to be matched",
       "jsonName": "selector",
       "name": "Selector",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,14 +89,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of transforms",
       "jsonName": "transforms",
       "name": "Transforms",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Transform"
+          "nullable": false,
+          "referenceName": "Transform",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -87,5 +109,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

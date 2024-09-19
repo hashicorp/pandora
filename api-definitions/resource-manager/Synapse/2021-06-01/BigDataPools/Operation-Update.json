@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "BigDataPoolId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "BigDataPoolPatchInfo"
+    "nullable": false,
+    "referenceName": "BigDataPoolPatchInfo",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BigDataPoolResourceInfo"
+    "nullable": false,
+    "referenceName": "BigDataPoolResourceInfo",
+    "referenceNameIsCommonType": null
   }
 }

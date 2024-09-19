@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The export policy for a container registry.",
       "jsonName": "exportPolicy",
       "name": "ExportPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExportPolicy"
+        "nullable": false,
+        "referenceName": "ExportPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The quarantine policy for a container registry.",
       "jsonName": "quarantinePolicy",
       "name": "QuarantinePolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "QuarantinePolicy"
+        "nullable": false,
+        "referenceName": "QuarantinePolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The retention policy for a container registry.",
       "jsonName": "retentionPolicy",
       "name": "RetentionPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RetentionPolicy"
+        "nullable": false,
+        "referenceName": "RetentionPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,16 +51,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The content trust policy for a container registry.",
       "jsonName": "trustPolicy",
       "name": "TrustPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TrustPolicy"
+        "nullable": false,
+        "referenceName": "TrustPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

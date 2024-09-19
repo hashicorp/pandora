@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The available memory.",
       "jsonName": "availableMemoryInBytes",
       "name": "AvailableMemoryInBytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The available disk space.",
       "jsonName": "availableSpaceInBytes",
       "name": "AvailableSpaceInBytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The process server Bios Id.",
       "jsonName": "biosId",
       "name": "BiosId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The disk usage status.",
       "jsonName": "diskUsageStatus",
       "name": "DiskUsageStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RcmComponentStatus"
+        "nullable": false,
+        "referenceName": "RcmComponentStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The fabric object Id.",
       "jsonName": "fabricObjectId",
       "name": "FabricObjectId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The process server Fqdn.",
       "jsonName": "fqdn",
       "name": "Fqdn",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The free disk space percentage.",
       "jsonName": "freeSpacePercentage",
       "name": "FreeSpacePercentage",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The health of the process server.",
       "jsonName": "health",
       "name": "Health",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProtectionHealth"
+        "nullable": false,
+        "referenceName": "ProtectionHealth",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,14 +131,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The health errors.",
       "jsonName": "healthErrors",
       "name": "HealthErrors",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "HealthError"
+          "nullable": false,
+          "referenceName": "HealthError",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -124,11 +153,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The historic health of the process server based on the health in last 24 hours.",
       "jsonName": "historicHealth",
       "name": "HistoricHealth",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProtectionHealth"
+        "nullable": false,
+        "referenceName": "ProtectionHealth",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,14 +169,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of IP addresses for communicating with the RCM component.",
       "jsonName": "ipAddresses",
       "name": "IPAddresses",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -154,11 +191,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The process server Id.",
       "jsonName": "id",
       "name": "Id",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -168,11 +208,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The last heartbeat received from the process server.",
       "jsonName": "lastHeartbeatUtc",
       "name": "LastHeartbeatUtc",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -181,11 +224,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The memory usage percentage.",
       "jsonName": "memoryUsagePercentage",
       "name": "MemoryUsagePercentage",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -194,11 +240,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The memory usage status.",
       "jsonName": "memoryUsageStatus",
       "name": "MemoryUsageStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RcmComponentStatus"
+        "nullable": false,
+        "referenceName": "RcmComponentStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -207,11 +256,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The process server name.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -220,11 +272,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The processor usage percentage.",
       "jsonName": "processorUsagePercentage",
       "name": "ProcessorUsagePercentage",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -233,11 +288,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The processor usage status.",
       "jsonName": "processorUsageStatus",
       "name": "ProcessorUsageStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RcmComponentStatus"
+        "nullable": false,
+        "referenceName": "RcmComponentStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -246,11 +304,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The protected item count.",
       "jsonName": "protectedItemCount",
       "name": "ProtectedItemCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -259,11 +320,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The system load.",
       "jsonName": "systemLoad",
       "name": "SystemLoad",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -272,11 +336,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The system load status.",
       "jsonName": "systemLoadStatus",
       "name": "SystemLoadStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RcmComponentStatus"
+        "nullable": false,
+        "referenceName": "RcmComponentStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -285,11 +352,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The throughput in bytes.",
       "jsonName": "throughputInBytes",
       "name": "ThroughputInBytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -298,11 +368,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The throughput status.",
       "jsonName": "throughputStatus",
       "name": "ThroughputStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RcmComponentStatus"
+        "nullable": false,
+        "referenceName": "RcmComponentStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -311,11 +384,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The uploading pending data in bytes.",
       "jsonName": "throughputUploadPendingDataInBytes",
       "name": "ThroughputUploadPendingDataInBytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -324,11 +400,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The total memory.",
       "jsonName": "totalMemoryInBytes",
       "name": "TotalMemoryInBytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -337,11 +416,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The total disk space.",
       "jsonName": "totalSpaceInBytes",
       "name": "TotalSpaceInBytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -350,11 +432,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The used memory.",
       "jsonName": "usedMemoryInBytes",
       "name": "UsedMemoryInBytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -363,11 +448,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The used disk space.",
       "jsonName": "usedSpaceInBytes",
       "name": "UsedSpaceInBytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -376,16 +464,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The version.",
       "jsonName": "version",
       "name": "Version",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

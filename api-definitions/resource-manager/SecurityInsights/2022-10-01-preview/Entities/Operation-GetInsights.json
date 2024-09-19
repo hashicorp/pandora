@@ -1,6 +1,7 @@
 {
   "name": "GetInsights",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "EntityId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "EntityGetInsightsParameters"
+    "nullable": false,
+    "referenceName": "EntityGetInsightsParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "EntityGetInsightsResponse"
+    "nullable": false,
+    "referenceName": "EntityGetInsightsResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/getInsights"
 }

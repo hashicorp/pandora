@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "DatabaseInstanceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "UpdateSAPDatabaseInstanceRequest"
+    "nullable": false,
+    "referenceName": "UpdateSAPDatabaseInstanceRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SAPDatabaseInstance"
+    "nullable": false,
+    "referenceName": "SAPDatabaseInstance",
+    "referenceNameIsCommonType": null
   }
 }

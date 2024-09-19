@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Management information availability state for the app.",
       "jsonName": "availabilityState",
       "name": "AvailabilityState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SiteAvailabilityState"
+        "nullable": false,
+        "referenceName": "SiteAvailabilityState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003ccode\u003etrue\u003c/code\u003e to enable client affinity; \u003ccode\u003efalse\u003c/code\u003e to stop sending session affinity cookies, which route client requests in the same session to the same instance. Default is \u003ccode\u003etrue\u003c/code\u003e.",
       "jsonName": "clientAffinityEnabled",
       "name": "ClientAffinityEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003ccode\u003etrue\u003c/code\u003e to enable client certificate authentication (TLS mutual authentication); otherwise, \u003ccode\u003efalse\u003c/code\u003e. Default is \u003ccode\u003efalse\u003c/code\u003e.",
       "jsonName": "clientCertEnabled",
       "name": "ClientCertEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "client certificate authentication comma-separated exclusion paths",
       "jsonName": "clientCertExclusionPaths",
       "name": "ClientCertExclusionPaths",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This composes with ClientCertEnabled setting.\n- ClientCertEnabled: false means ClientCert is ignored.\n- ClientCertEnabled: true and ClientCertMode: Required means ClientCert is required.\n- ClientCertEnabled: true and ClientCertMode: Optional means ClientCert is optional or accepted.",
       "jsonName": "clientCertMode",
       "name": "ClientCertMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClientCertMode"
+        "nullable": false,
+        "referenceName": "ClientCertMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If specified during app creation, the app is cloned from a source app.",
       "jsonName": "cloningInfo",
       "name": "CloningInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CloningInfo"
+        "nullable": false,
+        "referenceName": "CloningInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Size of the function container.",
       "jsonName": "containerSize",
       "name": "ContainerSize",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Unique identifier that verifies the custom domains assigned to the app. Customer will add this id to a txt record for verification.",
       "jsonName": "customDomainVerificationId",
       "name": "CustomDomainVerificationId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,11 +131,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Maximum allowed daily memory-time quota (applicable on dynamic apps only).",
       "jsonName": "dailyMemoryTimeQuota",
       "name": "DailyMemoryTimeQuota",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -120,11 +147,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Dapr configuration of the app.",
       "jsonName": "daprConfig",
       "name": "DaprConfig",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DaprConfig"
+        "nullable": false,
+        "referenceName": "DaprConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -133,11 +163,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Default hostname of the app. Read-only.",
       "jsonName": "defaultHostName",
       "name": "DefaultHostName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -146,11 +179,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003ccode\u003etrue\u003c/code\u003e if the app is enabled; otherwise, \u003ccode\u003efalse\u003c/code\u003e. Setting this value to false disables the app (takes the app offline).",
       "jsonName": "enabled",
       "name": "Enabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -159,14 +195,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enabled hostnames for the app.Hostnames need to be assigned (see HostNames) AND enabled. Otherwise,\nthe app is not served on those hostnames.",
       "jsonName": "enabledHostNames",
       "name": "EnabledHostNames",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -176,11 +217,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether to use end to end encryption between the FrontEnd and the Worker",
       "jsonName": "endToEndEncryptionEnabled",
       "name": "EndToEndEncryptionEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -189,11 +233,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "HttpsOnly: configures a web site to accept only https requests. Issues redirect for\nhttp requests",
       "jsonName": "httpsOnly",
       "name": "HTTPSOnly",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -202,14 +249,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Hostname SSL states are used to manage the SSL bindings for app's hostnames.",
       "jsonName": "hostNameSslStates",
       "name": "HostNameSslStates",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "HostNameSslState"
+          "nullable": false,
+          "referenceName": "HostNameSslState",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -219,14 +271,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Hostnames associated with the app.",
       "jsonName": "hostNames",
       "name": "HostNames",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -236,11 +293,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003ccode\u003etrue\u003c/code\u003e to disable the public hostnames of the app; otherwise, \u003ccode\u003efalse\u003c/code\u003e.\n If \u003ccode\u003etrue\u003c/code\u003e, the app is only accessible via API management process.",
       "jsonName": "hostNamesDisabled",
       "name": "HostNamesDisabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -249,11 +309,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "App Service Environment to use for the app.",
       "jsonName": "hostingEnvironmentProfile",
       "name": "HostingEnvironmentProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HostingEnvironmentProfile"
+        "nullable": false,
+        "referenceName": "HostingEnvironmentProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -262,11 +325,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Hyper-V sandbox.",
       "jsonName": "hyperV",
       "name": "HyperV",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -275,11 +341,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies an operation id if this site has a pending operation.",
       "jsonName": "inProgressOperationId",
       "name": "InProgressOperationId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -288,11 +357,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003ccode\u003etrue\u003c/code\u003e if the app is a default container; otherwise, \u003ccode\u003efalse\u003c/code\u003e.",
       "jsonName": "isDefaultContainer",
       "name": "IsDefaultContainer",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -301,11 +373,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Obsolete: Hyper-V sandbox.",
       "jsonName": "isXenon",
       "name": "IsXenon",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -314,11 +389,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Identity to use for Key Vault Reference authentication.",
       "jsonName": "keyVaultReferenceIdentity",
       "name": "KeyVaultReferenceIdentity",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -328,11 +406,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Last time the app was modified, in UTC. Read-only.",
       "jsonName": "lastModifiedTimeUtc",
       "name": "LastModifiedTimeUtc",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -341,11 +422,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Azure Resource Manager ID of the customer's selected Managed Environment on which to host this app. This must be of the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.App/managedEnvironments/{managedEnvironmentName}",
       "jsonName": "managedEnvironmentId",
       "name": "ManagedEnvironmentId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -354,11 +438,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Maximum number of workers.\nThis only applies to Functions container.",
       "jsonName": "maxNumberOfWorkers",
       "name": "MaxNumberOfWorkers",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -367,11 +454,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of IP addresses that the app uses for outbound connections (e.g. database access). Includes VIPs from tenants that site can be hosted with current settings. Read-only.",
       "jsonName": "outboundIpAddresses",
       "name": "OutboundIPAddresses",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -380,11 +470,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of IP addresses that the app uses for outbound connections (e.g. database access). Includes VIPs from all tenants except dataComponent. Read-only.",
       "jsonName": "possibleOutboundIpAddresses",
       "name": "PossibleOutboundIPAddresses",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -393,11 +486,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Property to allow or block all public traffic. Allowed Values: 'Enabled', 'Disabled' or an empty string.",
       "jsonName": "publicNetworkAccess",
       "name": "PublicNetworkAccess",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -406,11 +502,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Site redundancy mode",
       "jsonName": "redundancyMode",
       "name": "RedundancyMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RedundancyMode"
+        "nullable": false,
+        "referenceName": "RedundancyMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -419,11 +518,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the repository site.",
       "jsonName": "repositorySiteName",
       "name": "RepositorySiteName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -432,11 +534,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003ccode\u003etrue\u003c/code\u003e if reserved; otherwise, \u003ccode\u003efalse\u003c/code\u003e.",
       "jsonName": "reserved",
       "name": "Reserved",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -445,11 +550,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Function app resource requirements.",
       "jsonName": "resourceConfig",
       "name": "ResourceConfig",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceConfig"
+        "nullable": false,
+        "referenceName": "ResourceConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -458,11 +566,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the resource group the app belongs to. Read-only.",
       "jsonName": "resourceGroup",
       "name": "ResourceGroup",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -471,11 +582,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003ccode\u003etrue\u003c/code\u003e to stop SCM (KUDU) site when the app is stopped; otherwise, \u003ccode\u003efalse\u003c/code\u003e. The default is \u003ccode\u003efalse\u003c/code\u003e.",
       "jsonName": "scmSiteAlsoStopped",
       "name": "ScmSiteAlsoStopped",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -484,11 +598,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Resource ID of the associated App Service plan, formatted as: \"/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}\".",
       "jsonName": "serverFarmId",
       "name": "ServerFarmId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -497,11 +614,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Configuration of the app.",
       "jsonName": "siteConfig",
       "name": "SiteConfig",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SiteConfig"
+        "nullable": false,
+        "referenceName": "SiteConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -510,11 +630,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Status of the last deployment slot swap operation.",
       "jsonName": "slotSwapStatus",
       "name": "SlotSwapStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SlotSwapStatus"
+        "nullable": false,
+        "referenceName": "SlotSwapStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -523,11 +646,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Current state of the app.",
       "jsonName": "state",
       "name": "State",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -536,11 +662,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Checks if Customer provided storage account is required",
       "jsonName": "storageAccountRequired",
       "name": "StorageAccountRequired",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -550,11 +679,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "App suspended till in case memory-time quota is exceeded.",
       "jsonName": "suspendedTill",
       "name": "SuspendedTill",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -563,11 +695,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies which deployment slot this app will swap into. Read-only.",
       "jsonName": "targetSwapSlot",
       "name": "TargetSwapSlot",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -576,14 +711,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Azure Traffic Manager hostnames associated with the app. Read-only.",
       "jsonName": "trafficManagerHostNames",
       "name": "TrafficManagerHostNames",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -593,11 +733,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "State indicating whether the app has exceeded its quota usage. Read-only.",
       "jsonName": "usageState",
       "name": "UsageState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UsageState"
+        "nullable": false,
+        "referenceName": "UsageState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -606,11 +749,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Azure Resource Manager ID of the Virtual network and subnet to be joined by Regional VNET Integration.\nThis must be of the form /subscriptions/{subscriptionName}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}",
       "jsonName": "virtualNetworkSubnetId",
       "name": "VirtualNetworkSubnetId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -619,11 +765,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "To enable accessing content over virtual network",
       "jsonName": "vnetContentShareEnabled",
       "name": "VnetContentShareEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -632,11 +781,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "To enable pulling image over Virtual Network",
       "jsonName": "vnetImagePullEnabled",
       "name": "VnetImagePullEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -645,11 +797,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.",
       "jsonName": "vnetRouteAllEnabled",
       "name": "VnetRouteAllEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -658,16 +813,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Workload profile name for function app to execute on.",
       "jsonName": "workloadProfileName",
       "name": "WorkloadProfileName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

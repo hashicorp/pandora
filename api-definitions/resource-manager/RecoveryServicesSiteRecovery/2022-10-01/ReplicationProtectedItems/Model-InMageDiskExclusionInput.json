@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The guest disk signature based option for disk exclusion.",
       "jsonName": "diskSignatureOptions",
       "name": "DiskSignatureOptions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InMageDiskSignatureExclusionOptions"
+          "nullable": false,
+          "referenceName": "InMageDiskSignatureExclusionOptions",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The volume label based option for disk exclusion.",
       "jsonName": "volumeOptions",
       "name": "VolumeOptions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InMageVolumeExclusionOptions"
+          "nullable": false,
+          "referenceName": "InMageVolumeExclusionOptions",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -35,5 +45,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "BMSPrepareDataMove",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,7 +11,9 @@
   "resourceIdName": "VaultId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "PrepareDataMoveRequest"
+    "nullable": false,
+    "referenceName": "PrepareDataMoveRequest",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/backupStorageConfig/vaultStorageConfig/prepareDataMove"
 }

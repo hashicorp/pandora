@@ -1,6 +1,7 @@
 {
   "name": "ExternalUserCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "MonitorId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ExternalUserInfo"
+    "nullable": false,
+    "referenceName": "ExternalUserInfo",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ExternalUserCreationResponse"
+    "nullable": false,
+    "referenceName": "ExternalUserCreationResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/createOrUpdateExternalUser"
 }

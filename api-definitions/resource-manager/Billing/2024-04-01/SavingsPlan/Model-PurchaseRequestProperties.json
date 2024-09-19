@@ -7,7 +7,9 @@
       "name": "AppliedScopeProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AppliedScopeProperties"
+        "nullable": false,
+        "referenceName": "AppliedScopeProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "AppliedScopeType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AppliedScopeType"
+        "nullable": false,
+        "referenceName": "AppliedScopeType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "BillingPlan",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BillingPlan"
+        "nullable": false,
+        "referenceName": "BillingPlan",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "BillingScopeId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "Commitment",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Commitment"
+        "nullable": false,
+        "referenceName": "Commitment",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +78,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Friendly name of the savings plan",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +98,9 @@
       "name": "Renew",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,12 +113,15 @@
       "name": "Term",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SavingsPlanTerm"
+        "nullable": false,
+        "referenceName": "SavingsPlanTerm",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

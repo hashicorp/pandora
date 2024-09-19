@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether the JIT access is enabled.",
       "jsonName": "jitAccessEnabled",
       "name": "JitAccessEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "JIT approval mode.",
       "jsonName": "jitApprovalMode",
       "name": "JitApprovalMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JitApprovalMode"
+        "nullable": false,
+        "referenceName": "JitApprovalMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The JIT approvers",
       "jsonName": "jitApprovers",
       "name": "JitApprovers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "JitApproverDefinition"
+          "nullable": false,
+          "referenceName": "JitApproverDefinition",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -46,16 +57,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The maximum duration JIT access is granted. This is an ISO8601 time period value.",
       "jsonName": "maximumJitAccessDuration",
       "name": "MaximumJitAccessDuration",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

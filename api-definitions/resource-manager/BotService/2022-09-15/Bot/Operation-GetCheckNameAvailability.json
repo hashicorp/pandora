@@ -1,6 +1,7 @@
 {
   "name": "GetCheckNameAvailability",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -8,11 +9,15 @@
   "httpMethod": "POST",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CheckNameAvailabilityRequestBody"
+    "nullable": false,
+    "referenceName": "CheckNameAvailabilityRequestBody",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "CheckNameAvailabilityResponseBody"
+    "nullable": false,
+    "referenceName": "CheckNameAvailabilityResponseBody",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.BotService/checkNameAvailability"
 }

@@ -1,6 +1,7 @@
 {
   "name": "GetPremierAddOnSlot",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "SlotPremierAddonId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PremierAddOn"
+    "nullable": false,
+    "referenceName": "PremierAddOn",
+    "referenceNameIsCommonType": null
   }
 }

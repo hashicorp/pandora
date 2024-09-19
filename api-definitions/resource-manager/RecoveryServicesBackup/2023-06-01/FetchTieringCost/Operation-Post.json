@@ -1,6 +1,7 @@
 {
   "name": "Post",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "VaultId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "FetchTieringCostInfoRequest"
+    "nullable": false,
+    "referenceName": "FetchTieringCostInfoRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "TieringCostInfo"
+    "nullable": false,
+    "referenceName": "TieringCostInfo",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/backupTieringCost/default/fetchTieringCost"
 }

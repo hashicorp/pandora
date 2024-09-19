@@ -1,6 +1,7 @@
 {
   "name": "ListByAutomationAccount",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -22,7 +23,9 @@
   "resourceIdName": "SourceControlId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SourceControlSyncJob"
+    "nullable": false,
+    "referenceName": "SourceControlSyncJob",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/sourceControlSyncJobs"
 }

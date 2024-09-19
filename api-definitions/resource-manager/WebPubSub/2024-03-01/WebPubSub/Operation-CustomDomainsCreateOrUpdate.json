@@ -1,6 +1,7 @@
 {
   "name": "CustomDomainsCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     201
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "CustomDomainId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CustomDomain"
+    "nullable": false,
+    "referenceName": "CustomDomain",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "CustomDomain"
+    "nullable": false,
+    "referenceName": "CustomDomain",
+    "referenceNameIsCommonType": null
   }
 }

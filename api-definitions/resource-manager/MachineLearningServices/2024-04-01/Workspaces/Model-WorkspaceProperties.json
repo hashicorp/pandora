@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The flag to indicate whether to allow public access when behind VNet.",
       "jsonName": "allowPublicAccessWhenBehindVnet",
       "name": "AllowPublicAccessWhenBehindVnet",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "ARM id of the application insights associated with this workspace.",
       "jsonName": "applicationInsights",
       "name": "ApplicationInsights",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,10 +39,14 @@
       "name": "AssociatedWorkspaces",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -46,11 +56,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "ARM id of the container registry associated with this workspace.",
       "jsonName": "containerRegistry",
       "name": "ContainerRegistry",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +72,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The description of this workspace.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +88,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Url for the discovery service to identify regional endpoints for machine learning experimentation services",
       "jsonName": "discoveryUrl",
       "name": "DiscoveryUrl",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,7 +108,9 @@
       "name": "EnableDataIsolation",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,11 +119,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The encryption settings of Azure ML workspace.",
       "jsonName": "encryption",
       "name": "Encryption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EncryptionProperty"
+        "nullable": false,
+        "referenceName": "EncryptionProperty",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,11 +135,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Settings for feature store type workspace.",
       "jsonName": "featureStoreSettings",
       "name": "FeatureStoreSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FeatureStoreSettings"
+        "nullable": false,
+        "referenceName": "FeatureStoreSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,11 +151,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The friendly name for this workspace. This name in mutable",
       "jsonName": "friendlyName",
       "name": "FriendlyName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,11 +167,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The flag to signal HBI data in the workspace and reduce diagnostic data collected by the service",
       "jsonName": "hbiWorkspace",
       "name": "HbiWorkspace",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -154,7 +187,9 @@
       "name": "HubResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -163,11 +198,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The compute name for image build",
       "jsonName": "imageBuildCompute",
       "name": "ImageBuildCompute",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -176,11 +214,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created",
       "jsonName": "keyVault",
       "name": "KeyVault",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -193,7 +234,9 @@
       "name": "ManagedNetwork",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedNetworkSettings"
+        "nullable": false,
+        "referenceName": "ManagedNetworkSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -202,11 +245,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The URI associated with this workspace that machine learning flow must point at to set up tracking.",
       "jsonName": "mlFlowTrackingUri",
       "name": "MlFlowTrackingUri",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -215,11 +261,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The notebook info of Azure ML workspace.",
       "jsonName": "notebookInfo",
       "name": "NotebookInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NotebookResourceInfo"
+        "nullable": false,
+        "referenceName": "NotebookResourceInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -228,11 +277,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The user assigned identity resource id that represents the workspace identity.",
       "jsonName": "primaryUserAssignedIdentity",
       "name": "PrimaryUserAssignedIdentity",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -241,14 +293,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of private endpoint connections in the workspace.",
       "jsonName": "privateEndpointConnections",
       "name": "PrivateEndpointConnections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PrivateEndpointConnection"
+          "nullable": false,
+          "referenceName": "PrivateEndpointConnection",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -258,11 +315,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Count of private connections in the workspace",
       "jsonName": "privateLinkCount",
       "name": "PrivateLinkCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -271,11 +331,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The current deployment state of workspace resource. The provisioningState is to indicate states for resource provisioning.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -284,11 +347,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether requests from Public Network are allowed.",
       "jsonName": "publicNetworkAccess",
       "name": "PublicNetworkAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublicNetworkAccess"
+        "nullable": false,
+        "referenceName": "PublicNetworkAccess",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -297,11 +363,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Settings for serverless compute created in the workspace",
       "jsonName": "serverlessComputeSettings",
       "name": "ServerlessComputeSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerlessComputeSettings"
+        "nullable": false,
+        "referenceName": "ServerlessComputeSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -310,11 +379,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The service managed resource settings.",
       "jsonName": "serviceManagedResourcesSettings",
       "name": "ServiceManagedResourcesSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServiceManagedResourcesSettings"
+        "nullable": false,
+        "referenceName": "ServiceManagedResourcesSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -323,11 +395,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the managed resource group created by workspace RP in customer subscription if the workspace is CMK workspace",
       "jsonName": "serviceProvisionedResourceGroup",
       "name": "ServiceProvisionedResourceGroup",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -336,14 +411,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of shared private link resources in this workspace.",
       "jsonName": "sharedPrivateLinkResources",
       "name": "SharedPrivateLinkResources",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SharedPrivateLinkResource"
+          "nullable": false,
+          "referenceName": "SharedPrivateLinkResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -353,11 +433,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created",
       "jsonName": "storageAccount",
       "name": "StorageAccount",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -366,11 +449,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If the storage associated with the workspace has hierarchical namespace(HNS) enabled.",
       "jsonName": "storageHnsEnabled",
       "name": "StorageHnsEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -379,11 +465,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The tenant id associated with this workspace.",
       "jsonName": "tenantId",
       "name": "TenantId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -392,11 +481,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enabling v1_legacy_mode may prevent you from using features provided by the v2 API.",
       "jsonName": "v1LegacyMode",
       "name": "V1LegacyMode",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -405,11 +497,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "WorkspaceHub's configuration object.",
       "jsonName": "workspaceHubConfig",
       "name": "WorkspaceHubConfig",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WorkspaceHubConfig"
+        "nullable": false,
+        "referenceName": "WorkspaceHubConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -418,16 +513,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The immutable id associated with this workspace.",
       "jsonName": "workspaceId",
       "name": "WorkspaceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

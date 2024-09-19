@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The policy override for the subscription indicates whether the self-serve cancellation or seat reduction is allowed.",
       "jsonName": "cancellation",
       "name": "Cancellation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Cancellation"
+        "nullable": false,
+        "referenceName": "Cancellation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,16 +20,20 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The end date in UTC time by when the self-serve cancellation ends.",
       "jsonName": "cancellationAllowedEndDate",
       "name": "CancellationAllowedEndDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

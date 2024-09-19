@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of server certificates referenced by common name that are used to secure the cluster.",
       "jsonName": "commonNames",
       "name": "CommonNames",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ServerCertificateCommonName"
+          "nullable": false,
+          "referenceName": "ServerCertificateCommonName",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,12 +29,15 @@
       "name": "X509StoreName",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "X509StoreName"
+        "nullable": false,
+        "referenceName": "X509StoreName",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

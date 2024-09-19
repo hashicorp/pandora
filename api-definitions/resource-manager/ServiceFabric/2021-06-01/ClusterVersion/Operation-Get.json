@@ -1,6 +1,7 @@
 {
   "name": "Get",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,6 +11,8 @@
   "resourceIdName": "ClusterVersionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ClusterCodeVersionsResult"
+    "nullable": false,
+    "referenceName": "ClusterCodeVersionsResult",
+    "referenceNameIsCommonType": null
   }
 }

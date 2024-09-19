@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The management policy action for base blob",
       "jsonName": "baseBlob",
       "name": "BaseBlob",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagementPolicyBaseBlob"
+        "nullable": false,
+        "referenceName": "ManagementPolicyBaseBlob",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The management policy action for snapshot",
       "jsonName": "snapshot",
       "name": "Snapshot",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagementPolicySnapShot"
+        "nullable": false,
+        "referenceName": "ManagementPolicySnapShot",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The management policy action for version",
       "jsonName": "version",
       "name": "Version",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagementPolicyVersion"
+        "nullable": false,
+        "referenceName": "ManagementPolicyVersion",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

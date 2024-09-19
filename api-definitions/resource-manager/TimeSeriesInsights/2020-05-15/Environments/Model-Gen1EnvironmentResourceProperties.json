@@ -4,11 +4,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time the resource was created.",
       "jsonName": "creationTime",
       "name": "CreationTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,11 +20,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.",
       "jsonName": "dataAccessFqdn",
       "name": "DataAccessFqdn",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,11 +36,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.",
       "jsonName": "dataAccessId",
       "name": "DataAccessId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -43,11 +52,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.",
       "jsonName": "dataRetentionTime",
       "name": "DataRetentionTime",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -56,14 +68,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of event properties which will be used to partition data in the environment. Currently, only a single partition key property is supported.",
       "jsonName": "partitionKeyProperties",
       "name": "PartitionKeyProperties",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TimeSeriesIdProperty"
+          "nullable": false,
+          "referenceName": "TimeSeriesIdProperty",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -73,11 +90,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provisioning state of the resource.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -86,11 +106,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An object that represents the status of the environment, and its internal state in the Time Series Insights service.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnvironmentStatus"
+        "nullable": false,
+        "referenceName": "EnvironmentStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -99,16 +122,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If \"PauseIngress\" is specified, new events will not be read from the event source. If \"PurgeOldData\" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.",
       "jsonName": "storageLimitExceededBehavior",
       "name": "StorageLimitExceededBehavior",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StorageLimitExceededBehavior"
+        "nullable": false,
+        "referenceName": "StorageLimitExceededBehavior",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

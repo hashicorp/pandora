@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The failover type, can be ForcedAllowDataLoss or Planned.",
       "jsonName": "failoverType",
       "name": "FailoverType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FailoverType"
+        "nullable": false,
+        "referenceName": "FailoverType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

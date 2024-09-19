@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The object ID of Azure Active Directory group that all users in the list must be in for access to be granted. Users that are not in the group will not have access.",
       "jsonName": "azureGroupId",
       "name": "AzureGroupId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The more detailed status of the key set.",
       "jsonName": "detailedStatus",
       "name": "DetailedStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BareMetalMachineKeySetDetailedStatus"
+        "nullable": false,
+        "referenceName": "BareMetalMachineKeySetDetailedStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The descriptive message about the current detailed status.",
       "jsonName": "detailedStatusMessage",
       "name": "DetailedStatusMessage",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -43,11 +52,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The date and time after which the users in this key set will be removed from the bare metal machines.",
       "jsonName": "expiration",
       "name": "Expiration",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -56,14 +68,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of IP addresses of jump hosts with management network access from which a login will be allowed for the users.",
       "jsonName": "jumpHostsAllowed",
       "name": "JumpHostsAllowed",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -74,11 +91,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The last time this key set was validated.",
       "jsonName": "lastValidation",
       "name": "LastValidation",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -87,11 +107,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the group that users will be assigned to on the operating system of the machines.",
       "jsonName": "osGroupName",
       "name": "OsGroupName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -100,11 +123,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The access level allowed for the users in this key set.",
       "jsonName": "privilegeLevel",
       "name": "PrivilegeLevel",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BareMetalMachineKeySetPrivilegeLevel"
+        "nullable": false,
+        "referenceName": "BareMetalMachineKeySetPrivilegeLevel",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -113,11 +139,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The provisioning state of the bare metal machine key set.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BareMetalMachineKeySetProvisioningState"
+        "nullable": false,
+        "referenceName": "BareMetalMachineKeySetProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -126,14 +155,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The unique list of permitted users.",
       "jsonName": "userList",
       "name": "UserList",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "KeySetUser"
+          "nullable": false,
+          "referenceName": "KeySetUser",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -143,14 +177,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The status evaluation of each user.",
       "jsonName": "userListStatus",
       "name": "UserListStatus",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "KeySetUserStatus"
+          "nullable": false,
+          "referenceName": "KeySetUserStatus",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -158,5 +197,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

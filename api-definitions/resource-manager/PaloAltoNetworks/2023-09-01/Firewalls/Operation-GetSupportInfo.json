@@ -1,6 +1,7 @@
 {
   "name": "GetSupportInfo",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,7 +22,9 @@
   "resourceIdName": "FirewallId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SupportInfo"
+    "nullable": false,
+    "referenceName": "SupportInfo",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/getSupportInfo"
 }

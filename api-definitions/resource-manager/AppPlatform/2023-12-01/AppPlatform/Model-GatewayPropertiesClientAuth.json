@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether to enable certificate verification or not",
       "jsonName": "certificateVerification",
       "name": "CertificateVerification",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GatewayCertificateVerification"
+        "nullable": false,
+        "referenceName": "GatewayCertificateVerification",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Collection of certificate resource Ids in Azure Spring Apps.",
       "jsonName": "certificates",
       "name": "Certificates",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -31,5 +39,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

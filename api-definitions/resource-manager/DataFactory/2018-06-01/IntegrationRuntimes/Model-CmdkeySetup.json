@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Cmdkey command custom setup type properties.",
       "jsonName": "typeProperties",
       "name": "TypeProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CmdkeySetupTypeProperties"
+        "nullable": false,
+        "referenceName": "CmdkeySetupTypeProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,6 +18,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "CustomSetupBase",
   "discriminatedTypeValue": "CmdkeySetup",
   "typeHintIn": "Type"

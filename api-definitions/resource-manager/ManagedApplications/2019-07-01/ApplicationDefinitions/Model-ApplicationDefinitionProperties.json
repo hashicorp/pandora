@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.",
       "jsonName": "artifacts",
       "name": "Artifacts",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationDefinitionArtifact"
+          "nullable": false,
+          "referenceName": "ApplicationDefinitionArtifact",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The managed application provider authorizations.",
       "jsonName": "authorizations",
       "name": "Authorizations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationAuthorization"
+          "nullable": false,
+          "referenceName": "ApplicationAuthorization",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,11 +47,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.",
       "jsonName": "createUiDefinition",
       "name": "CreateUiDefinition",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,11 +63,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The managed application deployment policy.",
       "jsonName": "deploymentPolicy",
       "name": "DeploymentPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationDeploymentPolicy"
+        "nullable": false,
+        "referenceName": "ApplicationDeploymentPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,11 +79,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The managed application definition description.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,11 +95,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The managed application definition display name.",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,11 +111,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A value indicating whether the package is enabled or not.",
       "jsonName": "isEnabled",
       "name": "IsEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,11 +127,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The managed application lock level.",
       "jsonName": "lockLevel",
       "name": "LockLevel",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationLockLevel"
+        "nullable": false,
+        "referenceName": "ApplicationLockLevel",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -115,11 +143,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The managed application locking policy.",
       "jsonName": "lockingPolicy",
       "name": "LockingPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationPackageLockingPolicyDefinition"
+        "nullable": false,
+        "referenceName": "ApplicationPackageLockingPolicyDefinition",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,11 +159,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.",
       "jsonName": "mainTemplate",
       "name": "MainTemplate",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,11 +175,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The managed application management policy that determines publisher's access to the managed resource group.",
       "jsonName": "managementPolicy",
       "name": "ManagementPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationManagementPolicy"
+        "nullable": false,
+        "referenceName": "ApplicationManagementPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -154,11 +191,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The managed application notification policy.",
       "jsonName": "notificationPolicy",
       "name": "NotificationPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationNotificationPolicy"
+        "nullable": false,
+        "referenceName": "ApplicationNotificationPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -167,11 +207,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The managed application definition package file Uri. Use this element",
       "jsonName": "packageFileUri",
       "name": "PackageFileUri",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -180,14 +223,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The managed application provider policies.",
       "jsonName": "policies",
       "name": "Policies",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationPolicy"
+          "nullable": false,
+          "referenceName": "ApplicationPolicy",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -197,16 +245,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The storage account id for bring your own storage scenario.",
       "jsonName": "storageAccountId",
       "name": "StorageAccountId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

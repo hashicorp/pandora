@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Map of artifacts that contains a list of ArtifactProfile used to upload artifacts such as logs.",
       "jsonName": "artifactProfiles",
       "name": "ArtifactProfiles",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ArtifactProfile"
+          "nullable": false,
+          "referenceName": "ArtifactProfile",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of appliance kubeconfigs.",
       "jsonName": "kubeconfigs",
       "name": "Kubeconfigs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplianceCredentialKubeconfig"
+          "nullable": false,
+          "referenceName": "ApplianceCredentialKubeconfig",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,14 +47,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Map of Customer User Public, Private SSH Keys and Certificate when available.",
       "jsonName": "sshKeys",
       "name": "SshKeys",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SSHKey"
+          "nullable": false,
+          "referenceName": "SSHKey",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -52,5 +67,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

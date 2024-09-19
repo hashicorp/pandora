@@ -1,6 +1,7 @@
 {
   "name": "ServerEndpointsListBySyncGroup",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "SyncGroupId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ServerEndpointArray"
+    "nullable": false,
+    "referenceName": "ServerEndpointArray",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/serverEndpoints"
 }

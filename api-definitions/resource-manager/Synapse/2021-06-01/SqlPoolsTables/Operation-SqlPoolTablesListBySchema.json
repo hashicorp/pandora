@@ -1,6 +1,7 @@
 {
   "name": "SqlPoolTablesListBySchema",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -22,7 +23,9 @@
   "resourceIdName": "SchemaId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Resource"
+    "nullable": false,
+    "referenceName": "Resource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/tables"
 }

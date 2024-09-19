@@ -1,6 +1,7 @@
 {
   "name": "ListByProduct",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -42,7 +43,9 @@
   "resourceIdName": "ProductId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ProductApiLinkContract"
+    "nullable": false,
+    "referenceName": "ProductApiLinkContract",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/apiLinks"
 }

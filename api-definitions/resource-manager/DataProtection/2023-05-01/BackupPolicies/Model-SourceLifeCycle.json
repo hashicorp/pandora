@@ -7,7 +7,9 @@
       "name": "DeleteAfter",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeleteOption"
+        "nullable": false,
+        "referenceName": "DeleteOption",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "SourceDataStore",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataStoreInfoBase"
+        "nullable": false,
+        "referenceName": "DataStoreInfoBase",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,10 +37,14 @@
       "name": "TargetDataStoreCopySettings",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TargetCopySetting"
+          "nullable": false,
+          "referenceName": "TargetCopySetting",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -44,5 +52,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

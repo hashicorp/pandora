@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The access control of Akamai",
       "jsonName": "akamai",
       "name": "Akamai",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AkamaiAccessControl"
+        "nullable": false,
+        "referenceName": "AkamaiAccessControl",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The IP access control of the streaming endpoint.",
       "jsonName": "ip",
       "name": "IP",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IPAccessControl"
+        "nullable": false,
+        "referenceName": "IPAccessControl",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

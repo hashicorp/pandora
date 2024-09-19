@@ -1,6 +1,7 @@
 {
   "name": "RegisteredServersListByStorageSyncService",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "StorageSyncServiceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "RegisteredServerArray"
+    "nullable": false,
+    "referenceName": "RegisteredServerArray",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/registeredServers"
 }

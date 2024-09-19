@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The amount due as of now.",
       "jsonName": "amountDue",
       "name": "AmountDue",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Amount"
+        "nullable": false,
+        "referenceName": "Amount",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The amount of Azure prepayment applied to the charges. This field is applicable to billing accounts with agreement type Microsoft Customer Agreement.",
       "jsonName": "azurePrepaymentApplied",
       "name": "AzurePrepaymentApplied",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Amount"
+        "nullable": false,
+        "referenceName": "Amount",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The total charges for the invoice billing period.",
       "jsonName": "billedAmount",
       "name": "BilledAmount",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Amount"
+        "nullable": false,
+        "referenceName": "Amount",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Id of the active invoice which is originally billed after this invoice was voided. This field is applicable to the void invoices only.",
       "jsonName": "billedDocumentId",
       "name": "BilledDocumentId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the billing profile for which the invoice is generated.",
       "jsonName": "billingProfileDisplayName",
       "name": "BillingProfileDisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ID of the billing profile for which the invoice is generated.",
       "jsonName": "billingProfileId",
       "name": "BillingProfileId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The total refund for returns and cancellations during the invoice billing period. This field is applicable to billing accounts with agreement type Microsoft Customer Agreement.",
       "jsonName": "creditAmount",
       "name": "CreditAmount",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Amount"
+        "nullable": false,
+        "referenceName": "Amount",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Id of the invoice which got voided and this credit note was issued as a result. This field is applicable to the credit notes only.",
       "jsonName": "creditForDocumentId",
       "name": "CreditForDocumentId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,11 +131,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of the document.",
       "jsonName": "documentType",
       "name": "DocumentType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InvoiceDocumentType"
+        "nullable": false,
+        "referenceName": "InvoiceDocumentType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -120,14 +147,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of documents available to download such as invoice and tax receipt.",
       "jsonName": "documents",
       "name": "Documents",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Document"
+          "nullable": false,
+          "referenceName": "Document",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -138,11 +170,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The due date for the invoice.",
       "jsonName": "dueDate",
       "name": "DueDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -151,11 +186,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The amount of free Azure credits applied to the charges. This field is applicable to billing accounts with agreement type Microsoft Customer Agreement.",
       "jsonName": "freeAzureCreditApplied",
       "name": "FreeAzureCreditApplied",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Amount"
+        "nullable": false,
+        "referenceName": "Amount",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -165,11 +203,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The date when the invoice was generated.",
       "jsonName": "invoiceDate",
       "name": "InvoiceDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -179,11 +220,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The end date of the billing period for which the invoice is generated.",
       "jsonName": "invoicePeriodEndDate",
       "name": "InvoicePeriodEndDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -193,11 +237,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The start date of the billing period for which the invoice is generated.",
       "jsonName": "invoicePeriodStartDate",
       "name": "InvoicePeriodStartDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -206,11 +253,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Invoice type.",
       "jsonName": "invoiceType",
       "name": "InvoiceType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InvoiceType"
+        "nullable": false,
+        "referenceName": "InvoiceType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -219,11 +269,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies if the invoice is generated as part of monthly invoicing cycle or not. This field is applicable to billing accounts with agreement type Microsoft Customer Agreement.",
       "jsonName": "isMonthlyInvoice",
       "name": "IsMonthlyInvoice",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -232,14 +285,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of payments.",
       "jsonName": "payments",
       "name": "Payments",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PaymentProperties"
+          "nullable": false,
+          "referenceName": "PaymentProperties",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -249,11 +307,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An optional purchase order number for the invoice.",
       "jsonName": "purchaseOrderNumber",
       "name": "PurchaseOrderNumber",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -262,14 +323,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Rebill details for an invoice.",
       "jsonName": "rebillDetails",
       "name": "RebillDetails",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RebillDetails"
+          "nullable": false,
+          "referenceName": "RebillDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -279,11 +345,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The current status of the invoice.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InvoiceStatus"
+        "nullable": false,
+        "referenceName": "InvoiceStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -292,11 +361,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The pre-tax amount due. This field is applicable to billing accounts with agreement type Microsoft Customer Agreement.",
       "jsonName": "subTotal",
       "name": "SubTotal",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Amount"
+        "nullable": false,
+        "referenceName": "Amount",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -305,11 +377,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ID of the subscription for which the invoice is generated.",
       "jsonName": "subscriptionId",
       "name": "SubscriptionId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -318,11 +393,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The amount of tax charged for the billing period. This field is applicable to billing accounts with agreement type Microsoft Customer Agreement.",
       "jsonName": "taxAmount",
       "name": "TaxAmount",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Amount"
+        "nullable": false,
+        "referenceName": "Amount",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -331,16 +409,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The amount due when the invoice was generated. This field is applicable to billing accounts with agreement type Microsoft Customer Agreement.",
       "jsonName": "totalAmount",
       "name": "TotalAmount",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Amount"
+        "nullable": false,
+        "referenceName": "Amount",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

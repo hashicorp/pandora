@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "WatcherId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "WatcherUpdateParameters"
+    "nullable": false,
+    "referenceName": "WatcherUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Watcher"
+    "nullable": false,
+    "referenceName": "Watcher",
+    "referenceNameIsCommonType": null
   }
 }

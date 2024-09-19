@@ -1,6 +1,7 @@
 {
   "name": "ListGlobalBySubscription",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -32,7 +33,9 @@
   "resourceIdName": "SubscriptionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "EventSubscription"
+    "nullable": false,
+    "referenceName": "EventSubscription",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.EventGrid/eventSubscriptions"
 }

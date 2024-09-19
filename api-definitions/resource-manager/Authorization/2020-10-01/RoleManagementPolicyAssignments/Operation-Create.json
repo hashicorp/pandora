@@ -1,6 +1,7 @@
 {
   "name": "Create",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     201
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "ScopedRoleManagementPolicyAssignmentId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "RoleManagementPolicyAssignment"
+    "nullable": false,
+    "referenceName": "RoleManagementPolicyAssignment",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "RoleManagementPolicyAssignment"
+    "nullable": false,
+    "referenceName": "RoleManagementPolicyAssignment",
+    "referenceNameIsCommonType": null
   }
 }

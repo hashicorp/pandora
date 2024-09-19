@@ -1,6 +1,7 @@
 {
   "name": "ListByFactory",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "FactoryId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "GlobalParameterResource"
+    "nullable": false,
+    "referenceName": "GlobalParameterResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/globalParameters"
 }

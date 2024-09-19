@@ -1,6 +1,7 @@
 {
   "name": "TransformsCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "TransformId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "Transform"
+    "nullable": false,
+    "referenceName": "Transform",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Transform"
+    "nullable": false,
+    "referenceName": "Transform",
+    "referenceNameIsCommonType": null
   }
 }

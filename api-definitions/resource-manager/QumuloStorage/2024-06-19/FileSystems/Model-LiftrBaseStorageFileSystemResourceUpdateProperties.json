@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Delegated subnet id for Vnet injection",
       "jsonName": "delegatedSubnetId",
       "name": "DelegatedSubnetId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Marketplace details",
       "jsonName": "marketplaceDetails",
       "name": "MarketplaceDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LiftrBaseMarketplaceDetails"
+        "nullable": false,
+        "referenceName": "LiftrBaseMarketplaceDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "User Details",
       "jsonName": "userDetails",
       "name": "UserDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LiftrBaseUserDetails"
+        "nullable": false,
+        "referenceName": "LiftrBaseUserDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

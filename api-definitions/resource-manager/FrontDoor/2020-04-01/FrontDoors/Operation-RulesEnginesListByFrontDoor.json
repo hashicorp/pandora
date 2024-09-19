@@ -1,6 +1,7 @@
 {
   "name": "RulesEnginesListByFrontDoor",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "FrontDoorId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "RulesEngine"
+    "nullable": false,
+    "referenceName": "RulesEngine",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/rulesEngines"
 }

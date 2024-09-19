@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "True, if customer is allowed to perform Maintenance.",
       "jsonName": "isCustomerInitiatedMaintenanceAllowed",
       "name": "IsCustomerInitiatedMaintenanceAllowed",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Message returned for the last Maintenance Operation.",
       "jsonName": "lastOperationMessage",
       "name": "LastOperationMessage",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Last Maintenance Operation Result Code.",
       "jsonName": "lastOperationResultCode",
       "name": "LastOperationResultCode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MaintenanceOperationResultCodeTypes"
+        "nullable": false,
+        "referenceName": "MaintenanceOperationResultCodeTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -43,11 +52,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "End Time for the Maintenance Window.",
       "jsonName": "maintenanceWindowEndTime",
       "name": "MaintenanceWindowEndTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -57,11 +69,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Start Time for the Maintenance Window.",
       "jsonName": "maintenanceWindowStartTime",
       "name": "MaintenanceWindowStartTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -71,11 +86,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "End Time for the Pre Maintenance Window.",
       "jsonName": "preMaintenanceWindowEndTime",
       "name": "PreMaintenanceWindowEndTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,16 +103,20 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Start Time for the Pre Maintenance Window.",
       "jsonName": "preMaintenanceWindowStartTime",
       "name": "PreMaintenanceWindowStartTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

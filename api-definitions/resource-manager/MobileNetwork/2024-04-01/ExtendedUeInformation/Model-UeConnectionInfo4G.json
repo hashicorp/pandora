@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "eNodeB S1AP identifier",
       "jsonName": "enbS1apId",
       "name": "EnbS1apId",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +23,9 @@
       "name": "GlobalRanNodeId",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GlobalRanNodeId"
+        "nullable": false,
+        "referenceName": "GlobalRanNodeId",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -30,11 +35,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The timestamp of last activity of UE (UTC).",
       "jsonName": "lastActivityTime",
       "name": "LastActivityTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -43,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Last Visited TAI",
       "jsonName": "lastVisitedTai",
       "name": "LastVisitedTai",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -60,7 +71,9 @@
       "name": "LocationInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UeLocationInfo"
+        "nullable": false,
+        "referenceName": "UeLocationInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -69,11 +82,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "MME S1AP identifier",
       "jsonName": "mmeS1apId",
       "name": "MmeS1apId",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -82,11 +98,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Per-UE transport network layer association",
       "jsonName": "perUeTnla",
       "name": "PerUeTnla",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -99,7 +118,9 @@
       "name": "RrcEstablishmentCause",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RrcEstablishmentCause"
+        "nullable": false,
+        "referenceName": "RrcEstablishmentCause",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -112,7 +133,9 @@
       "name": "UeState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UeState"
+        "nullable": false,
+        "referenceName": "UeState",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -125,12 +148,15 @@
       "name": "UeUsageSetting",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UeUsageSetting"
+        "nullable": false,
+        "referenceName": "UeUsageSetting",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

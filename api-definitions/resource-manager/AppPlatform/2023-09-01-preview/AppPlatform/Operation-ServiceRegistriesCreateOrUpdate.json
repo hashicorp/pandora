@@ -1,6 +1,7 @@
 {
   "name": "ServiceRegistriesCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,6 +11,8 @@
   "resourceIdName": "ServiceRegistryId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ServiceRegistryResource"
+    "nullable": false,
+    "referenceName": "ServiceRegistryResource",
+    "referenceNameIsCommonType": null
   }
 }

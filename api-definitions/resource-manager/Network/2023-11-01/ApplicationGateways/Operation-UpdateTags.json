@@ -1,6 +1,7 @@
 {
   "name": "UpdateTags",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "ApplicationGatewayId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "TagsObject"
+    "nullable": false,
+    "referenceName": "TagsObject",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ApplicationGateway"
+    "nullable": false,
+    "referenceName": "ApplicationGateway",
+    "referenceNameIsCommonType": null
   }
 }

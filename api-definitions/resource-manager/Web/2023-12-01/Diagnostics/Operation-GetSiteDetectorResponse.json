@@ -1,6 +1,7 @@
 {
   "name": "GetSiteDetectorResponse",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -41,6 +42,8 @@
   "resourceIdName": "DetectorId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DetectorResponse"
+    "nullable": false,
+    "referenceName": "DetectorResponse",
+    "referenceNameIsCommonType": null
   }
 }

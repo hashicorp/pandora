@@ -7,7 +7,9 @@
       "name": "Ambr",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Ambr"
+        "nullable": false,
+        "referenceName": "Ambr",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Dnn",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "PdnType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PdnType"
+        "nullable": false,
+        "referenceName": "PdnType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "PduSessionId",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -59,10 +67,14 @@
       "name": "QosFlow",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "UeQOSFlow"
+          "nullable": false,
+          "referenceName": "UeQOSFlow",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -76,7 +88,9 @@
       "name": "Snssai",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Snssai"
+        "nullable": false,
+        "referenceName": "Snssai",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -89,12 +103,15 @@
       "name": "UeIPAddress",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UeIPAddress"
+        "nullable": false,
+        "referenceName": "UeIPAddress",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

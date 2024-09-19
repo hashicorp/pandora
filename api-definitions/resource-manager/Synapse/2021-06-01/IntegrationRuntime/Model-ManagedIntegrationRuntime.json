@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Managed integration runtime managed virtual network.",
       "jsonName": "managedVirtualNetwork",
       "name": "ManagedVirtualNetwork",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedIntegrationRuntimeManagedVirtualNetworkReference"
+        "nullable": false,
+        "referenceName": "ManagedIntegrationRuntimeManagedVirtualNetworkReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Integration runtime state, only valid for managed dedicated integration runtime.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IntegrationRuntimeState"
+        "nullable": false,
+        "referenceName": "IntegrationRuntimeState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Managed integration runtime properties.",
       "jsonName": "typeProperties",
       "name": "TypeProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedIntegrationRuntimeTypeProperties"
+        "nullable": false,
+        "referenceName": "ManagedIntegrationRuntimeTypeProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -41,6 +50,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "IntegrationRuntime",
   "discriminatedTypeValue": "Managed",
   "typeHintIn": "Type"

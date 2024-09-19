@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Customer provided key, value pairs that will be returned in Job and JobOutput state events.",
       "jsonName": "correlationData",
       "name": "CorrelationData",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -21,11 +26,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The UTC date and time when the customer has created the Job, in 'YYYY-MM-DDThh:mm:ssZ' format.",
       "jsonName": "created",
       "name": "Created",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,11 +42,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Optional customer supplied description of the Job.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -48,11 +59,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The UTC date and time at which this Job finished processing.",
       "jsonName": "endTime",
       "name": "EndTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -61,11 +75,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The inputs for the Job.",
       "jsonName": "input",
       "name": "Input",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JobInput"
+        "nullable": false,
+        "referenceName": "JobInput",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -75,11 +92,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The UTC date and time when the customer has last updated the Job, in 'YYYY-MM-DDThh:mm:ssZ' format.",
       "jsonName": "lastModified",
       "name": "LastModified",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -88,14 +108,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The outputs for the Job.",
       "jsonName": "outputs",
       "name": "Outputs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "JobOutput"
+          "nullable": false,
+          "referenceName": "JobOutput",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -105,11 +130,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.",
       "jsonName": "priority",
       "name": "Priority",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Priority"
+        "nullable": false,
+        "referenceName": "Priority",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -119,11 +147,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The UTC date and time at which this Job began processing.",
       "jsonName": "startTime",
       "name": "StartTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -132,16 +163,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The current state of the job.",
       "jsonName": "state",
       "name": "State",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JobState"
+        "nullable": false,
+        "referenceName": "JobState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

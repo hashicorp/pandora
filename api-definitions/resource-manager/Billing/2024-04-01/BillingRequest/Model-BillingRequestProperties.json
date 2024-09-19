@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Additional information for the billing request.",
       "jsonName": "additionalInformation",
       "name": "AdditionalInformation",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the billing account.",
       "jsonName": "billingAccountDisplayName",
       "name": "BillingAccountDisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The fully qualified ID that uniquely identifies a billing account.",
       "jsonName": "billingAccountId",
       "name": "BillingAccountId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ID that uniquely identifies a billing account.",
       "jsonName": "billingAccountName",
       "name": "BillingAccountName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The primary tenant ID of the billing account for which the billing request was submitted.",
       "jsonName": "billingAccountPrimaryBillingTenantId",
       "name": "BillingAccountPrimaryBillingTenantId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the billing profile.",
       "jsonName": "billingProfileDisplayName",
       "name": "BillingProfileDisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The fully qualified ID that uniquely identifies a billing profile.",
       "jsonName": "billingProfileId",
       "name": "BillingProfileId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,11 +121,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ID that uniquely identifies a billing profile.",
       "jsonName": "billingProfileName",
       "name": "BillingProfileName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,11 +137,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The billing scope for which the request will be applied. This is a read only property derived by the service.",
       "jsonName": "billingScope",
       "name": "BillingScope",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,11 +153,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The principal of the entity who created the request.",
       "jsonName": "createdBy",
       "name": "CreatedBy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Principal"
+        "nullable": false,
+        "referenceName": "Principal",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -138,11 +170,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The date and time when the request was created.",
       "jsonName": "creationDate",
       "name": "CreationDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -151,11 +186,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the customer.",
       "jsonName": "customerDisplayName",
       "name": "CustomerDisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -164,11 +202,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The fully qualified ID that uniquely identifies a customer.",
       "jsonName": "customerId",
       "name": "CustomerId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -177,11 +218,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ID that uniquely identifies a customer.",
       "jsonName": "customerName",
       "name": "CustomerName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -190,11 +234,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The reason to approve or decline the request.",
       "jsonName": "decisionReason",
       "name": "DecisionReason",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -204,11 +251,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The date and time when the request expires.",
       "jsonName": "expirationDate",
       "name": "ExpirationDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -217,11 +267,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the invoice section.",
       "jsonName": "invoiceSectionDisplayName",
       "name": "InvoiceSectionDisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -230,11 +283,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The fully qualified ID that uniquely identifies an invoice section.",
       "jsonName": "invoiceSectionId",
       "name": "InvoiceSectionId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -243,11 +299,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ID that uniquely identifies an invoice section.",
       "jsonName": "invoiceSectionName",
       "name": "InvoiceSectionName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -256,11 +315,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Justification for submitting request.",
       "jsonName": "justification",
       "name": "Justification",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -269,11 +331,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The principal of the entity who last updated the request.",
       "jsonName": "lastUpdatedBy",
       "name": "LastUpdatedBy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Principal"
+        "nullable": false,
+        "referenceName": "Principal",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -283,11 +348,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Date and time of last update.",
       "jsonName": "lastUpdatedDate",
       "name": "LastUpdatedDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -296,11 +364,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The provisioning state of the resource during a long-running operation.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -309,14 +380,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The recipients of the billing request.",
       "jsonName": "recipients",
       "name": "Recipients",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Principal"
+          "nullable": false,
+          "referenceName": "Principal",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -326,11 +402,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The billing scope for which the request was submitted (ex. '/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingProfiles/{billingProfileName}').",
       "jsonName": "requestScope",
       "name": "RequestScope",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -340,11 +419,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The date and time when the request was reviewed.",
       "jsonName": "reviewalDate",
       "name": "ReviewalDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -353,11 +435,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The principal of the request reviewer. Will only be set if request is approved.",
       "jsonName": "reviewedBy",
       "name": "ReviewedBy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Principal"
+        "nullable": false,
+        "referenceName": "Principal",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -366,11 +451,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Status of billing request.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BillingRequestStatus"
+        "nullable": false,
+        "referenceName": "BillingRequestStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -379,11 +467,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the billing subscription.",
       "jsonName": "subscriptionDisplayName",
       "name": "SubscriptionDisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -392,11 +483,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The fully qualified ID that uniquely identifies a billing subscription.",
       "jsonName": "subscriptionId",
       "name": "SubscriptionId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -405,11 +499,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ID that uniquely identifies a billing subscription.",
       "jsonName": "subscriptionName",
       "name": "SubscriptionName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -418,16 +515,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Type of billing request.",
       "jsonName": "type",
       "name": "Type",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BillingRequestType"
+        "nullable": false,
+        "referenceName": "BillingRequestType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

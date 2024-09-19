@@ -7,7 +7,9 @@
       "name": "HealthProbeSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HealthProbeParameters"
+        "nullable": false,
+        "referenceName": "HealthProbeParameters",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +18,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Load balancing settings for a backend pool",
       "jsonName": "loadBalancingSettings",
       "name": "LoadBalancingSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LoadBalancingSettingsParameters"
+        "nullable": false,
+        "referenceName": "LoadBalancingSettingsParameters",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +34,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the profile which holds the origin group.",
       "jsonName": "profileName",
       "name": "ProfileName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +50,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'",
       "jsonName": "sessionAffinityState",
       "name": "SessionAffinityState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnabledState"
+        "nullable": false,
+        "referenceName": "EnabledState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,16 +66,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.",
       "jsonName": "trafficRestorationTimeToHealedOrNewEndpointsInMinutes",
       "name": "TrafficRestorationTimeToHealedOrNewEndpointsInMinutes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

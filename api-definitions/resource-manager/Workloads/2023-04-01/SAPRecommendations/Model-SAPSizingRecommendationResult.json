@@ -7,7 +7,9 @@
       "name": "DeploymentType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SAPDeploymentType"
+        "nullable": false,
+        "referenceName": "SAPDeploymentType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,5 +17,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "DeploymentType"
 }

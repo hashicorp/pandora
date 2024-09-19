@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Diagnostic settings for request.",
       "jsonName": "request",
       "name": "Request",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HTTPMessageDiagnostic"
+        "nullable": false,
+        "referenceName": "HTTPMessageDiagnostic",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Diagnostic settings for response.",
       "jsonName": "response",
       "name": "Response",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HTTPMessageDiagnostic"
+        "nullable": false,
+        "referenceName": "HTTPMessageDiagnostic",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

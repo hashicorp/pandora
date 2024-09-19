@@ -7,7 +7,9 @@
       "name": "Binding",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FunctionBinding"
+        "nullable": false,
+        "referenceName": "FunctionBinding",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "Inputs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "FunctionInput"
+          "nullable": false,
+          "referenceName": "FunctionInput",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,12 +43,15 @@
       "name": "Output",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FunctionOutput"
+        "nullable": false,
+        "referenceName": "FunctionOutput",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

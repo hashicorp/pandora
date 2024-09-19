@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "ServerId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "AnalysisServicesServerUpdateParameters"
+    "nullable": false,
+    "referenceName": "AnalysisServicesServerUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AnalysisServicesServer"
+    "nullable": false,
+    "referenceName": "AnalysisServicesServer",
+    "referenceNameIsCommonType": null
   }
 }

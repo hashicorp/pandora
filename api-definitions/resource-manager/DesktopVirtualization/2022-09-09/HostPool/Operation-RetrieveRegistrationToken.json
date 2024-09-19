@@ -1,6 +1,7 @@
 {
   "name": "RetrieveRegistrationToken",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "HostPoolId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "RegistrationInfo"
+    "nullable": false,
+    "referenceName": "RegistrationInfo",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/retrieveRegistrationToken"
 }

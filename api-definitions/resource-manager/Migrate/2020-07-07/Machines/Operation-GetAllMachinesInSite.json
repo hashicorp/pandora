@@ -1,6 +1,7 @@
 {
   "name": "GetAllMachinesInSite",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -52,7 +53,9 @@
   "resourceIdName": "VMwareSiteId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "VMwareMachine"
+    "nullable": false,
+    "referenceName": "VMwareMachine",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/machines"
 }

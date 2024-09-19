@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "ARM Id of the new replication protection cluster.",
       "jsonName": "newReplicationProtectionClusterId",
       "name": "NewReplicationProtectionClusterId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +18,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "JobDetails",
   "discriminatedTypeValue": "ClusterSwitchProtectionJobDetails",
   "typeHintIn": "InstanceType"

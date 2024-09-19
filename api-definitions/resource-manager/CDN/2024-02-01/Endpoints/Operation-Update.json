@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "EndpointId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "EndpointUpdateParameters"
+    "nullable": false,
+    "referenceName": "EndpointUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Endpoint"
+    "nullable": false,
+    "referenceName": "Endpoint",
+    "referenceNameIsCommonType": null
   }
 }

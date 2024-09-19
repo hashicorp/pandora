@@ -1,6 +1,7 @@
 {
   "name": "DatabasesCreate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "DatabaseId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "Database"
+    "nullable": false,
+    "referenceName": "Database",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Database"
+    "nullable": false,
+    "referenceName": "Database",
+    "referenceNameIsCommonType": null
   }
 }

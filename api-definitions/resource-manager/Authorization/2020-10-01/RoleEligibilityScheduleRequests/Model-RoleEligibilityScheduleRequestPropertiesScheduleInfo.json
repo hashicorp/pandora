@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Expiration of the role eligibility schedule",
       "jsonName": "expiration",
       "name": "Expiration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RoleEligibilityScheduleRequestPropertiesScheduleInfoExpiration"
+        "nullable": false,
+        "referenceName": "RoleEligibilityScheduleRequestPropertiesScheduleInfoExpiration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,16 +20,20 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Start DateTime of the role eligibility schedule.",
       "jsonName": "startDateTime",
       "name": "StartDateTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

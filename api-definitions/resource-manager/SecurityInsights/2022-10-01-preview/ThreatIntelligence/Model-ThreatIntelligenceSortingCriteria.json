@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Column name",
       "jsonName": "itemKey",
       "name": "ItemKey",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Sorting order (ascending/descending/unsorted).",
       "jsonName": "sortOrder",
       "name": "SortOrder",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ThreatIntelligenceSortingCriteriaEnum"
+        "nullable": false,
+        "referenceName": "ThreatIntelligenceSortingCriteriaEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

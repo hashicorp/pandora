@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of SIM resource names to be cloned.",
       "jsonName": "sims",
       "name": "Sims",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,12 +29,15 @@
       "name": "TargetSimGroupId",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SimGroupResourceId"
+        "nullable": false,
+        "referenceName": "SimGroupResourceId",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

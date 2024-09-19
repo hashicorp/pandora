@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Http logs to azure blob storage configuration.",
       "jsonName": "azureBlobStorage",
       "name": "AzureBlobStorage",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureBlobStorageHTTPLogsConfig"
+        "nullable": false,
+        "referenceName": "AzureBlobStorageHTTPLogsConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Http logs to file system configuration.",
       "jsonName": "fileSystem",
       "name": "FileSystem",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FileSystemHTTPLogsConfig"
+        "nullable": false,
+        "referenceName": "FileSystemHTTPLogsConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

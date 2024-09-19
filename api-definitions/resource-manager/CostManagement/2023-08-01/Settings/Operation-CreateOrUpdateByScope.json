@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdateByScope",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,11 +11,15 @@
   "resourceIdName": "ScopeId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "Setting"
+    "nullable": false,
+    "referenceName": "Setting",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Setting"
+    "nullable": false,
+    "referenceName": "Setting",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.CostManagement/settings/taginheritance"
 }

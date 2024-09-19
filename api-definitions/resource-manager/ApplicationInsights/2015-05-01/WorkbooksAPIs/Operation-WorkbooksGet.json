@@ -1,6 +1,7 @@
 {
   "name": "WorkbooksGet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "WorkbookId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Workbook"
+    "nullable": false,
+    "referenceName": "Workbook",
+    "referenceNameIsCommonType": null
   }
 }

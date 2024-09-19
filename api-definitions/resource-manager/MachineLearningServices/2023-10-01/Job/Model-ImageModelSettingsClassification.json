@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Settings for advanced scenarios.",
       "jsonName": "advancedSettings",
       "name": "AdvancedSettings",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enable AMSGrad when optimizer is 'adam' or 'adamw'.",
       "jsonName": "amsGradient",
       "name": "AmsGradient",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Settings for using Augmentations.",
       "jsonName": "augmentations",
       "name": "Augmentations",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Value of 'beta1' when optimizer is 'adam' or 'adamw'. Must be a float in the range [0, 1].",
       "jsonName": "beta1",
       "name": "Beta1",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Value of 'beta2' when optimizer is 'adam' or 'adamw'. Must be a float in the range [0, 1].",
       "jsonName": "beta2",
       "name": "Beta2",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Frequency to store model checkpoints. Must be a positive integer.",
       "jsonName": "checkpointFrequency",
       "name": "CheckpointFrequency",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The pretrained checkpoint model for incremental training.",
       "jsonName": "checkpointModel",
       "name": "CheckpointModel",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MLFlowModelJobInput"
+        "nullable": false,
+        "referenceName": "MLFlowModelJobInput",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The id of a previous run that has a pretrained checkpoint for incremental training.",
       "jsonName": "checkpointRunId",
       "name": "CheckpointRunId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,11 +131,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether to use distributed training.",
       "jsonName": "distributed",
       "name": "Distributed",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -120,11 +147,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enable early stopping logic during training.",
       "jsonName": "earlyStopping",
       "name": "EarlyStopping",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -133,11 +163,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Minimum number of epochs or validation evaluations to wait before primary metric improvement\r\nis tracked for early stopping. Must be a positive integer.",
       "jsonName": "earlyStoppingDelay",
       "name": "EarlyStoppingDelay",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -146,11 +179,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Minimum number of epochs or validation evaluations with no primary metric improvement before\r\nthe run is stopped. Must be a positive integer.",
       "jsonName": "earlyStoppingPatience",
       "name": "EarlyStoppingPatience",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -159,11 +195,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enable normalization when exporting ONNX model.",
       "jsonName": "enableOnnxNormalization",
       "name": "EnableOnnxNormalization",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -172,11 +211,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Frequency to evaluate validation dataset to get metric scores. Must be a positive integer.",
       "jsonName": "evaluationFrequency",
       "name": "EvaluationFrequency",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -185,11 +227,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gradient accumulation means running a configured number of \"GradAccumulationStep\" steps without\r\nupdating the model weights while accumulating the gradients of those steps, and then using\r\nthe accumulated gradients to compute the weight updates. Must be a positive integer.",
       "jsonName": "gradientAccumulationStep",
       "name": "GradientAccumulationStep",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -198,11 +243,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of layers to freeze for the model. Must be a positive integer.\r\nFor instance, passing 2 as value for 'seresnext' means\r\nfreezing layer0 and layer1. For a full list of models supported and details on layer freeze, please\r\nsee: https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models.",
       "jsonName": "layersToFreeze",
       "name": "LayersToFreeze",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -211,11 +259,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Initial learning rate. Must be a float in the range [0, 1].",
       "jsonName": "learningRate",
       "name": "LearningRate",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -224,11 +275,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Type of learning rate scheduler. Must be 'warmup_cosine' or 'step'.",
       "jsonName": "learningRateScheduler",
       "name": "LearningRateScheduler",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LearningRateScheduler"
+        "nullable": false,
+        "referenceName": "LearningRateScheduler",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -237,11 +291,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the model to use for training.\r\nFor more information on the available models please visit the official documentation:\r\nhttps://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models.",
       "jsonName": "modelName",
       "name": "ModelName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -250,11 +307,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Value of momentum when optimizer is 'sgd'. Must be a float in the range [0, 1].",
       "jsonName": "momentum",
       "name": "Momentum",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -263,11 +323,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enable nesterov when optimizer is 'sgd'.",
       "jsonName": "nesterov",
       "name": "Nesterov",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -276,11 +339,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of training epochs. Must be a positive integer.",
       "jsonName": "numberOfEpochs",
       "name": "NumberOfEpochs",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -289,11 +355,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of data loader workers. Must be a non-negative integer.",
       "jsonName": "numberOfWorkers",
       "name": "NumberOfWorkers",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -302,11 +371,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Type of optimizer.",
       "jsonName": "optimizer",
       "name": "Optimizer",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StochasticOptimizer"
+        "nullable": false,
+        "referenceName": "StochasticOptimizer",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -315,11 +387,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Random seed to be used when using deterministic training.",
       "jsonName": "randomSeed",
       "name": "RandomSeed",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -328,11 +403,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Value of gamma when learning rate scheduler is 'step'. Must be a float in the range [0, 1].",
       "jsonName": "stepLRGamma",
       "name": "StepLRGamma",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -341,11 +419,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Value of step size when learning rate scheduler is 'step'. Must be a positive integer.",
       "jsonName": "stepLRStepSize",
       "name": "StepLRStepSize",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -354,11 +435,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Training batch size. Must be a positive integer.",
       "jsonName": "trainingBatchSize",
       "name": "TrainingBatchSize",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -367,11 +451,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Image crop size that is input to the neural network for the training dataset. Must be a positive integer.",
       "jsonName": "trainingCropSize",
       "name": "TrainingCropSize",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -380,11 +467,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Validation batch size. Must be a positive integer.",
       "jsonName": "validationBatchSize",
       "name": "ValidationBatchSize",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -393,11 +483,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Image crop size that is input to the neural network for the validation dataset. Must be a positive integer.",
       "jsonName": "validationCropSize",
       "name": "ValidationCropSize",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -406,11 +499,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Image size to which to resize before cropping for validation dataset. Must be a positive integer.",
       "jsonName": "validationResizeSize",
       "name": "ValidationResizeSize",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -419,11 +515,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Value of cosine cycle when learning rate scheduler is 'warmup_cosine'. Must be a float in the range [0, 1].",
       "jsonName": "warmupCosineLRCycles",
       "name": "WarmupCosineLRCycles",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -432,11 +531,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Value of warmup epochs when learning rate scheduler is 'warmup_cosine'. Must be a positive integer.",
       "jsonName": "warmupCosineLRWarmupEpochs",
       "name": "WarmupCosineLRWarmupEpochs",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -445,11 +547,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Value of weight decay when optimizer is 'sgd', 'adam', or 'adamw'. Must be a float in the range[0, 1].",
       "jsonName": "weightDecay",
       "name": "WeightDecay",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -458,16 +563,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Weighted loss. The accepted values are 0 for no weighted loss.\r\n1 for weighted loss with sqrt.(class_weights). 2 for weighted loss with class_weights. Must be 0 or 1 or 2.",
       "jsonName": "weightedLoss",
       "name": "WeightedLoss",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Exchange data type connection.",
       "jsonName": "exchange",
       "name": "Exchange",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataConnectorDataTypeCommon"
+        "nullable": false,
+        "referenceName": "DataConnectorDataTypeCommon",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "SharePoint data type connection.",
       "jsonName": "sharePoint",
       "name": "SharePoint",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataConnectorDataTypeCommon"
+        "nullable": false,
+        "referenceName": "DataConnectorDataTypeCommon",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Teams data type connection.",
       "jsonName": "teams",
       "name": "Teams",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataConnectorDataTypeCommon"
+        "nullable": false,
+        "referenceName": "DataConnectorDataTypeCommon",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "RegenerateKey",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "StorageAccountId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "StorageAccountRegenerateKeyParameters"
+    "nullable": false,
+    "referenceName": "StorageAccountRegenerateKeyParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "StorageAccountListKeysResult"
+    "nullable": false,
+    "referenceName": "StorageAccountListKeysResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/regenerateKey"
 }

@@ -1,6 +1,7 @@
 {
   "name": "WorkspaceApiOperationUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,10 +22,14 @@
   "resourceIdName": "ApiOperationId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "OperationUpdateContract"
+    "nullable": false,
+    "referenceName": "OperationUpdateContract",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "OperationContract"
+    "nullable": false,
+    "referenceName": "OperationContract",
+    "referenceNameIsCommonType": null
   }
 }

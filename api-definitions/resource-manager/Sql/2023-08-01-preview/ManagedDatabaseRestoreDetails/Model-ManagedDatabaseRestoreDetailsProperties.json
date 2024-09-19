@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The reason why restore is in Blocked state.",
       "jsonName": "blockReason",
       "name": "BlockReason",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Current backup type.",
       "jsonName": "currentBackupType",
       "name": "CurrentBackupType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Current restore plan size MB.",
       "jsonName": "currentRestorePlanSizeMB",
       "name": "CurrentRestorePlanSizeMB",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Current restored size MB.",
       "jsonName": "currentRestoredSizeMB",
       "name": "CurrentRestoredSizeMB",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Current restoring file name.",
       "jsonName": "currentRestoringFileName",
       "name": "CurrentRestoringFileName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,14 +83,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Diff backup sets.",
       "jsonName": "diffBackupSets",
       "name": "DiffBackupSets",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ManagedDatabaseRestoreDetailsBackupSetProperties"
+          "nullable": false,
+          "referenceName": "ManagedDatabaseRestoreDetailsBackupSetProperties",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -85,14 +105,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Full backup sets.",
       "jsonName": "fullBackupSets",
       "name": "FullBackupSets",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ManagedDatabaseRestoreDetailsBackupSetProperties"
+          "nullable": false,
+          "referenceName": "ManagedDatabaseRestoreDetailsBackupSetProperties",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -102,11 +127,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Last restored file name.",
       "jsonName": "lastRestoredFileName",
       "name": "LastRestoredFileName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -116,11 +144,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Last restored file time.",
       "jsonName": "lastRestoredFileTime",
       "name": "LastRestoredFileTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -129,11 +160,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Last uploaded file name.",
       "jsonName": "lastUploadedFileName",
       "name": "LastUploadedFileName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -143,11 +177,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Last uploaded file time.",
       "jsonName": "lastUploadedFileTime",
       "name": "LastUploadedFileTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -156,14 +193,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Log backup sets.",
       "jsonName": "logBackupSets",
       "name": "LogBackupSets",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ManagedDatabaseRestoreDetailsBackupSetProperties"
+          "nullable": false,
+          "referenceName": "ManagedDatabaseRestoreDetailsBackupSetProperties",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -173,11 +215,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of files detected.",
       "jsonName": "numberOfFilesDetected",
       "name": "NumberOfFilesDetected",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -186,11 +231,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of files queued.",
       "jsonName": "numberOfFilesQueued",
       "name": "NumberOfFilesQueued",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -199,11 +247,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of files restored.",
       "jsonName": "numberOfFilesRestored",
       "name": "NumberOfFilesRestored",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -212,11 +263,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of files restoring.",
       "jsonName": "numberOfFilesRestoring",
       "name": "NumberOfFilesRestoring",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -225,11 +279,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of files skipped.",
       "jsonName": "numberOfFilesSkipped",
       "name": "NumberOfFilesSkipped",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -238,11 +295,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of files unrestorable.",
       "jsonName": "numberOfFilesUnrestorable",
       "name": "NumberOfFilesUnrestorable",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -251,11 +311,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Percent completed.",
       "jsonName": "percentCompleted",
       "name": "PercentCompleted",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -264,11 +327,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Restore status.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -277,11 +343,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Restore type.",
       "jsonName": "type",
       "name": "Type",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -290,14 +359,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Unrestorable files.",
       "jsonName": "unrestorableFiles",
       "name": "UnrestorableFiles",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ManagedDatabaseRestoreDetailsUnrestorableFileProperties"
+          "nullable": false,
+          "referenceName": "ManagedDatabaseRestoreDetailsUnrestorableFileProperties",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -305,5 +379,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

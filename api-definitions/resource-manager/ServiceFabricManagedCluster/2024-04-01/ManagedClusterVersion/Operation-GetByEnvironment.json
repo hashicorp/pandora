@@ -1,6 +1,7 @@
 {
   "name": "GetByEnvironment",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "EnvironmentManagedClusterVersionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ManagedClusterCodeVersionResult"
+    "nullable": false,
+    "referenceName": "ManagedClusterCodeVersionResult",
+    "referenceNameIsCommonType": null
   }
 }

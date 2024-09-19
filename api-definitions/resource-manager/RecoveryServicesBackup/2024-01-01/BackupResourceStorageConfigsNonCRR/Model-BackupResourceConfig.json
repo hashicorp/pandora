@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Opt in details of Cross Region Restore feature.",
       "jsonName": "crossRegionRestoreFlag",
       "name": "CrossRegionRestoreFlag",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Vault Dedup state",
       "jsonName": "dedupState",
       "name": "DedupState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DedupState"
+        "nullable": false,
+        "referenceName": "DedupState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Storage type",
       "jsonName": "storageModelType",
       "name": "StorageModelType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StorageType"
+        "nullable": false,
+        "referenceName": "StorageType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Storage type.",
       "jsonName": "storageType",
       "name": "StorageType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StorageType"
+        "nullable": false,
+        "referenceName": "StorageType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Locked or Unlocked. Once a machine is registered against a resource, the storageTypeState is always Locked.",
       "jsonName": "storageTypeState",
       "name": "StorageTypeState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StorageTypeState"
+        "nullable": false,
+        "referenceName": "StorageTypeState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,16 +83,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Vault x-cool state",
       "jsonName": "xcoolState",
       "name": "XcoolState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "XcoolState"
+        "nullable": false,
+        "referenceName": "XcoolState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

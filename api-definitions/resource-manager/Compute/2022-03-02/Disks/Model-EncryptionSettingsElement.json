@@ -7,7 +7,9 @@
       "name": "DiskEncryptionKey",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KeyVaultAndSecretReference"
+        "nullable": false,
+        "referenceName": "KeyVaultAndSecretReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "KeyEncryptionKey",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KeyVaultAndKeyReference"
+        "nullable": false,
+        "referenceName": "KeyVaultAndKeyReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

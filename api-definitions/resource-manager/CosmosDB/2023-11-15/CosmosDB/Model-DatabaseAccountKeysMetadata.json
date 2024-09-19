@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The metadata related to the Primary Read-Write Key for the given Cosmos DB database account.",
       "jsonName": "primaryMasterKey",
       "name": "PrimaryMasterKey",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AccountKeyMetadata"
+        "nullable": false,
+        "referenceName": "AccountKeyMetadata",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The metadata related to the Primary Read-Only Key for the given Cosmos DB database account.",
       "jsonName": "primaryReadonlyMasterKey",
       "name": "PrimaryReadonlyMasterKey",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AccountKeyMetadata"
+        "nullable": false,
+        "referenceName": "AccountKeyMetadata",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The metadata related to the Secondary Read-Write Key for the given Cosmos DB database account.",
       "jsonName": "secondaryMasterKey",
       "name": "SecondaryMasterKey",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AccountKeyMetadata"
+        "nullable": false,
+        "referenceName": "AccountKeyMetadata",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,16 +51,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The metadata related to the Secondary Read-Only Key for the given Cosmos DB database account.",
       "jsonName": "secondaryReadonlyMasterKey",
       "name": "SecondaryReadonlyMasterKey",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AccountKeyMetadata"
+        "nullable": false,
+        "referenceName": "AccountKeyMetadata",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "Resume",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,7 +11,9 @@
   "resourceIdName": "SqlPoolId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SqlPool"
+    "nullable": false,
+    "referenceName": "SqlPool",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/resume"
 }

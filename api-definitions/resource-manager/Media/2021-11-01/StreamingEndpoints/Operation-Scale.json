@@ -1,6 +1,7 @@
 {
   "name": "Scale",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,7 +11,9 @@
   "resourceIdName": "StreamingEndpointId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "StreamingEntityScaleUnit"
+    "nullable": false,
+    "referenceName": "StreamingEntityScaleUnit",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/scale"
 }

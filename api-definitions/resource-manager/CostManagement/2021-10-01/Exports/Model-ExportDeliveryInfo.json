@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Has destination for the export being delivered.",
       "jsonName": "destination",
       "name": "Destination",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExportDeliveryDestination"
+        "nullable": false,
+        "referenceName": "ExportDeliveryDestination",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

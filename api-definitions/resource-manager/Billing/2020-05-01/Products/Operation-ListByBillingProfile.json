@@ -1,6 +1,7 @@
 {
   "name": "ListByBillingProfile",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -22,7 +23,9 @@
   "resourceIdName": "BillingProfileId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Product"
+    "nullable": false,
+    "referenceName": "Product",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/products"
 }

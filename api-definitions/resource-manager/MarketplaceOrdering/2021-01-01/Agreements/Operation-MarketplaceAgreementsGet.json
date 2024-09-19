@@ -1,6 +1,7 @@
 {
   "name": "MarketplaceAgreementsGet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "OfferPlanId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AgreementTerms"
+    "nullable": false,
+    "referenceName": "AgreementTerms",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/agreements/current"
 }

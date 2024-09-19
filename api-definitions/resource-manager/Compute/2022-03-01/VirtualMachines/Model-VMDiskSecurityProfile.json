@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the customer managed disk encryption set resource id for the managed disk that is used for Customer Managed Key encrypted ConfidentialVM OS Disk and VMGuest blob.",
       "jsonName": "diskEncryptionSet",
       "name": "DiskEncryptionSet",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the EncryptionType of the managed disk. \u003cbr\u003e It is set to DiskWithVMGuestState for encryption of the managed disk along with VMGuestState blob, and VMGuestStateOnly for encryption of just the VMGuestState blob. \u003cbr\u003e\u003cbr\u003e NOTE: It can be set for only Confidential VMs.",
       "jsonName": "securityEncryptionType",
       "name": "SecurityEncryptionType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecurityEncryptionTypes"
+        "nullable": false,
+        "referenceName": "SecurityEncryptionTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

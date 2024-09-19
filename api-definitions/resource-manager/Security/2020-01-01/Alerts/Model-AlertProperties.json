@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The display name of the alert.",
       "jsonName": "alertDisplayName",
       "name": "AlertDisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Unique identifier for the detection logic (all alert instances from the same detection logic will have the same alertType).",
       "jsonName": "alertType",
       "name": "AlertType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A direct link to the alert page in Azure Portal.",
       "jsonName": "alertUri",
       "name": "AlertUri",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The display name of the resource most related to this alert.",
       "jsonName": "compromisedEntity",
       "name": "CompromisedEntity",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Key for corelating related alerts. Alerts with the same correlation key considered to be related.",
       "jsonName": "correlationKey",
       "name": "CorrelationKey",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Description of the suspicious activity that was detected.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -82,11 +100,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The UTC time of the last event or activity included in the alert in ISO8601 format.",
       "jsonName": "endTimeUtc",
       "name": "EndTimeUtc",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -95,14 +116,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of entities related to the alert.",
       "jsonName": "entities",
       "name": "Entities",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AlertEntity"
+          "nullable": false,
+          "referenceName": "AlertEntity",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -112,17 +138,24 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Links related to the alert",
       "jsonName": "extendedLinks",
       "name": "ExtendedLinks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Dictionary",
+          "nullable": false,
           "referenceName": null,
+          "referenceNameIsCommonType": null,
           "nestedItem": {
             "type": "String",
-            "referenceName": null
+            "nullable": false,
+            "referenceName": null,
+            "referenceNameIsCommonType": null
           }
         }
       },
@@ -133,14 +166,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Custom properties for the alert.",
       "jsonName": "extendedProperties",
       "name": "ExtendedProperties",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -150,11 +188,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The kill chain related intent behind the alert. For list of supported values, and explanations of Azure Security Center's supported kill chain intents.",
       "jsonName": "intent",
       "name": "Intent",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Intent"
+        "nullable": false,
+        "referenceName": "Intent",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -163,11 +204,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This field determines whether the alert is an incident (a compound grouping of several alerts) or a single alert.",
       "jsonName": "isIncident",
       "name": "IsIncident",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -177,11 +221,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The UTC processing end time of the alert in ISO8601 format.",
       "jsonName": "processingEndTimeUtc",
       "name": "ProcessingEndTimeUtc",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -190,11 +237,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of Azure Security Center pricing tier which powering this alert. Learn more: https://docs.microsoft.com/en-us/azure/security-center/security-center-pricing",
       "jsonName": "productComponentName",
       "name": "ProductComponentName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -203,11 +253,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the product which published this alert (Azure Security Center, Azure ATP, Microsoft Defender ATP, O365 ATP, and so on).",
       "jsonName": "productName",
       "name": "ProductName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -216,14 +269,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Manual action items to take to remediate the alert.",
       "jsonName": "remediationSteps",
       "name": "RemediationSteps",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -233,14 +291,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource identifiers that can be used to direct the alert to the right product exposure group (tenant, workspace, subscription etc.). There can be multiple identifiers of different type per alert.",
       "jsonName": "resourceIdentifiers",
       "name": "ResourceIdentifiers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ResourceIdentifier"
+          "nullable": false,
+          "referenceName": "ResourceIdentifier",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -250,11 +313,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The risk level of the threat that was detected. Learn more: https://docs.microsoft.com/en-us/azure/security-center/security-center-alerts-overview#how-are-alerts-classified.",
       "jsonName": "severity",
       "name": "Severity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AlertSeverity"
+        "nullable": false,
+        "referenceName": "AlertSeverity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -264,11 +330,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The UTC time of the first event or activity included in the alert in ISO8601 format.",
       "jsonName": "startTimeUtc",
       "name": "StartTimeUtc",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -277,11 +346,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The life cycle status of the alert.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AlertStatus"
+        "nullable": false,
+        "referenceName": "AlertStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -290,11 +362,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Unique identifier for the alert.",
       "jsonName": "systemAlertId",
       "name": "SystemAlertId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -304,11 +379,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The UTC time the alert was generated in ISO8601 format.",
       "jsonName": "timeGeneratedUtc",
       "name": "TimeGeneratedUtc",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -317,16 +395,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the vendor that raises the alert.",
       "jsonName": "vendorName",
       "name": "VendorName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

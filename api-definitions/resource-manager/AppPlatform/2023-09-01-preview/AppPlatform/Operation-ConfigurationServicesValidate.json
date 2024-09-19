@@ -1,6 +1,7 @@
 {
   "name": "ConfigurationServicesValidate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "ConfigurationServiceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ConfigurationServiceSettings"
+    "nullable": false,
+    "referenceName": "ConfigurationServiceSettings",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ConfigurationServiceSettingsValidateResult"
+    "nullable": false,
+    "referenceName": "ConfigurationServiceSettingsValidateResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/validate"
 }

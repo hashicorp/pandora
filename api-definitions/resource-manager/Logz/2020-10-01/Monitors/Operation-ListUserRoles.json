@@ -1,6 +1,7 @@
 {
   "name": "ListUserRoles",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,11 +11,15 @@
   "resourceIdName": "MonitorId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "UserRoleRequest"
+    "nullable": false,
+    "referenceName": "UserRoleRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "UserRoleResponse"
+    "nullable": false,
+    "referenceName": "UserRoleResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/listUserRoles"
 }

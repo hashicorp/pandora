@@ -7,7 +7,9 @@
       "name": "OpenAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnableState"
+        "nullable": false,
+        "referenceName": "EnableState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +18,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The registration code for the lab.",
       "jsonName": "registrationCode",
       "name": "RegistrationCode",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Resource allocation",
       "jsonName": "computeResource",
       "name": "ComputeResource",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ComputeResource"
+        "nullable": false,
+        "referenceName": "ComputeResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Host OS supported by the IoT role.",
       "jsonName": "hostPlatform",
       "name": "HostPlatform",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PlatformType"
+        "nullable": false,
+        "referenceName": "PlatformType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Platform where the Iot runtime is hosted.",
       "jsonName": "hostPlatformType",
       "name": "HostPlatformType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HostPlatformType"
+        "nullable": false,
+        "referenceName": "HostPlatformType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "IoT device metadata to which data box edge device needs to be connected.",
       "jsonName": "ioTDeviceDetails",
       "name": "IoTDeviceDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IoTDeviceInfo"
+        "nullable": false,
+        "referenceName": "IoTDeviceInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Iot edge agent details to download the agent and bootstrap iot runtime.",
       "jsonName": "ioTEdgeAgentInfo",
       "name": "IoTEdgeAgentInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IoTEdgeAgentInfo"
+        "nullable": false,
+        "referenceName": "IoTEdgeAgentInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "IoT edge device to which the IoT role needs to be configured.",
       "jsonName": "ioTEdgeDeviceDetails",
       "name": "IoTEdgeDeviceDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IoTDeviceInfo"
+        "nullable": false,
+        "referenceName": "IoTDeviceInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Role status.",
       "jsonName": "roleStatus",
       "name": "RoleStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RoleStatus"
+        "nullable": false,
+        "referenceName": "RoleStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -94,14 +115,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Mount points of shares in role(s).",
       "jsonName": "shareMappings",
       "name": "ShareMappings",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MountPointMap"
+          "nullable": false,
+          "referenceName": "MountPointMap",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -109,5 +135,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

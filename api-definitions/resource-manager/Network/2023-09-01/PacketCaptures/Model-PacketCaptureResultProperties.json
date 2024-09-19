@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of bytes captured per packet, the remaining bytes are truncated.",
       "jsonName": "bytesToCapturePerPacket",
       "name": "BytesToCapturePerPacket",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of packet capture filters.",
       "jsonName": "filters",
       "name": "Filters",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PacketCaptureFilter"
+          "nullable": false,
+          "referenceName": "PacketCaptureFilter",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,7 +45,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +56,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of AzureVMSS instances which can be included or excluded to run packet capture. If both included and excluded are empty, then the packet capture will run on all instances of AzureVMSS.",
       "jsonName": "scope",
       "name": "Scope",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PacketCaptureMachineScope"
+        "nullable": false,
+        "referenceName": "PacketCaptureMachineScope",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +72,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The storage location for a packet capture session.",
       "jsonName": "storageLocation",
       "name": "StorageLocation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PacketCaptureStorageLocation"
+        "nullable": false,
+        "referenceName": "PacketCaptureStorageLocation",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -72,11 +88,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ID of the targeted resource, only AzureVM and AzureVMSS as target type are currently supported.",
       "jsonName": "target",
       "name": "Target",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -85,11 +104,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Target type of the resource provided.",
       "jsonName": "targetType",
       "name": "TargetType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PacketCaptureTargetType"
+        "nullable": false,
+        "referenceName": "PacketCaptureTargetType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,11 +120,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Maximum duration of the capture session in seconds.",
       "jsonName": "timeLimitInSeconds",
       "name": "TimeLimitInSeconds",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,16 +136,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Maximum size of the capture output.",
       "jsonName": "totalBytesPerSession",
       "name": "TotalBytesPerSession",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -4,11 +4,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Agent certificate expiry date.",
       "jsonName": "agentCertificateExpiryDate",
       "name": "AgentCertificateExpiryDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -18,11 +21,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Agent expiry date.",
       "jsonName": "agentExpiryDate",
       "name": "AgentExpiryDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -31,11 +37,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The agent version.",
       "jsonName": "agentVersion",
       "name": "AgentVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -44,11 +53,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A value indicating whether the auto protection is enabled.",
       "jsonName": "autoProtectionOfDataDisk",
       "name": "AutoProtectionOfDataDisk",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutoProtectionOfDataDisk"
+        "nullable": false,
+        "referenceName": "AutoProtectionOfDataDisk",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -57,11 +69,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A value indicating the churn option selected by user.",
       "jsonName": "churnOptionSelected",
       "name": "ChurnOptionSelected",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ChurnOptionSelected"
+        "nullable": false,
+        "referenceName": "ChurnOptionSelected",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -70,11 +85,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The fabric specific object Id of the virtual machine.",
       "jsonName": "fabricObjectId",
       "name": "FabricObjectId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -83,11 +101,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The initial primary extended location.",
       "jsonName": "initialPrimaryExtendedLocation",
       "name": "InitialPrimaryExtendedLocation",
       "objectDefinition": {
         "type": "EdgeZone",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -96,11 +117,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The initial primary fabric location.",
       "jsonName": "initialPrimaryFabricLocation",
       "name": "InitialPrimaryFabricLocation",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -109,11 +133,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The initial primary availability zone.",
       "jsonName": "initialPrimaryZone",
       "name": "InitialPrimaryZone",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -122,11 +149,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The initial recovery extended location.",
       "jsonName": "initialRecoveryExtendedLocation",
       "name": "InitialRecoveryExtendedLocation",
       "objectDefinition": {
         "type": "EdgeZone",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -135,11 +165,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The initial recovery fabric location.",
       "jsonName": "initialRecoveryFabricLocation",
       "name": "InitialRecoveryFabricLocation",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -148,11 +181,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The initial recovery availability zone.",
       "jsonName": "initialRecoveryZone",
       "name": "InitialRecoveryZone",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -161,11 +197,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A value indicating if the cluster infra is ready or not.",
       "jsonName": "isClusterInfraReady",
       "name": "IsClusterInfraReady",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -174,11 +213,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A value indicating whether agent certificate update is required.",
       "jsonName": "isReplicationAgentCertificateUpdateRequired",
       "name": "IsReplicationAgentCertificateUpdateRequired",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -187,11 +229,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A value indicating whether replication agent update is required.",
       "jsonName": "isReplicationAgentUpdateRequired",
       "name": "IsReplicationAgentUpdateRequired",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -201,11 +246,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The last heartbeat received from the source server.",
       "jsonName": "lastHeartbeat",
       "name": "LastHeartbeat",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -215,11 +263,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time (in UTC) when the last RPO value was calculated by Protection Service.",
       "jsonName": "lastRpoCalculatedTime",
       "name": "LastRpoCalculatedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -228,11 +279,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An id associated with the PE that survives actions like switch protection which change the backing PE/CPE objects internally.The lifecycle id gets carried forward to have a link/continuity in being able to have an Id that denotes the \"same\" protected item even though other internal Ids/ARM Id might be changing.",
       "jsonName": "lifecycleId",
       "name": "LifecycleId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -241,11 +295,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The management Id.",
       "jsonName": "managementId",
       "name": "ManagementId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -254,11 +311,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of the monitoring job. The progress is contained in MonitoringPercentageCompletion property.",
       "jsonName": "monitoringJobType",
       "name": "MonitoringJobType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -267,11 +327,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The percentage of the monitoring job. The type of the monitoring job is defined by MonitoringJobType property.",
       "jsonName": "monitoringPercentageCompletion",
       "name": "MonitoringPercentageCompletion",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -280,11 +343,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether Multi VM group is auto created or specified by user.",
       "jsonName": "multiVmGroupCreateOption",
       "name": "MultiVMGroupCreateOption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MultiVMGroupCreateOption"
+        "nullable": false,
+        "referenceName": "MultiVMGroupCreateOption",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -293,11 +359,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The multi vm group Id.",
       "jsonName": "multiVmGroupId",
       "name": "MultiVMGroupId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -306,11 +375,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The multi vm group name.",
       "jsonName": "multiVmGroupName",
       "name": "MultiVMGroupName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -319,11 +391,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of operating system.",
       "jsonName": "osType",
       "name": "OsType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -332,11 +407,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The primary availability zone.",
       "jsonName": "primaryAvailabilityZone",
       "name": "PrimaryAvailabilityZone",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -345,11 +423,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The primary Extended Location.",
       "jsonName": "primaryExtendedLocation",
       "name": "PrimaryExtendedLocation",
       "objectDefinition": {
         "type": "EdgeZone",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -358,11 +439,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Primary fabric location.",
       "jsonName": "primaryFabricLocation",
       "name": "PrimaryFabricLocation",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -371,14 +455,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of protected disks.",
       "jsonName": "protectedDisks",
       "name": "ProtectedDisks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "A2AProtectedDiskDetails"
+          "nullable": false,
+          "referenceName": "A2AProtectedDiskDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -388,14 +477,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of protected managed disks.",
       "jsonName": "protectedManagedDisks",
       "name": "ProtectedManagedDisks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "A2AProtectedManagedDiskDetails"
+          "nullable": false,
+          "referenceName": "A2AProtectedManagedDiskDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -405,11 +499,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The replication protection cluster Id.",
       "jsonName": "protectionClusterId",
       "name": "ProtectionClusterId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -418,11 +515,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The recovery availability set.",
       "jsonName": "recoveryAvailabilitySet",
       "name": "RecoveryAvailabilitySet",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -431,11 +531,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The recovery availability zone.",
       "jsonName": "recoveryAvailabilityZone",
       "name": "RecoveryAvailabilityZone",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -444,11 +547,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The recovery azure generation.",
       "jsonName": "recoveryAzureGeneration",
       "name": "RecoveryAzureGeneration",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -457,11 +563,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The recovery resource group.",
       "jsonName": "recoveryAzureResourceGroupId",
       "name": "RecoveryAzureResourceGroupId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -470,11 +579,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of recovery virtual machine.",
       "jsonName": "recoveryAzureVMName",
       "name": "RecoveryAzureVMName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -483,11 +595,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The size of recovery virtual machine.",
       "jsonName": "recoveryAzureVMSize",
       "name": "RecoveryAzureVMSize",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -496,11 +611,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The recovery boot diagnostic storage account Arm Id.",
       "jsonName": "recoveryBootDiagStorageAccountId",
       "name": "RecoveryBootDiagStorageAccountId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -509,11 +627,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The recovery capacity reservation group Id.",
       "jsonName": "recoveryCapacityReservationGroupId",
       "name": "RecoveryCapacityReservationGroupId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -522,11 +643,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The recovery cloud service.",
       "jsonName": "recoveryCloudService",
       "name": "RecoveryCloudService",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -535,11 +659,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The recovery Extended Location.",
       "jsonName": "recoveryExtendedLocation",
       "name": "RecoveryExtendedLocation",
       "objectDefinition": {
         "type": "EdgeZone",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -548,11 +675,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The recovery fabric location.",
       "jsonName": "recoveryFabricLocation",
       "name": "RecoveryFabricLocation",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -561,11 +691,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The recovery fabric object Id.",
       "jsonName": "recoveryFabricObjectId",
       "name": "RecoveryFabricObjectId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -574,11 +707,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The recovery proximity placement group Id.",
       "jsonName": "recoveryProximityPlacementGroupId",
       "name": "RecoveryProximityPlacementGroupId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -587,11 +723,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The recovery virtual machine scale set id.",
       "jsonName": "recoveryVirtualMachineScaleSetId",
       "name": "RecoveryVirtualMachineScaleSetId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -600,11 +739,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The last RPO value in seconds.",
       "jsonName": "rpoInSeconds",
       "name": "RpoInSeconds",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -613,11 +755,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The recovery virtual network.",
       "jsonName": "selectedRecoveryAzureNetworkId",
       "name": "SelectedRecoveryAzureNetworkId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -626,11 +771,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The test failover virtual network.",
       "jsonName": "selectedTfoAzureNetworkId",
       "name": "SelectedTfoAzureNetworkId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -639,11 +787,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The test failover fabric object Id.",
       "jsonName": "testFailoverRecoveryFabricObjectId",
       "name": "TestFailoverRecoveryFabricObjectId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -652,11 +803,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The test failover vm name.",
       "jsonName": "tfoAzureVMName",
       "name": "TfoAzureVMName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -665,14 +819,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of unprotected disks.",
       "jsonName": "unprotectedDisks",
       "name": "UnprotectedDisks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "A2AUnprotectedDiskDetails"
+          "nullable": false,
+          "referenceName": "A2AUnprotectedDiskDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -682,11 +841,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The encryption type of the VM.",
       "jsonName": "vmEncryptionType",
       "name": "VMEncryptionType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VMEncryptionType"
+        "nullable": false,
+        "referenceName": "VMEncryptionType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -695,14 +857,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The virtual machine nic details.",
       "jsonName": "vmNics",
       "name": "VMNics",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VMNicDetails"
+          "nullable": false,
+          "referenceName": "VMNicDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -712,11 +879,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The protection state for the vm.",
       "jsonName": "vmProtectionState",
       "name": "VMProtectionState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -725,11 +895,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The protection state description for the vm.",
       "jsonName": "vmProtectionStateDescription",
       "name": "VMProtectionStateDescription",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -738,11 +911,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The synced configuration details.",
       "jsonName": "vmSyncedConfigDetails",
       "name": "VMSyncedConfigDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureToAzureVMSyncedConfigDetails"
+        "nullable": false,
+        "referenceName": "AzureToAzureVMSyncedConfigDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -750,6 +926,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ReplicationProviderSpecificSettings",
   "discriminatedTypeValue": "A2A",
   "typeHintIn": "InstanceType"

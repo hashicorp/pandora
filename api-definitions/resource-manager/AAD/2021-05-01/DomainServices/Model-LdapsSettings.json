@@ -4,11 +4,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "NotAfter DateTime of configure ldaps certificate.",
       "jsonName": "certificateNotAfter",
       "name": "CertificateNotAfter",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,11 +20,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Thumbprint of configure ldaps certificate.",
       "jsonName": "certificateThumbprint",
       "name": "CertificateThumbprint",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,11 +36,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A flag to determine whether or not Secure LDAP access over the internet is enabled or disabled.",
       "jsonName": "externalAccess",
       "name": "ExternalAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExternalAccess"
+        "nullable": false,
+        "referenceName": "ExternalAccess",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -43,11 +52,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A flag to determine whether or not Secure LDAP is enabled or disabled.",
       "jsonName": "ldaps",
       "name": "Ldaps",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Ldaps"
+        "nullable": false,
+        "referenceName": "Ldaps",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -56,11 +68,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The certificate required to configure Secure LDAP. The parameter passed here should be a base64encoded representation of the certificate pfx file.",
       "jsonName": "pfxCertificate",
       "name": "PfxCertificate",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -69,11 +84,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The password to decrypt the provided Secure LDAP certificate pfx file.",
       "jsonName": "pfxCertificatePassword",
       "name": "PfxCertificatePassword",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -82,16 +100,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Public certificate used to configure secure ldap.",
       "jsonName": "publicCertificate",
       "name": "PublicCertificate",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "RulesEnginesCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201,
@@ -11,10 +12,14 @@
   "resourceIdName": "RulesEngineId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "RulesEngine"
+    "nullable": false,
+    "referenceName": "RulesEngine",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "RulesEngine"
+    "nullable": false,
+    "referenceName": "RulesEngine",
+    "referenceNameIsCommonType": null
   }
 }

@@ -1,6 +1,7 @@
 {
   "name": "EnableAzureMonitor",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,7 +11,9 @@
   "resourceIdName": "HDInsightClusterId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "AzureMonitorRequest"
+    "nullable": false,
+    "referenceName": "AzureMonitorRequest",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/extensions/azureMonitor"
 }

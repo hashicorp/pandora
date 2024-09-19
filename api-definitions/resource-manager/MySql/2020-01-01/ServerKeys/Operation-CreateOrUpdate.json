@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "KeyId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ServerKey"
+    "nullable": false,
+    "referenceName": "ServerKey",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ServerKey"
+    "nullable": false,
+    "referenceName": "ServerKey",
+    "referenceNameIsCommonType": null
   }
 }

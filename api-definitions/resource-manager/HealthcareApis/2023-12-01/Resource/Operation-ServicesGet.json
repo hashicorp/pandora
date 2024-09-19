@@ -1,6 +1,7 @@
 {
   "name": "ServicesGet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "ServiceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ServicesDescription"
+    "nullable": false,
+    "referenceName": "ServicesDescription",
+    "referenceNameIsCommonType": null
   }
 }

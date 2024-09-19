@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": true,
+      "description": "[Required] Specifies the data type of the metric threshold.",
       "jsonName": "dataType",
       "name": "DataType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MonitoringFeatureDataType"
+        "nullable": false,
+        "referenceName": "MonitoringFeatureDataType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The threshold value. If null, a default value will be set depending on the selected metric.",
       "jsonName": "threshold",
       "name": "Threshold",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MonitoringThreshold"
+        "nullable": false,
+        "referenceName": "MonitoringThreshold",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -28,5 +34,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "DataType"
 }

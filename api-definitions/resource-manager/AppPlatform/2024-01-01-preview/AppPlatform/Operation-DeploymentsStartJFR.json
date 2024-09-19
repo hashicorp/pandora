@@ -1,6 +1,7 @@
 {
   "name": "DeploymentsStartJFR",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,7 +11,9 @@
   "resourceIdName": "DeploymentId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "DiagnosticParameters"
+    "nullable": false,
+    "referenceName": "DiagnosticParameters",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/startJFR"
 }

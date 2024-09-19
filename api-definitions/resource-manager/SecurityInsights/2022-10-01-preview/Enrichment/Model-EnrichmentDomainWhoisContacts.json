@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The admin contact for this whois record",
       "jsonName": "admin",
       "name": "Admin",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnrichmentDomainWhoisContact"
+        "nullable": false,
+        "referenceName": "EnrichmentDomainWhoisContact",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The billing contact for this whois record",
       "jsonName": "billing",
       "name": "Billing",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnrichmentDomainWhoisContact"
+        "nullable": false,
+        "referenceName": "EnrichmentDomainWhoisContact",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The registrant contact for this whois record",
       "jsonName": "registrant",
       "name": "Registrant",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnrichmentDomainWhoisContact"
+        "nullable": false,
+        "referenceName": "EnrichmentDomainWhoisContact",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,16 +51,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The technical contact for this whois record",
       "jsonName": "tech",
       "name": "Tech",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnrichmentDomainWhoisContact"
+        "nullable": false,
+        "referenceName": "EnrichmentDomainWhoisContact",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

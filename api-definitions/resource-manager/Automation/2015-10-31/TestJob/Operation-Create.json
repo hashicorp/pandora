@@ -1,6 +1,7 @@
 {
   "name": "Create",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     201
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "RunbookId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "TestJobCreateParameters"
+    "nullable": false,
+    "referenceName": "TestJobCreateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "TestJob"
+    "nullable": false,
+    "referenceName": "TestJob",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/draft/testJob"
 }

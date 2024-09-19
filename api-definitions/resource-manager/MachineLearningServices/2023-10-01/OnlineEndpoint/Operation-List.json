@@ -1,6 +1,7 @@
 {
   "name": "List",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -82,7 +83,9 @@
   "resourceIdName": "WorkspaceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "OnlineEndpointTrackedResource"
+    "nullable": false,
+    "referenceName": "OnlineEndpointTrackedResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/onlineEndpoints"
 }

@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "DevCenterDevBoxDefinitionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "DevBoxDefinitionUpdate"
+    "nullable": false,
+    "referenceName": "DevBoxDefinitionUpdate",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DevBoxDefinition"
+    "nullable": false,
+    "referenceName": "DevBoxDefinition",
+    "referenceNameIsCommonType": null
   }
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The appliance CPU details.",
       "jsonName": "cpuDetails",
       "name": "CpuDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplianceResourceDetails"
+        "nullable": false,
+        "referenceName": "ApplianceResourceDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The appliance datastore snapshot details.",
       "jsonName": "datastoreSnapshot",
       "name": "DatastoreSnapshot",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DataStoreUtilizationDetails"
+          "nullable": false,
+          "referenceName": "DataStoreUtilizationDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The disk replication details.",
       "jsonName": "disksReplicationDetails",
       "name": "DisksReplicationDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplianceResourceDetails"
+        "nullable": false,
+        "referenceName": "ApplianceResourceDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ESXi NFC buffer details.",
       "jsonName": "esxiNfcBuffer",
       "name": "EsxiNfcBuffer",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplianceResourceDetails"
+        "nullable": false,
+        "referenceName": "ApplianceResourceDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The appliance network bandwidth details.",
       "jsonName": "networkBandwidth",
       "name": "NetworkBandwidth",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplianceResourceDetails"
+        "nullable": false,
+        "referenceName": "ApplianceResourceDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,16 +89,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The appliance RAM details.",
       "jsonName": "ramDetails",
       "name": "RamDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplianceResourceDetails"
+        "nullable": false,
+        "referenceName": "ApplianceResourceDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

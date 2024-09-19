@@ -1,6 +1,7 @@
 {
   "name": "Patch",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "CatalogId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CatalogUpdate"
+    "nullable": false,
+    "referenceName": "CatalogUpdate",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Catalog"
+    "nullable": false,
+    "referenceName": "Catalog",
+    "referenceNameIsCommonType": null
   }
 }

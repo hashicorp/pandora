@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,10 +22,14 @@
   "resourceIdName": "TransformationId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "Transformation"
+    "nullable": false,
+    "referenceName": "Transformation",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Transformation"
+    "nullable": false,
+    "referenceName": "Transformation",
+    "referenceNameIsCommonType": null
   }
 }

@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "ExtensionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ExtensionPatch"
+    "nullable": false,
+    "referenceName": "ExtensionPatch",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Extension"
+    "nullable": false,
+    "referenceName": "Extension",
+    "referenceNameIsCommonType": null
   }
 }

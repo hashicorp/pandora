@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of container definitions for the sessions of the session pool.",
       "jsonName": "containers",
       "name": "Containers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SessionContainer"
+          "nullable": false,
+          "referenceName": "SessionContainer",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Session pool ingress configuration.",
       "jsonName": "ingress",
       "name": "Ingress",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SessionIngress"
+        "nullable": false,
+        "referenceName": "SessionIngress",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,16 +41,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Private container registry credentials for containers used by the sessions of the session pool.",
       "jsonName": "registryCredentials",
       "name": "RegistryCredentials",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SessionRegistryCredentials"
+        "nullable": false,
+        "referenceName": "SessionRegistryCredentials",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

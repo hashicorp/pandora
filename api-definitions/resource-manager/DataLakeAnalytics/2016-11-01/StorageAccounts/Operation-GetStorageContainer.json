@@ -1,6 +1,7 @@
 {
   "name": "GetStorageContainer",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "ContainerId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "StorageContainer"
+    "nullable": false,
+    "referenceName": "StorageContainer",
+    "referenceNameIsCommonType": null
   }
 }

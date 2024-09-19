@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Automatic tuning actual state.",
       "jsonName": "actualState",
       "name": "ActualState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutomaticTuningMode"
+        "nullable": false,
+        "referenceName": "AutomaticTuningMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Automatic tuning desired state.",
       "jsonName": "desiredState",
       "name": "DesiredState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutomaticTuningMode"
+        "nullable": false,
+        "referenceName": "AutomaticTuningMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Automatic tuning options definition.",
       "jsonName": "options",
       "name": "Options",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AutomaticTuningOptions"
+          "nullable": false,
+          "referenceName": "AutomaticTuningOptions",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -44,5 +55,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

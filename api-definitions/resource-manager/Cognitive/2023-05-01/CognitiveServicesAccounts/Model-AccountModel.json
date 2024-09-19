@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Base Model Identifier.",
       "jsonName": "baseModel",
       "name": "BaseModel",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeploymentModel"
+        "nullable": false,
+        "referenceName": "DeploymentModel",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +23,9 @@
       "name": "CallRateLimit",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CallRateLimit"
+        "nullable": false,
+        "referenceName": "CallRateLimit",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +34,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The capabilities.",
       "jsonName": "capabilities",
       "name": "Capabilities",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,7 +60,9 @@
       "name": "Deprecation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ModelDeprecationInfo"
+        "nullable": false,
+        "referenceName": "ModelDeprecationInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,14 +71,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The capabilities for finetune models.",
       "jsonName": "finetuneCapabilities",
       "name": "FinetuneCapabilities",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -76,11 +93,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Deployment model format.",
       "jsonName": "format",
       "name": "Format",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,11 +109,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If the model is default version.",
       "jsonName": "isDefaultVersion",
       "name": "IsDefaultVersion",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,11 +125,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Model lifecycle status.",
       "jsonName": "lifecycleStatus",
       "name": "LifecycleStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ModelLifecycleStatus"
+        "nullable": false,
+        "referenceName": "ModelLifecycleStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,11 +141,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The max capacity.",
       "jsonName": "maxCapacity",
       "name": "MaxCapacity",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,11 +157,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Deployment model name.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,14 +173,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of Model Sku.",
       "jsonName": "skus",
       "name": "Skus",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ModelSku"
+          "nullable": false,
+          "referenceName": "ModelSku",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -158,11 +195,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Optional. Deployment model source ARM resource ID.",
       "jsonName": "source",
       "name": "Source",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -175,7 +215,9 @@
       "name": "SystemData",
       "objectDefinition": {
         "type": "SystemData",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -184,16 +226,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Optional. Deployment model version. If version is not specified, a default version will be assigned. The default version is different for different models and might change when there is new version available for a model. Default version for a model could be found from list models API.",
       "jsonName": "version",
       "name": "Version",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

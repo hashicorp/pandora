@@ -1,6 +1,7 @@
 {
   "name": "NotebookWorkspacesCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "DatabaseAccountId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ARMProxyResource"
+    "nullable": false,
+    "referenceName": "ARMProxyResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "NotebookWorkspace"
+    "nullable": false,
+    "referenceName": "NotebookWorkspace",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/notebookWorkspaces/default"
 }

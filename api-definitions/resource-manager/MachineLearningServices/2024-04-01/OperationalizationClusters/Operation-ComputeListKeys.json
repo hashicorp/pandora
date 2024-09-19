@@ -1,6 +1,7 @@
 {
   "name": "ComputeListKeys",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "ComputeId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ComputeSecrets"
+    "nullable": false,
+    "referenceName": "ComputeSecrets",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/listKeys"
 }

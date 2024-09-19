@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The reason for the restriction. As of now this can be \"QuotaId\" or \"NotAvailableForSubscription\". \"QuotaId\" is set when the SKU has requiredQuotas parameter as the subscription does not belong to that quota. \"NotAvailableForSubscription\" is related to capacity at the datacenter.",
       "jsonName": "reasonCode",
       "name": "ReasonCode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReasonCode"
+        "nullable": false,
+        "referenceName": "ReasonCode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of restrictions. In this version, the only possible value for this is location.",
       "jsonName": "type",
       "name": "Type",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The value of restrictions. If the restriction type is set to location, then this would be the different locations where the SKU is restricted.",
       "jsonName": "values",
       "name": "Values",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -44,5 +55,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

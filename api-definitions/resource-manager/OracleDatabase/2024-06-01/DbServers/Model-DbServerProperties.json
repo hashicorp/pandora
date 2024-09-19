@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of OCIDs of the Autonomous VM Clusters associated with the Db server.",
       "jsonName": "autonomousVmClusterIds",
       "name": "AutonomousVMClusterIds",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of OCIDs of the Autonomous Virtual Machines associated with the Db server.",
       "jsonName": "autonomousVirtualMachineIds",
       "name": "AutonomousVirtualMachineIds",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,11 +47,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The OCID of the compartment.",
       "jsonName": "compartmentId",
       "name": "CompartmentId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,11 +63,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The number of CPU cores enabled on the Db server.",
       "jsonName": "cpuCoreCount",
       "name": "CpuCoreCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,14 +79,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The OCID of the Db nodes associated with the Db server.",
       "jsonName": "dbNodeIds",
       "name": "DbNodeIds",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -80,11 +101,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The allocated local node storage in GBs on the Db server.",
       "jsonName": "dbNodeStorageSizeInGbs",
       "name": "DbNodeStorageSizeInGbs",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -93,11 +117,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "dbServerPatching details of the Db server.",
       "jsonName": "dbServerPatchingDetails",
       "name": "DbServerPatchingDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DbServerPatchingDetails"
+        "nullable": false,
+        "referenceName": "DbServerPatchingDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -106,11 +133,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name for the Db Server.",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -119,11 +149,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The OCID of the Exadata infrastructure.",
       "jsonName": "exadataInfrastructureId",
       "name": "ExadataInfrastructureId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -132,11 +165,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Lifecycle details of dbServer.",
       "jsonName": "lifecycleDetails",
       "name": "LifecycleDetails",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -145,11 +181,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "DbServer provisioning state.",
       "jsonName": "lifecycleState",
       "name": "LifecycleState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DbServerProvisioningState"
+        "nullable": false,
+        "referenceName": "DbServerProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -158,11 +197,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The total number of CPU cores available.",
       "jsonName": "maxCpuCount",
       "name": "MaxCPUCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -171,11 +213,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The total max dbNode storage in GBs.",
       "jsonName": "maxDbNodeStorageInGbs",
       "name": "MaxDbNodeStorageInGbs",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -184,11 +229,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The total memory available in GBs.",
       "jsonName": "maxMemoryInGbs",
       "name": "MaxMemoryInGbs",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -197,11 +245,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The total memory size in GBs.",
       "jsonName": "memorySizeInGbs",
       "name": "MemorySizeInGbs",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -210,11 +261,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Db server name.",
       "jsonName": "ocid",
       "name": "Ocid",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -223,11 +277,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Azure resource provisioning state.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceProvisioningState"
+        "nullable": false,
+        "referenceName": "ResourceProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -236,11 +293,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The shape of the Db server. The shape determines the amount of CPU, storage, and memory resources available.",
       "jsonName": "shape",
       "name": "Shape",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -250,11 +310,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The date and time that the Db Server was created.",
       "jsonName": "timeCreated",
       "name": "TimeCreated",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -263,14 +326,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The OCID of the VM Clusters associated with the Db server.",
       "jsonName": "vmClusterIds",
       "name": "VMClusterIds",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -278,5 +346,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

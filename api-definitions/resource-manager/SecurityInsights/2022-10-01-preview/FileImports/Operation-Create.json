@@ -1,6 +1,7 @@
 {
   "name": "Create",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     201
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "FileImportId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "FileImport"
+    "nullable": false,
+    "referenceName": "FileImport",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "FileImport"
+    "nullable": false,
+    "referenceName": "FileImport",
+    "referenceNameIsCommonType": null
   }
 }

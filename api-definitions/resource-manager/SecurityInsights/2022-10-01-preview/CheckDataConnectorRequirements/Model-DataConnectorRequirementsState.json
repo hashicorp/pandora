@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Authorization state for this connector",
       "jsonName": "authorizationState",
       "name": "AuthorizationState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataConnectorAuthorizationState"
+        "nullable": false,
+        "referenceName": "DataConnectorAuthorizationState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "License state for this connector",
       "jsonName": "licenseState",
       "name": "LicenseState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataConnectorLicenseState"
+        "nullable": false,
+        "referenceName": "DataConnectorLicenseState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

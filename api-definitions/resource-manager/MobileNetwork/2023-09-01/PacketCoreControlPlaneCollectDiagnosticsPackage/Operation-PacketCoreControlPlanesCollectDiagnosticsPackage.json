@@ -1,6 +1,7 @@
 {
   "name": "PacketCoreControlPlanesCollectDiagnosticsPackage",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "PacketCoreControlPlaneId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "PacketCoreControlPlaneCollectDiagnosticsPackage"
+    "nullable": false,
+    "referenceName": "PacketCoreControlPlaneCollectDiagnosticsPackage",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AsyncOperationStatus"
+    "nullable": false,
+    "referenceName": "AsyncOperationStatus",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/collectDiagnosticsPackage"
 }

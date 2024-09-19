@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Additional data on the incident",
       "jsonName": "additionalData",
       "name": "AdditionalData",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IncidentAdditionalData"
+        "nullable": false,
+        "referenceName": "IncidentAdditionalData",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The reason the incident was closed",
       "jsonName": "classification",
       "name": "Classification",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IncidentClassification"
+        "nullable": false,
+        "referenceName": "IncidentClassification",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describes the reason the incident was closed",
       "jsonName": "classificationComment",
       "name": "ClassificationComment",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The classification reason the incident was closed with",
       "jsonName": "classificationReason",
       "name": "ClassificationReason",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IncidentClassificationReason"
+        "nullable": false,
+        "referenceName": "IncidentClassificationReason",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -56,11 +68,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time the incident was created",
       "jsonName": "createdTimeUtc",
       "name": "CreatedTimeUtc",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -69,11 +84,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The description of the incident",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -83,11 +101,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time of the first activity in the incident",
       "jsonName": "firstActivityTimeUtc",
       "name": "FirstActivityTimeUtc",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -96,11 +117,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A sequential number",
       "jsonName": "incidentNumber",
       "name": "IncidentNumber",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -109,11 +133,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The deep-link url to the incident in Azure portal",
       "jsonName": "incidentUrl",
       "name": "IncidentUrl",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -122,14 +149,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of labels relevant to this incident",
       "jsonName": "labels",
       "name": "Labels",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IncidentLabel"
+          "nullable": false,
+          "referenceName": "IncidentLabel",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -140,11 +172,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time of the last activity in the incident",
       "jsonName": "lastActivityTimeUtc",
       "name": "LastActivityTimeUtc",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -154,11 +189,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The last time the incident was updated",
       "jsonName": "lastModifiedTimeUtc",
       "name": "LastModifiedTimeUtc",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -171,7 +209,9 @@
       "name": "Owner",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IncidentOwnerInfo"
+        "nullable": false,
+        "referenceName": "IncidentOwnerInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -180,14 +220,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of resource ids of Analytic rules related to the incident",
       "jsonName": "relatedAnalyticRuleIds",
       "name": "RelatedAnalyticRuleIds",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -201,7 +246,9 @@
       "name": "Severity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IncidentSeverity"
+        "nullable": false,
+        "referenceName": "IncidentSeverity",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -210,11 +257,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The status of the incident",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IncidentStatus"
+        "nullable": false,
+        "referenceName": "IncidentStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -223,16 +273,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The title of the incident",
       "jsonName": "title",
       "name": "Title",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

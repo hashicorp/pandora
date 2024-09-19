@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "ResourcePoolId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ResourcePatch"
+    "nullable": false,
+    "referenceName": "ResourcePatch",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ResourcePool"
+    "nullable": false,
+    "referenceName": "ResourcePool",
+    "referenceNameIsCommonType": null
   }
 }

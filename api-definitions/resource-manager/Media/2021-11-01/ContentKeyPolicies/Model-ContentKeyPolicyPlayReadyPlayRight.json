@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between 0 and 3 inclusive.",
       "jsonName": "agcAndColorStripeRestriction",
       "name": "AgcAndColorStripeRestriction",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Configures Unknown output handling settings of the license.",
       "jsonName": "allowPassingVideoContentToUnknownOutput",
       "name": "AllowPassingVideoContentToUnknownOutput",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContentKeyPolicyPlayReadyUnknownOutputPassingOption"
+        "nullable": false,
+        "referenceName": "ContentKeyPolicyPlayReadyUnknownOutputPassingOption",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the output protection level for compressed digital audio.",
       "jsonName": "analogVideoOpl",
       "name": "AnalogVideoOpl",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the output protection level for compressed digital audio.",
       "jsonName": "compressedDigitalAudioOpl",
       "name": "CompressedDigitalAudioOpl",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the output protection level for compressed digital video.",
       "jsonName": "compressedDigitalVideoOpl",
       "name": "CompressedDigitalVideoOpl",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enables the Image Constraint For Analog Component Video Restriction in the license.",
       "jsonName": "digitalVideoOnlyContentRestriction",
       "name": "DigitalVideoOnlyContentRestriction",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Configures the Explicit Analog Television Output Restriction in the license. Configuration data must be between 0 and 3 inclusive.",
       "jsonName": "explicitAnalogTelevisionOutputRestriction",
       "name": "ExplicitAnalogTelevisionOutputRestriction",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestriction"
+        "nullable": false,
+        "referenceName": "ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestriction",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The amount of time that the license is valid after the license is first used to play content.",
       "jsonName": "firstPlayExpiration",
       "name": "FirstPlayExpiration",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,11 +131,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enables the Image Constraint For Analog Component Video Restriction in the license.",
       "jsonName": "imageConstraintForAnalogComponentVideoRestriction",
       "name": "ImageConstraintForAnalogComponentVideoRestriction",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -120,11 +147,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enables the Image Constraint For Analog Component Video Restriction in the license.",
       "jsonName": "imageConstraintForAnalogComputerMonitorRestriction",
       "name": "ImageConstraintForAnalogComputerMonitorRestriction",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -133,11 +163,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Configures the Serial Copy Management System (SCMS) in the license. Must be between 0 and 3 inclusive.",
       "jsonName": "scmsRestriction",
       "name": "ScmsRestriction",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -146,11 +179,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the output protection level for uncompressed digital audio.",
       "jsonName": "uncompressedDigitalAudioOpl",
       "name": "UncompressedDigitalAudioOpl",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -159,16 +195,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the output protection level for uncompressed digital video.",
       "jsonName": "uncompressedDigitalVideoOpl",
       "name": "UncompressedDigitalVideoOpl",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

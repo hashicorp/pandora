@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the values for weekly recurrence pattern.",
       "jsonName": "daysOfWeek",
       "name": "DaysOfWeek",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DaysOfWeek"
+          "nullable": false,
+          "referenceName": "DaysOfWeek",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -19,6 +24,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "Recurrence",
   "discriminatedTypeValue": "Weekly",
   "typeHintIn": "RecurrenceType"

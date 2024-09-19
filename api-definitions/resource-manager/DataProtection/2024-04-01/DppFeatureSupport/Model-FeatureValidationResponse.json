@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "backup support feature type.",
       "jsonName": "featureType",
       "name": "FeatureType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FeatureType"
+        "nullable": false,
+        "referenceName": "FeatureType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Response features",
       "jsonName": "features",
       "name": "Features",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SupportedFeature"
+          "nullable": false,
+          "referenceName": "SupportedFeature",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -32,6 +40,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "FeatureValidationResponseBase",
   "discriminatedTypeValue": "FeatureValidationResponse",
   "typeHintIn": "ObjectType"

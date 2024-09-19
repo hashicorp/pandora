@@ -1,6 +1,7 @@
 {
   "name": "List",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -22,7 +23,9 @@
   "resourceIdName": "LocationId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SharedGallery"
+    "nullable": false,
+    "referenceName": "SharedGallery",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/sharedGalleries"
 }

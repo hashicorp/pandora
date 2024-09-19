@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Type of backup management for the container.",
       "jsonName": "backupManagementType",
       "name": "BackupManagementType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BackupManagementType"
+        "nullable": false,
+        "referenceName": "BackupManagementType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Fabric Id of the container such as ARM Id.",
       "jsonName": "containerId",
       "name": "ContainerId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Friendly name of the container.",
       "jsonName": "friendlyName",
       "name": "FriendlyName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Status of health of the container.",
       "jsonName": "healthStatus",
       "name": "HealthStatus",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": true,
+      "description": "Type of the container. The value of this property for\r\n1. Compute Azure VM is Microsoft.Compute/virtualMachines\r\n2. Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines",
       "jsonName": "protectableContainerType",
       "name": "ProtectableContainerType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProtectableContainerType"
+        "nullable": false,
+        "referenceName": "ProtectableContainerType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -67,5 +82,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "ProtectableContainerType"
 }

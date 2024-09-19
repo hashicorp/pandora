@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "NodeId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "UpdateIntegrationRuntimeNodeRequest"
+    "nullable": false,
+    "referenceName": "UpdateIntegrationRuntimeNodeRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SelfHostedIntegrationRuntimeNode"
+    "nullable": false,
+    "referenceName": "SelfHostedIntegrationRuntimeNode",
+    "referenceNameIsCommonType": null
   }
 }

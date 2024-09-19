@@ -1,6 +1,7 @@
 {
   "name": "Apply",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,7 +11,9 @@
   "resourceIdName": "PatchId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ContainerAppsPatchResource"
+    "nullable": false,
+    "referenceName": "ContainerAppsPatchResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/apply"
 }

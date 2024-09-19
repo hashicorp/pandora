@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "ReplicationProtectionContainerMappingId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "UpdateProtectionContainerMappingInput"
+    "nullable": false,
+    "referenceName": "UpdateProtectionContainerMappingInput",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ProtectionContainerMapping"
+    "nullable": false,
+    "referenceName": "ProtectionContainerMapping",
+    "referenceNameIsCommonType": null
   }
 }

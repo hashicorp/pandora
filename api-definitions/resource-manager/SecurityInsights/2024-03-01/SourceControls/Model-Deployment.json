@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Deployment identifier.",
       "jsonName": "deploymentId",
       "name": "DeploymentId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Url to access repository action logs.",
       "jsonName": "deploymentLogsUrl",
       "name": "DeploymentLogsUrl",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The outcome of the deployment.",
       "jsonName": "deploymentResult",
       "name": "DeploymentResult",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeploymentResult"
+        "nullable": false,
+        "referenceName": "DeploymentResult",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Current status of the deployment.",
       "jsonName": "deploymentState",
       "name": "DeploymentState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeploymentState"
+        "nullable": false,
+        "referenceName": "DeploymentState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -56,16 +68,20 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time when the deployment finished.",
       "jsonName": "deploymentTime",
       "name": "DeploymentTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

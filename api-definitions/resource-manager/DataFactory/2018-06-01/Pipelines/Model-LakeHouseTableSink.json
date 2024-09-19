@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specify the partition column names from sink columns. Type: array of objects (or Expression with resultType array of objects).",
       "jsonName": "partitionNameList",
       "name": "PartitionNameList",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Create partitions in folder structure based on one or multiple columns. Each distinct column value (pair) will be a new partition. Possible values include: \"None\", \"PartitionByKey\".",
       "jsonName": "partitionOption",
       "name": "PartitionOption",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of table action for LakeHouse Table sink. Possible values include: \"None\", \"Append\", \"Overwrite\".",
       "jsonName": "tableActionOption",
       "name": "TableActionOption",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -41,6 +50,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "CopySink",
   "discriminatedTypeValue": "LakeHouseTableSink",
   "typeHintIn": "Type"

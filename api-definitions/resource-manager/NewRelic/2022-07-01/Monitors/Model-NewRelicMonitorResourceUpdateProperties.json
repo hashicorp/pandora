@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Source of account creation",
       "jsonName": "accountCreationSource",
       "name": "AccountCreationSource",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AccountCreationSource"
+        "nullable": false,
+        "referenceName": "AccountCreationSource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "MarketplaceSubscriptionStatus of the resource",
       "jsonName": "newRelicAccountProperties",
       "name": "NewRelicAccountProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NewRelicAccountProperties"
+        "nullable": false,
+        "referenceName": "NewRelicAccountProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Source of org creation",
       "jsonName": "orgCreationSource",
       "name": "OrgCreationSource",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OrgCreationSource"
+        "nullable": false,
+        "referenceName": "OrgCreationSource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Plan details",
       "jsonName": "planData",
       "name": "PlanData",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PlanData"
+        "nullable": false,
+        "referenceName": "PlanData",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,16 +67,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "User Info",
       "jsonName": "userInfo",
       "name": "UserInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UserInfo"
+        "nullable": false,
+        "referenceName": "UserInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

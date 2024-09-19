@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Video streaming base URL for the video archive. When present, archived video can be played through the Azure Video Analyzer player. Alternatively, this URL can be used with compatible DASH or HLS players by appending the following to the base URL:\r\n\r\n  - HLSv4:     /manifest(format=m3u8-aapl).m3u8\r\n  - HLS CMAF:  /manifest(format=m3u8-cmaf)\r\n  - DASH CMAF: /manifest(format=mpd-time-cmaf)\r\n\r\nMoreover, an ongoing video recording can be played in \"live mode\" with latencies which are approximately double of the chosen video segment length.",
       "jsonName": "archiveBaseUrl",
       "name": "ArchiveBaseUrl",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

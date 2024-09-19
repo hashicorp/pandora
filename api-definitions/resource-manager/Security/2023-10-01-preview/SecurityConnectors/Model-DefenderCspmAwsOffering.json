@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Defenders CSPM Cloud infrastructure entitlement management (CIEM) offering configurations",
       "jsonName": "ciem",
       "name": "Ciem",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderCspmAwsOfferingCiem"
+        "nullable": false,
+        "referenceName": "DefenderCspmAwsOfferingCiem",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Microsoft Defender Data Sensitivity discovery configuration",
       "jsonName": "dataSensitivityDiscovery",
       "name": "DataSensitivityDiscovery",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderCspmAwsOfferingDataSensitivityDiscovery"
+        "nullable": false,
+        "referenceName": "DefenderCspmAwsOfferingDataSensitivityDiscovery",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The databases DSPM configuration",
       "jsonName": "databasesDspm",
       "name": "DatabasesDspm",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderCspmAwsOfferingDatabasesDspm"
+        "nullable": false,
+        "referenceName": "DefenderCspmAwsOfferingDatabasesDspm",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Microsoft Defender container agentless discovery K8s configuration",
       "jsonName": "mdcContainersAgentlessDiscoveryK8s",
       "name": "MdcContainersAgentlessDiscoveryK8s",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderCspmAwsOfferingMdcContainersAgentlessDiscoveryK8s"
+        "nullable": false,
+        "referenceName": "DefenderCspmAwsOfferingMdcContainersAgentlessDiscoveryK8s",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Microsoft Defender container image assessment configuration",
       "jsonName": "mdcContainersImageAssessment",
       "name": "MdcContainersImageAssessment",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderCspmAwsOfferingMdcContainersImageAssessment"
+        "nullable": false,
+        "referenceName": "DefenderCspmAwsOfferingMdcContainersImageAssessment",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Microsoft Defender for Server VM scanning configuration",
       "jsonName": "vmScanners",
       "name": "VMScanners",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderCspmAwsOfferingVMScanners"
+        "nullable": false,
+        "referenceName": "DefenderCspmAwsOfferingVMScanners",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -80,6 +98,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "CloudOffering",
   "discriminatedTypeValue": "DefenderCspmAws",
   "typeHintIn": "OfferingType"

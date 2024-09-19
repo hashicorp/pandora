@@ -1,6 +1,7 @@
 {
   "name": "InstallPatches",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "VirtualMachineId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "VirtualMachineInstallPatchesParameters"
+    "nullable": false,
+    "referenceName": "VirtualMachineInstallPatchesParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "VirtualMachineInstallPatchesResult"
+    "nullable": false,
+    "referenceName": "VirtualMachineInstallPatchesResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/installPatches"
 }

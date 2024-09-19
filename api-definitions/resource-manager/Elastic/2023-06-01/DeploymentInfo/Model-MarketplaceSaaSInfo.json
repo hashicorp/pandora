@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Marketplace Subscription Details: SAAS Name",
       "jsonName": "marketplaceName",
       "name": "MarketplaceName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Marketplace Subscription Details: Resource URI",
       "jsonName": "marketplaceResourceId",
       "name": "MarketplaceResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Marketplace Subscription Details: SaaS Subscription Status",
       "jsonName": "marketplaceStatus",
       "name": "MarketplaceStatus",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,16 +51,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Marketplace Subscription",
       "jsonName": "marketplaceSubscription",
       "name": "MarketplaceSubscription",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MarketplaceSaaSInfoMarketplaceSubscription"
+        "nullable": false,
+        "referenceName": "MarketplaceSaaSInfoMarketplaceSubscription",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

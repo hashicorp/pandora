@@ -1,6 +1,7 @@
 {
   "name": "AccountsCreate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     201
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "AccountId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "Account"
+    "nullable": false,
+    "referenceName": "Account",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Account"
+    "nullable": false,
+    "referenceName": "Account",
+    "referenceNameIsCommonType": null
   }
 }

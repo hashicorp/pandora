@@ -1,6 +1,7 @@
 {
   "name": "GetAuthorizationRule",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "NotificationHubAuthorizationRuleId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SharedAccessAuthorizationRuleResource"
+    "nullable": false,
+    "referenceName": "SharedAccessAuthorizationRuleResource",
+    "referenceNameIsCommonType": null
   }
 }

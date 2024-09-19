@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "OAuth authorization endpoint. See http://tools.ietf.org/html/rfc6749#section-3.2.",
       "jsonName": "authorizationEndpoint",
       "name": "AuthorizationEndpoint",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "HTTP verbs supported by the authorization endpoint. GET must be always present. POST is optional.",
       "jsonName": "authorizationMethods",
       "name": "AuthorizationMethods",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AuthorizationMethod"
+          "nullable": false,
+          "referenceName": "AuthorizationMethod",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,14 +41,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the mechanism by which access token is passed to the API. ",
       "jsonName": "bearerTokenSendingMethods",
       "name": "BearerTokenSendingMethods",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "BearerTokenSendingMethod"
+          "nullable": false,
+          "referenceName": "BearerTokenSendingMethod",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,14 +63,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Method of authentication supported by the token endpoint of this authorization server. Possible values are Basic and/or Body. When Body is specified, client credentials and other parameters are passed within the request body in the application/x-www-form-urlencoded format.",
       "jsonName": "clientAuthenticationMethod",
       "name": "ClientAuthenticationMethod",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ClientAuthenticationMethod"
+          "nullable": false,
+          "referenceName": "ClientAuthenticationMethod",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -67,11 +85,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Client or app id registered with this authorization server.",
       "jsonName": "clientId",
       "name": "ClientId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -80,11 +101,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Optional reference to a page where client or app registration for this authorization server is performed. Contains absolute URL to entity being referenced.",
       "jsonName": "clientRegistrationEndpoint",
       "name": "ClientRegistrationEndpoint",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -93,11 +117,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Client or app secret registered with this authorization server. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.",
       "jsonName": "clientSecret",
       "name": "ClientSecret",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -106,11 +133,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Access token scope that is going to be requested by default. Can be overridden at the API level. Should be provided in the form of a string containing space-delimited values.",
       "jsonName": "defaultScope",
       "name": "DefaultScope",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -119,11 +149,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Description of the authorization server. Can contain HTML formatting tags.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -132,11 +165,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "User-friendly authorization server name.",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -145,14 +181,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Form of an authorization grant, which the client uses to request the access token.",
       "jsonName": "grantTypes",
       "name": "GrantTypes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "GrantType"
+          "nullable": false,
+          "referenceName": "GrantType",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -162,11 +203,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner password.",
       "jsonName": "resourceOwnerPassword",
       "name": "ResourceOwnerPassword",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -175,11 +219,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner username.",
       "jsonName": "resourceOwnerUsername",
       "name": "ResourceOwnerUsername",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -188,11 +235,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If true, authorization server will include state parameter from the authorization request to its response. Client may use state parameter to raise protocol security.",
       "jsonName": "supportState",
       "name": "SupportState",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -201,14 +251,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Additional parameters required by the token endpoint of this authorization server represented as an array of JSON objects with name and value string properties, i.e. {\"name\" : \"name value\", \"value\": \"a value\"}.",
       "jsonName": "tokenBodyParameters",
       "name": "TokenBodyParameters",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TokenBodyParameterContract"
+          "nullable": false,
+          "referenceName": "TokenBodyParameterContract",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -218,11 +273,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "OAuth token endpoint. Contains absolute URI to entity being referenced.",
       "jsonName": "tokenEndpoint",
       "name": "TokenEndpoint",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -231,11 +289,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If true, the authorization server will be used in the API documentation in the developer portal. False by default if no value is provided.",
       "jsonName": "useInApiDocumentation",
       "name": "UseInApiDocumentation",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -244,16 +305,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If true, the authorization server may be used in the developer portal test console. True by default if no value is provided.",
       "jsonName": "useInTestConsole",
       "name": "UseInTestConsole",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

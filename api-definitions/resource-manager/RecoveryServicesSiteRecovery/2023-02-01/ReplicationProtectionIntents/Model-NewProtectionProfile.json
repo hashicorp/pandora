@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The app consistent snapshot frequency (in minutes).",
       "jsonName": "appConsistentFrequencyInMinutes",
       "name": "AppConsistentFrequencyInMinutes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The crash consistent snapshot frequency (in minutes).",
       "jsonName": "crashConsistentFrequencyInMinutes",
       "name": "CrashConsistentFrequencyInMinutes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.",
       "jsonName": "multiVmSyncStatus",
       "name": "MultiVMSyncStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SetMultiVMSyncStatus"
+        "nullable": false,
+        "referenceName": "SetMultiVMSyncStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The protection profile input.",
       "jsonName": "policyName",
       "name": "PolicyName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The duration in minutes until which the recovery points need to be stored.",
       "jsonName": "recoveryPointHistory",
       "name": "RecoveryPointHistory",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -67,6 +82,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ProtectionProfileCustomDetails",
   "discriminatedTypeValue": "New",
   "typeHintIn": "ResourceType"

@@ -7,7 +7,9 @@
       "name": "ConnectivityState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AadConnectivityState"
+        "nullable": false,
+        "referenceName": "AadConnectivityState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DeviceType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "DeviceVendor",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,12 +52,15 @@
       "name": "Workspace",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectedWorkspace"
+        "nullable": false,
+        "referenceName": "ConnectedWorkspace",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "ProviderOpenShiftClusterId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "OpenShiftClusterUpdate"
+    "nullable": false,
+    "referenceName": "OpenShiftClusterUpdate",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "OpenShiftCluster"
+    "nullable": false,
+    "referenceName": "OpenShiftCluster",
+    "referenceNameIsCommonType": null
   }
 }

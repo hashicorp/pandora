@@ -1,6 +1,7 @@
 {
   "name": "CheckNameAvailability",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "SubscriptionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ApiManagementServiceCheckNameAvailabilityParameters"
+    "nullable": false,
+    "referenceName": "ApiManagementServiceCheckNameAvailabilityParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ApiManagementServiceNameAvailabilityResult"
+    "nullable": false,
+    "referenceName": "ApiManagementServiceNameAvailabilityResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.ApiManagement/checkNameAvailability"
 }

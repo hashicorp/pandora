@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Azure action group reference.",
       "jsonName": "aznsAction",
       "name": "AznsAction",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzNsActionGroup"
+        "nullable": false,
+        "referenceName": "AzNsActionGroup",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Severity of the alert",
       "jsonName": "severity",
       "name": "Severity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AlertSeverity"
+        "nullable": false,
+        "referenceName": "AlertSeverity",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "time (in minutes) for which Alerts should be throttled or suppressed.",
       "jsonName": "throttlingInMin",
       "name": "ThrottlingInMin",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The trigger condition that results in the alert rule being.",
       "jsonName": "trigger",
       "name": "Trigger",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TriggerCondition"
+        "nullable": false,
+        "referenceName": "TriggerCondition",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -54,6 +66,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "Action",
   "discriminatedTypeValue": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
   "typeHintIn": "OdataType"

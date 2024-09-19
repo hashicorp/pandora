@@ -1,6 +1,7 @@
 {
   "name": "ListByServer",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -26,7 +27,9 @@
   "resourceIdName": "ServerId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "QueryText"
+    "nullable": false,
+    "referenceName": "QueryText",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/queryTexts"
 }

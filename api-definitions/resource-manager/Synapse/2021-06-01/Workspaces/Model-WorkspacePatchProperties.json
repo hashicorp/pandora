@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The encryption details of the workspace",
       "jsonName": "encryption",
       "name": "Encryption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EncryptionDetails"
+        "nullable": false,
+        "referenceName": "EncryptionDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Managed Virtual Network Settings",
       "jsonName": "managedVirtualNetworkSettings",
       "name": "ManagedVirtualNetworkSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedVirtualNetworkSettings"
+        "nullable": false,
+        "referenceName": "ManagedVirtualNetworkSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Resource provisioning state",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enable or Disable public network access to workspace",
       "jsonName": "publicNetworkAccess",
       "name": "PublicNetworkAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WorkspacePublicNetworkAccess"
+        "nullable": false,
+        "referenceName": "WorkspacePublicNetworkAccess",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Purview Configuration",
       "jsonName": "purviewConfiguration",
       "name": "PurviewConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PurviewConfiguration"
+        "nullable": false,
+        "referenceName": "PurviewConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "SQL administrator login password",
       "jsonName": "sqlAdministratorLoginPassword",
       "name": "SqlAdministratorLoginPassword",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,16 +99,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Git integration settings",
       "jsonName": "workspaceRepositoryConfiguration",
       "name": "WorkspaceRepositoryConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WorkspaceRepositoryConfiguration"
+        "nullable": false,
+        "referenceName": "WorkspaceRepositoryConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

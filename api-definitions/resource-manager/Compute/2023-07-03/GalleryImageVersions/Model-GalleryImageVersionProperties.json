@@ -7,7 +7,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GalleryProvisioningState"
+        "nullable": false,
+        "referenceName": "GalleryProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "PublishingProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GalleryArtifactPublishingProfileBase"
+        "nullable": false,
+        "referenceName": "GalleryArtifactPublishingProfileBase",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "ReplicationStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReplicationStatus"
+        "nullable": false,
+        "referenceName": "ReplicationStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "SafetyProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GalleryImageVersionSafetyProfile"
+        "nullable": false,
+        "referenceName": "GalleryImageVersionSafetyProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "SecurityProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ImageVersionSecurityProfile"
+        "nullable": false,
+        "referenceName": "ImageVersionSecurityProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,12 +82,15 @@
       "name": "StorageProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GalleryImageVersionStorageProfile"
+        "nullable": false,
+        "referenceName": "GalleryImageVersionStorageProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

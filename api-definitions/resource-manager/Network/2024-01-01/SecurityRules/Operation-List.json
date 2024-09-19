@@ -1,6 +1,7 @@
 {
   "name": "List",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "NetworkSecurityGroupId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SecurityRule"
+    "nullable": false,
+    "referenceName": "SecurityRule",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/securityRules"
 }

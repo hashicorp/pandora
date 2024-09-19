@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Daily schedule of this policy",
       "jsonName": "dailySchedule",
       "name": "DailySchedule",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DailySchedule"
+        "nullable": false,
+        "referenceName": "DailySchedule",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "hourly schedule of this policy",
       "jsonName": "hourlySchedule",
       "name": "HourlySchedule",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HourlySchedule"
+        "nullable": false,
+        "referenceName": "HourlySchedule",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Frequency of the schedule operation of this policy.",
       "jsonName": "scheduleRunFrequency",
       "name": "ScheduleRunFrequency",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScheduleRunType"
+        "nullable": false,
+        "referenceName": "ScheduleRunType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Weekly schedule of this policy",
       "jsonName": "weeklySchedule",
       "name": "WeeklySchedule",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WeeklySchedule"
+        "nullable": false,
+        "referenceName": "WeeklySchedule",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -54,6 +66,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "SchedulePolicy",
   "discriminatedTypeValue": "SimpleSchedulePolicyV2",
   "typeHintIn": "SchedulePolicyType"

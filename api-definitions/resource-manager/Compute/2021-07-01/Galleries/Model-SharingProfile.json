@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of sharing profile groups.",
       "jsonName": "groups",
       "name": "Groups",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SharingProfileGroup"
+          "nullable": false,
+          "referenceName": "SharingProfileGroup",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,16 +25,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This property allows you to specify the permission of sharing gallery. \u003cbr\u003e\u003cbr\u003e Possible values are: \u003cbr\u003e\u003cbr\u003e **Private** \u003cbr\u003e\u003cbr\u003e **Groups**",
       "jsonName": "permissions",
       "name": "Permissions",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GallerySharingPermissionTypes"
+        "nullable": false,
+        "referenceName": "GallerySharingPermissionTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

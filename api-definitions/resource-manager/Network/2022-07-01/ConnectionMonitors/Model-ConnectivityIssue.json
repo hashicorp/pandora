@@ -3,17 +3,24 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provides additional context on the issue.",
       "jsonName": "context",
       "name": "Context",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Dictionary",
+          "nullable": false,
           "referenceName": null,
+          "referenceNameIsCommonType": null,
           "nestedItem": {
             "type": "String",
-            "referenceName": null
+            "nullable": false,
+            "referenceName": null,
+            "referenceNameIsCommonType": null
           }
         }
       },
@@ -24,11 +31,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The origin of the issue.",
       "jsonName": "origin",
       "name": "Origin",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Origin"
+        "nullable": false,
+        "referenceName": "Origin",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,11 +47,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The severity of the issue.",
       "jsonName": "severity",
       "name": "Severity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Severity"
+        "nullable": false,
+        "referenceName": "Severity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,16 +63,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of issue.",
       "jsonName": "type",
       "name": "Type",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IssueType"
+        "nullable": false,
+        "referenceName": "IssueType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

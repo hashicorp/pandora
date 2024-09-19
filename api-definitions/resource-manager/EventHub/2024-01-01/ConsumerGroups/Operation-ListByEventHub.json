@@ -1,6 +1,7 @@
 {
   "name": "ListByEventHub",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -32,7 +33,9 @@
   "resourceIdName": "EventhubId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ConsumerGroup"
+    "nullable": false,
+    "referenceName": "ConsumerGroup",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/consumerGroups"
 }

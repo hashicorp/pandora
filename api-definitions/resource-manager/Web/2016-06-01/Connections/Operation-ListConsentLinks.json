@@ -1,6 +1,7 @@
 {
   "name": "ListConsentLinks",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "ConnectionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ListConsentLinksDefinition"
+    "nullable": false,
+    "referenceName": "ListConsentLinksDefinition",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ConsentLinkCollection"
+    "nullable": false,
+    "referenceName": "ConsentLinkCollection",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/listConsentLinks"
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Allow Azure services to access the target service if true.",
       "jsonName": "azureServices",
       "name": "AzureServices",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AllowType"
+        "nullable": false,
+        "referenceName": "AllowType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Allow caller client IP to access the target service if true. the property is used when connecting local application to target service.",
       "jsonName": "callerClientIP",
       "name": "CallerClientIP",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AllowType"
+        "nullable": false,
+        "referenceName": "AllowType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account.",
       "jsonName": "ipRanges",
       "name": "IPRanges",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -44,5 +55,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

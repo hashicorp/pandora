@@ -1,6 +1,7 @@
 {
   "name": "Export",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "VaultId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "JobQueryParameter"
+    "nullable": false,
+    "referenceName": "JobQueryParameter",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Job"
+    "nullable": false,
+    "referenceName": "Job",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/replicationJobs/export"
 }

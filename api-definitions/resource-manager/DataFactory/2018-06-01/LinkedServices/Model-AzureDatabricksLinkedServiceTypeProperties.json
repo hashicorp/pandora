@@ -7,7 +7,9 @@
       "name": "AccessToken",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecretBase"
+        "nullable": false,
+        "referenceName": "SecretBase",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +18,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Required to specify MSI, if using Workspace resource id for databricks REST API. Type: string (or Expression with resultType string).",
       "jsonName": "authentication",
       "name": "Authentication",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +38,9 @@
       "name": "Credential",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CredentialReference"
+        "nullable": false,
+        "referenceName": "CredentialReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +49,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003cREGION\u003e.azuredatabricks.net, domain name of your Databricks deployment. Type: string (or Expression with resultType string).",
       "jsonName": "domain",
       "name": "Domain",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -55,11 +65,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
       "jsonName": "encryptedCredential",
       "name": "EncryptedCredential",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +81,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The id of an existing interactive cluster that will be used for all runs of this activity. Type: string (or Expression with resultType string).",
       "jsonName": "existingClusterId",
       "name": "ExistingClusterId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +97,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The id of an existing instance pool that will be used for all runs of this activity. Type: string (or Expression with resultType string).",
       "jsonName": "instancePoolId",
       "name": "InstancePoolId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,14 +113,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Additional tags for cluster resources. This property is ignored in instance pool configurations.",
       "jsonName": "newClusterCustomTags",
       "name": "NewClusterCustomTags",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -111,11 +135,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The driver node type for the new job cluster. This property is ignored in instance pool configurations. Type: string (or Expression with resultType string).",
       "jsonName": "newClusterDriverNodeType",
       "name": "NewClusterDriverNodeType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,11 +151,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enable the elastic disk on the new cluster. This property is now ignored, and takes the default elastic disk behavior in Databricks (elastic disks are always enabled). Type: boolean (or Expression with resultType boolean).",
       "jsonName": "newClusterEnableElasticDisk",
       "name": "NewClusterEnableElasticDisk",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,14 +167,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "User-defined initialization scripts for the new cluster. Type: array of strings (or Expression with resultType array of strings).",
       "jsonName": "newClusterInitScripts",
       "name": "NewClusterInitScripts",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -154,11 +189,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specify a location to deliver Spark driver, worker, and event logs. Type: string (or Expression with resultType string).",
       "jsonName": "newClusterLogDestination",
       "name": "NewClusterLogDestination",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -167,11 +205,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The node type of the new job cluster. This property is required if newClusterVersion is specified and instancePoolId is not specified. If instancePoolId is specified, this property is ignored. Type: string (or Expression with resultType string).",
       "jsonName": "newClusterNodeType",
       "name": "NewClusterNodeType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -180,11 +221,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If not using an existing interactive cluster, this specifies the number of worker nodes to use for the new job cluster or instance pool. For new job clusters, this a string-formatted Int32, like '1' means numOfWorker is 1 or '1:10' means auto-scale from 1 (min) to 10 (max). For instance pools, this is a string-formatted Int32, and can only specify a fixed number of worker nodes, such as '2'. Required if newClusterVersion is specified. Type: string (or Expression with resultType string).",
       "jsonName": "newClusterNumOfWorker",
       "name": "NewClusterNumOfWorker",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -193,14 +237,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A set of optional, user-specified Spark configuration key-value pairs.",
       "jsonName": "newClusterSparkConf",
       "name": "NewClusterSparkConf",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -210,14 +259,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A set of optional, user-specified Spark environment variables key-value pairs.",
       "jsonName": "newClusterSparkEnvVars",
       "name": "NewClusterSparkEnvVars",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -227,11 +281,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If not using an existing interactive cluster, this specifies the Spark version of a new job cluster or instance pool nodes created for each run of this activity. Required if instancePoolId is specified. Type: string (or Expression with resultType string).",
       "jsonName": "newClusterVersion",
       "name": "NewClusterVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -240,11 +297,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The policy id for limiting the ability to configure clusters based on a user defined set of rules. Type: string (or Expression with resultType string).",
       "jsonName": "policyId",
       "name": "PolicyId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -253,16 +313,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Workspace resource id for databricks REST API. Type: string (or Expression with resultType string).",
       "jsonName": "workspaceResourceId",
       "name": "WorkspaceResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

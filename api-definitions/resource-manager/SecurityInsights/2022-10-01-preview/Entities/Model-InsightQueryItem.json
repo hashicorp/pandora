@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Properties bag for InsightQueryItem",
       "jsonName": "properties",
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InsightQueryItemProperties"
+        "nullable": false,
+        "referenceName": "InsightQueryItemProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +18,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "EntityQueryItem",
   "discriminatedTypeValue": "Insight",
   "typeHintIn": "Kind"

@@ -1,6 +1,7 @@
 {
   "name": "Patch",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "SecurityPolicyId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SecurityPolicyUpdateParameters"
+    "nullable": false,
+    "referenceName": "SecurityPolicyUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SecurityPolicy"
+    "nullable": false,
+    "referenceName": "SecurityPolicy",
+    "referenceNameIsCommonType": null
   }
 }

@@ -1,6 +1,7 @@
 {
   "name": "ListAgreements",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,11 +11,15 @@
   "resourceIdName": "TopLevelDomainId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "TopLevelDomainAgreementOption"
+    "nullable": false,
+    "referenceName": "TopLevelDomainAgreementOption",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "TldLegalAgreement"
+    "nullable": false,
+    "referenceName": "TldLegalAgreement",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/listAgreements"
 }

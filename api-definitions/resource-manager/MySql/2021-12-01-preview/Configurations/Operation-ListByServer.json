@@ -1,6 +1,7 @@
 {
   "name": "ListByServer",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -52,7 +53,9 @@
   "resourceIdName": "FlexibleServerId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Configuration"
+    "nullable": false,
+    "referenceName": "Configuration",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/configurations"
 }

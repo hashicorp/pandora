@@ -7,7 +7,9 @@
       "name": "CircuitBreakerPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DaprComponentResiliencyPolicyCircuitBreakerPolicyConfiguration"
+        "nullable": false,
+        "referenceName": "DaprComponentResiliencyPolicyCircuitBreakerPolicyConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "HTTPRetryPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DaprComponentResiliencyPolicyHTTPRetryPolicyConfiguration"
+        "nullable": false,
+        "referenceName": "DaprComponentResiliencyPolicyHTTPRetryPolicyConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "TimeoutPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DaprComponentResiliencyPolicyTimeoutPolicyConfiguration"
+        "nullable": false,
+        "referenceName": "DaprComponentResiliencyPolicyTimeoutPolicyConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "WorkspaceProductGet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "WorkspaceProductId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ProductContract"
+    "nullable": false,
+    "referenceName": "ProductContract",
+    "referenceNameIsCommonType": null
   }
 }

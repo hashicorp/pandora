@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The branch name of the source code.",
       "jsonName": "branch",
       "name": "Branch",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The full URL to the source code repository",
       "jsonName": "repositoryUrl",
       "name": "RepositoryUrl",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The authorization properties for accessing the source code repository and to set up\r\nwebhooks for notifications.",
       "jsonName": "sourceControlAuthProperties",
       "name": "SourceControlAuthProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AuthInfoUpdateParameters"
+        "nullable": false,
+        "referenceName": "AuthInfoUpdateParameters",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,16 +51,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of source control service.",
       "jsonName": "sourceControlType",
       "name": "SourceControlType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SourceControlType"
+        "nullable": false,
+        "referenceName": "SourceControlType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

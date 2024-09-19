@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "InstancePoolId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "InstancePoolUpdate"
+    "nullable": false,
+    "referenceName": "InstancePoolUpdate",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "InstancePool"
+    "nullable": false,
+    "referenceName": "InstancePool",
+    "referenceNameIsCommonType": null
   }
 }

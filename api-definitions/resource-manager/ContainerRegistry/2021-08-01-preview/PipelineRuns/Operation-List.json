@@ -1,6 +1,7 @@
 {
   "name": "List",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "RegistryId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PipelineRun"
+    "nullable": false,
+    "referenceName": "PipelineRun",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/pipelineRuns"
 }

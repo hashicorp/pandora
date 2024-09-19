@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Set to true to enable bursting beyond the provisioned performance target of the disk. Bursting is disabled by default. Does not apply to Ultra disks.",
       "jsonName": "burstingEnabled",
       "name": "BurstingEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,11 +20,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Latest time when bursting was last enabled on a disk.",
       "jsonName": "burstingEnabledTime",
       "name": "BurstingEnabledTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,11 +36,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Percentage complete for the background copy when a resource is created via the CopyStart operation.",
       "jsonName": "completionPercent",
       "name": "CompletionPercent",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,7 +56,9 @@
       "name": "CreationData",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CreationData"
+        "nullable": false,
+        "referenceName": "CreationData",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -60,7 +71,9 @@
       "name": "DataAccessAuthMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataAccessAuthMode"
+        "nullable": false,
+        "referenceName": "DataAccessAuthMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -69,11 +82,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "ARM id of the DiskAccess resource for using private endpoints on disks.",
       "jsonName": "diskAccessId",
       "name": "DiskAccessId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -82,11 +98,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The total number of IOPS that will be allowed across all VMs mounting the shared disk as ReadOnly. One operation can transfer between 4k and 256k bytes.",
       "jsonName": "diskIOPSReadOnly",
       "name": "DiskIOPSReadOnly",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -95,11 +114,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.",
       "jsonName": "diskIOPSReadWrite",
       "name": "DiskIOPSReadWrite",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -108,11 +130,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The total throughput (MBps) that will be allowed across all VMs mounting the shared disk as ReadOnly. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.",
       "jsonName": "diskMBpsReadOnly",
       "name": "DiskMBpsReadOnly",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -121,11 +146,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.",
       "jsonName": "diskMBpsReadWrite",
       "name": "DiskMBpsReadWrite",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -134,11 +162,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The size of the disk in bytes. This field is read only.",
       "jsonName": "diskSizeBytes",
       "name": "DiskSizeBytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -147,11 +178,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.",
       "jsonName": "diskSizeGB",
       "name": "DiskSizeGB",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -164,7 +198,9 @@
       "name": "DiskState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiskState"
+        "nullable": false,
+        "referenceName": "DiskState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -177,7 +213,9 @@
       "name": "Encryption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Encryption"
+        "nullable": false,
+        "referenceName": "Encryption",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -190,7 +228,9 @@
       "name": "EncryptionSettingsCollection",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EncryptionSettingsCollection"
+        "nullable": false,
+        "referenceName": "EncryptionSettingsCollection",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -199,11 +239,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The hypervisor generation of the Virtual Machine. Applicable to OS disks only.",
       "jsonName": "hyperVGeneration",
       "name": "HyperVGeneration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HyperVGeneration"
+        "nullable": false,
+        "referenceName": "HyperVGeneration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -213,11 +256,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The UTC time when the ownership state of the disk was last changed i.e., the time the disk was last attached or detached from a VM or the time when the VM to which the disk was attached was deallocated or started.",
       "jsonName": "LastOwnershipUpdateTime",
       "name": "LastOwnershipUpdateTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -226,11 +272,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.",
       "jsonName": "maxShares",
       "name": "MaxShares",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -243,7 +292,9 @@
       "name": "NetworkAccessPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkAccessPolicy"
+        "nullable": false,
+        "referenceName": "NetworkAccessPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -252,11 +303,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Setting this property to true improves reliability and performance of data disks that are frequently (more than 5 times a day) by detached from one virtual machine and attached to another. This property should not be set for disks that are not detached and attached frequently as it causes the disks to not align with the fault domain of the virtual machine.",
       "jsonName": "optimizedForFrequentAttach",
       "name": "OptimizedForFrequentAttach",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -265,11 +319,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Operating System type.",
       "jsonName": "osType",
       "name": "OsType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OperatingSystemTypes"
+        "nullable": false,
+        "referenceName": "OperatingSystemTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -278,11 +335,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Properties of the disk for which update is pending.",
       "jsonName": "propertyUpdatesInProgress",
       "name": "PropertyUpdatesInProgress",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PropertyUpdatesInProgress"
+        "nullable": false,
+        "referenceName": "PropertyUpdatesInProgress",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -291,11 +351,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The disk provisioning state.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -308,7 +371,9 @@
       "name": "PublicNetworkAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublicNetworkAccess"
+        "nullable": false,
+        "referenceName": "PublicNetworkAccess",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -321,7 +386,9 @@
       "name": "PurchasePlan",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PurchasePlan"
+        "nullable": false,
+        "referenceName": "PurchasePlan",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -334,7 +401,9 @@
       "name": "SecurityProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiskSecurityProfile"
+        "nullable": false,
+        "referenceName": "DiskSecurityProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -343,14 +412,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Details of the list of all VMs that have the disk attached. maxShares should be set to a value greater than one for disks to allow attaching them to multiple VMs.",
       "jsonName": "shareInfo",
       "name": "ShareInfo",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ShareInfoElement"
+          "nullable": false,
+          "referenceName": "ShareInfoElement",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -364,7 +438,9 @@
       "name": "SupportedCapabilities",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SupportedCapabilities"
+        "nullable": false,
+        "referenceName": "SupportedCapabilities",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -373,11 +449,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the OS on a disk supports hibernation.",
       "jsonName": "supportsHibernation",
       "name": "SupportsHibernation",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -386,11 +465,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Performance tier of the disk (e.g, P4, S10) as described here: https://azure.microsoft.com/en-us/pricing/details/managed-disks/. Does not apply to Ultra disks.",
       "jsonName": "tier",
       "name": "Tier",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -400,11 +482,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time when the disk was created.",
       "jsonName": "timeCreated",
       "name": "TimeCreated",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -413,16 +498,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Unique Guid identifying the resource.",
       "jsonName": "uniqueId",
       "name": "UniqueId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

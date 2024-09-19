@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enabling/Disabling the Double Encryption state",
       "jsonName": "infrastructureEncryption",
       "name": "InfrastructureEncryption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InfrastructureEncryptionState"
+        "nullable": false,
+        "referenceName": "InfrastructureEncryptionState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +23,9 @@
       "name": "KekIdentity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CmkKekIdentity"
+        "nullable": false,
+        "referenceName": "CmkKekIdentity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +38,15 @@
       "name": "KeyVaultProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CmkKeyVaultProperties"
+        "nullable": false,
+        "referenceName": "CmkKeyVaultProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

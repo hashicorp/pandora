@@ -1,6 +1,7 @@
 {
   "name": "Create",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "AutoScaleVCoreId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "AutoScaleVCore"
+    "nullable": false,
+    "referenceName": "AutoScaleVCore",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AutoScaleVCore"
+    "nullable": false,
+    "referenceName": "AutoScaleVCore",
+    "referenceNameIsCommonType": null
   }
 }

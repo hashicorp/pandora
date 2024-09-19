@@ -7,7 +7,9 @@
       "name": "Destination",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServiceTagDestination"
+        "nullable": false,
+        "referenceName": "ServiceTagDestination",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "OutboundRule",
   "discriminatedTypeValue": "ServiceTag",
   "typeHintIn": "Type"

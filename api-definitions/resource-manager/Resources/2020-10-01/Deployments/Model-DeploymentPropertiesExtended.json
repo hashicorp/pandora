@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The correlation ID of the deployment.",
       "jsonName": "correlationId",
       "name": "CorrelationId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The debug setting of the deployment.",
       "jsonName": "debugSetting",
       "name": "DebugSetting",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DebugSetting"
+        "nullable": false,
+        "referenceName": "DebugSetting",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of deployment dependencies.",
       "jsonName": "dependencies",
       "name": "Dependencies",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Dependency"
+          "nullable": false,
+          "referenceName": "Dependency",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The duration of the template deployment.",
       "jsonName": "duration",
       "name": "Duration",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +77,9 @@
       "name": "Error",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ErrorResponse"
+        "nullable": false,
+        "referenceName": "ErrorResponse",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +88,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The deployment mode. Possible values are Incremental and Complete.",
       "jsonName": "mode",
       "name": "Mode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeploymentMode"
+        "nullable": false,
+        "referenceName": "DeploymentMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +104,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The deployment on error behavior.",
       "jsonName": "onErrorDeployment",
       "name": "OnErrorDeployment",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OnErrorDeploymentExtended"
+        "nullable": false,
+        "referenceName": "OnErrorDeploymentExtended",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,14 +120,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Array of provisioned resources.",
       "jsonName": "outputResources",
       "name": "OutputResources",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ResourceReference"
+          "nullable": false,
+          "referenceName": "ResourceReference",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -115,11 +142,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Key/value pairs that represent deployment output.",
       "jsonName": "outputs",
       "name": "Outputs",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,11 +158,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Deployment parameters. ",
       "jsonName": "parameters",
       "name": "Parameters",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,11 +174,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The URI referencing the parameters. ",
       "jsonName": "parametersLink",
       "name": "ParametersLink",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ParametersLink"
+        "nullable": false,
+        "referenceName": "ParametersLink",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -154,14 +190,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of resource providers needed for the deployment.",
       "jsonName": "providers",
       "name": "Providers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Provider"
+          "nullable": false,
+          "referenceName": "Provider",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -171,11 +212,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Denotes the state of provisioning.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -184,11 +228,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The hash produced for the template.",
       "jsonName": "templateHash",
       "name": "TemplateHash",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -197,11 +244,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The URI referencing the template.",
       "jsonName": "templateLink",
       "name": "TemplateLink",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TemplateLink"
+        "nullable": false,
+        "referenceName": "TemplateLink",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -211,11 +261,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The timestamp of the template deployment.",
       "jsonName": "timestamp",
       "name": "Timestamp",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -224,14 +277,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Array of validated resources.",
       "jsonName": "validatedResources",
       "name": "ValidatedResources",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ResourceReference"
+          "nullable": false,
+          "referenceName": "ResourceReference",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -239,5 +297,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

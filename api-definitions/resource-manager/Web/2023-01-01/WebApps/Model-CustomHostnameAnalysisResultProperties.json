@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A records controller can see for this hostname.",
       "jsonName": "aRecords",
       "name": "ARecords",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Alternate CName records controller can see for this hostname.",
       "jsonName": "alternateCNameRecords",
       "name": "AlternateCNameRecords",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,14 +47,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Alternate TXT records controller can see for this hostname.",
       "jsonName": "alternateTxtRecords",
       "name": "AlternateTxtRecords",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -54,14 +69,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "CName records controller can see for this hostname.",
       "jsonName": "cNameRecords",
       "name": "CNameRecords",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -71,11 +91,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the conflicting app on scale unit if it's within the same subscription.",
       "jsonName": "conflictingAppResourceId",
       "name": "ConflictingAppResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -88,7 +111,9 @@
       "name": "CustomDomainVerificationFailureInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ErrorEntity"
+        "nullable": false,
+        "referenceName": "ErrorEntity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -97,11 +122,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "DNS verification test result.",
       "jsonName": "customDomainVerificationTest",
       "name": "CustomDomainVerificationTest",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DnsVerificationTestResult"
+        "nullable": false,
+        "referenceName": "DnsVerificationTestResult",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -110,11 +138,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003ccode\u003etrue\u003c/code\u003e if there is a conflict across subscriptions; otherwise, \u003ccode\u003efalse\u003c/code\u003e.",
       "jsonName": "hasConflictAcrossSubscription",
       "name": "HasConflictAcrossSubscription",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -123,11 +154,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003ccode\u003etrue\u003c/code\u003e if there is a conflict on a scale unit; otherwise, \u003ccode\u003efalse\u003c/code\u003e.",
       "jsonName": "hasConflictOnScaleUnit",
       "name": "HasConflictOnScaleUnit",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -136,11 +170,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003ccode\u003etrue\u003c/code\u003e if hostname is already verified; otherwise, \u003ccode\u003efalse\u003c/code\u003e.",
       "jsonName": "isHostnameAlreadyVerified",
       "name": "IsHostnameAlreadyVerified",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -149,14 +186,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "TXT records controller can see for this hostname.",
       "jsonName": "txtRecords",
       "name": "TxtRecords",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -164,5 +206,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

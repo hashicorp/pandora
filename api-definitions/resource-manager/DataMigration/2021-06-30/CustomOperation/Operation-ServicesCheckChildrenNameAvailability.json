@@ -1,6 +1,7 @@
 {
   "name": "ServicesCheckChildrenNameAvailability",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "ServiceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "NameAvailabilityRequest"
+    "nullable": false,
+    "referenceName": "NameAvailabilityRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "NameAvailabilityResponse"
+    "nullable": false,
+    "referenceName": "NameAvailabilityResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/checkNameAvailability"
 }

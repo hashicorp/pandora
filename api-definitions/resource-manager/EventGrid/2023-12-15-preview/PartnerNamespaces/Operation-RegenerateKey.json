@@ -1,6 +1,7 @@
 {
   "name": "RegenerateKey",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "PartnerNamespaceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "PartnerNamespaceRegenerateKeyRequest"
+    "nullable": false,
+    "referenceName": "PartnerNamespaceRegenerateKeyRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PartnerNamespaceSharedAccessKeys"
+    "nullable": false,
+    "referenceName": "PartnerNamespaceSharedAccessKeys",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/regenerateKey"
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Code indicating the current status of the upgrade.",
       "jsonName": "code",
       "name": "Code",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RollingUpgradeStatusCode"
+        "nullable": false,
+        "referenceName": "RollingUpgradeStatusCode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The last action performed on the rolling upgrade.",
       "jsonName": "lastAction",
       "name": "LastAction",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RollingUpgradeActionType"
+        "nullable": false,
+        "referenceName": "RollingUpgradeActionType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,11 +36,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Last action time of the upgrade.",
       "jsonName": "lastActionTime",
       "name": "LastActionTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -44,16 +53,20 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Start time of the upgrade.",
       "jsonName": "startTime",
       "name": "StartTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

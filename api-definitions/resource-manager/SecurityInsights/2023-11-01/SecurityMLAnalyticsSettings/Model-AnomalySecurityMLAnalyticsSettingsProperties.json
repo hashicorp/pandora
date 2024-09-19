@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The anomaly settings version of the Anomaly security ml analytics settings that dictates whether job version gets updated or not.",
       "jsonName": "anomalySettingsVersion",
       "name": "AnomalySettingsVersion",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The anomaly version of the AnomalySecurityMLAnalyticsSettings.",
       "jsonName": "anomalyVersion",
       "name": "AnomalyVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The customizable observations of the AnomalySecurityMLAnalyticsSettings.",
       "jsonName": "customizableObservations",
       "name": "CustomizableObservations",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The description of the SecurityMLAnalyticsSettings.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The display name for settings created by this SecurityMLAnalyticsSettings.",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Determines whether this settings is enabled or disabled.",
       "jsonName": "enabled",
       "name": "Enabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The frequency that this SecurityMLAnalyticsSettings will be run.",
       "jsonName": "frequency",
       "name": "Frequency",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Determines whether this anomaly security ml analytics settings is a default settings",
       "jsonName": "isDefaultSettings",
       "name": "IsDefaultSettings",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -108,11 +132,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The last time that this SecurityMLAnalyticsSettings has been modified.",
       "jsonName": "lastModifiedUtc",
       "name": "LastModifiedUtc",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -121,14 +148,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The required data sources for this SecurityMLAnalyticsSettings",
       "jsonName": "requiredDataConnectors",
       "name": "RequiredDataConnectors",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SecurityMLAnalyticsSettingsDataSource"
+          "nullable": false,
+          "referenceName": "SecurityMLAnalyticsSettingsDataSource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -138,11 +170,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The anomaly settings definition Id",
       "jsonName": "settingsDefinitionId",
       "name": "SettingsDefinitionId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -151,11 +186,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The anomaly SecurityMLAnalyticsSettings status",
       "jsonName": "settingsStatus",
       "name": "SettingsStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SettingsStatus"
+        "nullable": false,
+        "referenceName": "SettingsStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -164,14 +202,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The tactics of the SecurityMLAnalyticsSettings",
       "jsonName": "tactics",
       "name": "Tactics",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AttackTactic"
+          "nullable": false,
+          "referenceName": "AttackTactic",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -181,14 +224,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The techniques of the SecurityMLAnalyticsSettings",
       "jsonName": "techniques",
       "name": "Techniques",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -196,5 +244,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

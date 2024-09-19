@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     201
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "ScopedBlueprintId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "Blueprint"
+    "nullable": false,
+    "referenceName": "Blueprint",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Blueprint"
+    "nullable": false,
+    "referenceName": "Blueprint",
+    "referenceNameIsCommonType": null
   }
 }

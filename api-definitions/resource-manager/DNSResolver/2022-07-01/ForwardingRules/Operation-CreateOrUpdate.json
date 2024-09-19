@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -32,10 +33,14 @@
   "resourceIdName": "ForwardingRuleId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ForwardingRule"
+    "nullable": false,
+    "referenceName": "ForwardingRule",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ForwardingRule"
+    "nullable": false,
+    "referenceName": "ForwardingRule",
+    "referenceNameIsCommonType": null
   }
 }

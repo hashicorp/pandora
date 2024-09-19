@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Cost thresholds.",
       "jsonName": "costThresholds",
       "name": "CostThresholds",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "CostThresholdProperties"
+          "nullable": false,
+          "referenceName": "CostThresholdProperties",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -21,11 +26,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Reporting cycle end date.",
       "jsonName": "cycleEndDateTime",
       "name": "CycleEndDateTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -35,11 +43,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Reporting cycle start date.",
       "jsonName": "cycleStartDateTime",
       "name": "CycleStartDateTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -48,11 +59,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Reporting cycle type.",
       "jsonName": "cycleType",
       "name": "CycleType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReportingCycleType"
+        "nullable": false,
+        "referenceName": "ReportingCycleType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -61,11 +75,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Target cost status",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TargetCostStatus"
+        "nullable": false,
+        "referenceName": "TargetCostStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -74,16 +91,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Lab target cost",
       "jsonName": "target",
       "name": "Target",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

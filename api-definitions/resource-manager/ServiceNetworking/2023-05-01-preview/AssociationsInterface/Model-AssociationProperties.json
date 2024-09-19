@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Association Type",
       "jsonName": "associationType",
       "name": "AssociationType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AssociationType"
+        "nullable": false,
+        "referenceName": "AssociationType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provisioning State of Traffic Controller Association Resource",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Association Subnet",
       "jsonName": "subnet",
       "name": "Subnet",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AssociationSubnet"
+        "nullable": false,
+        "referenceName": "AssociationSubnet",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

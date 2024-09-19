@@ -1,6 +1,7 @@
 {
   "name": "HeatMapGet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -39,7 +40,9 @@
   "resourceIdName": "TrafficManagerProfileId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "HeatMapModel"
+    "nullable": false,
+    "referenceName": "HeatMapModel",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/heatMaps/default"
 }

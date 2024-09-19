@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.",
       "jsonName": "globalValidation",
       "name": "GlobalValidation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GlobalValidation"
+        "nullable": false,
+        "referenceName": "GlobalValidation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The configuration settings of the HTTP requests for authentication and authorization requests made against App Service Authentication/Authorization.",
       "jsonName": "httpSettings",
       "name": "HTTPSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HTTPSettings"
+        "nullable": false,
+        "referenceName": "HTTPSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.",
       "jsonName": "identityProviders",
       "name": "IdentityProviders",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IdentityProviders"
+        "nullable": false,
+        "referenceName": "IdentityProviders",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The configuration settings of the login flow of users using App Service Authentication/Authorization.",
       "jsonName": "login",
       "name": "Login",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Login"
+        "nullable": false,
+        "referenceName": "Login",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,16 +67,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The configuration settings of the platform of App Service Authentication/Authorization.",
       "jsonName": "platform",
       "name": "Platform",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AuthPlatform"
+        "nullable": false,
+        "referenceName": "AuthPlatform",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

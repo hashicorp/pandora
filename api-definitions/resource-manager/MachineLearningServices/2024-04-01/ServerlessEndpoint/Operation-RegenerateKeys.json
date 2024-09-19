@@ -1,6 +1,7 @@
 {
   "name": "RegenerateKeys",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "ServerlessEndpointId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "RegenerateEndpointKeysRequest"
+    "nullable": false,
+    "referenceName": "RegenerateEndpointKeysRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "EndpointAuthKeys"
+    "nullable": false,
+    "referenceName": "EndpointAuthKeys",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/regenerateKeys"
 }

@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Blob ranges to restore.",
       "jsonName": "blobRanges",
       "name": "BlobRanges",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "BlobRestoreRange"
+          "nullable": false,
+          "referenceName": "BlobRestoreRange",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -21,16 +26,20 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Restore blob to the specified time.",
       "jsonName": "timeToRestore",
       "name": "TimeToRestore",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

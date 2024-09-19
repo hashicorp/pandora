@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "DatabaseAdvisorId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "Advisor"
+    "nullable": false,
+    "referenceName": "Advisor",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Advisor"
+    "nullable": false,
+    "referenceName": "Advisor",
+    "referenceNameIsCommonType": null
   }
 }

@@ -1,6 +1,7 @@
 {
   "name": "InstallSiteExtension",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,6 +11,8 @@
   "resourceIdName": "SiteExtensionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SiteExtensionInfo"
+    "nullable": false,
+    "referenceName": "SiteExtensionInfo",
+    "referenceNameIsCommonType": null
   }
 }

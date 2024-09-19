@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "NFS CSI Driver settings for the storage profile.",
       "jsonName": "nfsCsiDriver",
       "name": "NfsCsiDriver",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StorageProfileNfsCSIDriver"
+        "nullable": false,
+        "referenceName": "StorageProfileNfsCSIDriver",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "SMB CSI Driver settings for the storage profile.",
       "jsonName": "smbCsiDriver",
       "name": "SmbCsiDriver",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StorageProfileSmbCSIDriver"
+        "nullable": false,
+        "referenceName": "StorageProfileSmbCSIDriver",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }
